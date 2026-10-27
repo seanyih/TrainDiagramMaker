@@ -1,0 +1,274 @@
+body{
+	background-color: #FFF;
+	color: #222;
+}
+/* same as diagram-maker.html */
+nav{
+	height: 7vh;
+}
+a{
+	color: #2C8CCC;
+	text-decoration: none;
+}
+a:hover{
+	text-decoration: underline;
+}
+
+/* ========================================
+	Layout: sidenav | content | toc
+==========================================*/
+.manual-layout{
+	font-family: "Noto Sans TC", sans-serif;
+	display: flex;
+	min-height: 93vh;
+}
+.manual-sidenav{
+	width: 280px;
+	flex-shrink: 0;
+	border-right: 1px solid #DDD;
+	padding: 24px 0;
+	position: sticky;
+	top: 7vh;
+	height: 93vh;
+	overflow-y: auto;
+}
+.manual-main{
+	flex: 1;
+	min-width: 0;
+	padding: 40px 48px 80px;
+}
+.manual-content{
+	max-width: 780px;
+	margin: 0 auto;
+}
+.manual-toc{
+	width: 220px;
+	flex-shrink: 0;
+	padding: 40px 16px;
+	position: sticky;
+	top: 7vh;
+	height: 93vh;
+	overflow-y: auto;
+	font-size: 14px;
+}
+
+/* ========================================
+	Side Nav
+==========================================*/
+.manual-site-title{
+	font-weight: 700;
+	font-size: 18px;
+	padding: 0 24px;
+	margin-bottom: 16px;
+}
+.manual-sidenav-chapter{
+	font-size: 13px;
+	font-weight: 700;
+	color: #777;
+	padding: 0 24px;
+	margin: 20px 0 6px;
+}
+.manual-sidenav ul{
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+.manual-sidenav li a{
+	display: block;
+	padding: 6px 24px;
+	color: #333;
+	border-left: 4px solid transparent;
+	transition: border-left 0.3s, background-color 0.3s;
+}
+.manual-sidenav li a:hover{
+	background-color: #F3F3F3;
+	text-decoration: none;
+}
+.manual-sidenav li a.active{
+	border-left: 4px solid #2C8CCC;
+	background-color: #EEF6FC;
+	color: #2C8CCC;
+	font-weight: 500;
+}
+.manual-badge{
+	font-size: 11px;
+	color: #D93E3E;
+	font-weight: 700;
+	margin-left: 4px;
+}
+
+/* ========================================
+	TOC
+==========================================*/
+.manual-toc-title{
+	font-weight: 700;
+	color: #777;
+	margin-bottom: 8px;
+}
+.manual-toc ul{
+	list-style: none;
+	padding-left: 0;
+	margin: 0;
+}
+.manual-toc ul ul{
+	padding-left: 12px;
+}
+.manual-toc a{
+	display: block;
+	padding: 3px 0;
+	color: #555;
+}
+
+/* ========================================
+	Content
+==========================================*/
+.manual-chapter{
+	color: #2C8CCC;
+	font-weight: 700;
+	font-size: 14px;
+	margin-bottom: 4px;
+}
+.manual-content h1{
+	font-weight: 700;
+	margin-bottom: 32px;
+}
+/* keep anchored headings below the sticky navbar */
+.manual-content h2, .manual-content h3{
+	scroll-margin-top: 72px;
+}
+.manual-content h2{
+	font-weight: 700;
+	font-size: 1.6rem;
+	margin-top: 48px;
+	padding-bottom: 8px;
+	border-bottom: 1px solid #EEE;
+}
+.manual-content h3{
+	font-weight: 700;
+	font-size: 1.25rem;
+	margin-top: 32px;
+}
+.manual-content h4{
+	font-weight: 700;
+	font-size: 1.05rem;
+	margin-top: 24px;
+}
+.manual-content p, .manual-content li{
+	line-height: 1.85;
+}
+.manual-content li{
+	margin-bottom: 4px;
+}
+.manual-content code{
+	background-color: #F3F3F3;
+	color: #C7254E;
+	padding: 1px 5px;
+	border-radius: 4px;
+}
+.manual-content pre{
+	background-color: #F6F8FA;
+	border: 1px solid #E5E5E5;
+	border-radius: 6px;
+	padding: 16px;
+}
+.manual-content pre code{
+	background: none;
+	color: #222;
+	padding: 0;
+}
+.manual-content table{
+	width: auto;
+	margin-bottom: 1rem;
+	border-collapse: collapse;
+}
+.manual-content th, .manual-content td{
+	border: 1px solid #DDD;
+	padding: 6px 12px;
+	vertical-align: top;
+}
+.manual-content th{
+	background-color: #F6F6F6;
+}
+
+/* images: ![caption](img/xxx.png) */
+.manual-content figure{
+	text-align: center;
+	margin: 24px 0;
+}
+.manual-content figure img{
+	max-width: 100%;
+	border: 1px solid #DDD;
+	border-radius: 6px;
+}
+.manual-content figcaption{
+	color: #777;
+	font-size: 14px;
+	margin-top: 8px;
+}
+/* image file not found when building */
+.img-missing{
+	border: 2px dashed #CCC;
+	border-radius: 6px;
+	padding: 32px 16px;
+	color: #999;
+	background-color: #FAFAFA;
+}
+
+/* hints: !!! info / success / warning / danger */
+.admonition{
+	border-left: 4px solid #2C8CCC;
+	background-color: #EEF6FC;
+	border-radius: 4px;
+	padding: 12px 16px;
+	margin: 20px 0;
+}
+.admonition p:last-child, .admonition ol:last-child, .admonition ul:last-child{
+	margin-bottom: 0;
+}
+.admonition-title{
+	font-weight: 700;
+}
+.admonition.success{
+	border-left-color: #1DB351;
+	background-color: #EDF9F1;
+}
+.admonition.warning{
+	border-left-color: #E0A100;
+	background-color: #FFF8E5;
+}
+.admonition.danger{
+	border-left-color: #D93E3E;
+	background-color: #FCEFEF;
+}
+
+/* ========================================
+	Prev / Next
+==========================================*/
+.manual-pager{
+	max-width: 780px;
+	margin: 64px auto 0;
+	display: flex;
+	gap: 16px;
+}
+.manual-pager a{
+	flex: 1;
+	border: 1px solid #DDD;
+	border-radius: 6px;
+	padding: 12px 16px;
+	color: #222;
+	transition: border-color 0.3s;
+}
+.manual-pager a:hover{
+	border-color: #2C8CCC;
+	text-decoration: none;
+}
+.manual-pager span{
+	flex: 1;
+}
+.manual-pager .next{
+	text-align: right;
+}
+.manual-pager small{
+	color: #777;
+	display: block;
+}

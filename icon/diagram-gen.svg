@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
+  <defs>
+    <style>
+      .class-4, .class-1, .class-5, .class-2, .class-6 {
+        stroke: #231815;
+        stroke-miterlimit: 10;
+      }
+
+      .class-4, .class-1, .class-2, .class-6 {
+        fill: none;
+      }
+
+      .class-4, .class-5 {
+        stroke-width: 11px;
+      }
+
+      .class-1 {
+        stroke-width: 15px;
+      }
+
+      .class-3 {
+        stroke-width: 0px;
+      }
+
+      .class-3, .class-5 {
+        fill: #fff;
+      }
+
+      .class-2 {
+        stroke-width: 8px;
+      }
+
+      .class-6 {
+        stroke-width: 4px;
+      }
+    </style>
+  </defs>
+  <g id="layer-1">
+    <rect class="class-1" x="57.5" y="145" width="525" height="350" rx="18.13" ry="18.13"/>
+    <circle class="class-2" cx="169.11" cy="237.76" r="51.35"/>
+    <polyline class="class-2" points="124.78 439.92 207.49 348.57 265.86 398.84 382.08 256.14 509.65 397.22"/>
+  </g>
+  <g id="layer-2">
+    <rect class="class-3" x="437" y="374.33" width="223.24" height="241.62"/>
+  </g>
+  <g id="layer-3">
+    <g>
+      <path class="class-4" d="M611.33,433.33c-59.09,0-107-47.91-107-107,0,59.09-47.91,107-107,107,59.09,0,107,47.91,107,107,0-59.09,47.91-107,107-107Z"/>
+      <path class="class-5" d="M397.33,433.33c59.09,0,107-47.91,107-107"/>
+      <path class="class-5" d="M504.33,326.33c0,59.09,47.91,107,107,107"/>
+      <path class="class-5" d="M504.33,540.33c0-59.09-47.91-107-107-107"/>
+      <path class="class-5" d="M611.33,433.33c-59.09,0-107,47.91-107,107"/>
+    </g>
+    <g>
+      <path class="class-6" d="M617,509.42c-17.35,0-31.42-14.07-31.42-31.42,0,17.35-14.07,31.42-31.42,31.42,17.35,0,31.42,14.07,31.42,31.42,0-17.35,14.07-31.42,31.42-31.42Z"/>
+      <path class="class-6" d="M554.17,509.42c17.35,0,31.42-14.07,31.42-31.42"/>
+      <path class="class-6" d="M585.58,478c0,17.35,14.07,31.42,31.42,31.42"/>
+      <path class="class-6" d="M585.58,540.83c0-17.35-14.07-31.42-31.42-31.42"/>
+      <path class="class-6" d="M617,509.42c-17.35,0-31.42,14.07-31.42,31.42"/>
+    </g>
+  </g>
+</svg>

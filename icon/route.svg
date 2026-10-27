@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" id="item-1" viewBox="0 0 640 640">
+  <defs>
+    <style>
+      .class-1 {
+        fill: #fff;
+      }
+
+      .class-1, .class-2 {
+        stroke: #231815;
+        stroke-miterlimit: 10;
+        stroke-width: 15px;
+      }
+
+      .class-2 {
+        fill: none;
+      }
+    </style>
+  </defs>
+  <circle class="class-1" cx="160" cy="480" r="75"/>
+  <circle class="class-1" cx="480" cy="160" r="75"/>
+  <path class="class-2" d="M405,160s-297.35,10.35-85,160-85,160-85,160"/>
+</svg>

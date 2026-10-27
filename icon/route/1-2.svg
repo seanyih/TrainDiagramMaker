@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" id="item-1" viewBox="0 0 40 20">
+  <defs>
+    <style>
+      .class-1 {
+        fill: none;
+        stroke: #002e7f;
+        stroke-miterlimit: 10;
+        stroke-width: 3px;
+      }
+    </style>
+  </defs>
+  <polyline class="class-1" points="25 22.5 25 12.5 20 7.5"/>
+  <path class="class-1" d="M20-2.5V7.5c-1.67,1.67-3.33,3.33-5,5v10"/>
+</svg>

@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" id="item-1" viewBox="0 0 725.67 725.67">
+  <defs>
+    <style>
+      .class-3 {
+        fill: #231815;
+      }
+
+      .class-3, .class-1, .class-2 {
+        stroke-miterlimit: 10;
+      }
+
+      .class-3, .class-2 {
+        stroke: #fff;
+        stroke-width: 12px;
+      }
+
+      .class-1 {
+        fill: none;
+        stroke: #231815;
+        stroke-width: 15px;
+      }
+
+      .class-2 {
+        fill: #fff;
+      }
+    </style>
+  </defs>
+  <rect class="class-1" x="118" y="341.74" width="495.33" height="252.89"/>
+  <rect class="class-2" x="254.67" y="314.67" width="234.67" height="48.67"/>
+  <polygon class="class-3" points="298.83 568.05 368.23 412.04 317 412.04 317 149.61 285.48 149.61 285.48 412.04 229.44 412.04 298.83 568.05"/>
+  <polygon class="class-3" points="439.55 94.48 368.73 241.71 421.01 241.71 421.01 489.39 453.18 489.39 453.18 241.71 510.38 241.71 439.55 94.48"/>
+</svg>

@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
+  <defs>
+    <style>
+      .class-4 {
+        fill: #231815;
+      }
+
+      .class-4, .class-3 {
+        stroke-width: 0px;
+      }
+
+      .class-1, .class-2 {
+        stroke: #231815;
+        stroke-miterlimit: 10;
+        stroke-width: 15px;
+      }
+
+      .class-1, .class-3 {
+        fill: #fff;
+      }
+
+      .class-2 {
+        fill: none;
+      }
+    </style>
+  </defs>
+  <g id="layer-1">
+    <circle class="class-1" cx="320" cy="320" r="250"/>
+  </g>
+  <g id="layer-2">
+    <path class="class-2" d="M320,120v200.99c0,.81-.88,1.31-1.58.89l-119.65-72"/>
+  </g>
+  <g id="layer-3">
+    <polygon class="class-3" points="608.33 614.33 405 619 324.33 331.67 633 425 608.33 614.33"/>
+  </g>
+  <g id="layer-4">
+    <polygon class="class-4" points="394.22 520.56 494.22 590.56 594.22 520.56 527.33 520.56 527.33 412.78 462.44 412.78 462.44 520.56 394.22 520.56"/>
+  </g>
+</svg>

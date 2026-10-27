@@ -1,0 +1,39 @@
+{
+	"title": "網站操作手冊",
+	"chapters": [
+		{
+			"title": "",
+			"pages": [
+				{ "title": "流程", "slug": "manual-index" }
+			]
+		},
+		{
+			"title": "匯入檔案格式",
+			"pages": [
+				{ "title": "路線資料檔案格式(csv)", "slug": "manual-format-route-csv" },
+				{ "title": "時刻表資料檔案格式(csv)", "slug": "manual-format-timetable-csv" },
+				{ "title": "Excel編碼轉換", "slug": "manual-format-excel-encoding" }
+			]
+		},
+		{
+			"title": "操作細節",
+			"pages": [
+				{ "title": "如何匯入、匯出", "slug": "manual-ops-import-export" },
+				{ "title": "基本設定頁面", "slug": "manual-ops-setting" },
+				{ "title": "路線資料", "slug": "manual-ops-route" },
+				{ "title": "軌道配置", "slug": "manual-ops-track" },
+				{ "title": "時刻表", "slug": "manual-ops-timetable" },
+				{ "title": "待避時間計算", "slug": "manual-ops-passing-time" },
+				{ "title": "產生圖片", "slug": "manual-ops-output" }
+			]
+		},
+		{
+			"title": "開發指南",
+			"pages": [
+				{ "title": "路線資料檔案格式(json)", "slug": "manual-dev-route-json" },
+				{ "title": "時刻表資料檔案格式(json)", "slug": "manual-dev-timetable-json" },
+				{ "title": "設定檔案格式(json)", "slug": "manual-dev-setting-json" }
+			]
+		}
+	]
+}

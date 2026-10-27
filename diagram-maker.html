@@ -1,0 +1,1647 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
+	<title>Diagram Maker</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@500;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="bootstrap/css/DefaultLineColor.css">
+	<script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+	<style type="text/css">
+		/* General */
+
+			.jcc {
+					display: flex;
+					justify-content: center;
+			}
+
+			.jce {
+					display: flex;
+					justify-content: flex-end;
+			}
+			.tac{
+				text-align: center;
+			}
+
+			.fdc {
+					flex-direction: column;
+			}
+
+			.aic {
+					display: flex;
+					align-items: center;
+			}
+
+			.aie {
+					display: flex;
+					align-items: flex-end;
+			}
+
+			.np {
+					padding: 0px !important;
+			}
+
+			.nm{
+					margin: 0px;
+			}
+			.full{
+				width:100%;
+				height: 100%;
+			}
+			table{
+				border-spacing: 0;
+			}
+			.container{
+				padding-top: 5vh;
+			}
+			body{
+				overflow-x: hidden;
+			}
+			a{
+				text-decoration: none;
+			}
+			a:hover{
+				text-decoration: none;
+			}
+			a:visited{
+				text-decoration: none;
+			}
+			.ba{
+				color: black; /*black colored <a> element*/
+			}
+			h4{
+				font-weight: 700;
+			}
+
+		p{
+			margin: 0px;
+		}
+		th{
+			width: 150px;
+		}
+		table{
+			table-layout : fixed;
+		}
+		input{
+			text-align: center;
+		}
+		.selected{
+			font-size: 200%;
+			color: #000;
+		}
+		.deselected{
+			font-size: 150%;
+			color:  #777;
+		}
+		.sym{
+			width: 40px;
+			height: 40px;
+			font-size: 175%;
+			font-weight:bold;
+			padding: 0px;
+			padding-top: -3px;
+			color:  white;
+		}
+		.t{
+			width: 180px;
+			padding-left: 4px !important;
+			padding-right: 4px !important;
+		}
+		.stanamelabel{
+			vertical-align: middle;
+			font-weight: bold;
+			font-size: 125%;
+		}
+		.dep{
+			border-right: 1px rgba(0, 0, 0, 0.1) solid;
+		}
+		.mb-3{
+			margin: 0px !important;
+		}
+		.g-3{
+			margin-bottom: 1vh;
+		}
+		.noborder{
+			border-width: 0px;
+		}
+		nav{
+			height: 7vh;
+		}
+		/* Page Frame */
+		#page{
+			min-height:93vh; 
+			width:100vw;
+			z-index: 0;
+			position: absolute;
+			padding-top: 7vh;
+			top: 0px;
+			left: 0px;
+			margin: 0; /* nav bar */
+		}
+
+		/* ========================================
+			Route Info Page 
+		==========================================*/
+		.staTableButtonCol{
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			height: 50px;
+		}
+
+		#RouteInfotbody td{
+			height: 50px;
+			padding: 0 !important;
+		}
+
+		.in-table-text-input {
+				padding: 0;
+				border: none;
+				border-radius: 0;
+				font-size: 1rem;
+				line-height: 1.5;
+				transition: box-shadow 0.15s ease-in-out;
+				width: 100%;
+				height: 100% !important; /* Ensure it fills the table cell */
+				box-sizing: border-box; /* Ensures padding doesn't overflow */
+				margin: 0; /* Prevent any extra spacing */
+				display: block; /* Ensures full width usage */
+		}
+
+		.in-table-text-input:focus {
+				outline: none; /* Remove default focus outline */
+				box-shadow: 0px 0px 0px 2px #2C8CCC inset;
+				transition: box-shadow 0.15s ease-in-out;
+		}
+		.in-table-text-input::placeholder{
+				font-size: 0.8rem;
+		}
+
+		.passing-time-input{
+			font-size: 0.9rem;
+			color: #999;
+		}
+
+		.highlight-input-cell{
+			font-size: 1.2rem;
+			font-weight: bold;
+		}
+
+		/* Track layout: images of adjacent rows join into one track */
+		.track-layout-table{
+			width: 100%;
+		}
+		#TrackLayouttbody td{
+			padding: 0 1rem;
+			border-bottom: 1px solid #DEE2E6;
+			white-space: nowrap; /* a taller row would break the track */
+		}
+		#TrackLayouttbody td.track-image-col{
+			padding: 0;
+			border-bottom: none;
+		}
+		.track-name{
+			font-weight: bold;
+		}
+		.track-image{
+			position: relative;
+			width: 40px;
+			height: 70px;
+			margin: auto;
+		}
+		.track-image img{
+			position: absolute;
+			left: 0;
+			width: 40px;
+		}
+		.track-main{
+			top: 10px;
+			height: 50px;
+		}
+		/* straddles the line between this row and the next */
+		.track-transition{
+			top: 60px;
+			height: 20px;
+		}
+		.track-transition.flip{
+			transform: scaleY(-1);
+		}
+		.track-lines{
+			width: 100px;
+			margin-right: 1.5rem;
+		}
+		.track-speed{
+			width: 80px;
+			margin-right: 0.5rem;
+		}
+		.track-run-time-label{
+			margin: 0 0.5rem 0 1.5rem;
+		}
+
+		/* ========================================
+			Plus/Minus button 
+		==========================================*/
+		/* General styling for the button */
+		.circle-button-add {
+			position: relative;
+			width: 40px;
+			height: 40px;
+			border-radius: 50%;
+			border: 1px solid black;
+			cursor: pointer;
+			transition: background-color 0.3s;
+		}
+
+		/* Plus sign: horizontal bar */
+		.circle-button-add::before,
+		.circle-button-add::after {
+			content: '';
+			position: absolute;
+			background-color: black;
+			transition: background-color 0.3s;
+		}
+
+		/* Horizontal bar */
+		.circle-button-add::before {
+			width: 50%; /* Adjust as needed */
+			height: 10%; /* Adjust as needed */
+			top: 50%;
+			left: 25%;
+			transform: translateY(-50%);
+		}
+
+		/* Vertical bar */
+		.circle-button-add::after {
+			width: 10%; /* Adjust as needed */
+			height: 50%; /* Adjust as needed */
+			top: 25%;
+			left: 50%;
+			transform: translateX(-50%);
+		}
+
+		/* Hover effect */
+		.circle-button-add:hover {
+			background-color: #1DB351;
+		}
+
+		.circle-button-add:hover::before,
+		.circle-button-add:hover::after {
+			background-color: white;
+		}
+
+		/*----------------------------------------------------------*/
+		/* General styling for the button */
+		.circle-button-minus {
+			position: relative;
+			width: 40px;
+			height: 40px;
+			border-radius: 50%;
+			border: 1px solid black;
+			cursor: pointer;
+			transition: background-color 0.3s;
+		}
+
+		/* Plus sign: horizontal bar */
+		.circle-button-minus::before,
+		.circle-button-minus::after {
+			content: '';
+			position: absolute;
+			background-color: black;
+			transition: background-color 0.3s;
+		}
+
+		/* Horizontal bar */
+		.circle-button-minus::before {
+			width: 50%; /* Adjust as needed */
+			height: 10%; /* Adjust as needed */
+			top: 50%;
+			left: 25%;
+			transform: translateY(-50%);
+		}
+
+		/* Hover effect */
+		.circle-button-minus:hover {
+			background-color: #D93E3E;
+		}
+
+		.circle-button-minus:hover::before,
+		.circle-button-minus:hover::after {
+			background-color: white;
+		}
+		/*===========================================================
+				Generate button styling 
+		===========================================================*/
+		.generate-button {
+			background-color: white;
+			color: black;
+			border: 1px solid black;
+			padding: 10px 20px;
+			border-radius: 5px;
+			font-size: 16px;
+			width: 200px;
+			font-family: Arial, sans-serif;
+			cursor: pointer;
+			position: relative;
+			overflow: hidden;
+			transition: color 0.3s;
+		}
+
+		/* Add a pseudo-element for the background animation */
+		/* Slanted background using ::before */
+		.generate-button::before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: -220%; /* Start completely hidden */
+			width: 200%; /* Cover the button's width diagonally */
+			height: 100%;
+			background-color: #2C8CCC;
+			transform: skewX(-30deg); /* Slant at 30 degrees */
+			transition: left 0.15s ease-in-out;
+			z-index: 0;
+		}
+		/* Style adjustments for the button text */
+		.generate-button span {
+			position: relative;
+			z-index: 1;
+		}
+
+		/* Hover effect for background fill and text color */
+		.generate-button:hover::before {
+			left: -20%; /* Slide in the slanted background */
+		}
+
+		.generate-button:hover span{
+			color: white;
+		}
+
+		/*===========================================================
+				Side Nav
+		===========================================================*/
+		#sidenav-col{
+			display:flex; 
+			align-items: center; 
+			flex-direction:column; 
+			border-right: 1px solid #777; 
+			width: 7vw;
+			padding-top: 1.5vh;
+			height: 100vh;
+			position: sticky;
+			top: 0;
+			overflow-y: hidden;
+		}
+		.selected{
+			border-right: 5px solid #2C8CCC; 
+			transition: border-right 0.3s;
+		}
+
+		.deselected{
+			transition: border-right 0.3s;
+		}
+		.sidenav-btn{
+			margin-bottom: 4vh;
+			justify-content: center;
+		}
+		.sidenav-icon{
+			width: 10vh;
+		}
+		.sidenav-text{
+			font-size: 12px;
+			padding-top: 2px; 
+			font-weight: bold;
+			text-align: center;
+		}
+		/* ========================================
+			Timetable Page 
+		==========================================*/
+		#timetablebody-1 td{
+			padding: 0;
+			width: 5vw !important;
+			height: 40px;
+		}
+		#timetablehead-1 th{
+			padding: 0;
+			width: 10vw !important;
+			height: 50px;
+		}
+
+		#timetablebody-2 td{
+			padding: 0;
+			width: 5vw !important;
+			height: 40px;
+		}
+		#timetablehead-2 th{
+			padding: 0;
+			width: 10vw !important;
+			height: 50px;
+		}
+		.timetable-btn-th{
+			align-items: center;
+			justify-content: center;
+		}
+		.timetable-station-row{
+			height: 5vh;
+		}
+
+		.decorow{
+			height: 10px;
+		}
+		.decorow td{
+			height: 10px !important;
+		}
+		.optionbar{
+			padding: 0 !important;
+			margin: 0;
+		}
+		.optionbar p{ /* for data storage only */
+			display: none;
+		}
+
+		.timetable{
+			text-align: center;
+			vertical-align: middle; 
+			align-items: center; 
+			justify-content: center;
+			width: min-content;
+		}
+
+
+	</style>
+</head>
+<body>
+	<!-- title -->
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="z-index: 10;">
+		<div class="container-fluid">
+			<a class="navbar-brand" href="#" style="color: white">線上運行圖製作</a>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarNav">
+				<ul class="navbar-nav">
+					<li class="nav-item">
+						<a class="nav-link active" aria-current="page" href="#">製作</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="manual/manual-index.html" target="_blank">操作說明</a>
+					</li>
+					<!--<li class="nav-item">
+						<a class="nav-link" href="faq.html">FAQ</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="report.php">問題回報</a>
+					</li>-->
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<div class="row" id="page">
+		<div id="sidenav-col"><!--sidenav-->
+			<div class="row sidenav-btn selected" id="nav-inex">
+				<img class="sidenav-icon" src="icon/import.svg">
+				<p class="sidenav-text">匯入/匯出</p>
+			</div>
+			<div class="row sidenav-btn" id="nav-setting">
+				<img class="sidenav-icon" src="icon/setting.svg">
+				<p class="sidenav-text">基本設定</p>
+			</div>
+			<div class="row sidenav-btn" id="nav-route">
+				<img class="sidenav-icon" src="icon/route.svg">
+				<p class="sidenav-text">路線資料</p>
+			</div>
+			<div class="row sidenav-btn" id="nav-timetable-1">
+				<img class="sidenav-icon" src="icon/timetable-down.svg">
+				<p class="sidenav-text">時刻表(順行)</p>
+			</div>
+			<div class="row sidenav-btn" id="nav-timetable-2">
+				<img class="sidenav-icon" src="icon/timetable-up.svg">
+				<p class="sidenav-text">時刻表(逆行)</p>
+			</div>
+			<div class="row sidenav-btn" id="nav-output">
+				<img class="sidenav-icon" src="icon/diagram-gen.svg">
+				<p class="sidenav-text">輸出圖片</p>
+			</div>
+
+		</div>
+		<div class="col-11">
+			<!-- windows start -->
+			<!-- win1: route -->
+			<div class="container" id="container-route" style="display:none">
+				<div class="row" style="display: inline">
+					<h2 style="display: inline">路線資料</h2> <a href="#" class="ba">匯入</a> <a href="manual/manual-ops-route.html" target="_blank" class="ba">說明</a>
+				</div>
+				<div class="row" style="margin-top:3vh">
+					<table class="table table-bordered" style="text-align: center; vertical-align: middle;">
+						<thead>
+							<tr>
+								<th>加入/刪除車站</th>
+								<th>站名*</th>
+								<th>累計里程(公里)*</th>
+								<th>預設停站時間(秒)</th>
+								<th>站名別名</th>
+							</tr>
+						</thead>
+						<tbody id="RouteInfotbody"><!-- rendered by renderRouteTable() --></tbody>
+					</table>
+				</div>
+				<div class="row" style="margin-bottom: 8vh">
+					<div class="col-8 jcc fdc">
+						<p>*為必填欄位</p>
+						<p>輸入完成後按下"生成"，程式即會根據路線資料，在"時刻表"頁面生成對應的表格。</p>
+					</div>
+					<div class="col-4 jce">
+						<button class="generate-button" id="GenerateTimetableBtn"><span>生成</span></button>
+					</div>
+				</div>
+
+				<div class="row" style="display: inline">
+					<h2 style="display: inline">軌道配置</h2> <a href="manual/manual-ops-track.html" target="_blank" class="ba">說明</a>
+				</div>
+				<div class="row" style="margin-top: 1vh;">
+					<p>設定每個車站與站間的軌道數，以及列車能否交會 (對向列車) 或追越 (同向列車)。</p>
+					<p>左側的軌道配置圖僅供參考，實際計算只會用到右側選單與勾選框的內容，圖片不影響計算。</p>
+				</div>
+				<div class="row g-3 align-items-center" style="margin-top: 1vh;">
+					<div class="col-auto"><label class="col-form-label">快速套用</label></div>
+					<div class="col-auto">
+						<div class="btn-group" role="group">
+							<button type="button" class="btn btn-outline-primary track-preset-btn" data-preset="single" title="車站: 複線、雙向可追越 / 站間: 單線">單線</button>
+							<button type="button" class="btn btn-outline-primary track-preset-btn" data-preset="double" title="車站: 複線、雙向可追越 / 站間: 複線、不可追越">雙線</button>
+							<button type="button" class="btn btn-outline-primary track-preset-btn" data-preset="doubleSingle" title="車站: 複線、雙向可追越 / 站間: 複線、雙向可追越">雙單線</button>
+							<button type="button" class="btn btn-outline-primary track-preset-btn" data-preset="unlimited" title="全線四線 (預設)">不設限</button>
+						</div>
+					</div>
+				</div>
+				<div class="row g-3 align-items-center">
+					<div class="col-auto"><label class="col-form-label">全線最高速度</label></div>
+					<div class="col-auto"><input class="form-control" style="width:100px" inputmode="decimal" id="TrackSpeedAll"></div>
+					<div class="col-auto"><label class="col-form-label">km/h</label></div>
+					<div class="col-auto form-check" style="margin-left: 1rem;">
+						<input type="checkbox" class="form-check-input" id="TrackSpeedAllDisabled">
+						<label class="form-check-label" for="TrackSpeedAllDisabled">停用</label>
+					</div>
+					<div class="col-auto"><small class="text-muted">填入後會套用到下方所有站間；勾選停用則不設定最高速度 (清空並隱藏所有站間的最高速度)</small></div>
+				</div>
+				<div class="row" style="margin-top: 3vh; margin-bottom: 20vh;">
+					<table class="track-layout-table">
+						<colgroup><col style="width: 80px"><col style="width: 200px"><col style="width: 400px"><col></colgroup>
+						<tbody id="TrackLayouttbody"><!-- rendered by renderTrackTable() --></tbody>
+					</table>
+				</div>
+			</div>
+
+			<div class="container" id="container-inex">
+				<div class="row" style="display: inline">
+					<h2 style="display: inline">匯入/匯出資料</h2><a href="manual/manual-ops-import-export.html" target="_blank" class="ba">說明</a>
+				</div>
+				<div class="row" style="margin-top: 1vh;">
+					<p>我們強烈建議您使用匯入/匯出資料的功能取代手動輸入。您可以利用excel製作csv檔，或從其他API獲取json檔案作為輸入。輸入完成後程式會自動將資料填入"路線資料"，"時刻表(順/逆行)"的表格中。確認過後即可以生成圖片。有關輸入檔案的細部格式，請點擊"說明"查看。</p>
+					<p>生成完畢後，您也可以將使用的相關設定輸出成json檔，供下次生成圖片時使用。</p>
+				</div>
+				<div class="row" style="margin-bottom: 1rem; margin-top: 3vh;">
+					<div class="col-2" style="display:flex;justify-content:center; flex-direction: column;">
+						<p style="font-weight:bold;">匯入列車資料時</p>
+					</div>
+					<div class="col-5">
+						<select class="form-select" id="ImportTrainMode">
+							<option value="w" selected>取代該方向現有列車</option>
+							<option value="a">附加至該方向現有列車之後</option>
+						</select>
+					</div>
+				</div>
+				<div class="row" style="margin-bottom: 1rem;">
+					<div class="col-2" style="display:flex;justify-content:center; flex-direction: column;">
+						<p style="font-weight:bold;">匯入/匯出路線資料</p>
+					</div>
+					<div class="col-5">
+						<div class="input-group mb-3">
+							<input type="text" class="form-control" placeholder="匯出使用的檔名" id="ExportRouteInfoFilename">
+							<button class="btn btn-outline-primary export-route-btn" type="button" data-format="csv">匯出CSV</button>
+							<button class="btn btn-outline-primary export-route-btn" type="button" data-format="json">匯出JSON</button>
+						</div>
+					</div>
+					<div class="col-5">
+						<div class="input-group mb-3">
+							<input type="file" class="form-control" id="RouteInfoFile">
+							<button class="btn btn-outline-primary" type="button" id="ImportRouteInfoBtn">匯入</button>
+						</div>
+					</div>
+				</div>
+				<div class="row" style="margin-bottom: 1rem">
+					<div class="col-2" style="display:flex;justify-content:center; flex-direction: column;">
+						<p style="font-weight:bold;">匯入/匯出順行列車資料</p>
+					</div>
+					<div class="col-5">
+						<div class="input-group mb-3">
+							<input type="text" class="form-control" placeholder="匯出使用的檔名(發車時刻)" id="ExportTimeDepFilename1">
+							<button class="btn btn-outline-primary export-train-btn" type="button" data-bound="1" data-format="csv-dep">匯出CSV</button>
+						</div>
+					</div>
+					<div class="col-5">
+						<div class="input-group mb-3">
+							<input type="file" class="form-control" id="Dep1File">
+							<button class="btn btn-outline-primary import-train-btn" type="button" data-bound="1" data-arrival="false">匯入</button>
+						</div>
+					</div>
+				</div>
+				
+				<div class="row" style="margin-bottom: 1rem">
+					<div class="col-2" style="display:flex;justify-content:center; flex-direction: column;">
+						
+					</div>
+					<div class="col-5">
+						<div class="input-group mb-3">
+							<input type="text" class="form-control" placeholder="匯出使用的檔名(到發時刻)" id="ExportTimeDepArrFilename1">
+							<button class="btn btn-outline-primary export-train-btn" type="button" data-bound="1" data-format="csv">匯出CSV</button>
+							<button class="btn btn-outline-primary export-train-btn" type="button" data-bound="1" data-format="json">匯出JSON</button>
+						</div>
+					</div>
+					<div class="col-5">
+						<div class="input-group mb-3">
+							<input type="file" class="form-control" id="DepArr1File">
+							<button class="btn btn-outline-primary import-train-btn" type="button" data-bound="1" data-arrival="true">匯入</button>
+						</div>
+					</div>
+				</div>
+				<div class="row" style="margin-bottom: 1rem">
+					<div class="col-2" style="display:flex;justify-content:center; flex-direction: column;">
+						<p style="font-weight:bold;">匯入/匯出逆行列車資料</p>
+					</div>
+					<div class="col-5">
+						<div class="input-group mb-3">
+							<input type="text" class="form-control" placeholder="匯出使用的檔名(發車時刻)" id="ExportTimeDepFilename2">
+							<button class="btn btn-outline-primary export-train-btn" type="button" data-bound="2" data-format="csv-dep">匯出CSV</button>
+						</div>
+					</div>
+					<div class="col-5">
+						<div class="input-group mb-3">
+							<input type="file" class="form-control" id="Dep2File">
+							<button class="btn btn-outline-primary import-train-btn" type="button" data-bound="2" data-arrival="false">匯入</button>
+						</div>
+					</div>
+				</div>
+				
+				<div class="row" style="margin-bottom: 1rem">
+					<div class="col-2" style="display:flex;justify-content:center; flex-direction: column;">
+						
+					</div>
+					<div class="col-5">
+						<div class="input-group mb-3">
+							<input type="text" class="form-control" placeholder="匯出使用的檔名(到發時刻)" id="ExportTimeDepArrFilename2">
+							<button class="btn btn-outline-primary export-train-btn" type="button" data-bound="2" data-format="csv">匯出CSV</button>
+							<button class="btn btn-outline-primary export-train-btn" type="button" data-bound="2" data-format="json">匯出JSON</button>
+						</div>
+					</div>
+					<div class="col-5">
+						<div class="input-group mb-3">
+							<input type="file" class="form-control" id="DepArr2File">
+							<button class="btn btn-outline-primary import-train-btn" type="button" data-bound="2" data-arrival="true">匯入</button>
+						</div>
+					</div>
+				</div>
+				<div class="row" style="margin-bottom: 1rem">
+					<div class="col-2" style="display:flex;justify-content:center; flex-direction: column;">
+						<p style="font-weight:bold;">匯入/匯出設定</p>
+					</div>
+					<div class="col-5">
+						<div class="input-group mb-3">
+							<input type="text" class="form-control" placeholder="匯出使用的檔名" id="ExportSettingFilename">
+							<button class="btn btn-outline-primary export-setting-btn" type="button">匯出JSON</button>
+						</div>
+					</div>
+					<div class="col-5">
+						<div class="input-group mb-3">
+							<input type="file" class="form-control" id="SettingFile" accept=".json">
+							<button class="btn btn-outline-primary" type="button" id="ImportSettingBtn">匯入</button>
+						</div>
+					</div>
+				</div>
+				<div class="row" style="margin-bottom: 1rem">
+					<div class="col-2" style="display:flex;justify-content:center; flex-direction: column;">
+						<p style="font-weight:bold;">匯入/匯出全部資料</p>
+						<p class="text-muted" style="font-size: 85%;">路線、順逆行時刻表、設定</p>
+					</div>
+					<div class="col-5">
+						<div class="input-group mb-3">
+							<input type="text" class="form-control" placeholder="匯出使用的檔名" id="ExportAllFilename">
+							<button class="btn btn-outline-primary export-all-btn" type="button">匯出全部</button>
+						</div>
+					</div>
+					<div class="col-5">
+						<div class="input-group mb-3">
+							<input type="file" class="form-control" id="AllFile" accept=".json">
+							<button class="btn btn-outline-primary" type="button" id="ImportAllBtn">匯入全部</button>
+						</div>
+					</div>
+				</div>
+
+				
+			</div>
+
+
+			<!-- win4: setting -->
+			<div class="container" id="container-setting" style="display:none; padding-bottom: 20vh;">
+				<div class="row" data-bs-toggle="collapse" data-bs-target="#ColorSettingWindows" style="font-weight:bold; font-size:150%;">
+					<div class="col-11">列車顏色集設定</div>
+					<div class="col-1" style="display:flex; justify-content: end;">∨</div>
+				</div>
+				<hr style="margin-top: 0%;">
+				<div class="collapse" id="ColorSettingWindows">
+					<div class="row">
+						<div class="col" style="display:flex;justify-content:center;"><p>顏色1</p></div>
+						<div class="col" style="display:flex;justify-content:center;"><p>顏色2</p></div>
+						<div class="col" style="display:flex;justify-content:center;"><p>顏色3</p></div>
+						<div class="col" style="display:flex;justify-content:center;"><p>顏色4</p></div>
+						<div class="col" style="display:flex;justify-content:center;"><p>顏色5</p></div>
+						<div class="col" style="display:flex;justify-content:center;"><p>顏色6</p></div>
+						<div class="col" style="display:flex;justify-content:center;"><p>顏色7</p></div>
+						<div class="col" style="display:flex;justify-content:center;"><p>顏色8</p></div>
+						<div class="col" style="display:flex;justify-content:center;"><p>顏色9</p></div>
+						<div class="col" style="display:flex;justify-content:center;"><p>顏色10</p></div>
+					</div>
+					<div class="row">
+						<div class="col" style="display:flex;justify-content:center;"><input type="color" class="form-control form-control-color train-color-input" id="ColorInput1" data-color="1" value="#4650E3" title="顏色1"></div>
+						<div class="col" style="display:flex;justify-content:center;"><input type="color" class="form-control form-control-color train-color-input" id="ColorInput2" data-color="2" value="#25D9F2" title="顏色2"></div>
+						<div class="col" style="display:flex;justify-content:center;"><input type="color" class="form-control form-control-color train-color-input" id="ColorInput3" data-color="3" value="#19F278" title="顏色3"></div>
+						<div class="col" style="display:flex;justify-content:center;"><input type="color" class="form-control form-control-color train-color-input" id="ColorInput4" data-color="4" value="#9AF20B" title="顏色4"></div>
+						<div class="col" style="display:flex;justify-content:center;"><input type="color" class="form-control form-control-color train-color-input" id="ColorInput5" data-color="5" value="#F28800" title="顏色5"></div>
+						<div class="col" style="display:flex;justify-content:center;"><input type="color" class="form-control form-control-color train-color-input" id="ColorInput6" data-color="6" value="#F23F00" title="顏色6"></div>
+						<div class="col" style="display:flex;justify-content:center;"><input type="color" class="form-control form-control-color train-color-input" id="ColorInput7" data-color="7" value="#DB06F2" title="顏色7"></div>
+						<div class="col" style="display:flex;justify-content:center;"><input type="color" class="form-control form-control-color train-color-input" id="ColorInput8" data-color="8" value="#000000" title="顏色8"></div>
+						<div class="col" style="display:flex;justify-content:center;"><input type="color" class="form-control form-control-color train-color-input" id="ColorInput9" data-color="9" value="#787878" title="顏色9"></div>
+						<div class="col" style="display:flex;justify-content:center;"><input type="color" class="form-control form-control-color train-color-input" id="ColorInput10" data-color="10" value="#693600" title="顏色10"></div>
+					</div>
+					
+				</div>
+				
+				<div class="row" data-bs-toggle="collapse" data-bs-target="#scaleSettingWindow" style="font-weight:bold; font-size:150%;">
+					<div class="col-11">基本比例設定</div>
+					<div class="col-1" style="display:flex; justify-content: end;">∨</div>
+				</div>
+				<hr style="margin-top: 0%;">
+				<div class="collapse" id="scaleSettingWindow">
+					<div class="row g-3 align-items-center">
+						<div class="col-auto">
+							<label class="col-form-label">預設停站時間</label>
+						</div>
+						<div class="col-auto">
+							<input inputmode="decimal" class="form-control" style="width:100px" data-setting="defaultStopSec">
+						</div>
+						<div class="col-auto">
+							<label class="col-form-label">秒</label>
+						</div>
+					</div>
+
+					<div class="row g-3 align-items-center">
+						<div class="col-auto">
+							<label class="col-form-label">圖上每公里的長度</label>
+						</div>
+						<div class="col-auto">
+							<input inputmode="decimal" class="form-control" style="width:100px" data-setting="pxPerKm">
+						</div>
+						<div class="col-auto">
+							<label class="col-form-label">像素(pixels)</label>
+						</div>
+					</div>
+
+					<div class="row g-3 align-items-center">
+						<div class="col-auto">
+							<label class="col-form-label">圖上每分鐘的長度</label>
+						</div>
+						<div class="col-auto">
+							<input inputmode="decimal" class="form-control" style="width:100px" data-setting="pxPerMin">
+						</div>
+						<div class="col-auto">
+							<label class="col-form-label">像素(pixels)</label>
+						</div>
+					</div>
+					<div class="row g-3 align-items-center">
+						<div class="col-auto">
+							<label class="col-form-label">圖上顯示的時間範圍</label>
+						</div>
+						<div class="col-auto">
+							<input id="starthhmm" class="form-control" style="width:100px" value="0000" placeholder="hhmm">
+						</div>
+						<div class="col-auto">
+							<label>~</label>
+						</div>
+						<div class="col-auto">
+							<input id="endhhmm" class="form-control" style="width:100px" value="2400" placeholder="hhmm">
+						</div>
+					</div>
+
+				</div>
+
+				<div class="row" data-bs-toggle="collapse" data-bs-target="#appearanceSettingWindow" style="font-weight:bold; font-size:150%;">
+					<div class="col-11">整體外觀設計</div>
+					<div class="col-1" style="display:flex; justify-content: end;">∨</div>
+				</div>
+				<hr style="margin-top: 0%;">
+				<div class="collapse" id="appearanceSettingWindow">
+					<div class="row"><p>圖片邊界 (圖表外框到圖片邊緣) (單位: 像素)</p></div>
+					<div class="row g-3 align-items-center">
+						<div class="col-auto"><label class="col-form-label">上</label></div>
+						<div class="col-auto"><input inputmode="decimal" class="form-control" style="width:100px" data-setting="margin.top"></div>
+						<div class="col-auto"><label class="col-form-label">下</label></div>
+						<div class="col-auto"><input inputmode="decimal" class="form-control" style="width:100px" data-setting="margin.bottom"></div>
+						<div class="col-auto"><label class="col-form-label">左</label></div>
+						<div class="col-auto"><input inputmode="decimal" class="form-control" style="width:100px" data-setting="margin.left"></div>
+						<div class="col-auto"><label class="col-form-label">右</label></div>
+						<div class="col-auto"><input inputmode="decimal" class="form-control" style="width:100px" data-setting="margin.right"></div>
+					</div>
+
+					<div class="row"><p>背景</p></div>
+					<div class="row g-3 align-items-center">
+						<div class="col-auto"><input type="color" class="form-control form-control-color" data-setting="background.color"></div>
+						<div class="col-auto form-check" style="margin-left: 1rem;">
+							<input type="checkbox" class="form-check-input" id="bg-transparent" data-setting="background.transparent">
+							<label class="form-check-label" for="bg-transparent">透明</label>
+						</div>
+					</div>
+
+				</div>
+
+				<div class="row" data-bs-toggle="collapse" data-bs-target="#detailSettingWindow" style="font-weight:bold; font-size:150%;">
+					<div class="col-11">細部設計</div>
+					<div class="col-1" style="display:flex; justify-content: end;">∨</div>
+				</div>
+				<hr style="margin-top: 0%;">
+				<div class="collapse" id="detailSettingWindow">
+					<h4>線條</h4>
+					<table class="table table-sm" style="width: auto; vertical-align: middle;">
+						<thead class="text-center"><tr><th></th><th>線寬(px)</th><th>顏色</th></tr></thead>
+						<tbody>
+							<tr>
+								<td>車站線</td>
+								<td><input inputmode="decimal" class="form-control" step="0.1" data-setting="lines.station.width"></td>
+								<td><input type="color" class="form-control form-control-color mx-auto" data-setting="lines.station.color"></td>
+							</tr>
+							<tr>
+								<td>整點線</td>
+								<td><input inputmode="decimal" class="form-control" step="0.1" data-setting="lines.primary.width"></td>
+								<td><input type="color" class="form-control form-control-color mx-auto" data-setting="lines.primary.color"></td>
+							</tr>
+							<tr>
+								<td>次要時間線</td>
+								<td><input inputmode="decimal" class="form-control" step="0.1" data-setting="lines.secondary.width"></td>
+								<td><input type="color" class="form-control form-control-color mx-auto" data-setting="lines.secondary.color"></td>
+							</tr>
+							<tr>
+								<td>圖表外框</td>
+								<td><input inputmode="decimal" class="form-control" step="0.1" data-setting="lines.outline.width"></td>
+								<td><input type="color" class="form-control form-control-color mx-auto" data-setting="lines.outline.color"></td>
+							</tr>
+						</tbody>
+					</table>
+
+					<h4 style="margin-top: 3vh;">車站文字</h4>
+					<div class="row g-3 align-items-center">
+						<div class="col-auto"><label class="col-form-label">是否顯示站名別名</label></div>
+						<div class="col-auto form-check" style="margin-left: 1rem;">
+							<input type="checkbox" class="form-check-input" id="alias-show" data-setting="aliasText.show">
+							<label class="form-check-label" for="alias-show">顯示</label>
+						</div>
+					</div>
+					<table class="table table-sm" style="width: auto; vertical-align: middle;">
+						<thead class="text-center"><tr><th></th><th>字型大小(px)</th><th>顏色</th><th>與圖表距離(px)</th></tr></thead>
+						<tbody>
+							<tr>
+								<td>站名</td>
+								<td><input inputmode="decimal" class="form-control" data-setting="stationText.fontSize"></td>
+								<td><input type="color" class="form-control form-control-color mx-auto" data-setting="stationText.color"></td>
+								<td><input inputmode="decimal" class="form-control" data-setting="stationText.gap"></td>
+							</tr>
+							<tr>
+								<td>站名別名</td>
+								<td><input inputmode="decimal" class="form-control" data-setting="aliasText.fontSize"></td>
+								<td><input type="color" class="form-control form-control-color mx-auto" data-setting="aliasText.color"></td>
+								<td><input inputmode="decimal" class="form-control" data-setting="aliasText.gap"></td>
+							</tr>
+						</tbody>
+					</table>
+
+					<h4 style="margin-top: 3vh;">時間文字</h4>
+					<div class="row g-3 align-items-center">
+						<div class="col-auto"><label class="col-form-label">次要時間線的時間間隔</label></div>
+						<div class="col-auto">
+							<select class="form-select" data-setting="lines.secondary.interval">
+								<option value="1">每1分鐘</option>
+								<option value="5">每5分鐘</option>
+								<option value="10">每10分鐘</option>
+								<option value="15">每15分鐘</option>
+								<option value="20">每20分鐘</option>
+								<option value="30">每30分鐘</option>
+							</select>
+						</div>
+					</div>
+					<div class="row g-3 align-items-center">
+						<div class="col-auto"><label class="col-form-label">表達方式</label></div>
+						<div class="col-auto">
+							<select class="form-select" data-setting="timeLabel.format">
+								<option value="standard">固定大小 hh:mm</option>
+								<option value="sized">大小差別 hhmm</option>
+								<option value="simple">簡化 (整點hh、次要mm)</option>
+							</select>
+						</div>
+						<div class="col-auto form-check" style="margin-left: 1rem;">
+							<input type="checkbox" class="form-check-input" id="time-zero-pad" data-setting="timeLabel.zeroPad">
+							<label class="form-check-label" for="time-zero-pad">小時補0 (08:00)</label>
+						</div>
+					</div>
+					<div class="row g-3 align-items-center">
+						<div class="col-auto"><label class="col-form-label">與圖表距離(px)</label></div>
+						<div class="col-auto"><input inputmode="decimal" class="form-control" style="width:100px" data-setting="timeLabel.gap"></div>
+					</div>
+					<div class="row g-3 align-items-center">
+						<div class="col-auto"><label class="col-form-label">次要時間線的文字標記</label></div>
+						<div class="col-auto">
+							<select class="form-select" id="secondary-label-select" data-setting="timeLabel.secondaryLabel">
+								<option value="none">不標記</option>
+								<option value="hhmm">hh:mm</option>
+								<option value="mm">僅mm</option>
+							</select>
+						</div>
+						<div class="col-auto"><small class="text-muted">次要時間線間隔 >= 10分鐘時才可使用</small></div>
+					</div>
+					<div class="row g-3 align-items-center time-format-fields" data-format="standard">
+						<div class="col-auto"><label class="col-form-label">字型大小</label></div>
+						<div class="col-auto"><input inputmode="decimal" class="form-control" style="width:100px" data-setting="timeLabel.formats.standard.fontSize"></div>
+						<div class="col-auto"><label class="col-form-label">顏色</label></div>
+						<div class="col-auto"><input type="color" class="form-control form-control-color" data-setting="timeLabel.formats.standard.color"></div>
+					</div>
+					<div class="row g-3 align-items-center time-format-fields" data-format="sized">
+						<div class="col-auto" style="width:8rem"><label class="col-form-label">hh 字型大小</label></div>
+						<div class="col-auto"><input inputmode="decimal" class="form-control" style="width:100px" data-setting="timeLabel.formats.sized.hourFontSize"></div>
+						<div class="col-auto" style="width:6rem"><label class="col-form-label">hh 顏色</label></div>
+						<div class="col-auto"><input type="color" class="form-control form-control-color" data-setting="timeLabel.formats.sized.hourColor"></div>
+					</div>
+					<div class="row g-3 align-items-center time-format-fields" data-format="sized">
+						<div class="col-auto" style="width:8rem"><label class="col-form-label">mm 字型大小</label></div>
+						<div class="col-auto"><input inputmode="decimal" class="form-control" style="width:100px" data-setting="timeLabel.formats.sized.minuteFontSize"></div>
+						<div class="col-auto" style="width:6rem"><label class="col-form-label">mm 顏色</label></div>
+						<div class="col-auto"><input type="color" class="form-control form-control-color" data-setting="timeLabel.formats.sized.minuteColor"></div>
+					</div>
+					<div class="row g-3 align-items-center time-format-fields" data-format="simple">
+						<div class="col-auto"><label class="col-form-label">字型大小</label></div>
+						<div class="col-auto"><input inputmode="decimal" class="form-control" style="width:100px" data-setting="timeLabel.formats.simple.fontSize"></div>
+						<div class="col-auto"><label class="col-form-label">顏色</label></div>
+						<div class="col-auto"><input type="color" class="form-control form-control-color" data-setting="timeLabel.formats.simple.color"></div>
+					</div>
+					<div class="row" style="margin-bottom: 3vh;">
+						<p class="text-muted" style="margin-top: 1vh;">預覽 (8:00 ~ 9:00)</p>
+						<div><svg id="time-label-preview" xmlns="http://www.w3.org/2000/svg" style="border: 1px dashed #CCC;"></svg></div>
+					</div>
+
+					<div class="d-flex align-items-center" style="margin-top: 3vh;">
+						<h4 class="mb-0">列車號</h4>
+						<div class="form-check d-flex align-items-center gap-2 p-0 mb-0" style="margin-left: 1rem;">
+							<input type="checkbox" class="form-check-input m-0" id="show-train-number" data-setting="showTrainNumber">
+							<label class="form-check-label" for="show-train-number">顯示</label>
+						</div>
+					</div>
+					<div id="train-number-fields">
+					<div class="row g-3 align-items-center">
+						<div class="col-auto"><label class="col-form-label">列車號字型大小</label></div>
+						<div class="col-auto"><input inputmode="decimal" class="form-control" style="width:100px" data-setting="trainNumberFontSize"></div>
+						<div class="col-auto"><label class="col-form-label">像素</label></div>
+					</div>
+					<div class="row g-3 align-items-center">
+						<div class="col-auto"><label class="col-form-label">每隔</label></div>
+						<div class="col-auto"><input inputmode="decimal" class="form-control" style="width:100px" data-setting="pxPerTrainNumber"></div>
+						<div class="col-auto"><label class="col-form-label">像素標一次列車號</label></div>
+					</div>
+					<div class="row g-3 align-items-center">
+						<div class="col-auto"><label class="col-form-label">兩站之間垂直距離小於</label></div>
+						<div class="col-auto"><input inputmode="decimal" class="form-control" style="width:100px" data-setting="minStationIntervalForTrainNumber"></div>
+						<div class="col-auto"><label class="col-form-label">像素則不標註</label></div>
+					</div>
+					</div>
+
+				</div>
+
+				<div class="row" data-bs-toggle="collapse" data-bs-target="#advancedSettingWindow" style="font-weight:bold; font-size:150%;">
+					<div class="col-11">進階調整</div>
+					<div class="col-1" style="display:flex; justify-content: end;">∨</div>
+				</div>
+				<hr style="margin-top: 0%;">
+				<div class="collapse" id="advancedSettingWindow">
+					<div class="d-flex align-items-center">
+						<h4 class="mb-0">列車號避讓</h4>
+						<div class="form-check d-flex align-items-center gap-2 p-0 mb-0" style="margin-left: 1rem;">
+							<input type="checkbox" class="form-check-input m-0" id="avoid-enabled" data-setting="trainNumberAvoidance.enabled">
+							<label class="form-check-label" for="avoid-enabled">啟用</label>
+						</div>
+					</div>
+					<p class="text-muted" style="margin-top: 1vh;">關閉則列車號可與其他線、文字重疊</p>
+					<div id="avoid-fields">
+					<div class="alert alert-warning" style="padding: 0.5rem 1rem;">這些設定會增加程式渲染的負擔。對於運算力較弱的裝置，請盡量放寬規定，否則可能畫不出來，甚至導致瀏覽器當掉。</div>
+					<div class="row g-3 align-items-center">
+						<div class="col-auto form-check" style="margin-left: 1rem;">
+							<input type="checkbox" class="form-check-input" id="avoid-primary" data-setting="trainNumberAvoidance.primaryTimeLines">
+							<label class="form-check-label" for="avoid-primary">避開整點線</label>
+						</div>
+						<div class="col-auto form-check" style="margin-left: 1rem;">
+							<input type="checkbox" class="form-check-input" id="avoid-secondary" data-setting="trainNumberAvoidance.secondaryTimeLines">
+							<label class="form-check-label" for="avoid-secondary">避開次要時間線</label>
+						</div>
+						<div class="col-auto"><small class="text-muted" id="avoid-secondary-hint"></small></div>
+					</div>
+					<div class="row g-3 align-items-center">
+						<div class="col-auto"><label class="col-form-label">與線、文字的最小間距(單位: 像素，僅接受 0~20)</label></div>
+						<div class="col-auto"><input inputmode="decimal" class="form-control" style="width:100px" min="0" max="20" data-setting="trainNumberAvoidance.margin"></div>
+					</div>
+					</div>
+
+					
+						
+				</div>
+
+
+				<div class="row" data-bs-toggle="collapse" data-bs-target="#PassingTimeWindow" style="font-weight:bold; font-size:150%;">
+					<div class="col-11">待避時間計算</div>
+					<div class="col-1" style="display:flex; justify-content: end;">∨</div>
+				</div>
+				<hr style="margin-top: 0%;">
+				<div class="collapse" id="PassingTimeWindow">
+					<p>以下功能幫助您從資訊有限的旅客時刻表，反推出相對精準的實際情況。計算結果會先存在副本中，可以到「輸出圖片」頁預覽，按下「採用」後才會寫入時刻表。</p>
+					<div class="row g-3 align-items-center">
+						<div class="col-auto" style="width: 13rem;"><label class="col-form-label">通過時刻的最小單位</label></div>
+						<div class="col-auto"><input inputmode="decimal" class="form-control" style="width:100px" min="1" data-setting="passingTime.timeGranularity"></div>
+						<div class="col-auto"><label class="col-form-label">秒</label></div>
+						<div class="col-auto"><small class="text-muted">推算出的通過時刻都是此值的倍數，例如 5、10、15、30 秒。兩個功能皆適用</small></div>
+					</div>
+
+					<div class="d-flex align-items-baseline gap-3" style="margin-top: 4vh;">
+						<h4 style="margin: 0;">自動補全</h4>
+						<a href="manual/manual-ops-passing-time.html#自動補全" target="_blank" class="ba">說明</a>
+					</div>
+					<div class="row g-3 align-items-center" style="margin-top: 1vh">
+						<div class="col-auto"><label class="col-form-label">套用</label></div>
+						<div class="col-auto"><input class="form-control autofill-input" style="width:120px" id="AutofillGolden" placeholder="車次"></div>
+						<div class="col-auto"><label class="col-form-label">車次的運轉時間到所有：</label></div>
+					</div>
+					<div class="row g-3 align-items-center" style="margin-left: 2rem;">
+						<div class="col-auto form-check" style="width: 9rem;">
+							<input type="checkbox" class="form-check-input autofill-input" id="AutofillByNumber" checked>
+							<label class="form-check-label" for="AutofillByNumber">車次</label>
+						</div>
+						<div class="col-auto"><input class="form-control autofill-input" style="width:120px" id="AutofillNumber" value="*"></div>
+					</div>
+					<div class="row g-3 align-items-center" style="margin-left: 2rem;">
+						<div class="col-auto form-check" style="width: 9rem;">
+							<input type="checkbox" class="form-check-input autofill-input" id="AutofillByColor">
+							<label class="form-check-label" for="AutofillByColor">線條顏色為</label>
+						</div>
+						<div class="col-auto">
+							<select class="form-select autofill-input" id="AutofillColor" style="width:120px; background-color: var(--color1); color: var(--color1);">
+								<option value="0" style="background-color: #FFF; color: #000;">未設定顏色</option>
+								<option value="1" style="background-color: var(--color1); color:rgba(0,0,0,0);" selected>顏色1</option>
+								<option value="2" style="background-color: var(--color2); color:rgba(0,0,0,0);">顏色2</option>
+								<option value="3" style="background-color: var(--color3); color:rgba(0,0,0,0);">顏色3</option>
+								<option value="4" style="background-color: var(--color4); color:rgba(0,0,0,0);">顏色4</option>
+								<option value="5" style="background-color: var(--color5); color:rgba(0,0,0,0);">顏色5</option>
+								<option value="6" style="background-color: var(--color6); color:rgba(0,0,0,0);">顏色6</option>
+								<option value="7" style="background-color: var(--color7); color:rgba(0,0,0,0);">顏色7</option>
+								<option value="8" style="background-color: var(--color8); color:rgba(0,0,0,0);">顏色8</option>
+								<option value="9" style="background-color: var(--color9); color:rgba(0,0,0,0);">顏色9</option>
+								<option value="10" style="background-color: var(--color10); color:rgba(0,0,0,0);">顏色10</option>
+							</select>
+						</div>
+					</div>
+					<div class="row g-3 align-items-center" style="margin-left: 2rem;">
+						<div class="col-auto form-check" style="width: 9rem;">
+							<input type="checkbox" class="form-check-input autofill-input" id="AutofillByName">
+							<label class="form-check-label" for="AutofillByName">列車名為</label>
+						</div>
+						<div class="col-auto"><input class="form-control autofill-input" style="width:120px" id="AutofillName"></div>
+					</div>
+					<div class="row g-3 align-items-center">
+						<div class="col-auto"><label class="col-form-label">的列車。</label></div>
+					</div>
+					<div id="AutofillTargetsBox" style="display: none;">
+						<p style="margin-top: 1vh;">會改變的車次：</p>
+						<div id="AutofillTargets" class="text-break" style="max-height: 6rem; overflow-y: auto;">請輸入車次</div>
+					</div>
+					<div style="margin-top: 1vh;">
+						<button type="button" class="btn btn-primary" id="AutofillBtn" disabled>確認</button>
+						<span class="draft-bar" data-draft="autofill" style="display:none; margin-left: 1rem;">
+							副本中已補全 <span id="AutofillDraftCount"></span> 班列車，尚未採用。
+							<button type="button" class="btn btn-danger adopt-draft-btn" data-draft="autofill">採用</button>
+							<button type="button" class="btn btn-outline-secondary discard-draft-btn" data-draft="autofill">捨棄</button>
+						</span>
+					</div>
+
+					<div class="d-flex align-items-baseline gap-3" style="margin-top: 4vh;">
+						<h4 style="margin: 0;">還原通過時間</h4>
+						<p id="PassingTimeDetailBtn" class="mb-0" style="cursor: pointer;">細部設定</p>
+						<p id="PassingTimeStopRuleBtn" class="mb-0" style="cursor: pointer;">臨時停車規則</p>
+						<a href="manual/manual-ops-passing-time.html#還原通過時間" target="_blank" class="ba">說明</a>
+					</div>
+					<div id="PassingTimeDetail" style="display: none; margin: 2vh 0 2vh 2rem;">
+					<div class="row g-3 align-items-center">
+						<div class="col-auto" style="width: 13rem;"><label class="col-form-label">求解器</label></div>
+						<div class="col-auto">
+							<select class="form-select" data-setting="passingTime.solver">
+								<option value="greedy">貪婪解法</option>
+								<option value="stn">離散決策 + 差分約束</option>
+							</select>
+						</div>
+					</div>
+					<div class="row g-3 align-items-center">
+						<div class="col-auto" style="width: 13rem;"><label class="col-form-label">最短待避額外停等時間</label></div>
+						<div class="col-auto"><input inputmode="decimal" class="form-control" style="width:100px" min="0" data-setting="passingTime.minExtraPassingWaiting"></div>
+						<div class="col-auto"><label class="col-form-label">秒</label></div>
+						<div class="col-auto"><small class="text-muted">停站時間超過「該站預設停站時間 + 此值」，視為可能在此待避</small></div>
+					</div>
+					<div class="row g-3 align-items-center">
+						<div class="col-auto" style="width: 13rem;"><label class="col-form-label">最短時隔</label></div>
+						<div class="col-auto"><input inputmode="decimal" class="form-control" style="width:100px" min="0" data-setting="passingTime.minTimeSeparation"></div>
+						<div class="col-auto"><label class="col-form-label">秒</label></div>
+						<div class="col-auto"><small class="text-muted">同一站前後兩列車的最短間隔：通過的列車至少比待避的列車早這麼多秒，連續通過的列車之間也是</small></div>
+					</div>
+					<div class="row g-3 align-items-center">
+						<div class="col-auto" style="width: 13rem;"><label class="col-form-label">最大搜尋深度</label></div>
+						<div class="col-auto"><input inputmode="decimal" class="form-control" style="width:100px" min="1" data-setting="passingTime.maxSearchDepth"></div>
+						<div class="col-auto"><label class="col-form-label">站</label></div>
+						<div class="col-auto"><small class="text-muted">從衝突的位置往前、往後最多找幾站</small></div>
+					</div>
+					<div class="row g-3 align-items-center">
+						<div class="col-auto" style="width: 13rem;"><label class="col-form-label">最大迴圈數</label></div>
+						<div class="col-auto"><input inputmode="decimal" class="form-control" style="width:100px" min="0" data-setting="passingTime.maxIteration"></div>
+						<div class="col-auto"><small class="text-muted">填 0 則不限次數，直到衝突數不再減少為止</small></div>
+					</div>
+					<div class="row g-3 align-items-center">
+						<div class="col-auto" style="width: 13rem;"><label class="col-form-label">衝突寬限</label></div>
+						<div class="col-auto"><input inputmode="decimal" class="form-control" style="width:100px" min="0" data-setting="passingTime.maxAllowedConflict"></div>
+						<div class="col-auto"><small class="text-muted">剩下的衝突數不超過此值時停止</small></div>
+					</div>
+					<div class="row g-3 align-items-center">
+						<div class="col-auto" style="width: 13rem;"><label class="col-form-label">估計速度的放寬倍數</label></div>
+						<div class="col-auto"><input inputmode="decimal" class="form-control" style="width:100px" min="1" data-setting="passingTime.estimatedSpeedLimitRatio"></div>
+						<div class="col-auto"><small class="text-muted">沒有設定最高速度的站間，以時刻表中最快列車的平均速度乘上此值估計</small></div>
+					</div>
+					<div class="row g-3 align-items-center" id="pt-max-increase-row">
+						<div class="col-auto" style="width: 13rem;"><label class="col-form-label">最多增加的通過點數量</label></div>
+						<div class="col-auto"><input inputmode="decimal" class="form-control" style="width:100px" min="0" data-setting="passingTime.maxPassingPointIncrease"></div>
+						<div class="col-auto"><small class="text-muted">一個通過時刻造成新的衝突時，同一班車最多再加幾個通過時刻來解決</small></div>
+					</div>
+					</div>
+					<div id="PassingTimeStopRules" style="display: none; margin: 2vh 0 2vh 2rem;">
+						<div class="row">
+							<div class="col-md-6">
+								<div class="row g-3 align-items-center">
+									<div class="col-auto">
+										<select class="form-select" id="StopRuleBound" style="width:120px">
+											<option value="0">順逆行</option>
+											<option value="1">順行</option>
+											<option value="2">逆行</option>
+										</select>
+									</div>
+								</div>
+								<div class="row g-3 align-items-center" style="margin-left: 2rem;">
+									<div class="col-auto form-check" style="width: 9rem;">
+										<input type="checkbox" class="form-check-input" id="StopRuleByNumber">
+										<label class="form-check-label" for="StopRuleByNumber">車次</label>
+									</div>
+									<div class="col-auto"><input class="form-control" style="width:120px" id="StopRuleNumber"></div>
+								</div>
+								<div class="row g-3 align-items-center" style="margin-left: 2rem;">
+									<div class="col-auto form-check" style="width: 9rem;">
+										<input type="checkbox" class="form-check-input" id="StopRuleByColor">
+										<label class="form-check-label" for="StopRuleByColor">線條顏色為</label>
+									</div>
+									<div class="col-auto">
+										<select class="form-select" id="StopRuleColor" style="width:120px; background-color: var(--color1); color: var(--color1);">
+										<option value="0" style="background-color: #FFF; color: #000;">未設定顏色</option>
+										<option value="1" style="background-color: var(--color1); color:rgba(0,0,0,0);" selected>顏色1</option>
+										<option value="2" style="background-color: var(--color2); color:rgba(0,0,0,0);">顏色2</option>
+										<option value="3" style="background-color: var(--color3); color:rgba(0,0,0,0);">顏色3</option>
+										<option value="4" style="background-color: var(--color4); color:rgba(0,0,0,0);">顏色4</option>
+										<option value="5" style="background-color: var(--color5); color:rgba(0,0,0,0);">顏色5</option>
+										<option value="6" style="background-color: var(--color6); color:rgba(0,0,0,0);">顏色6</option>
+										<option value="7" style="background-color: var(--color7); color:rgba(0,0,0,0);">顏色7</option>
+										<option value="8" style="background-color: var(--color8); color:rgba(0,0,0,0);">顏色8</option>
+										<option value="9" style="background-color: var(--color9); color:rgba(0,0,0,0);">顏色9</option>
+										<option value="10" style="background-color: var(--color10); color:rgba(0,0,0,0);">顏色10</option>
+										</select>
+									</div>
+								</div>
+								<div class="row g-3 align-items-center" style="margin-left: 2rem;">
+									<div class="col-auto form-check" style="width: 9rem;">
+										<input type="checkbox" class="form-check-input" id="StopRuleByName">
+										<label class="form-check-label" for="StopRuleByName">列車名為</label>
+									</div>
+									<div class="col-auto"><input class="form-control" style="width:120px" id="StopRuleName"></div>
+								</div>
+								<div class="row g-3 align-items-center">
+									<div class="col-auto"><label class="col-form-label">的所有列車，都可以在：</label></div>
+								</div>
+								<div class="row g-3 align-items-center" style="margin-left: 2rem;">
+									<div class="col-auto"><select class="form-select" id="StopRuleStation" style="width:200px"><!-- renderStopRules() --></select></div>
+								</div>
+								<div class="row g-3 align-items-center">
+									<div class="col-auto"><label class="col-form-label">臨時停車。</label></div>
+								</div>
+								<button type="button" class="btn btn-primary" id="StopRuleAddBtn">新增規則</button>
+							</div>
+							<div class="col-md-6 border-start ps-3" id="StopRuleList"><!-- renderStopRules() --></div>
+						</div>
+					</div>
+					<div class="form-check" style="margin-top: 1vh;">
+						<input type="checkbox" class="form-check-input" id="pt-fine-tune" data-setting="passingTime.fineTune">
+						<label class="form-check-label" for="pt-fine-tune">同時進行通過時間微調</label>
+					</div>
+					<div class="form-check">
+						<input type="checkbox" class="form-check-input" id="pt-inaccurate-arrival" data-setting="passingTime.inaccurateArrival">
+						<label class="form-check-label" for="pt-inaccurate-arrival">到站時間不準確</label>
+					</div>
+					<div class="form-check">
+						<input type="checkbox" class="form-check-input" id="pt-imprecise" data-setting="passingTime.imprecise">
+						<label class="form-check-label" for="pt-imprecise">時刻精度不足</label>
+					</div>
+					<div id="pt-imprecise-fields" style="display: none; margin-left: 2rem;">
+						<div class="row g-3 align-items-center">
+							<div class="col-auto" style="width: 11rem;"><label class="col-form-label">發車時刻精度</label></div>
+							<div class="col-auto"><input inputmode="decimal" class="form-control" style="width:100px" min="1" data-setting="passingTime.timetableGranularity"></div>
+							<div class="col-auto"><label class="col-form-label">秒</label></div>
+							<div class="col-auto"><small class="text-muted">時刻表中時刻的最小單位，只到分為 60，到 30 秒則填 30。不可小於「通過時刻的最小單位」</small></div>
+						</div>
+						<div class="row g-3 align-items-center">
+							<div class="col-auto" style="width: 11rem;"><label class="col-form-label">精度的處理方式</label></div>
+							<div class="col-auto">
+								<select class="form-select" data-setting="passingTime.roundingMode">
+									<option value="auto">自動判斷</option>
+									<option value="round">四捨五入</option>
+									<option value="floor">無條件捨去</option>
+									<option value="ceil">無條件進位</option>
+								</select>
+							</div>
+							<div class="col-auto"><small class="text-muted">時刻表中的時刻是由實際時刻以何種方式推得? 自動模式中會各嘗試一次，並找出衝突最少的結果。</small></div>
+						</div>
+						<div class="row g-3 align-items-center">
+							<div class="col-auto" style="width: 11rem;"><label class="col-form-label">最小停車時間</label></div>
+							<div class="col-auto"><input inputmode="decimal" class="form-control" style="width:100px" min="1" data-setting="passingTime.minDwell"></div>
+							<div class="col-auto"><label class="col-form-label">秒</label></div>
+							<div class="col-auto"><small class="text-muted">每個停靠站至少停這麼久</small></div>
+						</div>
+						<div class="form-check">
+							<input type="checkbox" class="form-check-input" id="pt-smooth" data-setting="passingTime.smooth">
+							<label class="form-check-label" for="pt-smooth">平滑化運轉時間</label>
+						</div>
+					</div>
+					<div style="margin-top: 2vh;">
+						<button type="button" class="btn btn-primary" id="PassingTimeBtn">開始計算</button>
+						<span class="draft-bar" data-draft="passing" style="display:none; margin-left: 1rem;">
+							<button type="button" class="btn btn-danger adopt-draft-btn" data-draft="passing">採用</button>
+							<button type="button" class="btn btn-outline-secondary discard-draft-btn" data-draft="passing">捨棄</button>
+						</span>
+					</div>
+					<p id="PassingTimeResult" style="display:none; margin-top: 1vh; margin-bottom: 3vh;"></p>
+				</div>
+
+			</div>
+
+			<!-- win2:timetable bound 1 -->
+			<div class="container" id="container-timetable-1" style="display:none">
+				<div class="row" style="display: inline; ">
+					<h2 style="display: inline">時刻表(順行)</h2><a href="#" class="ba">匯入</a><a href="manual/manual-ops-timetable.html" target="_blank" class="ba">說明</a>
+				</div>
+
+				<div style="overflow-x: auto; margin-top: 3vh;">
+					<table class="table table-bordered timetable" id="timetable-1" data-bound="1">
+						<thead id="timetablehead-1"></thead>
+						<tbody id="timetable-optionbar-1"></tbody>
+						<tbody id="timetablebody-1"><!-- rendered by renderTimetable(1) --></tbody>
+					</table>
+				</div>
+			</div>
+
+
+
+			<!-- win3:timetable bound 2 -->
+			<div class="container" id="container-timetable-2" style="display:none">
+				<div class="row" style="display: inline; ">
+					<h2 style="display: inline">時刻表(逆行)</h2><a href="#" class="ba">匯入</a><a href="manual/manual-ops-timetable.html" target="_blank" class="ba">說明</a>
+				</div>
+
+				<div style="overflow-x: auto; margin-top: 3vh;">
+					<table class="table table-bordered timetable" id="timetable-2" data-bound="2">
+						<thead id="timetablehead-2"></thead>
+						<tbody id="timetable-optionbar-2"></tbody>
+						<tbody id="timetablebody-2"><!-- rendered by renderTimetable(2) --></tbody>
+					</table>
+				</div>
+			</div>
+
+			<!-- win5: output -->
+			<div class="container" id="container-output" style="display:none">
+				<div class="row">
+						<button type="button" class="btn btn-success" id="OutputBtn" style="margin-bottom: 10px;">輸出結果</button>
+						<button type="button" class="btn btn-primary" id="DownloadSVGBtn">下載SVG圖檔</button>
+						<button type="button" class="btn btn-outline-success preview-draft-btn" data-draft="autofill" style="display:none; margin-top: 10px;">預覽自動補全結果</button>
+						<button type="button" class="btn btn-outline-success preview-draft-btn" data-draft="passing" style="display:none; margin-top: 10px;">預覽還原通過時間結果</button>
+						<button type="button" class="btn btn-outline-primary" id="DownloadPreviewSVGBtn" style="display:none; margin-top: 10px;">下載預覽SVG圖檔</button>
+				</div>
+				<p class="text-muted" id="OutputSource" style="margin-top: 10px;"></p>
+				<div style="overflow-x: auto;">
+					<svg id="output" xmlns="http://www.w3.org/2000/svg">
+						
+					</svg>
+				</div>
+			</div>
+
+			<!-- windows ends -->
+		</div>
+	</div>
+	
+	
+
+	
+			
+
+	
+	<!--wait a minute-->
+	<div id="waitaminute" style="display:none;position:absolute;width:100vw;height:100vh;top:0px;left:0px;background-color: rgba(0, 0, 0, 0.5);">
+		<div style="margin-top: 25vh;">
+			<p style="text-align: center;width: 100vw;color:white;font-size: 300%;font-weight: bold;">程式執行中，請稍候</p>
+			<p style="text-align: center;width: 100vw;color:white;font-size: 150%;">The program is running.</p>
+			<p style="text-align: center;width: 100vw;color:white;font-size: 150%;">しばらくお待ちください。</p>
+		</div>
+	</div>
+
+	<!-- Toasts -->
+	<div class="toast-container" style="position: fixed; bottom: 50px; right: 50px;">
+		<div class="toast text-bg-primary end-0" role="alert" aria-live="assertive" aria-atomic="true" id="AutoLayoutSuccess">
+			<div class="d-flex">
+					<div class="toast-body">
+						已自動估計設定: <span id="AutoLayoutSummary"></span>
+					</div>
+					<button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+			</div>
+		</div>
+
+		<div class="toast text-bg-primary end-0" role="alert" aria-live="assertive" aria-atomic="true" id="GenerateTimetableSuccess">
+			<div class="d-flex">
+					<div class="toast-body">
+						時刻表已成功生成。
+					</div>
+					<button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+			</div>
+		</div>
+
+		<div class="toast text-bg-danger end-0" role="alert" aria-live="assertive" aria-atomic="true" id="GenerateTimetableFailed">
+			<div class="d-flex">
+					<div class="toast-body">
+						時刻表未成功生成。因為: <span id="GenerateTimetableFailedReason" style="font-weight: bold;"></span>
+					</div>
+					<button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+			</div>
+		</div>
+
+		<div class="toast text-bg-warning end-0" role="alert" aria-live="assertive" aria-atomic="true" id="TextOverflowWarning">
+			<div class="d-flex">
+					<div class="toast-body">
+						文字可能超出圖片範圍: <span id="TextOverflowReason" style="font-weight: bold;"></span>
+					</div>
+					<button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+			</div>
+		</div>
+
+		<div class="toast text-bg-warning end-0" role="alert" aria-live="assertive" aria-atomic="true" id="LowSpeedWarning">
+			<div class="d-flex">
+					<div class="toast-body">
+						您填入的時速過低，請確認是否正確。
+					</div>
+					<button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+			</div>
+		</div>
+
+		<div class="toast text-bg-primary end-0" role="alert" aria-live="assertive" aria-atomic="true" id="ImportRouteSuccess">
+			<div class="d-flex">
+					<div class="toast-body">
+						路線資料已成功匯入。
+					</div>
+					<button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+			</div>
+		</div>
+
+		<div class="toast text-bg-danger end-0" role="alert" aria-live="assertive" aria-atomic="true" id="ImportRouteFailed">
+			<div class="d-flex">
+					<div class="toast-body">
+						路線資料未成功匯入。
+					</div>
+					<button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+			</div>
+		</div>
+
+		<div class="toast text-bg-primary end-0" role="alert" aria-live="assertive" aria-atomic="true" id="ImportTime1Success">
+			<div class="d-flex">
+					<div class="toast-body">
+						時刻表(順行)已成功匯入。
+					</div>
+					<button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+			</div>
+		</div>
+
+		<div class="toast text-bg-primary end-0" role="alert" aria-live="assertive" aria-atomic="true" id="ImportTime2Success">
+			<div class="d-flex">
+					<div class="toast-body">
+						時刻表(逆行)已成功匯入。
+					</div>
+					<button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+			</div>
+		</div>
+
+		<div class="toast text-bg-danger end-0" role="alert" aria-live="assertive" aria-atomic="true" id="ImportTimeFailed">
+			<div class="d-flex">
+					<div class="toast-body">
+						時刻表未成功匯入。
+					</div>
+					<button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+			</div>
+		</div>
+
+		<div class="toast text-bg-primary end-0" role="alert" aria-live="assertive" aria-atomic="true" id="ImportSettingSuccess">
+			<div class="d-flex">
+					<div class="toast-body">
+						設定已成功匯入。
+					</div>
+					<button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+			</div>
+		</div>
+
+		<div class="toast text-bg-danger end-0" role="alert" aria-live="assertive" aria-atomic="true" id="ImportSettingFailed">
+			<div class="d-flex">
+					<div class="toast-body">
+						設定未成功匯入。
+					</div>
+					<button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+			</div>
+		</div>
+
+		<div class="toast text-bg-primary end-0" role="alert" aria-live="assertive" aria-atomic="true" id="ImportAllSuccess">
+			<div class="d-flex">
+					<div class="toast-body">
+						全部資料已成功匯入。
+					</div>
+					<button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+			</div>
+		</div>
+
+		<div class="toast text-bg-danger end-0" role="alert" aria-live="assertive" aria-atomic="true" id="ImportAllFailed">
+			<div class="d-flex">
+					<div class="toast-body">
+						全部資料未成功匯入。
+					</div>
+					<button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+			</div>
+		</div>
+
+		<div class="toast text-bg-primary end-0" role="alert" aria-live="assertive" aria-atomic="true" id="AutofillSuccess">
+			<div class="d-flex">
+					<div class="toast-body">
+						已補全 <span id="AutofillCount"></span> 班列車。結果存在副本中，尚未採用。
+					</div>
+					<button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+			</div>
+		</div>
+
+		<div class="toast text-bg-danger end-0" role="alert" aria-live="assertive" aria-atomic="true" id="AutofillFailed">
+			<div class="d-flex">
+					<div class="toast-body">
+						沒有會被改變的列車。
+					</div>
+					<button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+			</div>
+		</div>
+
+		<div class="toast text-bg-primary end-0" role="alert" aria-live="assertive" aria-atomic="true" id="DraftAdoptSuccess">
+			<div class="d-flex">
+					<div class="toast-body">
+						已採用計算結果，時刻表已更新。
+					</div>
+					<button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+			</div>
+		</div>
+
+		<div class="toast text-bg-danger end-0" role="alert" aria-live="assertive" aria-atomic="true" id="DraftInvalid">
+			<div class="d-flex">
+					<div class="toast-body">
+						路線或時刻表在計算後有變動，先前的計算結果已失效，請重新計算。
+					</div>
+					<button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+			</div>
+		</div>
+
+
+	</div>
+
+	<!-- timetable offcanvas -->
+	<div class="offcanvas offcanvas-end" tabindex="-1" id="timetable-offcanvas" aria-labelledby="timetable-offcanvas-label" data-train="1">
+		<div class="offcanvas-header">
+			<h4 class="offcanvas-title" id="timetable-offcanvas-label">車次細項</h4>
+			<button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+		</div>
+		<div class="offcanvas-body">
+			<div>
+				<p style="font-weight: bold; font-size: 125%;">車次 <span id="offcanvas-train-id" style="font-size: 160%;">123</span></p>
+			</div>
+			<div style="margin-top: 3vh">
+				<p>列車名<input class="form-control" id="offcanvas-train-name" style="text-align: left"></p>
+			</div>
+			<div style="margin-top: 3vh">
+				<p>列車顏色</p>
+				<select class="form-select" aria-label="Default select example" id="offcanvas-train-color">
+					<option selected value="0">選擇線條顏色</option>
+					<option class="color1-option" value="1" style="background-color: var(--color1); color:rgba(0,0,0,0);">顏色1</option>
+					<option class="color2-option" value="2" style="background-color: var(--color2); color:rgba(0,0,0,0);">顏色2</option>
+					<option class="color3-option" value="3" style="background-color: var(--color3); color:rgba(0,0,0,0);">顏色3</option>
+					<option class="color4-option" value="4" style="background-color: var(--color4); color:rgba(0,0,0,0);">顏色4</option>
+					<option class="color5-option" value="5" style="background-color: var(--color5); color:rgba(0,0,0,0);">顏色5</option>
+					<option class="color6-option" value="6" style="background-color: var(--color6); color:rgba(0,0,0,0);">顏色6</option>
+					<option class="color7-option" value="7" style="background-color: var(--color7); color:rgba(0,0,0,0);">顏色7</option>
+					<option class="color8-option" value="8" style="background-color: var(--color8); color:rgba(0,0,0,0);">顏色8</option>
+					<option class="color9-option" value="9" style="background-color: var(--color9); color:rgba(0,0,0,0);">顏色9</option>
+					<option class="color10-option" value="10" style="background-color: var(--color10); color:rgba(0,0,0,0);">顏色10</option>
+				</select>
+			</div>
+			
+		</div>
+	</div>
+
+	<!-- adopting a draft (待避時間計算) -->
+	<div class="modal fade" id="AdoptDraftModal" tabindex="-1" aria-labelledby="AdoptDraftModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="AdoptDraftModalLabel">採用<span id="AdoptDraftTitle"></span>的結果</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<p>這會直接以計算結果蓋掉原先的時刻表，無法復原。</p>
+					<p>建議您先到「匯入/匯出」頁匯出全部資料備份，或先到「輸出圖片」頁預覽改動結果。</p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
+					<button type="button" class="btn btn-danger" id="AdoptDraftConfirmBtn">確認採用</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!--<script src="../js/jquery-3.5.1.slim.min.js"></script>-->
+	<script src="https://unpkg.com/@popperjs/core@2"></script>
+	<script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+
+	<!-- settings and data (load first) -->
+	<script src="program/program/globalvar.js"></script>
+	<script src="program/data/DataStore.js"></script>
+	<script src="program/data/Draft.js"></script>
+
+	<!-- misc utilities -->
+	<script src="program/util/common.js"></script>
+	<script src="program/util/stc.js"></script>
+	<script src="program/util/saveSVG.js"></script>
+
+	<!-- UI changing -->
+	<script src="program/ui/addStationInput.js"></script>
+	<script src="program/ui/trackLayoutInput.js"></script>
+	<script src="program/ui/addTrainInput.js"></script>
+	<script src="program/ui/swapWindow.js"></script>
+	<script src="program/ui/createTimetable.js"></script>
+	<script src="program/ui/optionsIO.js"></script>
+	<script src="program/ui/toast.js"></script>
+	<script src="program/ui/passingTimeInput.js"></script>
+
+	<!-- Core Program -->
+	<script src="program/program/Graphing.js"></script>
+	<script src="program/program/TrainNumber.js"></script>
+	<script src="program/program/TrackLayout.js"></script>
+	<script src="program/program/RunTimeAutofill.js"></script>
+	<script src="program/program/PassingTime.js"></script>
+	<script src="program/program/PassingTimeSTN.js"></script>
+
+	<!-- csv / json file parsing -->
+	<script src="program/handler/RouteInfoHandler.js"></script>
+	<script src="program/handler/TrackLayoutHandler.js"></script>
+	<script src="program/handler/TimetableHandler.js"></script>
+
+	<!-- setting api -->
+	<script src="program/setting/alterColor.js"></script>
+	<script src="program/setting/OutputSetting.js"></script>
+	<script src="program/setting/AutoLayout.js"></script>
+
+	<!-- settings / all-in-one json (reuse the parsers above) -->
+	<script src="program/handler/SettingHandler.js"></script>
+	<script src="program/handler/AllDataHandler.js"></script>
+
+	<script>
+		renderRouteTable();
+		renderTimetable(1);
+		renderTimetable(2);
+		initSettingsUI();
+	</script>
+</body>
+</html>

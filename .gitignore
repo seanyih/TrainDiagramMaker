@@ -1,0 +1,7 @@
+.claude/
+crawler/
+/data/
+CLAUDE.md
+viewbot.py
+/js/
+*.jpg
