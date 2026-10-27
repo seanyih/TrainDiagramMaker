@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" id="item-1" viewBox="22.5 2.5 40 50">
+  <defs>
+    <style>
+      .class-3 {
+        stroke-width: 6px;
+      }
+
+      .class-3, .class-2 {
+        fill: none;
+        stroke: #002e7f;
+        stroke-miterlimit: 10;
+      }
+
+      .class-2 {
+        stroke-width: 3px;
+      }
+
+      .class-1 {
+        fill: #002e7f;
+        stroke-width: 0px;
+      }
+    </style>
+  </defs>
+  <path class="class-1" d="M42.5,18.5c4.96,0,9,4.04,9,9s-4.04,9-9,9-9-4.04-9-9,4.04-9,9-9M42.5,12.5c-8.28,0-15,6.72-15,15s6.72,15,15,15,15-6.72,15-15-6.72-15-15-15h0Z"/>
+  <line class="class-2" y1="27.5" x2="15" y2="27.5"/>
+  <line class="class-2" x1="7.5" y1="20" x2="7.5" y2="35"/>
+  <line class="class-3" x1="42.5" y1="15" x2="42.5"/>
+</svg>

@@ -81,6 +81,10 @@
         &quot;max_speed_enabled&quot;: true,
         &quot;max_speed_all&quot;: 85,
         &quot;max_speeds&quot;: [85, null]
+    },
+    &quot;topology&quot;: {
+        &quot;secondary&quot;: [false, true, false],
+        &quot;branches&quot;: [[], [], [{ &quot;stations&quot;: [{ &quot;name&quot;: &quot;奈多&quot;, &quot;kilo&quot;: 0.9 }] }]]
     }
 }
 </code></pre>
@@ -135,6 +139,12 @@
 <td>object</td>
 <td>否</td>
 <td>軌道配置，見下節。省略時全線為 <code>"quadruple"</code>（不設限）</td>
+</tr>
+<tr>
+<td><code>topology</code></td>
+<td>object</td>
+<td>否</td>
+<td>線路拓樸（次要車站、分岐），見<a href="#線路拓樸">線路拓樸</a>。省略時沒有次要車站與分岐</td>
 </tr>
 </tbody>
 </table>
@@ -265,7 +275,40 @@
 <ul>
 <li>後綴數字是追越的方向：1 = 順行、2 = 逆行、3 = 雙向。三線沒有 <code>triple.0</code>。</li>
 <li>匯入時，缺少的欄位、長度不足的部分、不認得的值都當作 <code>"quadruple"</code>；最高速度不是正數時當作 <code>null</code>；超出站數的部分忽略。</li>
-<li>路線 CSV 沒有軌道配置，匯入 CSV 時保留目前的軌道配置。</li>
+<li>路線 CSV 沒有軌道配置，匯入 CSV 時軌道配置會重設為預設值。</li>
+</ul>
+<h2 id="線路拓樸">線路拓樸</h2>
+<p><code>topology</code> 記錄次要車站，以及從各站分岐出去的路線。</p>
+<table>
+<thead>
+<tr>
+<th>欄位</th>
+<th>長度</th>
+<th>說明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>topology.secondary[i]</code></td>
+<td>站數</td>
+<td>第 i 站是否為次要車站（以次要車站線、次要站名繪製，見<a href="manual-dev-setting-json.html">設定檔案格式</a>）。起終點一律為 <code>false</code></td>
+</tr>
+<tr>
+<td><code>topology.branches[i]</code></td>
+<td>站數</td>
+<td>從第 i 站分岐的路線，最多 3 條</td>
+</tr>
+<tr>
+<td><code>topology.branches[i][b].stations[]</code></td>
+<td>—</td>
+<td>分岐上的車站 <code>{ name, kilo }</code>。<code>kilo</code> 是與分岐站（第 i 站）的距離（公里，正數），<code>null</code> 代表未填</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>分岐上的車站依 <code>kilo</code> 由近到遠排序，<code>null</code> 排在最後。</li>
+<li>匯入時，缺少的部分當作非次要車站、沒有分岐；<code>kilo</code> 不是正數時當作 <code>null</code>；沒有車站的分岐移除，每站超過 3 條的分岐忽略。</li>
+<li>路線 CSV 沒有線路拓樸，匯入 CSV 時線路拓樸會重設為預設值（沒有次要車站與分岐）。</li>
 </ul>
 <h2 id="匯入規則">匯入規則</h2>
 <ul>
@@ -293,7 +336,7 @@
 <tbody>
 <tr>
 <td><code>program/data/DataStore.js</code></td>
-<td><code>ROUTE</code>、<code>newStation()</code>、<code>newTrackLayout()</code>、<code>insertStation()</code>、<code>deleteStation()</code></td>
+<td><code>ROUTE</code>、<code>newStation()</code>、<code>newTrackLayout()</code>、<code>newTopology()</code>、<code>insertStation()</code>、<code>deleteStation()</code></td>
 </tr>
 <tr>
 <td><code>program/handler/RouteInfoHandler.js</code></td>
@@ -302,6 +345,14 @@
 <tr>
 <td><code>program/handler/TrackLayoutHandler.js</code></td>
 <td><code>loadTrackLayout()</code></td>
+</tr>
+<tr>
+<td><code>program/handler/TopologyHandler.js</code></td>
+<td><code>loadTopology()</code></td>
+</tr>
+<tr>
+<td><code>program/ui/topologyInput.js</code></td>
+<td>線路拓樸表格：<code>renderTopologyTable()</code></td>
 </tr>
 <tr>
 <td><code>program/program/TrackLayout.js</code></td>
@@ -322,7 +373,7 @@
 
 		<aside class="manual-toc">
 			<p class="manual-toc-title">本頁內容</p>
-			<ul><li><a href="#結構">結構</a></li><li><a href="#軌道配置">軌道配置</a></li><li><a href="#匯入規則">匯入規則</a></li><li><a href="#與-csv-的對應">與 CSV 的對應</a></li><li><a href="#全部資料-json">全部資料 JSON</a></li><li><a href="#相關程式">相關程式</a></li></ul>
+			<ul><li><a href="#結構">結構</a></li><li><a href="#軌道配置">軌道配置</a></li><li><a href="#線路拓樸">線路拓樸</a></li><li><a href="#匯入規則">匯入規則</a></li><li><a href="#與-csv-的對應">與 CSV 的對應</a></li><li><a href="#全部資料-json">全部資料 JSON</a></li><li><a href="#相關程式">相關程式</a></li></ul>
 		</aside>
 	</div>
 

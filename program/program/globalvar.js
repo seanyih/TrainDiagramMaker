@@ -36,6 +36,7 @@ const SETTINGS = {
 	},
 	lines: {
 		station:   { width: 2, color: "#000000" },
+		secondaryStation: { width: 1.4, color: "#808080" },      // ROUTE.topology.secondary
 		primary:   { width: 2, color: "#000000" },               // every hour
 		secondary: { width: 1.4, color: "#808080", interval: 10 }, // interval in minutes: 1, 5, 10, 15, 20, 30
 		outline:   { width: 2, color: "#000000" }
@@ -44,6 +45,8 @@ const SETTINGS = {
 	// gap: distance between text and the plot outline
 	stationText: { fontSize: 20, color: "#000000", gap: 10 },
 	aliasText: { show: false, fontSize: 20, color: "#000000", gap: 10 },
+	secondaryStationText: { fontSize: 16, color: "#808080", gap: 10 },
+	secondaryAliasText: { fontSize: 16, color: "#808080", gap: 10 }, // shown by aliasText.show
 	timeLabel: {
 		format: "standard",    // "standard" | "sized" | "simple"
 		zeroPad: false,        // 08:00 or 8:00

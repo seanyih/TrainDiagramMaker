@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" id="item-1" viewBox="0 0 40 50">
+  <defs>
+    <style>
+      .class-1 {
+        fill: none;
+        stroke: #ffae2a;
+        stroke-miterlimit: 10;
+        stroke-width: 6px;
+      }
+    </style>
+  </defs>
+  <line class="class-1" x1="20" y1="40" x2="20" y2="-2.5"/>
+  <line class="class-1" x1="20" y1="38.75" x2="20" y2="52.5"/>
+</svg>

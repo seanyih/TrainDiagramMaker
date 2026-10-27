@@ -15,7 +15,7 @@
 - 路線與列車資料**只存在** `program/data/DataStore.js` 的 `ROUTE` 和 `TRAINS`。
 - 表格由資料重新渲染；使用者在表格上的每個修改 (`change` 事件) 立即寫回 `ROUTE` / `TRAINS`。
 - 繪圖、匯出都只讀寫 `ROUTE` / `TRAINS`，不讀 DOM；待避時間計算 (第 7 節) 先寫在副本，採用後才取代 `TRAINS`。
-- 新增/刪除車站時，`insertStation()` / `deleteStation()` 會同步平移所有列車停靠站的 `station_order`，並同步增刪 `ROUTE.track_layout`，因此列車資料與軌道配置永遠與路線一致。
+- 新增/刪除車站時，`insertStation()` / `deleteStation()` 會同步平移所有列車停靠站的 `station_order`，並同步增刪 `ROUTE.track_layout` 與 `ROUTE.topology`，因此列車資料、軌道配置與線路拓樸永遠與路線一致。
 
 ## 2. 設定 `SETTINGS` (`program/program/globalvar.js`)
 
@@ -40,9 +40,11 @@ checkbox → boolean，`type="number"` 與數字選項的 select → number (空
 | `margin.{left,right,top,bottom}` | 100 | 圖表外框到圖片邊緣的距離 |
 | `background.transparent` / `.color` | false / `#FFFFFF` | 背景。透明時不畫背景矩形 |
 | `lines.{station,primary,secondary,outline}` | | `{ width, color }`：車站線、整點線、次要時間線、外框 |
+| `lines.secondaryStation` | `{ 1.4, "#808080" }` | `{ width, color }`：次要車站 (`ROUTE.topology.secondary`) 的車站線 |
 | `lines.secondary.interval` | 10 | 次要時間線間隔 (分)：1, 5, 10, 15, 20, 30 |
 | `stationText` | | `{ fontSize, color, gap }`：左側站名，靠右對齊 |
 | `aliasText` | | `{ show, fontSize, color, gap }`：右側站名別名，靠左對齊 |
+| `secondaryStationText` / `secondaryAliasText` | `{ 16, "#808080", 10 }` | `{ fontSize, color, gap }`：次要車站的站名 / 別名 (別名是否顯示同樣看 `aliasText.show`)。設定頁沒有預覽 |
 | `timeLabel.format` | `"standard"` | `standard` = hh:mm 固定大小；`sized` = hh 大、mm 小直接相接，同一基線 (向下對齊)；`simple` = 整點只標 hh、次要只標 mm |
 | `timeLabel.formats.{standard,simple}` | | `{ fontSize, color }` |
 | `timeLabel.formats.sized` | | `{ hourFontSize, hourColor, minuteFontSize, minuteColor }` (預設 25 / 15) |
@@ -69,9 +71,9 @@ checkbox → boolean，`type="number"` 與數字選項的 select → number (空
 | `trainColors` | | 長度 11 的陣列，index = 列車的 `train_color` (0 與 1 同色)。UI 為 `.train-color-input`，改變時同時更新 CSS 變數 `--color{n}` |
 
 - `gap` 都是文字與圖表外框之間的距離。
-- **文字超出檢查** `checkTextFit()`：在設定變更及輸出圖片時執行，超出則顯示黃色 toast (`#TextOverflowWarning`)。
-  - 最長站名字數 × `stationText.fontSize` + `gap` > `margin.left`
-  - (顯示別名時) 最長別名字數 × `aliasText.fontSize` + `gap` > `margin.right`
+- **文字超出檢查** `checkTextFit()`：在設定變更及輸出圖片時執行，超出則顯示黃色 toast (`#TextOverflowWarning`)。次要車站改用 `secondaryStationText` / `secondaryAliasText` 計算 (`stationTextStyles(i)`)。
+  - 任一站的站名字數 × `stationText.fontSize` + `gap` > `margin.left`
+  - (顯示別名時) 任一站的別名字數 × `aliasText.fontSize` + `gap` > `margin.right`
   - 時間文字高度 (最大字型大小) + `timeLabel.gap` > `margin.bottom`
 - **時間文字預覽**：設定頁的 `#time-label-preview` 以和圖片相同的 `makeTimeLabel()` 畫出 8:00~9:00。
 - **列車號放置** (`program/program/TrainNumber.js`)：
@@ -109,6 +111,10 @@ ROUTE = {
 		max_speed_enabled: true,
 		max_speed_all: 85,
 		max_speeds: [85, null, ...]                // length = stations.length - 1
+	},
+	topology: {
+		secondary: [false, false, true, ...],      // length = stations.length
+		branches: [[], [], [ { stations: [{ name: "千早", kilo: 1.2 }, ...] } ], ...]   // length = stations.length
 	}
 }
 ```
@@ -125,13 +131,17 @@ ROUTE = {
 | `track_layout.max_speed_enabled` | boolean | `false` = 不設定最高速度 (「停用」勾選框)：`max_speeds` 全為 `null`，表格不顯示速度欄 |
 | `track_layout.max_speed_all` | number \| null | 最後一次填入的「全線最高速度」，只用來還原輸入框 |
 | `track_layout.max_speeds[i]` | number \| null | 同一站間的最高速度 (km/h)，`null` = 未填 |
+| `topology.secondary[i]` | boolean | 第 i 站是否為次要車站 (見 4.4)。起終點永遠是 `false` |
+| `topology.branches[i]` | array | 從第 i 站分岐的路線，最多 `MAX_BRANCHES` (3) 條，順序即線路拓樸圖由左到右 |
+| `topology.branches[i][b].stations[]` | `{ name, kilo }` | 分岐上的車站。`kilo` = 與分岐站 (第 i 站) 的距離 (> 0)，`null` = 未填；依 `kilo` 由近到遠排序，`null` 在最後 |
 
 `stations` 的順序即「順行」(bound 1) 的順序。
 
 ### 4.1 路線 JSON
 
-與 `ROUTE` **完全相同**：`JSON.stringify(ROUTE)`。匯入時 `stopsec`、`alias`、`track_layout` 可省略。
+與 `ROUTE` **完全相同**：`JSON.stringify(ROUTE)`。匯入時 `stopsec`、`alias`、`track_layout`、`topology` 可省略。
 `track_layout` 由 `loadTrackLayout()` 讀取：缺少的欄位、長度不足的部分、不認得的值都當作 `DEFAULT_TRACK` (`"quadruple"`)，最高速度不是正數時當作 `null`；超出站數的部分忽略。
+`topology` 由 `loadTopology()` 讀取：缺少的部分當作非次要車站、沒有分岐；起終點的 `secondary` 一律為 `false`；`kilo` 不是正數時當作 `null`，`name` 轉成字串；沒有車站的分岐移除，每站超過 3 條的分岐忽略；分岐上的車站重新排序。
 
 ### 4.2 路線 CSV
 
@@ -144,7 +154,7 @@ ROUTE = {
 - 匯出固定 4 欄；匯入接受 2~4 欄 (舊的 `站名,里程` 檔案可直接使用)。
 - 第一站的里程一律當作 0。
 - 匯入完成後自動執行「生成」(里程檢查 + 渲染時刻表)。
-- CSV 不含軌道配置：匯入時保留目前的 `track_layout` (經 `loadTrackLayout()` 配合新的站數截斷或補上預設值)，與 `route_name` 相同。
+- CSV 不含軌道配置與線路拓樸：匯入時 `track_layout`、`topology` 重設為預設值 (`newTrackLayout()` / `newTopology()`)；`route_name` 則保留目前的。
 
 ### 4.3 軌道配置 `track_layout`
 
@@ -180,6 +190,23 @@ ROUTE = {
 - 車站：`{類型}.sta.svg`；站間：`{類型}.svg`。皆為 40×50，放在列的中間 (上下各留 10px)。
 - 相鄰兩列之間放 40×20 的轉換圖，跨在兩列的分隔線上 (上一列的最後 10px + 下一列的最初 10px)。
 - 轉換圖由 `trackTransition(上, 下)` 查 `TRACK_TRANSITIONS` (列 = 上方類型、欄 = 下方類型，順序同 `TRACK_TYPES`)。表格空白時查對稱的格子，並上下翻轉 (`.flip` = `scaleY(-1)`)。
+
+### 4.4 線路拓樸 `topology`
+
+整理從各站分岐出去的路線 (分岐點不一定是停靠站，例如信號場)，以及次要車站。目前只有 UI 與匯入匯出；分岐不會畫在運行圖上，也還沒有用在計算。程式在 `program/ui/topologyInput.js` (表格)、`program/handler/TopologyHandler.js` (`loadTopology()`)。
+
+- **次要車站** (`secondary[i]`)：繪圖時比照次要時間線，車站線用 `lines.secondaryStation`，站名 / 別名用 `secondaryStationText` / `secondaryAliasText` (`stationTextStyles(i)`，`Graphing.js`)。起終點不可勾選 (外框會蓋過車站線)；`deleteStation()` 刪掉最後一站時，新的最後一站設為 `false`。
+- **分岐** (`branches[i]`)：新增時就有一個車站 (`newBranchStation()`，站名空白、`kilo` = `null`)；新增的車站放在最遠端；刪掉分岐的最後一個車站時整條分岐移除。`kilo` 輸入 0、負數、非數字 → 紅底、不寫入；改 `kilo` 後重新排序 (`sortBranchStations()`)，順序有變才重新渲染 (否則保留焦點)。
+- 主線車站不能在此刪除 (要回到路線資料表格)。主線車站改名、改里程、增刪時重新渲染 (`renderRouteTable()` 會呼叫 `renderTopologyTable()`)。
+- 不能在分岐上再分岐：運行圖不畫分岐，分岐上的分岐等同於另一條從同一站分岐的路線。
+
+#### 線路拓樸圖
+
+`renderTopologyTable()` 由上而下每列 50px，左欄是 `icon/path/` 的 40×50 圖片橫向排列 (第 1 欄主線、第 b+2 欄第 b 條分岐)，不畫列與列之間的橫線。圖名以 `.T` 結尾者為上下翻轉 (`.flip`)，沒有獨立的檔案。
+
+- 主線車站：`start` / `end` / `station` / `signal` (次要車站)，有分岐時加上 `_with_branch`。其右依序為各分岐的 `branch.branch` (最後一條為 `branch.corner`)，未滿 3 條時最右側是 `add_branch` (點擊新增分岐)。
+- 分岐畫在分岐站的上方 (最後一站則在下方，整組上下顛倒，`branch.start` / `branch.corner` / `branch.branch` 改用 `.T`)。每條分岐由遠到近為：`branch.add_station` (點擊在末端新增車站)、`branch.start` (最遠的站)、`branch.station`…；左側較早的分岐在這些列顯示 `branch.pass`，主線欄顯示 `pass` (起終點為 `blank_placeholder`)。
+- 右欄：主線車站顯示站名、里程與「次要車站」勾選框；分岐車站為站名輸入框、「XX站起 [ ] 公里」與刪除鈕；`branch.add_station` 的列空白。
 
 ## 5. 列車資料 `TRAINS`
 
@@ -387,11 +414,13 @@ draft = { trains: { 1: [...], 2: [...] }, fingerprint: "..." }   // trains: stru
 | 檔案 | 函式 / 變數 |
 |---|---|
 | `program/program/globalvar.js` | `SETTINGS`, `DEFAULT_SETTINGS` |
-| `program/data/DataStore.js` | `ROUTE`, `TRAINS`, `DEFAULT_TRACK`, `newStation()`, `newTrackLayout()`, `newTrain()`, `boundStations()`, `findStop()`, `addStop()`, `setStopTime()`, `insertStation()`, `deleteStation()`, `refreshStopNames()`, `arrivalTime()`, `stopTimes()`, `isBlankTrain()` |
-| `program/ui/addStationInput.js` | `renderRouteTable()` (同時呼叫 `renderTrackTable()`), `onRouteChanged()`, 路線表格事件 |
+| `program/data/DataStore.js` | `ROUTE`, `TRAINS`, `DEFAULT_TRACK`, `MAX_BRANCHES`, `newStation()`, `newTrackLayout()`, `newTopology()`, `newBranchStation()`, `sortBranchStations()`, `newTrain()`, `boundStations()`, `findStop()`, `addStop()`, `setStopTime()`, `insertStation()`, `deleteStation()`, `refreshStopNames()`, `arrivalTime()`, `stopTimes()`, `isBlankTrain()` |
+| `program/ui/addStationInput.js` | `renderRouteTable()` (同時呼叫 `renderTrackTable()`, `renderTopologyTable()`), `onRouteChanged()`, 路線表格事件 |
 | `program/ui/trackLayoutInput.js` | `renderTrackTable()`, 軌道配置表格事件、快速套用按鈕 |
+| `program/ui/topologyInput.js` | `renderTopologyTable()`, `topologyRows()`, 線路拓樸表格事件 (新增分岐 / 車站、刪除車站、次要車站) |
+| `program/handler/TopologyHandler.js` | `loadTopology()` (路線 JSON 匯入時讀取 `topology`) |
 | `program/program/TrackLayout.js` | `TRACK_TYPES`, `TRACK_TRANSITIONS`, `TRACK_PRESETS`, `parseTrack()`, `makeTrack()`, `trackTransition()`, `applyTrackPreset()`, `minRunSec()` |
-| `program/handler/TrackLayoutHandler.js` | `loadTrackLayout()` (路線 JSON / CSV 匯入時讀取 `track_layout`) |
+| `program/handler/TrackLayoutHandler.js` | `loadTrackLayout()` (路線 JSON 匯入時讀取 `track_layout`) |
 | `program/ui/createTimetable.js` | `renderTimetable(bound)`, `checkkilo()`, `generateTimetable()` |
 | `program/ui/addTrainInput.js` | 時刻表事件 (新增/刪除列車、車次、時刻輸入) |
 | `program/ui/optionsIO.js` | 列車細項 (列車名、顏色) offcanvas |
@@ -400,7 +429,7 @@ draft = { trains: { 1: [...], 2: [...] }, fingerprint: "..." }   // trains: stru
 | `program/handler/SettingHandler.js` | 設定匯入/匯出：`loadSettingsFromJSON()`, `mergeSettings()`, `applySettings()` |
 | `program/handler/AllDataHandler.js` | 全部資料匯入/匯出：`getAllDataJSON()`, `loadAllFromJSON()` |
 | `program/setting/OutputSetting.js` | `initSettingsUI()`, `updateSettingsUI()`, `renderTimeLabelPreview()`, `checkTextFit()` |
-| `program/program/Graphing.js` | `drawDiagram(trains = TRAINS)`, `drawTrain()`, `timeToX()`, `makeTimeLabel()`, `timeLabelHeight()` |
+| `program/program/Graphing.js` | `drawDiagram(trains = TRAINS)`, `drawTrain()`, `timeToX()`, `makeTimeLabel()`, `timeLabelHeight()`, `stationTextStyles()` |
 | `program/program/TrainNumber.js` | `placeTrainNumbers()`, `findTrainNumberPosition()`, `createSegmentGrid()`, `addSegment()`, `someSegment()`, `segmentHitsBox()` |
 | `program/data/Draft.js` | `DRAFTS`, `newDraft()`, `validDraft()`, `adoptDraft()` |
 | `program/program/RunTimeAutofill.js` | `wildcardRegExp()`, `findTrainByNumber()`, `computeAutofill()`, `applyAutofill()` |

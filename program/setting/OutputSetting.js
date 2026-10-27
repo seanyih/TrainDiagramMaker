@@ -107,14 +107,18 @@ function renderTimeLabelPreview(){
 
 // longest name * font size (+ gap) must fit in the side margins, and the time text height in the bottom margin
 function checkTextFit(){
-	const { margin, stationText, aliasText, timeLabel } = SETTINGS;
-	const longest = strs => Math.max(0, ...strs.map(str => str.length));
+	const { margin, aliasText, timeLabel } = SETTINGS;
+	// field: "name" | "alias"; secondary stations have their own text settings
+	const widest = field => Math.max(...ROUTE.stations.map((station, i) => {
+		const text = stationTextStyles(i)[field];
+		return station[field].length*text.fontSize + text.gap;
+	}));
 	const reasons = [];
 
-	if(longest(ROUTE.stations.map(s => s.name))*stationText.fontSize + stationText.gap > margin.left){
+	if(widest("name") > margin.left){
 		reasons.push("站名超出左側邊界");
 	}
-	if(aliasText.show && longest(ROUTE.stations.map(s => s.alias))*aliasText.fontSize + aliasText.gap > margin.right){
+	if(aliasText.show && widest("alias") > margin.right){
 		reasons.push("別名超出右側邊界");
 	}
 	if(timeLabelHeight() + timeLabel.gap > margin.bottom){

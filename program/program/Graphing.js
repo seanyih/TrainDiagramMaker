@@ -26,7 +26,7 @@ $(document).on("click","#OutputBtn",function(){
 function drawDiagram(trains = TRAINS){
 	checkTextFit();
 
-	const { margin, lines, background, stationText, aliasText, pxPerKm, pxPerMin } = SETTINGS;
+	const { margin, lines, background, aliasText, pxPerKm, pxPerMin } = SETTINGS;
 	const stations = ROUTE.stations;
 
 	//clear previous result
@@ -73,9 +73,10 @@ function drawDiagram(trains = TRAINS){
 	}
 
 	//station lines
-	stations.forEach(station => {
+	stations.forEach((station, i) => {
 		const y = station.kilo*pxPerKm + margin.top;
-		o.append(makeSVG("line", {x1:margin.left, x2:w+margin.left, y1:y, y2:y, stroke:lines.station.color, 'stroke-width':lines.station.width}));
+		const line = ROUTE.topology.secondary[i] ? lines.secondaryStation : lines.station;
+		o.append(makeSVG("line", {x1:margin.left, x2:w+margin.left, y1:y, y2:y, stroke:line.color, 'stroke-width':line.width}));
 	});
 
 	const trainLayer = $(makeSVG("g", {"clip-path":"url(#plot-area)"}));
@@ -91,15 +92,23 @@ function drawDiagram(trains = TRAINS){
 	o.append(makeSVG("rect", {x:margin.left, y:margin.top, width:w, height:h, stroke:lines.outline.color, 'stroke-width':lines.outline.width, fill:"none"}));
 
 	//station name (left) and alias (right)
-	stations.forEach(station => {
+	stations.forEach((station, i) => {
 		const y = station.kilo*pxPerKm + margin.top;
-		o.append(makeSVGtext("text", station.name, {x:margin.left - stationText.gap, y:y + stationText.fontSize*0.4, "font-family":"Noto Sans TC", "font-size":stationText.fontSize, "fill":stationText.color, "text-anchor":"end"}));
+		const { name, alias } = stationTextStyles(i);
+		o.append(makeSVGtext("text", station.name, {x:margin.left - name.gap, y:y + name.fontSize*0.4, "font-family":"Noto Sans TC", "font-size":name.fontSize, "fill":name.color, "text-anchor":"end"}));
 		if(aliasText.show){
-			o.append(makeSVGtext("text", station.alias, {x:margin.left + w + aliasText.gap, y:y + aliasText.fontSize*0.4, "font-family":"Noto Sans TC", "font-size":aliasText.fontSize, "fill":aliasText.color, "text-anchor":"start"}));
+			o.append(makeSVGtext("text", station.alias, {x:margin.left + w + alias.gap, y:y + alias.fontSize*0.4, "font-family":"Noto Sans TC", "font-size":alias.fontSize, "fill":alias.color, "text-anchor":"start"}));
 		}
 	});
 
 	timeLabels.forEach(label => o.append(label));
+}
+
+// text settings of route station i's name and alias
+function stationTextStyles(i){
+	return ROUTE.topology.secondary[i]
+		? { name: SETTINGS.secondaryStationText, alias: SETTINGS.secondaryAliasText }
+		: { name: SETTINGS.stationText, alias: SETTINGS.aliasText };
 }
 
 // label under a time line, or null if this line has no label

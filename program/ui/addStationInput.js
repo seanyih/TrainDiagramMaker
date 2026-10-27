@@ -18,6 +18,7 @@ function renderRouteTable(){
 	});
 	$("#RouteInfotbody").html(rows.join(""));
 	renderTrackTable();
+	renderTopologyTable();
 }
 
 // station names / order changed: keep stops and timetable rows in sync
@@ -60,5 +61,8 @@ $("#RouteInfotbody").on("change", "input", function(){
 	}
 
 	if(field == "name") onRouteChanged();
-	if(field == "name" || field == "kilo") renderTrackTable();
+	if(field == "name" || field == "kilo"){
+		renderTrackTable();
+		renderTopologyTable();
+	}
 });

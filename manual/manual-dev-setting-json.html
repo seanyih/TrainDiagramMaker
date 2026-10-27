@@ -88,12 +88,15 @@
     &quot;background&quot;: { &quot;transparent&quot;: false, &quot;color&quot;: &quot;#FFFFFF&quot; },
     &quot;lines&quot;: {
         &quot;station&quot;:   { &quot;width&quot;: 2,   &quot;color&quot;: &quot;#000000&quot; },
+        &quot;secondaryStation&quot;: { &quot;width&quot;: 1.4, &quot;color&quot;: &quot;#808080&quot; },
         &quot;primary&quot;:   { &quot;width&quot;: 2,   &quot;color&quot;: &quot;#000000&quot; },
         &quot;secondary&quot;: { &quot;width&quot;: 1.4, &quot;color&quot;: &quot;#808080&quot;, &quot;interval&quot;: 10 },
         &quot;outline&quot;:   { &quot;width&quot;: 2,   &quot;color&quot;: &quot;#000000&quot; }
     },
     &quot;stationText&quot;: { &quot;fontSize&quot;: 20, &quot;color&quot;: &quot;#000000&quot;, &quot;gap&quot;: 10 },
     &quot;aliasText&quot;: { &quot;show&quot;: false, &quot;fontSize&quot;: 20, &quot;color&quot;: &quot;#000000&quot;, &quot;gap&quot;: 10 },
+    &quot;secondaryStationText&quot;: { &quot;fontSize&quot;: 16, &quot;color&quot;: &quot;#808080&quot;, &quot;gap&quot;: 10 },
+    &quot;secondaryAliasText&quot;: { &quot;fontSize&quot;: 16, &quot;color&quot;: &quot;#808080&quot;, &quot;gap&quot;: 10 },
     &quot;timeLabel&quot;: {
         &quot;format&quot;: &quot;standard&quot;,
         &quot;zeroPad&quot;: false,
@@ -220,6 +223,11 @@
 <td>次要時間線間隔（分）：1、5、10、15、20、30</td>
 </tr>
 <tr>
+<td><code>lines.secondaryStation</code></td>
+<td></td>
+<td><code>{ width, color }</code>：次要車站的車站線（路線 JSON 的 <code>topology.secondary</code>）</td>
+</tr>
+<tr>
 <td><code>stationText</code></td>
 <td></td>
 <td><code>{ fontSize, color, gap }</code>：左側站名，靠右對齊</td>
@@ -228,6 +236,11 @@
 <td><code>aliasText</code></td>
 <td></td>
 <td><code>{ show, fontSize, color, gap }</code>：右側站名別名，靠左對齊</td>
+</tr>
+<tr>
+<td><code>secondaryStationText</code> / <code>secondaryAliasText</code></td>
+<td></td>
+<td><code>{ fontSize, color, gap }</code>：次要車站的站名 / 別名；別名是否顯示同樣看 <code>aliasText.show</code></td>
 </tr>
 <tr>
 <td><code>timeLabel.format</code></td>

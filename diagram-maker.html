@@ -240,6 +240,49 @@
 			margin: 0 0.5rem 0 1.5rem;
 		}
 
+		/* Topology: images of adjacent rows join into one graph */
+		.topology-table{
+			width: 100%;
+		}
+		#Topologytbody td{
+			height: 50px;
+			padding: 0 1rem;
+			white-space: nowrap; /* a taller row would break the graph */
+		}
+		#Topologytbody td.topology-image-col{
+			padding: 0;
+		}
+		.topology-image{
+			display: flex;
+		}
+		.topology-image img{
+			width: 40px;
+			height: 50px;
+		}
+		.topology-image img.flip{
+			transform: scaleY(-1);
+		}
+		.topology-add-branch, .topology-add-station{
+			cursor: pointer;
+		}
+		.topology-inline-icon{
+			height: 2em;
+			vertical-align: middle;
+		}
+		.topology-name{
+			font-weight: bold;
+		}
+		.topology-branch-name{
+			width: 150px;
+		}
+		.topology-branch-kilo{
+			width: 80px;
+			margin: 0 0.5rem;
+		}
+		.topology-delete-station{
+			margin-left: 1rem;
+		}
+
 		/* ========================================
 			Plus/Minus button 
 		==========================================*/
@@ -584,10 +627,25 @@
 					</div>
 					<div class="col-auto"><small class="text-muted">填入後會套用到下方所有站間；勾選停用則不設定最高速度 (清空並隱藏所有站間的最高速度)</small></div>
 				</div>
-				<div class="row" style="margin-top: 3vh; margin-bottom: 20vh;">
+				<div class="row" style="margin-top: 3vh; margin-bottom: 8vh;">
 					<table class="track-layout-table">
 						<colgroup><col style="width: 80px"><col style="width: 200px"><col style="width: 400px"><col></colgroup>
 						<tbody id="TrackLayouttbody"><!-- rendered by renderTrackTable() --></tbody>
+					</table>
+				</div>
+
+				<div class="row" style="display: inline">
+					<h2 style="display: inline">線路拓樸</h2>
+				</div>
+				<div class="row" style="margin-top: 1vh;">
+					<p>整理從各站分岐出去的路線，以及次要車站 (例如信號場)。</p>
+					<p>點<img class="topology-inline-icon" src="icon/path/add_branch.svg">新增從該站分岐的路線 (每站最多 3 條)，點<img class="topology-inline-icon" src="icon/path/branch.add_station.svg">在分岐的末端新增車站，並填入與分岐站的距離。分岐上的車站依距離排序，不會畫在運行圖上。</p>
+					<p>勾選「次要車站」的車站，在圖上以次要車站線、次要站名繪製 (見基本設定 > 細部設計)。起終點不可設為次要車站。</p>
+				</div>
+				<div class="row" style="margin-top: 3vh; margin-bottom: 20vh;">
+					<table class="topology-table">
+						<colgroup><col style="width: 180px"><col style="width: 200px"><col></colgroup>
+						<tbody id="Topologytbody"><!-- rendered by renderTopologyTable() --></tbody>
 					</table>
 				</div>
 			</div>
@@ -879,6 +937,11 @@
 								<td><input type="color" class="form-control form-control-color mx-auto" data-setting="lines.station.color"></td>
 							</tr>
 							<tr>
+								<td>次要車站線</td>
+								<td><input inputmode="decimal" class="form-control" step="0.1" data-setting="lines.secondaryStation.width"></td>
+								<td><input type="color" class="form-control form-control-color mx-auto" data-setting="lines.secondaryStation.color"></td>
+							</tr>
+							<tr>
 								<td>整點線</td>
 								<td><input inputmode="decimal" class="form-control" step="0.1" data-setting="lines.primary.width"></td>
 								<td><input type="color" class="form-control form-control-color mx-auto" data-setting="lines.primary.color"></td>
@@ -918,6 +981,18 @@
 								<td><input inputmode="decimal" class="form-control" data-setting="aliasText.fontSize"></td>
 								<td><input type="color" class="form-control form-control-color mx-auto" data-setting="aliasText.color"></td>
 								<td><input inputmode="decimal" class="form-control" data-setting="aliasText.gap"></td>
+							</tr>
+							<tr>
+								<td>次要站名</td>
+								<td><input inputmode="decimal" class="form-control" data-setting="secondaryStationText.fontSize"></td>
+								<td><input type="color" class="form-control form-control-color mx-auto" data-setting="secondaryStationText.color"></td>
+								<td><input inputmode="decimal" class="form-control" data-setting="secondaryStationText.gap"></td>
+							</tr>
+							<tr>
+								<td>次要站名別名</td>
+								<td><input inputmode="decimal" class="form-control" data-setting="secondaryAliasText.fontSize"></td>
+								<td><input type="color" class="form-control form-control-color mx-auto" data-setting="secondaryAliasText.color"></td>
+								<td><input inputmode="decimal" class="form-control" data-setting="secondaryAliasText.gap"></td>
 							</tr>
 						</tbody>
 					</table>
@@ -1608,6 +1683,7 @@
 	<!-- UI changing -->
 	<script src="program/ui/addStationInput.js"></script>
 	<script src="program/ui/trackLayoutInput.js"></script>
+	<script src="program/ui/topologyInput.js"></script>
 	<script src="program/ui/addTrainInput.js"></script>
 	<script src="program/ui/swapWindow.js"></script>
 	<script src="program/ui/createTimetable.js"></script>
@@ -1626,6 +1702,7 @@
 	<!-- csv / json file parsing -->
 	<script src="program/handler/RouteInfoHandler.js"></script>
 	<script src="program/handler/TrackLayoutHandler.js"></script>
+	<script src="program/handler/TopologyHandler.js"></script>
 	<script src="program/handler/TimetableHandler.js"></script>
 
 	<!-- setting api -->

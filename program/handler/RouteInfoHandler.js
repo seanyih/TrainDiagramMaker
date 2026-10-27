@@ -24,6 +24,7 @@ function applyRoute(route){
 	ROUTE.route_name = route.route_name;
 	ROUTE.stations = route.stations;
 	ROUTE.track_layout = route.track_layout;
+	ROUTE.topology = route.topology;
 	renderRouteTable();
 }
 
@@ -45,8 +46,13 @@ function loadRouteFromCSV(text){
 			(cells[3] ?? "").trim()
 		);
 	});
-	// csv has no track layout: keep the current one
-	return { route_name: ROUTE.route_name, stations: stations, track_layout: loadTrackLayout(ROUTE.track_layout, stations.length) };
+	// csv has no track layout or topology: reset them
+	return {
+		route_name: ROUTE.route_name,
+		stations: stations,
+		track_layout: newTrackLayout(stations.length),
+		topology: newTopology(stations.length)
+	};
 }
 
 function loadRouteFromJSON(text){
@@ -54,6 +60,7 @@ function loadRouteFromJSON(text){
 	return {
 		route_name: data.route_name ?? "",
 		stations: data.stations.map(s => newStation(s.name, s.kilo, s.stopsec ?? SETTINGS.defaultStopSec, s.alias ?? "")),
-		track_layout: loadTrackLayout(data.track_layout, data.stations.length)
+		track_layout: loadTrackLayout(data.track_layout, data.stations.length),
+		topology: loadTopology(data.topology, data.stations.length)
 	};
 }

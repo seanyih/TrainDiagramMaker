@@ -18,6 +18,10 @@
         "max_speed_enabled": true,
         "max_speed_all": 85,
         "max_speeds": [85, null]
+    },
+    "topology": {
+        "secondary": [false, true, false],
+        "branches": [[], [], [{ "stations": [{ "name": "奈多", "kilo": 0.9 }] }]]
     }
 }
 ```
@@ -31,6 +35,7 @@
 | `stations[].stopsec` | number         | 否   | 該站預設停站秒數。省略時使用設定中的 `defaultStopSec`。                |
 | `stations[].alias`   | string         | 否   | 站名別名，設定 `aliasText.show` 為 `true` 時畫在圖的右側。省略時為 `""` |
 | `track_layout`       | object         | 否   | 軌道配置，見下節。省略時全線為 `"quadruple"`（不設限）                 |
+| `topology`           | object         | 否   | 線路拓樸（次要車站、分岐），見[線路拓樸](#線路拓樸)。省略時沒有次要車站與分岐            |
 
 ## 軌道配置
 
@@ -58,7 +63,21 @@
 
 * 後綴數字是追越的方向：1 = 順行、2 = 逆行、3 = 雙向。三線沒有 `triple.0`。
 * 匯入時，缺少的欄位、長度不足的部分、不認得的值都當作 `"quadruple"`；最高速度不是正數時當作 `null`；超出站數的部分忽略。
-* 路線 CSV 沒有軌道配置，匯入 CSV 時保留目前的軌道配置。
+* 路線 CSV 沒有軌道配置，匯入 CSV 時軌道配置會重設為預設值。
+
+## 線路拓樸
+
+`topology` 記錄次要車站，以及從各站分岐出去的路線。
+
+| 欄位 | 長度 | 說明 |
+|---|---|---|
+| `topology.secondary[i]` | 站數 | 第 i 站是否為次要車站（以次要車站線、次要站名繪製，見[設定檔案格式](manual-dev-setting-json.html)）。起終點一律為 `false` |
+| `topology.branches[i]` | 站數 | 從第 i 站分岐的路線，最多 3 條 |
+| `topology.branches[i][b].stations[]` | — | 分岐上的車站 `{ name, kilo }`。`kilo` 是與分岐站（第 i 站）的距離（公里，正數），`null` 代表未填 |
+
+* 分岐上的車站依 `kilo` 由近到遠排序，`null` 排在最後。
+* 匯入時，缺少的部分當作非次要車站、沒有分岐；`kilo` 不是正數時當作 `null`；沒有車站的分岐移除，每站超過 3 條的分岐忽略。
+* 路線 CSV 沒有線路拓樸，匯入 CSV 時線路拓樸會重設為預設值（沒有次要車站與分岐）。
 
 ## 匯入規則
 
@@ -86,8 +105,10 @@ name,kilo[,stopsec][,alias]
 
 | 檔案                                    | 內容                                                                            |
 | ------------------------------------- | ----------------------------------------------------------------------------- |
-| `program/data/DataStore.js`           | `ROUTE`、`newStation()`、`newTrackLayout()`、`insertStation()`、`deleteStation()` |
+| `program/data/DataStore.js`           | `ROUTE`、`newStation()`、`newTrackLayout()`、`newTopology()`、`insertStation()`、`deleteStation()` |
 | `program/handler/RouteInfoHandler.js` | `applyRoute()`、`loadRouteFromJSON()`、`loadRouteFromCSV()`、`getRouteDataCSV()` |
 | `program/handler/TrackLayoutHandler.js` | `loadTrackLayout()`                                                          |
+| `program/handler/TopologyHandler.js`  | `loadTopology()`                                                              |
+| `program/ui/topologyInput.js`         | 線路拓樸表格：`renderTopologyTable()`                                          |
 | `program/program/TrackLayout.js`      | 軌道類型、轉換圖對照表、快速套用：`parseTrack()`、`makeTrack()`、`trackTransition()`、`applyTrackPreset()`、`minRunSec()` |
 | `program/ui/createTimetable.js`       | `checkkilo()`、`generateTimetable()`                                           |

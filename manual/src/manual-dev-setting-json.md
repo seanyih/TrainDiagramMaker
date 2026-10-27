@@ -24,12 +24,15 @@
     "background": { "transparent": false, "color": "#FFFFFF" },
     "lines": {
         "station":   { "width": 2,   "color": "#000000" },
+        "secondaryStation": { "width": 1.4, "color": "#808080" },
         "primary":   { "width": 2,   "color": "#000000" },
         "secondary": { "width": 1.4, "color": "#808080", "interval": 10 },
         "outline":   { "width": 2,   "color": "#000000" }
     },
     "stationText": { "fontSize": 20, "color": "#000000", "gap": 10 },
     "aliasText": { "show": false, "fontSize": 20, "color": "#000000", "gap": 10 },
+    "secondaryStationText": { "fontSize": 16, "color": "#808080", "gap": 10 },
+    "secondaryAliasText": { "fontSize": 16, "color": "#808080", "gap": 10 },
     "timeLabel": {
         "format": "standard",
         "zeroPad": false,
@@ -87,8 +90,10 @@
 | `background.transparent` / `.color` | false / `#FFFFFF` | 背景；透明時不畫背景 |
 | `lines.{station,primary,secondary,outline}` | | `{ width, color }`：車站線、整點線、次要時間線、外框 |
 | `lines.secondary.interval` | 10 | 次要時間線間隔（分）：1、5、10、15、20、30 |
+| `lines.secondaryStation` | | `{ width, color }`：次要車站的車站線（路線 JSON 的 `topology.secondary`） |
 | `stationText` | | `{ fontSize, color, gap }`：左側站名，靠右對齊 |
 | `aliasText` | | `{ show, fontSize, color, gap }`：右側站名別名，靠左對齊 |
+| `secondaryStationText` / `secondaryAliasText` | | `{ fontSize, color, gap }`：次要車站的站名 / 別名；別名是否顯示同樣看 `aliasText.show` |
 | `timeLabel.format` | `"standard"` | `standard` = hh:mm 固定大小；`sized` = hh 大、mm 小；`simple` = 整點只標 hh、次要只標 mm |
 | `timeLabel.formats.{standard,simple}` | | `{ fontSize, color }` |
 | `timeLabel.formats.sized` | | `{ hourFontSize, hourColor, minuteFontSize, minuteColor }` |

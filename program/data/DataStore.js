@@ -5,11 +5,13 @@
 */
 
 const DEFAULT_TRACK = "quadruple";
+const MAX_BRANCHES = 3; // per station
 
 const ROUTE = {
 	route_name: "",
 	stations: [newStation(), newStation()],
-	track_layout: newTrackLayout(2)
+	track_layout: newTrackLayout(2),
+	topology: newTopology(2)
 };
 ROUTE.stations[0].kilo = 0;
 
@@ -33,6 +35,24 @@ function newTrackLayout(count){
 		max_speed_all: null,
 		max_speeds: Array(count - 1).fill(null)
 	};
+}
+
+// secondary stations (never the first or last one), and the branch lines diverging at each station, left to right
+function newTopology(count){
+	return {
+		secondary: Array(count).fill(false),
+		branches: Array.from({ length: count }, () => [])
+	};
+}
+
+// kilo: from the station the branch diverges at
+function newBranchStation(name = "", kilo = null){
+	return { name: name, kilo: kilo };
+}
+
+// nearest first; blank kilos last
+function sortBranchStations(branch){
+	branch.stations.sort((a, b) => (a.kilo ?? Infinity) - (b.kilo ?? Infinity));
 }
 
 function newTrain(train_number = "", train_name = "", train_color = 0){
@@ -124,6 +144,9 @@ function insertStation(index){
 	layout.stations.splice(index, 0, layout.stations[index - 1]);
 	layout.sections.splice(index - 1, 0, layout.sections[Math.min(index, count - 1) - 1] ?? DEFAULT_TRACK);
 	layout.max_speeds.splice(index - 1, 0, layout.max_speeds[Math.min(index, count - 1) - 1] ?? null);
+
+	ROUTE.topology.secondary.splice(index, 0, false);
+	ROUTE.topology.branches.splice(index, 0, []);
 }
 
 function deleteStation(index){
@@ -140,6 +163,10 @@ function deleteStation(index){
 	ROUTE.track_layout.stations.splice(index, 1);
 	ROUTE.track_layout.sections.splice(Math.min(index, count - 2), 1);
 	ROUTE.track_layout.max_speeds.splice(Math.min(index, count - 2), 1);
+
+	ROUTE.topology.secondary.splice(index, 1);
+	ROUTE.topology.branches.splice(index, 1);
+	ROUTE.topology.secondary[count - 2] = false; // the last station
 }
 
 function refreshStopNames(){
