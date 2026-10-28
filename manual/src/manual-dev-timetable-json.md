@@ -67,6 +67,8 @@ TRAINS = {
 
 `origin` / `terminal` 的站名對應路線 JSON 的 `topology.branches` 中的車站（見[線路拓樸](manual-dev-route-json.html#線路拓樸)）。分岐站在第一個停靠站以前（終點：最後一個停靠站以後）時，以距離內插出通過分岐站的時刻畫圖；這個時刻不寫進 `timetable`。
 
+在本路線不停任何車站的列車，`timetable` 可以是空陣列，`origin` 與 `terminal` 都要填：兩個分岐站的時刻以 `origin.departure` 到 `terminal.arrival` 之間的距離內插（距離 = 始發站到分岐站 + 兩分岐站間的路線里程 + 分岐站到終點站）。始發的分岐站必須在終點的分岐站之前（該方向的順序）。
+
 ### 停靠站 (stop)
 
 | 欄位 | 型別 | 說明 |
@@ -75,6 +77,7 @@ TRAINS = {
 | `station_name` | string | 站名，冗餘欄位，方便人閱讀。匯入時忽略，由程式依路線自動更新 |
 | `arrival` | string | 到站時刻，`""` 表示無 |
 | `departure` | string | 發車時刻，`""` 表示無 |
+| `pinned` | boolean | `true` = 釘選：[還原通過時間](manual-ops-passing-time.html#釘選的時刻)不移動這個時刻。[疊圖](manual-ops-import-export.html#疊圖)疊加的時刻會設定。可省略（`false`）。CSV 不保存此欄 |
 
 ## station_order 與方向
 
@@ -104,9 +107,39 @@ TRAINS = {
 匯入/匯出頁的「匯入列車資料時」選單：
 
 * 取代（預設）：`TRAINS[bound]` 換成檔案內容。
-* 附加：先移除空白列車（無車次且無停靠站），再把檔案內容接在後面。
+* 附加：先移除空白列車（無車次、無停靠站、無始發與終點），再把檔案內容接在後面。
 
 JSON 可由該方向任一個列車匯入按鈕匯入（「發車時刻」或「到發時刻」皆可）。
+
+## 疊圖檔案
+
+「匯入/匯出 > 疊圖」匯出的檔案（`getOverlayJSON()`，`program/program/Overlay.js`）：
+
+```json
+{
+    "type": "rtd-overlay",
+    "version": 1,
+    "route_name": "臺鐵 縱貫線北段 (基隆-竹南)",
+    "stations": [ { "name": "北新竹", "kilo": 105.2 }, { "name": "新竹", "kilo": 106.6 } ],
+    "train_count": 311,
+    "trains": [
+        {
+            "train_number": "2005",
+            "settings": { "train_name": "區間快", "train_color": 2 },
+            "direction": 1,
+            "stops": [
+                { "station_name": "北新竹", "arrival": "0637", "departure": "0637", "passing": true },
+                { "station_name": "新竹", "arrival": "0640", "departure": "0642", "passing": false }
+            ]
+        }
+    ]
+}
+```
+
+* `stations`：匯出的區段，路線順序。
+* `direction`：1 = 沿 `stations` 的順序行駛，2 = 反向。`stops` 依行駛順序排列，至少兩站。
+* `stops`：時刻表上的停靠站保留原本的 `arrival` / `departure`（空白的到站仍是空白）；其他車站（通過、內插的分岐站、兩停靠站之間的直線）`arrival` = `departure` = 圖上列車線的時刻，到秒。`passing` 只供參考。
+* 疊加（`applyOverlay(data, conflict)`）時站名對應路線車站、車次對應列車，見[疊圖](manual-ops-import-export.html#疊圖)。
 
 ## 與 CSV 的對應
 

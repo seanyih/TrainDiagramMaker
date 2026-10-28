@@ -96,9 +96,13 @@ function createPassingModel(trains, headway, rounding = null){
 			train.timetable.forEach(stop => t.free[stop.station_order] = 0);
 			stops.forEach((stop, i) => {
 				const k = stop.order;
+				// pinned (an overlay): exact, never moved
+				const pinned = !stop.junction && findStop(train, k)?.pinned;
 				if(stop.junction){
 					t.junctions.push(stop.junction);
 					t.free[k] = 0;
+				}else if(pinned){
+					// keep its times
 				}else if(rounding){
 					vagueStop(m, t, stop, i == 0, i == stops.length - 1);
 				}else if(i > 0 && stop.arr != stop.dep && (inaccurateArrival || !findStop(train, k).arrival)){
@@ -113,7 +117,7 @@ function createPassingModel(trains, headway, rounding = null){
 				if(i == stops.length - 1) return;
 				if((t.vague[k] ? t.depMax[k] - t.early[k] : stop.dep - stop.arr) > stations[k].stopsec + minExtraPassingWaiting) t.wait[k] = 1;
 				// fine-tuning may move the passing times in the timetable too
-				if(headway && stop.dep == stop.arr && !rounding){
+				if(headway && stop.dep == stop.arr && !rounding && !pinned){
 					t.fixed[k] = 2;
 					t.free[k] = 1;
 				}

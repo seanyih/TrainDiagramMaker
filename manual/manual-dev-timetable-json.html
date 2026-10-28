@@ -179,6 +179,7 @@
 </tbody>
 </table>
 <p><code>origin</code> / <code>terminal</code> 的站名對應路線 JSON 的 <code>topology.branches</code> 中的車站（見<a href="manual-dev-route-json.html#線路拓樸">線路拓樸</a>）。分岐站在第一個停靠站以前（終點：最後一個停靠站以後）時，以距離內插出通過分岐站的時刻畫圖；這個時刻不寫進 <code>timetable</code>。</p>
+<p>在本路線不停任何車站的列車，<code>timetable</code> 可以是空陣列，<code>origin</code> 與 <code>terminal</code> 都要填：兩個分岐站的時刻以 <code>origin.departure</code> 到 <code>terminal.arrival</code> 之間的距離內插（距離 = 始發站到分岐站 + 兩分岐站間的路線里程 + 分岐站到終點站）。始發的分岐站必須在終點的分岐站之前（該方向的順序）。</p>
 <h3 id="停靠站-stop">停靠站 (stop)</h3>
 <table>
 <thead>
@@ -209,6 +210,11 @@
 <td>string</td>
 <td>發車時刻，<code>""</code> 表示無</td>
 </tr>
+<tr>
+<td><code>pinned</code></td>
+<td>boolean</td>
+<td><code>true</code> = 釘選：<a href="manual-ops-passing-time.html#釘選的時刻">還原通過時間</a>不移動這個時刻。<a href="manual-ops-import-export.html#疊圖">疊圖</a>疊加的時刻會設定。可省略（<code>false</code>）。CSV 不保存此欄</td>
+</tr>
 </tbody>
 </table>
 <h2 id="station_order-與方向">station_order 與方向</h2>
@@ -236,9 +242,36 @@
 <p>匯入/匯出頁的「匯入列車資料時」選單：</p>
 <ul>
 <li>取代（預設）：<code>TRAINS[bound]</code> 換成檔案內容。</li>
-<li>附加：先移除空白列車（無車次且無停靠站），再把檔案內容接在後面。</li>
+<li>附加：先移除空白列車（無車次、無停靠站、無始發與終點），再把檔案內容接在後面。</li>
 </ul>
 <p>JSON 可由該方向任一個列車匯入按鈕匯入（「發車時刻」或「到發時刻」皆可）。</p>
+<h2 id="疊圖檔案">疊圖檔案</h2>
+<p>「匯入/匯出 &gt; 疊圖」匯出的檔案（<code>getOverlayJSON()</code>，<code>program/program/Overlay.js</code>）：</p>
+<pre><code class="language-json">{
+    &quot;type&quot;: &quot;rtd-overlay&quot;,
+    &quot;version&quot;: 1,
+    &quot;route_name&quot;: &quot;臺鐵 縱貫線北段 (基隆-竹南)&quot;,
+    &quot;stations&quot;: [ { &quot;name&quot;: &quot;北新竹&quot;, &quot;kilo&quot;: 105.2 }, { &quot;name&quot;: &quot;新竹&quot;, &quot;kilo&quot;: 106.6 } ],
+    &quot;train_count&quot;: 311,
+    &quot;trains&quot;: [
+        {
+            &quot;train_number&quot;: &quot;2005&quot;,
+            &quot;settings&quot;: { &quot;train_name&quot;: &quot;區間快&quot;, &quot;train_color&quot;: 2 },
+            &quot;direction&quot;: 1,
+            &quot;stops&quot;: [
+                { &quot;station_name&quot;: &quot;北新竹&quot;, &quot;arrival&quot;: &quot;0637&quot;, &quot;departure&quot;: &quot;0637&quot;, &quot;passing&quot;: true },
+                { &quot;station_name&quot;: &quot;新竹&quot;, &quot;arrival&quot;: &quot;0640&quot;, &quot;departure&quot;: &quot;0642&quot;, &quot;passing&quot;: false }
+            ]
+        }
+    ]
+}
+</code></pre>
+<ul>
+<li><code>stations</code>：匯出的區段，路線順序。</li>
+<li><code>direction</code>：1 = 沿 <code>stations</code> 的順序行駛，2 = 反向。<code>stops</code> 依行駛順序排列，至少兩站。</li>
+<li><code>stops</code>：時刻表上的停靠站保留原本的 <code>arrival</code> / <code>departure</code>（空白的到站仍是空白）；其他車站（通過、內插的分岐站、兩停靠站之間的直線）<code>arrival</code> = <code>departure</code> = 圖上列車線的時刻，到秒。<code>passing</code> 只供參考。</li>
+<li>疊加（<code>applyOverlay(data, conflict)</code>）時站名對應路線車站、車次對應列車，見<a href="manual-ops-import-export.html#疊圖">疊圖</a>。</li>
+</ul>
 <h2 id="與-csv-的對應">與 CSV 的對應</h2>
 <p>CSV 格式請見<a href="manual-format-timetable-csv.html">時刻表資料檔案格式(csv)</a>。簡要來說：一班車佔一欄（發車時刻）或兩欄（到站、發車），第 0 列為車次，第 1 ~ N 列為各站時刻（該方向順序），第 N+1、N+2 列為列車名與顏色，第 N+3 ~ N+6 列為始發站名、發車時刻、終點站名、到達時刻（皆可省略）。CSV 不處理引號，欄位中不能含有逗號或換行。</p>
 <h2 id="相關程式">相關程式</h2>
@@ -277,7 +310,7 @@
 
 		<aside class="manual-toc">
 			<p class="manual-toc-title">本頁內容</p>
-			<ul><li><a href="#結構">結構</a><ul><li><a href="#外層欄位">外層欄位</a></li><li><a href="#列車-train">列車 (train)</a></li><li><a href="#停靠站-stop">停靠站 (stop)</a></li></ul></li><li><a href="#station_order-與方向">station_order 與方向</a></li><li><a href="#時刻格式">時刻格式</a></li><li><a href="#繪圖時的處理">繪圖時的處理</a></li><li><a href="#匯入方式">匯入方式</a></li><li><a href="#與-csv-的對應">與 CSV 的對應</a></li><li><a href="#相關程式">相關程式</a></li></ul>
+			<ul><li><a href="#結構">結構</a><ul><li><a href="#外層欄位">外層欄位</a></li><li><a href="#列車-train">列車 (train)</a></li><li><a href="#停靠站-stop">停靠站 (stop)</a></li></ul></li><li><a href="#station_order-與方向">station_order 與方向</a></li><li><a href="#時刻格式">時刻格式</a></li><li><a href="#繪圖時的處理">繪圖時的處理</a></li><li><a href="#匯入方式">匯入方式</a></li><li><a href="#疊圖檔案">疊圖檔案</a></li><li><a href="#與-csv-的對應">與 CSV 的對應</a></li><li><a href="#相關程式">相關程式</a></li></ul>
 		</aside>
 	</div>
 

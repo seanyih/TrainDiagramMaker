@@ -55,7 +55,7 @@ function loadTrainFromJSON(text){
 		const train = newTrain(t.train_number ?? "", t.settings?.train_name ?? "", parseInt(t.settings?.train_color) || 0);
 		setBranchEnds(train, t.origin?.station_name, t.origin?.departure, t.terminal?.station_name, t.terminal?.arrival);
 		t.timetable.forEach(stop => {
-			addStop(train, stop.station_order, normalizeTime(stop.arrival ?? "") || "", normalizeTime(stop.departure ?? "") || "");
+			addStop(train, stop.station_order, normalizeTime(stop.arrival ?? "") || "", normalizeTime(stop.departure ?? "") || "", stop.pinned === true);
 		});
 		return train;
 	});

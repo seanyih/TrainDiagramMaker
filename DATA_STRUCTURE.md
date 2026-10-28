@@ -229,6 +229,7 @@ train = {
 	terminal: { station_name: "", arrival: "" },   // a branch station it goes to
 	timetable: [                // only stations the train stops at / passes, sorted by station_order
 		{ station_order: 0, station_name: "西戸崎", arrival: "0528", departure: "0529" },
+		{ station_order: 1, station_name: "海ノ中道", arrival: "053215", departure: "053215", pinned: true },   // pinned: optional
 		...
 	]
 }
@@ -240,6 +241,7 @@ train = {
 | `station_name` | 冗餘欄位，方便閱讀 JSON。由 `refreshStopNames()` 依路線自動更新 (車站改名/增刪/匯入時) |
 | `arrival` / `departure` | 見第 3 節。兩者皆空的停靠站會被移除；只有發車時刻的停靠站，到站時刻保持空白 (代表不知道)，畫圖、計算時才以 `arrivalTime()` 算出 (= 發車 − 該站 `stopsec`)，不寫回資料 |
 | `origin` / `terminal` | 跨線列車 (5.4)：分岐上的站名 (`ROUTE.topology.branches` 的車站) 與發車 / 到達時刻，`""` = 無。匯入時缺少則為空白，時刻經 `normalizeTime()`，不合法則為空白 |
+| `pinned` | 停靠站的選填欄位，`true` = 釘選 (疊圖 5.5 疊加的時刻)：還原通過時間 (7.3) 不移動、不改寫。只有 `true` 時才存在 (`addStop(..., pinned)`)；JSON 匯入匯出保留，CSV 不保存。車次細項的「解除釘選」(`unpinTrain()`) 刪除整班車的此欄。時刻表中以 `.pinned-time-input` (底線) 標示 |
 
 繪圖只使用有 `departure` 的停靠站 (加上 5.4 的分岐站停靠點)。
 
@@ -307,8 +309,42 @@ train = {
 - 只有 J 在第一個停靠站之前 (終點：最後一個之後) 才產生停靠點；J 本身就是停靠站時時刻已知。站名重複時取第一個符合的分岐車站。缺少時刻、分岐車站或里程時不產生。
 - 內插：始發站 O 的發車 a、第一個停靠站 S 的到站 c (`arrivalTime()`，跨夜時 O 往前推一天)，`d1` = O 到 J 的分岐里程、`d2` = |J − S| 的路線里程：`t = a + (c − a)·d1/(d1 + d2)`。終點同理 (最後一站的發車 → 終點站的到達)。
 - 可移動範圍 `[min, max]` (`junctionRange()`)：前後兩段平均速度比不超過 `interpolationSpeedRatio` (r)：`[a + T·d1/(d1 + r·d2), a + T·r·d1/(r·d1 + d2)]`，`T = c − a`；`interpolationMaxError` 不是 `null` 時改為 `t ± error` (限在 a ~ c 之間)。
+- **在路線上沒有停靠站的列車** (`timetable` 為空或沒有發車時刻，`passingJunctions()`)：`origin` 與 `terminal` 都有效、且始發的分岐站在終點的分岐站之前 (該方向的 `station_order`) 時，兩個分岐站都產生停靠點：始發站發車 a、終點站到達 c (跨夜時 c 加一天)，總距離 `d = origin 分岐里程 + 兩分岐站間的路線里程 + terminal 分岐里程`，各點 `t = a + (c − a)·d1/d`，範圍以 `junctionRange(a, c, d1, d − d1)` 計算。時刻以始發的發車為基準 (跨夜同上)。
+- `isBlankTrain()`：無車次、無停靠站、無 `origin` / `terminal` 才算空白列車 (附加匯入時移除)。
 - 繪圖：`trainStops(train, bound)` = 停靠點 + `timetable`，`drawTrain()` 用它畫線 (時刻取到秒，不對齊 `timeGranularity`)。
 - 還原通過時間 (7.3)：停靠點是列車的第一 (最後) 站，記在模型的 `t.junctions` (`{ k, time, min, max }`)。
+
+### 5.5 疊圖 (`program/program/Overlay.js`, `program/handler/OverlayHandler.js`)
+
+匯入/匯出頁的「疊圖」：把本路線一段的列車匯出，疊加到共用這段的另一條路線 (例：縱貫線算好通過時刻後，新竹–北新竹疊到內灣線)。
+
+**匯出** (`getOverlayJSON(from, to)`，`from` < `to` 為 `ROUTE.stations` 的 index；UI 選單 `#OverlayFrom` / `#OverlayTo` 由 `renderOverlayStations()` 在 `onRouteChanged()` 與載入時產生，選反時對調)：
+
+```js
+{
+	type: "rtd-overlay", version: 1,
+	route_name: ROUTE.route_name,
+	stations: [{ name, kilo }, ...],          // ROUTE.stations[from..to]
+	train_count: n,
+	trains: [{
+		train_number, settings,               // as in TRAINS
+		direction: 1 | 2,                     // 1 = along `stations`, 2 = against (= the bound it had)
+		stops: [{ station_name, arrival, departure, passing }, ...]   // in its direction of travel, >= 2
+	}]
+}
+```
+
+- `trainTimesAt(train, bound)`：列車從第一個到最後一個繪圖點 (含 5.4 的分岐站停靠點) 之間每一站的時刻 (秒，跨夜展開同 `stopTimes()`)，停靠點之間依里程直線內插，與 `drawTrain()` 畫的線相同。
+- 時刻表上的停靠站保留原字串 (空白的到站仍空白)；其他站 `arrival = departure` = 線上的時刻，取到秒 (`overlayTime()`)，不對齊 `timeGranularity`。`passing` 只供參考。區段內不到兩站的列車不匯出。
+
+**疊加** (`applyOverlay(data, conflict)`，`conflict` = `"overlay"` 以疊圖為準 / `"keep"` 保留現有時刻，`#OverlayConflict`)：
+
+1. 車站以站名對應 (`ROUTE.stations` 中第一個同名的站)；對應到的站少於兩個，或順序不是單調遞增 / 遞減時拋出錯誤 (UI 顯示於 `#OverlayResult`)。
+2. 每班車的方向 = 對應到的站在本路線的順序 (只對應到一站時用 `direction` 與區段的方向)。
+3. 找同一班車 (`findOverlayTrain()`)：同方向、同車次 (有多班時取同站同時刻的、否則第一個時刻最接近的)；沒有車次時取同站同時刻的無車次列車。找到 → 合併；找不到且對應到兩站以上 → 新增在該方向最後；否則略過。
+4. 合併 / 新增的時刻都設 `pinned: true`。`"overlay"`：已有的停靠站換成疊圖的時刻 (疊圖空白的欄位保留原值)；`"keep"`：已有的停靠站不動。
+5. 疊圖中位在對應區段前 (後) 的車站若是本路線分岐上的車站，且列車沒有 `origin` (`terminal`)，填入該站與其發車 (到達) 時刻。
+6. 回傳 `{ merged, added, skipped, stations: [本路線沒有的站名] }`。同一檔案再疊加一次不會改變資料。
 
 ## 6. 設定 JSON 與全部資料 JSON
 
@@ -404,6 +440,7 @@ draft = { trains: { 1: [...], 2: [...] }, fingerprint: "..." }   // trains: stru
 
 - 最高速度：有設定的站間用 `minRunSec()`；沒有設定的，以時刻表中通過該站間的最快「停靠站到停靠站」平均速度 (不計 `arrival == departure` 的通過點，避免之前推算的時刻逐次放寬上限) × `estimatedSpeedLimitRatio` 估計。(差分約束) 時刻表本身比上限快的區段，上限等比例放寬。
 - 通過時刻都對齊 `timeGranularity` 的倍數。
+- **釘選的停靠站** (`pinned`，5.5)：建模時保持原時刻，不設 `vague` (精度不足)、`loose` (到站不準確)，也不是 `fixed == 2` (微調可移動)，所以 `writePassingTimes()` 不會改寫。
 - 勾選 `fineTune` 時，時刻表中已有的通過時刻 (`arrival == departure`) 也可以移動 (結果列顯示「調整 n 個」)；沒勾選時只填原本空白的格子。
 - 以 `setTimeout` 讓出瀏覽器 (貪婪解法約每 50 ms (`ROUND_SLICE`)，差分約束每一輪)，每一輪後更新 dashboard (迴圈數、追越 | 交會 (| 時隔不足) 衝突數、上一圈消除的衝突數)；結束後隱藏 dashboard，結果列顯示最終衝突數與新增 / 調整的通過時刻數。
 - 離散決策 + 差分約束在東海道新幹線 (有最高速度)：勾選微調時追越 178 → 0、時隔不足 450 → 0，新增 556 個通過時刻，約 0.06 秒；不勾選時追越 178 → 0，新增 195 個。
@@ -446,7 +483,9 @@ draft = { trains: { 1: [...], 2: [...] }, fingerprint: "..." }   // trains: stru
 | `program/ui/createTimetable.js` | `renderTimetable(bound)`, `checkkilo()`, `generateTimetable()` |
 | `program/ui/addTrainInput.js` | 時刻表事件 (新增/刪除列車、車次、時刻輸入) |
 | `program/ui/optionsIO.js` | 列車細項 (列車名、顏色、始發、終點) offcanvas：`renderBranchEnd()` |
-| `program/program/BranchTrain.js` | 跨線列車：`branchStations()`, `branchChoices()`, `junctionRange()`, `junctionStops()`, `trainStops()` |
+| `program/program/BranchTrain.js` | 跨線列車：`branchStations()`, `branchChoices()`, `junctionRange()`, `junctionStops()`, `passingJunctions()`, `trainStops()` |
+| `program/program/Overlay.js` | 疊圖：`trainTimesAt()`, `overlayTime()`, `getOverlayJSON()`, `applyOverlay()`, `findOverlayTrain()`, `unpinTrain()` |
+| `program/handler/OverlayHandler.js` | 疊圖 UI：`renderOverlayStations()`, 匯出 / 疊加按鈕, 車次細項的 `renderPinnedCount()` / 解除釘選 |
 | `program/handler/RouteInfoHandler.js` | 路線匯入/匯出：`applyRoute()`, `getRouteDataCSV()`, `loadRouteFromCSV()`, `loadRouteFromJSON()` |
 | `program/handler/TimetableHandler.js` | 列車匯入/匯出：`applyTrains()`, `getTrainDataJSON()`, `loadTrainFromJSON()`, `getTrainDataCSV()`, `loadTrainFromCSV()` |
 | `program/handler/SettingHandler.js` | 設定匯入/匯出：`loadSettingsFromJSON()`, `mergeSettings()`, `applySettings()` |

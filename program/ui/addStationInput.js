@@ -25,6 +25,7 @@ function renderRouteTable(){
 function onRouteChanged(){
 	refreshStopNames();
 	renderStopRules();
+	renderOverlayStations();
 	refreshTimetable(1);
 	refreshTimetable(2);
 }
