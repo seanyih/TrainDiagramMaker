@@ -1,4 +1,20 @@
 <!doctype html>
+<!--
+	NOTE FOR LLM AGENTS (humans can ignore)
+	Online railway time diagram (x-t chart) maker. Pure front-end; serve over HTTP (python -m http.server 8765).
+	Data lives only in the globals ROUTE, TRAINS[1|2], SETTINGS; tables are just views. Call JS directly with a JS-evaluating browser tool:
+	  loadAllFromJSON(jsonText); generateTimetable();                  // {route, trains:{1,2}, settings?}
+	  applyRoute(loadRouteFromJSON(t)); generateTimetable();           // route first,
+	  applyTrains(bound, loadTrainFromJSON(t), false);                 // then trains (bound 1 = route order, 2 = reversed station_order)
+	  SETTINGS.pxPerKm = 30; initSettingsUI();                         // settings (see DATA_STRUCTURE.md section 2)
+	  $("#nav-output").click(); drawDiagram(); document.getElementById("output").outerHTML   // the SVG
+	  JSON.stringify(getAllDataJSON())                                 // export
+	After editing TRAINS call refreshTimetable(bound); use insertStation()/deleteStation() for stations.
+	Times are "hhmm" or "hhmmss" strings, "" = none. Do not guess missing data: ask the user.
+	Side bar: #nav-inex import/export, #nav-setting, #nav-route (route + track layout + topology), #nav-timetable-1/2, #nav-output.
+	Full guides: skills/rtd-data-format (prepare data), skills/rtd-operate-site (operate), skills/rtd-crawler (download from ekitan).
+	Spec: DATA_STRUCTURE.md
+-->
 <html>
 <head>
 	<meta charset="utf-8">
@@ -890,6 +906,21 @@
 						</div>
 						<div class="col-auto"><small class="text-muted">最多到 3000 (翌日 6 點)</small></div>
 					</div>
+					<div class="row g-3 align-items-center">
+						<div class="col-auto">
+							<label class="col-form-label">繪圖的區間範圍</label>
+						</div>
+						<div class="col-auto">
+							<select class="form-select" id="range-start"><!-- renderStationRange() --></select>
+						</div>
+						<div class="col-auto">
+							<label>~</label>
+						</div>
+						<div class="col-auto">
+							<select class="form-select" id="range-end"><!-- renderStationRange() --></select>
+						</div>
+						<div class="col-auto"><small class="text-muted">只畫這些車站之間，列車資料不受影響</small></div>
+					</div>
 
 				</div>
 
@@ -899,16 +930,16 @@
 				</div>
 				<hr style="margin-top: 0%;">
 				<div class="collapse" id="appearanceSettingWindow">
-					<div class="row"><p>圖片邊界 (圖表外框到圖片邊緣) (單位: 像素)</p></div>
+					<div class="row"><p>圖片邊界 (圖表外框到圖片邊緣) (單位: <span class="px-unit">像素</span>)</p></div>
 					<div class="row g-3 align-items-center">
 						<div class="col-auto"><label class="col-form-label">上</label></div>
-						<div class="col-auto"><input inputmode="decimal" class="form-control" style="width:100px" data-setting="margin.top"></div>
+						<div class="col-auto"><input inputmode="decimal" class="form-control" style="width:100px" data-unit="px" data-setting="margin.top"></div>
 						<div class="col-auto"><label class="col-form-label">下</label></div>
-						<div class="col-auto"><input inputmode="decimal" class="form-control" style="width:100px" data-setting="margin.bottom"></div>
+						<div class="col-auto"><input inputmode="decimal" class="form-control" style="width:100px" data-unit="px" data-setting="margin.bottom"></div>
 						<div class="col-auto"><label class="col-form-label">左</label></div>
-						<div class="col-auto"><input inputmode="decimal" class="form-control" style="width:100px" data-setting="margin.left"></div>
+						<div class="col-auto"><input inputmode="decimal" class="form-control" style="width:100px" data-unit="px" data-setting="margin.left"></div>
 						<div class="col-auto"><label class="col-form-label">右</label></div>
-						<div class="col-auto"><input inputmode="decimal" class="form-control" style="width:100px" data-setting="margin.right"></div>
+						<div class="col-auto"><input inputmode="decimal" class="form-control" style="width:100px" data-unit="px" data-setting="margin.right"></div>
 					</div>
 
 					<div class="row"><p>背景</p></div>
@@ -930,32 +961,92 @@
 				<div class="collapse" id="detailSettingWindow">
 					<h4>線條</h4>
 					<table class="table table-sm" style="width: auto; vertical-align: middle;">
-						<thead class="text-center"><tr><th></th><th>線寬(px)</th><th>顏色</th></tr></thead>
+						<thead class="text-center"><tr><th></th><th>線寬(<span class="px-unit">px</span>)</th><th>顏色</th></tr></thead>
 						<tbody>
 							<tr>
 								<td>車站線</td>
-								<td><input inputmode="decimal" class="form-control" step="0.1" data-setting="lines.station.width"></td>
+								<td><input inputmode="decimal" class="form-control" step="0.1" data-unit="px" data-setting="lines.station.width"></td>
 								<td><input type="color" class="form-control form-control-color mx-auto" data-setting="lines.station.color"></td>
 							</tr>
 							<tr>
 								<td>次要車站線</td>
-								<td><input inputmode="decimal" class="form-control" step="0.1" data-setting="lines.secondaryStation.width"></td>
+								<td><input inputmode="decimal" class="form-control" step="0.1" data-unit="px" data-setting="lines.secondaryStation.width"></td>
 								<td><input type="color" class="form-control form-control-color mx-auto" data-setting="lines.secondaryStation.color"></td>
 							</tr>
 							<tr>
 								<td>整點線</td>
-								<td><input inputmode="decimal" class="form-control" step="0.1" data-setting="lines.primary.width"></td>
+								<td><input inputmode="decimal" class="form-control" step="0.1" data-unit="px" data-setting="lines.primary.width"></td>
 								<td><input type="color" class="form-control form-control-color mx-auto" data-setting="lines.primary.color"></td>
 							</tr>
 							<tr>
 								<td>次要時間線</td>
-								<td><input inputmode="decimal" class="form-control" step="0.1" data-setting="lines.secondary.width"></td>
+								<td><input inputmode="decimal" class="form-control" step="0.1" data-unit="px" data-setting="lines.secondary.width"></td>
 								<td><input type="color" class="form-control form-control-color mx-auto" data-setting="lines.secondary.color"></td>
 							</tr>
 							<tr>
 								<td>圖表外框</td>
-								<td><input inputmode="decimal" class="form-control" step="0.1" data-setting="lines.outline.width"></td>
+								<td><input inputmode="decimal" class="form-control" step="0.1" data-unit="px" data-setting="lines.outline.width"></td>
 								<td><input type="color" class="form-control form-control-color mx-auto" data-setting="lines.outline.color"></td>
+							</tr>
+							<tr>
+								<td>列車線 (全部)</td>
+								<td><input inputmode="decimal" class="form-control" step="0.1" data-unit="px" data-setting="trainLineWidth"></td>
+								<td class="text-center"><button type="button" class="btn btn-outline-secondary" id="train-width-toggle" title="依顏色分別設定">∨</button></td>
+							</tr>
+							<tr class="train-width-row" style="display:none">
+								<td class="text-end">顏色0</td>
+								<td><input inputmode="decimal" class="form-control" placeholder="同全部" data-unit="px" data-nullable data-setting="trainLineWidthByColor.0"></td>
+								<td><div class="form-control form-control-color mx-auto" style="background-color: var(--color0);"></div></td>
+							</tr>
+							<tr class="train-width-row" style="display:none">
+								<td class="text-end">顏色1</td>
+								<td><input inputmode="decimal" class="form-control" placeholder="同全部" data-unit="px" data-nullable data-setting="trainLineWidthByColor.1"></td>
+								<td><div class="form-control form-control-color mx-auto" style="background-color: var(--color1);"></div></td>
+							</tr>
+							<tr class="train-width-row" style="display:none">
+								<td class="text-end">顏色2</td>
+								<td><input inputmode="decimal" class="form-control" placeholder="同全部" data-unit="px" data-nullable data-setting="trainLineWidthByColor.2"></td>
+								<td><div class="form-control form-control-color mx-auto" style="background-color: var(--color2);"></div></td>
+							</tr>
+							<tr class="train-width-row" style="display:none">
+								<td class="text-end">顏色3</td>
+								<td><input inputmode="decimal" class="form-control" placeholder="同全部" data-unit="px" data-nullable data-setting="trainLineWidthByColor.3"></td>
+								<td><div class="form-control form-control-color mx-auto" style="background-color: var(--color3);"></div></td>
+							</tr>
+							<tr class="train-width-row" style="display:none">
+								<td class="text-end">顏色4</td>
+								<td><input inputmode="decimal" class="form-control" placeholder="同全部" data-unit="px" data-nullable data-setting="trainLineWidthByColor.4"></td>
+								<td><div class="form-control form-control-color mx-auto" style="background-color: var(--color4);"></div></td>
+							</tr>
+							<tr class="train-width-row" style="display:none">
+								<td class="text-end">顏色5</td>
+								<td><input inputmode="decimal" class="form-control" placeholder="同全部" data-unit="px" data-nullable data-setting="trainLineWidthByColor.5"></td>
+								<td><div class="form-control form-control-color mx-auto" style="background-color: var(--color5);"></div></td>
+							</tr>
+							<tr class="train-width-row" style="display:none">
+								<td class="text-end">顏色6</td>
+								<td><input inputmode="decimal" class="form-control" placeholder="同全部" data-unit="px" data-nullable data-setting="trainLineWidthByColor.6"></td>
+								<td><div class="form-control form-control-color mx-auto" style="background-color: var(--color6);"></div></td>
+							</tr>
+							<tr class="train-width-row" style="display:none">
+								<td class="text-end">顏色7</td>
+								<td><input inputmode="decimal" class="form-control" placeholder="同全部" data-unit="px" data-nullable data-setting="trainLineWidthByColor.7"></td>
+								<td><div class="form-control form-control-color mx-auto" style="background-color: var(--color7);"></div></td>
+							</tr>
+							<tr class="train-width-row" style="display:none">
+								<td class="text-end">顏色8</td>
+								<td><input inputmode="decimal" class="form-control" placeholder="同全部" data-unit="px" data-nullable data-setting="trainLineWidthByColor.8"></td>
+								<td><div class="form-control form-control-color mx-auto" style="background-color: var(--color8);"></div></td>
+							</tr>
+							<tr class="train-width-row" style="display:none">
+								<td class="text-end">顏色9</td>
+								<td><input inputmode="decimal" class="form-control" placeholder="同全部" data-unit="px" data-nullable data-setting="trainLineWidthByColor.9"></td>
+								<td><div class="form-control form-control-color mx-auto" style="background-color: var(--color9);"></div></td>
+							</tr>
+							<tr class="train-width-row" style="display:none">
+								<td class="text-end">顏色10</td>
+								<td><input inputmode="decimal" class="form-control" placeholder="同全部" data-unit="px" data-nullable data-setting="trainLineWidthByColor.10"></td>
+								<td><div class="form-control form-control-color mx-auto" style="background-color: var(--color10);"></div></td>
 							</tr>
 						</tbody>
 					</table>
@@ -969,31 +1060,31 @@
 						</div>
 					</div>
 					<table class="table table-sm" style="width: auto; vertical-align: middle;">
-						<thead class="text-center"><tr><th></th><th>字型大小(px)</th><th>顏色</th><th>與圖表距離(px)</th></tr></thead>
+						<thead class="text-center"><tr><th></th><th>字型大小(<span class="px-unit">px</span>)</th><th>顏色</th><th>與圖表距離(<span class="px-unit">px</span>)</th></tr></thead>
 						<tbody>
 							<tr>
 								<td>站名</td>
-								<td><input inputmode="decimal" class="form-control" data-setting="stationText.fontSize"></td>
+								<td><input inputmode="decimal" class="form-control" data-unit="px" data-setting="stationText.fontSize"></td>
 								<td><input type="color" class="form-control form-control-color mx-auto" data-setting="stationText.color"></td>
-								<td><input inputmode="decimal" class="form-control" data-setting="stationText.gap"></td>
+								<td><input inputmode="decimal" class="form-control" data-unit="px" data-setting="stationText.gap"></td>
 							</tr>
 							<tr>
 								<td>站名別名</td>
-								<td><input inputmode="decimal" class="form-control" data-setting="aliasText.fontSize"></td>
+								<td><input inputmode="decimal" class="form-control" data-unit="px" data-setting="aliasText.fontSize"></td>
 								<td><input type="color" class="form-control form-control-color mx-auto" data-setting="aliasText.color"></td>
-								<td><input inputmode="decimal" class="form-control" data-setting="aliasText.gap"></td>
+								<td><input inputmode="decimal" class="form-control" data-unit="px" data-setting="aliasText.gap"></td>
 							</tr>
 							<tr>
 								<td>次要站名</td>
-								<td><input inputmode="decimal" class="form-control" data-setting="secondaryStationText.fontSize"></td>
+								<td><input inputmode="decimal" class="form-control" data-unit="px" data-setting="secondaryStationText.fontSize"></td>
 								<td><input type="color" class="form-control form-control-color mx-auto" data-setting="secondaryStationText.color"></td>
-								<td><input inputmode="decimal" class="form-control" data-setting="secondaryStationText.gap"></td>
+								<td><input inputmode="decimal" class="form-control" data-unit="px" data-setting="secondaryStationText.gap"></td>
 							</tr>
 							<tr>
 								<td>次要站名別名</td>
-								<td><input inputmode="decimal" class="form-control" data-setting="secondaryAliasText.fontSize"></td>
+								<td><input inputmode="decimal" class="form-control" data-unit="px" data-setting="secondaryAliasText.fontSize"></td>
 								<td><input type="color" class="form-control form-control-color mx-auto" data-setting="secondaryAliasText.color"></td>
-								<td><input inputmode="decimal" class="form-control" data-setting="secondaryAliasText.gap"></td>
+								<td><input inputmode="decimal" class="form-control" data-unit="px" data-setting="secondaryAliasText.gap"></td>
 							</tr>
 						</tbody>
 					</table>
@@ -1038,8 +1129,8 @@
 							<div class="col-auto"><small class="text-muted">時間範圍超過24:00時使用</small></div>
 						</div>
 						<div class="row g-3 align-items-center">
-						<div class="col-auto"><label class="col-form-label">與圖表距離(px)</label></div>
-						<div class="col-auto"><input inputmode="decimal" class="form-control" style="width:100px" data-setting="timeLabel.gap"></div>
+						<div class="col-auto"><label class="col-form-label">與圖表距離(<span class="px-unit">px</span>)</label></div>
+						<div class="col-auto"><input inputmode="decimal" class="form-control" style="width:100px" data-unit="px" data-setting="timeLabel.gap"></div>
 					</div>
 					<div class="row g-3 align-items-center">
 						<div class="col-auto"><label class="col-form-label">次要時間線的文字標記</label></div>
@@ -1054,25 +1145,25 @@
 					</div>
 					<div class="row g-3 align-items-center time-format-fields" data-format="standard">
 						<div class="col-auto"><label class="col-form-label">字型大小</label></div>
-						<div class="col-auto"><input inputmode="decimal" class="form-control" style="width:100px" data-setting="timeLabel.formats.standard.fontSize"></div>
+						<div class="col-auto"><input inputmode="decimal" class="form-control" style="width:100px" data-unit="px" data-setting="timeLabel.formats.standard.fontSize"></div>
 						<div class="col-auto"><label class="col-form-label">顏色</label></div>
 						<div class="col-auto"><input type="color" class="form-control form-control-color" data-setting="timeLabel.formats.standard.color"></div>
 					</div>
 					<div class="row g-3 align-items-center time-format-fields" data-format="sized">
 						<div class="col-auto" style="width:8rem"><label class="col-form-label">hh 字型大小</label></div>
-						<div class="col-auto"><input inputmode="decimal" class="form-control" style="width:100px" data-setting="timeLabel.formats.sized.hourFontSize"></div>
+						<div class="col-auto"><input inputmode="decimal" class="form-control" style="width:100px" data-unit="px" data-setting="timeLabel.formats.sized.hourFontSize"></div>
 						<div class="col-auto" style="width:6rem"><label class="col-form-label">hh 顏色</label></div>
 						<div class="col-auto"><input type="color" class="form-control form-control-color" data-setting="timeLabel.formats.sized.hourColor"></div>
 					</div>
 					<div class="row g-3 align-items-center time-format-fields" data-format="sized">
 						<div class="col-auto" style="width:8rem"><label class="col-form-label">mm 字型大小</label></div>
-						<div class="col-auto"><input inputmode="decimal" class="form-control" style="width:100px" data-setting="timeLabel.formats.sized.minuteFontSize"></div>
+						<div class="col-auto"><input inputmode="decimal" class="form-control" style="width:100px" data-unit="px" data-setting="timeLabel.formats.sized.minuteFontSize"></div>
 						<div class="col-auto" style="width:6rem"><label class="col-form-label">mm 顏色</label></div>
 						<div class="col-auto"><input type="color" class="form-control form-control-color" data-setting="timeLabel.formats.sized.minuteColor"></div>
 					</div>
 					<div class="row g-3 align-items-center time-format-fields" data-format="simple">
 						<div class="col-auto"><label class="col-form-label">字型大小</label></div>
-						<div class="col-auto"><input inputmode="decimal" class="form-control" style="width:100px" data-setting="timeLabel.formats.simple.fontSize"></div>
+						<div class="col-auto"><input inputmode="decimal" class="form-control" style="width:100px" data-unit="px" data-setting="timeLabel.formats.simple.fontSize"></div>
 						<div class="col-auto"><label class="col-form-label">顏色</label></div>
 						<div class="col-auto"><input type="color" class="form-control form-control-color" data-setting="timeLabel.formats.simple.color"></div>
 					</div>
@@ -1091,18 +1182,18 @@
 					<div id="train-number-fields">
 					<div class="row g-3 align-items-center">
 						<div class="col-auto"><label class="col-form-label">列車號字型大小</label></div>
-						<div class="col-auto"><input inputmode="decimal" class="form-control" style="width:100px" data-setting="trainNumberFontSize"></div>
-						<div class="col-auto"><label class="col-form-label">像素</label></div>
+						<div class="col-auto"><input inputmode="decimal" class="form-control" style="width:100px" data-unit="px" data-setting="trainNumberFontSize"></div>
+						<div class="col-auto"><label class="col-form-label px-unit">像素</label></div>
 					</div>
 					<div class="row g-3 align-items-center">
 						<div class="col-auto"><label class="col-form-label">每隔</label></div>
-						<div class="col-auto"><input inputmode="decimal" class="form-control" style="width:100px" data-setting="pxPerTrainNumber"></div>
-						<div class="col-auto"><label class="col-form-label">像素標一次列車號</label></div>
+						<div class="col-auto"><input inputmode="decimal" class="form-control" style="width:100px" data-unit="px" data-setting="pxPerTrainNumber"></div>
+						<div class="col-auto"><label class="col-form-label"><span class="px-unit">像素</span>標一次列車號</label></div>
 					</div>
 					<div class="row g-3 align-items-center">
 						<div class="col-auto"><label class="col-form-label">兩站之間垂直距離小於</label></div>
-						<div class="col-auto"><input inputmode="decimal" class="form-control" style="width:100px" data-setting="minStationIntervalForTrainNumber"></div>
-						<div class="col-auto"><label class="col-form-label">像素則不標註</label></div>
+						<div class="col-auto"><input inputmode="decimal" class="form-control" style="width:100px" data-unit="px" data-setting="minStationIntervalForTrainNumber"></div>
+						<div class="col-auto"><label class="col-form-label"><span class="px-unit">像素</span>則不標註</label></div>
 					</div>
 					</div>
 
@@ -1136,8 +1227,8 @@
 						<div class="col-auto"><small class="text-muted" id="avoid-secondary-hint"></small></div>
 					</div>
 					<div class="row g-3 align-items-center">
-						<div class="col-auto"><label class="col-form-label">與線、文字的最小間距(單位: 像素，僅接受 0~20)</label></div>
-						<div class="col-auto"><input inputmode="decimal" class="form-control" style="width:100px" min="0" max="20" data-setting="trainNumberAvoidance.margin"></div>
+						<div class="col-auto"><label class="col-form-label">與線、文字的最小間距(單位: <span class="px-unit">像素</span>，僅接受 0~20 像素)</label></div>
+						<div class="col-auto"><input inputmode="decimal" class="form-control" style="width:100px" min="0" max="20" data-unit="px" data-setting="trainNumberAvoidance.margin"></div>
 					</div>
 					</div>
 
@@ -1145,6 +1236,134 @@
 						
 				</div>
 
+
+				<div class="row" data-bs-toggle="collapse" data-bs-target="#printSettingWindow" style="font-weight:bold; font-size:150%;">
+					<div class="col-11">印刷模式</div>
+					<div class="col-1" style="display:flex; justify-content: end;">∨</div>
+				</div>
+				<hr style="margin-top: 0%;">
+				<div class="collapse" id="printSettingWindow">
+					<div class="row g-3 align-items-center">
+						<div class="col-auto form-check" style="margin-left: 1rem;">
+							<input type="checkbox" class="form-check-input" id="print-enabled" data-setting="print.enabled">
+							<label class="form-check-label" for="print-enabled">啟用</label>
+						</div>
+						<div class="col-auto"><label class="col-form-label">解析度</label></div>
+						<div class="col-auto"><input inputmode="decimal" class="form-control" style="width:100px" min="1" max="2400" data-setting="print.ppi"></div>
+						<div class="col-auto"><label class="col-form-label">ppi</label></div>
+						<div class="col-auto"><label class="col-form-label">頁面預設</label></div>
+						<div class="col-auto">
+							<select class="form-select" id="print-page-preset">
+								<option value="">自訂</option>
+								<!-- options from PRINT_PAGE_PRESETS -->
+							</select>
+						</div>
+					</div>
+					<p class="text-muted" style="margin-top: 1vh;">啟用後，上面所有以像素為單位的設定改以 mm 輸入與顯示 (1 像素 = 1/ppi 英吋)。輸出為每頁一個檔案，打包成 zip。</p>
+					<div id="print-fields">
+						<div class="row g-3 align-items-center">
+							<div class="col-auto"><label class="col-form-label">頁面大小 寬</label></div>
+							<div class="col-auto"><input inputmode="decimal" class="form-control" style="width:100px" min="1" data-setting="print.page.width"></div>
+							<div class="col-auto"><label class="col-form-label">高</label></div>
+							<div class="col-auto"><input inputmode="decimal" class="form-control" style="width:100px" min="1" data-setting="print.page.height"></div>
+							<div class="col-auto"><label class="col-form-label">mm</label></div>
+						</div>
+						<div class="row g-3 align-items-center">
+							<div class="col-auto"><label class="col-form-label">頁面出血 (加在頁面大小之外) 上</label></div>
+							<div class="col-auto"><input inputmode="decimal" class="form-control" style="width:80px" min="0" data-setting="print.bleed.top"></div>
+							<div class="col-auto"><label class="col-form-label">下</label></div>
+							<div class="col-auto"><input inputmode="decimal" class="form-control" style="width:80px" min="0" data-setting="print.bleed.bottom"></div>
+							<div class="col-auto"><label class="col-form-label">左</label></div>
+							<div class="col-auto"><input inputmode="decimal" class="form-control" style="width:80px" min="0" data-setting="print.bleed.left"></div>
+							<div class="col-auto"><label class="col-form-label">右</label></div>
+							<div class="col-auto"><input inputmode="decimal" class="form-control" style="width:80px" min="0" data-setting="print.bleed.right"></div>
+							<div class="col-auto"><label class="col-form-label">mm</label></div>
+						</div>
+						<div class="row g-3 align-items-center">
+							<div class="col-auto"><label class="col-form-label">圖上每公里的長度</label></div>
+							<div class="col-auto"><input inputmode="decimal" class="form-control" style="width:100px" id="print-mm-per-km"></div>
+							<div class="col-auto"><label class="col-form-label">mm</label></div>
+						</div>
+						<div class="row g-3 align-items-center">
+							<div class="col-auto"><label class="col-form-label">圖上每分鐘的長度</label></div>
+							<div class="col-auto"><input inputmode="decimal" class="form-control" style="width:100px" id="print-mm-per-min"></div>
+							<div class="col-auto"><label class="col-form-label">mm</label></div>
+						</div>
+						<div class="row g-3 align-items-center">
+							<div class="col-auto"><label class="col-form-label">每頁時間</label></div>
+							<div class="col-auto">
+								<select class="form-select" data-setting="print.pageMinutes">
+									<option value="30">30 分鐘</option>
+									<option value="60">1 小時</option>
+									<option value="120">2 小時</option>
+									<option value="180">3 小時</option>
+									<option value="240">4 小時</option>
+								</select>
+							</div>
+						</div>
+						<div class="row g-3 align-items-center">
+							<div class="col-auto"><label class="col-form-label">圖面對齊 (垂直)</label></div>
+							<div class="col-auto">
+								<select class="form-select" data-setting="print.align.v.side">
+									<option value="top">固定上 padding</option>
+									<option value="bottom">固定下 padding</option>
+								</select>
+							</div>
+							<div class="col-auto">
+								<select class="form-select" data-setting="print.align.v.base">
+									<option value="frame">算到圖框</option>
+									<option value="text">含文字</option>
+								</select>
+							</div>
+							<div class="col-auto"><input inputmode="decimal" class="form-control" style="width:100px" data-setting="print.align.v.offset"></div>
+							<div class="col-auto"><label class="col-form-label">mm</label></div>
+						</div>
+						<div class="row g-3 align-items-center">
+							<div class="col-auto"><label class="col-form-label">圖面對齊 (水平)</label></div>
+							<div class="col-auto">
+								<select class="form-select" data-setting="print.align.h.side">
+									<option value="left">固定左 padding</option>
+									<option value="right">固定右 padding</option>
+								</select>
+							</div>
+							<div class="col-auto">
+								<select class="form-select" data-setting="print.align.h.base">
+									<option value="frame">算到圖框</option>
+									<option value="text">含文字</option>
+								</select>
+							</div>
+							<div class="col-auto"><input inputmode="decimal" class="form-control" style="width:100px" data-setting="print.align.h.offset"></div>
+							<div class="col-auto"><label class="col-form-label">mm</label></div>
+						</div>
+
+						<div class="row g-3 align-items-center">
+							<div class="col-auto"><label class="col-form-label">輸出格式</label></div>
+							<div class="col-auto">
+								<select class="form-select" data-setting="print.format">
+									<option value="svg">直接 SVG (文字不轉外框)</option>
+									<option value="pdf">向量文字 PDF</option>
+									<option value="svgPath">向量文字 SVG</option>
+								</select>
+							</div>
+							<div class="col-auto"><small class="text-muted">向量文字：文字轉成外框，不需安裝字體，但不可再編輯文字；首次輸出需載入字體檔 (約 7 MB)</small></div>
+						</div>
+
+						<div class="row" style="margin-top: 2vh;">
+							<p class="mb-1">計算結果 (頁面邊緣到圖的距離，mm)　<span id="print-summary"></span></p>
+							<div class="alert alert-danger" style="padding: 0.5rem 1rem; display:none;" id="print-over-warning">圖面超出頁面 (出血以外)，請縮小比例、文字，或調整頁面、對齊。</div>
+							<div class="col-auto">
+								<table class="table table-sm text-center" style="width: auto;">
+									<thead><tr><th></th><th>到圖框</th><th>到文字</th></tr></thead>
+									<tbody id="print-padding-body"><!-- renderPrintUI() --></tbody>
+								</table>
+							</div>
+							<div class="col-auto">
+								<svg id="print-preview" xmlns="http://www.w3.org/2000/svg" style="border: 1px dashed #CCC;"></svg>
+								<p class="text-muted small mb-0">灰: 含出血　白: 頁面　藍: 圖框　橘虛線: 文字範圍</p>
+							</div>
+						</div>
+					</div>
+				</div>
 
 				<div class="row" data-bs-toggle="collapse" data-bs-target="#PassingTimeWindow" style="font-weight:bold; font-size:150%;">
 					<div class="col-11">待避時間計算</div>
@@ -1437,6 +1656,7 @@
 				<div class="row">
 						<button type="button" class="btn btn-success" id="OutputBtn" style="margin-bottom: 10px;">輸出結果</button>
 						<button type="button" class="btn btn-primary" id="DownloadSVGBtn">下載SVG圖檔</button>
+						<button type="button" class="btn btn-primary" id="DownloadPrintBtn" style="display:none; margin-top: 10px;">下載印刷用檔案 (zip)</button>
 						<button type="button" class="btn btn-outline-success preview-draft-btn" data-draft="autofill" style="display:none; margin-top: 10px;">預覽自動補全結果</button>
 						<button type="button" class="btn btn-outline-success preview-draft-btn" data-draft="passing" style="display:none; margin-top: 10px;">預覽還原通過時間結果</button>
 						<button type="button" class="btn btn-outline-primary" id="DownloadPreviewSVGBtn" style="display:none; margin-top: 10px;">下載預覽SVG圖檔</button>
@@ -1470,14 +1690,6 @@
 
 	<!-- Toasts -->
 	<div class="toast-container" style="position: fixed; bottom: 50px; right: 50px;">
-		<div class="toast text-bg-primary end-0" role="alert" aria-live="assertive" aria-atomic="true" id="AutoLayoutSuccess">
-			<div class="d-flex">
-					<div class="toast-body">
-						已自動估計設定: <span id="AutoLayoutSummary"></span>
-					</div>
-					<button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
-			</div>
-		</div>
 
 		<div class="toast text-bg-primary end-0" role="alert" aria-live="assertive" aria-atomic="true" id="GenerateTimetableSuccess">
 			<div class="d-flex">
@@ -1492,6 +1704,15 @@
 			<div class="d-flex">
 					<div class="toast-body">
 						時刻表未成功生成。因為: <span id="GenerateTimetableFailedReason" style="font-weight: bold;"></span>
+					</div>
+					<button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+			</div>
+		</div>
+
+		<div class="toast text-bg-danger end-0" role="alert" aria-live="assertive" aria-atomic="true" id="PrintExportFailed">
+			<div class="d-flex">
+					<div class="toast-body">
+						印刷檔案未成功輸出。因為: <span id="PrintExportFailedReason" style="font-weight: bold;"></span>
 					</div>
 					<button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
 			</div>
@@ -1713,6 +1934,10 @@
 	<script src="program/util/common.js"></script>
 	<script src="program/util/stc.js"></script>
 	<script src="program/util/saveSVG.js"></script>
+	<script src="program/util/zip.js"></script>
+	<script src="program/util/pdf.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/opentype.js@1.3.4/dist/opentype.min.js"></script>
+	<script src="program/util/vectorText.js"></script>
 
 	<!-- UI changing -->
 	<script src="program/ui/addStationInput.js"></script>
@@ -1724,6 +1949,7 @@
 	<script src="program/ui/optionsIO.js"></script>
 	<script src="program/ui/toast.js"></script>
 	<script src="program/ui/passingTimeInput.js"></script>
+	<script src="program/ui/printInput.js"></script>
 
 	<!-- Core Program -->
 	<script src="program/program/Graphing.js"></script>
@@ -1733,6 +1959,7 @@
 	<script src="program/program/RunTimeAutofill.js"></script>
 	<script src="program/program/PassingTime.js"></script>
 	<script src="program/program/PassingTimeSTN.js"></script>
+	<script src="program/program/PrintLayout.js"></script>
 
 	<!-- csv / json file parsing -->
 	<script src="program/handler/RouteInfoHandler.js"></script>
@@ -1743,7 +1970,6 @@
 	<!-- setting api -->
 	<script src="program/setting/alterColor.js"></script>
 	<script src="program/setting/OutputSetting.js"></script>
-	<script src="program/setting/AutoLayout.js"></script>
 
 	<!-- settings / all-in-one json (reuse the parsers above) -->
 	<script src="program/handler/SettingHandler.js"></script>

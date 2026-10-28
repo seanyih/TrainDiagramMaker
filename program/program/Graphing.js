@@ -13,6 +13,24 @@ function makeSVGtext(tag, text, attrs) {
     return el;
 }
 
+// first and last route station index drawn (SETTINGS.stationRange; null end = the last station)
+function stationRange(){
+	const last = ROUTE.stations.length - 1;
+	const { start, end } = SETTINGS.stationRange;
+	const to = end ?? last;
+	return (start < to && to <= last) ? { start: start, end: to } : { start: 0, end: last };
+}
+
+// height of the plot in px
+function plotHeight(){
+	const { start, end } = stationRange();
+	return (ROUTE.stations[end].kilo - ROUTE.stations[start].kilo)*SETTINGS.pxPerKm;
+}
+
+function kiloToY(kilo){
+	return (kilo - ROUTE.stations[stationRange().start].kilo)*SETTINGS.pxPerKm + SETTINGS.margin.top;
+}
+
 // hhmm or hhmmss -> x coordinate
 function timeToX(str){
 	return toSec(str)/60*SETTINGS.pxPerMin + SETTINGS.margin.left - (SETTINGS.startSec/60)*SETTINGS.pxPerMin;
@@ -22,20 +40,20 @@ $(document).on("click","#OutputBtn",function(){
 	window.setTimeout(drawDiagram, 50);
 });
 
-// trains: TRAINS, or a draft's trains for a preview
-function drawDiagram(trains = TRAINS){
-	checkTextFit();
+// trains: TRAINS, or a draft's trains for a preview; o: the svg to draw in (jQuery)
+function drawDiagram(trains = TRAINS, o = $("#output")){
+	if(o.is("#output")) checkTextFit();
 
 	const { margin, lines, background, aliasText, pxPerKm, pxPerMin } = SETTINGS;
 	const stations = ROUTE.stations;
 
 	//clear previous result
-	const o = $("#output");
 	o.children().remove();
 
 	//calculate and set dimensions of SVG
 	const w = (SETTINGS.endSec - SETTINGS.startSec)*pxPerMin/60;
-	const h = stations[stations.length - 1].kilo*pxPerKm;
+	const h = plotHeight();
+	const range = stationRange();
 	const width = w + margin.left + margin.right;
 	const height = h + margin.top + margin.bottom;
 	o.attr("width", width);
@@ -74,7 +92,8 @@ function drawDiagram(trains = TRAINS){
 
 	//station lines
 	stations.forEach((station, i) => {
-		const y = station.kilo*pxPerKm + margin.top;
+		if(i < range.start || i > range.end) return;
+		const y = kiloToY(station.kilo);
 		const line = ROUTE.topology.secondary[i] ? lines.secondaryStation : lines.station;
 		o.append(makeSVG("line", {x1:margin.left, x2:w+margin.left, y1:y, y2:y, stroke:line.color, 'stroke-width':line.width}));
 	});
@@ -93,7 +112,8 @@ function drawDiagram(trains = TRAINS){
 
 	//station name (left) and alias (right)
 	stations.forEach((station, i) => {
-		const y = station.kilo*pxPerKm + margin.top;
+		if(i < range.start || i > range.end) return;
+		const y = kiloToY(station.kilo);
 		const { name, alias } = stationTextStyles(i);
 		o.append(makeSVGtext("text", station.name, {x:margin.left - name.gap, y:y + name.fontSize*0.4, "font-family":"Noto Sans TC", "font-size":name.fontSize, "fill":name.color, "text-anchor":"end"}));
 		if(aliasText.show){
@@ -161,11 +181,13 @@ function timeLabelHeight(){
 function drawTrain(o, train, bound, w, grid){
 	const stations = boundStations(bound);
 	const c = SETTINGS.trainColors[train.settings.train_color];
-	const stationY = order => stations[order].kilo*SETTINGS.pxPerKm + SETTINGS.margin.top;
+	const lineWidth = SETTINGS.trainLineWidthByColor[train.settings.train_color] ?? SETTINGS.trainLineWidth;
+	const stationY = order => kiloToY(stations[order].kilo);
+	const plotBottom = SETTINGS.margin.top + plotHeight();
 	const line = (x1, x2, y1, y2) => {
 		shifts.forEach(dx => {
 			if(!visible(x1 + dx, x2 + dx)) return;
-			o.append(makeSVG("line", {x1: x1 + dx, x2: x2 + dx, y1: y1, y2: y2, stroke: c, 'stroke-width':SETTINGS.trainLineWidth}));
+			o.append(makeSVG("line", {x1: x1 + dx, x2: x2 + dx, y1: y1, y2: y2, stroke: c, 'stroke-width':lineWidth}));
 			addSegment(grid, {x1: x1 + dx, y1: y1, x2: x2 + dx, y2: y2, owner: train});
 		});
 	};
@@ -205,7 +227,8 @@ function drawTrain(o, train, bound, w, grid){
 				// the copy of the slot whose middle is inside the plot
 				const midX = xAt((sy1 + sy2)/2);
 				const dx = shifts.find(dx => visible(midX + dx, midX + dx));
-				if(dx !== undefined) slots.push({x1: xAt(sy1) + dx, y1: sy1, x2: xAt(sy2) + dx, y2: sy2, traveled: Math.abs(sy2 - startY)});
+				const inRange = Math.min(sy1, sy2) >= SETTINGS.margin.top - 1e-6 && Math.max(sy1, sy2) <= plotBottom + 1e-6;
+				if(dx !== undefined && inRange) slots.push({x1: xAt(sy1) + dx, y1: sy1, x2: xAt(sy2) + dx, y2: sy2, traveled: Math.abs(sy2 - startY)});
 			}
 		}
 

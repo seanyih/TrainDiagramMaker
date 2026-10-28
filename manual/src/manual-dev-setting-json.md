@@ -10,6 +10,7 @@
     "pxPerKm": 25,
     "pxPerMin": 25,
     "trainLineWidth": 2,
+    "trainLineWidthByColor": [null, null, null, null, null, null, null, null, null, null, null],
     "showTrainNumber": true,
     "trainNumberFontSize": 20,
     "pxPerTrainNumber": 750,
@@ -80,7 +81,8 @@
 | `defaultStopSec` | 60 | 預設停站秒數：新車站（及匯入時缺少停站時間的車站）的 `stopsec` 預設值 |
 | `startSec` / `endSec` | 0 / 86400 | 圖上時間範圍，最多到 108000 (3000)。UI 為 hhmm（`#starthhmm` / `#endhhmm`） |
 | `pxPerKm` / `pxPerMin` | 25 / 25 | 每公里 / 每分鐘的像素 |
-| `trainLineWidth` | 2 | 列車線寬，無 UI |
+| `trainLineWidth` | 2 | 列車線寬 (px) |
+| `trainLineWidthByColor` | 11 個 `null` | 依列車顏色分別設定的線寬，`null` = 用 `trainLineWidth` |
 | `showTrainNumber` | true | 是否標示列車號（顏色同列車線） |
 | `trainNumberFontSize` | 20 | 列車號字型大小 |
 | `pxPerTrainNumber` | 750 | 每行經多少像素（垂直距離）標一次列車號 |

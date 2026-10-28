@@ -28,7 +28,8 @@ checkbox → boolean，`type="number"` 與數字選項的 select → number (空
 | `defaultStopSec` | 60 | 預設停站秒數：新車站 (及匯入時缺少 `stopsec` 的車站) 的 `stopsec` 預設值 |
 | `startSec` / `endSec` | 0 / 86400 | 圖上時間範圍 (秒)，最多到 108000 (3000，翌日 6 點)；超過 24 時的部分，列車線以一日為週期重複繪製。UI 為 hhmm (`#starthhmm` / `#endhhmm`，獨立 handler，不合法的輸入會還原) |
 | `pxPerKm` / `pxPerMin` | 25 / 25 | 每公里 / 每分鐘像素 |
-| `trainLineWidth` | 2 | 列車線寬，無 UI |
+| `trainLineWidth` | 2 | 列車線寬 (px) |
+| `trainLineWidthByColor` | 11 個 `null` | 依列車顏色 (`train_color`) 分別設定的線寬；`null` = 用 `trainLineWidth` |
 | `showTrainNumber` | true | 是否標示列車號 (顏色同列車線) |
 | `trainNumberFontSize` | 20 | 列車號字型大小 |
 | `pxPerTrainNumber` | 750 | 每行經多少像素 (垂直距離) 標一次列車號 |
@@ -52,6 +53,14 @@ checkbox → boolean，`type="number"` 與數字選項的 select → number (空
 | `timeLabel.gap` | 10 | 時間文字頂端與圖表下緣的距離 |
 | `timeLabel.overDay` | `"plain"` | 24 時以後的時間文字：`plain` (01:00) / `superscript` (01:00 ⁺¹，僅有小時的文字加上標，僅 mm 不加) / `extended` (25:00) |
 | `timeLabel.secondaryLabel` | `"none"` | 次要時間線標記 `none` / `hhmm` / `mm`，只在 `interval >= 10` 時有效 (`simple` 格式一律只標 mm) |
+| `stationRange` | `{ start: 0, end: null }` | 繪圖的區間範圍：畫出的第一站、最後一站的車站 index (`end` null = 最後一站)；`stationRange()` 會在不合法 (start ≥ end、超出車站數) 時改用全線。列車資料不受影響，超出的部分被裁切，也不放列車號 |
+| `print.enabled` | false | 印刷模式 (`PrintLayout.js`)：啟用後設定頁以像素為單位的欄位 (`data-unit="px"`) 改以 mm 輸入與顯示，1 px = 25.4/ppi mm；資料仍以 px 存放 |
+| `print.ppi` | 300 | 解析度 |
+| `print.page` | `{ width: 210, height: 297 }` | 頁面大小 (mm)，不含出血 |
+| `print.bleed` | `{ top, bottom, left, right }` 各 3 | 出血 (mm)，加在頁面之外；超出出血的圖面算超出 |
+| `print.pageMinutes` | 60 | 每頁時間 (分鐘)：30、60、120、180、240；時間範圍依此切成多頁 |
+| `print.format` | `"pdf"` | 輸出格式：`"svg"` = 直接 SVG (文字不轉外框)、`"pdf"` = 向量文字 PDF、`"svgPath"` = 向量文字 SVG；向量文字指文字轉成外框 (`fonts/` 的 Noto Sans TC，缺字改用 Noto Sans JP) |
+| `print.align.v` / `print.align.h` | `{ side: "top", base: "frame", offset: 20 }` / `{ side: "left", base: "text", offset: 10 }` | 圖面對齊。`side`：固定哪一側的 padding (`"top"` \| `"bottom"`、`"left"` \| `"right"`)；`base`：`offset` (mm) 算到圖框 (`"frame"`) 或含文字 (`"text"`)。另一側的 padding 由頁面大小與圖框大小算出 |
 | `passingTime.solver` | `"stn"` | 還原通過時間的求解器：`"greedy"` = 貪婪解法 (`restorePassingTimes()`，`PassingTime.js`)、`"stn"` = 離散決策 + 差分約束 (`restorePassingTimesSTN()`，`PassingTimeSTN.js`)。其他參數兩者共用 |
 | `passingTime.minExtraPassingWaiting` | 30 | 還原通過時間：停站秒數 > 該站 `stopsec` + 此值的停靠，視為可能的待避 (≥ 0) |
 | `passingTime.minTimeSeparation` | 60 | 最短時隔 (秒，≥ 0)：通過的列車比待避列車發車早 (或比終到列車到站晚) 這麼多秒；同一站連續通過的列車也至少相隔這麼多秒 |

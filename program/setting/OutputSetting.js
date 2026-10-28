@@ -27,6 +27,23 @@ $("body").on("change","#endhhmm",function(){
 	setTimeRange("endSec", this);
 });
 
+function renderStationRange(){
+	const { start, end } = stationRange();
+	const options = ROUTE.stations.map((station, i) => `<option value="${i}">${escapeHTML(station.name)}</option>`).join("");
+	$("#range-start").html(options).val(start);
+	$("#range-end").html(options).val(end);
+}
+
+$("body").on("change", "#range-start, #range-end", function(){
+	const start = Number($("#range-start").val());
+	const end = Number($("#range-end").val());
+	if(start < end){
+		SETTINGS.stationRange = { start: start, end: (end == ROUTE.stations.length - 1) ? null : end };
+		renderPrintUI();
+	}
+	renderStationRange();
+});
+
 // "a.b.c" -> [SETTINGS.a.b, "c"]
 function settingRef(path){
 	const keys = path.split(".");
@@ -34,11 +51,21 @@ function settingRef(path){
 	return [keys.reduce((obj, key) => obj[key], SETTINGS), last];
 }
 
+// inputs with data-unit="px" show mm in print mode: px = mm * factor
+function unitFactor(input){
+	return ($(input).data("unit") == "px" && SETTINGS.print.enabled) ? SETTINGS.print.ppi/MM_PER_INCH : 1;
+}
+
+function settingDisplay(input, value){
+	const factor = unitFactor(input);
+	return (factor == 1 || value === null) ? value : +(value/factor).toFixed(3);
+}
+
 function initSettingsUI(){
 	$("[data-setting]").each(function(){
 		const [obj, key] = settingRef($(this).data("setting"));
 		if(this.type == "checkbox") this.checked = obj[key];
-		else                        $(this).val(obj[key]);
+		else                        $(this).val(settingDisplay(this, obj[key]));
 	});
 	$("#starthhmm").val(secToHhmm(SETTINGS.startSec));
 	$("#endhhmm").val(secToHhmm(SETTINGS.endSec));
@@ -59,16 +86,20 @@ $("body").on("change", "[data-setting]", function(){
 	}else if(raw == "" && $(this).is("[data-nullable]")){
 		obj[key] = null;
 	}else if(this.inputMode == "decimal" || $(this).is("select") && !isNaN(raw)){
-		if(raw == "" || isNaN(raw) || (this.min !== "" && Number(raw) < Number(this.min)) || (this.max !== "" && Number(raw) > Number(this.max))){
-			$(this).val(obj[key]);
+		const value = Number(raw)*unitFactor(this);
+		if(raw == "" || isNaN(raw) || (this.min !== "" && value < Number(this.min)) || (this.max !== "" && value > Number(this.max))){
+			$(this).val(settingDisplay(this, obj[key]));
 			return;
 		}
-		obj[key] = Number(raw);
+		obj[key] = value;
 	}else{
 		obj[key] = raw;
 	}
 
-	updateSettingsUI();
+	// the unit of the other inputs changes
+	const path = $(this).data("setting");
+	if(path == "print.enabled" || path == "print.ppi") initSettingsUI();
+	else                                               updateSettingsUI();
 	checkTextFit();
 });
 
@@ -91,7 +122,13 @@ function updateSettingsUI(){
 	$("#pt-inaccurate-arrival").prop("disabled", pt.imprecise);
 	$("#pt-imprecise").prop("disabled", pt.inaccurateArrival);
 	$('[data-setting="passingTime.timetableGranularity"], [data-setting="passingTime.minDwell"]').attr("min", pt.timeGranularity);
+	$(".px-unit").each(function(){
+		if(!$(this).data("px")) $(this).data("px", $(this).text());
+		$(this).text(SETTINGS.print.enabled ? "mm" : $(this).data("px"));
+	});
+	renderStationRange();
 	renderTimeLabelPreview();
+	renderPrintUI();
 }
 
 // time axis from 8:00 to 9:00, drawn with the same functions as the diagram
@@ -145,3 +182,9 @@ function checkTextFit(){
 		$("#TextOverflowWarning").toast('show');
 	}
 }
+
+$("body").on("click", "#train-width-toggle", function(){
+	const open = $(".train-width-row").first().is(":hidden");
+	$(".train-width-row").toggle(open);
+	$(this).text(open ? "∧" : "∨");
+});

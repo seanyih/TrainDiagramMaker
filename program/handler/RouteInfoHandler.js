@@ -26,6 +26,7 @@ function applyRoute(route){
 	ROUTE.track_layout = route.track_layout;
 	ROUTE.topology = route.topology;
 	renderRouteTable();
+	renderStationRange();
 }
 
 function getRouteDataCSV(){

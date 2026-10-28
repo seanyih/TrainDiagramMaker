@@ -75,6 +75,7 @@
     &quot;pxPerKm&quot;: 25,
     &quot;pxPerMin&quot;: 25,
     &quot;trainLineWidth&quot;: 2,
+    &quot;trainLineWidthByColor&quot;: [null, null, null, null, null, null, null, null, null, null, null],
     &quot;showTrainNumber&quot;: true,
     &quot;trainNumberFontSize&quot;: 20,
     &quot;pxPerTrainNumber&quot;: 750,
@@ -164,7 +165,12 @@
 <tr>
 <td><code>trainLineWidth</code></td>
 <td>2</td>
-<td>列車線寬，無 UI</td>
+<td>列車線寬 (px)</td>
+</tr>
+<tr>
+<td><code>trainLineWidthByColor</code></td>
+<td>11 個 <code>null</code></td>
+<td>依列車顏色分別設定的線寬，<code>null</code> = 用 <code>trainLineWidth</code></td>
 </tr>
 <tr>
 <td><code>showTrainNumber</code></td>

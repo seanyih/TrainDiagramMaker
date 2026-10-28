@@ -9,7 +9,9 @@ const SETTINGS = {
 	endSec: 86400,
 	pxPerKm: 25,
 	pxPerMin: 25,
+	stationRange: { start: 0, end: null }, // route station indices drawn; end null = the last station
 	trainLineWidth: 2, //px
+	trainLineWidthByColor: [null, null, null, null, null, null, null, null, null, null, null], // index = train_color; null = trainLineWidth
 
 	// train number: color follows the train line
 	showTrainNumber: true,
@@ -57,6 +59,21 @@ const SETTINGS = {
 			standard: { fontSize: 20, color: "#000000" },
 			sized:    { hourFontSize: 25, hourColor: "#000000", minuteFontSize: 15, minuteColor: "#808080" },
 			simple:   { fontSize: 20, color: "#000000" }
+		}
+	},
+
+	// print mode (PrintLayout.js): px of the settings above are 1/ppi inch; lengths below are in mm
+	print: {
+		enabled: false,
+		ppi: 300,
+		page: { width: 210, height: 297 },
+		bleed: { top: 3, bottom: 3, left: 3, right: 3 }, // added outside the page
+		pageMinutes: 60,                                 // 30 | 60 | 120 | 180 | 240
+		format: "pdf",                                   // "svg" | "pdf" | "svgPath": text kept as text | PDF, text as outlines | SVG, text as outlines
+		// the plot's position: distance from the page edge on `side`, to the plot frame ("frame") or to the outermost text ("text")
+		align: {
+			v: { side: "top", base: "frame", offset: 20 },   // side: "top" | "bottom"
+			h: { side: "left", base: "text", offset: 10 }    // side: "left" | "right"
 		}
 	},
 

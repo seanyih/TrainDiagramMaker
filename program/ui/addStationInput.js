@@ -23,6 +23,7 @@ function renderRouteTable(){
 
 // station names / order changed: keep stops and timetable rows in sync
 function onRouteChanged(){
+	renderStationRange();
 	refreshStopNames();
 	renderStopRules();
 	refreshTimetable(1);
