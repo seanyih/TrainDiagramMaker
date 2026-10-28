@@ -26,7 +26,7 @@ checkbox → boolean，`type="number"` 與數字選項的 select → number (空
 | 欄位 | 預設 | 說明 |
 |---|---|---|
 | `defaultStopSec` | 60 | 預設停站秒數：新車站 (及匯入時缺少 `stopsec` 的車站) 的 `stopsec` 預設值 |
-| `startSec` / `endSec` | 0 / 86400 | 圖上時間範圍 (秒)。UI 為 hhmm (`#starthhmm` / `#endhhmm`，獨立 handler) |
+| `startSec` / `endSec` | 0 / 86400 | 圖上時間範圍 (秒)，最多到 108000 (3000，翌日 6 點)；超過 24 時的部分，列車線以一日為週期重複繪製。UI 為 hhmm (`#starthhmm` / `#endhhmm`，獨立 handler，不合法的輸入會還原) |
 | `pxPerKm` / `pxPerMin` | 25 / 25 | 每公里 / 每分鐘像素 |
 | `trainLineWidth` | 2 | 列車線寬，無 UI |
 | `showTrainNumber` | true | 是否標示列車號 (顏色同列車線) |
@@ -50,6 +50,7 @@ checkbox → boolean，`type="number"` 與數字選項的 select → number (空
 | `timeLabel.formats.sized` | | `{ hourFontSize, hourColor, minuteFontSize, minuteColor }` (預設 25 / 15) |
 | `timeLabel.zeroPad` | false | 小時是否補 0 (8:00 / 08:00) |
 | `timeLabel.gap` | 10 | 時間文字頂端與圖表下緣的距離 |
+| `timeLabel.overDay` | `"plain"` | 24 時以後的時間文字：`plain` (01:00) / `superscript` (01:00 ⁺¹，僅有小時的文字加上標，僅 mm 不加) / `extended` (25:00) |
 | `timeLabel.secondaryLabel` | `"none"` | 次要時間線標記 `none` / `hhmm` / `mm`，只在 `interval >= 10` 時有效 (`simple` 格式一律只標 mm) |
 | `passingTime.solver` | `"stn"` | 還原通過時間的求解器：`"greedy"` = 貪婪解法 (`restorePassingTimes()`，`PassingTime.js`)、`"stn"` = 離散決策 + 差分約束 (`restorePassingTimesSTN()`，`PassingTimeSTN.js`)。其他參數兩者共用 |
 | `passingTime.minExtraPassingWaiting` | 30 | 還原通過時間：停站秒數 > 該站 `stopsec` + 此值的停靠，視為可能的待避 (≥ 0) |
@@ -67,6 +68,8 @@ checkbox → boolean，`type="number"` 與數字選項的 select → number (空
 | `passingTime.roundingMode` | `"auto"` | 取整的方式：`"round"` 四捨五入、`"floor"` 無條件捨去、`"ceil"` 無條件進位、`"auto"` 三種都算，取最好的 |
 | `passingTime.minDwell` | 30 | 時刻精度不足時，每個停靠站最短的停車時間 (秒，≥ `timeGranularity`；範圍不夠時停到範圍允許的最長時間) |
 | `passingTime.smooth` | true | 時刻精度不足時，求解後在範圍內平滑化運轉時間 (`smoothRuns()`，見 `ALGORITHM.md` 2.4)；不會增加衝突或時隔不足 |
+| `passingTime.interpolationSpeedRatio` | 1.2 | 跨線列車分岐站停靠點 (5.4) 可移動的範圍：前後兩段的平均速度比不超過此值 (≥ 1) |
+| `passingTime.interpolationMaxError` | `null` | 秒 (≥ 0)；不是 `null` 時取代上一項，範圍為內插值 ± 此值。輸入框有 `data-nullable`：留白 = `null`。`mergeSettings()` 中預設為 `null` 的欄位接受數字 |
 | `passingTime.stopRules` | `[]` | 臨時停車規則 (見 7.4)：`{ bound: 0 (順逆行) \| 1 \| 2, number, color, name (null = 不限；number、name 為萬用字元), stations: "all" \| "cross" \| "overtake" \| "station", station: 站名 (stations == "station" 時，否則 null) }` |
 | `trainColors` | | 長度 11 的陣列，index = 列車的 `train_color` (0 與 1 同色)。UI 為 `.train-color-input`，改變時同時更新 CSS 變數 `--color{n}` |
 
@@ -93,7 +96,7 @@ checkbox → boolean，`type="number"` 與數字選項的 select → number (空
   - 1~4 位數補到 4 位，5 位數補到 6 位 (`"935"` → `"0935"`, `"93500"` → `"093500"`)。
   - 非數字、分/秒 ≥ 60、超過 `2400` 視為不合法：表格中以紅底標示且**不寫入資料**；匯入時該格視為空白。
 - 空字串 `""` 代表沒有該時刻。
-- 不支援 28/30 小時制，跨夜直接寫時刻 (例：`2400` → `0001`)。
+- 時刻表不支援 24 時以後，跨夜直接寫時刻 (例：`2400` → `0001`)；繪圖範圍可到 3000，見 `startSec` / `endSec`。
 
 ## 4. 路線資料 `ROUTE`
 
@@ -193,7 +196,7 @@ ROUTE = {
 
 ### 4.4 線路拓樸 `topology`
 
-整理從各站分岐出去的路線 (分岐點不一定是停靠站，例如信號場)，以及次要車站。目前只有 UI 與匯入匯出；分岐不會畫在運行圖上，也還沒有用在計算。程式在 `program/ui/topologyInput.js` (表格)、`program/handler/TopologyHandler.js` (`loadTopology()`)。
+整理從各站分岐出去的路線 (分岐點不一定是停靠站，例如信號場)，以及次要車站。分岐不會畫在運行圖上，只用來推算跨線列車通過分岐站的時刻 (見 5.4)。程式在 `program/ui/topologyInput.js` (表格)、`program/handler/TopologyHandler.js` (`loadTopology()`)。
 
 - **次要車站** (`secondary[i]`)：繪圖時比照次要時間線，車站線用 `lines.secondaryStation`，站名 / 別名用 `secondaryStationText` / `secondaryAliasText` (`stationTextStyles(i)`，`Graphing.js`)。起終點不可勾選 (外框會蓋過車站線)；`deleteStation()` 刪掉最後一站時，新的最後一站設為 `false`。
 - **分岐** (`branches[i]`)：新增時就有一個車站 (`newBranchStation()`，站名空白、`kilo` = `null`)；新增的車站放在最遠端；刪掉分岐的最後一個車站時整條分岐移除。`kilo` 輸入 0、負數、非數字 → 紅底、不寫入；改 `kilo` 後重新排序 (`sortBranchStations()`)，順序有變才重新渲染 (否則保留焦點)。
@@ -222,6 +225,8 @@ train = {
 		train_name: "普通",
 		train_color: 1          // 0~10, index of SETTINGS.trainColors
 	},
+	origin: { station_name: "", departure: "" },   // a branch station it comes from (5.4), "" = none
+	terminal: { station_name: "", arrival: "" },   // a branch station it goes to
 	timetable: [                // only stations the train stops at / passes, sorted by station_order
 		{ station_order: 0, station_name: "西戸崎", arrival: "0528", departure: "0529" },
 		...
@@ -234,8 +239,9 @@ train = {
 | `station_order` | 該方向車站列表中的 index。bound 1 = `ROUTE.stations` 的 index；bound 2 = 反轉後的 index (`stationCount - 1 - routeIndex`)。用 `boundStations(bound)` 取得該方向的車站列表 |
 | `station_name` | 冗餘欄位，方便閱讀 JSON。由 `refreshStopNames()` 依路線自動更新 (車站改名/增刪/匯入時) |
 | `arrival` / `departure` | 見第 3 節。兩者皆空的停靠站會被移除；只有發車時刻的停靠站，到站時刻保持空白 (代表不知道)，畫圖、計算時才以 `arrivalTime()` 算出 (= 發車 − 該站 `stopsec`)，不寫回資料 |
+| `origin` / `terminal` | 跨線列車 (5.4)：分岐上的站名 (`ROUTE.topology.branches` 的車站) 與發車 / 到達時刻，`""` = 無。匯入時缺少則為空白，時刻經 `normalizeTime()`，不合法則為空白 |
 
-繪圖只使用有 `departure` 的停靠站。
+繪圖只使用有 `departure` 的停靠站 (加上 5.4 的分岐站停靠點)。
 
 ### 5.1 列車 JSON
 
@@ -266,8 +272,11 @@ train = {
 | 1 ~ N | 各站發車時刻 (未停靠留白) |
 | N+1 (可省略) | 列車名 |
 | N+2 (可省略) | 顏色 (0~10) |
+| N+3 ~ N+6 (可省略) | `origin.station_name`、`origin.departure`、`terminal.station_name`、`terminal.arrival` |
 
-到發時刻 (`匯出CSV` / `匯入` 於「到發時刻」列)：每班車兩欄 `[到站, 發車]`；車次、列車名、顏色列寫在第一欄，第二欄留空：
+匯出一律輸出 N+3 ~ N+6 列 (空白也輸出)。
+
+到發時刻 (`匯出CSV` / `匯入` 於「到發時刻」列)：每班車兩欄 `[到站, 發車]`；車次、列車名、顏色、始發與終點的列寫在第一欄，第二欄留空：
 
 ```
 2721C,,2723C,
@@ -289,6 +298,17 @@ train = {
 - `附加至該方向現有列車之後`：先移除空白列車 (無車次且無時刻)，再把檔案內容接在後面。
 
 檔案類型由副檔名判斷：`.json` 為 JSON，其他視為 CSV。JSON 可由任一列車匯入按鈕匯入。
+
+### 5.4 跨線列車 (`program/program/BranchTrain.js`)
+
+從分岐駛入 (`origin`) 或駛出 (`terminal`) 的列車，在分岐站 J 有一個**分岐站停靠點**：以距離內插的通過時刻 (到 = 發)，**不存進 `timetable`**，需要時由 `junctionStops(train, bound)` 計算 (同空白的到站時刻)。
+
+- 車次細項 (`optionsIO.js`) 的選單：`branchChoices(train, bound, end)` = 分岐站在該車第一個有發車時刻的停靠站「以前或同站」(終點：最後一個「以後或同站」) 的分岐車站 (依站名去重)。已選的站不再符合時仍保留，標示「(不適用)」，不推算。時刻輸入經 `normalizeTime()`，不合法 → 紅底、不寫入。
+- 只有 J 在第一個停靠站之前 (終點：最後一個之後) 才產生停靠點；J 本身就是停靠站時時刻已知。站名重複時取第一個符合的分岐車站。缺少時刻、分岐車站或里程時不產生。
+- 內插：始發站 O 的發車 a、第一個停靠站 S 的到站 c (`arrivalTime()`，跨夜時 O 往前推一天)，`d1` = O 到 J 的分岐里程、`d2` = |J − S| 的路線里程：`t = a + (c − a)·d1/(d1 + d2)`。終點同理 (最後一站的發車 → 終點站的到達)。
+- 可移動範圍 `[min, max]` (`junctionRange()`)：前後兩段平均速度比不超過 `interpolationSpeedRatio` (r)：`[a + T·d1/(d1 + r·d2), a + T·r·d1/(r·d1 + d2)]`，`T = c − a`；`interpolationMaxError` 不是 `null` 時改為 `t ± error` (限在 a ~ c 之間)。
+- 繪圖：`trainStops(train, bound)` = 停靠點 + `timetable`，`drawTrain()` 用它畫線 (時刻取到秒，不對齊 `timeGranularity`)。
+- 還原通過時間 (7.3)：停靠點是列車的第一 (最後) 站，記在模型的 `t.junctions` (`{ k, time, min, max }`)。
 
 ## 6. 設定 JSON 與全部資料 JSON
 
@@ -380,6 +400,8 @@ draft = { trains: { 1: [...], 2: [...] }, fingerprint: "..." }   // trains: stru
    3. 每個通過時刻取最接近目前時刻的可行值。重新偵測；衝突數 ≤ `maxAllowedConflict`、達到 `maxIteration`、或連續 3 輪沒有更好時停止。
    4. 最後移除新通過時刻中，與前後時刻的直線相差 < `timeGranularity` 的 (移除後衝突、時隔不足變多則保留)，`writePassingTimes()` 寫進副本。
 
+- **跨線列車的分岐站停靠點** (5.4)：模型中是固定的端點 (`fixed == 1`)，記在 `t.junctions`。差分約束中，範圍內有 `timeGranularity` 的倍數時是一個節點，E / L = 對齊後的 `[min, max]`；待避的列車 y 在此始發 (終到) 時，提案的範圍上限 (下限) 用 `max` (`min`)。不需移動時保持內插值 (不對齊 grid；從它往後推的時刻才對齊)；移動後對齊 grid，`writePassingTimes()` 才把它寫成分岐站的通過時刻 (計入 `added`)。貪婪解法不移動它。
+
 - 最高速度：有設定的站間用 `minRunSec()`；沒有設定的，以時刻表中通過該站間的最快「停靠站到停靠站」平均速度 (不計 `arrival == departure` 的通過點，避免之前推算的時刻逐次放寬上限) × `estimatedSpeedLimitRatio` 估計。(差分約束) 時刻表本身比上限快的區段，上限等比例放寬。
 - 通過時刻都對齊 `timeGranularity` 的倍數。
 - 勾選 `fineTune` 時，時刻表中已有的通過時刻 (`arrival == departure`) 也可以移動 (結果列顯示「調整 n 個」)；沒勾選時只填原本空白的格子。
@@ -423,7 +445,8 @@ draft = { trains: { 1: [...], 2: [...] }, fingerprint: "..." }   // trains: stru
 | `program/handler/TrackLayoutHandler.js` | `loadTrackLayout()` (路線 JSON 匯入時讀取 `track_layout`) |
 | `program/ui/createTimetable.js` | `renderTimetable(bound)`, `checkkilo()`, `generateTimetable()` |
 | `program/ui/addTrainInput.js` | 時刻表事件 (新增/刪除列車、車次、時刻輸入) |
-| `program/ui/optionsIO.js` | 列車細項 (列車名、顏色) offcanvas |
+| `program/ui/optionsIO.js` | 列車細項 (列車名、顏色、始發、終點) offcanvas：`renderBranchEnd()` |
+| `program/program/BranchTrain.js` | 跨線列車：`branchStations()`, `branchChoices()`, `junctionRange()`, `junctionStops()`, `trainStops()` |
 | `program/handler/RouteInfoHandler.js` | 路線匯入/匯出：`applyRoute()`, `getRouteDataCSV()`, `loadRouteFromCSV()`, `loadRouteFromJSON()` |
 | `program/handler/TimetableHandler.js` | 列車匯入/匯出：`applyTrains()`, `getTrainDataJSON()`, `loadTrainFromJSON()`, `getTrainDataCSV()`, `loadTrainFromCSV()` |
 | `program/handler/SettingHandler.js` | 設定匯入/匯出：`loadSettingsFromJSON()`, `mergeSettings()`, `applySettings()` |

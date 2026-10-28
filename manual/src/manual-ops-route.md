@@ -44,6 +44,10 @@
 
 路線表格下方的「軌道配置」可以設定各車站、站間的軌道數，以及列車能否交會或追越，詳情請見[此頁](manual-ops-track.html)。
 
+## 線路拓樸
+
+最下方的「線路拓樸」可以設定次要車站（例如信號場），以及從各站分岐出去的路線，詳情請見[此頁](manual-ops-topology.html)。
+
 ## 匯入、匯出
 
 站數很多時，建議用 Excel 或記事本整理好再匯入，格式請見[路線資料檔案格式(csv)](manual-format-route-csv.html)，操作方式請見[如何匯入、匯出](manual-ops-import-export.html)。

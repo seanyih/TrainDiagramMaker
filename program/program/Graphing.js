@@ -86,7 +86,7 @@ function drawDiagram(trains = TRAINS){
 	[1, 2].forEach(bound => {
 		trains[bound].forEach(train => trainSlots.push({ train: train, slots: drawTrain(trainLayer, train, bound, w, grid) }));
 	});
-	if(SETTINGS.showTrainNumber) placeTrainNumbers(trainLayer, trainSlots, grid, w);
+	if(SETTINGS.showTrainNumber) placeTrainNumbers(trainLayer, trainSlots, grid);
 
 	//outline rectangle
 	o.append(makeSVG("rect", {x:margin.left, y:margin.top, width:w, height:h, stroke:lines.outline.color, 'stroke-width':lines.outline.width, fill:"none"}));
@@ -118,7 +118,9 @@ function makeTimeLabel(sec, primary, x, y){
 	if(!primary && (SETTINGS.lines.secondary.interval < 10 || tl.secondaryLabel == "none")) return null;
 
 	const hour = Math.floor(sec/3600);
-	const hh = tl.zeroPad ? String(hour).padStart(2, "0") : String(hour);
+	const nextDay = hour >= 24 && tl.overDay != "extended";
+	const shownHour = nextDay ? hour - 24 : hour;
+	const hh = tl.zeroPad ? String(shownHour).padStart(2, "0") : String(shownHour);
 	const mm = String(Math.floor(sec%3600/60)).padStart(2, "0");
 	const mmOnly = !primary && tl.secondaryLabel == "mm";
 
@@ -136,6 +138,10 @@ function makeTimeLabel(sec, primary, x, y){
 	// tspans share one baseline, so different sizes are bottom aligned
 	const text = makeSVG("text", {x:x, y:y, "font-family":"Noto Sans TC", "text-anchor":"middle"});
 	parts.forEach(([str, size, color]) => text.appendChild(makeSVGtext("tspan", str, {"font-size":size, "fill":color})));
+	if(nextDay && tl.overDay == "superscript" && !mmOnly && (tl.format != "simple" || primary)){
+		const [, size, color] = parts[0];
+		text.appendChild(makeSVGtext("tspan", "+1", {"font-size":size*0.6, "fill":color, dx:2, dy:-size*0.4}));
+	}
 	return text;
 }
 
@@ -150,16 +156,25 @@ function timeLabelHeight(){
 	Returns the slots for train numbers: one per interval between two adjacent route stations the train runs through,
 	{ x1, y1, x2, y2, traveled }, where (x1, y1) ~ (x2, y2) is the train line inside the interval (x may exceed the plot for overnight)
 	and traveled is the distance in px from the first stop to the end of the interval.
-	w: width of the time axis, used to wrap overnight lines
+	w: width of the time axis; a line running past midnight is also drawn one day earlier / later
 */
 function drawTrain(o, train, bound, w, grid){
 	const stations = boundStations(bound);
 	const c = SETTINGS.trainColors[train.settings.train_color];
 	const stationY = order => stations[order].kilo*SETTINGS.pxPerKm + SETTINGS.margin.top;
 	const line = (x1, x2, y1, y2) => {
-		o.append(makeSVG("line", {x1: x1, x2: x2, y1: y1, y2: y2, stroke: c, 'stroke-width':SETTINGS.trainLineWidth}));
-		addSegment(grid, {x1: x1, y1: y1, x2: x2, y2: y2, owner: train});
+		shifts.forEach(dx => {
+			if(!visible(x1 + dx, x2 + dx)) return;
+			o.append(makeSVG("line", {x1: x1 + dx, x2: x2 + dx, y1: y1, y2: y2, stroke: c, 'stroke-width':SETTINGS.trainLineWidth}));
+			addSegment(grid, {x1: x1 + dx, y1: y1, x2: x2 + dx, y2: y2, owner: train});
+		});
 	};
+
+	// the lines are drawn again one day earlier / later, where they reach the plot
+	const left = SETTINGS.margin.left;
+	const dayW = 1440*SETTINGS.pxPerMin;
+	const shifts = [-dayW, 0, dayW];
+	const visible = (xa, xb) => Math.max(xa, xb) >= left && Math.min(xa, xb) <= left + w;
 
 	const slots = [];
 	let record_x1 = 0;
@@ -167,7 +182,7 @@ function drawTrain(o, train, bound, w, grid){
 	let prevOrder;
 	let startY;
 
-	const stops = train.timetable.filter(stop => stop.departure && stop.station_order < stations.length);
+	const stops = trainStops(train, bound).filter(stop => stop.departure && stop.station_order < stations.length);
 	stops.forEach((stop, j) => {
 		const x1 = timeToX(arrivalTime(stop, stations));
 		const x2 = timeToX(stop.departure);
@@ -179,30 +194,25 @@ function drawTrain(o, train, bound, w, grid){
 
 		//slant lines
 		if(j != 0){
-			const endX = (record_x1 > x1) ? x1 + w : x1; // unwrapped
-			if(record_x1 > x1){
-				//overnight case
-				line(record_x1, x1+w, record_y1, y);
-				line(record_x1-w, x1, record_y1, y);
-			}else{
-				//normal case
-				line(record_x1, x1, record_y1, y);
-			}
+			const endX = (record_x1 > x1) ? x1 + dayW : x1; // unwrapped
+			line(record_x1, endX, record_y1, y);
 
 			// split by every route station passed
 			const xAt = sy => record_x1 + (sy - record_y1)/(y - record_y1)*(endX - record_x1);
 			for(let i = prevOrder; i < stop.station_order && y != record_y1; i++){
 				const sy1 = stationY(i);
 				const sy2 = stationY(i + 1);
-				slots.push({x1: xAt(sy1), y1: sy1, x2: xAt(sy2), y2: sy2, traveled: Math.abs(sy2 - startY)});
+				// the copy of the slot whose middle is inside the plot
+				const midX = xAt((sy1 + sy2)/2);
+				const dx = shifts.find(dx => visible(midX + dx, midX + dx));
+				if(dx !== undefined) slots.push({x1: xAt(sy1) + dx, y1: sy1, x2: xAt(sy2) + dx, y2: sy2, traveled: Math.abs(sy2 - startY)});
 			}
 		}
 
 		//horizontal lines
 		if(x1 > x2){
 			//overnight stopping
-			line(x1-w, x2, y, y);
-			line(x1, x2+w, y, y);
+			line(x1, x2 + dayW, y, y);
 		}else{
 			line(x1, x2, y, y);
 		}

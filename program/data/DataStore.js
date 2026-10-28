@@ -62,6 +62,9 @@ function newTrain(train_number = "", train_name = "", train_color = 0){
 			train_name: train_name,
 			train_color: train_color
 		},
+		// a branch station the train comes from / goes to (ROUTE.topology), "" = none
+		origin: { station_name: "", departure: "" },
+		terminal: { station_name: "", arrival: "" },
 		timetable: []
 	};
 }

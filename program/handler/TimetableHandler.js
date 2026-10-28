@@ -53,11 +53,19 @@ function loadTrainFromJSON(text){
 
 	return data.timetable.map(t => {
 		const train = newTrain(t.train_number ?? "", t.settings?.train_name ?? "", parseInt(t.settings?.train_color) || 0);
+		setBranchEnds(train, t.origin?.station_name, t.origin?.departure, t.terminal?.station_name, t.terminal?.arrival);
 		t.timetable.forEach(stop => {
 			addStop(train, stop.station_order, normalizeTime(stop.arrival ?? "") || "", normalizeTime(stop.departure ?? "") || "");
 		});
 		return train;
 	});
+}
+
+// origin / terminal (branch station names and times) of an imported train; invalid times are blank
+function setBranchEnds(train, originName, departure, terminalName, arrival){
+	const time = str => normalizeTime(String(str ?? "")) || "";
+	train.origin = { station_name: String(originName ?? "").trim(), departure: time(departure) };
+	train.terminal = { station_name: String(terminalName ?? "").trim(), arrival: time(arrival) };
 }
 
 /*
@@ -66,6 +74,7 @@ function loadTrainFromJSON(text){
 	row 1 ~ N:          times at each station, in the order of this bound
 	row N+1 (optional): train name
 	row N+2 (optional): train color
+	row N+3 ~ N+6 (optional): origin (a branch station), its departure, terminal, its arrival
 */
 function loadTrainFromCSV(text, arrival){
 	const rows = parseCSV(text);
@@ -73,10 +82,12 @@ function loadTrainFromCSV(text, arrival){
 	const step = arrival ? 2 : 1;
 	const nameRow = rows[stationCount + 1];
 	const colorRow = rows[stationCount + 2];
+	const branchRows = [3, 4, 5, 6].map(i => rows[stationCount + i]);
 
 	const trains = [];
 	for(let col = 0; col < rows[0].length; col += step){
 		const train = newTrain(rows[0][col].trim(), (nameRow?.[col] ?? "").trim(), parseInt(colorRow?.[col]) || 0);
+		setBranchEnds(train, ...branchRows.map(row => row?.[col]));
 
 		for(let s = 0; s < stationCount; s++){
 			const cells = rows[s + 1] ?? [];
@@ -103,6 +114,10 @@ function getTrainDataCSV(bound, arrival){
 	}
 	rows.push(trains.flatMap(train => [train.settings.train_name, ...pad]));
 	rows.push(trains.flatMap(train => [train.settings.train_color, ...pad]));
+	rows.push(trains.flatMap(train => [train.origin.station_name, ...pad]));
+	rows.push(trains.flatMap(train => [train.origin.departure, ...pad]));
+	rows.push(trains.flatMap(train => [train.terminal.station_name, ...pad]));
+	rows.push(trains.flatMap(train => [train.terminal.arrival, ...pad]));
 
 	return rows.map(row => row.join(",")).join("\n");
 }

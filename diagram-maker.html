@@ -888,6 +888,7 @@
 						<div class="col-auto">
 							<input id="endhhmm" class="form-control" style="width:100px" value="2400" placeholder="hhmm">
 						</div>
+						<div class="col-auto"><small class="text-muted">最多到 3000 (翌日 6 點)</small></div>
 					</div>
 
 				</div>
@@ -1026,6 +1027,17 @@
 						</div>
 					</div>
 					<div class="row g-3 align-items-center">
+							<div class="col-auto"><label class="col-form-label">跨日表達</label></div>
+							<div class="col-auto">
+								<select class="form-select" data-setting="timeLabel.overDay">
+									<option value="plain">不特別標註 (01:00)</option>
+									<option value="superscript">上標 +1 (01:00 ⁺¹)</option>
+									<option value="extended">30小時制 (25:00)</option>
+								</select>
+							</div>
+							<div class="col-auto"><small class="text-muted">時間範圍超過24:00時使用</small></div>
+						</div>
+						<div class="row g-3 align-items-center">
 						<div class="col-auto"><label class="col-form-label">與圖表距離(px)</label></div>
 						<div class="col-auto"><input inputmode="decimal" class="form-control" style="width:100px" data-setting="timeLabel.gap"></div>
 					</div>
@@ -1261,6 +1273,16 @@
 						<div class="col-auto" style="width: 13rem;"><label class="col-form-label">最多增加的通過點數量</label></div>
 						<div class="col-auto"><input inputmode="decimal" class="form-control" style="width:100px" min="0" data-setting="passingTime.maxPassingPointIncrease"></div>
 						<div class="col-auto"><small class="text-muted">一個通過時刻造成新的衝突時，同一班車最多再加幾個通過時刻來解決</small></div>
+					</div>
+					<div class="row g-3 align-items-center">
+						<div class="col-auto" style="width: 13rem;"><label class="col-form-label">內插時間-距離誤差比</label></div>
+						<div class="col-auto"><input inputmode="decimal" class="form-control" style="width:100px" min="1" data-setting="passingTime.interpolationSpeedRatio"></div>
+						<div class="col-auto"><small class="text-muted">跨線列車通過分岐站的時刻：分岐站前後兩段的平均速度相差不超過此倍數</small></div>
+					</div>
+					<div class="row g-3 align-items-center">
+						<div class="col-auto" style="width: 13rem;"><label class="col-form-label">內插最大時間誤差 (秒)</label></div>
+						<div class="col-auto"><input inputmode="decimal" class="form-control" style="width:100px" min="0" data-setting="passingTime.interpolationMaxError" data-nullable></div>
+						<div class="col-auto"><small class="text-muted">填入時取代上一項：通過分岐站的時刻與內插值相差不超過此值；空白 = 不使用</small></div>
 					</div>
 					</div>
 					<div id="PassingTimeStopRules" style="display: none; margin: 2vh 0 2vh 2rem;">
@@ -1642,7 +1664,19 @@
 					<option class="color10-option" value="10" style="background-color: var(--color10); color:rgba(0,0,0,0);">顏色10</option>
 				</select>
 			</div>
-			
+			<div style="margin-top: 3vh">
+				<p class="mb-1">始發</p>
+				<div class="input-group">
+					<select class="form-select offcanvas-branch" id="offcanvas-origin" data-end="origin"></select>
+					<input class="form-control offcanvas-branch-time" id="offcanvas-origin-time" data-end="origin">
+				</div>
+				<p class="mb-1" style="margin-top: 1rem;">終點</p>
+				<div class="input-group">
+					<select class="form-select offcanvas-branch" id="offcanvas-terminal" data-end="terminal"></select>
+					<input class="form-control offcanvas-branch-time" id="offcanvas-terminal-time" data-end="terminal">
+				</div>
+				<small class="text-muted">從分岐路線駛入 (駛出) 的列車：選擇分岐上的車站並填入時刻，就會以距離內插推算通過分岐站的時刻。分岐在「路線資料 > 線路拓樸」設定。</small>
+			</div>
 		</div>
 	</div>
 
@@ -1695,6 +1729,7 @@
 	<script src="program/program/Graphing.js"></script>
 	<script src="program/program/TrainNumber.js"></script>
 	<script src="program/program/TrackLayout.js"></script>
+	<script src="program/program/BranchTrain.js"></script>
 	<script src="program/program/RunTimeAutofill.js"></script>
 	<script src="program/program/PassingTime.js"></script>
 	<script src="program/program/PassingTimeSTN.js"></script>

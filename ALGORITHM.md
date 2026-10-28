@@ -42,6 +42,7 @@
   - `loose[k]`、`early[k]`：到站時刻不準確 (可移動) 的停靠站，與其最早的到站時刻 (見 2.1)。
   - `stopOk[k]`、`temp[k]`：臨時停車規則允許在此臨時停車；目前的可移動點 (`fixed == 2`) 是臨時停車 (到、發不同) (見 2.2)。
   - `vague[k]`、`early[k]`、`arrMax[k]`、`depMin[k]`、`depMax[k]`：時刻精度不足的停靠站與其到、發的可能範圍 (見 2.3)。
+  - `junctions`：跨線列車的分岐站停靠點 `{ k, time, min, max }` (見 2.5)。
   - `first`、`last`：第一、最後一個已知點。
 - **元素 (element)**：車站 `2r`、站間 `2r+1` (r 為 `ROUTE.stations` 的 index)。`present[e][bound]` = 經過該元素的列車。兩個方向的 station order 與 r 的換算見 `routeIndex()`、`sectionElement()`、`elementOrder()`。
 - 列車在元素中的時間 (`entryTime()` / `exitTime()`)：站間 = 前站發 ~ 後站到；車站 = 到 ~ 發，但起站只算發車、終點站只算到站。
@@ -133,6 +134,16 @@
 - 剩下差很多的多半是時刻表本身的餘裕 (例如 大塚 → 池袋 寫成 4–5 分、深夜的列車)：範圍最多只讓停車多 20 秒，其餘只能留在運轉時間裡。
 
 ---
+
+### 2.5 跨線列車的分岐站停靠點 (`BranchTrain.js`)
+
+設定了 `origin` / `terminal` 的列車，在分岐站 J (第一個停靠站之前 / 最後一個之後) 多一個端點，時刻 `time` 以距離內插 (`junctionStops()`，見 `DATA_STRUCTURE.md` 5.4)。它是 `fixed == 1` 的已知點 (`free == 0`，不在此設通過時刻、也不做時刻精度不足的 vague 處理)，所以原本的第一個停靠站變成中途站 (可以是不準確的到站、可能的待避)。
+
+可移動範圍 `[min, max]`：模型 A–B–C (B = J) 中，兩段平均速度 v1 = d1/t1、v2 = d2/(T − t1)，限制 1/r ≤ v1/v2 ≤ r (r = `interpolationSpeedRatio`)，解得 `t1 ∈ [T·d1/(d1 + r·d2), T·r·d1/(r·d1 + d2)]`，r = 1 時即內插值。設定 `interpolationMaxError` 時改為內插值 ± error。
+
+- 差分約束：範圍內有 grid 的點時，J 是節點 (到、發同一個)，E / L = `[alignUp(min), alignDown(max)]`。最後指定時刻時，若內插值在 [E, L] 內就保持內插值 (不對齊 grid)；只有被約束推動時才移動，從它推出的時刻以 `alignUp` 對齊。提案中 y 在 J 始發時，x 的通過時刻上限是 `max` (而不是目前的發車)，終到時下限是 `min`。
+- 貪婪解法不移動已知點，J 維持內插值。
+- 寫回 (`writePassingTimes()`)：時刻與內插值不同時，在 J 新增通過時刻 (到 = 發)；相同則不寫，仍由 `origin` / `terminal` 推算。
 
 ## 3. 衝突
 

@@ -6,12 +6,25 @@ function secToHhmm(sec){
 	return String(100*Math.floor(sec/3600) + Math.floor(sec%3600/60)).padStart(4, "0");
 }
 
+// the diagram may extend to 30:00 (06:00 the next day)
+const MAX_END_SEC = 108000;
+
+function setTimeRange(key, input){
+	const raw = $(input).val();
+	const sec = hhmmToSec(raw);
+	const other = (key == "startSec") ? SETTINGS.endSec : SETTINGS.startSec;
+	const valid = /^\d{3,4}$/.test(raw) && raw%100 < 60 && sec <= MAX_END_SEC
+		&& ((key == "startSec") ? sec < other : other < sec);
+	if(valid) SETTINGS[key] = sec;
+	else      $(input).val(secToHhmm(SETTINGS[key]));
+}
+
 $("body").on("change","#starthhmm",function(){
-	SETTINGS.startSec = hhmmToSec($("#starthhmm").val());
+	setTimeRange("startSec", this);
 });
 
 $("body").on("change","#endhhmm",function(){
-	SETTINGS.endSec = hhmmToSec($("#endhhmm").val());
+	setTimeRange("endSec", this);
 });
 
 // "a.b.c" -> [SETTINGS.a.b, "c"]
@@ -43,6 +56,8 @@ $("body").on("change", "[data-setting]", function(){
 
 	if(this.type == "checkbox"){
 		obj[key] = this.checked;
+	}else if(raw == "" && $(this).is("[data-nullable]")){
+		obj[key] = null;
 	}else if(this.inputMode == "decimal" || $(this).is("select") && !isNaN(raw)){
 		if(raw == "" || isNaN(raw) || (this.min !== "" && Number(raw) < Number(this.min)) || (this.max !== "" && Number(raw) > Number(this.max))){
 			$(this).val(obj[key]);

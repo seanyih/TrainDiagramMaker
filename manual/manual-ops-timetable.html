@@ -49,6 +49,7 @@
 				<li><a href="manual-ops-setting.html">基本設定頁面</a></li>
 				<li><a href="manual-ops-route.html">路線資料</a></li>
 				<li><a href="manual-ops-track.html">軌道配置</a></li>
+				<li><a href="manual-ops-topology.html">線路拓樸</a></li>
 				<li><a href="manual-ops-timetable.html" class="active">時刻表</a></li>
 				<li><a href="manual-ops-passing-time.html">待避時間計算</a></li>
 				<li><a href="manual-ops-output.html">產生圖片</a></li>
@@ -83,9 +84,29 @@
 <p>車次下方有一條色條，顯示這班車目前的線條顏色。<strong>點擊色條</strong>，右側會打開「車次細項」，可以設定：</p>
 <ul>
 <li><strong>列車名</strong>：例如 普通、自強。</li>
-<li><strong>列車顏色</strong>：決定列車在圖上的顏色，共有 10 種可選。沒有選擇時使用顏色 1。10 種顏色可以在基本設定中更改，詳情請見<a href="manual-ops-setting.html#列車顏色集設定">此頁</a>。</li>
+<li>
+<p><strong>列車顏色</strong>：決定列車在圖上的顏色，共有 10 種可選。沒有選擇時使用顏色 1。10 種顏色可以在基本設定中更改，詳情請見<a href="manual-ops-setting.html#列車顏色集設定">此頁</a>。</p>
+</li>
+<li>
+<p><strong>始發、終點</strong>：從分岐駛入、駛出這條路線的列車（跨線列車）使用，見下節。</p>
+</li>
 </ul>
 <figure><img src="img/ops-timetable-detail.png" alt="點擊色條後打開的車次細項"><figcaption>點擊色條後打開的車次細項</figcaption></figure>
+<h2 id="始發與終點">始發與終點</h2>
+<p>跨線列車從分岐駛入時，時刻表上通常沒有它通過分岐站的時刻（例如分岐站是信號場，或列車不停分岐站）。在「車次細項」中設定<strong>始發</strong>，網站就會推算這個時刻：</p>
+<ul>
+<li><strong>始發</strong>：左邊的選單選擇分岐上的車站，右邊填入列車從這一站<strong>發車</strong>的時刻（灰色提示字為「XX發」）。</li>
+<li><strong>終點</strong>：從分岐駛出的列車，選擇分岐上的車站，填入列車<strong>到達</strong>這一站的時刻（「XX到」）。</li>
+</ul>
+<p>選單只會列出分岐站在這班車時刻表上的第一個停靠站以前（終點：最後一個停靠站以後）的分岐車站。分岐請先在「路線資料 &gt; 線路拓樸」設定，詳情請見<a href="manual-ops-topology.html#分岐">此頁</a>。</p>
+<p>網站以距離內插出列車通過分岐站的時刻，例如始發站距分岐站 3 公里、分岐站距第一個停靠站 7 公里，通過分岐站的時刻就在始發站發車與第一個停靠站到站之間的 30% 處。輸出圖片時，列車線從分岐站開始畫（終點則畫到分岐站）。</p>
+<ul>
+<li>推算的時刻不會寫進時刻表。之後修改時刻表，例如在分岐站以前加了停靠站，選單中的車站會標示「（不適用）」，此時不會推算。</li>
+<li>分岐站本身就是第一個（最後一個）停靠站時，已經有時刻，不需推算。</li>
+<li>始發不一定要填真正的始發站。填離分岐站較近的車站，誤差反而更小。</li>
+<li>時刻格式與下方的時刻相同，格式不正確時該格會變成紅底，且不會被採用。</li>
+<li>推算的時刻只是參考值，<a href="manual-ops-passing-time.html#跨線列車">還原通過時間</a>時可以在誤差範圍內移動。</li>
+</ul>
 <h2 id="時刻">時刻</h2>
 <p>每班車都有左右兩格：<strong>左格為到站時刻（選填），右格為發車時刻</strong>。右格的灰色提示字會告訴您這是哪個車站。</p>
 <ul>
@@ -114,14 +135,14 @@
 <p>班次很多時，建議用 Excel 整理好再匯入，格式請見<a href="manual-format-timetable-csv.html">時刻表資料檔案格式(csv)</a>，操作方式請見<a href="manual-ops-import-export.html">如何匯入、匯出</a>。</p>
 			</article>
 			<div class="manual-pager">
-				<a class="prev" href="manual-ops-track.html"><small>上一頁</small>軌道配置</a>
+				<a class="prev" href="manual-ops-topology.html"><small>上一頁</small>線路拓樸</a>
 				<a class="next" href="manual-ops-passing-time.html"><small>下一頁</small>待避時間計算</a>
 			</div>
 		</main>
 
 		<aside class="manual-toc">
 			<p class="manual-toc-title">本頁內容</p>
-			<ul><li><a href="#加入刪除列車">加入/刪除列車</a></li><li><a href="#車次">車次</a></li><li><a href="#列車名與線條顏色">列車名與線條顏色</a></li><li><a href="#時刻">時刻</a></li><li><a href="#匯入匯出">匯入、匯出</a></li></ul>
+			<ul><li><a href="#加入刪除列車">加入/刪除列車</a></li><li><a href="#車次">車次</a></li><li><a href="#列車名與線條顏色">列車名與線條顏色</a></li><li><a href="#始發與終點">始發與終點</a></li><li><a href="#時刻">時刻</a></li><li><a href="#匯入匯出">匯入、匯出</a></li></ul>
 		</aside>
 	</div>
 

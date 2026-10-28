@@ -50,11 +50,12 @@ const SETTINGS = {
 	timeLabel: {
 		format: "standard",    // "standard" | "sized" | "simple"
 		zeroPad: false,        // 08:00 or 8:00
+		overDay: "plain",      // hours >= 24: "plain" (01:00) | "superscript" (01:00 +1) | "extended" (25:00)
 		gap: 10,
 		secondaryLabel: "none", // "none" | "hhmm" | "mm", only when lines.secondary.interval >= 10
 		formats: {
 			standard: { fontSize: 20, color: "#000000" },
-			sized:    { hourFontSize: 25, hourColor: "#000000", minuteFontSize: 15, minuteColor: "#000000" },
+			sized:    { hourFontSize: 25, hourColor: "#000000", minuteFontSize: 15, minuteColor: "#808080" },
 			simple:   { fontSize: 20, color: "#000000" }
 		}
 	},
@@ -79,6 +80,9 @@ const SETTINGS = {
 		roundingMode: "auto",          // "round" | "floor" | "ceil" | "auto" (each of them, keeping the best)
 		minDwell: 30,                  // s, >= timeGranularity
 		smooth: true,                  // then even out the running times within where the times may be (smoothRuns())
+		// a train from / to a branch passes where it joins at a time interpolated by distance (BranchTrain.js), which may move:
+		interpolationSpeedRatio: 1.2,  // >= 1; the average speeds before and after the junction differ by at most this ratio
+		interpolationMaxError: null,   // s, >= 0; if set, within this much of the interpolation instead
 		// temporary stops a train may make where it has no stop in the timetable (e.g. a signal station):
 		// { bound: 0 (both) | 1 | 2, number, color, name (null = any; number, name: wildcards),
 		//   stations: "all" | "cross" | "overtake" | "station", station: name (for "station") }

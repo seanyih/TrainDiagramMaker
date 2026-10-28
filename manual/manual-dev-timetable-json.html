@@ -49,6 +49,7 @@
 				<li><a href="manual-ops-setting.html">基本設定頁面</a></li>
 				<li><a href="manual-ops-route.html">路線資料</a></li>
 				<li><a href="manual-ops-track.html">軌道配置</a></li>
+				<li><a href="manual-ops-topology.html">線路拓樸</a></li>
 				<li><a href="manual-ops-timetable.html">時刻表</a></li>
 				<li><a href="manual-ops-passing-time.html">待避時間計算</a></li>
 				<li><a href="manual-ops-output.html">產生圖片</a></li>
@@ -86,6 +87,8 @@
                 &quot;train_name&quot;: &quot;普通&quot;,
                 &quot;train_color&quot;: 1
             },
+            &quot;origin&quot;: { &quot;station_name&quot;: &quot;&quot;, &quot;departure&quot;: &quot;&quot; },
+            &quot;terminal&quot;: { &quot;station_name&quot;: &quot;&quot;, &quot;arrival&quot;: &quot;&quot; },
             &quot;timetable&quot;: [
                 { &quot;station_order&quot;: 0, &quot;station_name&quot;: &quot;西戸崎&quot;,   &quot;arrival&quot;: &quot;&quot;,     &quot;departure&quot;: &quot;0528&quot; },
                 { &quot;station_order&quot;: 1, &quot;station_name&quot;: &quot;海ノ中道&quot;, &quot;arrival&quot;: &quot;0530&quot;, &quot;departure&quot;: &quot;0531&quot; },
@@ -159,12 +162,23 @@
 <td>線條顏色 0 ~ 10，對應設定中 <code>trainColors</code> 的 index。0 與 1 同色（顏色 1）</td>
 </tr>
 <tr>
+<td><code>origin</code></td>
+<td>object</td>
+<td>跨線列車的始發：<code>{ station_name, departure }</code>，分岐上的站名與發車時刻，<code>""</code> 表示無。可省略</td>
+</tr>
+<tr>
+<td><code>terminal</code></td>
+<td>object</td>
+<td>跨線列車的終點：<code>{ station_name, arrival }</code>，分岐上的站名與到達時刻，<code>""</code> 表示無。可省略</td>
+</tr>
+<tr>
 <td><code>timetable</code></td>
 <td>array</td>
 <td>停靠站列表，只包含有時刻的車站，依 <code>station_order</code> 由小到大排序</td>
 </tr>
 </tbody>
 </table>
+<p><code>origin</code> / <code>terminal</code> 的站名對應路線 JSON 的 <code>topology.branches</code> 中的車站（見<a href="manual-dev-route-json.html#線路拓樸">線路拓樸</a>）。分岐站在第一個停靠站以前（終點：最後一個停靠站以後）時，以距離內插出通過分岐站的時刻畫圖；這個時刻不寫進 <code>timetable</code>。</p>
 <h3 id="停靠站-stop">停靠站 (stop)</h3>
 <table>
 <thead>
@@ -226,7 +240,7 @@
 </ul>
 <p>JSON 可由該方向任一個列車匯入按鈕匯入（「發車時刻」或「到發時刻」皆可）。</p>
 <h2 id="與-csv-的對應">與 CSV 的對應</h2>
-<p>CSV 格式請見<a href="manual-format-timetable-csv.html">時刻表資料檔案格式(csv)</a>。簡要來說：一班車佔一欄（發車時刻）或兩欄（到站、發車），第 0 列為車次，第 1 ~ N 列為各站時刻（該方向順序），第 N+1、N+2 列為列車名與顏色（可省略）。CSV 不處理引號，欄位中不能含有逗號或換行。</p>
+<p>CSV 格式請見<a href="manual-format-timetable-csv.html">時刻表資料檔案格式(csv)</a>。簡要來說：一班車佔一欄（發車時刻）或兩欄（到站、發車），第 0 列為車次，第 1 ~ N 列為各站時刻（該方向順序），第 N+1、N+2 列為列車名與顏色，第 N+3 ~ N+6 列為始發站名、發車時刻、終點站名、到達時刻（皆可省略）。CSV 不處理引號，欄位中不能含有逗號或換行。</p>
 <h2 id="相關程式">相關程式</h2>
 <table>
 <thead>

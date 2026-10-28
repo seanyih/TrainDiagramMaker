@@ -29,7 +29,8 @@ function mergeSettings(def, data){
 		if(def.length == 0) return Array.isArray(data) ? data : [];
 		return def.map((value, i) => mergeSettings(value, Array.isArray(data) ? data[i] : undefined));
 	}
-	if(def !== null && typeof def == "object"){
+	if(def === null) return (typeof data == "number") ? data : null; // a number that may be unset
+	if(typeof def == "object"){
 		const obj = (data !== null && typeof data == "object" && !Array.isArray(data)) ? data : {};
 		return Object.fromEntries(Object.keys(def).map(key => [key, mergeSettings(def[key], obj[key])]));
 	}

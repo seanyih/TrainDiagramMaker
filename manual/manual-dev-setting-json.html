@@ -49,6 +49,7 @@
 				<li><a href="manual-ops-setting.html">基本設定頁面</a></li>
 				<li><a href="manual-ops-route.html">路線資料</a></li>
 				<li><a href="manual-ops-track.html">軌道配置</a></li>
+				<li><a href="manual-ops-topology.html">線路拓樸</a></li>
 				<li><a href="manual-ops-timetable.html">時刻表</a></li>
 				<li><a href="manual-ops-passing-time.html">待避時間計算</a></li>
 				<li><a href="manual-ops-output.html">產生圖片</a></li>
@@ -100,6 +101,7 @@
     &quot;timeLabel&quot;: {
         &quot;format&quot;: &quot;standard&quot;,
         &quot;zeroPad&quot;: false,
+        &quot;overDay&quot;: &quot;plain&quot;,
         &quot;gap&quot;: 10,
         &quot;secondaryLabel&quot;: &quot;none&quot;,
         &quot;formats&quot;: {
@@ -124,6 +126,8 @@
         &quot;roundingMode&quot;: &quot;auto&quot;,
         &quot;minDwell&quot;: 30,
         &quot;smooth&quot;: true,
+        &quot;interpolationSpeedRatio&quot;: 1.2,
+        &quot;interpolationMaxError&quot;: null,
         &quot;stopRules&quot;: [
             { &quot;bound&quot;: 2, &quot;number&quot;: null, &quot;color&quot;: null, &quot;name&quot;: null, &quot;stations&quot;: &quot;station&quot;, &quot;station&quot;: &quot;中道信号場&quot; }
         ]
@@ -150,7 +154,7 @@
 <tr>
 <td><code>startSec</code> / <code>endSec</code></td>
 <td>0 / 86400</td>
-<td>圖上時間範圍。UI 為 hhmm（<code>#starthhmm</code> / <code>#endhhmm</code>）</td>
+<td>圖上時間範圍，最多到 108000 (3000)。UI 為 hhmm（<code>#starthhmm</code> / <code>#endhhmm</code>）</td>
 </tr>
 <tr>
 <td><code>pxPerKm</code> / <code>pxPerMin</code></td>
@@ -268,6 +272,11 @@
 <td>時間文字頂端與圖表下緣的距離</td>
 </tr>
 <tr>
+<td><code>timeLabel.overDay</code></td>
+<td><code>"plain"</code></td>
+<td>24 時以後的時間文字：<code>plain</code> / <code>superscript</code>（+1 上標）/ <code>extended</code>（25:00）</td>
+</tr>
+<tr>
 <td><code>timeLabel.secondaryLabel</code></td>
 <td><code>"none"</code></td>
 <td>次要時間線標記 <code>none</code> / <code>hhmm</code> / <code>mm</code>，只在 <code>interval &gt;= 10</code> 時有效（<code>simple</code> 格式一律只標 mm）</td>
@@ -351,6 +360,16 @@
 <td><code>passingTime.smooth</code></td>
 <td>true</td>
 <td>時刻精度不足時，計算後在可能的範圍內平滑化運轉時間</td>
+</tr>
+<tr>
+<td><code>passingTime.interpolationSpeedRatio</code></td>
+<td>1.2</td>
+<td>跨線列車通過分岐站的內插時刻可移動的範圍（≥ 1）：分岐站前後兩段的平均速度相差不超過此倍數</td>
+</tr>
+<tr>
+<td><code>passingTime.interpolationMaxError</code></td>
+<td><code>null</code></td>
+<td>不是 <code>null</code> 時取代上一項：內插時刻可移動的秒數（≥ 0）。UI 留白 = <code>null</code></td>
 </tr>
 <tr>
 <td><code>passingTime.stopRules</code></td>

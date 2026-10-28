@@ -49,6 +49,7 @@
 				<li><a href="manual-ops-setting.html">基本設定頁面</a></li>
 				<li><a href="manual-ops-route.html">路線資料</a></li>
 				<li><a href="manual-ops-track.html">軌道配置</a></li>
+				<li><a href="manual-ops-topology.html">線路拓樸</a></li>
 				<li><a href="manual-ops-timetable.html">時刻表</a></li>
 				<li><a href="manual-ops-passing-time.html">待避時間計算</a></li>
 				<li><a href="manual-ops-output.html">產生圖片</a></li>
@@ -103,6 +104,26 @@
 <td>線條顏色，填 1 ~ 10 的數字</td>
 <td>否</td>
 </tr>
+<tr>
+<td>第 N+4 列</td>
+<td>始發：分岐上的站名（跨線列車）</td>
+<td>否</td>
+</tr>
+<tr>
+<td>第 N+5 列</td>
+<td>始發站的發車時刻</td>
+<td>否</td>
+</tr>
+<tr>
+<td>第 N+6 列</td>
+<td>終點：分岐上的站名（跨線列車）</td>
+<td>否</td>
+</tr>
+<tr>
+<td>第 N+7 列</td>
+<td>終點站的到達時刻</td>
+<td>否</td>
+</tr>
 </tbody>
 </table>
 <ul>
@@ -111,6 +132,7 @@
 <li>終點站請填入抵達時刻。</li>
 <li>時刻表內請<strong>不要加上站名</strong>，只留純粹的時刻即可。</li>
 <li>線條顏色對應基本設定中的「列車顏色集」，留白則使用顏色 1，詳情請見<a href="manual-ops-setting.html#列車顏色集設定">此頁</a>。</li>
+<li>始發、終點只有從分岐駛入、駛出的列車需要，一般列車留白即可，詳情請見<a href="manual-ops-timetable.html#始發與終點">此頁</a>。不需要時，最後四列可以整個省略。</li>
 <li>匯入時，請用匯入/匯出頁面中「<strong>發車時刻</strong>」那一行的匯入按鈕。到站時刻會在輸出圖片時，依照「預設停站時間」自動算出。</li>
 </ul>
 <p>以一條 5 個車站的路線、3 班車為例，在 Excel 中會是這樣：</p>
@@ -176,7 +198,7 @@
 </table>
 <p>上表中，2723C 不停第 3 站，所以第 4 列留白。</p>
 <h2 id="格式二同時有到站和發車時刻">格式二：同時有到站和發車時刻</h2>
-<p><strong>一班車佔兩行</strong>：左邊是到站時刻，右邊是發車時刻。車次、列車名、顏色寫在左邊那一行，右邊那一行留白。</p>
+<p><strong>一班車佔兩行</strong>：左邊是到站時刻，右邊是發車時刻。車次、列車名、顏色（以及始發、終點的四列）寫在左邊那一行，右邊那一行留白。</p>
 <table>
 <thead>
 <tr>

@@ -183,8 +183,16 @@ function solveNetwork(m, proposals){
 				t.arrNode[k] = count++;
 			}
 		});
+		// a junction stop moves only if its range has a time on the grid
+		t.junctions.forEach(j => {
+			if(alignUp(m, j.min) <= alignDown(m, j.max)) t.node[j.k] = t.arrNode[j.k] = count++;
+		});
 	});
 	const net = newNetwork(count);
+	m.trains.forEach(t => t.junctions.forEach(j => {
+		const v = t.node[j.k];
+		if(v >= 0) [net.E[v], net.L[v]] = [alignUp(m, j.min), alignDown(m, j.max)];
+	}));
 	m.trains.forEach(t => t.loose.forEach((loose, k) => {
 		if(!loose) return;
 		net.E[t.arrNode[k]] = t.early[k];
@@ -234,6 +242,7 @@ function solveNetwork(m, proposals){
 
 	// nearest to the current time within [E, L], then raised along the constraints (stays within L)
 	const time = new Float64Array(count);
+	const offGrid = new Set();
 	const nearest = (v, now) => Math.min(Math.max(Math.round(now/m.grid)*m.grid, net.E[v]), net.L[v]);
 	m.trains.forEach(t => {
 		t.node.forEach((v, k) => {
@@ -242,13 +251,21 @@ function solveNetwork(m, proposals){
 		t.arrNode.forEach((v, k) => {
 			if(v >= 0) time[v] = nearest(v, t.arr[k]);
 		});
+		// an interpolated junction time stays off the grid unless it has to move
+		t.junctions.forEach(j => {
+			const v = t.node[j.k];
+			if(v < 0 || net.E[v] > t.dep[j.k] || t.dep[j.k] > net.L[v]) return;
+			time[v] = t.dep[j.k];
+			offGrid.add(v);
+		});
 	});
 	const queue = Array.from(time.keys());
 	for(let i = 0; i < queue.length; i++){
 		const v = queue[i];
 		net.out[v].forEach(([w, c]) => {
 			if(time[w] >= time[v] + c) return;
-			time[w] = time[v] + c;
+			time[w] = offGrid.has(v) ? alignUp(m, time[v] + c) : time[v] + c;
+			offGrid.delete(w);
 			queue.push(w);
 		});
 	}
@@ -319,8 +336,10 @@ function addProposals(m, c, x, y, out){
 		if(passing){
 			// y's stop, or where it may stop within its max speeds
 			const [yp, yq] = stop ? knownAround(y, ys) : [];
-			const low = (ys == y.first) ? -Infinity : stop ? y.dep[yp] + minRun(m, y, yp, ys) : movesArrival(y, ys) ? y.early[ys] : y.arr[ys];
-			const high = (ys == y.last) ? Infinity : stop ? y.arr[yq] - minRun(m, y, ys, yq) : y.vague[ys] ? y.depMax[ys] : y.dep[ys];
+			// a junction stop of y may move within its range
+			const junction = y.junctions.find(j => j.k == ys);
+			const low = (ys == y.first) ? -Infinity : stop ? y.dep[yp] + minRun(m, y, yp, ys) : movesArrival(y, ys) ? y.early[ys] : junction ? junction.min : y.arr[ys];
+			const high = (ys == y.last) ? Infinity : stop ? y.arr[yq] - minRun(m, y, ys, yq) : y.vague[ys] ? y.depMax[ys] : junction ? junction.max : y.dep[ys];
 			const from = alignUp(m, low + m.grid);
 			const to = alignDown(m, high - m.grid);
 			if(from > to) continue;

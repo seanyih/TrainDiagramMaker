@@ -112,9 +112,8 @@ function isClear(box, train, grid, margin){
 }
 
 // returns { box, x, y } (y = baseline) or null if no free position in this slot
-function findTrainNumberPosition(slot, train, grid, w){
+function findTrainNumberPosition(slot, train, grid){
 	const fontSize = SETTINGS.trainNumberFontSize;
-	const left = SETTINGS.margin.left;
 	const dx = slot.x2 - slot.x1;
 	const dy = slot.y2 - slot.y1;
 	const len = Math.hypot(dx, dy);
@@ -128,9 +127,8 @@ function findTrainNumberPosition(slot, train, grid, w){
 	// try the middle first, then alternately further forward / backward
 	for(let k = 0; k*step <= len/2; k++){
 		for(const offset of (k == 0) ? [0] : [k*step, -k*step]){
-			let px = slot.x1 + dx/2 + u.x*offset;
+			const px = slot.x1 + dx/2 + u.x*offset;
 			const py = slot.y1 + dy/2 + u.y*offset;
-			if(px > left + w) px -= w; // overnight part is drawn on the left
 
 			const box = {
 				cx: px + up.x*(TRAIN_NUMBER_GAP + fontSize/2),
@@ -156,7 +154,7 @@ function findTrainNumberPosition(slot, train, grid, w){
 }
 
 // trainSlots: [{ train, slots }] from drawTrain()
-function placeTrainNumbers(o, trainSlots, grid, w){
+function placeTrainNumbers(o, trainSlots, grid){
 	const { pxPerTrainNumber, minStationIntervalForTrainNumber, trainNumberFontSize } = SETTINGS;
 
 	trainSlots.forEach(({ train, slots }) => {
@@ -168,7 +166,7 @@ function placeTrainNumbers(o, trainSlots, grid, w){
 			if(slot.traveled <= pxPerTrainNumber*n) return;
 			if(Math.abs(slot.y2 - slot.y1) < minStationIntervalForTrainNumber) return;
 
-			const pos = findTrainNumberPosition(slot, train, grid, w);
+			const pos = findTrainNumberPosition(slot, train, grid);
 			if(pos){
 				const angle = Math.atan2(pos.box.u.y, pos.box.u.x)*180/Math.PI;
 				o.append(makeSVGtext("text", train.train_number, {x:pos.x, y:pos.y, "font-family":"Noto Sans TC", "font-size":trainNumberFontSize, "text-anchor":"middle", "fill":c, "transform":`rotate(${angle} ${pos.x} ${pos.y})`, "font-weight":"bold"}));

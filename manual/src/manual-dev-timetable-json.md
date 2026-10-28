@@ -25,6 +25,8 @@ TRAINS = {
                 "train_name": "普通",
                 "train_color": 1
             },
+            "origin": { "station_name": "", "departure": "" },
+            "terminal": { "station_name": "", "arrival": "" },
             "timetable": [
                 { "station_order": 0, "station_name": "西戸崎",   "arrival": "",     "departure": "0528" },
                 { "station_order": 1, "station_name": "海ノ中道", "arrival": "0530", "departure": "0531" },
@@ -59,7 +61,11 @@ TRAINS = {
 | `train_number` | string | 車次，可為 `""`。會標示在圖上 |
 | `settings.train_name` | string | 列車名，可為 `""` |
 | `settings.train_color` | number | 線條顏色 0 ~ 10，對應設定中 `trainColors` 的 index。0 與 1 同色（顏色 1） |
+| `origin` | object | 跨線列車的始發：`{ station_name, departure }`，分岐上的站名與發車時刻，`""` 表示無。可省略 |
+| `terminal` | object | 跨線列車的終點：`{ station_name, arrival }`，分岐上的站名與到達時刻，`""` 表示無。可省略 |
 | `timetable` | array | 停靠站列表，只包含有時刻的車站，依 `station_order` 由小到大排序 |
+
+`origin` / `terminal` 的站名對應路線 JSON 的 `topology.branches` 中的車站（見[線路拓樸](manual-dev-route-json.html#線路拓樸)）。分岐站在第一個停靠站以前（終點：最後一個停靠站以後）時，以距離內插出通過分岐站的時刻畫圖；這個時刻不寫進 `timetable`。
 
 ### 停靠站 (stop)
 
@@ -104,7 +110,7 @@ JSON 可由該方向任一個列車匯入按鈕匯入（「發車時刻」或「
 
 ## 與 CSV 的對應
 
-CSV 格式請見[時刻表資料檔案格式(csv)](manual-format-timetable-csv.html)。簡要來說：一班車佔一欄（發車時刻）或兩欄（到站、發車），第 0 列為車次，第 1 ~ N 列為各站時刻（該方向順序），第 N+1、N+2 列為列車名與顏色（可省略）。CSV 不處理引號，欄位中不能含有逗號或換行。
+CSV 格式請見[時刻表資料檔案格式(csv)](manual-format-timetable-csv.html)。簡要來說：一班車佔一欄（發車時刻）或兩欄（到站、發車），第 0 列為車次，第 1 ~ N 列為各站時刻（該方向順序），第 N+1、N+2 列為列車名與顏色，第 N+3 ~ N+6 列為始發站名、發車時刻、終點站名、到達時刻（皆可省略）。CSV 不處理引號，欄位中不能含有逗號或換行。
 
 ## 相關程式
 

@@ -36,6 +36,7 @@
     "timeLabel": {
         "format": "standard",
         "zeroPad": false,
+        "overDay": "plain",
         "gap": 10,
         "secondaryLabel": "none",
         "formats": {
@@ -60,6 +61,8 @@
         "roundingMode": "auto",
         "minDwell": 30,
         "smooth": true,
+        "interpolationSpeedRatio": 1.2,
+        "interpolationMaxError": null,
         "stopRules": [
             { "bound": 2, "number": null, "color": null, "name": null, "stations": "station", "station": "中道信号場" }
         ]
@@ -75,7 +78,7 @@
 | 欄位 | 預設 | 說明 |
 |---|---|---|
 | `defaultStopSec` | 60 | 預設停站秒數：新車站（及匯入時缺少停站時間的車站）的 `stopsec` 預設值 |
-| `startSec` / `endSec` | 0 / 86400 | 圖上時間範圍。UI 為 hhmm（`#starthhmm` / `#endhhmm`） |
+| `startSec` / `endSec` | 0 / 86400 | 圖上時間範圍，最多到 108000 (3000)。UI 為 hhmm（`#starthhmm` / `#endhhmm`） |
 | `pxPerKm` / `pxPerMin` | 25 / 25 | 每公里 / 每分鐘的像素 |
 | `trainLineWidth` | 2 | 列車線寬，無 UI |
 | `showTrainNumber` | true | 是否標示列車號（顏色同列車線） |
@@ -99,6 +102,7 @@
 | `timeLabel.formats.sized` | | `{ hourFontSize, hourColor, minuteFontSize, minuteColor }` |
 | `timeLabel.zeroPad` | false | 小時是否補 0（8:00 / 08:00） |
 | `timeLabel.gap` | 10 | 時間文字頂端與圖表下緣的距離 |
+| `timeLabel.overDay` | `"plain"` | 24 時以後的時間文字：`plain` / `superscript`（+1 上標）/ `extended`（25:00） |
 | `timeLabel.secondaryLabel` | `"none"` | 次要時間線標記 `none` / `hhmm` / `mm`，只在 `interval >= 10` 時有效（`simple` 格式一律只標 mm） |
 | `passingTime.solver` | `"stn"` | 還原通過時間的求解器：`"greedy"` = 貪婪解法、`"stn"` = 離散決策 + 差分約束 |
 | `passingTime.minExtraPassingWaiting` | 30 | 還原通過時間：停站秒數超過該站預設停站時間 + 此值，視為可能的待避 |
@@ -116,6 +120,8 @@
 | `passingTime.roundingMode` | `"auto"` | 取整的方式：`"round"` 四捨五入、`"floor"` 無條件捨去、`"ceil"` 無條件進位、`"auto"` 自動判斷 |
 | `passingTime.minDwell` | 30 | 時刻精度不足時，每個停靠站最短的停車時間（秒）；不可小於 `timeGranularity` |
 | `passingTime.smooth` | true | 時刻精度不足時，計算後在可能的範圍內平滑化運轉時間 |
+| `passingTime.interpolationSpeedRatio` | 1.2 | 跨線列車通過分岐站的內插時刻可移動的範圍（≥ 1）：分岐站前後兩段的平均速度相差不超過此倍數 |
+| `passingTime.interpolationMaxError` | `null` | 不是 `null` 時取代上一項：內插時刻可移動的秒數（≥ 0）。UI 留白 = `null` |
 | `passingTime.stopRules` | `[]` | 臨時停車規則。`bound`：0 = 順逆行、1 = 順行、2 = 逆行；`number`、`color`、`name`：車次、線條顏色、列車名的條件，`null` 為不限（車次、列車名可用萬用字元）；`stations`：`"all"` 所有車站、`"cross"` 可交會的站、`"overtake"` 可追越的站、`"station"` 指定站名 `station` |
 | `trainColors` | | 長度 11 的陣列，index = 列車的 `train_color`。index 0 與 1 同色 |
 

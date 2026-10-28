@@ -22,6 +22,7 @@
 				{ "title": "基本設定頁面", "slug": "manual-ops-setting" },
 				{ "title": "路線資料", "slug": "manual-ops-route" },
 				{ "title": "軌道配置", "slug": "manual-ops-track" },
+				{ "title": "線路拓樸", "slug": "manual-ops-topology" },
 				{ "title": "時刻表", "slug": "manual-ops-timetable" },
 				{ "title": "待避時間計算", "slug": "manual-ops-passing-time" },
 				{ "title": "產生圖片", "slug": "manual-ops-output" }

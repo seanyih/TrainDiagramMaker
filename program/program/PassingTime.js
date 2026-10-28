@@ -64,7 +64,9 @@ function createPassingModel(trains, headway, rounding = null){
 	[1, 2].forEach(bound => {
 		const stations = boundStations(bound);
 		trains[bound].forEach(train => {
-			const stops = stopTimes(train, stations);
+			const junction = junctionStops(train, bound);
+			const stops = [junction.origin, ...stopTimes(train, stations), junction.terminal].filter(Boolean)
+				.map(stop => stop.k === undefined ? stop : { order: stop.k, arr: stop.time, dep: stop.time, junction: stop });
 			if(stops.length < 2) return;
 			const t = {
 				id: m.trains.length,
@@ -84,7 +86,8 @@ function createPassingModel(trains, headway, rounding = null){
 				vague: new Uint8Array(count),        // a stop of an imprecise timetable: arrival within [early, arrMax],
 				arrMax: new Float64Array(count),     // departure within [depMin, depMax]
 				depMin: new Float64Array(count),
-				depMax: new Float64Array(count)
+				depMax: new Float64Array(count),
+				junctions: []                        // junction stops (BranchTrain.js): { k, time, min, max }, a time that may move within [min, max]
 			};
 			const rules = stopRules.filter(rule => stopRuleTrain(rule, bound, train));
 			for(let k = 0; k < count; k++){
@@ -93,7 +96,10 @@ function createPassingModel(trains, headway, rounding = null){
 			train.timetable.forEach(stop => t.free[stop.station_order] = 0);
 			stops.forEach((stop, i) => {
 				const k = stop.order;
-				if(rounding){
+				if(stop.junction){
+					t.junctions.push(stop.junction);
+					t.free[k] = 0;
+				}else if(rounding){
 					vagueStop(m, t, stop, i == 0, i == stops.length - 1);
 				}else if(i > 0 && stop.arr != stop.dep && (inaccurateArrival || !findStop(train, k).arrival)){
 					t.loose[k] = 1;
@@ -1013,8 +1019,8 @@ function solveConflict(m, c){
 	return conflictCandidates(m, c).some(candidate => tryCandidate(m, newAttempt(), c, candidate, SETTINGS.passingTime.maxPassingPointIncrease));
 }
 
-// writes the passing times, temporary stops, loose arrivals (a blank one stays blank at departure - stopsec) and vague
-// stops to the trains; returns how many passing times were added, how many in the timetable moved, how many temporary
+// writes the passing times, temporary stops, loose arrivals (a blank one stays blank at departure - stopsec), vague
+// stops and moved junction stops to the trains; returns how many passing times were added, how many in the timetable moved, how many temporary
 // stops were made, how many arrivals changed and how many times of vague stops changed
 function writePassingTimes(m){
 	const stations = { 1: boundStations(1), 2: boundStations(2) };
@@ -1054,6 +1060,14 @@ function writePassingTimes(m){
 				if(arrival == departure) written.added++;
 				added = true;
 			}
+		});
+		// a junction stop still at its interpolated time stays out of the timetable
+		t.junctions.forEach(j => {
+			if(t.dep[j.k] == j.time) return;
+			const time = toStr((Math.round(t.dep[j.k]) % 86400 + 86400) % 86400); // the origin may be before midnight
+			t.train.timetable.push({ station_order: j.k, station_name: stations[t.bound][j.k].name, arrival: time, departure: time });
+			written.added++;
+			added = true;
 		});
 		if(added) t.train.timetable.sort((a, b) => a.station_order - b.station_order);
 	});
