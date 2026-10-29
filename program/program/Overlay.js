@@ -123,7 +123,7 @@ function applyOverlay(data, conflict = "overlay"){
 				result.skipped++;
 				return;
 			}
-			train = newTrain(ot.train_number ?? "", ot.settings?.train_name ?? "", parseInt(ot.settings?.train_color) || 0);
+			train = newTrain(ot.train_number ?? "", ot.settings?.train_name ?? "", parseInt(ot.settings?.train_color) || 0, ...importLineStyle(ot.settings));
 			TRAINS[bound].push(train);
 			result.added++;
 		}else{

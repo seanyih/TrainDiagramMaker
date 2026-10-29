@@ -14,6 +14,8 @@ $(".timetable").on("click", ".optionbar", function(){
 	$("#offcanvas-train-name").val(editingTrain.settings.train_name);
 	$("#offcanvas-train-color").val(editingTrain.settings.train_color);
 	styleColorSelect(editingTrain.settings.train_color);
+	$("#offcanvas-line-width").val(editingTrain.settings.line_width ?? "").css("background-color", "");
+	$("#offcanvas-line-type").val(editingTrain.settings.line_type ?? "");
 	["origin", "terminal"].forEach(renderBranchEnd);
 	renderPinnedCount();
 	$("#timetable-offcanvas").offcanvas("show");
@@ -68,6 +70,23 @@ $("#offcanvas-train-color").on("change", function(){
 	editingTrain.settings.train_color = color;
 	styleColorSelect(color);
 	editingOptionBar.css("background-color", `var(--color${color})`);
+});
+
+$("#offcanvas-line-width").on("change", function(){
+	const raw = $(this).val().trim();
+	if(raw == ""){
+		editingTrain.settings.line_width = null;
+	}else if(isNaN(raw) || Number(raw) <= 0){
+		$(this).css("background-color", "red");
+		return;
+	}else{
+		editingTrain.settings.line_width = Number(raw);
+	}
+	$(this).css("background-color", "");
+});
+
+$("#offcanvas-line-type").on("change", function(){
+	editingTrain.settings.line_type = $(this).val() || null;
 });
 
 $("#offcanvas-train-name").on("change", function(){

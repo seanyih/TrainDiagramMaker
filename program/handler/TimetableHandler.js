@@ -52,13 +52,22 @@ function loadTrainFromJSON(text){
 	if(!ROUTE.route_name) ROUTE.route_name = data.route_name ?? "";
 
 	return data.timetable.map(t => {
-		const train = newTrain(t.train_number ?? "", t.settings?.train_name ?? "", parseInt(t.settings?.train_color) || 0);
+		const train = newTrain(t.train_number ?? "", t.settings?.train_name ?? "", parseInt(t.settings?.train_color) || 0, ...importLineStyle(t.settings));
 		setBranchEnds(train, t.origin?.station_name, t.origin?.departure, t.terminal?.station_name, t.terminal?.arrival);
 		t.timetable.forEach(stop => {
 			addStop(train, stop.station_order, normalizeTime(stop.arrival ?? "") || "", normalizeTime(stop.departure ?? "") || "", stop.pinned === true);
 		});
 		return train;
 	});
+}
+
+// [line_width, line_type] of an imported train's settings; invalid values are null
+function importLineStyle(settings){
+	const width = Number(settings?.line_width);
+	return [
+		(settings?.line_width != null && width > 0) ? width : null,
+		["solid", "dashed", "dotted"].includes(settings?.line_type) ? settings.line_type : null
+	];
 }
 
 // origin / terminal (branch station names and times) of an imported train; invalid times are blank

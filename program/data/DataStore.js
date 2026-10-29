@@ -55,12 +55,15 @@ function sortBranchStations(branch){
 	branch.stations.sort((a, b) => (a.kilo ?? Infinity) - (b.kilo ?? Infinity));
 }
 
-function newTrain(train_number = "", train_name = "", train_color = 0){
+// line_width (px) and line_type ("solid" | "dashed" | "dotted"): null = follow SETTINGS
+function newTrain(train_number = "", train_name = "", train_color = 0, line_width = null, line_type = null){
 	return {
 		train_number: train_number,
 		settings: {
 			train_name: train_name,
-			train_color: train_color
+			train_color: train_color,
+			line_width: line_width,
+			line_type: line_type
 		},
 		// a branch station the train comes from / goes to (ROUTE.topology), "" = none
 		origin: { station_name: "", departure: "" },

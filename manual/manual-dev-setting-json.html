@@ -93,7 +93,8 @@
         &quot;secondaryStation&quot;: { &quot;width&quot;: 1.4, &quot;color&quot;: &quot;#808080&quot; },
         &quot;primary&quot;:   { &quot;width&quot;: 2,   &quot;color&quot;: &quot;#000000&quot; },
         &quot;secondary&quot;: { &quot;width&quot;: 1.4, &quot;color&quot;: &quot;#808080&quot;, &quot;interval&quot;: 10 },
-        &quot;outline&quot;:   { &quot;width&quot;: 2,   &quot;color&quot;: &quot;#000000&quot; }
+        &quot;minute&quot;:    { &quot;enabled&quot;: false, &quot;width&quot;: 1.5, &quot;color&quot;: &quot;#808080&quot; },
+        &quot;outline&quot;:   { &quot;top&quot;: 2, &quot;bottom&quot;: 2, &quot;left&quot;: 2, &quot;right&quot;: 2, &quot;color&quot;: &quot;#000000&quot; }
     },
     &quot;stationText&quot;: { &quot;fontSize&quot;: 20, &quot;color&quot;: &quot;#000000&quot;, &quot;gap&quot;: 10 },
     &quot;aliasText&quot;: { &quot;show&quot;: false, &quot;fontSize&quot;: 20, &quot;color&quot;: &quot;#000000&quot;, &quot;gap&quot;: 10 },
@@ -173,6 +174,16 @@
 <td>依列車顏色分別設定的線寬，<code>null</code> = 用 <code>trainLineWidth</code></td>
 </tr>
 <tr>
+<td><code>trainLineType</code></td>
+<td><code>"solid"</code></td>
+<td>列車線線型：<code>"solid"</code> / <code>"dashed"</code> / <code>"dotted"</code></td>
+</tr>
+<tr>
+<td><code>trainLineTypeByColor</code></td>
+<td>11 個 <code>""</code></td>
+<td>依列車顏色分別設定的線型，<code>""</code> = 用 <code>trainLineType</code></td>
+</tr>
+<tr>
 <td><code>showTrainNumber</code></td>
 <td>true</td>
 <td>是否標示列車號（顏色同列車線）</td>
@@ -223,9 +234,19 @@
 <td>背景；透明時不畫背景</td>
 </tr>
 <tr>
-<td><code>lines.{station,primary,secondary,outline}</code></td>
+<td><code>lines.{station,secondaryStation,primary,secondary}</code></td>
 <td></td>
-<td><code>{ width, color }</code>：車站線、整點線、次要時間線、外框</td>
+<td><code>{ width, color, type }</code>：車站線、次要車站線、整點線、次要時間線；<code>type</code> = <code>"solid"</code> / <code>"dashed"</code> / <code>"dotted"</code></td>
+</tr>
+<tr>
+<td><code>lines.minute</code></td>
+<td></td>
+<td>分鐘時間線：沒有時間線的每一分鐘，以每公里一點的點線繪製，<code>width</code> 為點的直徑，<code>enabled</code> 預設關閉</td>
+</tr>
+<tr>
+<td><code>lines.outline</code></td>
+<td></td>
+<td><code>{ top, bottom, left, right, color }</code>：外框四邊各自的線寬，固定為實線</td>
 </tr>
 <tr>
 <td><code>lines.secondary.interval</code></td>

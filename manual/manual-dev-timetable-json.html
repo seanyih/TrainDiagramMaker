@@ -162,6 +162,16 @@
 <td>線條顏色 0 ~ 10，對應設定中 <code>trainColors</code> 的 index。0 與 1 同色（顏色 1）</td>
 </tr>
 <tr>
+<td><code>settings.line_width</code></td>
+<td>number</td>
+<td>此列車的線寬 (px)，優先於設定。可省略 / <code>null</code> = 依設定</td>
+</tr>
+<tr>
+<td><code>settings.line_type</code></td>
+<td>string</td>
+<td>此列車的線型：<code>"solid"</code> / <code>"dashed"</code> / <code>"dotted"</code>。可省略 / <code>null</code> = 依設定</td>
+</tr>
+<tr>
 <td><code>origin</code></td>
 <td>object</td>
 <td>跨線列車的始發：<code>{ station_name, departure }</code>，分岐上的站名與發車時刻，<code>""</code> 表示無。可省略</td>

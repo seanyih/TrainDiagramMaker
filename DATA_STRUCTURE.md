@@ -30,6 +30,8 @@ checkbox → boolean，`type="number"` 與數字選項的 select → number (空
 | `pxPerKm` / `pxPerMin` | 25 / 25 | 每公里 / 每分鐘像素 |
 | `trainLineWidth` | 2 | 列車線寬 (px) |
 | `trainLineWidthByColor` | 11 個 `null` | 依列車顏色 (`train_color`) 分別設定的線寬；`null` = 用 `trainLineWidth` |
+| `trainLineType` | `"solid"` | 列車線的線型：`"solid"` \| `"dashed"` \| `"dotted"` |
+| `trainLineTypeByColor` | 11 個 `""` | 依列車顏色分別設定的線型；`""` = 用 `trainLineType`。列車自己的 `settings.line_width` / `line_type` 優先於這兩組 |
 | `showTrainNumber` | true | 是否標示列車號 (顏色同列車線) |
 | `trainNumberFontSize` | 20 | 列車號字型大小 |
 | `pxPerTrainNumber` | 750 | 每行經多少像素 (垂直距離) 標一次列車號 |
@@ -40,7 +42,9 @@ checkbox → boolean，`type="number"` 與數字選項的 select → number (空
 | `trainNumberAvoidance.margin` | 5 | 列車號與要避開的線、文字之間的最小距離 (px)，限 0~20 |
 | `margin.{left,right,top,bottom}` | 100 | 圖表外框到圖片邊緣的距離 |
 | `background.transparent` / `.color` | false / `#FFFFFF` | 背景。透明時不畫背景矩形 |
-| `lines.{station,primary,secondary,outline}` | | `{ width, color }`：車站線、整點線、次要時間線、外框 |
+| `lines.{station,secondaryStation,primary,secondary}` | | `{ width, color, type }`：車站線、次要車站線、整點線、次要時間線；`type` 為 `"solid"` \| `"dashed"` \| `"dotted"` |
+| `lines.minute` | `{ enabled: false, width: 1.5, color: "#808080" }` | 分鐘時間線：沒有時間線的每一分鐘，畫成由上到下每公里 (`pxPerKm`) 一點的點線；`width` 是點的直徑 |
+| `lines.outline` | | `{ top, bottom, left, right, color }`：外框四邊各自的線寬 (0 = 不畫)，固定為實線 |
 | `lines.secondaryStation` | `{ 1.4, "#808080" }` | `{ width, color }`：次要車站 (`ROUTE.topology.secondary`) 的車站線 |
 | `lines.secondary.interval` | 10 | 次要時間線間隔 (分)：1, 5, 10, 15, 20, 30 |
 | `stationText` | | `{ fontSize, color, gap }`：左側站名，靠右對齊 |
@@ -59,6 +63,7 @@ checkbox → boolean，`type="number"` 與數字選項的 select → number (空
 | `print.page` | `{ width: 210, height: 297 }` | 頁面大小 (mm)，不含出血 |
 | `print.bleed` | `{ top, bottom, left, right }` 各 3 | 出血 (mm)，加在頁面之外；超出出血的圖面算超出 |
 | `print.pageMinutes` | 60 | 每頁時間 (分鐘)：30、60、120、180、240；時間範圍依此切成多頁 |
+| `print.overlap` | false | 每頁前後各多畫 10 分鐘 (`PRINT_OVERLAP_MIN`)，頁與頁重疊；第一頁從範圍開始前 10 分鐘畫起 (前一天的時刻標 `-1`) |
 | `print.format` | `"pdf"` | 輸出格式：`"svg"` = 直接 SVG (文字不轉外框)、`"pdf"` = 向量文字 PDF、`"svgPath"` = 向量文字 SVG；向量文字指文字轉成外框 (`fonts/` 的 Noto Sans TC，缺字改用 Noto Sans JP) |
 | `print.align.v` / `print.align.h` | `{ side: "top", base: "frame", offset: 20 }` / `{ side: "left", base: "text", offset: 10 }` | 圖面對齊。`side`：固定哪一側的 padding (`"top"` \| `"bottom"`、`"left"` \| `"right"`)；`base`：`offset` (mm) 算到圖框 (`"frame"`) 或含文字 (`"text"`)。另一側的 padding 由頁面大小與圖框大小算出 |
 | `passingTime.solver` | `"stn"` | 還原通過時間的求解器：`"greedy"` = 貪婪解法 (`restorePassingTimes()`，`PassingTime.js`)、`"stn"` = 離散決策 + 差分約束 (`restorePassingTimesSTN()`，`PassingTimeSTN.js`)。其他參數兩者共用 |
@@ -232,7 +237,9 @@ train = {
 	train_number: "2721C",
 	settings: {
 		train_name: "普通",
-		train_color: 1          // 0~10, index of SETTINGS.trainColors
+		train_color: 1,         // 0~10, index of SETTINGS.trainColors
+		line_width: null,       // px, null = follow SETTINGS (optional)
+		line_type: null         // "solid" | "dashed" | "dotted", null = follow SETTINGS (optional)
 	},
 	origin: { station_name: "", departure: "" },   // a branch station it comes from (5.4), "" = none
 	terminal: { station_name: "", arrival: "" },   // a branch station it goes to

@@ -61,6 +61,8 @@ TRAINS = {
 | `train_number` | string | 車次，可為 `""`。會標示在圖上 |
 | `settings.train_name` | string | 列車名，可為 `""` |
 | `settings.train_color` | number | 線條顏色 0 ~ 10，對應設定中 `trainColors` 的 index。0 與 1 同色（顏色 1） |
+| `settings.line_width` | number | 此列車的線寬 (px)，優先於設定。可省略 / `null` = 依設定 |
+| `settings.line_type` | string | 此列車的線型：`"solid"` / `"dashed"` / `"dotted"`。可省略 / `null` = 依設定 |
 | `origin` | object | 跨線列車的始發：`{ station_name, departure }`，分岐上的站名與發車時刻，`""` 表示無。可省略 |
 | `terminal` | object | 跨線列車的終點：`{ station_name, arrival }`，分岐上的站名與到達時刻，`""` 表示無。可省略 |
 | `timetable` | array | 停靠站列表，只包含有時刻的車站，依 `station_order` 由小到大排序 |

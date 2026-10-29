@@ -12,6 +12,8 @@ const SETTINGS = {
 	stationRange: { start: 0, end: null }, // route station indices drawn; end null = the last station
 	trainLineWidth: 2, //px
 	trainLineWidthByColor: [null, null, null, null, null, null, null, null, null, null, null], // index = train_color; null = trainLineWidth
+	trainLineType: "solid",
+	trainLineTypeByColor: ["", "", "", "", "", "", "", "", "", "", ""], // "" = trainLineType; a train's own settings.line_width / line_type come first
 
 	// train number: color follows the train line
 	showTrainNumber: true,
@@ -36,12 +38,15 @@ const SETTINGS = {
 		transparent: false,
 		color: "#FFFFFF"
 	},
+	// type: "solid" | "dashed" | "dotted"
 	lines: {
-		station:   { width: 2, color: "#000000" },
-		secondaryStation: { width: 1.4, color: "#808080" },      // ROUTE.topology.secondary
-		primary:   { width: 2, color: "#000000" },               // every hour
-		secondary: { width: 1.4, color: "#808080", interval: 10 }, // interval in minutes: 1, 5, 10, 15, 20, 30
-		outline:   { width: 2, color: "#000000" }
+		station:   { width: 2, color: "#000000", type: "solid" },
+		secondaryStation: { width: 1.4, color: "#808080", type: "solid" },      // ROUTE.topology.secondary
+		primary:   { width: 2, color: "#000000", type: "solid" },               // every hour
+		secondary: { width: 1.4, color: "#808080", type: "solid", interval: 10 }, // interval in minutes: 1, 5, 10, 15, 20, 30
+		// dots on the other minutes, one per km from the top; width = diameter
+		minute:    { enabled: false, width: 1.5, color: "#808080" },
+		outline:   { top: 2, bottom: 2, left: 2, right: 2, color: "#000000" } // always solid
 	},
 
 	// gap: distance between text and the plot outline
@@ -69,6 +74,7 @@ const SETTINGS = {
 		page: { width: 210, height: 297 },
 		bleed: { top: 3, bottom: 3, left: 3, right: 3 }, // added outside the page
 		pageMinutes: 60,                                 // 30 | 60 | 120 | 180 | 240
+		overlap: false,                                  // each page also draws 10 min before and after its range
 		format: "pdf",                                   // "svg" | "pdf" | "svgPath": text kept as text | PDF, text as outlines | SVG, text as outlines
 		// the plot's position: distance from the page edge on `side`, to the plot frame ("frame") or to the outermost text ("text")
 		align: {

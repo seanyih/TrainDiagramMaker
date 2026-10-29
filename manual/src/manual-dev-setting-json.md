@@ -28,7 +28,8 @@
         "secondaryStation": { "width": 1.4, "color": "#808080" },
         "primary":   { "width": 2,   "color": "#000000" },
         "secondary": { "width": 1.4, "color": "#808080", "interval": 10 },
-        "outline":   { "width": 2,   "color": "#000000" }
+        "minute":    { "enabled": false, "width": 1.5, "color": "#808080" },
+        "outline":   { "top": 2, "bottom": 2, "left": 2, "right": 2, "color": "#000000" }
     },
     "stationText": { "fontSize": 20, "color": "#000000", "gap": 10 },
     "aliasText": { "show": false, "fontSize": 20, "color": "#000000", "gap": 10 },
@@ -83,6 +84,8 @@
 | `pxPerKm` / `pxPerMin` | 25 / 25 | 每公里 / 每分鐘的像素 |
 | `trainLineWidth` | 2 | 列車線寬 (px) |
 | `trainLineWidthByColor` | 11 個 `null` | 依列車顏色分別設定的線寬，`null` = 用 `trainLineWidth` |
+| `trainLineType` | `"solid"` | 列車線線型：`"solid"` / `"dashed"` / `"dotted"` |
+| `trainLineTypeByColor` | 11 個 `""` | 依列車顏色分別設定的線型，`""` = 用 `trainLineType` |
 | `showTrainNumber` | true | 是否標示列車號（顏色同列車線） |
 | `trainNumberFontSize` | 20 | 列車號字型大小 |
 | `pxPerTrainNumber` | 750 | 每行經多少像素（垂直距離）標一次列車號 |
@@ -93,7 +96,9 @@
 | `trainNumberAvoidance.margin` | 5 | 列車號與要避開的線、文字之間的最小距離，限 0 ~ 20 |
 | `margin.{left,right,top,bottom}` | 100 | 圖表外框到圖片邊緣的距離 |
 | `background.transparent` / `.color` | false / `#FFFFFF` | 背景；透明時不畫背景 |
-| `lines.{station,primary,secondary,outline}` | | `{ width, color }`：車站線、整點線、次要時間線、外框 |
+| `lines.{station,secondaryStation,primary,secondary}` | | `{ width, color, type }`：車站線、次要車站線、整點線、次要時間線；`type` = `"solid"` / `"dashed"` / `"dotted"` |
+| `lines.minute` | | 分鐘時間線：沒有時間線的每一分鐘，以每公里一點的點線繪製，`width` 為點的直徑，`enabled` 預設關閉 |
+| `lines.outline` | | `{ top, bottom, left, right, color }`：外框四邊各自的線寬，固定為實線 |
 | `lines.secondary.interval` | 10 | 次要時間線間隔（分）：1、5、10、15、20、30 |
 | `lines.secondaryStation` | | `{ width, color }`：次要車站的車站線（路線 JSON 的 `topology.secondary`） |
 | `stationText` | | `{ fontSize, color, gap }`：左側站名，靠右對齊 |

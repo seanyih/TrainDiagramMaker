@@ -1001,95 +1001,136 @@
 				<div class="collapse" id="detailSettingWindow">
 					<h4>線條</h4>
 					<table class="table table-sm" style="width: auto; vertical-align: middle;">
-						<thead class="text-center"><tr><th></th><th>線寬(<span class="px-unit">px</span>)</th><th>顏色</th></tr></thead>
+						<thead class="text-center"><tr><th></th><th>線寬(<span class="px-unit">px</span>)</th><th>顏色</th><th>線型</th></tr></thead>
 						<tbody>
-							<tr>
-								<td>車站線</td>
-								<td><input inputmode="decimal" class="form-control" step="0.1" data-unit="px" data-setting="lines.station.width"></td>
-								<td><input type="color" class="form-control form-control-color mx-auto" data-setting="lines.station.color"></td>
-							</tr>
-							<tr>
-								<td>次要車站線</td>
-								<td><input inputmode="decimal" class="form-control" step="0.1" data-unit="px" data-setting="lines.secondaryStation.width"></td>
-								<td><input type="color" class="form-control form-control-color mx-auto" data-setting="lines.secondaryStation.color"></td>
-							</tr>
-							<tr>
-								<td>整點線</td>
-								<td><input inputmode="decimal" class="form-control" step="0.1" data-unit="px" data-setting="lines.primary.width"></td>
-								<td><input type="color" class="form-control form-control-color mx-auto" data-setting="lines.primary.color"></td>
-							</tr>
-							<tr>
-								<td>次要時間線</td>
-								<td><input inputmode="decimal" class="form-control" step="0.1" data-unit="px" data-setting="lines.secondary.width"></td>
-								<td><input type="color" class="form-control form-control-color mx-auto" data-setting="lines.secondary.color"></td>
-							</tr>
-							<tr>
-								<td>圖表外框</td>
-								<td><input inputmode="decimal" class="form-control" step="0.1" data-unit="px" data-setting="lines.outline.width"></td>
-								<td><input type="color" class="form-control form-control-color mx-auto" data-setting="lines.outline.color"></td>
-							</tr>
-							<tr>
-								<td>列車線 (全部)</td>
-								<td><input inputmode="decimal" class="form-control" step="0.1" data-unit="px" data-setting="trainLineWidth"></td>
-								<td class="text-center"><button type="button" class="btn btn-outline-secondary" id="train-width-toggle" title="依顏色分別設定">∨</button></td>
-							</tr>
-							<tr class="train-width-row" style="display:none">
-								<td class="text-end">顏色0</td>
-								<td><input inputmode="decimal" class="form-control" placeholder="同全部" data-unit="px" data-nullable data-setting="trainLineWidthByColor.0"></td>
-								<td><div class="form-control form-control-color mx-auto" style="background-color: var(--color0);"></div></td>
-							</tr>
-							<tr class="train-width-row" style="display:none">
-								<td class="text-end">顏色1</td>
-								<td><input inputmode="decimal" class="form-control" placeholder="同全部" data-unit="px" data-nullable data-setting="trainLineWidthByColor.1"></td>
-								<td><div class="form-control form-control-color mx-auto" style="background-color: var(--color1);"></div></td>
-							</tr>
-							<tr class="train-width-row" style="display:none">
-								<td class="text-end">顏色2</td>
-								<td><input inputmode="decimal" class="form-control" placeholder="同全部" data-unit="px" data-nullable data-setting="trainLineWidthByColor.2"></td>
-								<td><div class="form-control form-control-color mx-auto" style="background-color: var(--color2);"></div></td>
-							</tr>
-							<tr class="train-width-row" style="display:none">
-								<td class="text-end">顏色3</td>
-								<td><input inputmode="decimal" class="form-control" placeholder="同全部" data-unit="px" data-nullable data-setting="trainLineWidthByColor.3"></td>
-								<td><div class="form-control form-control-color mx-auto" style="background-color: var(--color3);"></div></td>
-							</tr>
-							<tr class="train-width-row" style="display:none">
-								<td class="text-end">顏色4</td>
-								<td><input inputmode="decimal" class="form-control" placeholder="同全部" data-unit="px" data-nullable data-setting="trainLineWidthByColor.4"></td>
-								<td><div class="form-control form-control-color mx-auto" style="background-color: var(--color4);"></div></td>
-							</tr>
-							<tr class="train-width-row" style="display:none">
-								<td class="text-end">顏色5</td>
-								<td><input inputmode="decimal" class="form-control" placeholder="同全部" data-unit="px" data-nullable data-setting="trainLineWidthByColor.5"></td>
-								<td><div class="form-control form-control-color mx-auto" style="background-color: var(--color5);"></div></td>
-							</tr>
-							<tr class="train-width-row" style="display:none">
-								<td class="text-end">顏色6</td>
-								<td><input inputmode="decimal" class="form-control" placeholder="同全部" data-unit="px" data-nullable data-setting="trainLineWidthByColor.6"></td>
-								<td><div class="form-control form-control-color mx-auto" style="background-color: var(--color6);"></div></td>
-							</tr>
-							<tr class="train-width-row" style="display:none">
-								<td class="text-end">顏色7</td>
-								<td><input inputmode="decimal" class="form-control" placeholder="同全部" data-unit="px" data-nullable data-setting="trainLineWidthByColor.7"></td>
-								<td><div class="form-control form-control-color mx-auto" style="background-color: var(--color7);"></div></td>
-							</tr>
-							<tr class="train-width-row" style="display:none">
-								<td class="text-end">顏色8</td>
-								<td><input inputmode="decimal" class="form-control" placeholder="同全部" data-unit="px" data-nullable data-setting="trainLineWidthByColor.8"></td>
-								<td><div class="form-control form-control-color mx-auto" style="background-color: var(--color8);"></div></td>
-							</tr>
-							<tr class="train-width-row" style="display:none">
-								<td class="text-end">顏色9</td>
-								<td><input inputmode="decimal" class="form-control" placeholder="同全部" data-unit="px" data-nullable data-setting="trainLineWidthByColor.9"></td>
-								<td><div class="form-control form-control-color mx-auto" style="background-color: var(--color9);"></div></td>
-							</tr>
-							<tr class="train-width-row" style="display:none">
-								<td class="text-end">顏色10</td>
-								<td><input inputmode="decimal" class="form-control" placeholder="同全部" data-unit="px" data-nullable data-setting="trainLineWidthByColor.10"></td>
-								<td><div class="form-control form-control-color mx-auto" style="background-color: var(--color10);"></div></td>
-							</tr>
+						<tr>
+							<td>車站線</td>
+							<td><input inputmode="decimal" class="form-control" step="0.1" data-unit="px" data-setting="lines.station.width"></td>
+							<td><input type="color" class="form-control form-control-color mx-auto" data-setting="lines.station.color"></td>
+							<td><select class="form-select" data-setting="lines.station.type"><option value="solid">實線</option><option value="dashed">虛線</option><option value="dotted">點線</option></select></td>
+						</tr>
+						<tr>
+							<td>次要車站線</td>
+							<td><input inputmode="decimal" class="form-control" step="0.1" data-unit="px" data-setting="lines.secondaryStation.width"></td>
+							<td><input type="color" class="form-control form-control-color mx-auto" data-setting="lines.secondaryStation.color"></td>
+							<td><select class="form-select" data-setting="lines.secondaryStation.type"><option value="solid">實線</option><option value="dashed">虛線</option><option value="dotted">點線</option></select></td>
+						</tr>
+						<tr>
+							<td>整點線</td>
+							<td><input inputmode="decimal" class="form-control" step="0.1" data-unit="px" data-setting="lines.primary.width"></td>
+							<td><input type="color" class="form-control form-control-color mx-auto" data-setting="lines.primary.color"></td>
+							<td><select class="form-select" data-setting="lines.primary.type"><option value="solid">實線</option><option value="dashed">虛線</option><option value="dotted">點線</option></select></td>
+						</tr>
+						<tr>
+							<td>次要時間線</td>
+							<td><input inputmode="decimal" class="form-control" step="0.1" data-unit="px" data-setting="lines.secondary.width"></td>
+							<td><input type="color" class="form-control form-control-color mx-auto" data-setting="lines.secondary.color"></td>
+							<td><select class="form-select" data-setting="lines.secondary.type"><option value="solid">實線</option><option value="dashed">虛線</option><option value="dotted">點線</option></select></td>
+						</tr>
+						<tr>
+							<td><div class="form-check mb-0"><input type="checkbox" class="form-check-input" id="minute-line-enabled" data-setting="lines.minute.enabled"><label class="form-check-label" for="minute-line-enabled" title="沒有時間線的每一分鐘，以每公里一點由上到下繪製；線寬 = 點的直徑">分鐘時間線</label></div></td>
+							<td><input inputmode="decimal" class="form-control" step="0.1" data-unit="px" data-setting="lines.minute.width"></td>
+							<td><input type="color" class="form-control form-control-color mx-auto" data-setting="lines.minute.color"></td>
+							<td><span class="text-muted">點線</span></td>
+						</tr>
+						<tr>
+							<td>圖表外框 上</td>
+							<td><input inputmode="decimal" class="form-control" step="0.1" data-unit="px" data-setting="lines.outline.top"></td>
+							<td><input type="color" class="form-control form-control-color mx-auto" data-setting="lines.outline.color"></td>
+							<td><span class="text-muted">實線</span></td>
+						</tr>
+						<tr>
+							<td>圖表外框 下</td>
+							<td><input inputmode="decimal" class="form-control" step="0.1" data-unit="px" data-setting="lines.outline.bottom"></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>圖表外框 左</td>
+							<td><input inputmode="decimal" class="form-control" step="0.1" data-unit="px" data-setting="lines.outline.left"></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>圖表外框 右</td>
+							<td><input inputmode="decimal" class="form-control" step="0.1" data-unit="px" data-setting="lines.outline.right"></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>列車線 (全部)</td>
+							<td><input inputmode="decimal" class="form-control" step="0.1" data-unit="px" data-setting="trainLineWidth"></td>
+							<td><button type="button" class="btn btn-outline-secondary" id="train-width-toggle" title="依顏色分別設定">∨</button></td>
+							<td><select class="form-select" data-setting="trainLineType"><option value="solid">實線</option><option value="dashed">虛線</option><option value="dotted">點線</option></select></td>
+						</tr>
+						<tr class="train-width-row" style="display:none">
+							<td>顏色0</td>
+							<td><input inputmode="decimal" class="form-control" data-unit="px" placeholder="同全部" data-nullable data-setting="trainLineWidthByColor.0"></td>
+							<td><div class="form-control form-control-color mx-auto" style="background-color: var(--color0);"></div></td>
+							<td><select class="form-select" data-setting="trainLineTypeByColor.0"><option value="">同全部</option><option value="solid">實線</option><option value="dashed">虛線</option><option value="dotted">點線</option></select></td>
+						</tr>
+						<tr class="train-width-row" style="display:none">
+							<td>顏色1</td>
+							<td><input inputmode="decimal" class="form-control" data-unit="px" placeholder="同全部" data-nullable data-setting="trainLineWidthByColor.1"></td>
+							<td><div class="form-control form-control-color mx-auto" style="background-color: var(--color1);"></div></td>
+							<td><select class="form-select" data-setting="trainLineTypeByColor.1"><option value="">同全部</option><option value="solid">實線</option><option value="dashed">虛線</option><option value="dotted">點線</option></select></td>
+						</tr>
+						<tr class="train-width-row" style="display:none">
+							<td>顏色2</td>
+							<td><input inputmode="decimal" class="form-control" data-unit="px" placeholder="同全部" data-nullable data-setting="trainLineWidthByColor.2"></td>
+							<td><div class="form-control form-control-color mx-auto" style="background-color: var(--color2);"></div></td>
+							<td><select class="form-select" data-setting="trainLineTypeByColor.2"><option value="">同全部</option><option value="solid">實線</option><option value="dashed">虛線</option><option value="dotted">點線</option></select></td>
+						</tr>
+						<tr class="train-width-row" style="display:none">
+							<td>顏色3</td>
+							<td><input inputmode="decimal" class="form-control" data-unit="px" placeholder="同全部" data-nullable data-setting="trainLineWidthByColor.3"></td>
+							<td><div class="form-control form-control-color mx-auto" style="background-color: var(--color3);"></div></td>
+							<td><select class="form-select" data-setting="trainLineTypeByColor.3"><option value="">同全部</option><option value="solid">實線</option><option value="dashed">虛線</option><option value="dotted">點線</option></select></td>
+						</tr>
+						<tr class="train-width-row" style="display:none">
+							<td>顏色4</td>
+							<td><input inputmode="decimal" class="form-control" data-unit="px" placeholder="同全部" data-nullable data-setting="trainLineWidthByColor.4"></td>
+							<td><div class="form-control form-control-color mx-auto" style="background-color: var(--color4);"></div></td>
+							<td><select class="form-select" data-setting="trainLineTypeByColor.4"><option value="">同全部</option><option value="solid">實線</option><option value="dashed">虛線</option><option value="dotted">點線</option></select></td>
+						</tr>
+						<tr class="train-width-row" style="display:none">
+							<td>顏色5</td>
+							<td><input inputmode="decimal" class="form-control" data-unit="px" placeholder="同全部" data-nullable data-setting="trainLineWidthByColor.5"></td>
+							<td><div class="form-control form-control-color mx-auto" style="background-color: var(--color5);"></div></td>
+							<td><select class="form-select" data-setting="trainLineTypeByColor.5"><option value="">同全部</option><option value="solid">實線</option><option value="dashed">虛線</option><option value="dotted">點線</option></select></td>
+						</tr>
+						<tr class="train-width-row" style="display:none">
+							<td>顏色6</td>
+							<td><input inputmode="decimal" class="form-control" data-unit="px" placeholder="同全部" data-nullable data-setting="trainLineWidthByColor.6"></td>
+							<td><div class="form-control form-control-color mx-auto" style="background-color: var(--color6);"></div></td>
+							<td><select class="form-select" data-setting="trainLineTypeByColor.6"><option value="">同全部</option><option value="solid">實線</option><option value="dashed">虛線</option><option value="dotted">點線</option></select></td>
+						</tr>
+						<tr class="train-width-row" style="display:none">
+							<td>顏色7</td>
+							<td><input inputmode="decimal" class="form-control" data-unit="px" placeholder="同全部" data-nullable data-setting="trainLineWidthByColor.7"></td>
+							<td><div class="form-control form-control-color mx-auto" style="background-color: var(--color7);"></div></td>
+							<td><select class="form-select" data-setting="trainLineTypeByColor.7"><option value="">同全部</option><option value="solid">實線</option><option value="dashed">虛線</option><option value="dotted">點線</option></select></td>
+						</tr>
+						<tr class="train-width-row" style="display:none">
+							<td>顏色8</td>
+							<td><input inputmode="decimal" class="form-control" data-unit="px" placeholder="同全部" data-nullable data-setting="trainLineWidthByColor.8"></td>
+							<td><div class="form-control form-control-color mx-auto" style="background-color: var(--color8);"></div></td>
+							<td><select class="form-select" data-setting="trainLineTypeByColor.8"><option value="">同全部</option><option value="solid">實線</option><option value="dashed">虛線</option><option value="dotted">點線</option></select></td>
+						</tr>
+						<tr class="train-width-row" style="display:none">
+							<td>顏色9</td>
+							<td><input inputmode="decimal" class="form-control" data-unit="px" placeholder="同全部" data-nullable data-setting="trainLineWidthByColor.9"></td>
+							<td><div class="form-control form-control-color mx-auto" style="background-color: var(--color9);"></div></td>
+							<td><select class="form-select" data-setting="trainLineTypeByColor.9"><option value="">同全部</option><option value="solid">實線</option><option value="dashed">虛線</option><option value="dotted">點線</option></select></td>
+						</tr>
+						<tr class="train-width-row" style="display:none">
+							<td>顏色10</td>
+							<td><input inputmode="decimal" class="form-control" data-unit="px" placeholder="同全部" data-nullable data-setting="trainLineWidthByColor.10"></td>
+							<td><div class="form-control form-control-color mx-auto" style="background-color: var(--color10);"></div></td>
+							<td><select class="form-select" data-setting="trainLineTypeByColor.10"><option value="">同全部</option><option value="solid">實線</option><option value="dashed">虛線</option><option value="dotted">點線</option></select></td>
+						</tr>
 						</tbody>
-					</table>
+						</table>
 
 					<h4 style="margin-top: 3vh;">車站文字</h4>
 					<div class="row g-3 align-items-center">
@@ -1339,6 +1380,10 @@
 									<option value="180">3 小時</option>
 									<option value="240">4 小時</option>
 								</select>
+							</div>
+							<div class="col-auto form-check" style="margin-left: 1rem;">
+								<input type="checkbox" class="form-check-input" id="print-overlap" data-setting="print.overlap">
+								<label class="form-check-label" for="print-overlap" title="每頁前後各多畫 10 分鐘，頁與頁之間有重疊">重疊10分鐘</label>
 							</div>
 						</div>
 						<div class="row g-3 align-items-center">
@@ -1935,6 +1980,19 @@
 				</select>
 			</div>
 			<div style="margin-top: 3vh">
+				<p class="mb-1">此列車的線條</p>
+				<div class="input-group">
+					<input inputmode="decimal" class="form-control" id="offcanvas-line-width" placeholder="線寬 (同設定)">
+					<span class="input-group-text">px</span>
+					<select class="form-select" id="offcanvas-line-type">
+						<option value="">線型 (同設定)</option>
+						<option value="solid">實線</option>
+						<option value="dashed">虛線</option>
+						<option value="dotted">點線</option>
+					</select>
+				</div>
+			</div>
+			<div style="margin-top: 3vh">
 				<p class="mb-1">始發</p>
 				<div class="input-group">
 					<select class="form-select offcanvas-branch" id="offcanvas-origin" data-end="origin"></select>
@@ -1945,12 +2003,10 @@
 					<select class="form-select offcanvas-branch" id="offcanvas-terminal" data-end="terminal"></select>
 					<input class="form-control offcanvas-branch-time" id="offcanvas-terminal-time" data-end="terminal">
 				</div>
-				<small class="text-muted">從分岐路線駛入 (駛出) 的列車：選擇分岐上的車站並填入時刻，就會以距離內插推算通過分岐站的時刻。分岐在「路線資料 > 線路拓樸」設定。在本路線完全不停車的列車，始發與終點都填上即可。</small>
 			</div>
-			<div style="margin-top: 3vh">
+			<div style="margin-top: 3vh" id="offcanvas-pinned">
 				<p class="mb-1">釘選的時刻 <span id="offcanvas-pinned-count">0</span> 個</p>
 				<button class="btn btn-outline-secondary btn-sm" type="button" id="offcanvas-unpin">解除釘選</button>
-				<br><small class="text-muted">疊圖疊加的時刻會釘選 (時刻表中以底線標示)，還原通過時間不會移動。</small>
 			</div>
 		</div>
 	</div>

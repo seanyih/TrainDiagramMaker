@@ -65,7 +65,7 @@ function initSettingsUI(){
 	$("[data-setting]").each(function(){
 		const [obj, key] = settingRef($(this).data("setting"));
 		if(this.type == "checkbox") this.checked = obj[key];
-		else                        $(this).val(settingDisplay(this, obj[key]));
+		else                        $(this).val(settingDisplay(this, obj[key]) ?? "");
 	});
 	$("#starthhmm").val(secToHhmm(SETTINGS.startSec));
 	$("#endhhmm").val(secToHhmm(SETTINGS.endSec));
@@ -150,7 +150,7 @@ function renderTimeLabelPreview(){
 		const x = (t - start)/60*pxPerMin + left;
 		const primary = (t % 3600 == 0);
 		const line = primary ? SETTINGS.lines.primary : SETTINGS.lines.secondary;
-		o.append(makeSVG("line", {x1:x, x2:x, y1:top, y2:top+plotHeight, stroke: line.color, 'stroke-width': line.width}));
+		o.append(makeStyledLine(x, x, top, top+plotHeight, line));
 
 		const label = makeTimeLabel(t, primary, x, labelY);
 		if(label) o.append(label);

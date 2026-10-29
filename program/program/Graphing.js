@@ -13,6 +13,18 @@ function makeSVGtext(tag, text, attrs) {
     return el;
 }
 
+// attributes of a line of the given type; dots are round caps on zero-length dashes
+function lineStyleAttrs(type, width){
+	if(type == "dashed") return {"stroke-dasharray": `${width*5} ${width*3}`};
+	if(type == "dotted") return {"stroke-dasharray": `0 ${width*2.5}`, "stroke-linecap": "round"};
+	return {};
+}
+
+// a straight line in the given style ({ width, color, type })
+function makeStyledLine(x1, x2, y1, y2, style){
+	return makeSVG("line", {x1:x1, x2:x2, y1:y1, y2:y2, stroke:style.color, 'stroke-width':style.width, ...lineStyleAttrs(style.type, style.width)});
+}
+
 // first and last route station index drawn (SETTINGS.stationRange; null end = the last station)
 function stationRange(){
 	const last = ROUTE.stations.length - 1;
@@ -82,7 +94,7 @@ function drawDiagram(trains = TRAINS, o = $("#output")){
 		const primary = (t % 3600 == 0);
 		const line = primary ? lines.primary : lines.secondary;
 		if(t != SETTINGS.startSec && t != SETTINGS.endSec){
-			o.append(makeSVG("line", {x1:x, x2:x, y1:margin.top, y2:h+margin.top, stroke:line.color, 'stroke-width':line.width}));
+			o.append(makeStyledLine(x, x, margin.top, h+margin.top, line));
 			if(shouldAvoidTimeLine(primary)) addSegment(grid, {x1:x, y1:margin.top, x2:x, y2:h+margin.top, owner:"timeline"});
 		}
 
@@ -90,12 +102,21 @@ function drawDiagram(trains = TRAINS, o = $("#output")){
 		if(label) timeLabels.push(label);
 	}
 
+	//minute lines: dots at the minutes without a time line
+	if(lines.minute.enabled){
+		for(let t = Math.ceil(SETTINGS.startSec/60)*60; t < SETTINGS.endSec; t += 60){
+			if(t % step == 0) continue;
+			const x = (t - SETTINGS.startSec)/60*pxPerMin + margin.left;
+			o.append(makeSVG("line", {x1:x, x2:x, y1:margin.top, y2:h+margin.top, stroke:lines.minute.color, 'stroke-width':lines.minute.width, 'stroke-dasharray':`0 ${pxPerKm}`, 'stroke-linecap':"round"}));
+		}
+	}
+
 	//station lines
 	stations.forEach((station, i) => {
 		if(i < range.start || i > range.end) return;
 		const y = kiloToY(station.kilo);
 		const line = ROUTE.topology.secondary[i] ? lines.secondaryStation : lines.station;
-		o.append(makeSVG("line", {x1:margin.left, x2:w+margin.left, y1:y, y2:y, stroke:line.color, 'stroke-width':line.width}));
+		o.append(makeStyledLine(margin.left, w+margin.left, y, y, line));
 	});
 
 	const trainLayer = $(makeSVG("g", {"clip-path":"url(#plot-area)"}));
@@ -108,7 +129,20 @@ function drawDiagram(trains = TRAINS, o = $("#output")){
 	if(SETTINGS.showTrainNumber) placeTrainNumbers(trainLayer, trainSlots, grid);
 
 	//outline rectangle
-	o.append(makeSVG("rect", {x:margin.left, y:margin.top, width:w, height:h, stroke:lines.outline.color, 'stroke-width':lines.outline.width, fill:"none"}));
+	// each side has its own width; the lines are extended so that the corners are filled
+	const { top, bottom, left, right, color } = lines.outline;
+	const x1 = margin.left;
+	const x2 = margin.left + w;
+	const y1 = margin.top;
+	const y2 = margin.top + h;
+	[
+		[top, x1 - left/2, x2 + right/2, y1, y1],
+		[bottom, x1 - left/2, x2 + right/2, y2, y2],
+		[left, x1, x1, y1 - top/2, y2 + bottom/2],
+		[right, x2, x2, y1 - top/2, y2 + bottom/2]
+	].forEach(([width, xa, xb, ya, yb]) => {
+		if(width > 0) o.append(makeSVG("line", {x1:xa, x2:xb, y1:ya, y2:yb, stroke:color, 'stroke-width':width}));
+	});
 
 	//station name (left) and alias (right)
 	stations.forEach((station, i) => {
@@ -138,10 +172,12 @@ function makeTimeLabel(sec, primary, x, y){
 	if(!primary && (SETTINGS.lines.secondary.interval < 10 || tl.secondaryLabel == "none")) return null;
 
 	const hour = Math.floor(sec/3600);
+	// the previous day appears when a print page overlaps the one before
+	const prevDay = hour < 0;
 	const nextDay = hour >= 24 && tl.overDay != "extended";
-	const shownHour = nextDay ? hour - 24 : hour;
+	const shownHour = nextDay ? hour - 24 : prevDay ? hour + 24 : hour;
 	const hh = tl.zeroPad ? String(shownHour).padStart(2, "0") : String(shownHour);
-	const mm = String(Math.floor(sec%3600/60)).padStart(2, "0");
+	const mm = String(Math.floor((sec - hour*3600)/60)).padStart(2, "0");
 	const mmOnly = !primary && tl.secondaryLabel == "mm";
 
 	// [text, font size, color]
@@ -158,9 +194,9 @@ function makeTimeLabel(sec, primary, x, y){
 	// tspans share one baseline, so different sizes are bottom aligned
 	const text = makeSVG("text", {x:x, y:y, "font-family":"Noto Sans TC", "text-anchor":"middle"});
 	parts.forEach(([str, size, color]) => text.appendChild(makeSVGtext("tspan", str, {"font-size":size, "fill":color})));
-	if(nextDay && tl.overDay == "superscript" && !mmOnly && (tl.format != "simple" || primary)){
+	if((nextDay || prevDay) && tl.overDay == "superscript" && !mmOnly && (tl.format != "simple" || primary)){
 		const [, size, color] = parts[0];
-		text.appendChild(makeSVGtext("tspan", "+1", {"font-size":size*0.6, "fill":color, dx:2, dy:-size*0.4}));
+		text.appendChild(makeSVGtext("tspan", nextDay ? "+1" : "-1",{"font-size":size*0.6, "fill":color, dx:2, dy:-size*0.4}));
 	}
 	return text;
 }
@@ -181,13 +217,16 @@ function timeLabelHeight(){
 function drawTrain(o, train, bound, w, grid){
 	const stations = boundStations(bound);
 	const c = SETTINGS.trainColors[train.settings.train_color];
-	const lineWidth = SETTINGS.trainLineWidthByColor[train.settings.train_color] ?? SETTINGS.trainLineWidth;
+	const color = train.settings.train_color;
+	const lineWidth = train.settings.line_width ?? SETTINGS.trainLineWidthByColor[color] ?? SETTINGS.trainLineWidth;
+	const lineType = train.settings.line_type ?? (SETTINGS.trainLineTypeByColor[color] || SETTINGS.trainLineType);
+	const dashAttrs = lineStyleAttrs(lineType, lineWidth);
 	const stationY = order => kiloToY(stations[order].kilo);
 	const plotBottom = SETTINGS.margin.top + plotHeight();
 	const line = (x1, x2, y1, y2) => {
 		shifts.forEach(dx => {
 			if(!visible(x1 + dx, x2 + dx)) return;
-			o.append(makeSVG("line", {x1: x1 + dx, x2: x2 + dx, y1: y1, y2: y2, stroke: c, 'stroke-width':lineWidth}));
+			o.append(makeSVG("line", {x1: x1 + dx, x2: x2 + dx, y1: y1, y2: y2, stroke: c, 'stroke-width':lineWidth, ...dashAttrs}));
 			addSegment(grid, {x1: x1 + dx, y1: y1, x2: x2 + dx, y2: y2, owner: train});
 		});
 	};

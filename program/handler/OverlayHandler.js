@@ -52,5 +52,5 @@ $("#offcanvas-unpin").on("click", function(){
 function renderPinnedCount(){
 	const count = editingTrain.timetable.filter(stop => stop.pinned).length;
 	$("#offcanvas-pinned-count").text(count);
-	$("#offcanvas-unpin").prop("disabled", count == 0);
+	$("#offcanvas-pinned").toggle(count > 0);
 }

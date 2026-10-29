@@ -47,7 +47,13 @@ function pdfSvgOps(parent, clips){
 	return [...parent.children].flatMap(el => {
 		const fill = el.getAttribute("fill");
 		const stroke = el.getAttribute("stroke");
-		const strokeStyle = stroke && stroke != "none" ? [pdfColor(stroke, "RG"), `${pdfNum(num(el, "stroke-width"))} w`] : [];
+		const dash = el.getAttribute("stroke-dasharray");
+		const strokeStyle = stroke && stroke != "none" ? [
+			pdfColor(stroke, "RG"),
+			`${pdfNum(num(el, "stroke-width"))} w`,
+			...(el.getAttribute("stroke-linecap") == "round" ? ["1 J"] : []),
+			...(dash ? [`[${dash.split(" ").map(Number).map(pdfNum).join(" ")}] 0 d`] : [])
+		] : [];
 
 		if(el.tagName == "g"){
 			const [x, y, w, h] = clips[el.getAttribute("clip-path").slice(5, -1)];

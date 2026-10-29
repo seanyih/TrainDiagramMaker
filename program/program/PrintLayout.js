@@ -6,6 +6,8 @@
 */
 
 const MM_PER_INCH = 25.4;
+// with SETTINGS.print.overlap, a page also draws this many minutes before and after its range
+const PRINT_OVERLAP_MIN = 10;
 
 function mmToPx(mm){
 	return mm*SETTINGS.print.ppi/MM_PER_INCH;
@@ -47,10 +49,10 @@ function textExtent(){
 	over: the side whose text is outside the bleed
 */
 function printLayout(){
-	const { page, bleed, align, pageMinutes } = SETTINGS.print;
+	const { page, bleed, align, pageMinutes, overlap } = SETTINGS.print;
 	const rangeMin = (SETTINGS.endSec - SETTINGS.startSec)/60;
 	const frame = {
-		w: pxToMm(Math.min(pageMinutes, rangeMin)*SETTINGS.pxPerMin),
+		w: pxToMm((Math.min(pageMinutes, rangeMin) + (overlap ? 2*PRINT_OVERLAP_MIN : 0))*SETTINGS.pxPerMin),
 		h: pxToMm(plotHeight())
 	};
 	const ext = Object.fromEntries(Object.entries(textExtent()).map(([side, px]) => [side, pxToMm(px)]));
@@ -85,7 +87,8 @@ ${svg.outerHTML}`);
 
 // returns the failure reason, or null when the zip is downloaded
 async function exportPrintZip(){
-	const { page, bleed, align, pageMinutes, format, ppi } = SETTINGS.print;
+	const { page, bleed, align, pageMinutes, format, ppi, overlap } = SETTINGS.print;
+	const overlapSec = overlap ? PRINT_OVERLAP_MIN*60 : 0;
 	const layout = printLayout();
 	if(Object.values(layout.over).some(over => over)) return "圖面超出頁面 (出血以外)";
 
@@ -100,14 +103,16 @@ async function exportPrintZip(){
 	if(format != "svg"){
 		const { start, end } = stationRange();
 		const names = ROUTE.stations.slice(start, end + 1).map(station => station.name + station.alias).join("");
-		await loadPrintFonts(`${names}0123456789:+`, "normal");
+		await loadPrintFonts(`${names}0123456789:+-`, "normal");
 		if(SETTINGS.showTrainNumber) await loadPrintFonts([...TRAINS[1], ...TRAINS[2]].map(train => train.train_number).join(""), "bold");
 	}
 	try{
 		for(let i = 0; i < layout.pages; i++){
-			SETTINGS.startSec = saved.startSec + i*pageMinutes*60;
-			SETTINGS.endSec = Math.min(SETTINGS.startSec + pageMinutes*60, saved.endSec);
-			const w = (SETTINGS.endSec - SETTINGS.startSec)/60*SETTINGS.pxPerMin;
+			const pageStart = saved.startSec + i*pageMinutes*60;
+			const pageEnd = Math.min(pageStart + pageMinutes*60, saved.endSec);
+			SETTINGS.startSec = pageStart - overlapSec;
+			SETTINGS.endSec = pageEnd + overlapSec;
+			const w =(SETTINGS.endSec - SETTINGS.startSec)/60*SETTINGS.pxPerMin;
 			const left = (align.h.side == "left") ? layout.pad.left : page.width - layout.pad.right - pxToMm(w);
 			const top = mmToPx(bleed.top + layout.pad.top);
 			SETTINGS.margin = {
