@@ -15,6 +15,7 @@ $(".timetable").on("click", ".optionbar", function(){
 	$("#offcanvas-train-color").val(editingTrain.settings.train_color);
 	styleColorSelect(editingTrain.settings.train_color);
 	["origin", "terminal"].forEach(renderBranchEnd);
+	renderPinnedCount();
 	$("#timetable-offcanvas").offcanvas("show");
 });
 

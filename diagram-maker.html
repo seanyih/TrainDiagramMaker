@@ -200,6 +200,11 @@
 			color: #999;
 		}
 
+		/* times pinned by an overlay (Overlay.js) */
+		.pinned-time-input{
+			text-decoration: underline;
+		}
+
 		.highlight-input-cell{
 			font-size: 1.2rem;
 			font-weight: bold;
@@ -808,6 +813,41 @@
 							<input type="file" class="form-control" id="AllFile" accept=".json">
 							<button class="btn btn-outline-primary" type="button" id="ImportAllBtn">匯入全部</button>
 						</div>
+					</div>
+				</div>
+				<div class="row" style="margin-bottom: 1rem">
+					<div class="col-2" style="display:flex;justify-content:center; flex-direction: column;">
+						<p style="font-weight:bold;">疊圖</p>
+						<p class="text-muted" style="font-size: 85%;">匯出一段路線的列車 (含通過時刻，到秒)，疊加到共用這段的另一條路線</p>
+					</div>
+					<div class="col-5">
+						<div class="input-group mb-3">
+							<span class="input-group-text">從</span>
+							<select class="form-select" id="OverlayFrom"></select>
+							<span class="input-group-text">到</span>
+							<select class="form-select" id="OverlayTo"></select>
+						</div>
+						<div class="input-group mb-3">
+							<input type="text" class="form-control" placeholder="匯出使用的檔名" id="ExportOverlayFilename">
+							<button class="btn btn-outline-primary" type="button" id="ExportOverlayBtn">匯出區段</button>
+						</div>
+					</div>
+					<div class="col-5">
+						<div class="input-group mb-3">
+							<span class="input-group-text">已有時刻的站</span>
+							<select class="form-select" id="OverlayConflict">
+								<option value="overlay" selected>以疊圖為準</option>
+								<option value="keep">保留現有時刻</option>
+							</select>
+						</div>
+						<div class="input-group mb-3">
+							<input type="file" class="form-control" id="OverlayFile" accept=".json">
+							<button class="btn btn-outline-primary" type="button" id="ImportOverlayBtn">疊加</button>
+						</div>
+					</div>
+					<div class="col-2"></div>
+					<div class="col-10">
+						<p class="text-muted" style="font-size: 85%;">車站以站名對應、列車以車次對應 (沒有車次時以同站同時刻對應)，已有的列車合併、不會重複。疊加的時刻會釘選，還原通過時間不會移動。<span id="OverlayResult" class="text-body"></span></p>
 					</div>
 				</div>
 
@@ -1772,6 +1812,15 @@
 			</div>
 		</div>
 
+		<div class="toast text-bg-primary end-0" role="alert" aria-live="assertive" aria-atomic="true" id="ImportOverlaySuccess">
+			<div class="d-flex">
+					<div class="toast-body">
+						疊圖已成功疊加。
+					</div>
+					<button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+			</div>
+		</div>
+
 		<div class="toast text-bg-danger end-0" role="alert" aria-live="assertive" aria-atomic="true" id="ImportTimeFailed">
 			<div class="d-flex">
 					<div class="toast-body">
@@ -1896,7 +1945,12 @@
 					<select class="form-select offcanvas-branch" id="offcanvas-terminal" data-end="terminal"></select>
 					<input class="form-control offcanvas-branch-time" id="offcanvas-terminal-time" data-end="terminal">
 				</div>
-				<small class="text-muted">從分岐路線駛入 (駛出) 的列車：選擇分岐上的車站並填入時刻，就會以距離內插推算通過分岐站的時刻。分岐在「路線資料 > 線路拓樸」設定。</small>
+				<small class="text-muted">從分岐路線駛入 (駛出) 的列車：選擇分岐上的車站並填入時刻，就會以距離內插推算通過分岐站的時刻。分岐在「路線資料 > 線路拓樸」設定。在本路線完全不停車的列車，始發與終點都填上即可。</small>
+			</div>
+			<div style="margin-top: 3vh">
+				<p class="mb-1">釘選的時刻 <span id="offcanvas-pinned-count">0</span> 個</p>
+				<button class="btn btn-outline-secondary btn-sm" type="button" id="offcanvas-unpin">解除釘選</button>
+				<br><small class="text-muted">疊圖疊加的時刻會釘選 (時刻表中以底線標示)，還原通過時間不會移動。</small>
 			</div>
 		</div>
 	</div>
@@ -1956,6 +2010,7 @@
 	<script src="program/program/TrainNumber.js"></script>
 	<script src="program/program/TrackLayout.js"></script>
 	<script src="program/program/BranchTrain.js"></script>
+	<script src="program/program/Overlay.js"></script>
 	<script src="program/program/RunTimeAutofill.js"></script>
 	<script src="program/program/PassingTime.js"></script>
 	<script src="program/program/PassingTimeSTN.js"></script>
@@ -1966,6 +2021,7 @@
 	<script src="program/handler/TrackLayoutHandler.js"></script>
 	<script src="program/handler/TopologyHandler.js"></script>
 	<script src="program/handler/TimetableHandler.js"></script>
+	<script src="program/handler/OverlayHandler.js"></script>
 
 	<!-- setting api -->
 	<script src="program/setting/alterColor.js"></script>
@@ -1977,6 +2033,7 @@
 
 	<script>
 		renderRouteTable();
+		renderOverlayStations();
 		renderTimetable(1);
 		renderTimetable(2);
 		initSettingsUI();

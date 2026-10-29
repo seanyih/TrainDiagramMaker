@@ -26,6 +26,7 @@ function onRouteChanged(){
 	renderStationRange();
 	refreshStopNames();
 	renderStopRules();
+	renderOverlayStations();
 	refreshTimetable(1);
 	refreshTimetable(2);
 }

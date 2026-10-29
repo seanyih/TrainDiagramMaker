@@ -181,6 +181,20 @@
 <div class="admonition warning">
 <p>網站不會自動存檔。關閉網頁或重新整理前，記得先匯出全部資料。</p>
 </div>
+<h2 id="疊圖">疊圖</h2>
+<p>兩條路線共用一段軌道時（例如內灣線的新竹–北新竹段與縱貫線共用），可以把一條路線上這一段的列車「疊」到另一條路線上，不必重新推算。</p>
+<ol>
+<li>打開已經算好的路線（例如縱貫線，已<a href="manual-ops-passing-time.html">還原通過時間</a>並採用），在「疊圖」選擇<strong>從</strong>、<strong>到</strong>兩站，按<strong>匯出區段</strong>。檔案包含這一段中每一班車在每一站的時刻：停靠站照時刻表，通過的車站（含快車不停的站、內插的分岐站）則是圖上列車線的時刻，<strong>精確到秒</strong>，不受「通過時刻的最小單位」限制。</li>
+<li>打開另一條路線（例如內灣線），選取剛才的檔案，按<strong>疊加</strong>。</li>
+</ol>
+<p>疊加時：</p>
+<ul>
+<li><strong>車站以站名對應</strong>。本路線沒有的車站會略過；如果它是本路線<a href="manual-ops-topology.html">線路拓樸</a>中分岐上的車站，會順便填成列車的始發、終點（列車原本沒有設定時）。</li>
+<li><strong>列車以車次對應</strong>，同方向、同車次的列車視為同一班，把時刻合併進去，<strong>不會重複</strong>；沒有車次的列車，以「同一站、同一時刻」對應。找不到的列車才新增。重複疊加同一個檔案不會改變任何東西。</li>
+<li>「<strong>已有時刻的站</strong>」選單：以疊圖為準（預設，覆蓋本路線原有的時刻）或保留現有時刻。疊圖中空白的到站時刻（來源也不知道）不會覆蓋本路線的時刻。</li>
+<li>疊加的時刻會<strong>釘選</strong>：<a href="manual-ops-passing-time.html#釘選的時刻">還原通過時間</a>不會移動它們。時刻表中釘選的格子有底線，可在「車次細項」中解除釘選。</li>
+</ul>
+<p>疊圖檔案的格式見<a href="manual-dev-timetable-json.html#疊圖檔案">時刻表資料格式(json)</a>。</p>
 			</article>
 			<div class="manual-pager">
 				<a class="prev" href="manual-format-excel-encoding.html"><small>上一頁</small>Excel編碼轉換</a>
@@ -190,7 +204,7 @@
 
 		<aside class="manual-toc">
 			<p class="manual-toc-title">本頁內容</p>
-			<ul><li><a href="#可以匯入匯出哪些資料">可以匯入、匯出哪些資料</a><ul><li><a href="#csv-和-json-有什麼不同">CSV 和 JSON 有什麼不同？</a></li></ul></li><li><a href="#匯入路線資料">匯入路線資料</a></li><li><a href="#匯入時刻表">匯入時刻表</a></li><li><a href="#匯入匯出設定">匯入/匯出設定</a></li><li><a href="#匯入匯出全部資料">匯入/匯出全部資料</a></li></ul>
+			<ul><li><a href="#可以匯入匯出哪些資料">可以匯入、匯出哪些資料</a><ul><li><a href="#csv-和-json-有什麼不同">CSV 和 JSON 有什麼不同？</a></li></ul></li><li><a href="#匯入路線資料">匯入路線資料</a></li><li><a href="#匯入時刻表">匯入時刻表</a></li><li><a href="#匯入匯出設定">匯入/匯出設定</a></li><li><a href="#匯入匯出全部資料">匯入/匯出全部資料</a></li><li><a href="#疊圖">疊圖</a></li></ul>
 		</aside>
 	</div>
 

@@ -86,7 +86,7 @@ function renderTimetable(bound){
 		const name = escapeHTML(station.name);
 		const cells = trains.map((train, t) => {
 			const stop = stopAt[t][s];
-			const passing = isPassingStop(stop) ? " passing-time-input" : "";
+			const passing = (isPassingStop(stop) ? " passing-time-input" : "") + (stop?.pinned ? " pinned-time-input" : "");
 			return `
 				<td><input class="in-table-text-input time-input${passing}" data-train="${t}" data-station="${s}" data-field="arrival" value="${stop ? stop.arrival : ""}"></td>
 				<td class="td-dep"><input class="in-table-text-input time-input${passing}" data-train="${t}" data-station="${s}" data-field="departure" value="${stop ? stop.departure : ""}" placeholder="${name}發"></td>`;

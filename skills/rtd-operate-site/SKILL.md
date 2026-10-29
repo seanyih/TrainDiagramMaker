@@ -51,6 +51,17 @@ ROUTE.stations[3].name = "新駅"; onRouteChanged();
 ```
 Times are `"hhmm"`/`"hhmmss"` strings; `""` = none. Keep `station_order` sorted.
 
+### Overlay (疊圖): lay a section of one route onto another
+```js
+const data = getOverlayJSON(from, to);       // ROUTE.stations indices, from < to: trains of that section, times at every
+                                             // station they pass (as drawn, to the second)
+// ... load the other route and its trains ...
+const r = applyOverlay(data, "overlay");     // or "keep": stations already timed keep their times
+// r = { merged, added, skipped, stations: [names not on this route] }; throws Error(message) on a bad file
+refreshTimetable(1); refreshTimetable(2);
+```
+Stations match by name, trains by train number (same bound), so a train already there is merged, not added twice; laid times get `pinned: true` and the solvers never move them (`unpinTrain(train)` clears it). UI: 匯入/匯出 > 疊圖 (`#OverlayFrom`, `#OverlayTo`, `#ExportOverlayBtn`, `#OverlayFile`, `#OverlayConflict`, `#ImportOverlayBtn`, result in `#OverlayResult`).
+
 ### Settings
 Defaults live in `SETTINGS` (see `DATA_STRUCTURE.md` section 2 for every field).
 ```js

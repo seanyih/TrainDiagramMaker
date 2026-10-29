@@ -109,6 +109,10 @@ A train that comes from, or continues onto, a branch line which is **not** a sta
 - `station_name` must **exactly match** a station in `route.topology.branches[i][*].stations[*].name` (Appendix B); otherwise no junction point is produced (silently ignored).
 - The site interpolates the time it passes the junction by distance. This needs `kilo` for the branch stations (distance from the junction) and the origin must be before the train's first stop on this route (terminal: after the last).
 - It does not have to be the real start / end: prefer the branch station **nearest to the junction** that has a published time (less interpolation error). Other branch stops are not needed.
+- A train that runs through this route **without stopping at any of its stations** (e.g. an express joining from one branch and leaving onto another): `timetable: []` with both `origin` and `terminal` set. The site interpolates both junction times between `origin.departure` and `terminal.arrival` by distance. The origin's junction must come before the terminal's in this bound's order. Do not invent passing times for it.
+
+### Pinned stops (optional)
+A stop may carry `"pinned": true`: its times are exact (to the second) and the passing-time solvers never move them. The site sets it on times laid onto a route by its overlay feature (疊圖, `DATA_STRUCTURE.md` 5.5). Only write it when the user asks or the times come from such an overlay; omit it otherwise. CSV cannot carry it.
 
 ## Train CSV (alternative)
 
@@ -129,7 +133,7 @@ Check in code (a few lines of Python/JS), not by eye:
 4. Within a train, times are non-decreasing in route order except for one midnight wrap.
 5. Every stop has a `departure` (last stop: `departure == arrival`).
 6. For bound 2 trains: first listed stop's `station_order` is small when the train starts at the route's last station. A bound-2 train with large first `station_order` is probably indexed the wrong way.
-7. `origin`/`terminal` names exist in `topology.branches`.
+7. `origin`/`terminal` names exist in `topology.branches`. An empty `timetable` is only allowed with both `origin` and `terminal`.
 8. Optionally load it in the site (`rtd-operate-site`) and confirm the diagram has no zig-zag lines.
 
 Then tell the user what was assumed or left blank (for example "mileage taken from Wikipedia", "track layout omitted").

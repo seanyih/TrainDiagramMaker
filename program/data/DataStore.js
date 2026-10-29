@@ -78,10 +78,12 @@ function findStop(train, order){
 	return train.timetable.find(stop => stop.station_order == order);
 }
 
-// append a stop; callers add stops in station order
-function addStop(train, order, arrival, departure){
+// append a stop; callers add stops in station order. pinned: its times are never moved (an overlay, Overlay.js)
+function addStop(train, order, arrival, departure, pinned = false){
 	if(!arrival && !departure) return;
-	train.timetable.push({ station_order: order, station_name: "", arrival: arrival, departure: departure });
+	const stop = { station_order: order, station_name: "", arrival: arrival, departure: departure };
+	if(pinned) stop.pinned = true;
+	train.timetable.push(stop);
 }
 
 function setStopTime(bound, trainIndex, order, field, time){
@@ -124,7 +126,7 @@ function stopTimes(train, stations){
 }
 
 function isBlankTrain(train){
-	return !train.train_number && train.timetable.length == 0;
+	return !train.train_number && train.timetable.length == 0 && !train.origin.station_name && !train.terminal.station_name;
 }
 
 // shift station_order of stops at or after `order` by `delta`
