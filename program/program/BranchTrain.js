@@ -37,7 +37,8 @@ function junctionRange(a, c, d1, d2){
 }
 
 /*
-	Junction stops of a train, { origin, terminal } (null where there is none): { k (station order), time, min, max },
+	Junction stops of a train, { origin, terminal } (null where there is none): { k (station order), time, min, max,
+	a, c, d1, d2 (as in junctionRange()) },
 	in seconds like stopTimes(), and `stop`, a passing stop like the ones in the timetable.
 	Only where the branch joins before the first (after the last) stop, so the time is not known yet.
 */
@@ -60,7 +61,7 @@ function junctionStops(train, bound){
 		const time = a + (c - a)*d1/(d1 + d2);
 		const [min, max] = junctionRange(a, c, d1, d2);
 		const str = toStr(((Math.round(time) % 86400) + 86400) % 86400);
-		return { k: branch.order, time: time, min: min, max: max,
+		return { k: branch.order, time: time, min: min, max: max, a: a, c: c, d1: d1, d2: d2,
 			stop: { station_order: branch.order, station_name: stations[branch.order].name, arrival: str, departure: str } };
 	};
 	result.origin = junction("origin", train.origin, stops[0], train.origin.departure, true);
@@ -90,7 +91,7 @@ function passingJunctions(train, bound, stations){
 		const time = a + (c - a)*d1/(d1 + d2);
 		const [min, max] = junctionRange(a, c, d1, d2);
 		const str = toStr(((Math.round(time) % 86400) + 86400) % 86400);
-		return { k: order, time: time, min: min, max: max,
+		return { k: order, time: time, min: min, max: max, a: a, c: c, d1: d1, d2: d2,
 			stop: { station_order: order, station_name: stations[order].name, arrival: str, departure: str } };
 	};
 	result.origin = point(from.order, from.kilo, route + to.kilo);

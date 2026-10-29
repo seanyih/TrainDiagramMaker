@@ -81,7 +81,12 @@ $("body").on("click", "#AutofillBtn", function(){
 
 const ROUNDING_NAMES = { round: "四捨五入", floor: "無條件捨去", ceil: "無條件進位" };
 
-// restoring on a new draft `name` with the chosen solver, showing the outcome in `result`;
+const counted = (counts, headway) => `追越 ${counts.overtake} | 交會 ${counts.cross}${headway ? ` | 時隔不足 ${counts.headway}` : ""}`;
+
+// the last result's details (PassingReport.js), shown by 詳細結果: { report, counts, headway, solver, rounding, runs, ms }
+let PASSING_REPORT = null;
+
+// restoring on a new draft `name` with the chosen solver, showing the outcome in `result` (details in PASSING_REPORT);
 // an imprecise timetable rounded in an unknown way is restored once for each way, keeping the one with the fewest
 // conflicts, then the most even running times
 function runPassingTime(name, button, headway, result){
@@ -91,14 +96,26 @@ function runPassingTime(name, button, headway, result){
 	const { solver, imprecise, roundingMode } = SETTINGS.passingTime;
 	const roundings = !imprecise ? [null] : (roundingMode == "auto") ? Object.keys(ROUNDING_NAMES) : [roundingMode];
 	const runs = [];
-	const counted = counts => `追越 ${counts.overtake} | 交會 ${counts.cross}${headway ? ` | 時隔不足 ${counts.headway}` : ""}`;
+	const started = performance.now();
 	result.hide();
+	PASSING_REPORT = null;
+	$("#PassingTimeReportBtn, #PassingTimeReport").hide();
 
 	const onRound = () => {};
-	const finish = ({ draft, counts, written, rounding }) => {
+	const finish = run => {
+		const { draft, counts, written } = run;
 		if(written.added + written.moved + written.stops + written.arrivals + written.times > 0) DRAFTS[name] = draft;
-		result.text(`最終衝突數：${counted(counts)}。新增 ${written.added} 個通過時刻${headway ? `，調整 ${written.moved} 個` : ""}${written.stops ? `，臨時停車 ${written.stops} 次` : ""}${written.arrivals ? `，修改 ${written.arrivals} 個到站時刻` : ""}${written.times ? `，調整 ${written.times} 個停靠站時刻` : ""}。${(roundings.length > 1) ? `精度的處理方式：${ROUNDING_NAMES[rounding]}。` : ""}`).show();
+		result.text(`最終衝突數：${counted(counts, headway)}。`).show();
 		button.prop("disabled", false);
+		// the details only read the model; a failure there leaves the result as it is
+		try{
+			PASSING_REPORT = { report: passingReport(run.m, written), counts: counts, headway: headway, solver: solver,
+				rounding: run.rounding, runs: (runs.length > 1) ? runs : [], ms: performance.now() - started };
+			renderPassingReport();
+			$("#PassingTimeReportBtn").show();
+		}catch(error){
+			console.error(error);
+		}
 		updateDraftUI();
 	};
 	const start = () => {
@@ -106,7 +123,7 @@ function runPassingTime(name, button, headway, result){
 		const rounding = roundings[runs.length];
 		const onDone = (counts, written, m) => {
 			const score = (counts.overtake + counts.cross)*CONFLICT + counts.headway*HEADWAY;
-			runs.push({ draft: draft, counts: counts, written: written, rounding: rounding, score: score, spread: runTimeSpread(m) });
+			runs.push({ draft: draft, counts: counts, written: written, rounding: rounding, score: score, spread: runTimeSpread(m), m: m });
 			if(runs.length < roundings.length){
 				start();
 				return;
@@ -123,11 +140,43 @@ $("body").on("click", "#PassingTimeBtn", function(){
 	runPassingTime("passing", $(this), SETTINGS.passingTime.fineTune, $("#PassingTimeResult"));
 });
 
-// the detail and stop rule panels are mutually exclusive
+// the detail, stop rule and result panels are mutually exclusive
 $("body").on("click", "#PassingTimeDetailBtn", function(){
-	$("#PassingTimeStopRules").hide();
+	$("#PassingTimeStopRules, #PassingTimeReport").hide();
 	$("#PassingTimeDetail").toggle();
 });
+
+$("body").on("click", "#PassingTimeReportBtn", function(){
+	$("#PassingTimeDetail, #PassingTimeStopRules").hide();
+	$("#PassingTimeReport").toggle();
+});
+
+const STOP_REASONS = { done: "完成", iteration: "最大迴圈", stale: "不再進步" };
+
+// PASSING_REPORT as a numbered list
+function renderPassingReport(){
+	const { report, counts, headway, solver, rounding, runs, ms } = PASSING_REPORT;
+	const { written, stats, limits, diagnoses, unchecked } = report;
+	const list = items => (items.length == 0) ? "" : `<ul class="passing-report-list">${items.map(item => `<li>${escapeHTML(item)}</li>`).join("")}</ul>`;
+	const stages = stats.stages.map(stage => `${(solver == "greedy" && headway) ? (stage.tune ? "微調：" : "還原：") : ""}${STOP_REASONS[stage.reason]} (${stage.rounds} 輪)`).join(" | ");
+	const header = [`求解器：${(solver == "greedy") ? "貪婪解法" : "離散決策 + 差分約束"}`, `${(ms/1000).toFixed(2)} 秒`];
+	if(rounding) header.push(`精度的處理方式：${ROUNDING_NAMES[rounding]}${runs.length ? ` (${runs.map(run => `${ROUNDING_NAMES[run.rounding]}：${counted(run.counts, headway)}`).join("；")})` : ""}`);
+	const stopsChanged = written.times + written.arrivals;
+	const diagnosed = diagnoses.map(({ conflict, reasons }) => `<li>${escapeHTML(conflict)}${list(reasons)}</li>`).join("");
+	$("#PassingTimeReport").html(`
+		<p class="text-muted mb-1">${header.map(escapeHTML).join("　")}</p>
+		<ol class="mb-0">
+			<li>追越：${counts.overtake} ${(counts.overtake > 0) ? "<small class=\"text-muted\">(前者追越後者)</small>" : ""}${list(report.conflicts.overtake)}</li>
+			<li>交會：${counts.cross}${list(report.conflicts.cross)}</li>
+			<li>時隔不足：${headway ? counts.headway : "未勾選微調，不檢查"}${list(report.conflicts.headway)}</li>
+			<li>通過時刻：新增 ${written.added} | 調整 ${written.moved}</li>
+			<li>臨時停車：新增 ${written.stops}</li>
+			<li>停靠站時刻：調整 ${stopsChanged}${written.arrivals ? ` (其中到站時刻 ${written.arrivals})` : ""}</li>
+			<li>求解器停機條件：${escapeHTML(stages)}</li>
+			<li>實際最值${list(limits.map(({ name, value, setting, where }) => `${name}：${value}${setting ? ` (設定 ${setting})` : ""}${where ? ` — ${where}` : ""}`))}</li>
+			<li>無法解決的原因：${(diagnoses.length == 0) ? "無" : `<ul class="passing-report-list">${diagnosed}</ul>`}${unchecked ? `<small class="text-muted">另有 ${unchecked} 個未分析</small>` : ""}</li>
+		</ol>`);
+}
 
 const STOP_RULE_STATIONS = { all: "所有車站", cross: "所有可交會的站", overtake: "所有可追越的站" };
 
@@ -180,7 +229,7 @@ function renderStopRules(){
 
 $("body").on("click", "#PassingTimeStopRuleBtn", function(){
 	renderStopRules();
-	$("#PassingTimeDetail").hide();
+	$("#PassingTimeDetail, #PassingTimeReport").hide();
 	$("#PassingTimeStopRules").toggle();
 });
 

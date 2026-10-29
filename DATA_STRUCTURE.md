@@ -443,6 +443,8 @@ draft = { trains: { 1: [...], 2: [...] }, fingerprint: "..." }   // trains: stru
    1. 每個追越 / 交會衝突提出一個候選：讓 x 通過附近的車站 s，y 在 s 待避 (停站秒數 > `stopsec + minExtraPassingWaiting`，或在 s 始發 / 終到)，s 要能追越 (同向) 或交會 (對向)，距離衝突不超過 `maxSearchDepth` 站；依「放得下最短時隔 → 距離近 → 時刻變動小」取同一對列車在該站還沒試過的。勾選 `fineTune` 時，時隔不足的兩車 (沒有其他衝突的) 在該站加入通過時刻。
    2. 所有可移動的通過時刻一起以差分約束 (`t_j − t_i ≥ c`) 求解：最高速度、各站列車的先後順序、提案 (y 的停車期間，可能時前後留 `minTimeSeparation`)，勾選 `fineTune` 時再加上相鄰列車的 `minTimeSeparation`。不可行的約束不採用，被拒絕的提案還原。
    3. 每個通過時刻取最接近目前時刻的可行值。重新偵測；衝突數 ≤ `maxAllowedConflict`、達到 `maxIteration`、或連續 3 輪沒有更好時停止。
+
+**結果**：按鈕下方 (`#PassingTimeResult`) 只顯示最終衝突數；其餘 (寫入的數量、停機條件、實際最值、無法解決的原因) 由 `passingReport()` (`PassingReport.js`) 從最後的模型產生，存在 `PASSING_REPORT` (`passingTimeInput.js`)，計算完成後出現「詳細結果」(`#PassingTimeReportBtn`) 展開 `#PassingTimeReport`。求解器在模型的 `m.stats` 記錄每一段的停機條件、採用的最遠搜尋距離與差分約束的提案。
    4. 最後移除新通過時刻中，與前後時刻的直線相差 < `timeGranularity` 的 (移除後衝突、時隔不足變多則保留)，`writePassingTimes()` 寫進副本。
 
 - **跨線列車的分岐站停靠點** (5.4)：模型中是固定的端點 (`fixed == 1`)，記在 `t.junctions`。差分約束中，範圍內有 `timeGranularity` 的倍數時是一個節點，E / L = 對齊後的 `[min, max]`；待避的列車 y 在此始發 (終到) 時，提案的範圍上限 (下限) 用 `max` (`min`)。不需移動時保持內插值 (不對齊 grid；從它往後推的時刻才對齊)；移動後對齊 grid，`writePassingTimes()` 才把它寫成分岐站的通過時刻 (計入 `added`)。貪婪解法不移動它。
@@ -506,6 +508,7 @@ draft = { trains: { 1: [...], 2: [...] }, fingerprint: "..." }   // trains: stru
 | `program/program/RunTimeAutofill.js` | `wildcardRegExp()`, `findTrainByNumber()`, `computeAutofill()`, `applyAutofill()` |
 | `program/program/PassingTime.js` | `createPassingModel()`, `detectConflicts()`, `writePassingTimes()`；貪婪解法 `solveConflict()`, `addHeadwayCandidates()`, `restorePassingTimes()`；未使用的 `plainConflicts()` |
 | `program/program/PassingTimeSTN.js` | 離散決策 + 差分約束：`restorePassingTimesSTN()`, `solveNetwork()`, `addProposals()`, `addHeadwayPoints()`, `prunePassingTimes()` |
+| `program/program/PassingReport.js` | 還原通過時間的詳細結果：`passingReport()` (衝突清單、`passingLimits()`、`diagnoseConflict()`)，見 `ALGORITHM.md` 第 8 節 |
 | `program/ui/passingTimeInput.js` | 待避時間計算的表單、dashboard、採用 / 捨棄 / 預覽 (`updateDraftUI()`, `checkedDraft()`) |
 | `program/util/common.js` | `escapeHTML()`, `downloadFile()`, `readImportFile()`, `parseCSV()` |
 | `program/util/stc.js` | 時刻字串轉換：`normalizeTime()`, `toSec()`, `toStr()`, `deductSec()`, `tohhmmss()` |

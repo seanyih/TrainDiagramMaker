@@ -19,6 +19,8 @@
 	their earliest arrival, so a train may wait there.
 	Where a stop rule (stopRules) allows it, a train with no stop at a station may stop there to wait (a temporary stop,
 	e.g. at a signal station): a moving point whose arrival and departure differ.
+	A train from / to a branch may move where it joins / leaves the route (a junction stop) within its range, to the
+	other side of the train it overtakes (junctionMove()): its interpolated time may have put them in the wrong order.
 	Imprecise timetables (`rounding`: the times were rounded to timetableGranularity) have vague stops instead: every time
 	may be anywhere it was rounded from, and each stop lasts at least minDwell, even one that looks like passing.
 
@@ -53,7 +55,10 @@ function createPassingModel(trains, headway, rounding = null){
 		tracks: [],
 		runPrefix: [0],  // route order: min running time from the first station
 		overtakes: [],   // per element: [a, b] found by the last detection
-		trains: []
+		trains: [],
+		// for the detailed result (PassingReport.js): each stage { tune, rounds, reason: "done" | "iteration" | "stale" },
+		// the farthest station (from its conflict) of a kept passing time, and (PassingTimeSTN.js) the proposals made
+		stats: { stages: [], depth: 0, proposals: [] }
 	};
 	for(let r = 0; r < count; r++){
 		m.tracks.push(parseTrack(layout.stations[r]));
@@ -722,6 +727,36 @@ function arrivalPlan(m, x, s, y, ys){
 	return [{ t: y, s: ys, time: time, arrival: true }];
 }
 
+/*
+	Where x, overtaking y, would move its junction stop at its order j (BranchTrain.js; its first or last known time) so
+	that they keep their order all along x's line there: `after` y (j is on the side where x is behind y) or before it,
+	minTimeSeparation apart where the track needs it (else timeGranularity), comparing where x joins (leaves) the route
+	with where y leaves (arrives at) j. { at, leave, junction }, or { fail: "none" (no junction stop that may move there),
+	"time" (y has no known time there), "side" (x is on that side already), "range" (outside its range), at, junction }
+*/
+function junctionMove(m, x, y, j, after){
+	const junction = x.junctions.find(junction => junction.k == j);
+	if(!junction || alignUp(m, junction.min) > alignDown(m, junction.max)) return { fail: "none" };
+	const leave = (j == x.first);
+	if(!y.fixed[j] || j == (leave ? y.last : y.first)) return { fail: "time", junction: junction };
+	const other = leave ? y.dep[j] : y.arr[j];
+	if(after ? x.dep[j] > other : x.dep[j] < other) return { fail: "side", junction: junction };
+	const margin = (leave ? exitGap(m, x.bound, j) : entryGap(m, x.bound, j)) ? m.gap : m.grid;
+	const at = after ? alignUp(m, other + margin) : alignDown(m, other - margin);
+	if(at < alignUp(m, junction.min) || at > alignDown(m, junction.max)) return { fail: "range", at: at, junction: junction };
+	return { at: at, leave: leave, junction: junction, gap: margin == m.gap };
+}
+
+// x moves its junction stop at j, an end of its line through a conflict with y (junctionMove()), within its max speed
+function addJunctionCandidate(m, x, y, j, after, distance, out){
+	const move = junctionMove(m, x, y, j, after);
+	if(move.fail) return;
+	let n = j;
+	do n += move.leave ? 1 : -1; while(!x.fixed[n]);
+	if((move.leave ? x.arr[n] - move.at : move.at - x.dep[n]) < minRun(m, x, Math.min(j, n), Math.max(j, n))) return;
+	out.push({ x: x, s: j, points: [{ t: x, s: j, time: move.at, junction: true }], distance: distance, move: Math.abs(move.at - x.dep[j]) });
+}
+
 function samePlan(a, b){
 	return a.length == b.length && a.every((point, i) => point.t == b[i].t && point.time == b[i].time && point.arrival == b[i].arrival);
 }
@@ -768,6 +803,11 @@ function addCandidates(m, c, x, y, out){
 		}));
 		plans.forEach(plan => out.push({ x: x, s: s, points: plan, distance: distance, move: Math.abs(plans[0][0].time - x.arr[s]) }));
 	}
+	if(x.bound != y.bound) return;
+	[p, q].forEach(j => {
+		const distance = station ? Math.abs(j - k) : (j <= k ? k - j + 1 : j - k);
+		if(distance <= maxSearchDepth) addJunctionCandidate(m, x, y, j, j == q, distance, out);
+	});
 }
 
 // moves the passing trains of `list` (nearest first) less than minTimeSeparation from `time` on in direction dir,
@@ -948,6 +988,18 @@ function setArrival(m, attempt, t, k, time){
 	interpolate(m, t, p, k);
 }
 
+// moves t's junction stop at its order j (its first or last known time)
+function setJunction(m, attempt, t, j, time){
+	const leave = (j == t.first);
+	let n = j;
+	do n += leave ? 1 : -1; while(!t.fixed[n]);
+	if(leave) watch(m, attempt, t, j, n, false, true);
+	else watch(m, attempt, t, n, j, true);
+	attempt.undo.push({ t: t, s: j, n: n, junction: true, time: t.dep[j] });
+	t.arr[j] = t.dep[j] = time;
+	interpolate(m, t, Math.min(j, n), Math.max(j, n));
+}
+
 // moves t's departure at its vague stop k
 function setDeparture(m, attempt, t, k, time){
 	let q = k + 1;
@@ -961,7 +1013,12 @@ function setDeparture(m, attempt, t, k, time){
 // undoes the attempt's changes after the first `length`
 function undoPassingTimes(m, attempt, length){
 	while(attempt.undo.length > length){
-		const { t, s, p, q, fixed, temp, arr, dep, time, arrival, departure } = attempt.undo.pop();
+		const { t, s, p, q, n, fixed, temp, arr, dep, time, arrival, departure, junction } = attempt.undo.pop();
+		if(junction){
+			t.arr[s] = t.dep[s] = time;
+			interpolate(m, t, Math.min(s, n), Math.max(s, n));
+			continue;
+		}
 		if(arrival){
 			t.arr[s] = time;
 			interpolate(m, t, p, s);
@@ -988,8 +1045,9 @@ function undoPassingTimes(m, attempt, length){
 // keeps the candidate if it solves c and the attempt then gets better, with up to `depth` more passing times of its train
 function tryCandidate(m, attempt, c, candidate, depth){
 	const length = attempt.undo.length;
-	candidate.points.forEach(({ t, s, time, arrival, departure, temp, arr, dep }) => {
-		if(arrival) setArrival(m, attempt, t, s, time);
+	candidate.points.forEach(({ t, s, time, arrival, departure, temp, arr, dep, junction }) => {
+		if(junction) setJunction(m, attempt, t, s, time);
+		else if(arrival) setArrival(m, attempt, t, s, time);
 		else if(departure) setDeparture(m, attempt, t, s, time);
 		else if(temp) setTempStop(m, attempt, t, s, arr, dep);
 		else setPassingTime(m, attempt, t, candidate.s, time);
@@ -1020,7 +1078,9 @@ function settle(m, attempt, x, depth){
 // whether conflict c was solved; headways only when tuning
 function solveConflict(m, c){
 	if((c.type == "headway" && !m.tune) || !refreshConflict(m, c)) return false;
-	return conflictCandidates(m, c).some(candidate => tryCandidate(m, newAttempt(), c, candidate, SETTINGS.passingTime.maxPassingPointIncrease));
+	const kept = conflictCandidates(m, c).find(candidate => tryCandidate(m, newAttempt(), c, candidate, SETTINGS.passingTime.maxPassingPointIncrease));
+	if(kept) m.stats.depth = Math.max(m.stats.depth, kept.distance);
+	return !!kept;
 }
 
 // writes the passing times, temporary stops, loose arrivals (a blank one stays blank at departure - stopsec), vague
@@ -1346,7 +1406,9 @@ function restorePassingTimes(trains, restore, fineTune, onRound, onDone, roundin
 	onRound(round, countConflicts(conflicts), 0);
 
 	const next = () => {
-		if(left() <= maxAllowedConflict || (maxIteration > 0 && rounds >= maxIteration) || stale >= 3){
+		const reason = (left() <= maxAllowedConflict) ? "done" : (maxIteration > 0 && rounds >= maxIteration) ? "iteration" : (stale >= 3) ? "stale" : null;
+		if(reason){
+			m.stats.stages.push({ tune: m.tune, rounds: rounds, reason: reason });
 			if(fineTune && !m.tune){
 				m.tune = true;
 				startStage();
