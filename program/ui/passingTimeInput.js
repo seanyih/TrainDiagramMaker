@@ -172,7 +172,7 @@ function renderPassingReport(){
 			<li>通過時刻：新增 ${written.added} | 調整 ${written.moved}</li>
 			<li>臨時停車：新增 ${written.stops}</li>
 			<li>停靠站時刻：調整 ${stopsChanged}${written.arrivals ? ` (其中到站時刻 ${written.arrivals})` : ""}</li>
-			<li>求解器停機條件：${escapeHTML(stages)}</li>
+			<li>求解器停機條件：${escapeHTML(stages)}${stats.reroutes ? `；整段重排 ${stats.reroutes} 次` : ""}</li>
 			<li>實際最值${list(limits.map(({ name, value, setting, where }) => `${name}：${value}${setting ? ` (設定 ${setting})` : ""}${where ? ` — ${where}` : ""}`))}</li>
 			<li>無法解決的原因：${(diagnoses.length == 0) ? "無" : `<ul class="passing-report-list">${diagnosed}</ul>`}${unchecked ? `<small class="text-muted">另有 ${unchecked} 個未分析</small>` : ""}</li>
 		</ol>`);

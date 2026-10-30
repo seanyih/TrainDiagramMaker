@@ -506,7 +506,7 @@ draft = { trains: { 1: [...], 2: [...] }, fingerprint: "..." }   // trains: stru
 | `program/program/TrainNumber.js` | `placeTrainNumbers()`, `findTrainNumberPosition()`, `createSegmentGrid()`, `addSegment()`, `someSegment()`, `segmentHitsBox()` |
 | `program/data/Draft.js` | `DRAFTS`, `newDraft()`, `validDraft()`, `adoptDraft()` |
 | `program/program/RunTimeAutofill.js` | `wildcardRegExp()`, `findTrainByNumber()`, `computeAutofill()`, `applyAutofill()` |
-| `program/program/PassingTime.js` | `createPassingModel()`, `detectConflicts()`, `writePassingTimes()`；貪婪解法 `solveConflict()`, `addHeadwayCandidates()`, `restorePassingTimes()`；未使用的 `plainConflicts()` |
+| `program/program/PassingTime.js` | `createPassingModel()`, `detectConflicts()`, `writePassingTimes()`；貪婪解法 `solveConflict()`, `addHeadwayCandidates()`, `restorePassingTimes()`；兩個求解器共用的分岐站換邊 `junctionMove()` 與整段重排 `rerouteConflict()` / `rerouteCandidate()` (見 `ALGORITHM.md` 4.4)；未使用的 `plainConflicts()` |
 | `program/program/PassingTimeSTN.js` | 離散決策 + 差分約束：`restorePassingTimesSTN()`, `solveNetwork()`, `addProposals()`, `addHeadwayPoints()`, `prunePassingTimes()` |
 | `program/program/PassingReport.js` | 還原通過時間的詳細結果：`passingReport()` (衝突清單、`passingLimits()`、`diagnoseConflict()`)，見 `ALGORITHM.md` 第 8 節 |
 | `program/ui/passingTimeInput.js` | 待避時間計算的表單、dashboard、採用 / 捨棄 / 預覽 (`updateDraftUI()`, `checkedDraft()`) |

@@ -222,8 +222,23 @@ function diagnoseConflict(m, c){
 	if(c.type == "headway") return diagnoseHeadway(m, c);
 	const reasons = [];
 	(c.type == "cross" ? [[c.a, c.b], [c.b, c.a]] : [[c.b, c.a]]).forEach(([x, y]) => reasons.push(...diagnoseWait(m, c, x, y)));
+	((c.type == "overtake") ? [c.b, c.a] : [c.a, c.b]).forEach(t => {
+		const why = rerouteReason(m, c, t);
+		if(why) reasons.push(why);
+	});
 	reasons.push(...triedProposals(m, c));
 	return reasons;
+}
+
+// t rerouted between its known times around c (rerouteCandidate()), or why it cannot be
+function rerouteReason(m, c, t){
+	const { candidate, fail } = rerouteCandidate(m, c, t);
+	if(fail == -1) return null;
+	const head = `整段重排 ${reportTrain(t)} (其他列車不動)：`;
+	if(!candidate) return `${head}到 ${reportStation(m, t.bound, fail)} 時已無法同時避開其他列車 (依速限、時隔、不可追越的站間)`;
+	const line = candidate.points.filter(point => !point.clear).map(point => `${reportStation(m, t.bound, point.s)} ${reportClock(point.time)}`).join("、");
+	const { kept, text } = trialCandidate(m, c, candidate);
+	return `${head}${kept ? "可行" : "不採用"}，經 ${line || "原本的直線"}：${text.replace(/^.*?：/, "")}`;
 }
 
 // the stations where x could pass while y waits (the window of addCandidates()), each with why it does not work
@@ -292,8 +307,7 @@ function waitReason(m, c, x, y, p, q, s, minExtraPassingWaiting){
 	if(s < q && !x.free[s]) return no(`${reportTrain(x)}在此有停靠 (只有到站時刻)`);
 	const r = routeIndex(m, x.bound, s);
 	const ys = routeIndex(m, y.bound, r);
-	const { lines, bits } = m.tracks[2*r];
-	if(x.bound == y.bound ? !(bits & x.bound) : lines < 2) return no((x.bound == y.bound) ? `軌道配置：${BOUND_NAMES[x.bound]}不可在此追越` : "軌道配置：單線，不可交會");
+	if(!passesAt(m, x, y, r, ys)) return no((x.bound == y.bound) ? `軌道配置：${BOUND_NAMES[x.bound]}不可在此追越` : "軌道配置：單線，不可交會");
 	if(ys < y.first || ys > y.last) return no(`${reportTrain(y)}不經過此站`);
 	const stop = canStop(y, ys);
 	if(!(y.wait[ys] || ys == y.first || ys == y.last || stop)){
@@ -335,14 +349,8 @@ function noPlanReason(m, x, s, p, q, y, ys, stop){
 function trialCandidate(m, c, candidate){
 	const conflict = c && { ...c };
 	const attempt = newAttempt();
-	candidate.points.forEach(({ t, s, time, arrival, departure, temp, arr, dep, junction }) => {
-		if(junction) setJunction(m, attempt, t, s, time);
-		else if(arrival) setArrival(m, attempt, t, s, time);
-		else if(departure) setDeparture(m, attempt, t, s, time);
-		else if(temp) setTempStop(m, attempt, t, s, arr, dep);
-		else setPassingTime(m, attempt, t, candidate.s, time);
-	});
-	const what = candidate.points.map(point => `${reportTrain(point.t)}${point.arrival ? "到站" : point.departure ? "發車" : point.temp ? "臨時停車" : "通過"} ${point.temp ? `${reportClock(point.arr)} ~ ${reportClock(point.dep)}` : reportClock(point.time)}`).join("、");
+	applyCandidate(m, attempt, candidate);
+	const what = candidate.points.filter(point => !point.clear).map(point => `${reportTrain(point.t)}${point.arrival ? "到站" : point.departure ? "發車" : point.temp ? "臨時停車" : "通過"} ${point.temp ? `${reportClock(point.arr)} ~ ${reportClock(point.dep)}` : reportClock(point.time)}`).join("、");
 	let text;
 	let kept = false;
 	if(conflict && refreshConflict(m, conflict)){

@@ -15,6 +15,7 @@
 	   - (fine-tuning) minTimeSeparation between two trains next to each other at a station, where the track needs it.
 	3. Each passing time is moved as little as possible within its range, then raised where a constraint needs it.
 	Unlike the rounds of PassingTime.js, a proposal may move the other passing times of its train (and of others) to fit.
+	After each round, a conflict left may be solved by rerouting one of its trains (rerouteConflict(), PassingTime.js).
 	A proposal may also be x stopping at s, if an arrival there is loose: y arrives early to wait.
 	y may also wait where a stop rule allows a temporary stop: its arrival and departure there are two points.
 	Or, where x's line starts / ends at a junction stop that may move (BranchTrain.js), x on y's other side there:
@@ -327,9 +328,8 @@ function addProposals(m, c, x, y, out){
 		if(distance > maxSearchDepth || !(passing || (x.fixed[s] == 1 && s != x.first))) continue;
 		const r = routeIndex(m, x.bound, s);
 		const ys = routeIndex(m, y.bound, r);
-		const { lines, bits } = m.tracks[2*r];
 		const stop = canStop(y, ys);
-		if(!(y.wait[ys] || ys == y.first || ys == y.last || stop) || (x.bound == y.bound ? !(bits & x.bound) : lines < 2)) continue;
+		if(!(y.wait[ys] || ys == y.first || ys == y.last || stop) || !passesAt(m, x, y, r, ys)) continue;
 		// x stops at s: only if an arrival may move or y may stop, and x leaves first
 		if(!passing && !((movesArrival(x, s) || movesArrival(y, ys) || stop) && (s == x.last || ys == y.last || x.dep[s] <= y.dep[ys] - m.grid))) continue;
 
@@ -490,6 +490,16 @@ function restorePassingTimesSTN(trains, fineTune, onRound, onDone, rounding){
 
 		const previous = conflicts.length;
 		conflicts = detectConflicts(m);
+		// what one station at a time cannot solve: a train rerouted between its known times (PassingTime.js), whose new
+		// passing times the network then keeps in their order
+		// (headways counted when fine-tuning)
+		let rerouted = false;
+		m.tune = fineTune;
+		conflicts.forEach(c => {
+			if(rerouteConflict(m, c)) rerouted = true;
+		});
+		m.tune = false;
+		if(rerouted) conflicts = detectConflicts(m);
 		const score = conflictScore(conflicts);
 		if(score < best){
 			best = score;

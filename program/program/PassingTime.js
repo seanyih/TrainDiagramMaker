@@ -57,8 +57,9 @@ function createPassingModel(trains, headway, rounding = null){
 		overtakes: [],   // per element: [a, b] found by the last detection
 		trains: [],
 		// for the detailed result (PassingReport.js): each stage { tune, rounds, reason: "done" | "iteration" | "stale" },
-		// the farthest station (from its conflict) of a kept passing time, and (PassingTimeSTN.js) the proposals made
-		stats: { stages: [], depth: 0, proposals: [] }
+		// the farthest station (from its conflict) of a kept passing time, (PassingTimeSTN.js) the proposals made, and how
+		// many conflicts were solved by rerouting a train
+		stats: { stages: [], depth: 0, proposals: [], reroutes: 0 }
 	};
 	for(let r = 0; r < count; r++){
 		m.tracks.push(parseTrack(layout.stations[r]));
@@ -757,6 +758,14 @@ function addJunctionCandidate(m, x, y, j, after, distance, out){
 	out.push({ x: x, s: j, points: [{ t: x, s: j, time: move.at, junction: true }], distance: distance, move: Math.abs(move.at - x.dep[j]) });
 }
 
+// whether x may pass y at route station r (y's order ys): where the track lets x's bound overtake (opposite trains: meet);
+// a train of the same bound starting or ending there anywhere, as that is no overtaking (overtakes())
+function passesAt(m, x, y, r, ys){
+	const { lines, bits } = m.tracks[2*r];
+	if(x.bound != y.bound) return lines >= 2;
+	return !!(bits & x.bound) || ys == y.first || ys == y.last;
+}
+
 function samePlan(a, b){
 	return a.length == b.length && a.every((point, i) => point.t == b[i].t && point.time == b[i].time && point.arrival == b[i].arrival);
 }
@@ -780,9 +789,8 @@ function addCandidates(m, c, x, y, out){
 		if(distance > maxSearchDepth || (s < q ? !x.free[s] : x.fixed[s] != 1)) continue;
 		const r = routeIndex(m, x.bound, s);
 		const ys = routeIndex(m, y.bound, r);
-		const { lines, bits } = m.tracks[2*r];
 		const stop = canStop(y, ys);
-		if(!(y.wait[ys] || ys == y.first || ys == y.last || stop) || (x.bound == y.bound ? !(bits & x.bound) : lines < 2)) continue;
+		if(!(y.wait[ys] || ys == y.first || ys == y.last || stop) || !passesAt(m, x, y, r, ys)) continue;
 		if(s == q){
 			const plan = arrivalPlan(m, x, s, y, ys);
 			if(plan) out.push({ x: x, s: s, points: plan, distance: distance, move: y.arr[ys] - plan[0].time });
@@ -808,6 +816,196 @@ function addCandidates(m, c, x, y, out){
 		const distance = station ? Math.abs(j - k) : (j <= k ? k - j + 1 : j - k);
 		if(distance <= maxSearchDepth) addJunctionCandidate(m, x, y, j, j == q, distance, out);
 	});
+}
+
+/*
+	Rerouting x between two of its known times around conflict c (stops, junction stops, temporary stops, passing times of
+	the timetable): the passing times of every station in between are chosen together, with every other train where it is,
+	so x may pass several trains in a row where each waits (starts, ends), which one passing time at a time cannot do when
+	each needs the one before it (a fast train catching one slow train after another). x keeps minTimeSeparation
+	(timeGranularity where the track does not need it) from where the others arrive and leave, passes a train stopping
+	at a station only where its bound can overtake, keeps its order with them along each section where it cannot overtake,
+	and keeps the max speeds; a junction stop at an end may move within its range. Trains of the other bound are left out
+	(the candidate is kept only if the trains get better together, like any other).
+	The times x may be at are found station by station (intervals on the grid), then the line is chosen backwards nearest
+	x's straight line between its ends, and passing times are set only where it bends.
+	{ candidate } for tryCandidate(), clearing x's own passing times in between first, or { fail: order of the station
+	x cannot get past, or -1 }.
+*/
+function rerouteCandidate(m, c, x){
+	const kept = o => x.fixed[o] == 1 || (x.fixed[o] == 2 && (x.temp[o] || !!findStop(x.train, o)));
+	const k = elementOrder(m, x.bound, c.e);
+	if(c.e % 2 == 0 && kept(k)) return { fail: -1 };
+	let p = (c.e % 2 == 0) ? k - 1 : k;
+	let q = k + 1;
+	while(!kept(p)) p--;
+	while(!kept(q)) q++;
+	if(q - p < 2) return { fail: -1 };
+	const route = reroute(m, x, p, q);
+	if(route.fail !== undefined) return route;
+	const { times } = route;
+
+	const points = [];
+	for(let o = p + 1; o < q; o++){
+		if(x.fixed[o] == 2) points.push({ t: x, s: o, clear: true });
+	}
+	[p, q].forEach(j => {
+		if(x.junctions.some(junction => junction.k == j) && times[j - p] != x.dep[j]) points.push({ t: x, s: j, time: times[j - p], junction: true });
+	});
+	rerouteBends(m, x, p, q, route).forEach(o => points.push({ t: x, s: o, time: times[o - p] }));
+	return { candidate: { x: x, s: k, points: points, distance: 0, move: 0, reroute: true } };
+}
+
+// the open intervals of time where x may not pass its station order o: minTimeSeparation (or the grid) around where
+// the other trains arrive (`arrive`) and leave (`leave`), and while one stops where x's bound cannot overtake
+function rerouteForbidden(m, x, others, o, arrive, leave){
+	const bound = x.bound;
+	const out = [];
+	const entry = entryGap(m, bound, o) ? m.gap : m.grid;
+	const exit = exitGap(m, bound, o) ? m.gap : m.grid;
+	const overtake = m.tracks[stationElement(m, bound, o)].bits & bound;
+	others.forEach(z => {
+		if(o < z.first || o > z.last) return;
+		if(arrive && o != z.first) out.push([z.arr[o] - entry, z.arr[o] + entry]);
+		if(leave && o != z.last) out.push([z.dep[o] - exit, z.dep[o] + exit]);
+		if(!overtake && o != z.first && o != z.last && z.arr[o] < z.dep[o]) out.push([z.arr[o], z.dep[o]]);
+	});
+	return out;
+}
+
+// the grid times of [low, high] outside the open intervals `forbidden`, as [[from, to]] (inclusive)
+function rerouteAllowed(m, low, high, forbidden){
+	let allowed = [[alignUp(m, low), alignDown(m, high)]].filter(([a, b]) => a <= b);
+	forbidden.forEach(([from, to]) => {
+		allowed = allowed.flatMap(([a, b]) => [[a, Math.min(b, alignUp(m, from) == from ? from : alignDown(m, from))],
+			[Math.max(a, alignDown(m, to) == to ? to : alignUp(m, to)), b]]).filter(([a, b]) => a <= b);
+	});
+	return allowed;
+}
+
+// the trains of x's bound on its section from order o to o + 1, if x cannot overtake there (x keeps its order with them)
+function rerouteSection(m, x, others, o){
+	if(m.tracks[sectionElement(m, x.bound, o)].bits & x.bound) return null;
+	return others.filter(z => z.first <= o && z.last >= o + 1);
+}
+
+/*
+	The times of x at its orders p..q (reroute above) as { times, forbidden: rerouteForbidden() of each order between,
+	sections: rerouteSection() of each }, or { fail: the order where no time is left }.
+	Reachable times at each order are a union of grid intervals; along a section, the trains ahead of x stay the same.
+*/
+function reroute(m, x, p, q){
+	const junctionAt = j => x.junctions.find(junction => junction.k == j);
+	const ends = (j, now) => {
+		const junction = junctionAt(j);
+		return junction ? [alignUp(m, junction.min), alignDown(m, junction.max)] : [now, now];
+	};
+	const [startMin, startMax] = ends(p, x.dep[p]);
+	const [endMin, endMax] = ends(q, x.arr[q]);
+	const others = m.trains.filter(z => z != x && z.bound == x.bound && z.first <= q && z.last >= p
+		&& z.arr[Math.min(q, z.last)] >= startMin - m.gap && z.dep[Math.max(p, z.first)] <= endMax + m.gap);
+
+	const sections = [];
+	const forbidden = [];
+	for(let o = p; o < q; o++) sections.push(rerouteSection(m, x, others, o));
+	for(let o = p + 1; o < q; o++) forbidden.push(rerouteForbidden(m, x, others, o, true, true));
+	// reach[i]: the times x may be at order p + i
+	const reach = [];
+	reach.push(junctionAt(p) ? rerouteAllowed(m, startMin, startMax, rerouteForbidden(m, x, others, p, false, true)) : [[startMin, startMin]]);
+	for(let o = p; o < q; o++){
+		const section = sections[o - p];
+		const run = minRun(m, x, o, o + 1);
+		const last = (o + 1 == q);
+		const low = last ? endMin : startMin + minRun(m, x, p, o + 1);
+		const high = last ? endMax : endMax - minRun(m, x, o + 1, q);
+		const allowed = (last && !junctionAt(q)) ? [[endMin, endMin]]
+			: rerouteAllowed(m, low, high, last ? rerouteForbidden(m, x, others, q, true, false) : forbidden[o - p]);
+		const next = [];
+		reach[reach.length - 1].forEach(([a, b]) => {
+			// pieces of [a, b] with the same trains ahead of x
+			const cuts = section ? section.map(z => z.dep[o]).filter(time => time >= a && time < b).sort((u, v) => u - v) : [];
+			[a, ...cuts.map(time => alignDown(m, time) + m.grid)].forEach(from => {
+				if(from > b) return;
+				let low = from + run;
+				let high = Infinity;
+				section?.forEach(z => {
+					if(z.dep[o] < from) low = Math.max(low, alignDown(m, z.arr[o + 1]) + m.grid);
+					else high = Math.min(high, alignDown(m, z.arr[o + 1]));
+				});
+				allowed.forEach(([u, v]) => {
+					const range = [Math.max(u, (u == v) ? low : alignUp(m, low)), Math.min(v, high)];
+					if(range[0] <= range[1]) next.push(range);
+				});
+			});
+		});
+		if(next.length == 0) return { fail: o + 1 };
+		next.sort((u, v) => u[0] - v[0]);
+		reach.push(next.reduce((merged, range) => {
+			const top = merged[merged.length - 1];
+			if(top && range[0] <= top[1] + m.grid) top[1] = Math.max(top[1], range[1]);
+			else merged.push(range.slice());
+			return merged;
+		}, []));
+	}
+
+	// backwards, nearest the straight line from x's time at p to the one chosen at q
+	// in one of the ranges and [low, high]; a range of one time may be off the grid (a known time)
+	const nearest = (ranges, low, high, target) => {
+		let best = null;
+		ranges.forEach(([a, b]) => {
+			const [from, to] = (a == b) ? [Math.max(a, low), Math.min(b, high)] : [Math.max(a, alignUp(m, low)), Math.min(b, alignDown(m, high))];
+			if(from > to) return;
+			const time = Math.min(Math.max(Math.round(target/m.grid)*m.grid, from), to);
+			if(best === null || Math.abs(time - target) < Math.abs(best - target)) best = time;
+		});
+		return best;
+	};
+	const kms = m.kms[x.bound];
+	const times = new Array(q - p + 1);
+	times[q - p] = nearest(reach[q - p], -Infinity, Infinity, x.arr[q]);
+	for(let o = q - 1; o >= p; o--){
+		const after = times[o + 1 - p];
+		let low = -Infinity;
+		let high = after - minRun(m, x, o, o + 1);
+		sections[o - p]?.forEach(z => {
+			if(z.arr[o + 1] < after) low = Math.max(low, z.dep[o] + 1e-6);
+			else high = Math.min(high, z.dep[o]);
+		});
+		const target = x.dep[p] + (times[q - p] - x.dep[p])*(kms[o] - kms[p])/(kms[q] - kms[p]);
+		const time = nearest(reach[o - p], low, high, target);
+		if(time === null) return { fail: o };
+		times[o - p] = time;
+	}
+	return { times: times, forbidden: forbidden, sections: sections };
+}
+
+// s; the min running times of the sections are rounded each, so a straight line at the max speed may be this much
+// faster on one of them
+const REROUTE_ROUNDING = 2;
+
+// x's orders between p and q where its new line (reroute()) bends: straight lines between them stay within the
+// same limits (rerouteForbidden(), rerouteSection(), max speeds)
+function rerouteBends(m, x, p, q, { times, forbidden, sections }){
+	const kms = m.kms[x.bound];
+	const at = (a, e, o) => times[a - p] + (times[e - p] - times[a - p])*(kms[o] - kms[a])/(kms[e] - kms[a]);
+	const straight = (a, e) => {
+		if(times[e - p] - times[a - p] < minRun(m, x, a, e) - 1e-6) return false;
+		for(let o = a; o < e; o++){
+			const [u, v] = [at(a, e, o), at(a, e, o + 1)];
+			if(v - u < minRun(m, x, o, o + 1) - REROUTE_ROUNDING) return false;
+			if(o + 1 < e && forbidden[o + 1 - p - 1].some(([from, to]) => v > from && v < to)) return false;
+			if(sections[o - p]?.some(z => (z.dep[o] < u) != (z.arr[o + 1] < v))) return false;
+		}
+		return true;
+	};
+	const bends = [];
+	for(let a = p; a < q;){
+		let e = q;
+		while(e > a + 1 && !straight(a, e)) e--;
+		if(e < q) bends.push(e);
+		a = e;
+	}
+	return bends;
 }
 
 // moves the passing trains of `list` (nearest first) less than minTimeSeparation from `time` on in direction dir,
@@ -965,6 +1163,19 @@ function setPassingTime(m, attempt, t, s, time){
 	interpolate(m, t, s, q);
 }
 
+// removes t's passing time at its order s: back on the line through its known times around it
+function clearPassingTime(m, attempt, t, s){
+	const fixed = t.fixed[s];
+	t.fixed[s] = 0;
+	const [p, q] = knownAround(t, s);
+	t.fixed[s] = fixed;
+	watch(m, attempt, t, p, q);
+	attempt.undo.push({ t: t, s: s, p: p, q: q, fixed: fixed, temp: t.temp[s], arr: t.arr[s], dep: t.dep[s] });
+	t.fixed[s] = 0;
+	t.temp[s] = 0;
+	interpolate(m, t, p, q);
+}
+
 // a temporary stop of t at its station order k
 function setTempStop(m, attempt, t, k, arr, dep){
 	const [p, q] = knownAround(t, k);
@@ -1042,16 +1253,22 @@ function undoPassingTimes(m, attempt, length){
 	}
 }
 
-// keeps the candidate if it solves c and the attempt then gets better, with up to `depth` more passing times of its train
-function tryCandidate(m, attempt, c, candidate, depth){
-	const length = attempt.undo.length;
-	candidate.points.forEach(({ t, s, time, arrival, departure, temp, arr, dep, junction }) => {
-		if(junction) setJunction(m, attempt, t, s, time);
+// the changes of a candidate, recorded in the attempt
+function applyCandidate(m, attempt, candidate){
+	candidate.points.forEach(({ t, s, time, arrival, departure, temp, arr, dep, junction, clear }) => {
+		if(clear) clearPassingTime(m, attempt, t, s);
+		else if(junction) setJunction(m, attempt, t, s, time);
 		else if(arrival) setArrival(m, attempt, t, s, time);
 		else if(departure) setDeparture(m, attempt, t, s, time);
 		else if(temp) setTempStop(m, attempt, t, s, arr, dep);
-		else setPassingTime(m, attempt, t, candidate.s, time);
+		else setPassingTime(m, attempt, t, candidate.reroute ? s : candidate.s, time);
 	});
+}
+
+// keeps the candidate if it solves c and the attempt then gets better, with up to `depth` more passing times of its train
+function tryCandidate(m, attempt, c, candidate, depth){
+	const length = attempt.undo.length;
+	applyCandidate(m, attempt, candidate);
 	if(!refreshConflict(m, c) && settle(m, attempt, candidate.x, depth)) return true;
 	undoPassingTimes(m, attempt, length);
 	return false;
@@ -1080,7 +1297,19 @@ function solveConflict(m, c){
 	if((c.type == "headway" && !m.tune) || !refreshConflict(m, c)) return false;
 	const kept = conflictCandidates(m, c).find(candidate => tryCandidate(m, newAttempt(), c, candidate, SETTINGS.passingTime.maxPassingPointIncrease));
 	if(kept) m.stats.depth = Math.max(m.stats.depth, kept.distance);
-	return !!kept;
+	return !!kept || rerouteConflict(m, c);
+}
+
+// whether conflict c was solved by rerouting one of its trains (rerouteCandidate()), the one that passes first;
+// headways only when tuning. Counted in m.stats.reroutes
+function rerouteConflict(m, c){
+	if((c.type == "headway" && !m.tune) || !refreshConflict(m, c)) return false;
+	const kept = ((c.type == "overtake") ? [c.b, c.a] : [c.a, c.b]).some(t => {
+		const { candidate } = rerouteCandidate(m, c, t);
+		return candidate && tryCandidate(m, newAttempt(), c, candidate, SETTINGS.passingTime.maxPassingPointIncrease);
+	});
+	if(kept) m.stats.reroutes++;
+	return kept;
 }
 
 // writes the passing times, temporary stops, loose arrivals (a blank one stays blank at departure - stopsec), vague
