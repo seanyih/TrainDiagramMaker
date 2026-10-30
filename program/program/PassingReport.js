@@ -9,7 +9,7 @@
 // conflicts left that are looked into (each costs a few trial runs)
 const REPORT_DIAGNOSED = 100;
 
-const BOUND_NAMES = { 1: "順行", 2: "逆行" };
+// BOUND_NAMES (順行 / 逆行) is shared with Graphing.js, which loads first
 
 function reportTrain(t){
 	return `${t.train.train_number || "(無車次)"}次`;
