@@ -9,7 +9,7 @@
 	  SETTINGS.pxPerKm = 30; initSettingsUI();                         // settings (see DATA_STRUCTURE.md section 2)
 	  $("#nav-output").click(); drawDiagram(); document.getElementById("output").outerHTML   // the SVG
 	  JSON.stringify(getAllDataJSON())                                 // export
-	  applyOud(convertOud(parseOud(decodeOud(arrayBuffer)), 0)); generateTimetable();   // OuDia .oud/.oud2, dia 0
+	  applyOud(convertOud(parseOud(decodeOud(arrayBuffer)), 0)); generateTimetable();   // OuDia .oud/.oud2, dia 0; oudText(true) = .oud2 text
 	After editing TRAINS call refreshTimetable(bound); use insertStation()/deleteStation() for stations.
 	Times are "hhmm" or "hhmmss" strings, "" = none. Do not guess missing data: ask the user.
 	Side bar: #nav-inex import/export, #nav-setting, #nav-route (route + track layout + topology), #nav-timetable-1/2, #nav-output.
@@ -544,6 +544,10 @@
 			width: min-content;
 		}
 
+		/* settings that the OuDia style does not use */
+		.oudia-mode .oudia-hide{
+			display: none !important;
+		}
 
 	</style>
 </head>
@@ -795,23 +799,6 @@
 				</div>
 				<div class="row" style="margin-bottom: 1rem">
 					<div class="col-2" style="display:flex;justify-content:center; flex-direction: column;">
-						<p style="font-weight:bold;">匯入/匯出設定</p>
-					</div>
-					<div class="col-5">
-						<div class="input-group mb-3">
-							<input type="text" class="form-control" placeholder="匯出使用的檔名" id="ExportSettingFilename">
-							<button class="btn btn-outline-primary export-setting-btn" type="button">匯出JSON</button>
-						</div>
-					</div>
-					<div class="col-5">
-						<div class="input-group mb-3">
-							<input type="file" class="form-control" id="SettingFile" accept=".json">
-							<button class="btn btn-outline-primary" type="button" id="ImportSettingBtn">匯入</button>
-						</div>
-					</div>
-				</div>
-				<div class="row" style="margin-bottom: 1rem">
-					<div class="col-2" style="display:flex;justify-content:center; flex-direction: column;">
 						<p style="font-weight:bold;">匯入/匯出全部資料</p>
 						<p class="text-muted" style="font-size: 85%;">路線、順逆行時刻表、設定</p>
 					</div>
@@ -828,60 +815,96 @@
 						</div>
 					</div>
 				</div>
-				<div class="row" style="margin-bottom: 1rem">
-					<div class="col-2" style="display:flex;justify-content:center; flex-direction: column;">
-						<p style="font-weight:bold;">匯入 OuDia 檔案</p>
-						<p class="text-muted" style="font-size: 85%;">.oud / .oud2：路線、一份ダイヤ的順逆行列車、種別的線條樣式</p>
-					</div>
-					<div class="col-5">
-						<div class="input-group mb-3">
-							<input type="file" class="form-control" id="OudFile" accept=".oud,.oud2">
+				<p style="font-weight:bold; cursor: pointer;" data-bs-toggle="collapse" data-bs-target="#InexMore">更多 ∨</p>
+				<div class="collapse" id="InexMore">
+					<div class="row" style="margin-bottom: 1rem">
+						<div class="col-2" style="display:flex;justify-content:center; flex-direction: column;">
+							<p style="font-weight:bold;">匯入/匯出設定</p>
+						</div>
+						<div class="col-5">
+							<div class="input-group mb-3">
+								<input type="text" class="form-control" placeholder="匯出使用的檔名" id="ExportSettingFilename">
+								<button class="btn btn-outline-primary export-setting-btn" type="button">匯出JSON</button>
+							</div>
+						</div>
+						<div class="col-5">
+							<div class="input-group mb-3">
+								<input type="file" class="form-control" id="SettingFile" accept=".json">
+								<button class="btn btn-outline-primary" type="button" id="ImportSettingBtn">匯入</button>
+							</div>
 						</div>
 					</div>
-					<div class="col-5">
-						<div class="input-group mb-3">
-							<span class="input-group-text">ダイヤ</span>
-							<select class="form-select" id="OudDia"><!-- OudHandler.js --></select>
-							<button class="btn btn-outline-primary" type="button" id="ImportOudBtn">匯入</button>
+					<div class="row" style="margin-bottom: 1rem">
+						<div class="col-2" style="display:flex;justify-content:center; flex-direction: column;">
+							<p style="font-weight:bold;">疊圖</p>
+							<p class="text-muted" style="font-size: 85%;">匯出一段路線的列車 (含通過時刻，到秒)，疊加到共用這段的另一條路線</p>
+						</div>
+						<div class="col-5">
+							<div class="input-group mb-3" style="padding-bottom: 10px;">
+								<span class="input-group-text">從</span>
+								<select class="form-select" id="OverlayFrom"></select>
+								<span class="input-group-text">到</span>
+								<select class="form-select" id="OverlayTo"></select>
+							</div>
+							<div class="input-group mb-3">
+								<input type="text" class="form-control" placeholder="匯出使用的檔名" id="ExportOverlayFilename">
+								<button class="btn btn-outline-primary" type="button" id="ExportOverlayBtn">匯出區段</button>
+							</div>
+						</div>
+						<div class="col-5">
+							<div class="input-group mb-3" style="padding-bottom: 10px;">
+								<span class="input-group-text">已有時刻的站</span>
+								<select class="form-select" id="OverlayConflict">
+									<option value="overlay" selected>以疊圖為準</option>
+									<option value="keep">保留現有時刻</option>
+								</select>
+							</div>
+							<div class="input-group mb-3">
+								<input type="file" class="form-control" id="OverlayFile" accept=".json">
+								<button class="btn btn-outline-primary" type="button" id="ImportOverlayBtn">疊加</button>
+							</div>
+						</div>
+						<div class="col-2"></div>
+						<div class="col-10">
+							<p class="text-muted" style="font-size: 85%;">車站以站名對應、列車以車次對應 (沒有車次時以同站同時刻對應)，已有的列車合併、不會重複。疊加的時刻會釘選，還原通過時間不會移動。<span id="OverlayResult" class="text-body"></span></p>
 						</div>
 					</div>
-				</div>
-				<div class="row" style="margin-bottom: 1rem">
-					<div class="col-2" style="display:flex;justify-content:center; flex-direction: column;">
-						<p style="font-weight:bold;">疊圖</p>
-						<p class="text-muted" style="font-size: 85%;">匯出一段路線的列車 (含通過時刻，到秒)，疊加到共用這段的另一條路線</p>
-					</div>
-					<div class="col-5">
-						<div class="input-group mb-3">
-							<span class="input-group-text">從</span>
-							<select class="form-select" id="OverlayFrom"></select>
-							<span class="input-group-text">到</span>
-							<select class="form-select" id="OverlayTo"></select>
-						</div>
-						<div class="input-group mb-3">
-							<input type="text" class="form-control" placeholder="匯出使用的檔名" id="ExportOverlayFilename">
-							<button class="btn btn-outline-primary" type="button" id="ExportOverlayBtn">匯出區段</button>
-						</div>
-					</div>
-					<div class="col-5">
-						<div class="input-group mb-3">
-							<span class="input-group-text">已有時刻的站</span>
-							<select class="form-select" id="OverlayConflict">
-								<option value="overlay" selected>以疊圖為準</option>
-								<option value="keep">保留現有時刻</option>
-							</select>
-						</div>
-						<div class="input-group mb-3">
-							<input type="file" class="form-control" id="OverlayFile" accept=".json">
-							<button class="btn btn-outline-primary" type="button" id="ImportOverlayBtn">疊加</button>
-						</div>
-					</div>
-					<div class="col-2"></div>
-					<div class="col-10">
-						<p class="text-muted" style="font-size: 85%;">車站以站名對應、列車以車次對應 (沒有車次時以同站同時刻對應)，已有的列車合併、不會重複。疊加的時刻會釘選，還原通過時間不會移動。<span id="OverlayResult" class="text-body"></span></p>
-					</div>
-				</div>
 
+					<div class="row" style="margin-bottom: 1rem">
+						<div class="col-2" style="display:flex;justify-content:center; flex-direction: column;">
+							<p style="font-weight:bold;">匯入 OuDia 檔案</p>
+							<p class="text-muted" style="font-size: 85%;">.oud / .oud2：路線、一份ダイヤ的順逆行列車、種別的線條樣式</p>
+						</div>
+						<div class="col-5">
+							<div class="input-group mb-3">
+								<input type="file" class="form-control" id="OudFile" accept=".oud,.oud2">
+							</div>
+						</div>
+						<div class="col-5">
+							<div class="input-group mb-3">
+								<span class="input-group-text">ダイヤ</span>
+								<select class="form-select" id="OudDia"><!-- OudHandler.js --></select>
+								<button class="btn btn-outline-primary" type="button" id="ImportOudBtn">匯入</button>
+							</div>
+						</div>
+					</div>
+					<div class="row" style="margin-bottom: 1rem">
+						<div class="col-2" style="display:flex;justify-content:center; flex-direction: column;">
+							<p style="font-weight:bold;">匯出 OuDia 檔案</p>
+							<p class="text-muted" style="font-size: 85%;">路線、順逆行列車，每個顏色為一個種別</p>
+						</div>
+						<div class="col-5">
+							<div class="input-group mb-3">
+								<input type="text" class="form-control" placeholder="匯出使用的檔名" id="ExportOudFilename">
+								<button class="btn btn-outline-primary export-oud-btn" type="button" data-format="oud">匯出 .oud</button>
+								<button class="btn btn-outline-primary export-oud-btn" type="button" data-format="oud2">匯出 .oud2</button>
+							</div>
+						</div>
+						<div class="col-5">
+							<p class="text-muted" style="font-size: 85%;">.oud 為 OuDia (Shift_JIS)，.oud2 為 OuDiaSecond (UTF-8，保留里程)</p>
+						</div>
+					</div>
+				</div>
 				
 			</div>
 
@@ -1029,7 +1052,7 @@
 							<label class="form-check-label" for="oudia-enabled">啟用</label>
 						</div>
 					</div>
-					<p class="text-muted" style="margin-top: 1vh;">時間線、車站線改為 OuDia 的畫法 (取代細部設計中的車站線、整點線、次要時間線、分鐘時間線)，列車號從列車線的起點開始標示</p>
+					<p class="text-muted" style="margin-top: 1vh;">以 OuDia 的外觀繪圖：圖框包含站名，站名在車站線上方，時間 (只有小時) 在圖框上方，停車不到 1 分的中途站只畫發車。不適用的設定 (時間線、車站線、圖框、別名、時間文字的格式) 會隱藏</p>
 					<div id="oudia-fields">
 					<div class="row g-3 align-items-center">
 						<div class="col-auto"><label class="col-form-label">時間目盛</label></div>
@@ -1053,14 +1076,14 @@
 						<div class="col-auto"><label class="col-form-label">線寬</label></div>
 						<div class="col-auto"><input inputmode="decimal" class="form-control" style="width:100px" step="0.1" data-unit="px" data-setting="oudiaStyle.lineWidth"></div>
 						<div class="col-auto"><label class="col-form-label px-unit">像素</label></div>
-						<div class="col-auto"><small class="text-muted">粗線 (整點、主要車站) 為兩倍；次要車站為一般車站 (細線)</small></div>
+						<div class="col-auto"><small class="text-muted">時間線、車站線、圖框的顏色；粗線 (整點、圖框) 為兩倍線寬</small></div>
 					</div>
 					<div class="row g-3 align-items-center">
 						<div class="col-auto form-check" style="margin-left: 1rem;">
 							<input type="checkbox" class="form-check-input" id="oudia-stop-marks" data-setting="oudiaStyle.stopMarks">
 							<label class="form-check-label" for="oudia-stop-marks">停車駅明示</label>
 						</div>
-						<div class="col-auto"><small class="text-muted">停車不到 1 分 (或到站時刻空白) 的中間停車站畫小圓圈</small></div>
+						<div class="col-auto"><small class="text-muted">停車不到 1 分 (或到站時刻空白) 的中途停車站畫列車線顏色的圓點</small></div>
 						<div class="col-auto form-check" style="margin-left: 1rem;">
 							<input type="checkbox" class="form-check-input" id="oudia-train-name" data-setting="oudiaStyle.showTrainName">
 							<label class="form-check-label" for="oudia-train-name">列車號後加上列車名</label>
@@ -1080,55 +1103,55 @@
 					<table class="table table-sm" style="width: auto; vertical-align: middle;">
 						<thead class="text-center"><tr><th></th><th>線寬(<span class="px-unit">px</span>)</th><th>顏色</th><th>線型</th></tr></thead>
 						<tbody>
-						<tr>
+						<tr class="oudia-hide">
 							<td>車站線</td>
 							<td><input inputmode="decimal" class="form-control" step="0.1" data-unit="px" data-setting="lines.station.width"></td>
 							<td><input type="color" class="form-control form-control-color mx-auto" data-setting="lines.station.color"></td>
 							<td><select class="form-select" data-setting="lines.station.type"><option value="solid">實線</option><option value="dashed">虛線</option><option value="dotted">點線</option></select></td>
 						</tr>
-						<tr>
+						<tr class="oudia-hide">
 							<td>次要車站線</td>
 							<td><input inputmode="decimal" class="form-control" step="0.1" data-unit="px" data-setting="lines.secondaryStation.width"></td>
 							<td><input type="color" class="form-control form-control-color mx-auto" data-setting="lines.secondaryStation.color"></td>
 							<td><select class="form-select" data-setting="lines.secondaryStation.type"><option value="solid">實線</option><option value="dashed">虛線</option><option value="dotted">點線</option></select></td>
 						</tr>
-						<tr>
+						<tr class="oudia-hide">
 							<td>整點線</td>
 							<td><input inputmode="decimal" class="form-control" step="0.1" data-unit="px" data-setting="lines.primary.width"></td>
 							<td><input type="color" class="form-control form-control-color mx-auto" data-setting="lines.primary.color"></td>
 							<td><select class="form-select" data-setting="lines.primary.type"><option value="solid">實線</option><option value="dashed">虛線</option><option value="dotted">點線</option></select></td>
 						</tr>
-						<tr>
+						<tr class="oudia-hide">
 							<td>次要時間線</td>
 							<td><input inputmode="decimal" class="form-control" step="0.1" data-unit="px" data-setting="lines.secondary.width"></td>
 							<td><input type="color" class="form-control form-control-color mx-auto" data-setting="lines.secondary.color"></td>
 							<td><select class="form-select" data-setting="lines.secondary.type"><option value="solid">實線</option><option value="dashed">虛線</option><option value="dotted">點線</option></select></td>
 						</tr>
-						<tr>
+						<tr class="oudia-hide">
 							<td><div class="form-check mb-0"><input type="checkbox" class="form-check-input" id="minute-line-enabled" data-setting="lines.minute.enabled"><label class="form-check-label" for="minute-line-enabled" title="沒有時間線的每一分鐘，以每公里一點由上到下繪製；線寬 = 點的直徑">分鐘時間線</label></div></td>
 							<td><input inputmode="decimal" class="form-control" step="0.1" data-unit="px" data-setting="lines.minute.width"></td>
 							<td><input type="color" class="form-control form-control-color mx-auto" data-setting="lines.minute.color"></td>
 							<td><span class="text-muted">點線</span></td>
 						</tr>
-						<tr>
+						<tr class="oudia-hide">
 							<td>圖表外框 上</td>
 							<td><input inputmode="decimal" class="form-control" step="0.1" data-unit="px" data-setting="lines.outline.top"></td>
 							<td><input type="color" class="form-control form-control-color mx-auto" data-setting="lines.outline.color"></td>
 							<td><span class="text-muted">實線</span></td>
 						</tr>
-						<tr>
+						<tr class="oudia-hide">
 							<td>圖表外框 下</td>
 							<td><input inputmode="decimal" class="form-control" step="0.1" data-unit="px" data-setting="lines.outline.bottom"></td>
 							<td></td>
 							<td></td>
 						</tr>
-						<tr>
+						<tr class="oudia-hide">
 							<td>圖表外框 左</td>
 							<td><input inputmode="decimal" class="form-control" step="0.1" data-unit="px" data-setting="lines.outline.left"></td>
 							<td></td>
 							<td></td>
 						</tr>
-						<tr>
+						<tr class="oudia-hide">
 							<td>圖表外框 右</td>
 							<td><input inputmode="decimal" class="form-control" step="0.1" data-unit="px" data-setting="lines.outline.right"></td>
 							<td></td>
@@ -1210,7 +1233,7 @@
 						</table>
 
 					<h4 style="margin-top: 3vh;">車站文字</h4>
-					<div class="row g-3 align-items-center">
+					<div class="row g-3 align-items-center oudia-hide">
 						<div class="col-auto"><label class="col-form-label">是否顯示站名別名</label></div>
 						<div class="col-auto form-check" style="margin-left: 1rem;">
 							<input type="checkbox" class="form-check-input" id="alias-show" data-setting="aliasText.show">
@@ -1226,7 +1249,7 @@
 								<td><input type="color" class="form-control form-control-color mx-auto" data-setting="stationText.color"></td>
 								<td><input inputmode="decimal" class="form-control" data-unit="px" data-setting="stationText.gap"></td>
 							</tr>
-							<tr>
+							<tr class="oudia-hide">
 								<td>站名別名</td>
 								<td><input inputmode="decimal" class="form-control" data-unit="px" data-setting="aliasText.fontSize"></td>
 								<td><input type="color" class="form-control form-control-color mx-auto" data-setting="aliasText.color"></td>
@@ -1238,7 +1261,7 @@
 								<td><input type="color" class="form-control form-control-color mx-auto" data-setting="secondaryStationText.color"></td>
 								<td><input inputmode="decimal" class="form-control" data-unit="px" data-setting="secondaryStationText.gap"></td>
 							</tr>
-							<tr>
+							<tr class="oudia-hide">
 								<td>次要站名別名</td>
 								<td><input inputmode="decimal" class="form-control" data-unit="px" data-setting="secondaryAliasText.fontSize"></td>
 								<td><input type="color" class="form-control form-control-color mx-auto" data-setting="secondaryAliasText.color"></td>
@@ -1248,7 +1271,7 @@
 					</table>
 
 					<h4 style="margin-top: 3vh;">時間文字</h4>
-					<div class="row g-3 align-items-center">
+					<div class="row g-3 align-items-center oudia-hide">
 						<div class="col-auto"><label class="col-form-label">次要時間線的時間間隔</label></div>
 						<div class="col-auto">
 							<select class="form-select" data-setting="lines.secondary.interval">
@@ -1261,7 +1284,7 @@
 							</select>
 						</div>
 					</div>
-					<div class="row g-3 align-items-center">
+					<div class="row g-3 align-items-center oudia-hide">
 						<div class="col-auto"><label class="col-form-label">表達方式</label></div>
 						<div class="col-auto">
 							<select class="form-select" data-setting="timeLabel.format">
@@ -1275,7 +1298,7 @@
 							<label class="form-check-label" for="time-zero-pad">小時補0 (08:00)</label>
 						</div>
 					</div>
-					<div class="row g-3 align-items-center">
+					<div class="row g-3 align-items-center oudia-hide">
 							<div class="col-auto"><label class="col-form-label">跨日表達</label></div>
 							<div class="col-auto">
 								<select class="form-select" data-setting="timeLabel.overDay">
@@ -1290,7 +1313,7 @@
 						<div class="col-auto"><label class="col-form-label">與圖表距離(<span class="px-unit">px</span>)</label></div>
 						<div class="col-auto"><input inputmode="decimal" class="form-control" style="width:100px" data-unit="px" data-setting="timeLabel.gap"></div>
 					</div>
-					<div class="row g-3 align-items-center">
+					<div class="row g-3 align-items-center oudia-hide">
 						<div class="col-auto"><label class="col-form-label">次要時間線的文字標記</label></div>
 						<div class="col-auto">
 							<select class="form-select" id="secondary-label-select" data-setting="timeLabel.secondaryLabel">
@@ -1325,7 +1348,7 @@
 						<div class="col-auto"><label class="col-form-label">顏色</label></div>
 						<div class="col-auto"><input type="color" class="form-control form-control-color" data-setting="timeLabel.formats.simple.color"></div>
 					</div>
-					<div class="row" style="margin-bottom: 3vh;">
+					<div class="row oudia-hide" style="margin-bottom: 3vh;">
 						<p class="text-muted" style="margin-top: 1vh;">預覽 (8:00 ~ 9:00)</p>
 						<div><svg id="time-label-preview" xmlns="http://www.w3.org/2000/svg" style="border: 1px dashed #CCC;"></svg></div>
 					</div>
@@ -2045,6 +2068,14 @@
 					<button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
 			</div>
 		</div>
+		<div class="toast text-bg-warning end-0" role="alert" aria-live="assertive" aria-atomic="true" id="ExportOudWarning">
+			<div class="d-flex">
+					<div class="toast-body">
+						有 <span id="ExportOudMissing" style="font-weight: bold;"></span> 個字無法以 Shift_JIS 表示，已改為「?」。若要保留，請改用 .oud2。
+					</div>
+					<button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+			</div>
+		</div>
 
 		<div class="toast text-bg-primary end-0" role="alert" aria-live="assertive" aria-atomic="true" id="AutofillSuccess">
 			<div class="d-flex">
@@ -2224,6 +2255,9 @@
 	<script src="program/handler/SettingHandler.js"></script>
 	<script src="program/handler/AllDataHandler.js"></script>
 	<script src="program/handler/OudHandler.js"></script>
+
+	<!-- optional: arrow-key cell navigation (remove to disable) -->
+	<script src="program/ui/arrowNav.js"></script>
 
 	<script>
 		renderRouteTable();
