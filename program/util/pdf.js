@@ -41,7 +41,7 @@ function pdfGlyphOps(path){
 	return [...ops, "f"];
 }
 
-// operators for the diagram's svg (Graphing.js): rect, line, polyline, text (as outlines), g (layers, maybe with clip-path)
+// operators for the diagram's svg (Graphing.js): rect, line, polyline, circle, text (as outlines), g (layers, maybe with clip-path)
 function pdfSvgOps(parent, clips){
 	const num = (el, name) => Number(el.getAttribute(name));
 	return [...parent.children].flatMap(el => {
@@ -75,6 +75,13 @@ function pdfSvgOps(parent, clips){
 			const points = el.getAttribute("points").split(" ").map(p => p.split(",").map(Number).map(pdfNum).join(" "));
 			// svg's default miter limit
 			return ["q", ...strokeStyle, "4 M", `${points.map((p, i) => `${p} ${i == 0 ? "m" : "l"}`).join(" ")} S`, "Q"];
+		}
+		if(el.tagName == "circle"){
+			// four cubic arcs, stroked only (stop marks, OudiaStyle.js)
+			const [cx, cy, r] = ["cx", "cy", "r"].map(name => num(el, name));
+			const k = 0.5523*r;
+			const p = (...v) => v.map(pdfNum).join(" ");
+			return ["q", ...strokeStyle, `${p(cx + r, cy)} m ${p(cx + r, cy + k, cx + k, cy + r, cx, cy + r)} c ${p(cx - k, cy + r, cx - r, cy + k, cx - r, cy)} c ${p(cx - r, cy - k, cx - k, cy - r, cx, cy - r)} c ${p(cx + k, cy - r, cx + r, cy - k, cx + r, cy)} c S`, "Q"];
 		}
 		if(el.tagName == "text"){
 			return textToPaths(el).flatMap(({ path, fill }) => ["q", pdfColor(fill, "rg"), ...pdfGlyphOps(path), "Q"]);

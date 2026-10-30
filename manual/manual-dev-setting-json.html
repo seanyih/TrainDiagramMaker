@@ -86,6 +86,7 @@
         &quot;secondaryTimeLines&quot;: false,
         &quot;margin&quot;: 5
     },
+    &quot;oudiaStyle&quot;: { &quot;enabled&quot;: false, &quot;timeScale&quot;: 1, &quot;axisColor&quot;: &quot;#C0C0C0&quot;, &quot;lineWidth&quot;: 1, &quot;stopMarks&quot;: true, &quot;showTrainName&quot;: false },
     &quot;connectTrainLines&quot;: true,
     &quot;layers&quot;: { &quot;enabled&quot;: false, &quot;trainByDirection&quot;: false, &quot;trainByColor&quot;: false },
     &quot;margin&quot;: { &quot;left&quot;: 100, &quot;right&quot;: 100, &quot;top&quot;: 100, &quot;bottom&quot;: 100 },
@@ -224,6 +225,36 @@
 <td><code>trainNumberAvoidance.margin</code></td>
 <td>5</td>
 <td>列車號與要避開的線、文字之間的最小距離，限 0 ~ 20</td>
+</tr>
+<tr>
+<td><code>oudiaStyle.enabled</code></td>
+<td>false</td>
+<td>OuDia 樣式：時間線、車站線改用以下設定，列車號從起點開始標</td>
+</tr>
+<tr>
+<td><code>oudiaStyle.timeScale</code></td>
+<td>1</td>
+<td>時間目盛，0 ~ 7 = 點線每 1、2、5、10、15、20、30、60 分 (細線、粗線見基本設定的選單)</td>
+</tr>
+<tr>
+<td><code>oudiaStyle.axisColor</code></td>
+<td><code>"#C0C0C0"</code></td>
+<td>時間線、車站線的顏色</td>
+</tr>
+<tr>
+<td><code>oudiaStyle.lineWidth</code></td>
+<td>1</td>
+<td>時間線、車站線的線寬；粗線 (粗時間線、非次要車站) 為兩倍</td>
+</tr>
+<tr>
+<td><code>oudiaStyle.stopMarks</code></td>
+<td>true</td>
+<td>停車駅明示：停車不到 1 分 (或到站時刻空白) 的中途停車站畫小圓圈</td>
+</tr>
+<tr>
+<td><code>oudiaStyle.showTrainName</code></td>
+<td>false</td>
+<td>列車號後加上列車名</td>
 </tr>
 <tr>
 <td><code>connectTrainLines</code></td>
@@ -549,7 +580,7 @@
 <tr>
 <td>時間線</td>
 <td><code>timeline-{hhmm}</code> (例：<code>timeline-0830</code>；24 時以後為 <code>timeline-2530</code>；印刷模式重疊到前一天的為 <code>timeline-prev-2350</code>)</td>
-<td><code>timeline primary</code> (整點) / <code>timeline secondary</code></td>
+<td><code>timeline primary</code> (整點) / <code>timeline secondary</code>；OuDia 樣式為 <code>timeline bold</code> / <code>thin</code> / <code>dotted</code></td>
 <td><code>data-sec</code>：從第一天 0:00 起算的秒數</td>
 </tr>
 <tr>
@@ -574,6 +605,12 @@
 <td>列車號</td>
 <td></td>
 <td><code>train-number</code></td>
+<td><code>data-train</code>：所屬列車線的 id</td>
+</tr>
+<tr>
+<td>停車駅明示 (OuDia 樣式)</td>
+<td></td>
+<td><code>stop-mark</code> (<code>&lt;circle&gt;</code>)</td>
 <td><code>data-train</code>：所屬列車線的 id</td>
 </tr>
 </tbody>

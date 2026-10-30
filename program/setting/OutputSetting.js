@@ -112,6 +112,7 @@ function updateSettingsUI(){
 	$('[data-setting="background.color"]').prop("disabled", SETTINGS.background.transparent);
 	$("#train-number-fields").toggle(SETTINGS.showTrainNumber);
 	$("#layer-fields").toggle(SETTINGS.layers.enabled);
+	$("#oudia-fields").toggle(SETTINGS.oudiaStyle.enabled);
 
 	const avoid = SETTINGS.trainNumberAvoidance;
 	$("#avoid-fields").toggle(avoid.enabled);

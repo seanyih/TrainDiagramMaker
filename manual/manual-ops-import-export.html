@@ -122,6 +122,12 @@
 <td>JSON</td>
 <td>以上全部：路線、順逆行時刻表、設定</td>
 </tr>
+<tr>
+<td>OuDia 檔案</td>
+<td>—</td>
+<td>.oud、.oud2</td>
+<td>路線、一份ダイヤ的順逆行時刻表、種別的線條樣式</td>
+</tr>
 </tbody>
 </table>
 <h3 id="csv-和-json-有什麼不同">CSV 和 JSON 有什麼不同？</h3>
@@ -180,6 +186,24 @@
 <div class="admonition warning">
 <p>網站不會自動存檔。關閉網頁或重新整理前，記得先匯出全部資料。</p>
 </div>
+<h2 id="匯入-oudia-檔案">匯入 OuDia 檔案</h2>
+<p>可以直接讀入 OuDia（<code>.oud</code>）與 OuDiaSecond（<code>.oud2</code>）的路線檔。</p>
+<ol>
+<li>按「選擇檔案」選取 <code>.oud</code> 或 <code>.oud2</code> 檔。</li>
+<li>檔案中有多份ダイヤ（例如平日、休日）時，在「ダイヤ」選單選擇要匯入哪一份。</li>
+<li>按<strong>匯入</strong>。路線、順逆行時刻表都會被取代。</li>
+</ol>
+<p>匯入的內容：</p>
+<ul>
+<li><strong>車站</strong>：站名。OuDia 的「一般駅」設為<a href="manual-ops-topology.html#次要車站">次要車站</a>，「主要駅」為一般的車站。</li>
+<li><strong>里程</strong>：OuDia 檔案沒有里程，網站依 OuDia 的方式（兩站間最快的列車的運轉時間）推算，<strong>1 分鐘 = 1 公里</strong>，畫出來的站距和 OuDia 相同。若要用真正的里程，請到「路線資料」修改。</li>
+<li><strong>列車</strong>：下り為順行、上り為逆行。車次為列車番號；列車名為「列車名 號數」，沒有列車名時用種別名稱。通過時有時刻的站成為通過時刻；只有發車時刻的中途停車站，到站時刻留白。</li>
+<li><strong>種別</strong>：依線條顏色、線型、粗細分組，放到列車顏色 1~10，並設定<a href="manual-ops-setting.html#線條">依顏色的線寬、線型</a>。一點鎖線改為虛線。超過 10 種時，多出的種別使用顏色最接近的那一組。</li>
+<li><strong>其他</strong>：背景色、軸色（<a href="manual-ops-setting.html#oudia-樣式">OuDia 樣式</a>使用）、圖的起點時刻（顯示 24 小時）。</li>
+</ul>
+<div class="admonition note">
+<p>列車在中途「運行なし」或「經由なし」（例如經由分岐線）時，網站的列車線必須連續，所以這班車會在該處拆成兩班（車次相同）。番線、駅作業、運用等 OuDiaSecond 的資料不會匯入。</p>
+</div>
 <h2 id="疊圖">疊圖</h2>
 <p>兩條路線共用一段軌道時（例如內灣線的新竹–北新竹段與縱貫線共用），可以把一條路線上這一段的列車「疊」到另一條路線上，不必重新畫。</p>
 <ol>
@@ -203,7 +227,7 @@
 
 		<aside class="manual-toc">
 			<p class="manual-toc-title">本頁內容</p>
-			<ul><li><a href="#可以匯入匯出哪些資料">可以匯入、匯出哪些資料</a><ul><li><a href="#csv-和-json-有什麼不同">CSV 和 JSON 有什麼不同？</a></li></ul></li><li><a href="#匯入路線資料">匯入路線資料</a></li><li><a href="#匯入時刻表">匯入時刻表</a></li><li><a href="#匯入匯出設定">匯入/匯出設定</a></li><li><a href="#匯入匯出全部資料">匯入/匯出全部資料</a></li><li><a href="#疊圖">疊圖</a></li></ul>
+			<ul><li><a href="#可以匯入匯出哪些資料">可以匯入、匯出哪些資料</a><ul><li><a href="#csv-和-json-有什麼不同">CSV 和 JSON 有什麼不同？</a></li></ul></li><li><a href="#匯入路線資料">匯入路線資料</a></li><li><a href="#匯入時刻表">匯入時刻表</a></li><li><a href="#匯入匯出設定">匯入/匯出設定</a></li><li><a href="#匯入匯出全部資料">匯入/匯出全部資料</a></li><li><a href="#匯入-oudia-檔案">匯入 OuDia 檔案</a></li><li><a href="#疊圖">疊圖</a></li></ul>
 		</aside>
 	</div>
 

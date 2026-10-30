@@ -27,6 +27,16 @@ const SETTINGS = {
 		margin: 5                   // px, 0 ~ 20
 	},
 
+	// the OuDia look (OudiaStyle.js): its time and station lines, train numbers from the origin, stop marks
+	oudiaStyle: {
+		enabled: false,
+		timeScale: 1,           // index of OUDIA_TIME_SCALES
+		axisColor: "#C0C0C0",   // time and station lines
+		lineWidth: 1,           // px; bold lines are twice as wide
+		stopMarks: true,        // a circle at stops shorter than a minute
+		showTrainName: false    // the train name after the number
+	},
+
 	// svg structure (Graphing.js)
 	connectTrainLines: true,      // each train is one polyline (per day it is drawn on), not a line per segment
 	layers: {

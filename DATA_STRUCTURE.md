@@ -43,6 +43,11 @@ checkbox → boolean，`type="number"` 與數字選項的 select → number (空
 | `connectTrainLines` | true | 每班列車畫成一條 `<polyline>` (跨日的列車，每一天各一條)；`false` = 每一段一條 `<line>`，包在一個 `<g>` 裡 (與舊版相同)。列車號的位置不受影響 |
 | `layers.enabled` | false | 分圖層 (`LAYERS`，`Graphing.js`)，見下方「SVG 結構」 |
 | `layers.trainByDirection` / `layers.trainByColor` | false / false | 列車線圖層再分方向 (`順行` / `逆行`) / 顏色 (`顏色{n}`，0 為 `未指定顏色`)；兩者皆是時方向之下再分顏色 |
+| `oudiaStyle.enabled` | false | OuDia 樣式 (`program/program/OudiaStyle.js`)：時間線、車站線改用下列設定 (取代 `lines.station` / `secondaryStation` / `primary` / `secondary` / `minute`)，列車號從起點開始標，畫停車駅明示 |
+| `oudiaStyle.timeScale` | 1 | `OUDIA_TIME_SCALES` 的 index：`[點線, 細線, 粗線]` 的間隔 (分)，0~7 = `[1,5,30]` `[2,10,60]` `[5,10,60]` `[10,30,60]` `[15,15,60]` `[20,20,60]` `[30,30,60]` `[60,60,60]` (同 OuDia 的時間目盛)。粗線視為整點線、細線視為次要時間線 (列車號避讓)；id 同時間線，class 為 `timeline bold` / `thin` / `dotted` |
+| `oudiaStyle.axisColor` / `.lineWidth` | `"#C0C0C0"` / 1 | 時間線與車站線的顏色、線寬；粗線 (粗時間線、非次要車站) 為兩倍線寬，次要車站為細線 |
+| `oudiaStyle.stopMarks` | true | 停車駅明示：中間停靠站 (非通過) 到站時刻空白、或停車不到 60 秒時，在發車點畫空心圓 (`<circle class="stop-mark">`，半徑 2.5 × `lineWidth`，黑色)，在列車線的 `<g>` / 圖層內 |
+| `oudiaStyle.showTrainName` | false | 列車號後加上 `train_name` (`trainLabel()`) |
 | `margin.{left,right,top,bottom}` | 100 | 圖表外框到圖片邊緣的距離 |
 | `background.transparent` / `.color` | false / `#FFFFFF` | 背景。透明時不畫背景矩形 |
 | `lines.{station,secondaryStation,primary,secondary}` | | `{ width, color, type }`：車站線、次要車站線、整點線、次要時間線；`type` 為 `"solid"` \| `"dashed"` \| `"dotted"` |
@@ -109,7 +114,8 @@ checkbox → boolean，`type="number"` 與數字選項的 select → number (空
   - 列車線的 x 座標是「展開」的：比前一點早的時刻視為隔天 (+1440 分)，所以一班車的所有點連續。整條線再平移 ±1 天各畫一次 (只畫有落在圖表範圍內的)。`connectTrainLines` 時每個平移各一條 `<polyline>` (去掉重複點)，否則為 `<g>` 包各段 `<line>`。列車號避讓用的線段 (`addSegment`) 兩者相同。
   - 分圖層時 (`layers.enabled`)，由下到上為 `LAYERS`：背景 (`layer-background`，透明時省略)、時間線 (`layer-time-lines`，含分鐘時間線)、車站線、列車線、列車號文字 (不顯示列車號時省略)、圖框、文字-車站、文字-時間。圖層是 `<g id data-name inkscape:groupmode="layer" inkscape:label>` (`makeLayer()`)；Illustrator 以最上層的 `<g>` 為圖層、`data-name` 為名稱。列車線與列車號圖層各自帶 `clip-path`。列車線子圖層的 id 為父圖層 id 加 `-{bound}` / `-color-{n}`，依方向、顏色排序後建立，所以列車的繪製順序會依子圖層分組。不分圖層時結構與舊版相同 (列車線與列車號共用一個 clip `<g>`)。
   - id：時間線 `timeline-{hhmm}` (`timeId()`；負的時刻為 `prev-{hhmm}`)、分鐘時間線 `minuteline-{hhmm}`、車站線 `stationline-{路線 index}`、列車線 `train-{bound}-{index}` (`trainId()`，跨日副本加 `-prev-day` / `-next-day`)。另有 class 與 `data-sec`、`data-station`、`data-kilo`、`data-train`、`data-bound`、`data-train-number`；列車號 `<text class="train-number" data-train>`。完整表格見說明書「設定 JSON」。
-  - PDF 輸出 (`pdfSvgOps()`) 支援沒有 clip-path 的 `<g>` 與 `<polyline>` (miter limit 4，同 SVG)。
+  - PDF 輸出 (`pdfSvgOps()`) 支援沒有 clip-path 的 `<g>`、`<polyline>` (miter limit 4，同 SVG) 與只有外框的 `<circle>` (停車駅明示)。
+- **OuDia 樣式下的列車號**：第一個列車號不受 `pxPerTrainNumber` 限制，放在第一個合格的區間，從區間的起點往後找位置 (`findTrainNumberPosition(..., fromStart)`)；該區間放不下時試下一個區間。之後同一般規則。
 
 ## 3. 時刻格式
 
@@ -401,6 +407,30 @@ train = {
 - 缺少 `settings` → 全部使用預設；缺少 `route` 或某個方向的 `trains` → 保留目前資料。
 - 列車一律取代 (不看「匯入列車資料時」選單)。
 - 任何部分解析失敗則不套用任何變更 (設定會還原)。
+
+### 6.3 OuDia 檔案 (`program/handler/OudHandler.js`)
+
+只能匯入 (`#OudFile` → `#OudDia` 選ダイヤ → `#ImportOudBtn`)。
+
+格式：一行一個 `key=value`，`Name.` 開始一個節點、單獨的 `.` 結束。`Rosen.` 內有 `Eki.` (車站，順序 = 下り)、`Ressyasyubetsu.` (種別，依序為 index)、`Dia.` (每份ダイヤ，內有 `Kudari.` / `Nobori.` 的 `Ressya.`)。列車的 `EkiJikoku=` 以逗號分隔、依該方向的站序 (同 `station_order`)，每格為空白 (運行なし) 或 `駅扱[;時刻][$番線]`，駅扱 1 = 停車、2 = 通過、3 = 經由なし，時刻為 `發`、`着/`、`着/發` (`hmm` ~ `hhmmss`)。顏色 `00BBGGRR`。
+
+| OuDia | 轉換為 |
+|---|---|
+| `Ekimei` / `Ekikibo_Ippan` | `name` / `topology.secondary` (起終點除外) |
+| 站距 | 每個站間取兩方向中較大的「最短運轉時間」(優先用兩站都停車的列車，其次任何有時刻的列車，再其次 `DiagramDgrYZahyouKyoriDefault`，預設 60 秒；`NextEkiDistance` > 0 時用它)，1 分 = 1 km 累加為 `kilo` (取到 0.01) |
+| `Kudari` / `Nobori` | bound 1 / 2 |
+| 停車 | `arrival` / `departure`；只有著 → `departure = arrival`；只有發 → `arrival` 空白。每段的第一、最後一站空白的 `arrival` = `departure` |
+| 通過、有時刻 | `arrival = departure` (通過時刻)；沒有時刻的通過不加入 |
+| 第一站之後的運行なし / 經由なし | 列車拆成兩班 (同車次) |
+| `Ressyabangou` / `Ressyamei` + `Gousuu` | `train_number` / `train_name` = `列車名 號數号`，沒有列車名時為種別名 |
+| 種別 | 有用到的種別依 (`DiagramSenColor`, `DiagramSenStyle`, `DiagramSenIsBold`) 分組，依 index 順序配到 `train_color` 1~10；線型 實線 / 破線 / 點線 / 一點鎖線 → `solid` / `dashed` / `dotted` / `dashed`，粗線 → 線寬 `trainLineWidth × 2`；超過 10 組時配到 RGB 距離最近的組 |
+| `DispProp` 的第一個 `DiaBackColor`、`DiaJikuColor`；`KitenJikoku` | 見下 |
+
+番線、駅作業、運用、路線外發着、分岐駅設定、コメント 等不匯入。OuDia 的功能比較見 `design_doc/OUDIA.md` (本機文件)。
+
+- 讀檔：`decodeOud()` 先試 UTF-8 (`.oud2`)，失敗則 Shift_JIS (`.oud`)；`parseOud()` 轉成 `{ name, values: { key: [值...] }, children }` 的樹。選檔時解析並列出ダイヤ，沒有車站 (少於 2 站) 或ダイヤ時顯示紅色 toast。
+- `convertOud(root, diaIndex)` → `{ route, trains: {1, 2}, colors, background, axis, startSec, merged, split }`，`applyOud()` 套用：路線 (`applyRoute()`)、兩方向列車一律取代、`trainColors` / `trainLineTypeByColor` / `trainLineWidthByColor` 的 1~10 (先清空樣式，`trainColors[0]` = `[1]`)、`background.color`、`oudiaStyle.axisColor`、`startSec` = 起點時刻、`endSec` = 起點 + 24 時 (最多 `MAX_END_SEC`)。
+- `kilo` 是推算的 (`oudSectionSeconds()`，1 分 = 1 km)、`stopsec` = `defaultStopSec`；匯入後一律顯示黃色 toast `#ImportOudWarning` 說明，並列出種別合併到同一顏色槽、列車被拆開的次數。
 
 ## 7. 待避時間計算 (基本設定 > 待避時間計算)
 

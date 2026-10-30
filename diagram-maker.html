@@ -9,6 +9,7 @@
 	  SETTINGS.pxPerKm = 30; initSettingsUI();                         // settings (see DATA_STRUCTURE.md section 2)
 	  $("#nav-output").click(); drawDiagram(); document.getElementById("output").outerHTML   // the SVG
 	  JSON.stringify(getAllDataJSON())                                 // export
+	  applyOud(convertOud(parseOud(decodeOud(arrayBuffer)), 0)); generateTimetable();   // OuDia .oud/.oud2, dia 0
 	After editing TRAINS call refreshTimetable(bound); use insertStation()/deleteStation() for stations.
 	Times are "hhmm" or "hhmmss" strings, "" = none. Do not guess missing data: ask the user.
 	Side bar: #nav-inex import/export, #nav-setting, #nav-route (route + track layout + topology), #nav-timetable-1/2, #nav-output.
@@ -829,6 +830,24 @@
 				</div>
 				<div class="row" style="margin-bottom: 1rem">
 					<div class="col-2" style="display:flex;justify-content:center; flex-direction: column;">
+						<p style="font-weight:bold;">匯入 OuDia 檔案</p>
+						<p class="text-muted" style="font-size: 85%;">.oud / .oud2：路線、一份ダイヤ的順逆行列車、種別的線條樣式</p>
+					</div>
+					<div class="col-5">
+						<div class="input-group mb-3">
+							<input type="file" class="form-control" id="OudFile" accept=".oud,.oud2">
+						</div>
+					</div>
+					<div class="col-5">
+						<div class="input-group mb-3">
+							<span class="input-group-text">ダイヤ</span>
+							<select class="form-select" id="OudDia"><!-- OudHandler.js --></select>
+							<button class="btn btn-outline-primary" type="button" id="ImportOudBtn">匯入</button>
+						</div>
+					</div>
+				</div>
+				<div class="row" style="margin-bottom: 1rem">
+					<div class="col-2" style="display:flex;justify-content:center; flex-direction: column;">
 						<p style="font-weight:bold;">疊圖</p>
 						<p class="text-muted" style="font-size: 85%;">匯出一段路線的列車 (含通過時刻，到秒)，疊加到共用這段的另一條路線</p>
 					</div>
@@ -1001,6 +1020,52 @@
 							<input type="checkbox" class="form-check-input" id="bg-transparent" data-setting="background.transparent">
 							<label class="form-check-label" for="bg-transparent">透明</label>
 						</div>
+					</div>
+
+					<div class="d-flex align-items-center" style="margin-top: 3vh;">
+						<h4 class="mb-0">OuDia 樣式</h4>
+						<div class="form-check d-flex align-items-center gap-2 p-0 mb-0" style="margin-left: 1rem;">
+							<input type="checkbox" class="form-check-input m-0" id="oudia-enabled" data-setting="oudiaStyle.enabled">
+							<label class="form-check-label" for="oudia-enabled">啟用</label>
+						</div>
+					</div>
+					<p class="text-muted" style="margin-top: 1vh;">時間線、車站線改為 OuDia 的畫法 (取代細部設計中的車站線、整點線、次要時間線、分鐘時間線)，列車號從列車線的起點開始標示</p>
+					<div id="oudia-fields">
+					<div class="row g-3 align-items-center">
+						<div class="col-auto"><label class="col-form-label">時間目盛</label></div>
+						<div class="col-auto">
+							<select class="form-select" data-setting="oudiaStyle.timeScale">
+								<option value="0">1 分 (5 分、30 分)</option>
+								<option value="1">2 分 (10 分、60 分)</option>
+								<option value="2">5 分 (10 分、60 分)</option>
+								<option value="3">10 分 (30 分、60 分)</option>
+								<option value="4">15 分 (60 分)</option>
+								<option value="5">20 分 (60 分)</option>
+								<option value="6">30 分 (60 分)</option>
+								<option value="7">60 分</option>
+							</select>
+						</div>
+						<div class="col-auto"><small class="text-muted">點線的間隔 (括號內為細線、粗線)</small></div>
+					</div>
+					<div class="row g-3 align-items-center">
+						<div class="col-auto"><label class="col-form-label">軸色</label></div>
+						<div class="col-auto"><input type="color" class="form-control form-control-color" data-setting="oudiaStyle.axisColor"></div>
+						<div class="col-auto"><label class="col-form-label">線寬</label></div>
+						<div class="col-auto"><input inputmode="decimal" class="form-control" style="width:100px" step="0.1" data-unit="px" data-setting="oudiaStyle.lineWidth"></div>
+						<div class="col-auto"><label class="col-form-label px-unit">像素</label></div>
+						<div class="col-auto"><small class="text-muted">粗線 (整點、主要車站) 為兩倍；次要車站為一般車站 (細線)</small></div>
+					</div>
+					<div class="row g-3 align-items-center">
+						<div class="col-auto form-check" style="margin-left: 1rem;">
+							<input type="checkbox" class="form-check-input" id="oudia-stop-marks" data-setting="oudiaStyle.stopMarks">
+							<label class="form-check-label" for="oudia-stop-marks">停車駅明示</label>
+						</div>
+						<div class="col-auto"><small class="text-muted">停車不到 1 分 (或到站時刻空白) 的中間停車站畫小圓圈</small></div>
+						<div class="col-auto form-check" style="margin-left: 1rem;">
+							<input type="checkbox" class="form-check-input" id="oudia-train-name" data-setting="oudiaStyle.showTrainName">
+							<label class="form-check-label" for="oudia-train-name">列車號後加上列車名</label>
+						</div>
+					</div>
 					</div>
 
 				</div>
@@ -1954,6 +2019,33 @@
 			</div>
 		</div>
 
+		<div class="toast text-bg-primary end-0" role="alert" aria-live="assertive" aria-atomic="true" id="ImportOudSuccess">
+			<div class="d-flex">
+					<div class="toast-body">
+						OuDia 檔案已成功匯入。
+					</div>
+					<button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+			</div>
+		</div>
+
+		<div class="toast text-bg-danger end-0" role="alert" aria-live="assertive" aria-atomic="true" id="ImportOudFailed">
+			<div class="d-flex">
+					<div class="toast-body">
+						無法讀取 OuDia 檔案 (未選擇檔案，或檔案中沒有車站或ダイヤ)。
+					</div>
+					<button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+			</div>
+		</div>
+
+		<div class="toast text-bg-warning end-0" role="alert" aria-live="assertive" aria-atomic="true" id="ImportOudWarning">
+			<div class="d-flex">
+					<div class="toast-body">
+						請確認：<span id="ImportOudReason" style="font-weight: bold;"></span>
+					</div>
+					<button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+			</div>
+		</div>
+
 		<div class="toast text-bg-primary end-0" role="alert" aria-live="assertive" aria-atomic="true" id="AutofillSuccess">
 			<div class="d-flex">
 					<div class="toast-body">
@@ -2107,6 +2199,7 @@
 	<!-- Core Program -->
 	<script src="program/program/Graphing.js"></script>
 	<script src="program/program/TrainNumber.js"></script>
+	<script src="program/program/OudiaStyle.js"></script>
 	<script src="program/program/TrackLayout.js"></script>
 	<script src="program/program/BranchTrain.js"></script>
 	<script src="program/program/Overlay.js"></script>
@@ -2130,6 +2223,7 @@
 	<!-- settings / all-in-one json (reuse the parsers above) -->
 	<script src="program/handler/SettingHandler.js"></script>
 	<script src="program/handler/AllDataHandler.js"></script>
+	<script src="program/handler/OudHandler.js"></script>
 
 	<script>
 		renderRouteTable();
