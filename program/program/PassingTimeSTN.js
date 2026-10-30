@@ -155,6 +155,23 @@ function singleTrackPoints(m, e, r){
 	return points;
 }
 
+// opposite trains in a station next to single track together: each leaves at least the gap after the other arrives
+function addCrossingGaps(m, net, kept){
+	for(let r = 0; r < m.count; r++){
+		const e = 2*r;
+		if(!nextToSingle(m, e)) continue;
+		crossings(m, e, (a, b) => {
+			const gap = crossingGap(m, e, a, b);
+			[[a, b], [b, a]].forEach(([u, v]) => {
+				const [ku, kv] = [elementOrder(m, u.bound, e), elementOrder(m, v.bound, e)];
+				if(!u.fixed[ku] || !v.fixed[kv]) return;
+				const pair = [stationPoint(u, ku, ku == u.first), stationPoint(v, kv, kv != v.last)];
+				if(kept(pair) && (pair[0].node >= 0 || pair[1].node >= 0)) transaction(net, () => constrain(m, net, pair[0], pair[1], gap));
+			});
+		});
+	}
+}
+
 // x at s within y's stop (from its arrival, unless y starts there, to its departure, unless y or x ends there),
 // minTimeSeparation from it first, else the grid; a junction proposal: x's junction stop after (before) y there
 function proposalRange(m, net, p, wide){
@@ -246,6 +263,7 @@ function solveNetwork(m, proposals){
 	const kept = ([a, b]) => !rejected.has(a.node) && !rejected.has(b.node);
 	later.filter(kept).forEach(([a, b]) => transaction(net, () => constrain(m, net, a, b, 0)));
 	if(m.headway) gaps.filter(kept).forEach(([a, b]) => transaction(net, () => constrain(m, net, a, b, m.gap)));
+	if(m.headway && m.crossGap) addCrossingGaps(m, net, kept);
 
 	// nearest to the current time within [E, L], then raised along the constraints (stays within L)
 	const time = new Float64Array(count);
@@ -457,6 +475,7 @@ function prunePassingTimes(m){
 function restorePassingTimesSTN(trains, fineTune, onRound, onDone, rounding){
 	const { maxIteration, maxAllowedConflict } = SETTINGS.passingTime;
 	const m = createPassingModel(trains, fineTune, rounding);
+	m.crossGap = true;
 	if(rounding) solveNetwork(m, []);
 	const tried = new Set();
 	let conflicts = detectConflicts(m);

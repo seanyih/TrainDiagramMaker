@@ -53,9 +53,19 @@ function headwaySides(m, c){
 	return sides;
 }
 
+// "A站 1次到達 (hh:mm:ss) 2次出發 (hh:mm:ss), Δ = 30 s": opposite trains leaving too soon after the other arrives
+function describeCrossGap(m, c){
+	return [[c.a, c.b], [c.b, c.a]].filter(([u, v]) => exitTime(m, v, c.e) - entryTime(m, u, c.e) < crossingGap(m, c.e, c.a, c.b)).map(([u, v]) => {
+		const [ku, kv] = [elementOrder(m, u.bound, c.e), elementOrder(m, v.bound, c.e)];
+		const [from, to] = [entryTime(m, u, c.e), exitTime(m, v, c.e)];
+		return `${reportStation(m, u.bound, ku)} ${reportTrain(u)}${(ku == u.first) ? "出發" : stopEvent(u, ku, false)} (${reportClock(from)}) ${reportTrain(v)}${(kv == v.last) ? "到達" : stopEvent(v, kv, true)} (${reportClock(to)}), Δ = ${Math.round(to - from)} s`;
+	}).join("；");
+}
+
 // one line for a conflict; an overtaking names the train that overtakes first
 function describeConflict(m, c){
 	if(c.type == "headway"){
+		if(c.a.bound != c.b.bound) return describeCrossGap(m, c);
 		const k = elementOrder(m, c.a.bound, c.e);
 		return headwaySides(m, c).map(leave => {
 			const time = t => leave ? t.dep[k] : t.arr[k];

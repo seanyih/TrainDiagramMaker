@@ -47,6 +47,7 @@ function createPassingModel(trains, headway, rounding = null){
 		stopsecs: { 1: stopsecs, 2: stopsecs.slice().reverse() },
 		headway: headway,
 		tune: false,
+		crossGap: false, // opposite trains meeting at a station keep minTimeSeparation too (PassingTimeSTN.js)
 		gap: minTimeSeparation,
 		grid: timeGranularity,
 		rounding: rounding,
@@ -418,8 +419,32 @@ function exitGap(m, bound, k){
 	return k < m.count - 1 && !(m.tracks[sectionElement(m, bound, k)].bits & bound);
 }
 
+// whether a train stops at its station order k (a temporary stop too)
+function stopsAt(t, k){
+	return t.fixed[k] == 1 ? (k == t.first || k == t.last || t.arr[k] != t.dep[k]) : !!t.temp[k];
+}
+
+// whether station e is next to single track, where opposite trains meet in the station
+function nextToSingle(m, e){
+	return m.tracks[e - 1]?.lines == 1 || m.tracks[e + 1]?.lines == 1;
+}
+
+// minTimeSeparation, or the stop time of the station if both opposite trains stop there
+function crossingGap(m, e, a, b){
+	const k = elementOrder(m, a.bound, e);
+	return (stopsAt(a, k) && stopsAt(b, elementOrder(m, b.bound, e))) ? Math.min(m.gap, m.stopsecs[a.bound][k]) : m.gap;
+}
+
+// whether opposite trains in station e together leave less than the gap after the other arrives
+function tooCloseCross(m, e, a, b){
+	if(!m.crossGap || !nextToSingle(m, e) || !meets(m, a, b, e)) return false;
+	const gap = crossingGap(m, e, a, b);
+	return exitTime(m, a, e) - entryTime(m, b, e) < gap || exitTime(m, b, e) - entryTime(m, a, e) < gap;
+}
+
 // whether two trains of the same bound arrive at or leave station e less than minTimeSeparation apart
 function tooClose(m, e, a, b){
+	if(a.bound != b.bound) return tooCloseCross(m, e, a, b);
 	const k = elementOrder(m, a.bound, e);
 	return (k != a.first && k != b.first && Math.abs(a.arr[k] - b.arr[k]) < m.gap && entryGap(m, a.bound, k))
 		|| (k != a.last && k != b.last && Math.abs(a.dep[k] - b.dep[k]) < m.gap && exitGap(m, a.bound, k));
@@ -451,7 +476,10 @@ function overtakeConflict(m, e, a, b){
 
 // how bad a and b are together in element e: 0, HEADWAY (only when tuning) or CONFLICT
 function pairConflict(m, e, a, b){
-	if(a.bound != b.bound) return (m.tracks[e].lines == 1 && meets(m, a, b, e)) ? CONFLICT : 0;
+	if(a.bound != b.bound){
+		if(m.tracks[e].lines == 1 && meets(m, a, b, e)) return CONFLICT;
+		return (m.tune && e % 2 == 0 && tooCloseCross(m, e, a, b)) ? HEADWAY : 0;
+	}
 	if(m.tracks[e].lines < 4 && overtakes(m, a, b, e)
 		&& ((entryTime(m, a, e) < entryTime(m, b, e)) ? overtakeConflict(m, e, a, b) : overtakeConflict(m, e, b, a))) return CONFLICT;
 	return (m.tune && e % 2 == 0 && tooClose(m, e, a, b)) ? HEADWAY : 0;
@@ -565,6 +593,11 @@ function detectConflicts(m){
 	m.tracks.forEach((track, e) => {
 		if(track.lines == 1) crossings(m, e, (a, b) => add("cross", e, a, b, Math.max(entryTime(m, a, e), entryTime(m, b, e))));
 	});
+	if(m.headway && m.crossGap){
+		m.tracks.forEach((track, e) => {
+			if(e % 2 == 0 && nextToSingle(m, e)) crossings(m, e, (a, b) => tooCloseCross(m, e, a, b) && close.push([e, a, b]));
+		});
+	}
 	close.forEach(([e, a, b]) => add("headway", e, a, b, Math.min(entryTime(m, a, e), entryTime(m, b, e))));
 	// a passing time for a headway splits the line of its train, so it goes after the conflicts that may need that line
 	return conflicts.sort((x, y) => (x.type == "headway") - (y.type == "headway") || y.time - x.time);
