@@ -9,32 +9,19 @@
 
 表格由上到下依照路線的順序排列。左側是線路拓樸圖，主線是最左邊的藍色線，分岐是右側的橘色線；右側每一列是一個車站。
 
-| 圖示 | 意義 |
-|---|---|
-| <img src="../icon/path/station.svg" style="height:2.5em"> | 主線的車站 |
-| <img src="../icon/path/signal.svg" style="height:2.5em"> | 主線的次要車站 |
-| <img src="../icon/path/station_with_branch.svg" style="height:2.5em"> | 有分岐的車站，右側橘色線往上連到分岐 |
-| <img src="../icon/path/add_branch.svg" style="height:2.5em"> | 點擊：新增從這一站分岐的路線 |
-| <img src="../icon/path/branch.start.svg" style="height:2.5em"> | 分岐最遠的車站 |
-| <img src="../icon/path/branch.station.svg" style="height:2.5em"> | 分岐上的其他車站 |
-| <img src="../icon/path/branch.add_station.svg" style="height:2.5em"> | 點擊：在分岐的末端新增車站 |
-
-分岐畫在分岐站的上方；終點站的分岐則畫在下方。
-
 ## 次要車站
 
 主線的每一站右側都有「**次要車站**」勾選框，勾選後圖示換成菱形。起點站與終點站不能設為次要車站（圖表外框會蓋過這兩條車站線）。
 
 輸出圖片時，次要車站改用「次要車站線」與「次要站名」、「次要站名別名」的設定繪製（預設為灰色、較細、較小），可以在「基本設定 > 細部設計」調整，詳情請見[此頁](manual-ops-setting.html#線條)。
 
+其餘設定與一般車站一致。
+
 ## 分岐
 
 1. 點主線車站右邊的<img src="../icon/path/add_branch.svg" style="height:1.8em;vertical-align:middle">，新增一條從這一站分岐的路線。新的分岐會先有一個車站。
-2. 在右側輸入分岐車站的**站名**，以及「XX站起 [ ] 公里」：這個車站與分岐站（XX）之間的距離。
-3. 要再加車站，點分岐最上方（終點站的分岐則是最下方）的<img src="../icon/path/branch.add_station.svg" style="height:1.8em;vertical-align:middle">。
-
-* 分岐上的車站會**依距離自動排序**，近的在下面（靠近分岐站）、遠的在上面。距離留白的車站排在最遠的一端。
-* 距離只能填大於 0 的數字，填錯時該格會變成紅底，且不會被採用。
+2. 在右側輸入分岐車站的**站名**，以及這個車站與分岐站之間的距離。
+3. 要再加車站，點分岐線路末端的<img src="../icon/path/branch.add_station.svg" style="height:1.8em;vertical-align:middle">。
 * 按右側的 × 刪除分岐上的車站；刪掉分岐的最後一個車站時，整條分岐會一起刪除。
 * 一個車站最多可以有 **3 條分岐**。
 * 不能在分岐上再分岐：運行圖只畫主線，分岐上的分岐，可以直接當作另一條從同一站分岐的路線（距離相加）。
@@ -52,8 +39,6 @@
 
 1. 在線路拓樸中，於八堵新增分岐，加入瑞芳（與八堵的距離）。
 2. 在時刻表的「車次細項」中，把這班車的「始發」設為瑞芳，填入瑞芳的發車時刻，詳情請見[此頁](manual-ops-timetable.html#始發與終點)。
-
-網站會以距離內插，算出列車通過八堵的時刻，從八堵開始畫線。始發不一定要填真正的始發站（花蓮），填離分岐站較近的車站（瑞芳）誤差反而更小。
 
 內插出的時刻只是參考值。[還原通過時間](manual-ops-passing-time.html#跨線列車)時，這個時刻可以在誤差範圍內移動。
 
