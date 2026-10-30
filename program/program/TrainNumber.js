@@ -11,7 +11,8 @@ const TRAIN_NUMBER_GAP = 3; // px between the train line and the text
 const MIN_PX_TO_AVOID_SECONDARY_LINES = 250; // hard limit, so that a free position can still exist
 
 function canAvoidSecondaryLines(){
-	return SETTINGS.lines.secondary.interval*SETTINGS.pxPerMin >= MIN_PX_TO_AVOID_SECONDARY_LINES;
+	const interval = SETTINGS.oudiaStyle.enabled ? OUDIA_TIME_SCALES[SETTINGS.oudiaStyle.timeScale][1] : SETTINGS.lines.secondary.interval;
+	return interval*SETTINGS.pxPerMin >= MIN_PX_TO_AVOID_SECONDARY_LINES;
 }
 
 function shouldAvoidTimeLine(primary){

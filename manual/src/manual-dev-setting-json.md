@@ -97,11 +97,11 @@
 | `trainNumberAvoidance.primaryTimeLines` | false | 是否避開整點線 |
 | `trainNumberAvoidance.secondaryTimeLines` | false | 是否避開次要時間線；僅在 `lines.secondary.interval × pxPerMin ≥ 250` 時有效 |
 | `trainNumberAvoidance.margin` | 5 | 列車號與要避開的線、文字之間的最小距離，限 0 ~ 20 |
-| `oudiaStyle.enabled` | false | OuDia 樣式：時間線、車站線改用以下設定，列車號從起點開始標 |
+| `oudiaStyle.enabled` | false | OuDia 樣式：時間線、車站線、圖框改用以下設定；站名在車站線上方、時間只標小時並放在圖框上方，停車不到 1 分的中途站只畫發車，列車號從起點開始標 |
 | `oudiaStyle.timeScale` | 1 | 時間目盛，0 ~ 7 = 點線每 1、2、5、10、15、20、30、60 分 (細線、粗線見基本設定的選單) |
-| `oudiaStyle.axisColor` | `"#C0C0C0"` | 時間線、車站線的顏色 |
-| `oudiaStyle.lineWidth` | 1 | 時間線、車站線的線寬；粗線 (粗時間線、非次要車站) 為兩倍 |
-| `oudiaStyle.stopMarks` | true | 停車駅明示：停車不到 1 分 (或到站時刻空白) 的中途停車站畫小圓圈 |
+| `oudiaStyle.axisColor` | `"#C0C0C0"` | 時間線、車站線、圖框的顏色 |
+| `oudiaStyle.lineWidth` | 1 | 時間線、車站線、圖框的線寬；粗時間線與圖框為兩倍 |
+| `oudiaStyle.stopMarks` | true | 停車駅明示：停車不到 1 分 (或到站時刻空白) 的中途停車站畫列車線顏色的圓點 |
 | `oudiaStyle.showTrainName` | false | 列車號後加上列車名 |
 | `connectTrainLines` | true | 同一班列車畫成單一一條 `<polyline>` (跨日的列車每一天各一條)；`false` = 每一段各一條 `<line>`，包在一個 `<g>` 裡 |
 | `layers.enabled` | false | 分圖層：背景、時間線、車站線、列車線、列車號文字、圖框、文字-車站、文字-時間 (由下到上) |

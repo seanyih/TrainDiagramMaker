@@ -105,14 +105,17 @@ $("body").on("change", "[data-setting]", function(){
 
 function updateSettingsUI(){
 	const tl = SETTINGS.timeLabel;
+	const oudia = SETTINGS.oudiaStyle.enabled;
+	// OuDia's hours use the standard format's text
 	$(".time-format-fields").each(function(){
-		$(this).toggle($(this).data("format") == tl.format);
+		$(this).toggle($(this).data("format") == (oudia ? "standard" : tl.format));
 	});
+	$("#container-setting").toggleClass("oudia-mode", oudia);
 	$("#secondary-label-select").prop("disabled", SETTINGS.lines.secondary.interval < 10);
 	$('[data-setting="background.color"]').prop("disabled", SETTINGS.background.transparent);
 	$("#train-number-fields").toggle(SETTINGS.showTrainNumber);
 	$("#layer-fields").toggle(SETTINGS.layers.enabled);
-	$("#oudia-fields").toggle(SETTINGS.oudiaStyle.enabled);
+	$("#oudia-fields").toggle(oudia);
 
 	const avoid = SETTINGS.trainNumberAvoidance;
 	$("#avoid-fields").toggle(avoid.enabled);
@@ -169,14 +172,21 @@ function checkTextFit(){
 	}));
 	const reasons = [];
 
-	if(widest("name") > margin.left){
-		reasons.push("站名超出左側邊界");
-	}
-	if(aliasText.show && widest("alias") > margin.right){
-		reasons.push("別名超出右側邊界");
-	}
-	if(timeLabelHeight() + timeLabel.gap > margin.bottom){
-		reasons.push("時間文字超出下方邊界");
+	if(SETTINGS.oudiaStyle.enabled){
+		// the names are inside the frame, the hours above it
+		const ext = oudiaFrameExtent();
+		if(ext.left > margin.left) reasons.push("站名超出左側邊界");
+		if(ext.top + timeLabel.gap + timeLabel.formats.standard.fontSize > margin.top) reasons.push("時間文字超出上方邊界");
+	}else{
+		if(widest("name") > margin.left){
+			reasons.push("站名超出左側邊界");
+		}
+		if(aliasText.show && widest("alias") > margin.right){
+			reasons.push("別名超出右側邊界");
+		}
+		if(timeLabelHeight() + timeLabel.gap > margin.bottom){
+			reasons.push("時間文字超出下方邊界");
+		}
 	}
 
 	if(reasons.length > 0){

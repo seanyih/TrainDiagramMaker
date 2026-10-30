@@ -23,6 +23,10 @@ function textExtent(){
 	const { start, end } = stationRange();
 	const stations = ROUTE.stations.slice(start, end + 1);
 	const h = plotHeight();
+	if(SETTINGS.oudiaStyle.enabled){
+		const ext = oudiaFrameExtent();
+		return { left: ext.left, right: 0, top: ext.top + SETTINGS.timeLabel.gap + SETTINGS.timeLabel.formats.standard.fontSize, bottom: 0 };
+	}
 	// field: "name" | "alias"
 	const widest = field => Math.max(...stations.map((station, j) => {
 		const i = start + j;

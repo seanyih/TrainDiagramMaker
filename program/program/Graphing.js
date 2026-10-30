@@ -144,6 +144,7 @@ function drawDiagram(trains = TRAINS, o = $("#output")){
 
 	//time lines
 	const oudia = SETTINGS.oudiaStyle.enabled;
+	const frame = oudia ? oudiaFrame(w, h) : null;
 	const timeLayer = layer("timeLines");
 	const labelY = h + margin.top + SETTINGS.timeLabel.gap + timeLabelHeight();
 	const timeLabels = [];
@@ -159,11 +160,14 @@ function drawDiagram(trains = TRAINS, o = $("#output")){
 			if(shouldAvoidTimeLine(primary)) addSegment(grid, {x1:x, y1:margin.top, x2:x, y2:h+margin.top, owner:"timeline"});
 		}
 
-		const label = makeTimeLabel(t, primary, x, labelY);
+		const label = oudia ? null : makeTimeLabel(t, primary, x, labelY);
 		if(label) timeLabels.push(label);
 	}
 
-	if(oudia) drawOudiaTimeLines(timeLayer, grid, w, h);
+	if(oudia){
+		drawOudiaTimeLines(timeLayer, grid, frame.y1, h);
+		timeLabels.push(...oudiaTimeLabels(frame.y1));
+	}
 
 	//minute lines: dots at the minutes without a time line
 	if(lines.minute.enabled && !oudia){
@@ -181,8 +185,8 @@ function drawDiagram(trains = TRAINS, o = $("#output")){
 		if(i < range.start || i > range.end) return;
 		const y = kiloToY(station.kilo);
 		const secondary = ROUTE.topology.secondary[i];
-		const style = oudia ? oudiaStationLine(secondary) : secondary ? lines.secondaryStation : lines.station;
-		const el = makeStyledLine(margin.left, w+margin.left, y, y, style);
+		const style = oudia ? oudiaLine(false) : secondary ? lines.secondaryStation : lines.station;
+		const el = makeStyledLine(oudia ? frame.x1 : margin.left, w+margin.left, y, y, style);
 		setAttrs(el, {id:`stationline-${i}`, class:`stationline${secondary ? " secondary" : ""}`, "data-station":station.name, "data-kilo":station.kilo});
 		stationLayer.append(el);
 	});
@@ -225,7 +229,8 @@ function drawDiagram(trains = TRAINS, o = $("#output")){
 	const x2 = margin.left + w;
 	const y1 = margin.top;
 	const y2 = margin.top + h;
-	[
+	if(oudia) drawOudiaFrame(outlineLayer, frame);
+	else [
 		[top, x1 - left/2, x2 + right/2, y1, y1],
 		[bottom, x1 - left/2, x2 + right/2, y2, y2],
 		[left, x1, x1, y1 - top/2, y2 + bottom/2],
@@ -234,14 +239,14 @@ function drawDiagram(trains = TRAINS, o = $("#output")){
 		if(width > 0) outlineLayer.append(makeSVG("line", {x1:xa, x2:xb, y1:ya, y2:yb, stroke:color, 'stroke-width':width}));
 	});
 
-	//station name (left) and alias (right)
+	//station name (left) and alias (right); OuDia: the name above its line, no alias
 	const stationTextLayer = layer("stationText");
 	stations.forEach((station, i) => {
 		if(i < range.start || i > range.end) return;
 		const y = kiloToY(station.kilo);
 		const { name, alias } = stationTextStyles(i);
-		stationTextLayer.append(makeSVGtext("text", station.name, {x:margin.left - name.gap, y:y + name.fontSize*0.4, "font-family":"Noto Sans TC", "font-size":name.fontSize, "fill":name.color, "text-anchor":"end"}));
-		if(aliasText.show){
+		stationTextLayer.append(makeSVGtext("text", station.name, {x:margin.left - name.gap, y:y + name.fontSize*(oudia ? -0.2 : 0.4), "font-family":"Noto Sans TC", "font-size":name.fontSize, "fill":name.color, "text-anchor":"end"}));
+		if(aliasText.show && !oudia){
 			stationTextLayer.append(makeSVGtext("text", station.alias, {x:margin.left + w + alias.gap, y:y + alias.fontSize*0.4, "font-family":"Noto Sans TC", "font-size":alias.fontSize, "fill":alias.color, "text-anchor":"start"}));
 		}
 	});
@@ -343,7 +348,8 @@ function drawTrain(o, train, bound, w, grid, id){
 	const { enabled: oudia, stopMarks } = SETTINGS.oudiaStyle;
 	stops.forEach((stop, j) => {
 		const prev = points[points.length - 1];
-		let x1 = timeToX(arrivalTime(stop, stations)) + dayX;
+		const brief = oudia && j > 0 && j < stops.length - 1 && isBriefStop(stop);
+		let x1 = timeToX(brief ? stop.departure : arrivalTime(stop, stations)) + dayX;
 		if(prev && prev.x > x1){
 			dayX += dayW;
 			x1 += dayW;
@@ -379,7 +385,7 @@ function drawTrain(o, train, bound, w, grid, id){
 		//horizontal lines
 		to(x2, y);
 		prevOrder = stop.station_order;
-		if(oudia && stopMarks && j > 0 && j < stops.length - 1 && isBriefStop(stop)) marks.push({x: x2, y: y});
+		if(brief && stopMarks) marks.push({x: x2, y: y});
 	});
 
 	const copyId = dx => (dx < 0) ? `${id}-prev-day` : (dx > 0) ? `${id}-next-day` : id;
@@ -400,7 +406,7 @@ function drawTrain(o, train, bound, w, grid, id){
 			o.append(g);
 		}
 		marks.forEach(m => {
-			if(visible(m.x + dx, m.x + dx)) o.append(setAttrs(makeStopMark(m.x + dx, m.y), {"data-train": id}));
+			if(visible(m.x + dx, m.x + dx)) o.append(setAttrs(makeStopMark(m.x + dx, m.y, c, lineWidth), {"data-train": id}));
 		});
 	});
 

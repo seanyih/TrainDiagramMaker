@@ -1,6 +1,7 @@
 /*
-	OuDia (.oud, Shift_JIS) / OuDiaSecond (.oud2, UTF-8) import: the route, the trains of one dia, and the diagram colors.
-	The format and the conversion are in design_doc/OUDIA.md.
+	OuDia (.oud, Shift_JIS) / OuDiaSecond (.oud2, UTF-8) import: the route, the trains of one dia, and the diagram colors;
+	export: the route and the trains as one dia (oudText()).
+	The format and the conversion are in DATA_STRUCTURE.md and design_doc/OUDIA.md.
 */
 
 let OUD_FILE = null; // the parsed file chosen in #OudFile
@@ -269,4 +270,140 @@ $("body").on("click", "#ImportOudBtn", function(){
 	if(data.split > 0) reasons.push(`${data.split} 處中途不經由，列車在該處拆成兩班`);
 	$("#ImportOudReason").html(reasons.join("；"));
 	$("#ImportOudWarning").toast('show');
+});
+
+const OUD_SEN_STYLES = { solid: "SenStyle_Jissen", dashed: "SenStyle_Hasen", dotted: "SenStyle_Tensen" };
+
+// "#RRGGBB" -> "00BBGGRR"
+function toOudColor(hex){
+	return `00${hex.slice(5, 7)}${hex.slice(3, 5)}${hex.slice(1, 3)}`.toUpperCase();
+}
+
+// "hhmm[ss]" -> OuDia's "hmm[ss]"
+function toOudTime(str){
+	return `${Number(str.slice(0, 2)) % 24}${str.slice(2)}`;
+}
+
+// one EkiJikoku cell of a stop: a pass with its time, or a stop (arrival only at the last one)
+function oudStopCell(stop, first, last){
+	const t = toOudTime;
+	if(!first && !last && stop.arrival == stop.departure) return `2;${t(stop.departure)}`;
+	if(last) return `1;${t(stop.arrival || stop.departure)}/`;
+	return (stop.arrival && stop.arrival != stop.departure) ? `1;${t(stop.arrival)}/${t(stop.departure)}` : `1;${t(stop.departure)}`;
+}
+
+// cells in the train's direction: "" outside its run, "2" (pass, no time) between its stops
+function oudEkiJikoku(train, count){
+	const cells = Array(count).fill("");
+	const stops = train.timetable.filter(stop => stop.arrival || stop.departure);
+	if(stops.length == 0) return "";
+	for(let k = stops[0].station_order + 1; k < stops[stops.length - 1].station_order; k++) cells[k] = "2";
+	stops.forEach((stop, j) => cells[stop.station_order] = oudStopCell(stop, j == 0, j == stops.length - 1));
+	return cells.join(",");
+}
+
+/*
+	The route and both directions as an .oud (OuDia.1.02) or .oud2 (OuDiaSecond.1.17) text.
+	Each train color is a Syubetsu, named after its trains if they all have the same name;
+	.oud2 keeps the kilos as NextEkiDistance (1 km = 60 s, how convertOud() reads it back)
+*/
+function oudText(second){
+	const stations = ROUTE.stations;
+	const count = stations.length;
+	const trains = [1, 2].flatMap(bound => TRAINS[bound].map(train => ({ bound, train })));
+
+	const dwell = stations.map(() => false);
+	trains.forEach(({ bound, train }) => train.timetable.forEach(stop => {
+		if(stop.arrival && stop.arrival != stop.departure) dwell[(bound == 1) ? stop.station_order : count - 1 - stop.station_order] = true;
+	}));
+
+	const slots = [...new Set(trains.map(({ train }) => train.settings.train_color))].sort((a, b) => a - b);
+	if(slots.length == 0) slots.push(0);
+	const typeName = {};
+	const lines = [`FileType=${second ? "OuDiaSecond.1.17" : "OuDia.1.02"}`, "Rosen.", `Rosenmei=${ROUTE.route_name}`];
+	stations.forEach((station, i) => {
+		lines.push("Eki.", `Ekimei=${station.name}`,
+			`Ekijikokukeisiki=${dwell[i] ? "Jikokukeisiki_Hatsuchaku" : "Jikokukeisiki_Hatsu"}`,
+			`Ekikibo=${ROUTE.topology.secondary[i] ? "Ekikibo_Ippan" : "Ekikibo_Syuyou"}`);
+		if(second && i < count - 1) lines.push(`NextEkiDistance=${Math.max(Math.round((stations[i + 1].kilo - station.kilo)*60), 1)}`);
+		lines.push(".");
+	});
+	slots.forEach(slot => {
+		const names = [...new Set(trains.filter(({ train }) => train.settings.train_color == slot).map(({ train }) => train.settings.train_name))];
+		typeName[slot] = (names.length == 1 && names[0]) ? names[0] : null;
+		const color = toOudColor(SETTINGS.trainColors[slot]);
+		const width = SETTINGS.trainLineWidthByColor[slot] ?? SETTINGS.trainLineWidth;
+		lines.push("Ressyasyubetsu.", `Syubetsumei=${typeName[slot] ?? (slot ? `顏色${slot}` : "未指定")}`,
+			`JikokuhyouMojiColor=${color}`, `DiagramSenColor=${color}`,
+			`DiagramSenStyle=${OUD_SEN_STYLES[SETTINGS.trainLineTypeByColor[slot] || SETTINGS.trainLineType]}`,
+			...(width >= SETTINGS.trainLineWidth*2 ? ["DiagramSenIsBold=1"] : []),
+			"StopMarkDrawType=EStopMarkDrawType_DrawOnStop", ".");
+	});
+
+	lines.push("Dia.", "DiaName=ダイヤ");
+	[["Kudari", 1], ["Nobori", 2]].forEach(([houkou, bound]) => {
+		lines.push(`${houkou}.`);
+		TRAINS[bound].forEach(train => {
+			const { train_name, train_color } = train.settings;
+			// "name 3号" -> Ressyamei, Gousuu
+			const [, name, gousuu] = train_name.match(/^(.*?)\s*(\d+)号$/) ?? [null, train_name, ""];
+			lines.push("Ressya.", `Houkou=${houkou}`, `Syubetsu=${slots.indexOf(train_color)}`, `Ressyabangou=${train.train_number}`,
+				...(typeName[train_color] == null && name ? [`Ressyamei=${name}`] : []),
+				...(typeName[train_color] == null && gousuu ? [`Gousuu=${gousuu}`] : []),
+				`EkiJikoku=${oudEkiJikoku(train, count)}`, ".");
+		});
+		lines.push(".");
+	});
+	lines.push(".", `KitenJikoku=${toOudTime(secToHhmm(SETTINGS.startSec % 86400))}`, "DiagramDgrYZahyouKyoriDefault=60", "Comment=", ".",
+		"DispProp.", `DiaBackColor=${toOudColor(SETTINGS.background.color)}`, `DiaJikuColor=${toOudColor(SETTINGS.oudiaStyle.axisColor)}`, ".");
+	return lines.join("\r\n") + "\r\n";
+}
+
+// Shift_JIS (Windows-31J) bytes of each character, taken from the decoder
+let SJIS_TABLE = null;
+
+// { bytes, missing }: characters Shift_JIS lacks become "?"
+function encodeShiftJIS(text){
+	if(!SJIS_TABLE){
+		SJIS_TABLE = new Map();
+		const decoder = new TextDecoder("shift_jis");
+		for(let b = 0xA1; b <= 0xDF; b++) SJIS_TABLE.set(decoder.decode(new Uint8Array([b])), [b]);
+		for(let lead = 0x81; lead <= 0xFC; lead++){
+			if(lead > 0x9F && lead < 0xE0) continue;
+			for(let trail = 0x40; trail <= 0xFC; trail++){
+				const ch = decoder.decode(new Uint8Array([lead, trail]));
+				if(trail != 0x7F && ch.length == 1 && ch != "�" && !SJIS_TABLE.has(ch)) SJIS_TABLE.set(ch, [lead, trail]);
+			}
+		}
+	}
+	let missing = 0;
+	const bytes = [];
+	for(const ch of text){
+		const code = ch.codePointAt(0);
+		if(code < 0x80){
+			bytes.push(code);
+		}else if(SJIS_TABLE.has(ch)){
+			bytes.push(...SJIS_TABLE.get(ch));
+		}else{
+			bytes.push(0x3F);
+			missing++;
+		}
+	}
+	return { bytes: new Uint8Array(bytes), missing };
+}
+
+$("body").on("click", ".export-oud-btn", function(){
+	const second = $(this).data("format") == "oud2";
+	const fileName = $("#ExportOudFilename").val() || ROUTE.route_name || "TrainDiagram";
+	const text = oudText(second);
+	if(second){
+		downloadFile(`${fileName}.oud2`, `﻿${text}`);
+		return;
+	}
+	const { bytes, missing } = encodeShiftJIS(text);
+	downloadFile(`${fileName}.oud`, bytes);
+	if(missing > 0){
+		$("#ExportOudMissing").text(missing);
+		$("#ExportOudWarning").toast('show');
+	}
 });

@@ -77,11 +77,13 @@ function pdfSvgOps(parent, clips){
 			return ["q", ...strokeStyle, "4 M", `${points.map((p, i) => `${p} ${i == 0 ? "m" : "l"}`).join(" ")} S`, "Q"];
 		}
 		if(el.tagName == "circle"){
-			// four cubic arcs, stroked only (stop marks, OudiaStyle.js)
+			// four cubic arcs (stop marks, OudiaStyle.js)
 			const [cx, cy, r] = ["cx", "cy", "r"].map(name => num(el, name));
 			const k = 0.5523*r;
 			const p = (...v) => v.map(pdfNum).join(" ");
-			return ["q", ...strokeStyle, `${p(cx + r, cy)} m ${p(cx + r, cy + k, cx + k, cy + r, cx, cy + r)} c ${p(cx - k, cy + r, cx - r, cy + k, cx - r, cy)} c ${p(cx - r, cy - k, cx - k, cy - r, cx, cy - r)} c ${p(cx + k, cy - r, cx + r, cy - k, cx + r, cy)} c S`, "Q"];
+			const hasFill = fill && fill != "none";
+			const paint = hasFill ? (strokeStyle.length > 0 ? "B" : "f") : "S";
+			return ["q", ...(hasFill ? [pdfColor(fill, "rg")] : []), ...strokeStyle, `${p(cx + r, cy)} m ${p(cx + r, cy + k, cx + k, cy + r, cx, cy + r)} c ${p(cx - k, cy + r, cx - r, cy + k, cx - r, cy)} c ${p(cx - r, cy - k, cx - k, cy - r, cx, cy - r)} c ${p(cx + k, cy - r, cx + r, cy - k, cx + r, cy)} c ${paint}`, "Q"];
 		}
 		if(el.tagName == "text"){
 			return textToPaths(el).flatMap(({ path, fill }) => ["q", pdfColor(fill, "rg"), ...pdfGlyphOps(path), "Q"]);

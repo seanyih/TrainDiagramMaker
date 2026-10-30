@@ -69,6 +69,7 @@
 <p>「匯入/匯出」分頁可以把準備好的檔案一次填進網站，也可以把目前的進度存成檔案，下次再匯入繼續使用。</p>
 <p>每一行的<strong>左邊是匯出</strong>：填入檔名（選填，不填會使用預設檔名），再按下匯出按鈕，檔案就會下載到您的電腦。</p>
 <p>每一行的<strong>右邊是匯入</strong>：先按「選擇檔案」選取檔案，再按下<strong>匯入</strong>。成功或失敗時，右下角都會出現提示。</p>
+<p>頁面上方是常用的路線、時刻表與全部資料。設定、疊圖、OuDia 檔案在下方的「<strong>更多</strong>」，點一下展開。</p>
 <h2 id="可以匯入匯出哪些資料">可以匯入、匯出哪些資料</h2>
 <table>
 <thead>
@@ -124,7 +125,7 @@
 </tr>
 <tr>
 <td>OuDia 檔案</td>
-<td>—</td>
+<td>.oud、.oud2</td>
 <td>.oud、.oud2</td>
 <td>路線、一份ダイヤ的順逆行時刻表、種別的線條樣式</td>
 </tr>
@@ -204,6 +205,17 @@
 <div class="admonition note">
 <p>列車在中途「運行なし」或「經由なし」（例如經由分岐線）時，網站的列車線必須連續，所以這班車會在該處拆成兩班（車次相同）。番線、駅作業、運用等 OuDiaSecond 的資料不會匯入。</p>
 </div>
+<h2 id="匯出-oudia-檔案">匯出 OuDia 檔案</h2>
+<p>把目前的路線與順逆行時刻表存成 OuDia 可以開啟的檔案。填入檔名後按<strong>匯出 .oud</strong>（OuDia）或<strong>匯出 .oud2</strong>（OuDiaSecond）。</p>
+<ul>
+<li><strong>車站</strong>：<a href="manual-ops-topology.html#次要車站">次要車站</a>為「一般駅」，其他為「主要駅」。有停車時間的站，時刻表顯示著發兩行。</li>
+<li><strong>里程</strong>：<code>.oud2</code> 會記下每個站間的距離（OuDiaSecond 的「駅間距離」，1 公里 = 1 分），在 OuDiaSecond 中的站距與本網站相同，再匯入本網站時里程也不變。<code>.oud</code> 沒有這個欄位，OuDia 會依運轉時間重新排列站距。</li>
+<li><strong>種別</strong>：每個列車顏色成為一個種別，線條顏色、線型、粗細照「線條」中依顏色的設定。同一顏色的列車列車名都相同時，用它當種別名；否則種別名為「顏色1」等，列車名照填（「はやて 3号」會拆成列車名與號數）。</li>
+<li><strong>列車</strong>：通過時刻寫成「通過」並附時刻；沒有時刻的中間車站為「通過」。</li>
+</ul>
+<div class="admonition note">
+<p><code>.oud</code> 使用 Shift_JIS 編碼，無法表示部分繁體中文字。這些字會變成「?」，並跳出黃色提醒，此時請改用 <code>.oud2</code>。單一列車的線條樣式、釘選、軌道配置、線路拓樸不會匯出。</p>
+</div>
 <h2 id="疊圖">疊圖</h2>
 <p>兩條路線共用一段軌道時（例如內灣線的新竹–北新竹段與縱貫線共用），可以把一條路線上這一段的列車「疊」到另一條路線上，不必重新畫。</p>
 <ol>
@@ -227,7 +239,7 @@
 
 		<aside class="manual-toc">
 			<p class="manual-toc-title">本頁內容</p>
-			<ul><li><a href="#可以匯入匯出哪些資料">可以匯入、匯出哪些資料</a><ul><li><a href="#csv-和-json-有什麼不同">CSV 和 JSON 有什麼不同？</a></li></ul></li><li><a href="#匯入路線資料">匯入路線資料</a></li><li><a href="#匯入時刻表">匯入時刻表</a></li><li><a href="#匯入匯出設定">匯入/匯出設定</a></li><li><a href="#匯入匯出全部資料">匯入/匯出全部資料</a></li><li><a href="#匯入-oudia-檔案">匯入 OuDia 檔案</a></li><li><a href="#疊圖">疊圖</a></li></ul>
+			<ul><li><a href="#可以匯入匯出哪些資料">可以匯入、匯出哪些資料</a><ul><li><a href="#csv-和-json-有什麼不同">CSV 和 JSON 有什麼不同？</a></li></ul></li><li><a href="#匯入路線資料">匯入路線資料</a></li><li><a href="#匯入時刻表">匯入時刻表</a></li><li><a href="#匯入匯出設定">匯入/匯出設定</a></li><li><a href="#匯入匯出全部資料">匯入/匯出全部資料</a></li><li><a href="#匯入-oudia-檔案">匯入 OuDia 檔案</a></li><li><a href="#匯出-oudia-檔案">匯出 OuDia 檔案</a></li><li><a href="#疊圖">疊圖</a></li></ul>
 		</aside>
 	</div>
 
