@@ -111,6 +111,7 @@ function updateSettingsUI(){
 	$("#secondary-label-select").prop("disabled", SETTINGS.lines.secondary.interval < 10);
 	$('[data-setting="background.color"]').prop("disabled", SETTINGS.background.transparent);
 	$("#train-number-fields").toggle(SETTINGS.showTrainNumber);
+	$("#layer-fields").toggle(SETTINGS.layers.enabled);
 
 	const avoid = SETTINGS.trainNumberAvoidance;
 	$("#avoid-fields").toggle(avoid.enabled);

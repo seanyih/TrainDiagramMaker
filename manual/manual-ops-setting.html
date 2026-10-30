@@ -148,6 +148,16 @@
 <li><strong>與線、文字的最小間距</strong>：車次文字和其他東西之間至少要留多少空間，可填 0 ~ 20。</li>
 </ul>
 <p>找不到地方放的車次會被省略。</p>
+<h3 id="svg-結構">SVG 結構</h3>
+<p>只影響下載的 SVG 與印刷用檔案的內部結構，畫出來的樣子不變。方便用 Illustrator、Inkscape 編輯。</p>
+<ul>
+<li><strong>連接列車線</strong>（預設勾選）：同一班列車畫成單一一條線，而不是每一段各一條。虛線、點線在停站處也會連續。跨過午夜的列車，每一天各一條。</li>
+<li><strong>分圖層</strong>：把圖分成以下圖層（由下到上）：背景、時間線、車站線、列車線、列車號文字、圖框、文字-車站、文字-時間。<ul>
+<li><strong>列車線再分為方向 / 顏色</strong>：列車線圖層再分成「順行」、「逆行」，或依顏色分成「顏色1」…（沒有選顏色的列車為「未指定顏色」）。兩者都勾選時，方向之下再分顏色。</li>
+</ul>
+</li>
+</ul>
+<p>時間線、車站線、列車線都有 id（例如 <code>timeline-0830</code>、<code>stationline-3</code>、<code>train-1-12</code>），方便之後用程式抓取位置，詳見<a href="manual-dev-setting-json.html#svg-的-id">設定 JSON</a>。</p>
 <h3 id="車站文字">車站文字</h3>
 <ul>
 <li><strong>站名</strong>：顯示在圖的左側，可以設定字型大小、顏色，以及和圖表的距離。</li>
@@ -183,7 +193,7 @@
 
 		<aside class="manual-toc">
 			<p class="manual-toc-title">本頁內容</p>
-			<ul><li><a href="#列車顏色集設定">列車顏色集設定</a></li><li><a href="#自動估計設定">自動估計設定</a></li><li><a href="#繪圖設定">繪圖設定</a><ul><li><a href="#預設停站時間">預設停站時間</a></li><li><a href="#圖上每公里-每分鐘的長度">圖上每公里 / 每分鐘的長度</a></li><li><a href="#圖上顯示的時間範圍">圖上顯示的時間範圍</a></li><li><a href="#圖片邊界">圖片邊界</a></li><li><a href="#背景">背景</a></li><li><a href="#線條">線條</a></li><li><a href="#列車號">列車號</a></li><li><a href="#列車號避讓">列車號避讓</a></li><li><a href="#車站文字">車站文字</a></li><li><a href="#時間文字">時間文字</a></li></ul></li><li><a href="#待避時間計算">待避時間計算</a></li></ul>
+			<ul><li><a href="#列車顏色集設定">列車顏色集設定</a></li><li><a href="#自動估計設定">自動估計設定</a></li><li><a href="#繪圖設定">繪圖設定</a><ul><li><a href="#預設停站時間">預設停站時間</a></li><li><a href="#圖上每公里-每分鐘的長度">圖上每公里 / 每分鐘的長度</a></li><li><a href="#圖上顯示的時間範圍">圖上顯示的時間範圍</a></li><li><a href="#圖片邊界">圖片邊界</a></li><li><a href="#背景">背景</a></li><li><a href="#線條">線條</a></li><li><a href="#列車號">列車號</a></li><li><a href="#列車號避讓">列車號避讓</a></li><li><a href="#svg-結構">SVG 結構</a></li><li><a href="#車站文字">車站文字</a></li><li><a href="#時間文字">時間文字</a></li></ul></li><li><a href="#待避時間計算">待避時間計算</a></li></ul>
 		</aside>
 	</div>
 

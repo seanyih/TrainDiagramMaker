@@ -21,6 +21,8 @@
         "secondaryTimeLines": false,
         "margin": 5
     },
+    "connectTrainLines": true,
+    "layers": { "enabled": false, "trainByDirection": false, "trainByColor": false },
     "margin": { "left": 100, "right": 100, "top": 100, "bottom": 100 },
     "background": { "transparent": false, "color": "#FFFFFF" },
     "lines": {
@@ -94,6 +96,10 @@
 | `trainNumberAvoidance.primaryTimeLines` | false | 是否避開整點線 |
 | `trainNumberAvoidance.secondaryTimeLines` | false | 是否避開次要時間線；僅在 `lines.secondary.interval × pxPerMin ≥ 250` 時有效 |
 | `trainNumberAvoidance.margin` | 5 | 列車號與要避開的線、文字之間的最小距離，限 0 ~ 20 |
+| `connectTrainLines` | true | 同一班列車畫成單一一條 `<polyline>` (跨日的列車每一天各一條)；`false` = 每一段各一條 `<line>`，包在一個 `<g>` 裡 |
+| `layers.enabled` | false | 分圖層：背景、時間線、車站線、列車線、列車號文字、圖框、文字-車站、文字-時間 (由下到上) |
+| `layers.trainByDirection` | false | 列車線圖層再分「順行」、「逆行」 |
+| `layers.trainByColor` | false | 列車線圖層再依 `train_color` 分 (與上一項都勾選時，方向之下再分顏色) |
 | `margin.{left,right,top,bottom}` | 100 | 圖表外框到圖片邊緣的距離 |
 | `background.transparent` / `.color` | false / `#FFFFFF` | 背景；透明時不畫背景 |
 | `lines.{station,secondaryStation,primary,secondary}` | | `{ width, color, type }`：車站線、次要車站線、整點線、次要時間線；`type` = `"solid"` / `"dashed"` / `"dotted"` |
@@ -183,3 +189,18 @@
 | `program/handler/SettingHandler.js` | `loadSettingsFromJSON()`、`mergeSettings()`、`applySettings()` |
 | `program/handler/AllDataHandler.js` | `getAllDataJSON()`、`loadAllFromJSON()` |
 | `program/setting/OutputSetting.js` | `initSettingsUI()`、`checkTextFit()`、設定頁輸入框的讀寫 |
+
+## SVG 的 id
+
+輸出的 SVG 中，時間線、車站線、列車線都有 id 與 `data-*` 屬性，可用 `document.getElementById()` 或 `querySelectorAll()` 抓取位置 (例如做互動式的瀏覽器)。
+
+| 元素 | id | class | 其他屬性 |
+|---|---|---|---|
+| 時間線 | `timeline-{hhmm}` (例：`timeline-0830`；24 時以後為 `timeline-2530`；印刷模式重疊到前一天的為 `timeline-prev-2350`) | `timeline primary` (整點) / `timeline secondary` | `data-sec`：從第一天 0:00 起算的秒數 |
+| 分鐘時間線 | `minuteline-{hhmm}` | `minuteline` | `data-sec` |
+| 車站線 | `stationline-{i}`，i = 路線車站 index | `stationline` (次要車站加 `secondary`) | `data-station`：站名，`data-kilo`：里程 |
+| 列車線 | `train-{bound}-{i}`，i = 該方向列車的 index；跨日的副本為 `…-prev-day` / `…-next-day` | `train-line` | `data-train`：不含副本後綴的 id，`data-bound`，`data-train-number` |
+| 列車號 | | `train-number` | `data-train`：所屬列車線的 id |
+
+`connectTrainLines` 為 true 時列車線是 `<polyline>` (`points` 即列車經過的各點)，否則是包著各段 `<line>` 的 `<g>`。
+分圖層時，圖層是帶有 `id` (`layer-time-lines` 等)、`data-name` 與 `inkscape:groupmode="layer"` 的 `<g>`；列車線的子圖層為 `layer-train-lines-1`、`layer-train-lines-color-3`、`layer-train-lines-1-color-3` 等。

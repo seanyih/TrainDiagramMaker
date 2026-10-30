@@ -40,6 +40,9 @@ checkbox → boolean，`type="number"` 與數字選項的 select → number (空
 | `trainNumberAvoidance.primaryTimeLines` | false | 是否避開整點線 |
 | `trainNumberAvoidance.secondaryTimeLines` | false | 是否避開次要時間線；僅在 `lines.secondary.interval × pxPerMin ≥ 250` 時有效 (hard limit `MIN_PX_TO_AVOID_SECONDARY_LINES`，不足時 UI 停用、繪圖時也忽略) |
 | `trainNumberAvoidance.margin` | 5 | 列車號與要避開的線、文字之間的最小距離 (px)，限 0~20 |
+| `connectTrainLines` | true | 每班列車畫成一條 `<polyline>` (跨日的列車，每一天各一條)；`false` = 每一段一條 `<line>`，包在一個 `<g>` 裡 (與舊版相同)。列車號的位置不受影響 |
+| `layers.enabled` | false | 分圖層 (`LAYERS`，`Graphing.js`)，見下方「SVG 結構」 |
+| `layers.trainByDirection` / `layers.trainByColor` | false / false | 列車線圖層再分方向 (`順行` / `逆行`) / 顏色 (`顏色{n}`，0 為 `未指定顏色`)；兩者皆是時方向之下再分顏色 |
 | `margin.{left,right,top,bottom}` | 100 | 圖表外框到圖片邊緣的距離 |
 | `background.transparent` / `.color` | false / `#FFFFFF` | 背景。透明時不畫背景矩形 |
 | `lines.{station,secondaryStation,primary,secondary}` | | `{ width, color, type }`：車站線、次要車站線、整點線、次要時間線；`type` 為 `"solid"` \| `"dashed"` \| `"dotted"` |
@@ -102,6 +105,11 @@ checkbox → boolean，`type="number"` 與數字選項的 select → number (空
   - 碰撞以均勻格網 (`createSegmentGrid()`, 100px) 加速；文字寬度以 ASCII 0.6 em、全形 1 em 估算。
   - 所有列車線畫完後才放號碼，所以號碼可以避開順向與對向的所有列車。
 - **透明背景**：列車線放在 `<g clip-path="url(#plot-area)">` 裡，由 SVG clipPath 裁切到圖表範圍內，不再用邊界的白色矩形遮蓋。列車線座標保持原值 (跨夜線段仍是完整座標)，只是顯示時被裁切。
+- **SVG 結構** (`drawDiagram()` / `drawTrain()`)：
+  - 列車線的 x 座標是「展開」的：比前一點早的時刻視為隔天 (+1440 分)，所以一班車的所有點連續。整條線再平移 ±1 天各畫一次 (只畫有落在圖表範圍內的)。`connectTrainLines` 時每個平移各一條 `<polyline>` (去掉重複點)，否則為 `<g>` 包各段 `<line>`。列車號避讓用的線段 (`addSegment`) 兩者相同。
+  - 分圖層時 (`layers.enabled`)，由下到上為 `LAYERS`：背景 (`layer-background`，透明時省略)、時間線 (`layer-time-lines`，含分鐘時間線)、車站線、列車線、列車號文字 (不顯示列車號時省略)、圖框、文字-車站、文字-時間。圖層是 `<g id data-name inkscape:groupmode="layer" inkscape:label>` (`makeLayer()`)；Illustrator 以最上層的 `<g>` 為圖層、`data-name` 為名稱。列車線與列車號圖層各自帶 `clip-path`。列車線子圖層的 id 為父圖層 id 加 `-{bound}` / `-color-{n}`，依方向、顏色排序後建立，所以列車的繪製順序會依子圖層分組。不分圖層時結構與舊版相同 (列車線與列車號共用一個 clip `<g>`)。
+  - id：時間線 `timeline-{hhmm}` (`timeId()`；負的時刻為 `prev-{hhmm}`)、分鐘時間線 `minuteline-{hhmm}`、車站線 `stationline-{路線 index}`、列車線 `train-{bound}-{index}` (`trainId()`，跨日副本加 `-prev-day` / `-next-day`)。另有 class 與 `data-sec`、`data-station`、`data-kilo`、`data-train`、`data-bound`、`data-train-number`；列車號 `<text class="train-number" data-train>`。完整表格見說明書「設定 JSON」。
+  - PDF 輸出 (`pdfSvgOps()`) 支援沒有 clip-path 的 `<g>` 與 `<polyline>` (miter limit 4，同 SVG)。
 
 ## 3. 時刻格式
 
@@ -507,7 +515,7 @@ draft = { trains: { 1: [...], 2: [...] }, fingerprint: "..." }   // trains: stru
 | `program/handler/SettingHandler.js` | 設定匯入/匯出：`loadSettingsFromJSON()`, `mergeSettings()`, `applySettings()` |
 | `program/handler/AllDataHandler.js` | 全部資料匯入/匯出：`getAllDataJSON()`, `loadAllFromJSON()` |
 | `program/setting/OutputSetting.js` | `initSettingsUI()`, `updateSettingsUI()`, `renderTimeLabelPreview()`, `checkTextFit()` |
-| `program/program/Graphing.js` | `drawDiagram(trains = TRAINS)`, `drawTrain()`, `timeToX()`, `makeTimeLabel()`, `timeLabelHeight()`, `stationTextStyles()` |
+| `program/program/Graphing.js` | `drawDiagram(trains = TRAINS)`, `drawTrain()`, `LAYERS`, `makeLayer()`, `trainId()`, `timeId()`, `timeToX()`, `makeTimeLabel()`, `timeLabelHeight()`, `stationTextStyles()` |
 | `program/program/TrainNumber.js` | `placeTrainNumbers()`, `findTrainNumberPosition()`, `createSegmentGrid()`, `addSegment()`, `someSegment()`, `segmentHitsBox()` |
 | `program/data/Draft.js` | `DRAFTS`, `newDraft()`, `validDraft()`, `adoptDraft()` |
 | `program/program/RunTimeAutofill.js` | `wildcardRegExp()`, `findTrainByNumber()`, `computeAutofill()`, `applyAutofill()` |

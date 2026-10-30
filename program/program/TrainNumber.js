@@ -153,11 +153,11 @@ function findTrainNumberPosition(slot, train, grid){
 	return null;
 }
 
-// trainSlots: [{ train, slots }] from drawTrain()
+// trainSlots: [{ train, id, slots }], slots from drawTrain(), id of the train's line (trainId())
 function placeTrainNumbers(o, trainSlots, grid){
 	const { pxPerTrainNumber, minStationIntervalForTrainNumber, trainNumberFontSize } = SETTINGS;
 
-	trainSlots.forEach(({ train, slots }) => {
+	trainSlots.forEach(({ train, id, slots }) => {
 		if(!train.train_number) return;
 		const c = SETTINGS.trainColors[train.settings.train_color];
 		let n = 1;
@@ -169,7 +169,7 @@ function placeTrainNumbers(o, trainSlots, grid){
 			const pos = findTrainNumberPosition(slot, train, grid);
 			if(pos){
 				const angle = Math.atan2(pos.box.u.y, pos.box.u.x)*180/Math.PI;
-				o.append(makeSVGtext("text", train.train_number, {x:pos.x, y:pos.y, "font-family":"Noto Sans TC", "font-size":trainNumberFontSize, "text-anchor":"middle", "fill":c, "transform":`rotate(${angle} ${pos.x} ${pos.y})`, "font-weight":"bold"}));
+				o.append(makeSVGtext("text", train.train_number, {x:pos.x, y:pos.y, "font-family":"Noto Sans TC", "font-size":trainNumberFontSize, "text-anchor":"middle", "fill":c, "transform":`rotate(${angle} ${pos.x} ${pos.y})`, "font-weight":"bold", class:"train-number", "data-train":id}));
 
 				// later numbers avoid this one: its edges and diagonals as segments
 				const corners = boxCorners(pos.box);

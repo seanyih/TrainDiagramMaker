@@ -5,6 +5,11 @@ function makeSVG(tag, attrs) {
     return el;
 }
 
+function setAttrs(el, attrs){
+	for(var k in attrs) el.setAttribute(k, attrs[k]);
+	return el;
+}
+
 function makeSVGtext(tag, text, attrs) {
     var el = document.createElementNS('http://www.w3.org/2000/svg', tag);
     for (var k in attrs) el.setAttribute(k, attrs[k]);
@@ -52,6 +57,40 @@ $(document).on("click","#OutputBtn",function(){
 	window.setTimeout(drawDiagram, 50);
 });
 
+const INKSCAPE_NS = "http://www.inkscape.org/namespaces/inkscape";
+const PLOT_CLIP = {"clip-path":"url(#plot-area)"};
+
+// layers of the diagram (SETTINGS.layers), bottom to top: [id, name]
+const LAYERS = {
+	background:   ["layer-background", "背景"],
+	timeLines:    ["layer-time-lines", "時間線"],
+	stationLines: ["layer-station-lines", "車站線"],
+	trainLines:   ["layer-train-lines", "列車線"],
+	trainNumbers: ["layer-train-numbers", "列車號文字"],
+	outline:      ["layer-outline", "圖框"],
+	stationText:  ["layer-station-text", "文字-車站"],
+	timeText:     ["layer-time-text", "文字-時間"]
+};
+const BOUND_NAMES = { 1: "順行", 2: "逆行" };
+
+// a group that Inkscape takes as a layer; Illustrator takes the top-level groups as layers, named by data-name
+function makeLayer(id, name, attrs = {}){
+	const g = makeSVG("g", {id: id, "data-name": name, ...attrs});
+	g.setAttributeNS(INKSCAPE_NS, "inkscape:groupmode", "layer");
+	g.setAttributeNS(INKSCAPE_NS, "inkscape:label", name);
+	return g;
+}
+
+// "hhmm" of a time line at sec (from 00:00 of the first day; the day before: "prev-hhmm")
+function timeId(sec){
+	return (sec < 0) ? `prev-${secToHhmm(sec + 86400)}` : secToHhmm(sec);
+}
+
+// id of train i of `bound`, as drawn in drawDiagram(): "train-{bound}-{i}"
+function trainId(bound, i){
+	return `train-${bound}-${i}`;
+}
+
 // trains: TRAINS, or a draft's trains for a preview; o: the svg to draw in (jQuery)
 function drawDiagram(trains = TRAINS, o = $("#output")){
 	if(o.is("#output")) checkTextFit();
@@ -70,10 +109,24 @@ function drawDiagram(trains = TRAINS, o = $("#output")){
 	const height = h + margin.top + margin.bottom;
 	o.attr("width", width);
 	o.attr("height", height);
+	o[0].setAttributeNS("http://www.w3.org/2000/xmlns/", "xmlns:inkscape", INKSCAPE_NS);
 
-	if(!background.transparent){
-		o.append(makeSVG("rect", {x:0, y:0, width:width, height:height, stroke:"none", fill:background.color}));
-	}
+	// the group to draw `key` in: its layer, or the svg itself (clipped: one group shared by the train lines and numbers)
+	const layered = SETTINGS.layers.enabled;
+	let plotGroup = null;
+	const layer = (key, clipped = false) => {
+		if(layered){
+			const g = $(makeLayer(...LAYERS[key], clipped ? PLOT_CLIP : {}));
+			o.append(g);
+			return g;
+		}
+		if(!clipped) return o;
+		if(!plotGroup){
+			plotGroup = $(makeSVG("g", PLOT_CLIP));
+			o.append(plotGroup);
+		}
+		return plotGroup;
+	};
 
 	//train lines are clipped to the plot area instead of being covered by the margins
 	const clipPath = makeSVG("clipPath", {id:"plot-area"});
@@ -82,10 +135,15 @@ function drawDiagram(trains = TRAINS, o = $("#output")){
 	defs.appendChild(clipPath);
 	o.append(defs);
 
+	if(!background.transparent){
+		layer("background").append(makeSVG("rect", {x:0, y:0, width:width, height:height, stroke:"none", fill:background.color}));
+	}
+
 	// line segments that train numbers avoid
 	const grid = createSegmentGrid();
 
 	//time lines
+	const timeLayer = layer("timeLines");
 	const labelY = h + margin.top + SETTINGS.timeLabel.gap + timeLabelHeight();
 	const timeLabels = [];
 	const step = lines.secondary.interval*60;
@@ -94,7 +152,9 @@ function drawDiagram(trains = TRAINS, o = $("#output")){
 		const primary = (t % 3600 == 0);
 		const line = primary ? lines.primary : lines.secondary;
 		if(t != SETTINGS.startSec && t != SETTINGS.endSec){
-			o.append(makeStyledLine(x, x, margin.top, h+margin.top, line));
+			const el = makeStyledLine(x, x, margin.top, h+margin.top, line);
+			setAttrs(el, {id:`timeline-${timeId(t)}`, class:`timeline ${primary ? "primary" : "secondary"}`, "data-sec":t});
+			timeLayer.append(el);
 			if(shouldAvoidTimeLine(primary)) addSegment(grid, {x1:x, y1:margin.top, x2:x, y2:h+margin.top, owner:"timeline"});
 		}
 
@@ -107,29 +167,55 @@ function drawDiagram(trains = TRAINS, o = $("#output")){
 		for(let t = Math.ceil(SETTINGS.startSec/60)*60; t < SETTINGS.endSec; t += 60){
 			if(t % step == 0) continue;
 			const x = (t - SETTINGS.startSec)/60*pxPerMin + margin.left;
-			o.append(makeSVG("line", {x1:x, x2:x, y1:margin.top, y2:h+margin.top, stroke:lines.minute.color, 'stroke-width':lines.minute.width, 'stroke-dasharray':`0 ${pxPerKm}`, 'stroke-linecap':"round"}));
+			timeLayer.append(makeSVG("line", {x1:x, x2:x, y1:margin.top, y2:h+margin.top, stroke:lines.minute.color, 'stroke-width':lines.minute.width, 'stroke-dasharray':`0 ${pxPerKm}`, 'stroke-linecap':"round",
+				id:`minuteline-${timeId(t)}`, class:"minuteline", "data-sec":t}));
 		}
 	}
 
 	//station lines
+	const stationLayer = layer("stationLines");
 	stations.forEach((station, i) => {
 		if(i < range.start || i > range.end) return;
 		const y = kiloToY(station.kilo);
-		const line = ROUTE.topology.secondary[i] ? lines.secondaryStation : lines.station;
-		o.append(makeStyledLine(margin.left, w+margin.left, y, y, line));
+		const secondary = ROUTE.topology.secondary[i];
+		const el = makeStyledLine(margin.left, w+margin.left, y, y, secondary ? lines.secondaryStation : lines.station);
+		setAttrs(el, {id:`stationline-${i}`, class:`stationline${secondary ? " secondary" : ""}`, "data-station":station.name, "data-kilo":station.kilo});
+		stationLayer.append(el);
 	});
 
-	const trainLayer = $(makeSVG("g", {"clip-path":"url(#plot-area)"}));
-	o.append(trainLayer);
+	// the group of each train: sublayers by direction and / or color, created in order of direction, color
+	const trainLayer = layer("trainLines", true);
+	const { trainByDirection, trainByColor } = SETTINGS.layers;
+	const subKeys = (bound, train) => [
+		...(trainByDirection ? [[`${bound}`, BOUND_NAMES[bound]]] : []),
+		...(trainByColor ? [[`color-${train.settings.train_color}`, train.settings.train_color ? `顏色${train.settings.train_color}` : "未指定顏色"]] : [])
+	];
+	const subLayers = new Map();
+	const trainParent = (bound, train) => layered ? subKeys(bound, train).reduce((parent, [key, name]) => {
+		const id = `${parent.attr("id")}-${key}`;
+		if(!subLayers.has(id)){
+			subLayers.set(id, $(makeLayer(id, name)));
+			parent.append(subLayers.get(id));
+		}
+		return subLayers.get(id);
+	}, trainLayer) : trainLayer;
+	if(layered){
+		const order = (bound, train) => trainByDirection ? bound*100 + train.settings.train_color : train.settings.train_color;
+		[1, 2].flatMap(bound => trains[bound].map(train => ({ bound, train })))
+			.sort((a, b) => order(a.bound, a.train) - order(b.bound, b.train))
+			.forEach(({ bound, train }) => trainParent(bound, train));
+	}
+
 	// numbers are placed after all lines are drawn, so they can avoid every train line
 	const trainSlots = [];
 	[1, 2].forEach(bound => {
-		trains[bound].forEach(train => trainSlots.push({ train: train, slots: drawTrain(trainLayer, train, bound, w, grid) }));
+		trains[bound].forEach((train, i) => trainSlots.push({ train: train, id: trainId(bound, i), slots: drawTrain(trainParent(bound, train), train, bound, w, grid, trainId(bound, i)) }));
 	});
-	if(SETTINGS.showTrainNumber) placeTrainNumbers(trainLayer, trainSlots, grid);
+	if(SETTINGS.showTrainNumber) placeTrainNumbers(layered ? layer("trainNumbers", true) : trainLayer, trainSlots, grid);
 
 	//outline rectangle
 	// each side has its own width; the lines are extended so that the corners are filled
+	const outlineLayer = layer("outline");
 	const { top, bottom, left, right, color } = lines.outline;
 	const x1 = margin.left;
 	const x2 = margin.left + w;
@@ -141,21 +227,23 @@ function drawDiagram(trains = TRAINS, o = $("#output")){
 		[left, x1, x1, y1 - top/2, y2 + bottom/2],
 		[right, x2, x2, y1 - top/2, y2 + bottom/2]
 	].forEach(([width, xa, xb, ya, yb]) => {
-		if(width > 0) o.append(makeSVG("line", {x1:xa, x2:xb, y1:ya, y2:yb, stroke:color, 'stroke-width':width}));
+		if(width > 0) outlineLayer.append(makeSVG("line", {x1:xa, x2:xb, y1:ya, y2:yb, stroke:color, 'stroke-width':width}));
 	});
 
 	//station name (left) and alias (right)
+	const stationTextLayer = layer("stationText");
 	stations.forEach((station, i) => {
 		if(i < range.start || i > range.end) return;
 		const y = kiloToY(station.kilo);
 		const { name, alias } = stationTextStyles(i);
-		o.append(makeSVGtext("text", station.name, {x:margin.left - name.gap, y:y + name.fontSize*0.4, "font-family":"Noto Sans TC", "font-size":name.fontSize, "fill":name.color, "text-anchor":"end"}));
+		stationTextLayer.append(makeSVGtext("text", station.name, {x:margin.left - name.gap, y:y + name.fontSize*0.4, "font-family":"Noto Sans TC", "font-size":name.fontSize, "fill":name.color, "text-anchor":"end"}));
 		if(aliasText.show){
-			o.append(makeSVGtext("text", station.alias, {x:margin.left + w + alias.gap, y:y + alias.fontSize*0.4, "font-family":"Noto Sans TC", "font-size":alias.fontSize, "fill":alias.color, "text-anchor":"start"}));
+			stationTextLayer.append(makeSVGtext("text", station.alias, {x:margin.left + w + alias.gap, y:y + alias.fontSize*0.4, "font-family":"Noto Sans TC", "font-size":alias.fontSize, "fill":alias.color, "text-anchor":"start"}));
 		}
 	});
 
-	timeLabels.forEach(label => o.append(label));
+	const timeTextLayer = layer("timeText");
+	timeLabels.forEach(label => timeTextLayer.append(label));
 }
 
 // text settings of route station i's name and alias
@@ -212,24 +300,19 @@ function timeLabelHeight(){
 	Returns the slots for train numbers: one per interval between two adjacent route stations the train runs through,
 	{ x1, y1, x2, y2, traveled }, where (x1, y1) ~ (x2, y2) is the train line inside the interval (x may exceed the plot for overnight)
 	and traveled is the distance in px from the first stop to the end of the interval.
-	w: width of the time axis; a line running past midnight is also drawn one day earlier / later
+	w: width of the time axis; a line running past midnight is also drawn one day earlier / later.
+	id: of the train's element (trainId()); with SETTINGS.connectTrainLines the train is one <polyline> per day it is drawn on,
+	otherwise a <g> of <line>s; the copies one day earlier / later get the id + "-prev-day" / "-next-day"
 */
-function drawTrain(o, train, bound, w, grid){
+function drawTrain(o, train, bound, w, grid, id){
 	const stations = boundStations(bound);
 	const c = SETTINGS.trainColors[train.settings.train_color];
 	const color = train.settings.train_color;
 	const lineWidth = train.settings.line_width ?? SETTINGS.trainLineWidthByColor[color] ?? SETTINGS.trainLineWidth;
 	const lineType = train.settings.line_type ?? (SETTINGS.trainLineTypeByColor[color] || SETTINGS.trainLineType);
-	const dashAttrs = lineStyleAttrs(lineType, lineWidth);
+	const style = {stroke: c, 'stroke-width':lineWidth, ...lineStyleAttrs(lineType, lineWidth)};
 	const stationY = order => kiloToY(stations[order].kilo);
 	const plotBottom = SETTINGS.margin.top + plotHeight();
-	const line = (x1, x2, y1, y2) => {
-		shifts.forEach(dx => {
-			if(!visible(x1 + dx, x2 + dx)) return;
-			o.append(makeSVG("line", {x1: x1 + dx, x2: x2 + dx, y1: y1, y2: y2, stroke: c, 'stroke-width':lineWidth, ...dashAttrs}));
-			addSegment(grid, {x1: x1 + dx, y1: y1, x2: x2 + dx, y2: y2, owner: train});
-		});
-	};
 
 	// the lines are drawn again one day earlier / later, where they reach the plot
 	const left = SETTINGS.margin.left;
@@ -237,30 +320,46 @@ function drawTrain(o, train, bound, w, grid){
 	const shifts = [-dayW, 0, dayW];
 	const visible = (xa, xb) => Math.max(xa, xb) >= left && Math.min(xa, xb) <= left + w;
 
+	// the train line, x unwrapped: a time earlier than the one before is on the next day
+	const segments = [];
+	const points = [];
+	const to = (x, y) => {
+		const last = points[points.length - 1];
+		if(last) segments.push({x1: last.x, y1: last.y, x2: x, y2: y});
+		points.push({x: x, y: y});
+	};
+
 	const slots = [];
-	let record_x1 = 0;
-	let record_y1 = 0;
+	let dayX = 0;
 	let prevOrder;
 	let startY;
 
 	const stops = trainStops(train, bound).filter(stop => stop.departure && stop.station_order < stations.length);
 	stops.forEach((stop, j) => {
-		const x1 = timeToX(arrivalTime(stop, stations));
-		const x2 = timeToX(stop.departure);
+		const prev = points[points.length - 1];
+		let x1 = timeToX(arrivalTime(stop, stations)) + dayX;
+		if(prev && prev.x > x1){
+			dayX += dayW;
+			x1 += dayW;
+		}
+		let x2 = timeToX(stop.departure) + dayX;
+		if(x1 > x2){
+			//overnight stopping
+			dayX += dayW;
+			x2 += dayW;
+		}
 		const y = stationY(stop.station_order);
 
 		if(j == 0){
 			startY = y;
-		}
-
-		//slant lines
-		if(j != 0){
-			const endX = (record_x1 > x1) ? x1 + dayW : x1; // unwrapped
-			line(record_x1, endX, record_y1, y);
+			points.push({x: x1, y: y});
+		}else{
+			//slant lines
+			to(x1, y);
 
 			// split by every route station passed
-			const xAt = sy => record_x1 + (sy - record_y1)/(y - record_y1)*(endX - record_x1);
-			for(let i = prevOrder; i < stop.station_order && y != record_y1; i++){
+			const xAt = sy => prev.x + (sy - prev.y)/(y - prev.y)*(x1 - prev.x);
+			for(let i = prevOrder; i < stop.station_order && y != prev.y; i++){
 				const sy1 = stationY(i);
 				const sy2 = stationY(i + 1);
 				// the copy of the slot whose middle is inside the plot
@@ -272,17 +371,27 @@ function drawTrain(o, train, bound, w, grid){
 		}
 
 		//horizontal lines
-		if(x1 > x2){
-			//overnight stopping
-			line(x1, x2 + dayW, y, y);
-		}else{
-			line(x1, x2, y, y);
-		}
-
-		//update record_x1 and record_y1 (previous coordinate)
-		record_x1 = x2;
-		record_y1 = y;
+		to(x2, y);
 		prevOrder = stop.station_order;
+	});
+
+	const copyId = dx => (dx < 0) ? `${id}-prev-day` : (dx > 0) ? `${id}-next-day` : id;
+	const attrs = dx => ({id: copyId(dx), class: "train-line", "data-train": id, "data-bound": bound, "data-train-number": train.train_number});
+	shifts.forEach(dx => {
+		const shown = segments.filter(seg => visible(seg.x1 + dx, seg.x2 + dx));
+		if(shown.length == 0) return;
+		shown.forEach(seg => addSegment(grid, {x1: seg.x1 + dx, y1: seg.y1, x2: seg.x2 + dx, y2: seg.y2, owner: train}));
+
+		if(SETTINGS.connectTrainLines){
+			// repeated points (no dwell) are left out
+			const path = points.filter((p, k) => k == 0 || p.x != points[k - 1].x || p.y != points[k - 1].y);
+			if(path.length < 2) return;
+			o.append(makeSVG("polyline", {points: path.map(p => `${p.x + dx},${p.y}`).join(" "), fill: "none", ...style, ...attrs(dx)}));
+		}else{
+			const g = makeSVG("g", attrs(dx));
+			shown.forEach(seg => g.appendChild(makeSVG("line", {x1: seg.x1 + dx, x2: seg.x2 + dx, y1: seg.y1, y2: seg.y2, ...style})));
+			o.append(g);
+		}
 	});
 
 	return slots;

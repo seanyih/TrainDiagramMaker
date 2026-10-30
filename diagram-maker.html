@@ -1313,6 +1313,35 @@
 					</div>
 					</div>
 
+					<h4 style="margin-top: 3vh;">SVG 結構</h4>
+					<p class="text-muted" style="margin-top: 1vh;">影響輸出的 SVG 與印刷用檔案，方便在 Illustrator、Inkscape 中編輯。時間線、車站線、列車線都有 id，可供程式抓取位置</p>
+					<div class="row g-3 align-items-center">
+						<div class="col-auto form-check" style="margin-left: 1rem;">
+							<input type="checkbox" class="form-check-input" id="connect-train-lines" data-setting="connectTrainLines">
+							<label class="form-check-label" for="connect-train-lines">連接列車線</label>
+						</div>
+						<div class="col-auto"><small class="text-muted">同一班列車畫成單一一條線 (跨日的列車，每一天各一條)</small></div>
+					</div>
+					<div class="row g-3 align-items-center">
+						<div class="col-auto form-check" style="margin-left: 1rem;">
+							<input type="checkbox" class="form-check-input" id="layers-enabled" data-setting="layers.enabled">
+							<label class="form-check-label" for="layers-enabled">分圖層</label>
+						</div>
+						<div class="col-auto"><small class="text-muted">背景、時間線、車站線、列車線、列車號文字、圖框、文字-車站、文字-時間</small></div>
+					</div>
+					<div class="row g-3 align-items-center" id="layer-fields">
+						<div class="col-auto" style="margin-left: 1rem;"><label class="col-form-label">列車線再分為</label></div>
+						<div class="col-auto form-check" style="margin-left: 1rem;">
+							<input type="checkbox" class="form-check-input" id="layers-train-direction" data-setting="layers.trainByDirection">
+							<label class="form-check-label" for="layers-train-direction">方向 (順行 / 逆行)</label>
+						</div>
+						<div class="col-auto form-check" style="margin-left: 1rem;">
+							<input type="checkbox" class="form-check-input" id="layers-train-color" data-setting="layers.trainByColor">
+							<label class="form-check-label" for="layers-train-color">顏色</label>
+						</div>
+						<div class="col-auto"><small class="text-muted">兩者皆勾選時，方向之下再分顏色</small></div>
+					</div>
+
 					
 						
 				</div>

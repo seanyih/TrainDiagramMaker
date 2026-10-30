@@ -86,6 +86,8 @@
         &quot;secondaryTimeLines&quot;: false,
         &quot;margin&quot;: 5
     },
+    &quot;connectTrainLines&quot;: true,
+    &quot;layers&quot;: { &quot;enabled&quot;: false, &quot;trainByDirection&quot;: false, &quot;trainByColor&quot;: false },
     &quot;margin&quot;: { &quot;left&quot;: 100, &quot;right&quot;: 100, &quot;top&quot;: 100, &quot;bottom&quot;: 100 },
     &quot;background&quot;: { &quot;transparent&quot;: false, &quot;color&quot;: &quot;#FFFFFF&quot; },
     &quot;lines&quot;: {
@@ -222,6 +224,26 @@
 <td><code>trainNumberAvoidance.margin</code></td>
 <td>5</td>
 <td>列車號與要避開的線、文字之間的最小距離，限 0 ~ 20</td>
+</tr>
+<tr>
+<td><code>connectTrainLines</code></td>
+<td>true</td>
+<td>同一班列車畫成單一一條 <code>&lt;polyline&gt;</code> (跨日的列車每一天各一條)；<code>false</code> = 每一段各一條 <code>&lt;line&gt;</code>，包在一個 <code>&lt;g&gt;</code> 裡</td>
+</tr>
+<tr>
+<td><code>layers.enabled</code></td>
+<td>false</td>
+<td>分圖層：背景、時間線、車站線、列車線、列車號文字、圖框、文字-車站、文字-時間 (由下到上)</td>
+</tr>
+<tr>
+<td><code>layers.trainByDirection</code></td>
+<td>false</td>
+<td>列車線圖層再分「順行」、「逆行」</td>
+</tr>
+<tr>
+<td><code>layers.trainByColor</code></td>
+<td>false</td>
+<td>列車線圖層再依 <code>train_color</code> 分 (與上一項都勾選時，方向之下再分顏色)</td>
 </tr>
 <tr>
 <td><code>margin.{left,right,top,bottom}</code></td>
@@ -472,6 +494,52 @@
 </tr>
 </tbody>
 </table>
+<h2 id="svg-的-id">SVG 的 id</h2>
+<p>輸出的 SVG 中，時間線、車站線、列車線都有 id 與 <code>data-*</code> 屬性，可用 <code>document.getElementById()</code> 或 <code>querySelectorAll()</code> 抓取位置 (例如做互動式的瀏覽器)。</p>
+<table>
+<thead>
+<tr>
+<th>元素</th>
+<th>id</th>
+<th>class</th>
+<th>其他屬性</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>時間線</td>
+<td><code>timeline-{hhmm}</code> (例：<code>timeline-0830</code>；24 時以後為 <code>timeline-2530</code>；印刷模式重疊到前一天的為 <code>timeline-prev-2350</code>)</td>
+<td><code>timeline primary</code> (整點) / <code>timeline secondary</code></td>
+<td><code>data-sec</code>：從第一天 0:00 起算的秒數</td>
+</tr>
+<tr>
+<td>分鐘時間線</td>
+<td><code>minuteline-{hhmm}</code></td>
+<td><code>minuteline</code></td>
+<td><code>data-sec</code></td>
+</tr>
+<tr>
+<td>車站線</td>
+<td><code>stationline-{i}</code>，i = 路線車站 index</td>
+<td><code>stationline</code> (次要車站加 <code>secondary</code>)</td>
+<td><code>data-station</code>：站名，<code>data-kilo</code>：里程</td>
+</tr>
+<tr>
+<td>列車線</td>
+<td><code>train-{bound}-{i}</code>，i = 該方向列車的 index；跨日的副本為 <code>…-prev-day</code> / <code>…-next-day</code></td>
+<td><code>train-line</code></td>
+<td><code>data-train</code>：不含副本後綴的 id，<code>data-bound</code>，<code>data-train-number</code></td>
+</tr>
+<tr>
+<td>列車號</td>
+<td></td>
+<td><code>train-number</code></td>
+<td><code>data-train</code>：所屬列車線的 id</td>
+</tr>
+</tbody>
+</table>
+<p><code>connectTrainLines</code> 為 true 時列車線是 <code>&lt;polyline&gt;</code> (<code>points</code> 即列車經過的各點)，否則是包著各段 <code>&lt;line&gt;</code> 的 <code>&lt;g&gt;</code>。
+分圖層時，圖層是帶有 <code>id</code> (<code>layer-time-lines</code> 等)、<code>data-name</code> 與 <code>inkscape:groupmode="layer"</code> 的 <code>&lt;g&gt;</code>；列車線的子圖層為 <code>layer-train-lines-1</code>、<code>layer-train-lines-color-3</code>、<code>layer-train-lines-1-color-3</code> 等。</p>
 			</article>
 			<div class="manual-pager">
 				<a class="prev" href="manual-dev-timetable-json.html"><small>上一頁</small>時刻表資料檔案格式(json)</a>
@@ -481,7 +549,7 @@
 
 		<aside class="manual-toc">
 			<p class="manual-toc-title">本頁內容</p>
-			<ul><li><a href="#預設值">預設值</a></li><li><a href="#欄位說明">欄位說明</a></li><li><a href="#匯入規則">匯入規則</a></li><li><a href="#全部資料-json">全部資料 JSON</a></li><li><a href="#相關程式">相關程式</a></li></ul>
+			<ul><li><a href="#預設值">預設值</a></li><li><a href="#欄位說明">欄位說明</a></li><li><a href="#匯入規則">匯入規則</a></li><li><a href="#全部資料-json">全部資料 JSON</a></li><li><a href="#相關程式">相關程式</a></li><li><a href="#svg-的-id">SVG 的 id</a></li></ul>
 		</aside>
 	</div>
 

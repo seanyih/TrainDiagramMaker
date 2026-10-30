@@ -27,6 +27,14 @@ const SETTINGS = {
 		margin: 5                   // px, 0 ~ 20
 	},
 
+	// svg structure (Graphing.js)
+	connectTrainLines: true,      // each train is one polyline (per day it is drawn on), not a line per segment
+	layers: {
+		enabled: false,           // group the drawing into named layers (Inkscape / Illustrator), LAYERS
+		trainByDirection: false,  // the train lines in sublayers: 順行 / 逆行
+		trainByColor: false       // ... by train_color (inside the direction ones if both)
+	},
+
 	// from the plot outline to the image edge
 	margin: {
 		left: 100,

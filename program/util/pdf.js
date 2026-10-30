@@ -41,7 +41,7 @@ function pdfGlyphOps(path){
 	return [...ops, "f"];
 }
 
-// operators for the diagram's svg (Graphing.js): rect, line, text (as outlines), g with clip-path
+// operators for the diagram's svg (Graphing.js): rect, line, polyline, text (as outlines), g (layers, maybe with clip-path)
 function pdfSvgOps(parent, clips){
 	const num = (el, name) => Number(el.getAttribute(name));
 	return [...parent.children].flatMap(el => {
@@ -56,7 +56,9 @@ function pdfSvgOps(parent, clips){
 		] : [];
 
 		if(el.tagName == "g"){
-			const [x, y, w, h] = clips[el.getAttribute("clip-path").slice(5, -1)];
+			const clip = el.getAttribute("clip-path");
+			if(!clip) return pdfSvgOps(el, clips);
+			const [x, y, w, h] = clips[clip.slice(5, -1)];
 			return ["q", `${x} ${y} ${w} ${h} re W n`, ...pdfSvgOps(el, clips), "Q"];
 		}
 		if(el.tagName == "rect"){
@@ -68,6 +70,11 @@ function pdfSvgOps(parent, clips){
 		if(el.tagName == "line"){
 			const [x1, y1, x2, y2] = ["x1", "y1", "x2", "y2"].map(name => pdfNum(num(el, name)));
 			return ["q", ...strokeStyle, `${x1} ${y1} m ${x2} ${y2} l S`, "Q"];
+		}
+		if(el.tagName == "polyline"){
+			const points = el.getAttribute("points").split(" ").map(p => p.split(",").map(Number).map(pdfNum).join(" "));
+			// svg's default miter limit
+			return ["q", ...strokeStyle, "4 M", `${points.map((p, i) => `${p} ${i == 0 ? "m" : "l"}`).join(" ")} S`, "Q"];
 		}
 		if(el.tagName == "text"){
 			return textToPaths(el).flatMap(({ path, fill }) => ["q", pdfColor(fill, "rg"), ...pdfGlyphOps(path), "Q"]);
