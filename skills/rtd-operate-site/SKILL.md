@@ -89,7 +89,10 @@ Results go into a **draft** (copy of `TRAINS`), not `TRAINS`, until adopted.
 // restore passing times (uses SETTINGS.passingTime.*, solver "stn" by default)
 $("#PassingTimeBtn").click();              // async (setTimeout slices); wait until it finishes
 // poll: $("#PassingTimeBtn").prop("disabled") == false && DRAFTS.passing
-$("#PassingTimeResult").text()             // summary: remaining conflicts, added passing times
+$("#PassingTimeResult").text()             // summary: remaining conflicts only
+PASSING_REPORT.report                      // details (also shown by #PassingTimeReportBtn 詳細結果): conflicts (one line each),
+                                           // written (added / moved passing times, temp stops, stop times), stats.stages
+                                           // (why the solver stopped), limits, diagnoses (why each conflict is left)
 $('.preview-draft-btn[data-draft="passing"]').click();   // preview the draft on the output tab
 adoptDraft("passing"); refreshTimetable(1); refreshTimetable(2);  // adopt (the UI does this after a modal)
 

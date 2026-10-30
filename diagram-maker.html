@@ -200,6 +200,18 @@
 			color: #999;
 		}
 
+		/* 待避時間計算 > 詳細結果 */
+		.passing-report-list{
+			max-height: 16rem;
+			overflow-y: auto;
+			font-size: 0.9rem;
+			margin-bottom: 0.25rem;
+		}
+		.passing-report-list .passing-report-list{
+			max-height: none;
+			color: #666;
+		}
+
 		/* times pinned by an overlay (Overlay.js) */
 		.pinned-time-input{
 			text-decoration: underline;
@@ -1557,6 +1569,7 @@
 						<h4 style="margin: 0;">還原通過時間</h4>
 						<p id="PassingTimeDetailBtn" class="mb-0" style="cursor: pointer;">細部設定</p>
 						<p id="PassingTimeStopRuleBtn" class="mb-0" style="cursor: pointer;">臨時停車規則</p>
+						<p id="PassingTimeReportBtn" class="mb-0" style="cursor: pointer; display: none;">詳細結果</p>
 						<a href="manual/manual-ops-passing-time.html#還原通過時間" target="_blank" class="ba">說明</a>
 					</div>
 					<div id="PassingTimeDetail" style="display: none; margin: 2vh 0 2vh 2rem;">
@@ -1679,6 +1692,7 @@
 							<div class="col-md-6 border-start ps-3" id="StopRuleList"><!-- renderStopRules() --></div>
 						</div>
 					</div>
+					<div id="PassingTimeReport" style="display: none; margin: 2vh 0 2vh 2rem;"><!-- renderPassingReport() --></div>
 					<div class="form-check" style="margin-top: 1vh;">
 						<input type="checkbox" class="form-check-input" id="pt-fine-tune" data-setting="passingTime.fineTune">
 						<label class="form-check-label" for="pt-fine-tune">同時進行通過時間微調</label>
@@ -2099,6 +2113,7 @@
 	<script src="program/program/RunTimeAutofill.js"></script>
 	<script src="program/program/PassingTime.js"></script>
 	<script src="program/program/PassingTimeSTN.js"></script>
+	<script src="program/program/PassingReport.js"></script>
 	<script src="program/program/PrintLayout.js"></script>
 
 	<!-- csv / json file parsing -->

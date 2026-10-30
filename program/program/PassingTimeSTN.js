@@ -15,8 +15,11 @@
 	   - (fine-tuning) minTimeSeparation between two trains next to each other at a station, where the track needs it.
 	3. Each passing time is moved as little as possible within its range, then raised where a constraint needs it.
 	Unlike the rounds of PassingTime.js, a proposal may move the other passing times of its train (and of others) to fit.
+	After each round, a conflict left may be solved by rerouting one of its trains (rerouteConflict(), PassingTime.js).
 	A proposal may also be x stopping at s, if an arrival there is loose: y arrives early to wait.
 	y may also wait where a stop rule allows a temporary stop: its arrival and departure there are two points.
+	Or, where x's line starts / ends at a junction stop that may move (BranchTrain.js), x on y's other side there:
+	its interpolated time may have put them in the wrong order, which the network would otherwise keep.
 	At the end, new passing times less than timeGranularity off the line through their neighbours are dropped.
 */
 
@@ -153,9 +156,13 @@ function singleTrackPoints(m, e, r){
 }
 
 // x at s within y's stop (from its arrival, unless y starts there, to its departure, unless y or x ends there),
-// minTimeSeparation from it first, else the grid
+// minTimeSeparation from it first, else the grid; a junction proposal: x's junction stop after (before) y there
 function proposalRange(m, net, p, wide){
 	const margin = gap => wide ? m.grid : gap ? m.gap : m.grid;
+	if(p.junction){
+		const [a, b] = [stationPoint(p.y, p.ys, p.leave), stationPoint(p.t, p.s, p.leave)];
+		return transaction(net, () => p.after ? constrain(m, net, a, b, margin(p.lowGap)) : constrain(m, net, b, a, margin(p.lowGap)));
+	}
 	return transaction(net, () => (p.ys == p.y.first || constrain(m, net, stationPoint(p.y, p.ys, false), stationPoint(p.t, p.s, false), margin(p.lowGap)))
 		&& (p.ys == p.y.last || p.s == p.t.last || constrain(m, net, stationPoint(p.t, p.s, true), stationPoint(p.y, p.ys, true), margin(p.highGap))));
 }
@@ -166,7 +173,7 @@ function proposalNodes(p){
 		.map(point => point.node).filter(v => v >= 0);
 }
 
-// step 2 above; rejected proposals are undone
+// step 2 above; rejected proposals are undone, and returned
 function solveNetwork(m, proposals){
 	let count = 0;
 	m.trains.forEach(t => {
@@ -232,7 +239,7 @@ function solveNetwork(m, proposals){
 	const rejected = new Set();
 	proposals.forEach(p => {
 		if(!failed.has(p)) return;
-		if(p.passing) rejected.add(p.t.node[p.s]);
+		if(p.passing || p.junction) rejected.add(p.t.node[p.s]);
 		p.undoStop = p.stop && !proposals.some(other => !failed.has(other) && other.y == p.y && other.ys == p.ys);
 		if(p.undoStop) rejected.add(p.y.node[p.ys]).add(p.y.arrNode[p.ys]);
 	});
@@ -278,7 +285,7 @@ function solveNetwork(m, proposals){
 		});
 	});
 	proposals.forEach(p => {
-		if(p.passing && rejected.has(p.t.node[p.s])){
+		if((p.passing || p.junction) && rejected.has(p.t.node[p.s])){
 			p.t.fixed[p.s] = p.fixed;
 			p.t.arr[p.s] = p.arr;
 			p.t.dep[p.s] = p.dep;
@@ -296,6 +303,7 @@ function solveNetwork(m, proposals){
 			p = q;
 		}
 	});
+	return failed;
 }
 
 /*
@@ -320,9 +328,8 @@ function addProposals(m, c, x, y, out){
 		if(distance > maxSearchDepth || !(passing || (x.fixed[s] == 1 && s != x.first))) continue;
 		const r = routeIndex(m, x.bound, s);
 		const ys = routeIndex(m, y.bound, r);
-		const { lines, bits } = m.tracks[2*r];
 		const stop = canStop(y, ys);
-		if(!(y.wait[ys] || ys == y.first || ys == y.last || stop) || (x.bound == y.bound ? !(bits & x.bound) : lines < 2)) continue;
+		if(!(y.wait[ys] || ys == y.first || ys == y.last || stop) || !passesAt(m, x, y, r, ys)) continue;
 		// x stops at s: only if an arrival may move or y may stop, and x leaves first
 		if(!passing && !((movesArrival(x, s) || movesArrival(y, ys) || stop) && (s == x.last || ys == y.last || x.dep[s] <= y.dep[ys] - m.grid))) continue;
 
@@ -352,6 +359,15 @@ function addProposals(m, c, x, y, out){
 		}
 		out.push(proposal);
 	}
+	// x's junction stop at an end of its line on y's other side (junctionMove()); the network keeps the max speeds
+	if(x.bound == y.bound) [p, q].forEach(j => {
+		const distance = station ? Math.abs(j - k) : (j <= k ? k - j + 1 : j - k);
+		const move = junctionMove(m, x, y, j, j == q);
+		if(distance > maxSearchDepth || move.fail) return;
+		out.push({ x: x, y: y, t: x, s: j, ys: j, passing: false, junction: true, stop: false, leave: move.leave, after: j == q,
+			at: move.at, distance: distance, fixed: x.fixed[j], arr: x.arr[j], dep: x.dep[j], lowGap: move.gap, highGap: false,
+			move: Math.abs(move.at - x.dep[j]) });
+	});
 }
 
 // step 1 above for an overtaking / meeting; `tried`: "x>y@s" of the candidates proposed before
@@ -359,9 +375,10 @@ function proposePassingTime(m, c, tried, proposals){
 	if(!refreshConflict(m, c)) return;
 	const candidates = [];
 	(c.type == "cross" ? [[c.a, c.b], [c.b, c.a]] : [[c.b, c.a]]).forEach(([x, y]) => addProposals(m, c, x, y, candidates));
-	const key = p => `${p.x.id}>${p.y.id}@${p.s}`;
+	const key = p => `${p.x.id}>${p.y.id}@${p.s}${p.junction ? "j" : ""}`;
+	const moves = p => p.passing || p.junction;
 	const proposal = candidates.sort((u, v) => !!u.tight - !!v.tight || u.distance - v.distance || u.move - v.move)
-		.find(p => !tried.has(key(p)) && !(p.passing && proposals.some(other => other.passing && other.t == p.t && other.s == p.s)));
+		.find(p => !tried.has(key(p)) && !(moves(p) && proposals.some(other => moves(other) && other.t == p.t && other.s == p.s)));
 	if(!proposal) return;
 	tried.add(key(proposal));
 	proposals.push(proposal);
@@ -375,6 +392,15 @@ function proposePassingTime(m, c, tried, proposals){
 		y.temp[ys] = 1;
 		interpolate(m, y, yp, ys);
 		interpolate(m, y, ys, yq);
+	}
+	if(proposal.junction){
+		const t = proposal.t;
+		const j = proposal.s;
+		t.arr[j] = t.dep[j] = proposal.at;
+		let n = j;
+		do n += proposal.leave ? 1 : -1; while(!t.fixed[n]);
+		interpolate(m, t, Math.min(j, n), Math.max(j, n));
+		return;
 	}
 	if(!proposal.passing) return;
 	const [sp, sq] = knownAround(proposal.t, proposal.s);
@@ -440,7 +466,9 @@ function restorePassingTimesSTN(trains, fineTune, onRound, onDone, rounding){
 	onRound(round, countConflicts(conflicts), 0);
 
 	const next = () => {
-		if(conflicts.length <= maxAllowedConflict || (maxIteration > 0 && round >= maxIteration) || stale >= 3){
+		const reason = (conflicts.length <= maxAllowedConflict) ? "done" : (maxIteration > 0 && round >= maxIteration) ? "iteration" : (stale >= 3) ? "stale" : null;
+		if(reason){
+			m.stats.stages.push({ tune: fineTune, rounds: round, reason: reason });
 			// headways count when dropping passing times only if fine-tuning
 			m.tune = fineTune;
 			prunePassingTimes(m);
@@ -454,10 +482,24 @@ function restorePassingTimesSTN(trains, fineTune, onRound, onDone, rounding){
 			if(c.type != "headway") proposePassingTime(m, c, tried, proposals);
 		});
 		if(fineTune) addHeadwayPoints(m);
-		solveNetwork(m, proposals);
+		const failed = solveNetwork(m, proposals);
+		proposals.forEach(p => {
+			m.stats.proposals.push({ round: round, x: p.x, y: p.y, s: p.s, passing: p.passing, stop: p.stop, kept: !failed.has(p) });
+			if(!failed.has(p)) m.stats.depth = Math.max(m.stats.depth, p.distance);
+		});
 
 		const previous = conflicts.length;
 		conflicts = detectConflicts(m);
+		// what one station at a time cannot solve: a train rerouted between its known times (PassingTime.js), whose new
+		// passing times the network then keeps in their order
+		// (headways counted when fine-tuning)
+		let rerouted = false;
+		m.tune = fineTune;
+		conflicts.forEach(c => {
+			if(rerouteConflict(m, c)) rerouted = true;
+		});
+		m.tune = false;
+		if(rerouted) conflicts = detectConflicts(m);
 		const score = conflictScore(conflicts);
 		if(score < best){
 			best = score;
