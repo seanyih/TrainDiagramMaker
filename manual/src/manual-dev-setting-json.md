@@ -117,6 +117,14 @@
 | `timeLabel.gap` | 10 | 時間文字頂端與圖表下緣的距離 |
 | `timeLabel.overDay` | `"plain"` | 24 時以後的時間文字：`plain` / `superscript`（+1 上標）/ `extended`（25:00） |
 | `timeLabel.secondaryLabel` | `"none"` | 次要時間線標記 `none` / `hhmm` / `mm`，只在 `interval >= 10` 時有效（`simple` 格式一律只標 mm） |
+| `print.enabled` | false | 印刷模式 (`PrintLayout.js`)：啟用後設定頁以像素為單位的欄位 (`data-unit="px"`) 改以 mm 輸入與顯示，1 px = 25.4/ppi mm；資料仍以 px 存放 |
+| `print.ppi` | 300 | 解析度 |
+| `print.page` | `{ width: 210, height: 297 }` | 頁面大小 (mm)，不含出血 |
+| `print.bleed` | `{ top, bottom, left, right }` 各 3 | 出血 (mm)，加在頁面之外；超出出血的圖面算超出 |
+| `print.pageMinutes` | 60 | 每頁時間 (分鐘)：30、60、120、180、240；時間範圍依此切成多頁 |
+| `print.overlap` | false | 每頁前後各多畫 10 分鐘 (`PRINT_OVERLAP_MIN`)，頁與頁重疊；第一頁從範圍開始前 10 分鐘畫起 (前一天的時刻標 `-1`) |
+| `print.format` | `"pdf"` | 輸出格式：`"svg"` = 直接 SVG (文字不轉外框)、`"pdf"` = 向量文字 PDF、`"svgPath"` = 向量文字 SVG；向量文字指文字轉成外框 (`fonts/` 的 Noto Sans TC，缺字改用 Noto Sans JP) |
+| `print.align.v` / `print.align.h` | `{ side: "top", base: "frame", offset: 20 }` / `{ side: "left", base: "text", offset: 10 }` | 圖面對齊。`side`：固定哪一側的 padding (`"top"` \| `"bottom"`、`"left"` \| `"right"`)；`base`：`offset` (mm) 算到圖框 (`"frame"`) 或含文字 (`"text"`)。另一側的 padding 由頁面大小與圖框大小算出 |
 | `passingTime.solver` | `"stn"` | 還原通過時間的求解器：`"greedy"` = 貪婪解法、`"stn"` = 離散決策 + 差分約束 |
 | `passingTime.minExtraPassingWaiting` | 30 | 還原通過時間：停站秒數超過該站預設停站時間 + 此值，視為可能的待避 |
 | `passingTime.minTimeSeparation` | 60 | 最短時隔（秒）：同一站前後兩列車的最短間隔 |

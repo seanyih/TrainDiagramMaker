@@ -331,6 +331,46 @@
 <td>次要時間線標記 <code>none</code> / <code>hhmm</code> / <code>mm</code>，只在 <code>interval &gt;= 10</code> 時有效（<code>simple</code> 格式一律只標 mm）</td>
 </tr>
 <tr>
+<td><code>print.enabled</code></td>
+<td>false</td>
+<td>印刷模式 (<code>PrintLayout.js</code>)：啟用後設定頁以像素為單位的欄位 (<code>data-unit="px"</code>) 改以 mm 輸入與顯示，1 px = 25.4/ppi mm；資料仍以 px 存放</td>
+</tr>
+<tr>
+<td><code>print.ppi</code></td>
+<td>300</td>
+<td>解析度</td>
+</tr>
+<tr>
+<td><code>print.page</code></td>
+<td><code>{ width: 210, height: 297 }</code></td>
+<td>頁面大小 (mm)，不含出血</td>
+</tr>
+<tr>
+<td><code>print.bleed</code></td>
+<td><code>{ top, bottom, left, right }</code> 各 3</td>
+<td>出血 (mm)，加在頁面之外；超出出血的圖面算超出</td>
+</tr>
+<tr>
+<td><code>print.pageMinutes</code></td>
+<td>60</td>
+<td>每頁時間 (分鐘)：30、60、120、180、240；時間範圍依此切成多頁</td>
+</tr>
+<tr>
+<td><code>print.overlap</code></td>
+<td>false</td>
+<td>每頁前後各多畫 10 分鐘 (<code>PRINT_OVERLAP_MIN</code>)，頁與頁重疊；第一頁從範圍開始前 10 分鐘畫起 (前一天的時刻標 <code>-1</code>)</td>
+</tr>
+<tr>
+<td><code>print.format</code></td>
+<td><code>"pdf"</code></td>
+<td>輸出格式：<code>"svg"</code> = 直接 SVG (文字不轉外框)、<code>"pdf"</code> = 向量文字 PDF、<code>"svgPath"</code> = 向量文字 SVG；向量文字指文字轉成外框 (<code>fonts/</code> 的 Noto Sans TC，缺字改用 Noto Sans JP)</td>
+</tr>
+<tr>
+<td><code>print.align.v</code> / <code>print.align.h</code></td>
+<td><code>{ side: "top", base: "frame", offset: 20 }</code> / <code>{ side: "left", base: "text", offset: 10 }</code></td>
+<td>圖面對齊。<code>side</code>：固定哪一側的 padding (<code>"top"</code> | <code>"bottom"</code>、<code>"left"</code> | <code>"right"</code>)；<code>base</code>：<code>offset</code> (mm) 算到圖框 (<code>"frame"</code>) 或含文字 (<code>"text"</code>)。另一側的 padding 由頁面大小與圖框大小算出</td>
+</tr>
+<tr>
 <td><code>passingTime.solver</code></td>
 <td><code>"stn"</code></td>
 <td>還原通過時間的求解器：<code>"greedy"</code> = 貪婪解法、<code>"stn"</code> = 離散決策 + 差分約束</td>
