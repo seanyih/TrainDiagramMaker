@@ -65,6 +65,7 @@ TRAINS = {
 | `settings.line_type` | string | 此列車的線型：`"solid"` / `"dashed"` / `"dotted"`。可省略 / `null` = 依設定 |
 | `origin` | object | 跨線列車的始發：`{ station_name, departure }`，分岐上的站名與發車時刻，`""` 表示無。可省略 |
 | `terminal` | object | 跨線列車的終點：`{ station_name, arrival }`，分岐上的站名與到達時刻，`""` 表示無。可省略 |
+| `hidden` | boolean | `true` = [隱藏](manual-ops-timetable.html#隱藏列車)：不畫進圖中，也不參與還原通過時間。可省略（`false`）。CSV 不保存此欄 |
 | `timetable` | array | 停靠站列表，只包含有時刻的車站，依 `station_order` 由小到大排序 |
 
 `origin` / `terminal` 的站名對應路線 JSON 的 `topology.branches` 中的車站（見[線路拓樸](manual-dev-route-json.html#線路拓樸)）。分岐站在第一個停靠站以前（終點：最後一個停靠站以後）時，以距離內插出通過分岐站的時刻畫圖；這個時刻不寫進 `timetable`。

@@ -310,7 +310,8 @@ function oudEkiJikoku(train, count){
 function oudText(second){
 	const stations = ROUTE.stations;
 	const count = stations.length;
-	const trains = [1, 2].flatMap(bound => TRAINS[bound].map(train => ({ bound, train })));
+	const shown = bound => TRAINS[bound].filter(train => !train.hidden);
+	const trains = [1, 2].flatMap(bound => shown(bound).map(train => ({ bound, train })));
 
 	const dwell = stations.map(() => false);
 	trains.forEach(({ bound, train }) => train.timetable.forEach(stop => {
@@ -343,7 +344,7 @@ function oudText(second){
 	lines.push("Dia.", "DiaName=ダイヤ");
 	[["Kudari", 1], ["Nobori", 2]].forEach(([houkou, bound]) => {
 		lines.push(`${houkou}.`);
-		TRAINS[bound].forEach(train => {
+		shown(bound).forEach(train => {
 			const { train_name, train_color } = train.settings;
 			// "name 3号" -> Ressyamei, Gousuu
 			const [, name, gousuu] = train_name.match(/^(.*?)\s*(\d+)号$/) ?? [null, train_name, ""];

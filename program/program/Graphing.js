@@ -209,15 +209,17 @@ function drawDiagram(trains = TRAINS, o = $("#output")){
 	}, trainLayer) : trainLayer;
 	if(layered){
 		const order = (bound, train) => trainByDirection ? bound*100 + train.settings.train_color : train.settings.train_color;
-		[1, 2].flatMap(bound => trains[bound].map(train => ({ bound, train })))
+		[1, 2].flatMap(bound => trains[bound].filter(train => !train.hidden).map(train => ({ bound, train })))
 			.sort((a, b) => order(a.bound, a.train) - order(b.bound, b.train))
 			.forEach(({ bound, train }) => trainParent(bound, train));
 	}
 
-	// numbers are placed after all lines are drawn, so they can avoid every train line
+	// numbers are placed after all lines are drawn, so they can avoid every train line. hidden trains are not drawn
 	const trainSlots = [];
 	[1, 2].forEach(bound => {
-		trains[bound].forEach((train, i) => trainSlots.push({ train: train, id: trainId(bound, i), slots: drawTrain(trainParent(bound, train), train, bound, w, grid, trainId(bound, i)) }));
+		trains[bound].forEach((train, i) => {
+			if(!train.hidden) trainSlots.push({ train: train, id: trainId(bound, i), slots: drawTrain(trainParent(bound, train), train, bound, w, grid, trainId(bound, i)) });
+		});
 	});
 	if(SETTINGS.showTrainNumber) placeTrainNumbers(layered ? layer("trainNumbers", true) : trainLayer, trainSlots, grid);
 

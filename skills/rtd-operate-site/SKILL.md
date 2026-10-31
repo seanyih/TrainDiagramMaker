@@ -24,8 +24,8 @@ loadAllFromJSON(JSON.stringify(allData)); generateTimetable();
 
 // or separately
 applyRoute(loadRouteFromJSON(JSON.stringify(route))); generateTimetable();   // must come before trains
-applyTrains(1, loadTrainFromJSON(JSON.stringify(trains1)), false);           // false = replace, true = append
-applyTrains(2, loadTrainFromJSON(JSON.stringify(trains2)), false);
+applyTrains(1, loadTrainFromJSON(JSON.stringify(trains1), 1), false);        // false = replace, true = append
+applyTrains(2, loadTrainFromJSON(JSON.stringify(trains2), 2), false);        // the bound matches station_record to the route
 
 // an OuDia file (ArrayBuffer of .oud / .oud2), dia index 0
 applyOud(convertOud(parseOud(decodeOud(buffer)), 0)); generateTimetable();   // kilo is estimated: 1 min of run = 1 km
@@ -114,7 +114,7 @@ Left side bar (all ids are `#nav-*`; each shows `#container-*`):
 | `#nav-inex` 匯入/匯出 | `#container-inex` | Import/export of route (`#RouteInfoFile` + `#ImportRouteInfoBtn`, `.export-route-btn`), trains per bound (file inputs + import buttons, `.export-train-btn[data-bound][data-format]`), settings (`#ImportSettingBtn`), all data (`#AllFile` + `#ImportAllBtn`, `.export-all-btn`), OuDia `.oud` / `.oud2` (`#OudFile`, then pick a dia in `#OudDia`, `#ImportOudBtn`; replaces route + both bounds, sets train colors; export with `.export-oud-btn[data-format=oud|oud2]`, text from `oudText(second)`). Settings, overlay and OuDia rows are inside the collapsed `#InexMore` (「更多」). `#ImportTrainMode` = replace / append |
 | `#nav-setting` 基本設定 | `#container-setting` | Every `data-setting="path"` input maps to `SETTINGS`; sections: OuDia 樣式 (`oudiaStyle`), 線條, 車站文字, 時間文字, 列車號, 列車號避讓, 自動補全, 還原通過時間 (with 臨時停車規則) |
 | `#nav-route` 路線資料 | `#container-route` | Three stacked tables: route (`#RouteInfotbody`, 生成 = `#GenerateTimetableBtn`), 軌道配置 (`#container`'s track table), 線路拓樸 (`#Topologytbody`) |
-| `#nav-timetable-1` / `-2` 時刻表(順/逆行) | `#container-timetable-N` | Editable timetable, 車次細項 offcanvas (name, color, origin/terminal branch station) |
+| `#nav-timetable-1` / `-2` 時刻表(順/逆行) | `#container-timetable-N` | Editable timetable, 車次細項 offcanvas (hide `#offcanvas-train-visible` = `train.hidden`, name, color, origin/terminal branch station); `.hide-hidden-trains` leaves hidden trains out of the tables |
 | `#nav-output` 輸出圖片 | `#container-output` | `#OutputBtn` 輸出結果, `#DownloadSVGBtn`, preview buttons for drafts, `<svg id="output">` |
 
 Typical flow by hand: 匯入/匯出 -> import route (auto "generate") -> import trains of each bound -> 基本設定 -> 輸出圖片 -> 輸出結果 -> 下載SVG圖檔.

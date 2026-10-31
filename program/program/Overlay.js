@@ -50,6 +50,7 @@ function getOverlayJSON(from, to){
 	const trains = [];
 	[1, 2].forEach(bound => {
 		TRAINS[bound].forEach(train => {
+			if(train.hidden) return;
 			const times = trainTimesAt(train, bound);
 			const stops = Object.values(times)
 				.map(p => ({ p: p, r: (bound == 1) ? p.order : count - 1 - p.order }))

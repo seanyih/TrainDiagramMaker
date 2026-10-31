@@ -11,6 +11,7 @@ $(".timetable").on("click", ".optionbar", function(){
 	editingOptionBar = $(this);
 
 	$("#offcanvas-train-id").html(escapeHTML(editingTrain.train_number));
+	renderTrainVisible();
 	$("#offcanvas-train-name").val(editingTrain.settings.train_name);
 	$("#offcanvas-train-color").val(editingTrain.settings.train_color);
 	styleColorSelect(editingTrain.settings.train_color);
@@ -19,6 +20,27 @@ $(".timetable").on("click", ".optionbar", function(){
 	["origin", "terminal"].forEach(renderBranchEnd);
 	renderPinnedCount();
 	$("#timetable-offcanvas").offcanvas("show");
+});
+
+function renderTrainVisible(){
+	$("#offcanvas-train-visible")
+		.attr("src", editingTrain.hidden ? "icon/eye-slash.svg" : "icon/eye.svg")
+		.attr("title", editingTrain.hidden ? "已隱藏：不畫進圖中，也不參與待避時間計算" : "隱藏此列車");
+}
+
+// a hidden train is not drawn, and is left out of restoring passing times; its column is gray
+$("#offcanvas-train-visible").on("click", function(){
+	if(editingTrain.hidden) delete editingTrain.hidden;
+	else editingTrain.hidden = true;
+	renderTrainVisible();
+
+	const t = TRAINS[editingBound].indexOf(editingTrain);
+	if(hideHiddenTrains){
+		renderTimetable(editingBound);
+		editingOptionBar = $(`#timetable-optionbar-${editingBound} .optionbar[data-train="${t}"]`);
+	}else{
+		$(`#timetable-${editingBound} [data-train="${t}"]`).closest("th, td").toggleClass("hidden-train", !!editingTrain.hidden);
+	}
 });
 
 // the branch stations it may start from (end at); a chosen one that no longer may is kept, marked

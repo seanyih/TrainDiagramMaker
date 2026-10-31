@@ -71,6 +71,7 @@ function createPassingModel(trains, headway, rounding = null){
 	[1, 2].forEach(bound => {
 		const stations = boundStations(bound);
 		trains[bound].forEach(train => {
+			if(train.hidden) return; // does not run
 			const junction = junctionStops(train, bound);
 			const stops = [junction.origin, ...stopTimes(train, stations), junction.terminal].filter(Boolean)
 				.map(stop => stop.k === undefined ? stop : { order: stop.k, arr: stop.time, dep: stop.time, junction: stop });

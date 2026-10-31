@@ -47,9 +47,9 @@ function getTrainDataJSON(bound){
 	};
 }
 
-// index in the file's station_record -> index in this bound's stations (longest common subsequence of names); unmatched are absent
-function matchStationRecord(record, bound){
-	const names = boundStations(bound).map(station => station.name);
+// index in the file's station_record -> index in `stations` (longest common subsequence of names); unmatched are absent
+function matchStationRecord(record, stations){
+	const names = stations.map(station => station.name);
 	const n = record.length, m = names.length;
 	const lcs = Array.from({length: n + 1}, () => new Array(m + 1).fill(0));
 	for(let i = n - 1; i >= 0; i--){
@@ -67,11 +67,12 @@ function matchStationRecord(record, bound){
 	return map;
 }
 
-function loadTrainFromJSON(text, bound){
+// stations: of this bound, on the route the trains are imported to (the current one unless it is imported with them)
+function loadTrainFromJSON(text, bound, stations = boundStations(bound)){
 	const data = JSON.parse(text);
 	if(!ROUTE.route_name) ROUTE.route_name = data.route_name ?? "";
 	const record = Array.isArray(data.station_record) ? data.station_record.map(name => String(name).trim()) : null;
-	const stationMap = record ? matchStationRecord(record, bound) : null;
+	const stationMap = record ? matchStationRecord(record, stations) : null;
 
 	return data.timetable.map(t => {
 		const train = newTrain(t.train_number ?? "", t.settings?.train_name ?? "", parseInt(t.settings?.train_color) || 0, ...importLineStyle(t.settings));
@@ -81,6 +82,7 @@ function loadTrainFromJSON(text, bound){
 			if(order === undefined) return;
 			addStop(train, order, normalizeTime(stop.arrival ?? "") || "", normalizeTime(stop.departure ?? "") || "", stop.pinned === true);
 		});
+		if(t.hidden === true) train.hidden = true;
 		return train;
 	});
 }

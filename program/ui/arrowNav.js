@@ -78,6 +78,14 @@ $(".timetable").on("keydown", ".train-number, .time-input", function(e){
 	const field = isNumber ? "" : $(this).data("field");
 	const trainCount = TRAINS[bound].length;
 	const stationCount = boundStations(bound).length;
+	// the next train (step = ±1) with a column in the table
+	const nextTrain = step => {
+		let n = t + step;
+		while(n >= 0 && n < trainCount && !trainInTable(TRAINS[bound][n])) n += step;
+		return n;
+	};
+	const prev = nextTrain(-1);
+	const next = nextTrain(1);
 
 	let target = null;	// [t, s, field]
 	if(dir == "up"){
@@ -86,12 +94,12 @@ $(".timetable").on("keydown", ".train-number, .time-input", function(e){
 		if(isNumber) target = [t, 0, "departure"];
 		else if(s + 1 < stationCount) target = [t, s + 1, field];
 	}else if(dir == "left"){
-		if(isNumber){ if(t > 0) target = [t - 1, -1, ""]; }
+		if(isNumber){ if(prev >= 0) target = [prev, -1, ""]; }
 		else if(field == "departure") target = [t, s, "arrival"];
-		else if(t > 0) target = [t - 1, s, "departure"];
+		else if(prev >= 0) target = [prev, s, "departure"];
 	}else{
 		if(isNumber || field == "departure"){
-			if(t + 1 < trainCount) target = [t + 1, s, isNumber ? "" : "arrival"];
+			if(next < trainCount) target = [next, s, isNumber ? "" : "arrival"];
 			else target = "add";
 		}else target = [t, s, "departure"];
 	}

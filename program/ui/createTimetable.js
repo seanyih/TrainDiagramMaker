@@ -45,21 +45,36 @@ function isPassingStop(stop){
 	return !!stop && stop.arrival !== "" && stop.arrival === stop.departure;
 }
 
+// hidden trains (train.hidden) are left out of the tables
+let hideHiddenTrains = false;
+
+function trainInTable(train){
+	return !hideHiddenTrains || !train.hidden;
+}
+
+$("body").on("change", ".hide-hidden-trains", function(){
+	hideHiddenTrains = $(this).prop("checked");
+	$(".hide-hidden-trains").prop("checked", hideHiddenTrains);
+	refreshTimetable(1);
+	refreshTimetable(2);
+});
+
 function renderTimetable(bound){
 	timetableDirty[bound] = false;
 	const stations = boundStations(bound);
 	const trains = TRAINS[bound];
+	const columns = trains.map((train, t) => ({ train, t, hidden: train.hidden ? " hidden-train" : "" })).filter(({ train }) => trainInTable(train));
 
-	const buttonCells = trains.map((train, t) => `
-		<th colspan="2" class="timetable-btn-th">
+	const buttonCells = columns.map(({ t, hidden }) => `
+		<th colspan="2" class="timetable-btn-th${hidden}">
 			<div class="aic jcc full">
 				<div class="circle-button-add addtrain" style="margin-right: 15px" data-train="${t}"></div>
 				<div class="circle-button-minus ${t == 0 ? "" : "deletetrain"}" data-train="${t}"></div>
 			</div>
 		</th>`);
 
-	const numberCells = trains.map((train, t) => `
-		<th colspan="2">
+	const numberCells = columns.map(({ train, t, hidden }) => `
+		<th colspan="2" class="${hidden}">
 			<input class="in-table-text-input highlight-input-cell train-number" data-train="${t}" value="${escapeHTML(train.train_number)}" placeholder="車次">
 		</th>`);
 
@@ -70,8 +85,8 @@ function renderTimetable(bound){
 		</tr>
 		<tr>${numberCells.join("")}</tr>`);
 
-	const optionCells = trains.map((train, t) => `
-		<td colspan="2" class="optionbar" data-train="${t}" style="background-color: var(--color${train.settings.train_color})"></td>`);
+	const optionCells = columns.map(({ train, t, hidden }) => `
+		<td colspan="2" class="optionbar${hidden}" data-train="${t}" style="background-color: var(--color${train.settings.train_color})"></td>`);
 
 	$(`#timetable-optionbar-${bound}`).html(`<tr class="deco-row"><td></td>${optionCells.join("")}</tr>`);
 
@@ -84,12 +99,12 @@ function renderTimetable(bound){
 
 	const rows = stations.map((station, s) => {
 		const name = escapeHTML(station.name);
-		const cells = trains.map((train, t) => {
+		const cells = columns.map(({ t, hidden }) => {
 			const stop = stopAt[t][s];
 			const passing = (isPassingStop(stop) ? " passing-time-input" : "") + (stop?.pinned ? " pinned-time-input" : "");
 			return `
-				<td><input class="in-table-text-input time-input${passing}" data-train="${t}" data-station="${s}" data-field="arrival" value="${stop ? stop.arrival : ""}"></td>
-				<td class="td-dep"><input class="in-table-text-input time-input${passing}" data-train="${t}" data-station="${s}" data-field="departure" value="${stop ? stop.departure : ""}" placeholder="${name}發"></td>`;
+				<td class="${hidden}"><input class="in-table-text-input time-input${passing}" data-train="${t}" data-station="${s}" data-field="arrival" value="${stop ? stop.arrival : ""}"></td>
+				<td class="td-dep${hidden}"><input class="in-table-text-input time-input${passing}" data-train="${t}" data-station="${s}" data-field="departure" value="${stop ? stop.departure : ""}" placeholder="${name}發"></td>`;
 		});
 		return `
 			<tr class="timetable-station-row">

@@ -121,7 +121,7 @@
 </tr>
 <tr>
 <td><code>station_record</code></td>
-<td>該方向順序的站名列表</td>
+<td>該方向順序的站名列表。匯入時與目前車站依站名比對：相符的照常匯入，檔案多出的站略過，路線多出的站留白 (<code>station_order</code> 為此列表的 index)</td>
 </tr>
 <tr>
 <td><code>train_count</code></td>
@@ -180,6 +180,11 @@
 <td><code>terminal</code></td>
 <td>object</td>
 <td>跨線列車的終點：<code>{ station_name, arrival }</code>，分岐上的站名與到達時刻，<code>""</code> 表示無。可省略</td>
+</tr>
+<tr>
+<td><code>hidden</code></td>
+<td>boolean</td>
+<td><code>true</code> = <a href="manual-ops-timetable.html#隱藏列車">隱藏</a>：不畫進圖中，也不參與還原通過時間。可省略（<code>false</code>）。CSV 不保存此欄</td>
 </tr>
 <tr>
 <td><code>timetable</code></td>

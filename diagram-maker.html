@@ -14,7 +14,7 @@
 	Data lives only in the globals ROUTE, TRAINS[1|2], SETTINGS; tables are just views. Call JS directly with a JS-evaluating browser tool:
 	  loadAllFromJSON(jsonText); generateTimetable();                  // {route, trains:{1,2}, settings?}
 	  applyRoute(loadRouteFromJSON(t)); generateTimetable();           // route first,
-	  applyTrains(bound, loadTrainFromJSON(t), false);                 // then trains (bound 1 = route order, 2 = reversed station_order)
+	  applyTrains(bound, loadTrainFromJSON(t, bound), false);          // then trains (bound 1 = route order, 2 = reversed station_order)
 	  SETTINGS.pxPerKm = 30; initSettingsUI();                         // settings (see DATA_STRUCTURE.md section 2)
 	  $("#nav-output").click(); drawDiagram(); document.getElementById("output").outerHTML   // the SVG
 	  JSON.stringify(getAllDataJSON())                                 // export
@@ -545,6 +545,16 @@
 		}
 		.optionbar p{ /* for data storage only */
 			display: none;
+		}
+		/* a hidden train (optionsIO.js): gray, its color band too */
+		.timetable .hidden-train{
+			--bs-table-bg: #DDD;
+		}
+		.timetable .hidden-train .in-table-text-input{
+			background-color: transparent;
+		}
+		.timetable .optionbar.hidden-train{
+			background-color: #999 !important;
 		}
 
 		.timetable{
@@ -1845,6 +1855,10 @@
 				<div class="row" style="display: inline; ">
 					<h2 style="display: inline">時刻表(順行)</h2><a href="#" class="ba">匯入</a><a href="manual/manual-ops-timetable.html" target="_blank" class="ba">說明</a>
 				</div>
+				<div class="form-check form-switch" style="margin-top: 1vh;">
+					<input class="form-check-input hide-hidden-trains" type="checkbox" role="switch" id="HideHiddenTrains1">
+					<label class="form-check-label" for="HideHiddenTrains1">不顯示隱藏的列車</label>
+				</div>
 
 				<div style="overflow-x: auto; margin-top: 3vh;">
 					<table class="table table-bordered timetable" id="timetable-1" data-bound="1">
@@ -1861,6 +1875,10 @@
 			<div class="container" id="container-timetable-2" style="display:none">
 				<div class="row" style="display: inline; ">
 					<h2 style="display: inline">時刻表(逆行)</h2><a href="#" class="ba">匯入</a><a href="manual/manual-ops-timetable.html" target="_blank" class="ba">說明</a>
+				</div>
+				<div class="form-check form-switch" style="margin-top: 1vh;">
+					<input class="form-check-input hide-hidden-trains" type="checkbox" role="switch" id="HideHiddenTrains2">
+					<label class="form-check-label" for="HideHiddenTrains2">不顯示隱藏的列車</label>
 				</div>
 
 				<div style="overflow-x: auto; margin-top: 3vh;">
@@ -2128,8 +2146,9 @@
 			<button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
 		</div>
 		<div class="offcanvas-body">
-			<div>
+			<div class="d-flex justify-content-between align-items-center">
 				<p style="font-weight: bold; font-size: 125%;">車次 <span id="offcanvas-train-id" style="font-size: 160%;">123</span></p>
+				<img id="offcanvas-train-visible" src="icon/eye.svg" width="20" height="20" style="cursor: pointer; margin-bottom: 1rem;">
 			</div>
 			<div style="margin-top: 3vh">
 				<p>列車名<input class="form-control" id="offcanvas-train-name" style="text-align: left"></p>

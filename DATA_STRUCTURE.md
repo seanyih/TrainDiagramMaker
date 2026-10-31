@@ -257,6 +257,7 @@ train = {
 	},
 	origin: { station_name: "", departure: "" },   // a branch station it comes from (5.4), "" = none
 	terminal: { station_name: "", arrival: "" },   // a branch station it goes to
+	hidden: true,               // optional: not running (5.6)
 	timetable: [                // only stations the train stops at / passes, sorted by station_order
 		{ station_order: 0, station_name: "西戸崎", arrival: "0528", departure: "0529" },
 		{ station_order: 1, station_name: "海ノ中道", arrival: "053215", departure: "053215", pinned: true },   // pinned: optional
@@ -271,9 +272,10 @@ train = {
 | `station_name` | 冗餘欄位，方便閱讀 JSON。由 `refreshStopNames()` 依路線自動更新 (車站改名/增刪/匯入時) |
 | `arrival` / `departure` | 見第 3 節。兩者皆空的停靠站會被移除；只有發車時刻的停靠站，到站時刻保持空白 (代表不知道)，畫圖、計算時才以 `arrivalTime()` 算出 (= 發車 − 該站 `stopsec`)，不寫回資料 |
 | `origin` / `terminal` | 跨線列車 (5.4)：分岐上的站名 (`ROUTE.topology.branches` 的車站) 與發車 / 到達時刻，`""` = 無。匯入時缺少則為空白，時刻經 `normalizeTime()`，不合法則為空白 |
+| `hidden` | 選填，`true` = 隱藏 (5.6)。只有 `true` 時才存在；JSON 匯入匯出保留，CSV 不保存 |
 | `pinned` | 停靠站的選填欄位，`true` = 釘選 (疊圖 5.5 疊加的時刻)：還原通過時間 (7.3) 不移動、不改寫。只有 `true` 時才存在 (`addStop(..., pinned)`)；JSON 匯入匯出保留，CSV 不保存。車次細項的「解除釘選」(`unpinTrain()`) 刪除整班車的此欄。時刻表中以 `.pinned-time-input` (底線) 標示 |
 
-繪圖只使用有 `departure` 的停靠站 (加上 5.4 的分岐站停靠點)。
+繪圖只使用有 `departure` 的停靠站 (加上 5.4 的分岐站停靠點)，並略過隱藏的列車 (5.6)。
 
 ### 5.1 列車 JSON
 
@@ -290,7 +292,7 @@ train = {
 
 - `timetable` 陣列與內部 `TRAINS[bound]` 結構、欄位名稱完全相同。
 - 外層的 `route_name`, `bound`, `station_count`, `train_count` 只在匯出時由 `ROUTE` / `TRAINS` 產生，**匯入時忽略** (方向由按下的匯入按鈕決定)。
-- 若有 `station_record`，匯入時會與目前該方向的車站名稱比對 (最長共同子序列)：站名相符的照常匯入，檔案多出的站其時刻略過，路線多出的站留白；`station_order` 是 `station_record` 的 index。站序對調不處理 (只會保留其中一邊)。沒有 `station_record` 時，`station_order` 直接當作該方向的 index。
+- 若有 `station_record`，匯入時會與目前該方向的車站名稱比對 (`loadTrainFromJSON(text, bound, stations)`；全部資料 JSON 則與同檔案中的路線比對) (最長共同子序列)：站名相符的照常匯入，檔案多出的站其時刻略過，路線多出的站留白；`station_order` 是 `station_record` 的 index。站序對調不處理 (只會保留其中一邊)。沒有 `station_record` 時，`station_order` 直接當作該方向的 index。
 - 此格式與 `crawler/crawler_routetime.py` 產生的檔案相同。
 
 ### 5.2 列車 CSV
@@ -377,6 +379,14 @@ train = {
 5. 疊圖中位在對應區段前 (後) 的車站若是本路線分岐上的車站，且列車沒有 `origin` (`terminal`)，填入該站與其發車 (到達) 時刻。
 6. 回傳 `{ merged, added, skipped, stations: [本路線沒有的站名] }`。同一檔案再疊加一次不會改變資料。
 
+### 5.6 隱藏的列車 (`hidden`)
+
+代表這班車暫時不行駛：
+
+- 車次細項 (`optionsIO.js`) 車次右側的眼睛 (`#offcanvas-train-visible`，`icon/eye.svg` / `icon/eye-slash.svg`) 切換。時刻表中整班車灰底 (`.hidden-train`)，色條變灰 (不改 `train_color`)。
+- 時刻表上方的「不顯示隱藏的列車」(`.hide-hidden-trains`，兩個方向共用，不存進設定)：開啟時隱藏的列車不放進表格 (`trainInTable()`)，方向鍵跳過它們；`data-train` 仍是 `TRAINS` 的 index。
+- 略過隱藏列車的：繪圖 (`drawDiagram()`，含印刷；`train-{bound}-{index}` 的 index 不變)、還原通過時間的模型 (`createPassingModel()`，不改寫它們)、疊圖匯出、OuDia 匯出。自動補全、臨時停車規則、JSON / CSV 匯出照常包含。
+
 ## 6. 設定 JSON 與全部資料 JSON
 
 ### 6.1 設定 JSON
@@ -403,7 +413,7 @@ train = {
 }
 ```
 
-- 每一部分的格式與單獨匯出時相同，匯入 (`loadAllFromJSON()`) 時拆開後交給 `loadSettingsFromJSON()` / `loadRouteFromJSON()` / `loadTrainFromJSON()`。
+- 每一部分的格式與單獨匯出時相同，匯入 (`loadAllFromJSON()`) 時拆開後交給 `loadSettingsFromJSON()` / `loadRouteFromJSON()` / `loadTrainFromJSON()` (`station_record` 與檔案中的路線比對；沒有 `route` 時與目前的路線比對)。
 - 順序：設定 → 路線 → 列車 (路線缺少 `stopsec` 時使用匯入後的 `defaultStopSec`)。
 - 缺少 `settings` → 全部使用預設；缺少 `route` 或某個方向的 `trains` → 保留目前資料。
 - 列車一律取代 (不看「匯入列車資料時」選單)。
@@ -542,14 +552,14 @@ draft = { trains: { 1: [...], 2: [...] }, fingerprint: "..." }   // trains: stru
 | `program/handler/TopologyHandler.js` | `loadTopology()` (路線 JSON 匯入時讀取 `topology`) |
 | `program/program/TrackLayout.js` | `TRACK_TYPES`, `TRACK_TRANSITIONS`, `TRACK_PRESETS`, `parseTrack()`, `makeTrack()`, `trackTransition()`, `applyTrackPreset()`, `minRunSec()` |
 | `program/handler/TrackLayoutHandler.js` | `loadTrackLayout()` (路線 JSON 匯入時讀取 `track_layout`) |
-| `program/ui/createTimetable.js` | `renderTimetable(bound)`, `checkkilo()`, `generateTimetable()` |
+| `program/ui/createTimetable.js` | `renderTimetable(bound)`, `checkkilo()`, `generateTimetable()`, `hideHiddenTrains`, `trainInTable()` |
 | `program/ui/addTrainInput.js` | 時刻表事件 (新增/刪除列車、車次、時刻輸入) |
-| `program/ui/optionsIO.js` | 列車細項 (列車名、顏色、始發、終點) offcanvas：`renderBranchEnd()` |
+| `program/ui/optionsIO.js` | 列車細項 (隱藏、列車名、顏色、始發、終點) offcanvas：`renderTrainVisible()`, `renderBranchEnd()` |
 | `program/program/BranchTrain.js` | 跨線列車：`branchStations()`, `branchChoices()`, `junctionRange()`, `junctionStops()`, `passingJunctions()`, `trainStops()` |
 | `program/program/Overlay.js` | 疊圖：`trainTimesAt()`, `overlayTime()`, `getOverlayJSON()`, `applyOverlay()`, `findOverlayTrain()`, `unpinTrain()` |
 | `program/handler/OverlayHandler.js` | 疊圖 UI：`renderOverlayStations()`, 匯出 / 疊加按鈕, 車次細項的 `renderPinnedCount()` / 解除釘選 |
 | `program/handler/RouteInfoHandler.js` | 路線匯入/匯出：`applyRoute()`, `getRouteDataCSV()`, `loadRouteFromCSV()`, `loadRouteFromJSON()` |
-| `program/handler/TimetableHandler.js` | 列車匯入/匯出：`applyTrains()`, `getTrainDataJSON()`, `loadTrainFromJSON()`, `getTrainDataCSV()`, `loadTrainFromCSV()` |
+| `program/handler/TimetableHandler.js` | 列車匯入/匯出：`applyTrains()`, `getTrainDataJSON()`, `loadTrainFromJSON()`, `matchStationRecord()`, `getTrainDataCSV()`, `loadTrainFromCSV()` |
 | `program/handler/SettingHandler.js` | 設定匯入/匯出：`loadSettingsFromJSON()`, `mergeSettings()`, `applySettings()` |
 | `program/handler/AllDataHandler.js` | 全部資料匯入/匯出：`getAllDataJSON()`, `loadAllFromJSON()` |
 | `program/setting/OutputSetting.js` | `initSettingsUI()`, `updateSettingsUI()`, `renderTimeLabelPreview()`, `checkTextFit()` |

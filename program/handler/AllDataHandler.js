@@ -43,7 +43,8 @@ function loadAllFromJSON(text){
 	let route, trains;
 	try{
 		route = data.route ? loadRouteFromJSON(part(data.route)) : null;
-		trains = [1, 2].map(bound => data.trains?.[bound] ? loadTrainFromJSON(part(data.trains[bound])) : null);
+		const stations = (route ?? ROUTE).stations;
+		trains = [1, 2].map(bound => data.trains?.[bound] ? loadTrainFromJSON(part(data.trains[bound]), bound, (bound == 1) ? stations : stations.slice().reverse()) : null);
 	}catch(e){
 		applySettings(previous);
 		throw e;

@@ -101,6 +101,7 @@ Index into **that bound's** station list.
 - `train_number`: string, may be empty.
 - `settings.train_name`: string, e.g. `"普通"`, `"快速"`.
 - `settings.train_color`: integer 0-10, index into the site's 11-color palette (0 and 1 share a color). Pick one color per train type; ask the user if they care.
+- `hidden`: optional, `true` = the train does not run for now (not drawn, left out of restoring passing times). Omit it unless the user asks.
 
 ### Cross-line (through-running) trains
 A train that comes from, or continues onto, a branch line which is **not** a station of this route:
