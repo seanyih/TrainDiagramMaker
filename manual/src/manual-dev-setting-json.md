@@ -190,6 +190,31 @@
 }
 ```
 
+有多個運行型態 (或唯一的運行型態有標題、描述、運行日) 時，多一個 `opmodes`，`trains` 則是所有運行型態中不重複的列車 (完全相同的只存一次)：
+
+```json
+{
+    "route": { "...": "路線 JSON" },
+    "trains": {
+        "1": { "...": "列車 JSON，timetable 為不重複的順行列車" },
+        "2": { "...": "列車 JSON，逆行" }
+    },
+    "opmodes": [
+        { "title": "", "description": "", "days": ["mon", "tue", "wed", "thu", "fri"], "trains": { "1": [0, 1, 2], "2": [0, 1] } },
+        { "title": "假日", "description": "寒暑假另有加開", "days": ["sat", "sun", "hol"], "trains": { "1": [0, 3], "2": [1, 2] } }
+    ],
+    "settings": { "...": "設定 JSON" }
+}
+```
+
+| 欄位 | 型別 | 說明 |
+|---|---|---|
+| `opmodes[].title` | string | 標題，`""` = 依運行日命名 |
+| `opmodes[].description` | string | 描述 (備註) |
+| `opmodes[].days` | array | 運行日：`"mon"` ~ `"sun"`、`"hol"` (假日)。只用來命名，可為空陣列 |
+| `opmodes[].trains` | object | 每個方向的列車，為 `trains[bound].timetable` 的 index，依時刻表的順序。同一個 index 可以出現在多個運行型態 |
+
+* 沒有 `opmodes` 的檔案就是一個運行型態。
 * 每一部分的格式與單獨匯出時相同，見[路線資料檔案格式(json)](manual-dev-route-json.html)、[時刻表資料檔案格式(json)](manual-dev-timetable-json.html)。匯入時（`loadAllFromJSON()`）拆開後交給各自的讀取函式。
 * 套用順序：設定 → 路線 → 列車（路線缺少 `stopsec` 時使用匯入後的 `defaultStopSec`）。
 * 缺少 `settings` → 設定全部使用預設；缺少 `route` 或某個方向的 `trains` → 保留目前資料。
@@ -202,7 +227,7 @@
 |---|---|
 | `program/program/globalvar.js` | `SETTINGS`、`DEFAULT_SETTINGS` |
 | `program/handler/SettingHandler.js` | `loadSettingsFromJSON()`、`mergeSettings()`、`applySettings()` |
-| `program/handler/AllDataHandler.js` | `getAllDataJSON()`、`loadAllFromJSON()` |
+| `program/handler/AllDataHandler.js` | `getAllDataJSON(all)`、`loadAllFromJSON(text, only)`、`loadOpmodes()` |
 | `program/setting/OutputSetting.js` | `initSettingsUI()`、`checkTextFit()`、設定頁輸入框的讀寫 |
 
 ## SVG 的 id

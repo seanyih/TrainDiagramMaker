@@ -35,15 +35,25 @@ function applyTrains(bound, trains, append){
 	refreshTimetable(bound);
 }
 
-function getTrainDataJSON(bound){
+// replaces every operation mode (DataStore.js); the first one becomes the current one
+function applyOpmodes(modes){
+	setOpmodes(modes);
+	refreshStopNames();
+	refreshTimetable(1);
+	refreshTimetable(2);
+	renderOpmodeSelects();
+}
+
+// trains: the current mode's by default
+function getTrainDataJSON(bound, trains = TRAINS[bound]){
 	const stations = boundStations(bound);
 	return {
 		route_name: ROUTE.route_name,
 		bound: bound,
 		station_count: stations.length,
 		station_record: stations.map(station => station.name),
-		train_count: TRAINS[bound].length,
-		timetable: TRAINS[bound]
+		train_count: trains.length,
+		timetable: trains
 	};
 }
 

@@ -94,6 +94,7 @@ const SETTINGS = {
 		pageMinutes: 60,                                 // 30 | 60 | 120 | 180 | 240
 		overlap: false,                                  // each page also draws 10 min before and after its range
 		format: "pdf",                                   // "svg" | "pdf" | "svgPath": text kept as text | PDF, text as outlines | SVG, text as outlines
+		allOpmodes: true,                                // every operation mode, a folder each; false = the current one
 		// the plot's position: distance from the page edge on `side`, to the plot frame ("frame") or to the outermost text ("text")
 		align: {
 			v: { side: "top", base: "frame", offset: 20 },   // side: "top" | "bottom"

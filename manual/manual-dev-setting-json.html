@@ -531,7 +531,53 @@
     &quot;settings&quot;: { &quot;...&quot;: &quot;設定 JSON&quot; }
 }
 </code></pre>
+<p>有多個運行型態 (或唯一的運行型態有標題、描述、運行日) 時，多一個 <code>opmodes</code>，<code>trains</code> 則是所有運行型態中不重複的列車 (完全相同的只存一次)：</p>
+<pre><code class="language-json">{
+    &quot;route&quot;: { &quot;...&quot;: &quot;路線 JSON&quot; },
+    &quot;trains&quot;: {
+        &quot;1&quot;: { &quot;...&quot;: &quot;列車 JSON，timetable 為不重複的順行列車&quot; },
+        &quot;2&quot;: { &quot;...&quot;: &quot;列車 JSON，逆行&quot; }
+    },
+    &quot;opmodes&quot;: [
+        { &quot;title&quot;: &quot;&quot;, &quot;description&quot;: &quot;&quot;, &quot;days&quot;: [&quot;mon&quot;, &quot;tue&quot;, &quot;wed&quot;, &quot;thu&quot;, &quot;fri&quot;], &quot;trains&quot;: { &quot;1&quot;: [0, 1, 2], &quot;2&quot;: [0, 1] } },
+        { &quot;title&quot;: &quot;假日&quot;, &quot;description&quot;: &quot;寒暑假另有加開&quot;, &quot;days&quot;: [&quot;sat&quot;, &quot;sun&quot;, &quot;hol&quot;], &quot;trains&quot;: { &quot;1&quot;: [0, 3], &quot;2&quot;: [1, 2] } }
+    ],
+    &quot;settings&quot;: { &quot;...&quot;: &quot;設定 JSON&quot; }
+}
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>欄位</th>
+<th>型別</th>
+<th>說明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>opmodes[].title</code></td>
+<td>string</td>
+<td>標題，<code>""</code> = 依運行日命名</td>
+</tr>
+<tr>
+<td><code>opmodes[].description</code></td>
+<td>string</td>
+<td>描述 (備註)</td>
+</tr>
+<tr>
+<td><code>opmodes[].days</code></td>
+<td>array</td>
+<td>運行日：<code>"mon"</code> ~ <code>"sun"</code>、<code>"hol"</code> (假日)。只用來命名，可為空陣列</td>
+</tr>
+<tr>
+<td><code>opmodes[].trains</code></td>
+<td>object</td>
+<td>每個方向的列車，為 <code>trains[bound].timetable</code> 的 index，依時刻表的順序。同一個 index 可以出現在多個運行型態</td>
+</tr>
+</tbody>
+</table>
 <ul>
+<li>沒有 <code>opmodes</code> 的檔案就是一個運行型態。</li>
 <li>每一部分的格式與單獨匯出時相同，見<a href="manual-dev-route-json.html">路線資料檔案格式(json)</a>、<a href="manual-dev-timetable-json.html">時刻表資料檔案格式(json)</a>。匯入時（<code>loadAllFromJSON()</code>）拆開後交給各自的讀取函式。</li>
 <li>套用順序：設定 → 路線 → 列車（路線缺少 <code>stopsec</code> 時使用匯入後的 <code>defaultStopSec</code>）。</li>
 <li>缺少 <code>settings</code> → 設定全部使用預設；缺少 <code>route</code> 或某個方向的 <code>trains</code> → 保留目前資料。</li>
@@ -557,7 +603,7 @@
 </tr>
 <tr>
 <td><code>program/handler/AllDataHandler.js</code></td>
-<td><code>getAllDataJSON()</code>、<code>loadAllFromJSON()</code></td>
+<td><code>getAllDataJSON(all)</code>、<code>loadAllFromJSON(text, only)</code>、<code>loadOpmodes()</code></td>
 </tr>
 <tr>
 <td><code>program/setting/OutputSetting.js</code></td>

@@ -19,6 +19,7 @@ $(".timetable").on("click", ".optionbar", function(){
 	$("#offcanvas-line-type").val(editingTrain.settings.line_type ?? "");
 	["origin", "terminal"].forEach(renderBranchEnd);
 	renderPinnedCount();
+	renderTrainOpmodes();
 	$("#timetable-offcanvas").offcanvas("show");
 });
 
@@ -33,6 +34,7 @@ $("#offcanvas-train-visible").on("click", function(){
 	if(editingTrain.hidden) delete editingTrain.hidden;
 	else editingTrain.hidden = true;
 	renderTrainVisible();
+	renderTrainOpmodes();
 
 	const t = TRAINS[editingBound].indexOf(editingTrain);
 	if(hideHiddenTrains){

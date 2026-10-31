@@ -18,7 +18,9 @@
 	  SETTINGS.pxPerKm = 30; initSettingsUI();                         // settings (see DATA_STRUCTURE.md section 2)
 	  $("#nav-output").click(); drawDiagram(); document.getElementById("output").outerHTML   // the SVG
 	  JSON.stringify(getAllDataJSON())                                 // export
-	  applyOud(convertOud(parseOud(decodeOud(arrayBuffer)), 0)); generateTimetable();   // OuDia .oud/.oud2, dia 0; oudText(true) = .oud2 text
+	  applyOud(convertOud(parseOud(decodeOud(arrayBuffer)), 0)); generateTimetable();   // OuDia .oud/.oud2, dia 0 (or [0, 1, ...]); oudText(true) = .oud2 text
+	Operation modes (weekday / holiday...): OPMODES[i] = { title, description, days, trains: {1, 2} }; TRAINS is the current one's. switchOpmode(i) to change.
+	  loadAllFromJSON(jsonText, i) loads only mode i of a file with "opmodes"; getAllDataJSON(false) = the current mode only.
 	After editing TRAINS call refreshTimetable(bound); use insertStation()/deleteStation() for stations.
 	Times are "hhmm" or "hhmmss" strings, "" = none. Do not guess missing data: ask the user.
 	Side bar: #nav-inex import/export, #nav-setting, #nav-route (route + track layout + topology), #nav-timetable-1/2, #nav-output.
@@ -835,11 +837,23 @@
 							<input type="text" class="form-control" placeholder="匯出使用的檔名" id="ExportAllFilename">
 							<button class="btn btn-outline-primary export-all-btn" type="button">匯出全部</button>
 						</div>
+						<div class="input-group mb-3">
+							<span class="input-group-text">運行型態</span>
+							<select class="form-select" id="ExportAllOpmodes">
+								<option value="all" selected>所有運行型態</option>
+								<option value="current">目前的運行型態</option>
+							</select>
+							<button class="btn btn-outline-secondary" type="button" data-bs-toggle="modal" data-bs-target="#OpmodeModal">編輯運行型態</button>
+						</div>
 					</div>
 					<div class="col-5">
 						<div class="input-group mb-3">
 							<input type="file" class="form-control" id="AllFile" accept=".json">
 							<button class="btn btn-outline-primary" type="button" id="ImportAllBtn">匯入全部</button>
+						</div>
+						<div class="input-group mb-3" id="AllOpmodeGroup" style="display: none;">
+							<span class="input-group-text">運行型態</span>
+							<select class="form-select" id="AllOpmode"><!-- AllDataHandler.js --></select>
 						</div>
 					</div>
 				</div>
@@ -1566,6 +1580,14 @@
 						</div>
 
 						<div class="row g-3 align-items-center">
+							<div class="col-auto form-check" style="margin-left: 0.75rem;">
+								<input type="checkbox" class="form-check-input" id="print-all-opmodes" data-setting="print.allOpmodes">
+								<label class="form-check-label" for="print-all-opmodes">輸出所有運行型態</label>
+							</div>
+							<div class="col-auto"><small class="text-muted">有多個運行型態時，每個運行型態放在 zip 中的一個資料夾</small></div>
+						</div>
+
+						<div class="row g-3 align-items-center">
 							<div class="col-auto"><label class="col-form-label">輸出格式</label></div>
 							<div class="col-auto">
 								<select class="form-select" data-setting="print.format">
@@ -1855,6 +1877,11 @@
 				<div class="row" style="display: inline; ">
 					<h2 style="display: inline">時刻表(順行)</h2><a href="#" class="ba">匯入</a><a href="manual/manual-ops-timetable.html" target="_blank" class="ba">說明</a>
 				</div>
+				<div class="input-group" style="width: auto; margin-top: 1vh;">
+					<span class="input-group-text">運行型態</span>
+					<select class="form-select opmode-select" style="max-width: 20rem;"></select>
+					<button class="btn btn-outline-secondary" type="button" data-bs-toggle="modal" data-bs-target="#OpmodeModal">編輯</button>
+				</div>
 				<div class="form-check form-switch" style="margin-top: 1vh;">
 					<input class="form-check-input hide-hidden-trains" type="checkbox" role="switch" id="HideHiddenTrains1">
 					<label class="form-check-label" for="HideHiddenTrains1">不顯示隱藏的列車</label>
@@ -1876,6 +1903,11 @@
 				<div class="row" style="display: inline; ">
 					<h2 style="display: inline">時刻表(逆行)</h2><a href="#" class="ba">匯入</a><a href="manual/manual-ops-timetable.html" target="_blank" class="ba">說明</a>
 				</div>
+				<div class="input-group" style="width: auto; margin-top: 1vh;">
+					<span class="input-group-text">運行型態</span>
+					<select class="form-select opmode-select" style="max-width: 20rem;"></select>
+					<button class="btn btn-outline-secondary" type="button" data-bs-toggle="modal" data-bs-target="#OpmodeModal">編輯</button>
+				</div>
 				<div class="form-check form-switch" style="margin-top: 1vh;">
 					<input class="form-check-input hide-hidden-trains" type="checkbox" role="switch" id="HideHiddenTrains2">
 					<label class="form-check-label" for="HideHiddenTrains2">不顯示隱藏的列車</label>
@@ -1892,6 +1924,11 @@
 
 			<!-- win5: output -->
 			<div class="container" id="container-output" style="display:none">
+				<div class="input-group" style="width: auto; margin-bottom: 10px;">
+					<span class="input-group-text">運行型態</span>
+					<select class="form-select opmode-select" style="max-width: 20rem;"></select>
+					<button class="btn btn-outline-secondary" type="button" data-bs-toggle="modal" data-bs-target="#OpmodeModal">編輯</button>
+				</div>
 				<div class="row">
 						<button type="button" class="btn btn-success" id="OutputBtn" style="margin-bottom: 10px;">輸出結果</button>
 						<button type="button" class="btn btn-primary" id="DownloadSVGBtn">下載SVG圖檔</button>
@@ -2194,9 +2231,41 @@
 					<input class="form-control offcanvas-branch-time" id="offcanvas-terminal-time" data-end="terminal">
 				</div>
 			</div>
+			<div style="margin-top: 3vh" id="offcanvas-opmodes-box">
+				<p class="mb-1">運行型態</p>
+				<div id="offcanvas-opmodes"><!-- opmodeInput.js --></div>
+				<small class="text-muted">勾選：複製這班車到該運行型態；取消勾選：從該運行型態刪除。</small>
+			</div>
 			<div style="margin-top: 3vh" id="offcanvas-pinned">
 				<p class="mb-1">釘選的時刻 <span id="offcanvas-pinned-count">0</span> 個</p>
 				<button class="btn btn-outline-secondary btn-sm" type="button" id="offcanvas-unpin">解除釘選</button>
+			</div>
+		</div>
+	</div>
+
+	<!-- operation modes (opmodeInput.js) -->
+	<div class="modal fade" id="OpmodeModal" tabindex="-1" aria-labelledby="OpmodeModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="OpmodeModalLabel">運行型態</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<p>一份檔案可以有多個運行型態 (例如平日、假日)，各有自己的時刻表，路線與設定共用。標題留白時，以運行日命名。</p>
+					<div class="table-responsive">
+						<table class="table align-middle" style="min-width: 900px;">
+							<colgroup><col style="width: 40px"><col style="width: 180px"><col style="width: 260px"><col><col style="width: 90px"><col style="width: 100px"></colgroup>
+							<thead><tr><th></th><th>標題</th><th>運行日</th><th>描述 (備註)</th><th>列車數</th><th></th></tr></thead>
+							<tbody id="OpmodeTableBody"><!-- renderOpmodeTable() --></tbody>
+						</table>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-outline-primary opmode-add-btn" data-copy="false">新增空白運行型態</button>
+					<button type="button" class="btn btn-outline-primary opmode-add-btn" data-copy="true">複製目前的運行型態</button>
+					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">關閉</button>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -2247,6 +2316,7 @@
 	<script src="program/ui/swapWindow.js"></script>
 	<script src="program/ui/createTimetable.js"></script>
 	<script src="program/ui/optionsIO.js"></script>
+	<script src="program/ui/opmodeInput.js"></script>
 	<script src="program/ui/toast.js"></script>
 	<script src="program/ui/passingTimeInput.js"></script>
 	<script src="program/ui/printInput.js"></script>
@@ -2288,6 +2358,7 @@
 		renderOverlayStations();
 		renderTimetable(1);
 		renderTimetable(2);
+		renderOpmodeSelects();
 		initSettingsUI();
 	</script>
 </body>

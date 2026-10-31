@@ -12,7 +12,7 @@
                              └─> 匯出 (CSV/JSON)
 ```
 
-- 路線與列車資料**只存在** `program/data/DataStore.js` 的 `ROUTE` 和 `TRAINS`。
+- 路線與列車資料**只存在** `program/data/DataStore.js` 的 `ROUTE` 和 `TRAINS`。`TRAINS` 是目前運行型態的列車；其他運行型態的列車在 `OPMODES` (5.7)。
 - 表格由資料重新渲染；使用者在表格上的每個修改 (`change` 事件) 立即寫回 `ROUTE` / `TRAINS`。
 - 繪圖、匯出都只讀寫 `ROUTE` / `TRAINS`，不讀 DOM；待避時間計算 (第 7 節) 先寫在副本，採用後才取代 `TRAINS`。
 - 新增/刪除車站時，`insertStation()` / `deleteStation()` 會同步平移所有列車停靠站的 `station_order`，並同步增刪 `ROUTE.track_layout` 與 `ROUTE.topology`，因此列車資料、軌道配置與線路拓樸永遠與路線一致。
@@ -72,6 +72,7 @@ checkbox → boolean，`type="number"` 與數字選項的 select → number (空
 | `print.bleed` | `{ top, bottom, left, right }` 各 3 | 出血 (mm)，加在頁面之外；超出出血的圖面算超出 |
 | `print.pageMinutes` | 60 | 每頁時間 (分鐘)：30、60、120、180、240；時間範圍依此切成多頁 |
 | `print.overlap` | false | 每頁前後各多畫 10 分鐘 (`PRINT_OVERLAP_MIN`)，頁與頁重疊；第一頁從範圍開始前 10 分鐘畫起 (前一天的時刻標 `-1`) |
+| `print.allOpmodes` | true | 有多個運行型態 (5.7) 時，輸出每一個運行型態，各放在 zip 中的一個資料夾 (`01_週一/`，名稱為 `opmodeName()`，`\/:*?"<>|` 換成 `_`)；`false` = 只輸出目前的運行型態 |
 | `print.format` | `"pdf"` | 輸出格式：`"svg"` = 直接 SVG (文字不轉外框)、`"pdf"` = 向量文字 PDF、`"svgPath"` = 向量文字 SVG；向量文字指文字轉成外框 (`fonts/` 的 Noto Sans TC，缺字改用 Noto Sans JP) |
 | `print.align.v` / `print.align.h` | `{ side: "top", base: "frame", offset: 20 }` / `{ side: "left", base: "text", offset: 10 }` | 圖面對齊。`side`：固定哪一側的 padding (`"top"` \| `"bottom"`、`"left"` \| `"right"`)；`base`：`offset` (mm) 算到圖框 (`"frame"`) 或含文字 (`"text"`)。另一側的 padding 由頁面大小與圖框大小算出 |
 | `passingTime.solver` | `"stn"` | 還原通過時間的求解器：`"greedy"` = 貪婪解法 (`restorePassingTimes()`，`PassingTime.js`)、`"stn"` = 離散決策 + 差分約束 (`restorePassingTimesSTN()`，`PassingTimeSTN.js`)。其他參數兩者共用 |
@@ -242,7 +243,7 @@ ROUTE = {
 ## 5. 列車資料 `TRAINS`
 
 ```js
-TRAINS = {
+TRAINS = {                      // the current operation mode's (5.7)
 	1: [ train, train, ... ],   // 順行
 	2: [ train, train, ... ]    // 逆行
 }
@@ -290,7 +291,7 @@ train = {
 }
 ```
 
-- `timetable` 陣列與內部 `TRAINS[bound]` 結構、欄位名稱完全相同。
+- `timetable` 陣列與內部 `TRAINS[bound]` 結構、欄位名稱完全相同。匯出、匯入的都是目前的運行型態 (5.7)。
 - 外層的 `route_name`, `bound`, `station_count`, `train_count` 只在匯出時由 `ROUTE` / `TRAINS` 產生，**匯入時忽略** (方向由按下的匯入按鈕決定)。
 - 若有 `station_record`，匯入時會與目前該方向的車站名稱比對 (`loadTrainFromJSON(text, bound, stations)`；全部資料 JSON 則與同檔案中的路線比對) (最長共同子序列)：站名相符的照常匯入，檔案多出的站其時刻略過，路線多出的站留白；`station_order` 是 `station_record` 的 index。站序對調不處理 (只會保留其中一邊)。沒有 `station_record` 時，`station_order` 直接當作該方向的 index。
 - 此格式與 `crawler/crawler_routetime.py` 產生的檔案相同。
@@ -387,6 +388,39 @@ train = {
 - 時刻表上方的「不顯示隱藏的列車」(`.hide-hidden-trains`，兩個方向共用，不存進設定)：開啟時隱藏的列車不放進表格 (`trainInTable()`)，方向鍵跳過它們；`data-train` 仍是 `TRAINS` 的 index。
 - 略過隱藏列車的：繪圖 (`drawDiagram()`，含印刷；`train-{bound}-{index}` 的 index 不變)、還原通過時間的模型 (`createPassingModel()`，不改寫它們)、疊圖匯出、OuDia 匯出。自動補全、臨時停車規則、JSON / CSV 匯出照常包含。
 
+### 5.7 運行型態 (`OPMODES`)
+
+一份檔案 (一次改點) 可以有多個運行型態 (OuDia 的ダイヤ)，例如平日、假日，各有自己的列車；路線與設定共用。
+
+```js
+OPMODES = [
+	{ title: "", description: "", days: ["tue", "wed", "thu"], trains: { 1: [...], 2: [...] } },
+	...
+]
+currentOpmode = 1               // OPMODES[currentOpmode].trains === TRAINS
+```
+
+| 欄位 | 說明 |
+|---|---|
+| `title` | 標題，`""` = 以 `days` 命名 |
+| `description` | 描述 (備註) |
+| `days` | 運行日的 token，依 `OPMODE_DAYS` 的順序：`mon` ~ `sun`、`hol` (假日)。只用來命名，存 token 而不存文字，換 UI 語言時名稱跟著換 |
+| `trains` | 同 `TRAINS`。目前的運行型態就是 `TRAINS` 這個物件本身 |
+
+- 列車物件**不在運行型態之間共用** (複製、匯入都會 `structuredClone`)：每個運行型態的待避時間計算結果可以不同，改一個運行型態不影響其他的。
+- 所有讀寫 `TRAINS` 的功能 (表格、繪圖、匯入匯出單一方向、待避時間計算、疊圖) 只處理目前的運行型態，所以還原通過時間不會看到其他運行型態的列車。副本的指紋含 `TRAINS`，切換運行型態後副本失效，切回來又有效。
+- 車站增刪與改名 (`shiftStops()`、`deleteStation()`、`refreshStopNames()`) 改所有運行型態的列車 (`allTrains(bound)`)。
+- 操作 (`DataStore.js`)：`selectOpmode(i)` (把 `TRAINS` 換成第 i 個)、`setOpmodes(modes)` (全部取代，第一個成為目前的)、`addOpmode(copy)` (空白 = 每方向一班空白列車，或複製目前的，加在最後)、`deleteOpmode(i)`。匯入一律經過 `applyOpmodes(modes)` (`TimetableHandler.js`，同時更新表格與選單)。
+- 名稱 `opmodeName(mode, i)` (`opmodeInput.js`) = `title`，或 `opmodeDaysName(days)`：七天 `每日`、一~五 `平日`、六日 + 假日 `假日`，其餘連續三天以上寫成 `週二至四`、否則 `週一、三`，有假日時加上 `、假日`；都沒有時為 `運行型態 n`。
+- 同一班車：`trainKey(train)` 相同 (`hidden` 以外的欄位全部相同)。
+
+UI (`program/ui/opmodeInput.js`)：
+
+- 時刻表兩頁與輸出圖片頁上方的「運行型態」選單 (`.opmode-select`，`renderOpmodeSelects()`) 切換目前的運行型態 (`switchOpmode(i)`)；輸出圖片頁已有圖時重畫。
+- 「編輯」(以及匯入/匯出頁的「編輯運行型態」) 打開 `#OpmodeModal`：每個運行型態一列，可選為目前的、改標題 (留白時 placeholder 顯示依運行日的名稱)、運行日 (一 ~ 日、假日)、描述，顯示兩方向的列車數；刪除要按兩次 (只剩一個時不能刪)。下方「新增空白運行型態」「複製目前的運行型態」，新增後切換過去。
+- 車次細項的「運行型態」(`#offcanvas-opmodes`，只有一個運行型態時隱藏)：每個運行型態一個勾選框，有同一班車時勾選 (目前的運行型態固定勾選、不可改；那班車隱藏時標示「(隱藏)」，沒有同一班車、但有同車次的列車時標示「(另有同車次、時刻不同的列車)」)。勾選 = 複製這班車到該運行型態 (`copyTrainToOpmode()`：放在「這班車之前、最近一班該運行型態也有的車」之後，沒有則放在最前面；不帶 `hidden`)；取消 = 刪除該運行型態中所有同一班車 (`removeTrainFromOpmode()`；該方向沒有列車時留一班空白列車)。
+- 匯入單一方向的列車 (CSV / JSON) 匯入到目前的運行型態。
+
 ## 6. 設定 JSON 與全部資料 JSON
 
 ### 6.1 設定 JSON
@@ -413,6 +447,23 @@ train = {
 }
 ```
 
+有多個運行型態，或唯一的運行型態有標題、描述或運行日時，加上 `opmodes`，`trains` 則是所有運行型態中**不重複**的列車 (完全相同的列車只存一次，依第一次出現的順序)：
+
+```json
+{
+    "route": { ... },
+    "trains": { "1": { ...列車 JSON，timetable = 不重複的列車... }, "2": { ... } },
+    "opmodes": [
+        { "title": "週一", "description": "", "days": ["mon"], "trains": { "1": [0, 1, 2, ...], "2": [0, 1, ...] } },
+        ...
+    ],
+    "settings": { ... }
+}
+```
+
+- `opmodes[].trains[bound]` = 該運行型態的列車在 `trains[bound].timetable` 中的 index，依該運行型態的順序。同一個 index 可以出現在多個運行型態 (宜蘭線週一 ~ 週日 5 個運行型態：1040 班 → 不重複 228 班，檔案約 1/4)。
+- 匯出 (`getAllDataJSON(all)`)：「運行型態」選單 (`#ExportAllOpmodes`) 選擇所有運行型態，或只有目前的 (`all = false`)。只有一個運行型態且沒有標題、描述、運行日時與舊格式完全相同 (不去除重複的列車)。
+- 匯入 (`loadAllFromJSON(text, only)`)：選擇檔案後 (`#AllFile` 的 `change`) 若有 `opmodes`，顯示 `#AllOpmode` 選單：「全部 (n 個運行型態)」或其中一個 (`only` = index，名稱後附描述)。`loadOpmodes()` 依 index 複製列車 (不合法的 index 略過；`days` 只保留認得的 token)，取代所有運行型態。沒有 `opmodes` 但有 `trains` 時，取代成一個運行型態 (缺少的方向保留目前運行型態的列車)；兩者都沒有時運行型態不變。舊版程式讀取新格式時只會讀到 `trains` (所有不重複的列車)。
 - 每一部分的格式與單獨匯出時相同，匯入 (`loadAllFromJSON()`) 時拆開後交給 `loadSettingsFromJSON()` / `loadRouteFromJSON()` / `loadTrainFromJSON()` (`station_record` 與檔案中的路線比對；沒有 `route` 時與目前的路線比對)。
 - 順序：設定 → 路線 → 列車 (路線缺少 `stopsec` 時使用匯入後的 `defaultStopSec`)。
 - 缺少 `settings` → 全部使用預設；缺少 `route` 或某個方向的 `trains` → 保留目前資料。
@@ -421,7 +472,7 @@ train = {
 
 ### 6.3 OuDia 檔案 (`program/handler/OudHandler.js`)
 
-匯入：`#OudFile` → `#OudDia` 選ダイヤ → `#ImportOudBtn`。匯出：`.export-oud-btn[data-format=oud|oud2]` (`oudText()`，見下)。
+匯入：`#OudFile` → `#OudDia` 選ダイヤ (有多份時第一個選項為「全部」) → `#ImportOudBtn`，每份ダイヤ成為一個運行型態 (標題 = `DiaName`)。匯出：`.export-oud-btn[data-format=oud|oud2]` (`oudText()`，見下)，每個運行型態成為一份ダイヤ。
 
 格式：一行一個 `key=value`，`Name.` 開始一個節點、單獨的 `.` 結束。`Rosen.` 內有 `Eki.` (車站，順序 = 下り)、`Ressyasyubetsu.` (種別，依序為 index)、`Dia.` (每份ダイヤ，內有 `Kudari.` / `Nobori.` 的 `Ressya.`)。列車的 `EkiJikoku=` 以逗號分隔、依該方向的站序 (同 `station_order`)，每格為空白 (運行なし) 或 `駅扱[;時刻][$番線]`，駅扱 1 = 停車、2 = 通過、3 = 經由なし，時刻為 `發`、`着/`、`着/發` (`hmm` ~ `hhmmss`)。顏色 `00BBGGRR`。
 
@@ -440,9 +491,9 @@ train = {
 番線、駅作業、運用、路線外發着、分岐駅設定、コメント 等不匯入。OuDia 的功能比較見 `design_doc/OUDIA.md` (本機文件)。
 
 - 讀檔：`decodeOud()` 先試 UTF-8 (`.oud2`)，失敗則 Shift_JIS (`.oud`)；`parseOud()` 轉成 `{ name, values: { key: [值...] }, children }` 的樹。選檔時解析並列出ダイヤ，沒有車站 (少於 2 站) 或ダイヤ時顯示紅色 toast。
-- `convertOud(root, diaIndex)` → `{ route, trains: {1, 2}, colors, background, axis, startSec, merged, split }`，`applyOud()` 套用：路線 (`applyRoute()`)、兩方向列車一律取代、`trainColors` / `trainLineTypeByColor` / `trainLineWidthByColor` 的 1~10 (先清空樣式，`trainColors[0]` = `[1]`)、`background.color`、`oudiaStyle.axisColor`、`startSec` = 起點時刻、`endSec` = 起點 + 24 時 (最多 `MAX_END_SEC`)。
+- `convertOud(root, diaIndices)` (一個 index 或陣列) → `{ route, opmodes, colors, background, axis, startSec, merged, split }`，種別的顏色分組與站距 (`oudSectionSeconds()`) 以所有選擇的ダイヤ一起計算；`applyOud()` 套用：路線 (`applyRoute()`)、運行型態一律取代 (`applyOpmodes()`)、`trainColors` / `trainLineTypeByColor` / `trainLineWidthByColor` 的 1~10 (先清空樣式，`trainColors[0]` = `[1]`)、`background.color`、`oudiaStyle.axisColor`、`startSec` = 起點時刻、`endSec` = 起點 + 24 時 (最多 `MAX_END_SEC`)。
 - `kilo` 是推算的 (`oudSectionSeconds()`，1 分 = 1 km)、`stopsec` = `defaultStopSec`；匯入後一律顯示黃色 toast `#ImportOudWarning` 說明，並列出種別合併到同一顏色槽、列車被拆開的次數。
-- 匯出 (`oudText(second)`)：一份ダイヤ (`DiaName=ダイヤ`)。`.oud` 為 `FileType=OuDia.1.02`、Shift_JIS (`encodeShiftJIS()`，表由瀏覽器的解碼器反推；無法表示的字改為 `?` 並顯示黃色 toast `#ExportOudWarning`)；`.oud2` 為 `OuDiaSecond.1.17`、UTF-8 含 BOM，並寫出每站的 `NextEkiDistance` = 站間 km × 60 (秒)，再匯入時 `kilo` 不變。換行 CRLF。
+- 匯出 (`oudText(second)`)：每個運行型態一份ダイヤ (`DiaName` = 標題，或依運行日的名稱，都沒有時為 `ダイヤ`)；種別與「有停車時間的站」以所有運行型態的列車計算，隱藏的列車不匯出。`.oud` 為 `FileType=OuDia.1.02`、Shift_JIS (`encodeShiftJIS()`，表由瀏覽器的解碼器反推；無法表示的字改為 `?` 並顯示黃色 toast `#ExportOudWarning`)；`.oud2` 為 `OuDiaSecond.1.17`、UTF-8 含 BOM，並寫出每站的 `NextEkiDistance` = 站間 km × 60 (秒)，再匯入時 `kilo` 不變。換行 CRLF。
     - 車站：`Ekikibo` 依 `topology.secondary`；有任何停車的到站時刻 (≠ 發車) 的站為 `Jikokukeisiki_Hatsuchaku`，否則 `Jikokukeisiki_Hatsu`。
     - 種別：每個用到的 `train_color` 一個 (依顏色編號排序)，`DiagramSenColor` 為該顏色、線型依 `trainLineTypeByColor`、線寬 ≥ `trainLineWidth × 2` 為粗線。該顏色的列車 `train_name` 全部相同時，以它為種別名、列車不寫 `Ressyamei`；否則種別名為「顏色n」(0 為「未指定」)，`train_name` 的「名稱 N号」拆成 `Ressyamei` / `Gousuu`。
     - `EkiJikoku`：每站一格，第一站之前、最後一站之後為空白；中間沒有停靠的站為 `2` (通過、無時刻)；`arrival = departure` 的中途站為 `2;發`；最後一站 `1;著/`；有停車時間 `1;著/發`；否則 `1;發`。時刻寫成 OuDia 的 `hmm[ss]` (小時不補 0、取 24 的餘數)。`line_width` / `line_type`、`pinned`、軌道配置、拓樸的分岐不匯出。
@@ -461,7 +512,7 @@ DRAFTS = { autofill: draft | null, passing: draft | null }
 draft = { trains: { 1: [...], 2: [...] }, fingerprint: "..." }   // trains: structuredClone(TRAINS)
 ```
 
-- `newDraft()` 複製 `TRAINS`，並記下 `fingerprint` = `JSON.stringify([ROUTE, TRAINS])`。
+- `newDraft()` 複製 `TRAINS` (目前的運行型態)，並記下 `fingerprint` = `JSON.stringify([ROUTE, TRAINS])`。
 - `validDraft(name)`：路線或時刻表在計算後有任何變動 (指紋不同) 時捨棄副本並回傳 `null`。採用、預覽、再次自動補全前都會檢查，失效時顯示紅色 toast `#DraftInvalid`，因此不會蓋掉使用者之後的修改。採用其中一個副本後，另一個也會因此失效。
 - 採用：`.adopt-draft-btn` → modal `#AdoptDraftModal` → `adoptDraft(name)`：`TRAINS[1]`、`TRAINS[2]` 換成副本，釋放副本。
 - 捨棄：`.discard-draft-btn`。預覽：輸出圖片頁的 `.preview-draft-btn` (有副本時才顯示) 以 `drawDiagram(draft.trains)` 繪圖，`#OutputSource` 標示目前顯示的是預覽。
@@ -545,7 +596,7 @@ draft = { trains: { 1: [...], 2: [...] }, fingerprint: "..." }   // trains: stru
 | 檔案 | 函式 / 變數 |
 |---|---|
 | `program/program/globalvar.js` | `SETTINGS`, `DEFAULT_SETTINGS` |
-| `program/data/DataStore.js` | `ROUTE`, `TRAINS`, `DEFAULT_TRACK`, `MAX_BRANCHES`, `newStation()`, `newTrackLayout()`, `newTopology()`, `newBranchStation()`, `sortBranchStations()`, `newTrain()`, `boundStations()`, `findStop()`, `addStop()`, `setStopTime()`, `insertStation()`, `deleteStation()`, `refreshStopNames()`, `arrivalTime()`, `stopTimes()`, `isBlankTrain()` |
+| `program/data/DataStore.js` | `ROUTE`, `TRAINS`, `OPMODES`, `currentOpmode`, `OPMODE_DAYS`, `newOpmode()`, `selectOpmode()`, `setOpmodes()`, `addOpmode()`, `deleteOpmode()`, `allTrains()`, `trainKey()`, `copyTrainToOpmode()`, `removeTrainFromOpmode()`, `DEFAULT_TRACK`, `MAX_BRANCHES`, `newStation()`, `newTrackLayout()`, `newTopology()`, `newBranchStation()`, `sortBranchStations()`, `newTrain()`, `boundStations()`, `findStop()`, `addStop()`, `setStopTime()`, `insertStation()`, `deleteStation()`, `refreshStopNames()`, `arrivalTime()`, `stopTimes()`, `isBlankTrain()` |
 | `program/ui/addStationInput.js` | `renderRouteTable()` (同時呼叫 `renderTrackTable()`, `renderTopologyTable()`), `onRouteChanged()`, 路線表格事件 |
 | `program/ui/trackLayoutInput.js` | `renderTrackTable()`, 軌道配置表格事件、快速套用按鈕 |
 | `program/ui/topologyInput.js` | `renderTopologyTable()`, `topologyRows()`, 線路拓樸表格事件 (新增分岐 / 車站、刪除車站、次要車站) |
@@ -554,14 +605,15 @@ draft = { trains: { 1: [...], 2: [...] }, fingerprint: "..." }   // trains: stru
 | `program/handler/TrackLayoutHandler.js` | `loadTrackLayout()` (路線 JSON 匯入時讀取 `track_layout`) |
 | `program/ui/createTimetable.js` | `renderTimetable(bound)`, `checkkilo()`, `generateTimetable()`, `hideHiddenTrains`, `trainInTable()` |
 | `program/ui/addTrainInput.js` | 時刻表事件 (新增/刪除列車、車次、時刻輸入) |
+| `program/ui/opmodeInput.js` | 運行型態的選單、`#OpmodeModal`、車次細項的運行型態：`OPMODE_DAY_NAMES`, `opmodeDaysName()`, `opmodeName()`, `renderOpmodeSelects()`, `switchOpmode()`, `onOpmodeChanged()`, `renderOpmodeTable()`, `renderTrainOpmodes()` |
 | `program/ui/optionsIO.js` | 列車細項 (隱藏、列車名、顏色、始發、終點) offcanvas：`renderTrainVisible()`, `renderBranchEnd()` |
 | `program/program/BranchTrain.js` | 跨線列車：`branchStations()`, `branchChoices()`, `junctionRange()`, `junctionStops()`, `passingJunctions()`, `trainStops()` |
 | `program/program/Overlay.js` | 疊圖：`trainTimesAt()`, `overlayTime()`, `getOverlayJSON()`, `applyOverlay()`, `findOverlayTrain()`, `unpinTrain()` |
 | `program/handler/OverlayHandler.js` | 疊圖 UI：`renderOverlayStations()`, 匯出 / 疊加按鈕, 車次細項的 `renderPinnedCount()` / 解除釘選 |
 | `program/handler/RouteInfoHandler.js` | 路線匯入/匯出：`applyRoute()`, `getRouteDataCSV()`, `loadRouteFromCSV()`, `loadRouteFromJSON()` |
-| `program/handler/TimetableHandler.js` | 列車匯入/匯出：`applyTrains()`, `getTrainDataJSON()`, `loadTrainFromJSON()`, `matchStationRecord()`, `getTrainDataCSV()`, `loadTrainFromCSV()` |
+| `program/handler/TimetableHandler.js` | 列車匯入/匯出：`applyTrains()`, `applyOpmodes()`, `getTrainDataJSON(bound, trains)`, `loadTrainFromJSON()`, `matchStationRecord()`, `getTrainDataCSV()`, `loadTrainFromCSV()` |
 | `program/handler/SettingHandler.js` | 設定匯入/匯出：`loadSettingsFromJSON()`, `mergeSettings()`, `applySettings()` |
-| `program/handler/AllDataHandler.js` | 全部資料匯入/匯出：`getAllDataJSON()`, `loadAllFromJSON()` |
+| `program/handler/AllDataHandler.js` | 全部資料匯入/匯出：`getAllDataJSON(all)`, `loadAllFromJSON(text, only)`, `loadOpmodes()`, `loadOpmodeDays()` |
 | `program/setting/OutputSetting.js` | `initSettingsUI()`, `updateSettingsUI()`, `renderTimeLabelPreview()`, `checkTextFit()` |
 | `program/program/Graphing.js` | `drawDiagram(trains = TRAINS)`, `drawTrain()`, `LAYERS`, `makeLayer()`, `trainId()`, `timeId()`, `timeToX()`, `makeTimeLabel()`, `timeLabelHeight()`, `stationTextStyles()` |
 | `program/program/TrainNumber.js` | `placeTrainNumbers()`, `findTrainNumberPosition()`, `createSegmentGrid()`, `addSegment()`, `someSegment()`, `segmentHitsBox()` |
@@ -574,4 +626,4 @@ draft = { trains: { 1: [...], 2: [...] }, fingerprint: "..." }   // trains: stru
 | `program/util/common.js` | `escapeHTML()`, `downloadFile()`, `readImportFile()`, `parseCSV()` |
 | `program/util/stc.js` | 時刻字串轉換：`normalizeTime()`, `toSec()`, `toStr()`, `deductSec()`, `tohhmmss()` |
 
-HTML 中 script 載入順序：`globalvar.js` → `DataStore.js` → `Draft.js` → util → UI → 核心程式 → handler → setting → 設定/全部資料 handler，最後呼叫一次 `renderRouteTable()` / `renderTimetable()` / `initSettingsUI()`。
+HTML 中 script 載入順序：`globalvar.js` → `DataStore.js` → `Draft.js` → util → UI (`opmodeInput.js` 在 `optionsIO.js` 之後) → 核心程式 → handler → setting → 設定/全部資料 handler，最後呼叫一次 `renderRouteTable()` / `renderTimetable()` / `renderOpmodeSelects()` / `initSettingsUI()`。

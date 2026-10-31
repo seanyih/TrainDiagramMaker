@@ -15,11 +15,20 @@ const ROUTE = {
 };
 ROUTE.stations[0].kilo = 0;
 
-// key = bound, value = array of train objects (same as "timetable" in train JSON)
+// key = bound, value = array of train objects (same as "timetable" in train JSON), of the current operation mode
 const TRAINS = {
 	1: [newTrain(), newTrain()],
 	2: [newTrain(), newTrain()]
 };
+
+/*
+	Operation modes (運行型態, OuDia's dias): each has trains of its own, never shared with another mode.
+	The current one's trains are TRAINS (OPMODES[currentOpmode].trains === TRAINS).
+	days: the days it runs, named after them when the title is blank
+*/
+const OPMODE_DAYS = ["mon", "tue", "wed", "thu", "fri", "sat", "sun", "hol"];
+const OPMODES = [newOpmode(TRAINS)];
+let currentOpmode = 0;
 
 function newStation(name = "", kilo = null, stopsec = SETTINGS.defaultStopSec, alias = ""){
 	return { name: name, kilo: kilo, stopsec: stopsec, alias: alias };
@@ -70,6 +79,73 @@ function newTrain(train_number = "", train_name = "", train_color = 0, line_widt
 		terminal: { station_name: "", arrival: "" },
 		timetable: []
 	};
+}
+
+function newOpmode(trains = { 1: [newTrain()], 2: [newTrain()] }, title = "", description = "", days = []){
+	return { title: title, description: description, days: days, trains: trains };
+}
+
+function selectOpmode(i){
+	OPMODES[currentOpmode].trains = { 1: TRAINS[1], 2: TRAINS[2] };
+	currentOpmode = i;
+	TRAINS[1] = OPMODES[i].trains[1];
+	TRAINS[2] = OPMODES[i].trains[2];
+	OPMODES[i].trains = TRAINS;
+}
+
+// replaces every mode; the first one becomes the current one
+function setOpmodes(modes){
+	OPMODES.splice(0, OPMODES.length, ...modes);
+	currentOpmode = 0;
+	TRAINS[1] = modes[0].trains[1];
+	TRAINS[2] = modes[0].trains[2];
+	modes[0].trains = TRAINS;
+}
+
+// a blank mode, or a copy of the current one, after the others; returns its index
+function addOpmode(copy){
+	OPMODES.push(newOpmode(copy ? structuredClone(TRAINS) : undefined));
+	return OPMODES.length - 1;
+}
+
+function deleteOpmode(i){
+	if(i == currentOpmode) selectOpmode(i == 0 ? 1 : i - 1);
+	OPMODES.splice(i, 1);
+	if(currentOpmode > i) currentOpmode--;
+}
+
+// the trains of every mode
+function allTrains(bound){
+	return OPMODES.flatMap(mode => mode.trains[bound]);
+}
+
+// trains are the same if everything but `hidden` is
+function trainKey(train){
+	return JSON.stringify({ ...train, hidden: undefined });
+}
+
+// a copy of a train of the current mode into mode i, after the nearest train before it that mode i has too
+function copyTrainToOpmode(train, bound, i){
+	const target = OPMODES[i].trains[bound];
+	const keys = target.map(trainKey);
+	let at = 0;
+	for(let k = TRAINS[bound].indexOf(train) - 1; k >= 0; k--){
+		const found = keys.indexOf(trainKey(TRAINS[bound][k]));
+		if(found != -1){
+			at = found + 1;
+			break;
+		}
+	}
+	const copy = structuredClone(train);
+	delete copy.hidden;
+	target.splice(at, 0, copy);
+}
+
+// mode i without its copies of a train; a bound left without trains gets a blank one (the table needs a column)
+function removeTrainFromOpmode(train, bound, i){
+	const key = trainKey(train);
+	const trains = OPMODES[i].trains[bound].filter(other => trainKey(other) != key);
+	OPMODES[i].trains[bound] = (trains.length > 0) ? trains : [newTrain()];
 }
 
 // stations in the order of the given bound (bound 2 is reversed)
@@ -134,7 +210,7 @@ function isBlankTrain(train){
 
 // shift station_order of stops at or after `order` by `delta`
 function shiftStops(bound, order, delta){
-	TRAINS[bound].forEach(train => {
+	allTrains(bound).forEach(train => {
 		train.timetable.forEach(stop => {
 			if(stop.station_order >= order) stop.station_order += delta;
 		});
@@ -162,8 +238,8 @@ function deleteStation(index){
 	const order2 = count - 1 - index;
 	ROUTE.stations.splice(index, 1);
 
-	TRAINS[1].forEach(train => train.timetable = train.timetable.filter(stop => stop.station_order != index));
-	TRAINS[2].forEach(train => train.timetable = train.timetable.filter(stop => stop.station_order != order2));
+	allTrains(1).forEach(train => train.timetable = train.timetable.filter(stop => stop.station_order != index));
+	allTrains(2).forEach(train => train.timetable = train.timetable.filter(stop => stop.station_order != order2));
 	shiftStops(1, index + 1, -1);
 	shiftStops(2, order2 + 1, -1);
 
@@ -180,7 +256,7 @@ function deleteStation(index){
 function refreshStopNames(){
 	[1, 2].forEach(bound => {
 		const stations = boundStations(bound);
-		TRAINS[bound].forEach(train => {
+		allTrains(bound).forEach(train => {
 			train.timetable.forEach(stop => {
 				if(stations[stop.station_order]) stop.station_name = stations[stop.station_order].name;
 			});

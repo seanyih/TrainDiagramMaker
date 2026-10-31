@@ -1,6 +1,6 @@
 /*
-	OuDia (.oud, Shift_JIS) / OuDiaSecond (.oud2, UTF-8) import: the route, the trains of one dia, and the diagram colors;
-	export: the route and the trains as one dia (oudText()).
+	OuDia (.oud, Shift_JIS) / OuDiaSecond (.oud2, UTF-8) import: the route, the trains of each chosen dia as an
+	operation mode, and the diagram colors; export: the route and each operation mode as a dia (oudText()).
 	The format and the conversion are in DATA_STRUCTURE.md and design_doc/OUDIA.md.
 */
 
@@ -67,16 +67,16 @@ function oudRessyaCells(ressya){
 
 /*
 	Seconds between route stations i and i + 1, as OuDia spaces them: the shortest run of a train stopping at both
-	(or of any train with times there), the longer of the two directions; NextEkiDistance overrides
+	(or of any train with times there) in any of the dias, the longer of the two directions; NextEkiDistance overrides
 */
-function oudSectionSeconds(rosen, dia, count){
+function oudSectionSeconds(rosen, dias, count){
 	const fallback = Number(oudValue(rosen, "DiagramDgrYZahyouKyoriDefault")) || 60;
 	const eki = oudChildren(rosen, "Eki");
 	const sections = Array.from({ length: count - 1 }, () => []);
 
 	[["Kudari", 1], ["Nobori", 2]].forEach(([name, bound]) => {
 		const best = Array.from({ length: count - 1 }, () => ({ stop: Infinity, any: Infinity }));
-		oudChildren(oudChildren(dia, name)[0], "Ressya").forEach(ressya => {
+		dias.flatMap(dia => oudChildren(oudChildren(dia, name)[0], "Ressya")).forEach(ressya => {
 			const cells = oudRessyaCells(ressya);
 			for(let k = 0; k < Math.min(cells.length, count) - 1; k++){
 				const from = cells[k].dep || cells[k].arr;
@@ -169,11 +169,11 @@ function oudColorSlots(types, usedTypes){
 	return { groups, slotOf, merged };
 }
 
-// everything needed to apply the file's dia `diaIndex`
-function convertOud(root, diaIndex){
+// everything needed to apply the file's dias `diaIndices` (an index or an array of them), each as an operation mode
+function convertOud(root, diaIndices){
 	const rosen = oudChildren(root, "Rosen")[0];
 	const eki = oudChildren(rosen, "Eki");
-	const dia = oudChildren(rosen, "Dia")[diaIndex];
+	const dias = [].concat(diaIndices).map(i => oudChildren(rosen, "Dia")[i]);
 	const count = eki.length;
 
 	const types = oudChildren(rosen, "Ressyasyubetsu").map(node => ({
@@ -182,12 +182,12 @@ function convertOud(root, diaIndex){
 		lineType: OUD_LINE_TYPES[oudValue(node, "DiagramSenStyle")] ?? "solid",
 		bold: oudValue(node, "DiagramSenIsBold") == "1"
 	}));
-	const ressya = ["Kudari", "Nobori"].map(name => oudChildren(oudChildren(dia, name)[0], "Ressya"));
-	const usedTypes = [...new Set(ressya.flat().map(r => Number(oudValue(r, "Syubetsu"))))].sort((a, b) => a - b);
+	const ressya = dias.map(dia => ["Kudari", "Nobori"].map(name => oudChildren(oudChildren(dia, name)[0], "Ressya")));
+	const usedTypes = [...new Set(ressya.flat(2).map(r => Number(oudValue(r, "Syubetsu"))))].sort((a, b) => a - b);
 	const { groups, slotOf, merged } = oudColorSlots(types, usedTypes);
 
 	let kilo = 0;
-	const seconds = oudSectionSeconds(rosen, dia, count);
+	const seconds = oudSectionSeconds(rosen, dias, count);
 	const stations = eki.map((node, i) => {
 		if(i > 0) kilo += seconds[i - 1]/60;
 		return newStation(oudValue(node, "Ekimei"), Math.round(kilo*100)/100, SETTINGS.defaultStopSec, "");
@@ -197,25 +197,29 @@ function convertOud(root, diaIndex){
 		topology.secondary[i] = i > 0 && i < count - 1 && oudValue(node, "Ekikibo") != "Ekikibo_Syuyou";
 	});
 
-	const [down, up] = ressya.map(list => oudTrains(list, count, types, slotOf));
+	let split = 0;
+	const opmodes = dias.map((dia, d) => {
+		const [down, up] = ressya[d].map(list => oudTrains(list, count, types, slotOf));
+		split += down.split + up.split;
+		return newOpmode({ 1: down.trains, 2: up.trains }, oudValue(dia, "DiaName"));
+	});
 	const dispProp = oudChildren(root, "DispProp")[0];
 	const kiten = normalizeTime(oudValue(rosen, "KitenJikoku")) || "0000";
 	return {
 		route: { route_name: oudValue(rosen, "Rosenmei"), stations, track_layout: newTrackLayout(count), topology },
-		trains: { 1: down.trains, 2: up.trains },
+		opmodes: opmodes,
 		colors: groups,
 		background: dispProp?.values.DiaBackColor ? oudColor(oudValue(dispProp, "DiaBackColor")) : null,
 		axis: dispProp?.values.DiaJikuColor ? oudColor(oudValue(dispProp, "DiaJikuColor")) : null,
 		startSec: toSec(kiten),
 		merged: merged,
-		split: down.split + up.split
+		split: split
 	};
 }
 
 function applyOud(data){
 	applyRoute(data.route);
-	applyTrains(1, data.trains[1], false);
-	applyTrains(2, data.trains[2], false);
+	applyOpmodes(data.opmodes);
 
 	for(let n = 1; n <= 10; n++){
 		SETTINGS.trainLineTypeByColor[n] = "";
@@ -250,7 +254,9 @@ $("body").on("change", "#OudFile", function(){
 			return;
 		}
 		OUD_FILE = root;
-		$("#OudDia").html(dias.map((dia, i) => `<option value="${i}">${escapeHTML(oudValue(dia, "DiaName") || `ダイヤ ${i + 1}`)}</option>`).join(""));
+		const options = dias.map((dia, i) => `<option value="${i}">${escapeHTML(oudValue(dia, "DiaName") || `ダイヤ ${i + 1}`)}</option>`);
+		if(dias.length > 1) options.unshift(`<option value="all">全部 (${dias.length} 個ダイヤ，各為一個運行型態)</option>`);
+		$("#OudDia").html(options.join(""));
 	});
 	reader.readAsArrayBuffer(file);
 });
@@ -260,7 +266,9 @@ $("body").on("click", "#ImportOudBtn", function(){
 		$("#ImportOudFailed").toast('show');
 		return;
 	}
-	const data = convertOud(OUD_FILE, Number($("#OudDia").val()));
+	const value = $("#OudDia").val();
+	const all = oudChildren(oudChildren(OUD_FILE, "Rosen")[0], "Dia").map((dia, i) => i);
+	const data = convertOud(OUD_FILE, (value == "all") ? all : Number(value));
 	applyOud(data);
 	generateTimetable();
 	$("#ImportOudSuccess").toast('show');
@@ -303,15 +311,15 @@ function oudEkiJikoku(train, count){
 }
 
 /*
-	The route and both directions as an .oud (OuDia.1.02) or .oud2 (OuDiaSecond.1.17) text.
+	The route and both directions of each operation mode (a dia) as an .oud (OuDia.1.02) or .oud2 (OuDiaSecond.1.17) text.
 	Each train color is a Syubetsu, named after its trains if they all have the same name;
 	.oud2 keeps the kilos as NextEkiDistance (1 km = 60 s, how convertOud() reads it back)
 */
 function oudText(second){
 	const stations = ROUTE.stations;
 	const count = stations.length;
-	const shown = bound => TRAINS[bound].filter(train => !train.hidden);
-	const trains = [1, 2].flatMap(bound => shown(bound).map(train => ({ bound, train })));
+	const shown = (mode, bound) => mode.trains[bound].filter(train => !train.hidden);
+	const trains = OPMODES.flatMap(mode => [1, 2].flatMap(bound => shown(mode, bound).map(train => ({ bound, train }))));
 
 	const dwell = stations.map(() => false);
 	trains.forEach(({ bound, train }) => train.timetable.forEach(stop => {
@@ -341,21 +349,24 @@ function oudText(second){
 			"StopMarkDrawType=EStopMarkDrawType_DrawOnStop", ".");
 	});
 
-	lines.push("Dia.", "DiaName=ダイヤ");
-	[["Kudari", 1], ["Nobori", 2]].forEach(([houkou, bound]) => {
-		lines.push(`${houkou}.`);
-		shown(bound).forEach(train => {
-			const { train_name, train_color } = train.settings;
-			// "name 3号" -> Ressyamei, Gousuu
-			const [, name, gousuu] = train_name.match(/^(.*?)\s*(\d+)号$/) ?? [null, train_name, ""];
-			lines.push("Ressya.", `Houkou=${houkou}`, `Syubetsu=${slots.indexOf(train_color)}`, `Ressyabangou=${train.train_number}`,
-				...(typeName[train_color] == null && name ? [`Ressyamei=${name}`] : []),
-				...(typeName[train_color] == null && gousuu ? [`Gousuu=${gousuu}`] : []),
-				`EkiJikoku=${oudEkiJikoku(train, count)}`, ".");
+	OPMODES.forEach(mode => {
+		lines.push("Dia.", `DiaName=${mode.title || opmodeDaysName(mode.days) || "ダイヤ"}`);
+		[["Kudari", 1], ["Nobori", 2]].forEach(([houkou, bound]) => {
+			lines.push(`${houkou}.`);
+			shown(mode, bound).forEach(train => {
+				const { train_name, train_color } = train.settings;
+				// "name 3号" -> Ressyamei, Gousuu
+				const [, name, gousuu] = train_name.match(/^(.*?)\s*(\d+)号$/) ?? [null, train_name, ""];
+				lines.push("Ressya.", `Houkou=${houkou}`, `Syubetsu=${slots.indexOf(train_color)}`, `Ressyabangou=${train.train_number}`,
+					...(typeName[train_color] == null && name ? [`Ressyamei=${name}`] : []),
+					...(typeName[train_color] == null && gousuu ? [`Gousuu=${gousuu}`] : []),
+					`EkiJikoku=${oudEkiJikoku(train, count)}`, ".");
+			});
+			lines.push(".");
 		});
 		lines.push(".");
 	});
-	lines.push(".", `KitenJikoku=${toOudTime(secToHhmm(SETTINGS.startSec % 86400))}`, "DiagramDgrYZahyouKyoriDefault=60", "Comment=", ".",
+	lines.push(`KitenJikoku=${toOudTime(secToHhmm(SETTINGS.startSec % 86400))}`, "DiagramDgrYZahyouKyoriDefault=60", "Comment=", ".",
 		"DispProp.", `DiaBackColor=${toOudColor(SETTINGS.background.color)}`, `DiaJikuColor=${toOudColor(SETTINGS.oudiaStyle.axisColor)}`, ".");
 	return lines.join("\r\n") + "\r\n";
 }

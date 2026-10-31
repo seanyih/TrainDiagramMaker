@@ -104,14 +104,17 @@ async function exportPrintZip(){
 	// each page is drawn with its own range and margins
 	const saved = { startSec: SETTINGS.startSec, endSec: SETTINGS.endSec, margin: SETTINGS.margin };
 	const files = [];
+	// several operation modes: a folder each
+	const modes = SETTINGS.print.allOpmodes ? OPMODES.map((mode, i) => i) : [currentOpmode];
+	const folder = i => (modes.length > 1) ? `${String(i + 1).padStart(2, "0")}_${opmodeName(OPMODES[i], i).replace(/[\\/:*?"<>|]/g, "_")}/` : "";
 	if(format != "svg"){
 		const { start, end } = stationRange();
 		const names = ROUTE.stations.slice(start, end + 1).map(station => station.name + station.alias).join("");
 		await loadPrintFonts(`${names}0123456789:+-`, "normal");
-		if(SETTINGS.showTrainNumber) await loadPrintFonts([...TRAINS[1], ...TRAINS[2]].map(train => train.train_number).join(""), "bold");
+		if(SETTINGS.showTrainNumber) await loadPrintFonts(modes.flatMap(i => [...OPMODES[i].trains[1], ...OPMODES[i].trains[2]]).map(train => train.train_number).join(""), "bold");
 	}
 	try{
-		for(let i = 0; i < layout.pages; i++){
+		for(const mode of modes) for(let i = 0; i < layout.pages; i++){
 			const pageStart = saved.startSec + i*pageMinutes*60;
 			const pageEnd = Math.min(pageStart + pageMinutes*60, saved.endSec);
 			SETTINGS.startSec = pageStart - overlapSec;
@@ -127,8 +130,8 @@ async function exportPrintZip(){
 			};
 
 			const svg = $(makeSVG("svg", {}));
-			drawDiagram(TRAINS, svg);
-			const name = `TrainDiagram_${String(i + 1).padStart(2, "0")}`;
+			drawDiagram(OPMODES[mode].trains, svg);
+			const name = `${folder(mode)}TrainDiagram_${String(i + 1).padStart(2, "0")}`;
 			if(format == "pdf"){
 				files.push({ name: `${name}.pdf`, data: await svgToPdf(svg[0], sheet, trim, ppi) });
 			}else{

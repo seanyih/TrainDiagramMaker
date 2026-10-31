@@ -27,6 +27,13 @@ Full spec: `DATA_STRUCTURE.md` at the repo root (sections 3-5). This skill is th
 
 Or one `AllData.json` = `{ "route": {...}, "trains": { "1": {...}, "2": {...} }, "settings": {...} }` (settings optional).
 
+### Several operation modes (weekday / holiday, each day of the week...)
+When the timetable differs by day, deliver one file set per day type (e.g. `mon/trains-1.json`, `sat/trains-1.json`), or one `AllData.json` with `opmodes`:
+- `trains[bound].timetable` holds each **distinct** train once (identical trains of several days are written once).
+- `opmodes: [{ "title": "", "description": "", "days": ["mon", ...], "trains": { "1": [indices], "2": [indices] } }]`: the indices point into `trains[bound].timetable`, in that day's timetable order; the same index may appear in several modes.
+- `days` tokens: `mon` `tue` `wed` `thu` `fri` `sat` `sun` `hol` (holidays). A blank `title` is named after the days (平日, 假日, 週二至四...), so prefer tokens to typed day names.
+- Trains with the same number but different times on different days are simply two entries.
+
 ## Route JSON
 
 ```json

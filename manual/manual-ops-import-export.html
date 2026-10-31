@@ -127,7 +127,7 @@
 <td>OuDia 檔案</td>
 <td>.oud、.oud2</td>
 <td>.oud、.oud2</td>
-<td>路線、一份ダイヤ的順逆行時刻表、種別的線條樣式</td>
+<td>路線、各ダイヤ (運行型態) 的順逆行時刻表、種別的線條樣式</td>
 </tr>
 </tbody>
 </table>
@@ -182,6 +182,9 @@
 <li>按下<strong>匯出全部</strong>，就能保存目前所有的進度。</li>
 <li>下次回來時，選取這個檔案並按下<strong>匯入全部</strong>，就會回到存檔時的狀態。</li>
 <li>匯入全部資料時，時刻表一律是「取代」，不看「匯入列車資料時」選單。</li>
+<li>有多個<a href="manual-ops-timetable.html#運行型態">運行型態</a>時，匯出的檔案包含所有運行型態 (「運行型態」選單也可以只匯出目前的)；完全相同的列車只存一次。按<strong>編輯運行型態</strong>可以在匯出前修改標題與描述。</li>
+<li>選取有多個運行型態的檔案後，下方會出現「運行型態」選單，可以匯入全部或其中一個 (選項後面附有描述)。</li>
+<li>單一方向的列車資料 (CSV、JSON) 只會匯入、匯出目前的運行型態。要把每天各一份的檔案合成一份：先匯入路線，在第一個運行型態匯入第一天的列車，再「新增空白運行型態」、匯入下一天的列車，以此類推，最後匯出全部。</li>
 <li>如果檔案有問題無法讀取，網站不會做任何變更，原本的資料都會保留。</li>
 </ul>
 <div class="admonition warning">
@@ -191,8 +194,8 @@
 <p>可以直接讀入 OuDia（<code>.oud</code>）與 OuDiaSecond（<code>.oud2</code>）的路線檔。</p>
 <ol>
 <li>按「選擇檔案」選取 <code>.oud</code> 或 <code>.oud2</code> 檔。</li>
-<li>檔案中有多份ダイヤ（例如平日、休日）時，在「ダイヤ」選單選擇要匯入哪一份。</li>
-<li>按<strong>匯入</strong>。路線、順逆行時刻表都會被取代。</li>
+<li>檔案中有多份ダイヤ（例如平日、休日）時，在「ダイヤ」選單選擇要匯入哪一份，或「全部」。</li>
+<li>按<strong>匯入</strong>。路線、所有運行型態都會被取代，每份ダイヤ成為一個<a href="manual-ops-timetable.html#運行型態">運行型態</a>，以ダイヤ名為標題。</li>
 </ol>
 <p>匯入的內容：</p>
 <ul>
@@ -206,7 +209,7 @@
 <p>列車在中途「運行なし」或「經由なし」（例如經由分岐線）時，網站的列車線必須連續，所以這班車會在該處拆成兩班（車次相同）。番線、駅作業、運用等 OuDiaSecond 的資料不會匯入。</p>
 </div>
 <h2 id="匯出-oudia-檔案">匯出 OuDia 檔案</h2>
-<p>把目前的路線與順逆行時刻表存成 OuDia 可以開啟的檔案。填入檔名後按<strong>匯出 .oud</strong>（OuDia）或<strong>匯出 .oud2</strong>（OuDiaSecond）。</p>
+<p>把目前的路線與順逆行時刻表存成 OuDia 可以開啟的檔案。每個運行型態成為一份ダイヤ，隱藏的列車不會匯出。填入檔名後按<strong>匯出 .oud</strong>（OuDia）或<strong>匯出 .oud2</strong>（OuDiaSecond）。</p>
 <ul>
 <li><strong>車站</strong>：<a href="manual-ops-topology.html#次要車站">次要車站</a>為「一般駅」，其他為「主要駅」。有停車時間的站，時刻表顯示著發兩行。</li>
 <li><strong>里程</strong>：<code>.oud2</code> 會記下每個站間的距離（OuDiaSecond 的「駅間距離」，1 公里 = 1 分），在 OuDiaSecond 中的站距與本網站相同，再匯入本網站時里程也不變。<code>.oud</code> 沒有這個欄位，OuDia 會依運轉時間重新排列站距。</li>
