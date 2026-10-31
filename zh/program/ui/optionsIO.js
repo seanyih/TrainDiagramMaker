@@ -25,7 +25,7 @@ $(".timetable").on("click", ".optionbar", function(){
 
 function renderTrainVisible(){
 	$("#offcanvas-train-visible")
-		.attr("src", editingTrain.hidden ? "icon/eye-slash.svg" : "icon/eye.svg")
+		.attr("src", editingTrain.hidden ? "../icon/eye-slash.svg" : "../icon/eye.svg")
 		.attr("title", editingTrain.hidden ? "已隱藏：不畫進圖中，也不參與待避時間計算" : "隱藏此列車");
 }
 

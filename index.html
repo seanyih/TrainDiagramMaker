@@ -1,0 +1,19 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Train Diagram Maker</title>
+	<meta name="description" content="簡單、快速、現代化的列車運行圖繪製器。Free online railway time diagram maker.">
+	<script>
+		// the first of the browser's languages that has a folder (same as LANGS in program/ui/langSwitch.js), else zh
+		const ready = ["zh"];
+		const lang = navigator.languages.map(l => l.split("-")[0].toLowerCase()).find(l => ready.includes(l)) ?? "zh";
+		location.replace(`${lang}/`);
+	</script>
+	<noscript><meta http-equiv="refresh" content="0; url=zh/"></noscript>
+</head>
+<body style="background: #000;">
+	<a href="zh/" style="color: #FFF;">繁體中文</a>
+</body>
+</html>

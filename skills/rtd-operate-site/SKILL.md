@@ -1,6 +1,6 @@
 ---
 name: rtd-operate-site
-description: Operate the online railway time diagram maker (diagram-maker.html) in a browser, either by clicking the UI or by calling its JavaScript directly. Use when asked to import route/timetable data, change settings, restore passing times, draw or export the diagram on this site.
+description: Operate the online railway time diagram maker (zh/diagram-maker.html) in a browser, either by clicking the UI or by calling its JavaScript directly. Use when asked to import route/timetable data, change settings, restore passing times, draw or export the diagram on this site.
 ---
 
 # Operating the railway time diagram maker
@@ -8,7 +8,7 @@ description: Operate the online railway time diagram maker (diagram-maker.html) 
 Pure front-end page (jQuery + Bootstrap, no build). Needs HTTP, not `file://`:
 
 ```bash
-python -m http.server 8765    # in the repo root, then open http://localhost:8765/diagram-maker.html
+python -m http.server 8765    # in the repo root, then open http://localhost:8765/zh/diagram-maker.html
 ```
 
 UI text is Traditional Chinese. If the data is not in the site's format yet, use `rtd-data-format` first.

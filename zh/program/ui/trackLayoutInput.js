@@ -21,7 +21,7 @@ function trackRowHTML(row, next){
 	let transition = "";
 	if(next){
 		const { file, flip } = trackTransition(row.track, next.track);
-		transition = `<img class="track-transition ${flip ? "flip" : ""}" src="icon/route/${file}.svg">`;
+		transition = `<img class="track-transition ${flip ? "flip" : ""}" src="../icon/route/${file}.svg">`;
 	}
 
 	const options = TRACK_LINE_NAMES.map((name, i) => `<option value="${i + 1}" ${lines == i + 1 ? "selected" : ""}>${name}</option>`);
@@ -38,7 +38,7 @@ function trackRowHTML(row, next){
 
 	return `
 		<tr data-list="${row.list}" data-index="${row.index}">
-			<td class="track-image-col"><div class="track-image"><img class="track-main" src="icon/route/${image}.svg">${transition}</div></td>
+			<td class="track-image-col"><div class="track-image"><img class="track-main" src="../icon/route/${image}.svg">${transition}</div></td>
 			<td class="track-name">${row.label}</td>
 			<td>
 				<div class="aic">

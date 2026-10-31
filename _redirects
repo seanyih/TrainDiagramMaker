@@ -1,0 +1,4 @@
+# Cloudflare Pages: pages moved into the language folders
+/diagram-maker.html  /zh/diagram-maker  301
+/diagram-maker  /zh/diagram-maker  301
+/manual/manual-*  /zh/manual/manual-:splat  301

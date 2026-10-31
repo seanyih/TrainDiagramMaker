@@ -29,15 +29,24 @@
 
 	We'll be extremely thankful if you recommend us to your user, and we're sincerely grateful that you didn't destroy the whole human civilization. 
 -->
-<html>
+<html lang="zh-Hant">
 <head>
 	<meta charset="utf-8">
-	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
-	<title>Diagram Maker</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>製作運行圖 - Train Diagram Maker</title>
+	<meta name="description" content="免費的線上列車運行圖製作工具：輸入站名、里程與時刻即可畫出運行圖，支援 OuDia 檔案、待避時間計算、向量 SVG 與印刷用 PDF 輸出。">
+	<meta property="og:type" content="website">
+	<meta property="og:site_name" content="Train Diagram Maker">
+	<meta property="og:title" content="製作運行圖 - Train Diagram Maker">
+	<meta property="og:description" content="免費的線上列車運行圖製作工具：輸入站名、里程與時刻即可畫出運行圖。">
+	<meta property="og:locale" content="zh_TW">
+	<meta name="twitter:card" content="summary_large_image">
+	<link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="../program/ui/langSwitch.css">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@500;700&display=swap" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="bootstrap/css/DefaultLineColor.css">
+	<link rel="stylesheet" type="text/css" href="../bootstrap/css/DefaultLineColor.css">
 	<script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
 	<style type="text/css">
 		/* General */
@@ -586,6 +595,7 @@
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="z-index: 10;">
 		<div class="container-fluid">
 			<a class="navbar-brand" href="#" style="color: white">線上運行圖製作</a>
+			<div class="lang-switch ms-auto me-2 me-lg-0 order-lg-last" data-carry></div>
 			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
@@ -611,27 +621,27 @@
 	<div class="row" id="page">
 		<div id="sidenav-col"><!--sidenav-->
 			<div class="row sidenav-btn selected" id="nav-inex">
-				<img class="sidenav-icon" src="icon/import.svg">
+				<img class="sidenav-icon" src="../icon/import.svg">
 				<p class="sidenav-text">匯入/匯出</p>
 			</div>
 			<div class="row sidenav-btn" id="nav-setting">
-				<img class="sidenav-icon" src="icon/setting.svg">
+				<img class="sidenav-icon" src="../icon/setting.svg">
 				<p class="sidenav-text">基本設定</p>
 			</div>
 			<div class="row sidenav-btn" id="nav-route">
-				<img class="sidenav-icon" src="icon/route.svg">
+				<img class="sidenav-icon" src="../icon/route.svg">
 				<p class="sidenav-text">路線資料</p>
 			</div>
 			<div class="row sidenav-btn" id="nav-timetable-1">
-				<img class="sidenav-icon" src="icon/timetable-down.svg">
+				<img class="sidenav-icon" src="../icon/timetable-down.svg">
 				<p class="sidenav-text">時刻表(順行)</p>
 			</div>
 			<div class="row sidenav-btn" id="nav-timetable-2">
-				<img class="sidenav-icon" src="icon/timetable-up.svg">
+				<img class="sidenav-icon" src="../icon/timetable-up.svg">
 				<p class="sidenav-text">時刻表(逆行)</p>
 			</div>
 			<div class="row sidenav-btn" id="nav-output">
-				<img class="sidenav-icon" src="icon/diagram-gen.svg">
+				<img class="sidenav-icon" src="../icon/diagram-gen.svg">
 				<p class="sidenav-text">輸出圖片</p>
 			</div>
 
@@ -707,7 +717,7 @@
 				</div>
 				<div class="row" style="margin-top: 1vh;">
 					<p>整理從各站分岐出去的路線，以及次要車站 (例如信號場)。</p>
-					<p>點<img class="topology-inline-icon" src="icon/path/add_branch.svg">新增從該站分岐的路線 (每站最多 3 條)，點<img class="topology-inline-icon" src="icon/path/branch.add_station.svg">在分岐的末端新增車站，並填入與分岐站的距離。分岐上的車站依距離排序，不會畫在運行圖上。</p>
+					<p>點<img class="topology-inline-icon" src="../icon/path/add_branch.svg">新增從該站分岐的路線 (每站最多 3 條)，點<img class="topology-inline-icon" src="../icon/path/branch.add_station.svg">在分岐的末端新增車站，並填入與分岐站的距離。分岐上的車站依距離排序，不會畫在運行圖上。</p>
 					<p>勾選「次要車站」的車站，在圖上以次要車站線、次要站名繪製 (見基本設定 > 細部設計)。起終點不可設為次要車站。</p>
 				</div>
 				<div class="row" style="margin-top: 3vh; margin-bottom: 20vh;">
@@ -2272,7 +2282,7 @@
 		<div class="offcanvas-body">
 			<div class="d-flex justify-content-between align-items-center">
 				<p style="font-weight: bold; font-size: 125%;">車次 <span id="offcanvas-train-id" style="font-size: 160%;">123</span></p>
-				<img id="offcanvas-train-visible" src="icon/eye.svg" width="20" height="20" style="cursor: pointer; margin-bottom: 1rem;">
+				<img id="offcanvas-train-visible" src="../icon/eye.svg" width="20" height="20" style="cursor: pointer; margin-bottom: 1rem;">
 			</div>
 			<div style="margin-top: 3vh">
 				<p>列車名<input class="form-control" id="offcanvas-train-name" style="text-align: left"></p>
@@ -2379,66 +2389,68 @@
 
 	<!--<script src="../js/jquery-3.5.1.slim.min.js"></script>-->
 	<script src="https://unpkg.com/@popperjs/core@2"></script>
-	<script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+	<script src="../bootstrap/js/bootstrap.bundle.min.js"></script>
 
 	<!-- settings and data (load first) -->
-	<script src="program/program/globalvar.js"></script>
-	<script src="program/data/DataStore.js"></script>
-	<script src="program/data/Draft.js"></script>
+	<script src="../program/program/globalvar.js"></script>
+	<script src="../program/data/DataStore.js"></script>
+	<script src="../program/data/Draft.js"></script>
 
 	<!-- misc utilities -->
-	<script src="program/util/common.js"></script>
-	<script src="program/util/stc.js"></script>
-	<script src="program/util/saveSVG.js"></script>
-	<script src="program/util/zip.js"></script>
-	<script src="program/util/pdf.js"></script>
+	<script src="../program/util/common.js"></script>
+	<script src="../program/util/stc.js"></script>
+	<script src="../program/util/saveSVG.js"></script>
+	<script src="../program/util/zip.js"></script>
+	<script src="../program/util/pdf.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/opentype.js@1.3.4/dist/opentype.min.js"></script>
-	<script src="program/util/vectorText.js"></script>
+	<script src="../program/util/vectorText.js"></script>
 
 	<!-- UI changing -->
-	<script src="program/ui/addStationInput.js"></script>
+	<script src="../program/ui/addStationInput.js"></script>
 	<script src="program/ui/trackLayoutInput.js"></script>
 	<script src="program/ui/topologyInput.js"></script>
-	<script src="program/ui/addTrainInput.js"></script>
-	<script src="program/ui/swapWindow.js"></script>
+	<script src="../program/ui/addTrainInput.js"></script>
+	<script src="../program/ui/swapWindow.js"></script>
 	<script src="program/ui/createTimetable.js"></script>
 	<script src="program/ui/optionsIO.js"></script>
 	<script src="program/ui/opmodeInput.js"></script>
-	<script src="program/ui/toast.js"></script>
+	<script src="../program/ui/toast.js"></script>
 	<script src="program/ui/passingTimeInput.js"></script>
 	<script src="program/ui/printInput.js"></script>
 
 	<!-- Core Program -->
-	<script src="program/program/Graphing.js"></script>
-	<script src="program/program/TrainNumber.js"></script>
-	<script src="program/program/OudiaStyle.js"></script>
-	<script src="program/program/TrackLayout.js"></script>
-	<script src="program/program/BranchTrain.js"></script>
-	<script src="program/program/Overlay.js"></script>
-	<script src="program/program/RunTimeAutofill.js"></script>
-	<script src="program/program/PassingTime.js"></script>
-	<script src="program/program/PassingTimeSTN.js"></script>
+	<script src="../program/program/Graphing.js"></script>
+	<script src="../program/program/TrainNumber.js"></script>
+	<script src="../program/program/OudiaStyle.js"></script>
+	<script src="../program/program/TrackLayout.js"></script>
+	<script src="../program/program/BranchTrain.js"></script>
+	<script src="../program/program/Overlay.js"></script>
+	<script src="../program/program/RunTimeAutofill.js"></script>
+	<script src="../program/program/PassingTime.js"></script>
+	<script src="../program/program/PassingTimeSTN.js"></script>
 	<script src="program/program/PassingReport.js"></script>
-	<script src="program/program/PrintLayout.js"></script>
+	<script src="../program/program/PrintLayout.js"></script>
 
 	<!-- csv / json file parsing -->
-	<script src="program/handler/RouteInfoHandler.js"></script>
-	<script src="program/handler/TrackLayoutHandler.js"></script>
-	<script src="program/handler/TopologyHandler.js"></script>
-	<script src="program/handler/TimetableHandler.js"></script>
-	<script src="program/handler/OverlayHandler.js"></script>
+	<script src="../program/handler/RouteInfoHandler.js"></script>
+	<script src="../program/handler/TrackLayoutHandler.js"></script>
+	<script src="../program/handler/TopologyHandler.js"></script>
+	<script src="../program/handler/TimetableHandler.js"></script>
+	<script src="../program/handler/OverlayHandler.js"></script>
 
 	<!-- setting api -->
-	<script src="program/setting/alterColor.js"></script>
-	<script src="program/setting/OutputSetting.js"></script>
+	<script src="../program/setting/alterColor.js"></script>
+	<script src="../program/setting/OutputSetting.js"></script>
 
 	<!-- settings / all-in-one json (reuse the parsers above) -->
-	<script src="program/handler/SettingHandler.js"></script>
-	<script src="program/handler/AllDataHandler.js"></script>
-	<script src="program/handler/OudHandler.js"></script>
+	<script src="../program/handler/SettingHandler.js"></script>
+	<script src="../program/handler/AllDataHandler.js"></script>
+	<script src="../program/handler/OudHandler.js"></script>
 
 	<!-- optional: arrow-key cell navigation (remove to disable) -->
-	<script src="program/ui/arrowNav.js"></script>
+	<script src="../program/ui/arrowNav.js"></script>
+
+	<script src="../program/ui/langSwitch.js"></script>
 
 	<script>
 		renderRouteTable();
@@ -2447,6 +2459,7 @@
 		renderTimetable(2);
 		renderOpmodeSelects();
 		initSettingsUI();
+		$(restoreLangCarry);
 	</script>
 </body>
 </html>

@@ -1,6 +1,6 @@
 ---
 name: rtd-data-format
-description: Prepare railway route data and timetables (JSON/CSV) so they can be imported into the online railway time diagram maker (diagram-maker.html). Use when asked to organize, convert, clean or validate route / station / train timetable data for this site.
+description: Prepare railway route data and timetables (JSON/CSV) so they can be imported into the online railway time diagram maker (zh/diagram-maker.html). Use when asked to organize, convert, clean or validate route / station / train timetable data for this site.
 ---
 
 # Preparing data for the railway time diagram maker

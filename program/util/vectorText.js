@@ -4,8 +4,8 @@
 	Noto Sans JP is loaded only when a character is missing in it (e.g. 戸).
 */
 const PRINT_FONT_FILES = {
-	normal: ["fonts/NotoSansTC-Medium.ttf", "fonts/NotoSansJP-Medium.ttf"],
-	bold: ["fonts/NotoSansTC-Bold.ttf", "fonts/NotoSansJP-Bold.ttf"]
+	normal: ["../fonts/NotoSansTC-Medium.ttf", "../fonts/NotoSansJP-Medium.ttf"],
+	bold: ["../fonts/NotoSansTC-Bold.ttf", "../fonts/NotoSansJP-Bold.ttf"]
 };
 const printFonts = { normal: [], bold: [] };
 

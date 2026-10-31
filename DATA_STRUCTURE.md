@@ -1,6 +1,6 @@
 # 資料結構與匯入/匯出格式
 
-本文件描述 `diagram-maker.html` 內部的資料結構、設定的讀取方式，以及 CSV / JSON 匯入匯出格式。
+本文件描述 `zh/diagram-maker.html` 內部的資料結構、設定的讀取方式，以及 CSV / JSON 匯入匯出格式。
 
 ## 1. 資料流 (single source of truth)
 
@@ -223,7 +223,7 @@ ROUTE = {
 
 #### 軌道配置圖
 
-`renderTrackTable()` (`program/ui/trackLayoutInput.js`) 由上而下每站、每個站間各一列 (共 2N−1 列，每列固定高 70px)。左欄圖片 (`icon/route/`)：
+`renderTrackTable()` (`zh/program/ui/trackLayoutInput.js`) 由上而下每站、每個站間各一列 (共 2N−1 列，每列固定高 70px)。左欄圖片 (`icon/route/`)：
 
 - 車站：`{類型}.sta.svg`；站間：`{類型}.svg`。皆為 40×50，放在列的中間 (上下各留 10px)。
 - 相鄰兩列之間放 40×20 的轉換圖，跨在兩列的分隔線上 (上一列的最後 10px + 下一列的最初 10px)。
@@ -231,7 +231,7 @@ ROUTE = {
 
 ### 4.4 線路拓樸 `topology`
 
-整理從各站分岐出去的路線 (分岐點不一定是停靠站，例如信號場)，以及次要車站。分岐不會畫在運行圖上，只用來推算跨線列車通過分岐站的時刻 (見 5.4)。程式在 `program/ui/topologyInput.js` (表格)、`program/handler/TopologyHandler.js` (`loadTopology()`)。
+整理從各站分岐出去的路線 (分岐點不一定是停靠站，例如信號場)，以及次要車站。分岐不會畫在運行圖上，只用來推算跨線列車通過分岐站的時刻 (見 5.4)。程式在 `zh/program/ui/topologyInput.js` (表格)、`program/handler/TopologyHandler.js` (`loadTopology()`)。
 
 - **次要車站** (`secondary[i]`)：繪圖時比照次要時間線，車站線用 `lines.secondaryStation`，站名 / 別名用 `secondaryStationText` / `secondaryAliasText` (`stationTextStyles(i)`，`Graphing.js`)。起終點不可勾選 (外框會蓋過車站線)；`deleteStation()` 刪掉最後一站時，新的最後一站設為 `false`。
 - **分岐** (`branches[i]`)：新增時就有一個車站 (`newBranchStation()`，站名空白、`kilo` = `null`)；新增的車站放在最遠端；刪掉分岐的最後一個車站時整條分岐移除。`kilo` 輸入 0、負數、非數字 → 紅底、不寫入；改 `kilo` 後重新排序 (`sortBranchStations()`)，順序有變才重新渲染 (否則保留焦點)。
@@ -420,7 +420,7 @@ currentOpmode = 1               // OPMODES[currentOpmode].trains === TRAINS
 - 名稱 `opmodeName(mode, i)` (`opmodeInput.js`) = `title`，或 `opmodeDaysName(days)`：七天 `每日`、一~五 `平日`、六日 + 假日 `假日`，其餘連續三天以上寫成 `週二至四`、否則 `週一、三`，有假日時加上 `、假日`；都沒有時為 `運行型態 n`。
 - 同一班車：`trainKey(train)` 相同 (`hidden` 以外的欄位全部相同)。
 
-UI (`program/ui/opmodeInput.js`)：
+UI (`zh/program/ui/opmodeInput.js`)：
 
 - 時刻表兩頁、輸出圖片頁上方與「還原通過時間」下方的「運行型態」選單 (`.opmode-select`，`renderOpmodeSelects()`) 切換目前的運行型態 (`switchOpmode(i)`)；輸出圖片頁已有圖時重畫。
 - 「編輯」(以及匯入/匯出頁的「編輯運行型態」) 打開 `#OpmodeModal`：每個運行型態一列，可選為目前的、改標題 (留白時 placeholder 顯示依運行日的名稱)、運行日 (一 ~ 日、假日)、描述，顯示兩方向的列車數；刪除要按兩次 (只剩一個時不能刪)。下方「新增空白運行型態」「複製目前的運行型態」，新增後切換過去。
@@ -608,15 +608,15 @@ draft = { trains: { 1: [...], 2: [...] }, fingerprint: "..." }   // trains: stru
 | `program/program/globalvar.js` | `SETTINGS`, `DEFAULT_SETTINGS` |
 | `program/data/DataStore.js` | `INFO`, `ROUTE`, `TRAINS`, `OPMODES`, `currentOpmode`, `OPMODE_DAYS`, `newOpmode()`, `selectOpmode()`, `setOpmodes()`, `addOpmode()`, `deleteOpmode()`, `allTrains()`, `trainKey()`, `copyTrainToOpmode()`, `removeTrainFromOpmode()`, `DEFAULT_TRACK`, `MAX_BRANCHES`, `newStation()`, `newTrackLayout()`, `newTopology()`, `newBranchStation()`, `sortBranchStations()`, `newTrain()`, `boundStations()`, `findStop()`, `addStop()`, `setStopTime()`, `insertStation()`, `deleteStation()`, `refreshStopNames()`, `arrivalTime()`, `stopTimes()`, `isBlankTrain()` |
 | `program/ui/addStationInput.js` | `renderRouteTable()` (同時呼叫 `renderTrackTable()`, `renderTopologyTable()`), `onRouteChanged()`, 路線表格事件 |
-| `program/ui/trackLayoutInput.js` | `renderTrackTable()`, 軌道配置表格事件、快速套用按鈕 |
-| `program/ui/topologyInput.js` | `renderTopologyTable()`, `topologyRows()`, 線路拓樸表格事件 (新增分岐 / 車站、刪除車站、次要車站) |
+| `zh/program/ui/trackLayoutInput.js` | `renderTrackTable()`, 軌道配置表格事件、快速套用按鈕 |
+| `zh/program/ui/topologyInput.js` | `renderTopologyTable()`, `topologyRows()`, 線路拓樸表格事件 (新增分岐 / 車站、刪除車站、次要車站) |
 | `program/handler/TopologyHandler.js` | `loadTopology()` (路線 JSON 匯入時讀取 `topology`) |
 | `program/program/TrackLayout.js` | `TRACK_TYPES`, `TRACK_TRANSITIONS`, `TRACK_PRESETS`, `parseTrack()`, `makeTrack()`, `trackTransition()`, `applyTrackPreset()`, `minRunSec()` |
 | `program/handler/TrackLayoutHandler.js` | `loadTrackLayout()` (路線 JSON 匯入時讀取 `track_layout`) |
-| `program/ui/createTimetable.js` | `renderTimetable(bound)`, `checkkilo()`, `generateTimetable()`, `hideHiddenTrains`, `trainInTable()` |
+| `zh/program/ui/createTimetable.js` | `renderTimetable(bound)`, `checkkilo()`, `generateTimetable()`, `hideHiddenTrains`, `trainInTable()` |
 | `program/ui/addTrainInput.js` | 時刻表事件 (新增/刪除列車、車次、時刻輸入) |
-| `program/ui/opmodeInput.js` | 運行型態的選單、`#OpmodeModal` 與基本資料的表格、車次細項的運行型態：`OPMODE_DAY_NAMES`, `opmodeDaysName()`, `opmodeName()`, `renderOpmodeSelects()`, `switchOpmode()`, `onOpmodeChanged()`, `renderOpmodeTable(skip)`, `renderTrainOpmodes()`；基本資料 `renderInfo()` |
-| `program/ui/optionsIO.js` | 列車細項 (隱藏、列車名、顏色、始發、終點) offcanvas：`renderTrainVisible()`, `renderBranchEnd()` |
+| `zh/program/ui/opmodeInput.js` | 運行型態的選單、`#OpmodeModal` 與基本資料的表格、車次細項的運行型態：`OPMODE_DAY_NAMES`, `opmodeDaysName()`, `opmodeName()`, `renderOpmodeSelects()`, `switchOpmode()`, `onOpmodeChanged()`, `renderOpmodeTable(skip)`, `renderTrainOpmodes()`；基本資料 `renderInfo()` |
+| `zh/program/ui/optionsIO.js` | 列車細項 (隱藏、列車名、顏色、始發、終點) offcanvas：`renderTrainVisible()`, `renderBranchEnd()` |
 | `program/program/BranchTrain.js` | 跨線列車：`branchStations()`, `branchChoices()`, `junctionRange()`, `junctionStops()`, `passingJunctions()`, `trainStops()` |
 | `program/program/Overlay.js` | 疊圖：`trainTimesAt()`, `overlayTime()`, `getOverlayJSON()`, `applyOverlay()`, `findOverlayTrain()`, `unpinTrain()` |
 | `program/handler/OverlayHandler.js` | 疊圖 UI：`renderOverlayStations()`, 匯出 / 疊加按鈕, 車次細項的 `renderPinnedCount()` / 解除釘選 |
@@ -631,8 +631,8 @@ draft = { trains: { 1: [...], 2: [...] }, fingerprint: "..." }   // trains: stru
 | `program/program/RunTimeAutofill.js` | `wildcardRegExp()`, `findTrainByNumber()`, `computeAutofill()`, `applyAutofill()` |
 | `program/program/PassingTime.js` | `createPassingModel()`, `detectConflicts()`, `writePassingTimes()`；貪婪解法 `solveConflict()`, `addHeadwayCandidates()`, `restorePassingTimes()`；兩個求解器共用的分岐站換邊 `junctionMove()` 與整段重排 `rerouteConflict()` / `rerouteCandidate()` (見 `ALGORITHM.md` 4.4)；未使用的 `plainConflicts()` |
 | `program/program/PassingTimeSTN.js` | 離散決策 + 差分約束：`restorePassingTimesSTN()`, `solveNetwork()`, `addProposals()`, `addHeadwayPoints()`, `prunePassingTimes()` |
-| `program/program/PassingReport.js` | 還原通過時間的詳細結果：`passingReport()` (衝突清單、`passingLimits()`、`diagnoseConflict()`)，見 `ALGORITHM.md` 第 8 節 |
-| `program/ui/passingTimeInput.js` | 待避時間計算的表單、dashboard、採用 / 捨棄 / 預覽 (`updateDraftUI()`, `checkedDraft()`) |
+| `zh/program/program/PassingReport.js` | 還原通過時間的詳細結果：`passingReport()` (衝突清單、`passingLimits()`、`diagnoseConflict()`)，見 `ALGORITHM.md` 第 8 節 |
+| `zh/program/ui/passingTimeInput.js` | 待避時間計算的表單、dashboard、採用 / 捨棄 / 預覽 (`updateDraftUI()`, `checkedDraft()`) |
 | `program/util/common.js` | `escapeHTML()`, `downloadFile()`, `readImportFile()`, `parseCSV()` |
 | `program/util/stc.js` | 時刻字串轉換：`normalizeTime()`, `toSec()`, `toStr()`, `deductSec()`, `tohhmmss()` |
 

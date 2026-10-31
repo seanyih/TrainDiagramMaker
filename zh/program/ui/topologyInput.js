@@ -54,7 +54,7 @@ function pathImage(path){
 	const flip = path.endsWith(".T");
 	const file = flip ? path.slice(0, -2) : path;
 	const [button, title] = PATH_BUTTONS[file] ?? ["", ""];
-	return `<img class="${flip ? "flip" : ""} ${button}" src="icon/path/${file}.svg" ${title ? `title="${title}"` : ""}>`;
+	return `<img class="${flip ? "flip" : ""} ${button}" src="../icon/path/${file}.svg" ${title ? `title="${title}"` : ""}>`;
 }
 
 // the first and last stations can't be secondary
