@@ -7,10 +7,13 @@ async function deflate(data){
 
 const pdfNum = value => +value.toFixed(3);
 
-// "#rrggbb"; op: "rg" (fill) | "RG" (stroke)
+// "#rrggbb" to DeviceCMYK (K only for grays); op: "rg" (fill) | "RG" (stroke)
 function pdfColor(hex, op){
 	const n = parseInt(hex.slice(1), 16);
-	return `${[n >> 16, (n >> 8) & 255, n & 255].map(v => +(v/255).toFixed(4)).join(" ")} ${op}`;
+	const [r, g, b] = [n >> 16, (n >> 8) & 255, n & 255].map(v => v/255);
+	const k = 1 - Math.max(r, g, b);
+	const cmy = k == 1 ? [0, 0, 0] : [r, g, b].map(v => (1 - v - k)/(1 - k));
+	return `${[...cmy, k].map(v => +v.toFixed(4)).join(" ")} ${op == "rg" ? "k" : "K"}`;
 }
 
 // outline of an opentype Path, filled
