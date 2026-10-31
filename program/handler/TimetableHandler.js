@@ -17,7 +17,7 @@ $("body").on("click", ".import-train-btn", function(){
 	const arrival = $(this).data("arrival");
 
 	const selected = readImportFile($(this).siblings("input"), (text, type) => {
-		const trains = (type == "json") ? loadTrainFromJSON(text) : loadTrainFromCSV(text, arrival);
+		const trains = (type == "json") ? loadTrainFromJSON(text, bound) : loadTrainFromCSV(text, arrival);
 		applyTrains(bound, trains, $("#ImportTrainMode").val() == "a");
 		$(`#ImportTime${bound}Success`).toast('show');
 	});
@@ -47,15 +47,39 @@ function getTrainDataJSON(bound){
 	};
 }
 
-function loadTrainFromJSON(text){
+// index in the file's station_record -> index in this bound's stations (longest common subsequence of names); unmatched are absent
+function matchStationRecord(record, bound){
+	const names = boundStations(bound).map(station => station.name);
+	const n = record.length, m = names.length;
+	const lcs = Array.from({length: n + 1}, () => new Array(m + 1).fill(0));
+	for(let i = n - 1; i >= 0; i--){
+		for(let j = m - 1; j >= 0; j--){
+			lcs[i][j] = record[i] == names[j] ? lcs[i + 1][j + 1] + 1 : Math.max(lcs[i + 1][j], lcs[i][j + 1]);
+		}
+	}
+	const map = new Map();
+	let i = 0, j = 0;
+	while(i < n && j < m){
+		if(record[i] == names[j]) map.set(i++, j++);
+		else if(lcs[i + 1][j] >= lcs[i][j + 1]) i++;
+		else j++;
+	}
+	return map;
+}
+
+function loadTrainFromJSON(text, bound){
 	const data = JSON.parse(text);
 	if(!ROUTE.route_name) ROUTE.route_name = data.route_name ?? "";
+	const record = Array.isArray(data.station_record) ? data.station_record.map(name => String(name).trim()) : null;
+	const stationMap = record ? matchStationRecord(record, bound) : null;
 
 	return data.timetable.map(t => {
 		const train = newTrain(t.train_number ?? "", t.settings?.train_name ?? "", parseInt(t.settings?.train_color) || 0, ...importLineStyle(t.settings));
 		setBranchEnds(train, t.origin?.station_name, t.origin?.departure, t.terminal?.station_name, t.terminal?.arrival);
 		t.timetable.forEach(stop => {
-			addStop(train, stop.station_order, normalizeTime(stop.arrival ?? "") || "", normalizeTime(stop.departure ?? "") || "", stop.pinned === true);
+			const order = stationMap ? stationMap.get(stop.station_order) : stop.station_order;
+			if(order === undefined) return;
+			addStop(train, order, normalizeTime(stop.arrival ?? "") || "", normalizeTime(stop.departure ?? "") || "", stop.pinned === true);
 		});
 		return train;
 	});

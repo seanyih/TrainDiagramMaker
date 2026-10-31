@@ -44,7 +44,7 @@ TRAINS = {
 | `route_name` | 路線名。若目前路線沒有名稱，匯入時會取用此值 |
 | `bound` | 方向，1 = 順行、2 = 逆行 |
 | `station_count` | 該方向的車站數 |
-| `station_record` | 該方向順序的站名列表 |
+| `station_record` | 該方向順序的站名列表。匯入時與目前車站依站名比對：相符的照常匯入，檔案多出的站略過，路線多出的站留白 (`station_order` 為此列表的 index) |
 | `train_count` | 列車數 |
 | `timetable` | 列車陣列 |
 

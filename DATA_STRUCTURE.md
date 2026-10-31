@@ -289,7 +289,8 @@ train = {
 ```
 
 - `timetable` 陣列與內部 `TRAINS[bound]` 結構、欄位名稱完全相同。
-- 外層的 `route_name`, `bound`, `station_count`, `station_record`, `train_count` 只在匯出時由 `ROUTE` / `TRAINS` 產生，**匯入時忽略** (方向由按下的匯入按鈕決定，站序以 `station_order` 為準)。
+- 外層的 `route_name`, `bound`, `station_count`, `train_count` 只在匯出時由 `ROUTE` / `TRAINS` 產生，**匯入時忽略** (方向由按下的匯入按鈕決定)。
+- 若有 `station_record`，匯入時會與目前該方向的車站名稱比對 (最長共同子序列)：站名相符的照常匯入，檔案多出的站其時刻略過，路線多出的站留白；`station_order` 是 `station_record` 的 index。站序對調不處理 (只會保留其中一邊)。沒有 `station_record` 時，`station_order` 直接當作該方向的 index。
 - 此格式與 `crawler/crawler_routetime.py` 產生的檔案相同。
 
 ### 5.2 列車 CSV

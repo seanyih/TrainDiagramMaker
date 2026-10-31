@@ -72,7 +72,7 @@ Route CSV alternative (no header): `name,kilo[,stopsec][,alias]` per line. CSV c
 }
 ```
 
-Only `timetable` (outer array) is read on import; `bound`, `station_count`, `station_record`, `train_count`, `route_name` are informational (still emit them correctly).
+`timetable` (outer array) and `station_record` are read on import: stops are matched to the route's stations by name (longest common subsequence), so extra stations in the file are skipped and missing ones left blank; `station_order` indexes `station_record`. `bound`, `station_count`, `train_count`, `route_name` are informational (still emit them correctly).
 
 ### `station_order`
 Index into **that bound's** station list.
