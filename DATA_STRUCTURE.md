@@ -80,7 +80,7 @@ checkbox → boolean，`type="number"` 與數字選項的 select → number (空
 | `print.opmodes` | `"all"` | 列印 (「頁面預設」旁)：`"current"` = 只輸出目前的運行型態；`"all"` = 有多個運行型態 (5.7) 時輸出每一個，各放在 zip 中的一個資料夾 (`01_週一/`，名稱為 `opmodeName()`，`\/:*?"<>|` 換成 `_`)。每頁以 `drawDiagram(trains, svg, page)` 繪製，`page` 帶 footer 用的運行型態、頁序、頁碼、時間範圍與頁面 (不含出血) |
 | `print.format` | `"pdf"` | 輸出格式：`"svg"` = 直接 SVG (文字不轉外框)、`"pdf"` = 向量文字 PDF、`"svgPath"` = 向量文字 SVG；向量文字指文字轉成外框 (`fonts/` 的 Noto Sans TC，缺字改用 Noto Sans JP) |
 | `print.align.v` / `print.align.h` | `{ side: "top", base: "frame", offset: 20 }` / `{ side: "left", base: "text", offset: 10 }` | 圖面對齊。`side`：固定哪一側的 padding (`"top"` \| `"bottom"`、`"left"` \| `"right"`)；`base`：`offset` (mm) 算到圖框 (`"frame"`) 或含文字 (`"text"`)。另一側的 padding 由頁面大小與圖框大小算出 |
-| `passingTime.solver` | `"stn"` | 還原通過時間的求解器：`"greedy"` = 貪婪解法 (`restorePassingTimes()`，`PassingTime.js`)、`"stn"` = 離散決策 + 差分約束 (`restorePassingTimesSTN()`，`PassingTimeSTN.js`)。其他參數兩者共用 |
+| `passingTime.solver` | `"stn"` | 還原通過時間的求解器：`"greedy"` = 貪婪解法 (`restorePassingTimes()`，`PassingTime.js`)、`"stn"` = 離散決策 + 差分約束 (`restorePassingTimesSTN()`，`PassingTimeSTN.js`)、`"check"` = 僅確認衝突 (同 `"stn"` 但跑 0 輪就停機，詳細結果照常輸出)。其他參數共用 |
 | `passingTime.minExtraPassingWaiting` | 30 | 還原通過時間：停站秒數 > 該站 `stopsec` + 此值的停靠，視為可能的待避 (≥ 0) |
 | `passingTime.minTimeSeparation` | 60 | 最短時隔 (秒，≥ 0)：通過的列車比待避列車發車早 (或比終到列車到站晚) 這麼多秒；同一站連續通過的列車也至少相隔這麼多秒 |
 | `passingTime.maxSearchDepth` | 3 | 從衝突位置往前、往後找待避站的最大站數 (≥ 1) |
@@ -501,13 +501,13 @@ UI (`program/ui/opmodeInput.js`)：
 番線、駅作業、運用、路線外發着、分岐駅設定、コメント 等不匯入。OuDia 的功能比較見 `design_doc/OUDIA.md` (本機文件)。
 
 - 讀檔：`decodeOud()` 先試 UTF-8 (`.oud2`)，失敗則 Shift_JIS (`.oud`)；`parseOud()` 轉成 `{ name, values: { key: [值...] }, children }` 的樹。選檔時解析並列出ダイヤ，沒有車站 (少於 2 站) 或ダイヤ時顯示紅色 toast。
-- `convertOud(root, diaIndices)` (一個 index 或陣列) → `{ route, opmodes, colors, background, axis, startSec, merged, split }`，種別的顏色分組與站距 (`oudSectionSeconds()`) 以所有選擇的ダイヤ一起計算；`applyOud()` 套用：路線 (`applyRoute()`)、運行型態一律取代 (`applyOpmodes()`)、`trainColors` / `trainLineTypeByColor` / `trainLineWidthByColor` 的 1~10 (先清空樣式，`trainColors[0]` = `[1]`)、`background.color`、`oudiaStyle.axisColor`、`startSec` = 起點時刻、`endSec` = 起點 + 24 時 (最多 `MAX_END_SEC`)。
+- `convertOud(root, diaIndices)` (一個 index 或陣列) → `{ route, opmodes, colors, background, axis, startSec, merged, split }`，種別的顏色分組與站距 (`oudSectionSeconds()`) 以所有選擇的ダイヤ一起計算；`applyOud()` 套用：路線 (`applyRoute()`)、運行型態一律取代 (`applyOpmodes()`)、`trainColors` / `trainLineTypeByColor` / `trainLineWidthByColor` 的 1~10 (先清空樣式，`trainColors[0]` = `[1]`)、`background.color`、`oudiaStyle.axisColor`、`startSec` = 起點時刻、`endSec` = 起點 + 24 時 (最多 `MAX_END_SEC`)。基本資料 `INFO` 先清空，`description` = 路線的 `Comment` (OuDia 的換行 `\n` 轉為換行)；`title`、`effective_date` 與運行型態的 `description`、`days` 沒有對應。
 - `kilo` 是推算的 (`oudSectionSeconds()`，1 分 = 1 km)、`stopsec` = `defaultStopSec`；匯入後一律顯示黃色 toast `#ImportOudWarning` 說明，並列出種別合併到同一顏色槽、列車被拆開的次數。
 - 匯出 (`oudText(second)`)：每個運行型態一份ダイヤ (`DiaName` = 標題，或依運行日的名稱，都沒有時為 `ダイヤ`)；種別與「有停車時間的站」以所有運行型態的列車計算，隱藏的列車不匯出。`.oud` 為 `FileType=OuDia.1.02`、Shift_JIS (`encodeShiftJIS()`，表由瀏覽器的解碼器反推；無法表示的字改為 `?` 並顯示黃色 toast `#ExportOudWarning`)；`.oud2` 為 `OuDiaSecond.1.17`、UTF-8 含 BOM，並寫出每站的 `NextEkiDistance` = 站間 km × 60 (秒)，再匯入時 `kilo` 不變。換行 CRLF。
     - 車站：`Ekikibo` 依 `topology.secondary`；有任何停車的到站時刻 (≠ 發車) 的站為 `Jikokukeisiki_Hatsuchaku`，否則 `Jikokukeisiki_Hatsu`。
     - 種別：每個用到的 `train_color` 一個 (依顏色編號排序)，`DiagramSenColor` 為該顏色、線型依 `trainLineTypeByColor`、線寬 ≥ `trainLineWidth × 2` 為粗線。該顏色的列車 `train_name` 全部相同時，以它為種別名、列車不寫 `Ressyamei`；否則種別名為「顏色n」(0 為「未指定」)，`train_name` 的「名稱 N号」拆成 `Ressyamei` / `Gousuu`。
     - `EkiJikoku`：每站一格，第一站之前、最後一站之後為空白；中間沒有停靠的站為 `2` (通過、無時刻)；`arrival = departure` 的中途站為 `2;發`；最後一站 `1;著/`；有停車時間 `1;著/發`；否則 `1;發`。時刻寫成 OuDia 的 `hmm[ss]` (小時不補 0、取 24 的餘數)。`line_width` / `line_type`、`pinned`、軌道配置、拓樸的分岐不匯出。
-    - `KitenJikoku` = `startSec`；`DispProp` 的 `DiaBackColor` = `background.color`、`DiaJikuColor` = `oudiaStyle.axisColor`。
+    - `Comment` = `INFO.description` (換行寫成 `\n`)；`KitenJikoku` = `startSec`；`DispProp` 的 `DiaBackColor` = `background.color`、`DiaJikuColor` = `oudiaStyle.axisColor`。
 
 ## 7. 待避時間計算 (基本設定 > 待避時間計算)
 

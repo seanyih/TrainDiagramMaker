@@ -153,7 +153,8 @@ $("body").on("click", "#PassingTimeReportBtn", function(){
 	$("#PassingTimeReport").toggle();
 });
 
-const STOP_REASONS = { done: "完成", iteration: "最大迴圈", stale: "不再進步" };
+const SOLVER_NAMES = { greedy: "貪婪解法", stn: "離散決策 + 差分約束", check: "僅確認衝突" };
+const STOP_REASONS = { done: "完成", iteration: "最大迴圈", stale: "不再進步", check: "僅確認衝突" };
 
 // PASSING_REPORT as a numbered list
 function renderPassingReport(){
@@ -161,7 +162,7 @@ function renderPassingReport(){
 	const { written, stats, limits, diagnoses, unchecked } = report;
 	const list = items => (items.length == 0) ? "" : `<ul class="passing-report-list">${items.map(item => `<li>${escapeHTML(item)}</li>`).join("")}</ul>`;
 	const stages = stats.stages.map(stage => `${(solver == "greedy" && headway) ? (stage.tune ? "微調：" : "還原：") : ""}${STOP_REASONS[stage.reason]} (${stage.rounds} 輪)`).join(" | ");
-	const header = [`求解器：${(solver == "greedy") ? "貪婪解法" : "離散決策 + 差分約束"}`, `${(ms/1000).toFixed(2)} 秒`];
+	const header = [`求解器：${SOLVER_NAMES[solver]}`, `${(ms/1000).toFixed(2)} 秒`];
 	if(rounding) header.push(`精度的處理方式：${ROUNDING_NAMES[rounding]}${runs.length ? ` (${runs.map(run => `${ROUNDING_NAMES[run.rounding]}：${counted(run.counts, headway)}`).join("；")})` : ""}`);
 	const stopsChanged = written.times + written.arrivals;
 	const diagnosed = diagnoses.map(({ conflict, reasons }) => `<li>${escapeHTML(conflict)}${list(reasons)}</li>`).join("");

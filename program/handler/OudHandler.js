@@ -211,6 +211,7 @@ function convertOud(root, diaIndices){
 		colors: groups,
 		background: dispProp?.values.DiaBackColor ? oudColor(oudValue(dispProp, "DiaBackColor")) : null,
 		axis: dispProp?.values.DiaJikuColor ? oudColor(oudValue(dispProp, "DiaJikuColor")) : null,
+		description: oudValue(rosen, "Comment").replaceAll("\\n", "\n"),
 		startSec: toSec(kiten),
 		merged: merged,
 		split: split
@@ -218,8 +219,12 @@ function convertOud(root, diaIndices){
 }
 
 function applyOud(data){
+	Object.keys(INFO).forEach(key => INFO[key] = "");
+	INFO.description = data.description;
 	applyRoute(data.route);
 	applyOpmodes(data.opmodes);
+	renderInfo();
+	renderOpmodeTable();
 
 	for(let n = 1; n <= 10; n++){
 		SETTINGS.trainLineTypeByColor[n] = "";
@@ -366,7 +371,7 @@ function oudText(second){
 		});
 		lines.push(".");
 	});
-	lines.push(`KitenJikoku=${toOudTime(secToHhmm(SETTINGS.startSec % 86400))}`, "DiagramDgrYZahyouKyoriDefault=60", "Comment=", ".",
+	lines.push(`KitenJikoku=${toOudTime(secToHhmm(SETTINGS.startSec % 86400))}`, "DiagramDgrYZahyouKyoriDefault=60", `Comment=${INFO.description.replaceAll("\r", "").replaceAll("\n", "\\n")}`, ".",
 		"DispProp.", `DiaBackColor=${toOudColor(SETTINGS.background.color)}`, `DiaJikuColor=${toOudColor(SETTINGS.oudiaStyle.axisColor)}`, ".");
 	return lines.join("\r\n") + "\r\n";
 }

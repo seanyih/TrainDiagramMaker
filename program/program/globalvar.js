@@ -114,7 +114,7 @@ const SETTINGS = {
 
 	// restoring passing times from the track layout (PassingTime.js)
 	passingTime: {
-		solver: "stn",                 // "greedy" (PassingTime.js) | "stn" (PassingTimeSTN.js)
+		solver: "stn",                 // "greedy" (PassingTime.js) | "stn" (PassingTimeSTN.js) | "check" (stn, 0 rounds)
 		minExtraPassingWaiting: 30,   // s; a stop longer than the station's stopsec + this may be a wait to be overtaken / met
 		minTimeSeparation: 60,         // s; headway between two trains
 		maxSearchDepth: 3,             // stations from a conflict to look for a waiting train

@@ -485,7 +485,7 @@ function restorePassingTimesSTN(trains, fineTune, onRound, onDone, rounding){
 	onRound(round, countConflicts(conflicts), 0);
 
 	const next = () => {
-		const reason = (conflicts.length <= maxAllowedConflict) ? "done" : (maxIteration > 0 && round >= maxIteration) ? "iteration" : (stale >= 3) ? "stale" : null;
+		const reason = (conflicts.length <= maxAllowedConflict) ? "done" : (SETTINGS.passingTime.solver == "check") ? "check" : (maxIteration > 0 && round >= maxIteration) ? "iteration" : (stale >= 3) ? "stale" : null;
 		if(reason){
 			m.stats.stages.push({ tune: fineTune, rounds: round, reason: reason });
 			// headways count when dropping passing times only if fine-tuning
