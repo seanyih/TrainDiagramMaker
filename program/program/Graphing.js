@@ -69,7 +69,8 @@ const LAYERS = {
 	trainNumbers: ["layer-train-numbers", "列車號文字"],
 	outline:      ["layer-outline", "圖框"],
 	stationText:  ["layer-station-text", "文字-車站"],
-	timeText:     ["layer-time-text", "文字-時間"]
+	timeText:     ["layer-time-text", "文字-時間"],
+	footer:       ["layer-footer", "文字-基本資料"]
 };
 const BOUND_NAMES = { 1: "順行", 2: "逆行" };
 
@@ -91,8 +92,9 @@ function trainId(bound, i){
 	return `train-${bound}-${i}`;
 }
 
-// trains: TRAINS, or a draft's trains for a preview; o: the svg to draw in (jQuery)
-function drawDiagram(trains = TRAINS, o = $("#output")){
+// trains: TRAINS, or a draft's trains for a preview; o: the svg to draw in (jQuery);
+// page: of the footer (makeFooter()), from the print mode; otherwise the svg is the only page
+function drawDiagram(trains = TRAINS, o = $("#output"), page = null){
 	if(o.is("#output")) checkTextFit();
 
 	const { margin, lines, background, aliasText, pxPerKm, pxPerMin } = SETTINGS;
@@ -255,6 +257,35 @@ function drawDiagram(trains = TRAINS, o = $("#output")){
 
 	const timeTextLayer = layer("timeText");
 	timeLabels.forEach(label => timeTextLayer.append(label));
+
+	if(SETTINGS.footer.enabled){
+		page = page ?? { opmode: currentOpmode, index: 1, number: SETTINGS.footer.startPage, startSec: SETTINGS.startSec, endSec: SETTINGS.endSec, trim: { x: 0, y: 0, width: width, height: height } };
+		layer("footer").append(makeFooter(page, margin.top + h));
+	}
+}
+
+/*
+	page: { opmode (index), index (1, 2... in the mode), number (<pages>), startSec, endSec (its time range),
+	trim: { x, y, width, height } (the page without the bleed, px) }
+*/
+function footerText(page){
+	const { start, end } = stationRange();
+	const tokens = {
+		title: INFO.title,
+		sta_range: `${ROUTE.stations[start].name} = ${ROUTE.stations[end].name}`,
+		opmode: opmodeName(OPMODES[page.opmode], page.opmode),
+		index: page.index,
+		time_range: `${secToHhmm(page.startSec)} ~ ${secToHhmm(page.endSec)}`,
+		pages: page.number
+	};
+	return SETTINGS.footer.text.replace(/<(\w+)>/g, (token, key) => Object.hasOwn(tokens, key) ? tokens[key] : token);
+}
+
+// at the bottom center of the page, its gap from the page's bottom edge or below the text under the plot
+function makeFooter(page, plotBottom){
+	const f = SETTINGS.footer;
+	const y = (f.base == "page") ? page.trim.y + page.trim.height - f.gap : plotBottom + textExtent().bottom + f.gap + f.fontSize;
+	return makeSVGtext("text", footerText(page), {x:page.trim.x + page.trim.width/2, y:y, "font-family":"Noto Sans TC", "font-size":f.fontSize, "fill":f.color, "text-anchor":"middle"});
 }
 
 // text settings of route station i's name and alias

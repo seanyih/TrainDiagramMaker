@@ -1,6 +1,7 @@
 /*
 	Operation modes (運行型態, DataStore.js): the mode bars above the timetables and the output (.opmode-select),
-	the modal editing them (#OpmodeModal), and the modes having a train in 車次細項 (#offcanvas-opmodes)
+	the tables editing them (#OpmodeModal, 基本設定 > 基本資料), and the modes having a train in 車次細項 (#offcanvas-opmodes).
+	基本資料 also has the file's INFO.
 */
 
 const OPMODE_DAY_NAMES = { mon: "一", tue: "二", wed: "三", thu: "四", fri: "五", sat: "六", sun: "日", hol: "假日" };
@@ -48,6 +49,7 @@ function onOpmodeChanged(){
 	renderOpmodeTable();
 	refreshTimetable(1);
 	refreshTimetable(2);
+	updateDraftUI();
 	if($("#container-output").is(":visible") && $("#output").children().length > 0) $("#OutputBtn").click();
 }
 
@@ -55,30 +57,62 @@ $("body").on("change", ".opmode-select", function(){
 	switchOpmode(Number($(this).val()));
 });
 
-function renderOpmodeTable(){
-	$("#OpmodeTableBody").html(OPMODES.map((mode, i) => `
-		<tr data-mode="${i}">
-			<td><input class="form-check-input opmode-current" type="radio" name="OpmodeCurrent" ${i == currentOpmode ? "checked" : ""} title="目前的運行型態"></td>
-			<td><input class="form-control opmode-field" data-field="title" value="${escapeHTML(mode.title)}" placeholder="${escapeHTML(opmodeDaysName(mode.days) || `運行型態 ${i + 1}`)}"></td>
-			<td>
-				<div class="btn-group btn-group-sm text-nowrap">${OPMODE_DAYS.map(day => `
-					<input type="checkbox" class="btn-check opmode-day" id="opmode-${i}-${day}" data-day="${day}" autocomplete="off" ${mode.days.includes(day) ? "checked" : ""}>
-					<label class="btn btn-outline-primary" for="opmode-${i}-${day}">${OPMODE_DAY_NAMES[day]}</label>`).join("")}
-				</div>
-			</td>
-			<td><textarea class="form-control opmode-field" data-field="description" rows="1">${escapeHTML(mode.description)}</textarea></td>
-			<td class="text-nowrap">順行 ${mode.trains[1].length}<br>逆行 ${mode.trains[2].length}</td>
-			<td><button type="button" class="btn btn-sm btn-outline-danger text-nowrap opmode-delete" ${OPMODES.length == 1 ? "disabled" : ""}>刪除</button></td>
-		</tr>`).join(""));
+// the modal's table and the one in 基本設定 > 基本資料 (no radio to switch); skip: a table not to render
+function renderOpmodeTable(skip){
+	$(".opmode-table").not(skip).each(function(){
+		const radio = this.id == "OpmodeTableBody";
+		$(this).html(OPMODES.map((mode, i) => `
+			<tr data-mode="${i}">
+				${radio ? `<td><input class="form-check-input opmode-current" type="radio" name="OpmodeCurrent" ${i == currentOpmode ? "checked" : ""} title="目前的運行型態"></td>` : ""}
+				<td><input class="form-control opmode-field" data-field="title" value="${escapeHTML(mode.title)}" placeholder="${escapeHTML(opmodeDaysName(mode.days) || `運行型態 ${i + 1}`)}"></td>
+				<td>
+					<div class="btn-group btn-group-sm text-nowrap">${OPMODE_DAYS.map(day => `
+						<input type="checkbox" class="btn-check opmode-day" id="${this.id}-${i}-${day}" data-day="${day}" autocomplete="off" ${mode.days.includes(day) ? "checked" : ""}>
+						<label class="btn btn-outline-primary" for="${this.id}-${i}-${day}">${OPMODE_DAY_NAMES[day]}</label>`).join("")}
+					</div>
+				</td>
+				<td><textarea class="form-control opmode-field" data-field="description" rows="1">${escapeHTML(mode.description)}</textarea></td>
+				<td class="text-nowrap">順行 ${mode.trains[1].length}<br>逆行 ${mode.trains[2].length}</td>
+				<td><button type="button" class="btn btn-sm btn-outline-danger text-nowrap opmode-delete" ${OPMODES.length == 1 ? "disabled" : ""}>刪除</button></td>
+			</tr>`).join(""));
+	});
 }
 
-$("body").on("show.bs.modal", "#OpmodeModal", renderOpmodeTable);
+$("body").on("show.bs.modal", "#OpmodeModal", () => renderOpmodeTable());
+
+function renderInfo(){
+	$(".info-field").each(function(){
+		$(this).val(INFO[$(this).data("field")]);
+	});
+	const parts = INFO.effective_date.split("/");
+	$(".info-date").each(function(i){
+		$(this).val(parts[i] ?? "");
+	});
+}
+
+$("body").on("click", "#nav-setting", function(){
+	renderInfo();
+	renderOpmodeTable();
+});
+
+$("body").on("change", ".info-field", function(){
+	INFO[$(this).data("field")] = $(this).val().trim();
+});
+
+// "yyyy/mm/dd", "" when all blank; a slash would move the parts
+$("body").on("change", ".info-date", function(){
+	const parts = $(".info-date").get().map(input => $(input).val().trim().replaceAll("/", ""));
+	INFO.effective_date = parts.some(part => part) ? parts.join("/") : "";
+	renderInfo();
+});
 
 const opmodeRow = element => Number($(element).closest("tr").data("mode"));
 
+// the input's own table is not rendered again, keeping the focus
 $("body").on("change", ".opmode-field", function(){
 	OPMODES[opmodeRow(this)][$(this).data("field")] = $(this).val().trim();
 	renderOpmodeSelects();
+	renderOpmodeTable($(this).closest("tbody"));
 });
 
 $("body").on("change", ".opmode-day", function(){

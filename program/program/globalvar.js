@@ -84,6 +84,16 @@ const SETTINGS = {
 			simple:   { fontSize: 20, color: "#000000" }
 		}
 	},
+	// 基本資料 footer, at the bottom center; the tokens in text are replaced (footerText())
+	footer: {
+		enabled: false,
+		text: "<title> | <opmode> | <sta_range> | <time_range>",
+		fontSize: 16,
+		color: "#000000",
+		base: "page",  // gap from: "page" (its bottom edge; print: without the bleed) | "plot" (the text below the plot)
+		gap: 20,
+		startPage: 1   // <pages> of the first diagram
+	},
 
 	// print mode (PrintLayout.js): px of the settings above are 1/ppi inch; lengths below are in mm
 	print: {
@@ -94,7 +104,7 @@ const SETTINGS = {
 		pageMinutes: 60,                                 // 30 | 60 | 120 | 180 | 240
 		overlap: false,                                  // each page also draws 10 min before and after its range
 		format: "pdf",                                   // "svg" | "pdf" | "svgPath": text kept as text | PDF, text as outlines | SVG, text as outlines
-		allOpmodes: true,                                // every operation mode, a folder each; false = the current one
+		opmodes: "all",                                  // "current" | "all": every operation mode, a folder each
 		// the plot's position: distance from the page edge on `side`, to the plot frame ("frame") or to the outermost text ("text")
 		align: {
 			v: { side: "top", base: "frame", offset: 20 },   // side: "top" | "bottom"

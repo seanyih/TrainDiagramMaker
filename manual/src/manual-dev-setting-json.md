@@ -50,6 +50,7 @@
             "simple":   { "fontSize": 20, "color": "#000000" }
         }
     },
+    "footer": { "enabled": false, "text": "<title> | <opmode> | <sta_range> | <time_range>", "fontSize": 16, "color": "#000000", "base": "page", "gap": 20, "startPage": 1 },
     "passingTime": {
         "minExtraPassingWaiting": 30,
         "minTimeSeparation": 60,
@@ -104,7 +105,7 @@
 | `oudiaStyle.stopMarks` | true | 停車駅明示：停車不到 1 分 (或到站時刻空白) 的中途停車站畫列車線顏色的圓點 |
 | `oudiaStyle.showTrainName` | false | 列車號後加上列車名 |
 | `connectTrainLines` | true | 同一班列車畫成單一一條 `<polyline>` (跨日的列車每一天各一條)；`false` = 每一段各一條 `<line>`，包在一個 `<g>` 裡 |
-| `layers.enabled` | false | 分圖層：背景、時間線、車站線、列車線、列車號文字、圖框、文字-車站、文字-時間 (由下到上) |
+| `layers.enabled` | false | 分圖層：背景、時間線、車站線、列車線、列車號文字、圖框、文字-車站、文字-時間、文字-基本資料 (由下到上) |
 | `layers.trainByDirection` | false | 列車線圖層再分「順行」、「逆行」 |
 | `layers.trainByColor` | false | 列車線圖層再依 `train_color` 分 (與上一項都勾選時，方向之下再分顏色) |
 | `margin.{left,right,top,bottom}` | 100 | 圖表外框到圖片邊緣的距離 |
@@ -124,12 +125,18 @@
 | `timeLabel.gap` | 10 | 時間文字頂端與圖表下緣的距離 |
 | `timeLabel.overDay` | `"plain"` | 24 時以後的時間文字：`plain` / `superscript`（+1 上標）/ `extended`（25:00） |
 | `timeLabel.secondaryLabel` | `"none"` | 次要時間線標記 `none` / `hhmm` / `mm`，只在 `interval >= 10` 時有效（`simple` 格式一律只標 mm） |
+| `footer.enabled` | false | 基本資料 footer：圖下方正中間的一行文字（印刷模式以不含出血的頁面置中） |
+| `footer.text` | 見預設值 | 內容；代碼 `<title>`、`<sta_range>`、`<opmode>`、`<time_range>`、`<index>`、`<pages>` 換成對應的文字，見[基本設定](manual-ops-setting.html#基本資料-footer) |
+| `footer.fontSize` / `footer.color` | 16 / `"#000000"` | 字型大小、顏色 |
+| `footer.base` / `footer.gap` | `"page"` / 20 | `gap` 的基準：`"page"` = 頁面下緣（不含出血）往上；`"plot"` = 圖表下方的文字（時間文字）往下 |
+| `footer.startPage` | 1 | `<pages>` 的起始頁碼 |
 | `print.enabled` | false | 印刷模式 (`PrintLayout.js`)：啟用後設定頁以像素為單位的欄位 (`data-unit="px"`) 改以 mm 輸入與顯示，1 px = 25.4/ppi mm；資料仍以 px 存放 |
 | `print.ppi` | 300 | 解析度 |
 | `print.page` | `{ width: 210, height: 297 }` | 頁面大小 (mm)，不含出血 |
 | `print.bleed` | `{ top, bottom, left, right }` 各 3 | 出血 (mm)，加在頁面之外；超出出血的圖面算超出 |
 | `print.pageMinutes` | 60 | 每頁時間 (分鐘)：30、60、120、180、240；時間範圍依此切成多頁 |
 | `print.overlap` | false | 每頁前後各多畫 10 分鐘 (`PRINT_OVERLAP_MIN`)，頁與頁重疊；第一頁從範圍開始前 10 分鐘畫起 (前一天的時刻標 `-1`) |
+| `print.opmodes` | `"all"` | `"current"` = 只輸出目前的運行型態；`"all"` = 輸出所有運行型態，各放在 zip 中的一個資料夾 |
 | `print.format` | `"pdf"` | 輸出格式：`"svg"` = 直接 SVG (文字不轉外框)、`"pdf"` = 向量文字 PDF、`"svgPath"` = 向量文字 SVG；向量文字指文字轉成外框 (`fonts/` 的 Noto Sans TC，缺字改用 Noto Sans JP) |
 | `print.align.v` / `print.align.h` | `{ side: "top", base: "frame", offset: 20 }` / `{ side: "left", base: "text", offset: 10 }` | 圖面對齊。`side`：固定哪一側的 padding (`"top"` \| `"bottom"`、`"left"` \| `"right"`)；`base`：`offset` (mm) 算到圖框 (`"frame"`) 或含文字 (`"text"`)。另一側的 padding 由頁面大小與圖框大小算出 |
 | `passingTime.solver` | `"stn"` | 還原通過時間的求解器：`"greedy"` = 貪婪解法、`"stn"` = 離散決策 + 差分約束 |
@@ -177,10 +184,11 @@
 
 ## 全部資料 JSON
 
-「匯出全部」產生的檔案把路線、兩個方向的列車和設定放在一起：
+「匯出全部」產生的檔案把基本資料、路線、兩個方向的列車和設定放在一起：
 
 ```json
 {
+    "info": { "title": "香椎線", "description": "2025 年 3 月改正", "effective_date": "2025/03/15" },
     "route": { "...": "路線 JSON" },
     "trains": {
         "1": { "...": "列車 JSON，順行" },
@@ -194,6 +202,7 @@
 
 ```json
 {
+    "info": { "...": "基本資料" },
     "route": { "...": "路線 JSON" },
     "trains": {
         "1": { "...": "列車 JSON，timetable 為不重複的順行列車" },
@@ -209,11 +218,15 @@
 
 | 欄位 | 型別 | 說明 |
 |---|---|---|
+| `info.title` | string | 整份檔案的標題 (基本設定 > 基本資料) |
+| `info.description` | string | 描述 |
+| `info.effective_date` | string | 時刻表啟用日，`"yyyy/mm/dd"`，不檢查格式；`""` = 未填 |
 | `opmodes[].title` | string | 標題，`""` = 依運行日命名 |
 | `opmodes[].description` | string | 描述 (備註) |
 | `opmodes[].days` | array | 運行日：`"mon"` ~ `"sun"`、`"hol"` (假日)。只用來命名，可為空陣列 |
 | `opmodes[].trains` | object | 每個方向的列車，為 `trains[bound].timetable` 的 index，依時刻表的順序。同一個 index 可以出現在多個運行型態 |
 
+* `info` 一律放在最前面；匯入時缺少 `info` (或其中的欄位) 則為空白。
 * 沒有 `opmodes` 的檔案就是一個運行型態。
 * 每一部分的格式與單獨匯出時相同，見[路線資料檔案格式(json)](manual-dev-route-json.html)、[時刻表資料檔案格式(json)](manual-dev-timetable-json.html)。匯入時（`loadAllFromJSON()`）拆開後交給各自的讀取函式。
 * 套用順序：設定 → 路線 → 列車（路線缺少 `stopsec` 時使用匯入後的 `defaultStopSec`）。

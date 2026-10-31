@@ -31,6 +31,7 @@ applyTrains(2, loadTrainFromJSON(JSON.stringify(trains2), 2), false);        // 
 applyOud(convertOud(parseOud(decodeOud(buffer)), 0)); generateTimetable();   // kilo is estimated: 1 min of run = 1 km
 ```
 - Operation modes (運行型態, e.g. weekday / holiday): `OPMODES[i] = { title, description, days, trains: { 1, 2 } }`, and `TRAINS` **is the current mode's** trains. `switchOpmode(i)` changes it (tables, selects, output follow). Everything reading `TRAINS` (tables, drawing, per-bound import / export, passing times, overlay) works on the current mode only; `addOpmode(copy)` + `switchOpmode()` to add one, `deleteOpmode(i)` + `onOpmodeChanged()` to delete. `loadAllFromJSON(text, i)` loads only mode i of a file with `opmodes`.
+- The file's 基本資料: `INFO = { title, description, effective_date }` (strings), first in the all-data JSON. `SETTINGS.footer.enabled` adds a line at the bottom center; its `text` replaces the tokens `<title>` `<sta_range>` `<opmode>` `<time_range>` `<index>` `<pages>`.
 - `generateTimetable()` checks mileage (red toast + returns if kilo is missing / not increasing).
 - Loaders never throw for bad times (invalid -> blank); a malformed JSON throws.
 - Order matters: route first, then trains (`station_order` depends on the route).
@@ -39,7 +40,7 @@ applyOud(convertOud(parseOud(decodeOud(buffer)), 0)); generateTimetable();   // 
 
 ### Read / export data
 ```js
-JSON.stringify(getAllDataJSON())        // route + trains + settings (+ opmodes), same as the "匯出全部" file; (false) = current mode only
+JSON.stringify(getAllDataJSON())        // info + route + trains + settings (+ opmodes), same as the "匯出全部" file; (false) = current mode only
 JSON.stringify(ROUTE)                   // route JSON
 JSON.stringify(getTrainDataJSON(1))     // trains JSON of bound 1 (2 = reverse)
 JSON.stringify(SETTINGS)                // settings JSON

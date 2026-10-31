@@ -60,6 +60,8 @@ function printLayout(){
 		h: pxToMm(plotHeight())
 	};
 	const ext = Object.fromEntries(Object.entries(textExtent()).map(([side, px]) => [side, pxToMm(px)]));
+	const footer = SETTINGS.footer;
+	if(footer.enabled && footer.base == "plot") ext.bottom += pxToMm(footer.gap + footer.fontSize);
 
 	// returns [pad of the first side (top / left), pad of the other]
 	const place = (a, first, size, total) => {
@@ -98,6 +100,7 @@ async function exportPrintZip(){
 
 	const sheet = { width: page.width + bleed.left + bleed.right, height: page.height + bleed.top + bleed.bottom };
 	const trim = { x: bleed.left, y: bleed.top, width: page.width, height: page.height };
+	const trimPx = Object.fromEntries(Object.entries(trim).map(([key, mm]) => [key, mmToPx(mm)]));
 	const sheetPx = { width: mmToPx(sheet.width), height: mmToPx(sheet.height) };
 	const h = mmToPx(layout.frame.h);
 
@@ -105,16 +108,17 @@ async function exportPrintZip(){
 	const saved = { startSec: SETTINGS.startSec, endSec: SETTINGS.endSec, margin: SETTINGS.margin };
 	const files = [];
 	// several operation modes: a folder each
-	const modes = SETTINGS.print.allOpmodes ? OPMODES.map((mode, i) => i) : [currentOpmode];
+	const modes = (SETTINGS.print.opmodes == "all") ? OPMODES.map((mode, i) => i) : [currentOpmode];
 	const folder = i => (modes.length > 1) ? `${String(i + 1).padStart(2, "0")}_${opmodeName(OPMODES[i], i).replace(/[\\/:*?"<>|]/g, "_")}/` : "";
 	if(format != "svg"){
 		const { start, end } = stationRange();
 		const names = ROUTE.stations.slice(start, end + 1).map(station => station.name + station.alias).join("");
-		await loadPrintFonts(`${names}0123456789:+-`, "normal");
+		const footer = SETTINGS.footer.enabled ? `${SETTINGS.footer.text}${INFO.title}${modes.map(i => opmodeName(OPMODES[i], i)).join("")}=~` : "";
+		await loadPrintFonts(`${names}${footer}0123456789:+-`, "normal");
 		if(SETTINGS.showTrainNumber) await loadPrintFonts(modes.flatMap(i => [...OPMODES[i].trains[1], ...OPMODES[i].trains[2]]).map(train => train.train_number).join(""), "bold");
 	}
 	try{
-		for(const mode of modes) for(let i = 0; i < layout.pages; i++){
+		for(const [m, mode] of modes.entries()) for(let i = 0; i < layout.pages; i++){
 			const pageStart = saved.startSec + i*pageMinutes*60;
 			const pageEnd = Math.min(pageStart + pageMinutes*60, saved.endSec);
 			SETTINGS.startSec = pageStart - overlapSec;
@@ -130,7 +134,7 @@ async function exportPrintZip(){
 			};
 
 			const svg = $(makeSVG("svg", {}));
-			drawDiagram(OPMODES[mode].trains, svg);
+			drawDiagram(OPMODES[mode].trains, svg, { opmode: mode, index: i + 1, number: SETTINGS.footer.startPage + m*layout.pages + i, startSec: pageStart, endSec: pageEnd, trim: trimPx });
 			const name = `${folder(mode)}TrainDiagram_${String(i + 1).padStart(2, "0")}`;
 			if(format == "pdf"){
 				files.push({ name: `${name}.pdf`, data: await svgToPdf(svg[0], sheet, trim, ppi) });

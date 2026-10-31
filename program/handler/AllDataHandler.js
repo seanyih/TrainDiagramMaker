@@ -1,5 +1,5 @@
 /*
-	Route, both timetables and settings in one json, for moving everything at once.
+	基本資料 (first), route, both timetables and settings in one json, for moving everything at once.
 	Each part has the same format as its own export, and is read by the same loader.
 	With several operation modes, "trains" has every distinct train once and "opmodes" lists each mode's trains by index.
 */
@@ -50,6 +50,7 @@ function getAllDataJSON(all = true){
 	const plain = modes.length == 1 && !modes[0].title && !modes[0].description && modes[0].days.length == 0;
 	if(plain){
 		return {
+			info: INFO,
 			route: ROUTE,
 			trains: { 1: getTrainDataJSON(1, modes[0].trains[1]), 2: getTrainDataJSON(2, modes[0].trains[2]) },
 			settings: SETTINGS
@@ -72,6 +73,7 @@ function getAllDataJSON(all = true){
 		})]))
 	}));
 	return {
+		info: INFO,
 		route: ROUTE,
 		trains: { 1: getTrainDataJSON(1, pool[1]), 2: getTrainDataJSON(2, pool[2]) },
 		opmodes: opmodes,
@@ -95,7 +97,7 @@ function loadOpmodes(list, pool, only){
 	});
 }
 
-// missing settings use the defaults; a missing route / bound keeps the current one. the file's operation modes
+// missing settings use the defaults, missing 基本資料 is blank; a missing route / bound keeps the current one. the file's operation modes
 // (only = the index of one, or null for all), or a file with trains but none, replace every mode.
 // a broken file changes nothing
 function loadAllFromJSON(text, only = null){
@@ -117,6 +119,7 @@ function loadAllFromJSON(text, only = null){
 		throw e;
 	}
 
+	Object.keys(INFO).forEach(key => INFO[key] = String(data.info?.[key] ?? ""));
 	if(route) applyRoute(route);
 	if(opmodes) applyOpmodes(opmodes);
 	else if(trains[0] || trains[1]) applyOpmodes([newOpmode({ 1: trains[0] ?? TRAINS[1], 2: trains[1] ?? TRAINS[2] })]);

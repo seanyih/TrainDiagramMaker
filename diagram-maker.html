@@ -11,8 +11,8 @@
 		- Agent friendly: skills provided, JS fully callable, fully open-sourced.
 		- Human friendly: Modern UI.
 
-	Data lives only in the globals ROUTE, TRAINS[1|2], SETTINGS; tables are just views. Call JS directly with a JS-evaluating browser tool:
-	  loadAllFromJSON(jsonText); generateTimetable();                  // {route, trains:{1,2}, settings?}
+	Data lives only in the globals ROUTE, TRAINS[1|2], SETTINGS (and INFO = {title, description, effective_date}); tables are just views. Call JS directly with a JS-evaluating browser tool:
+	  loadAllFromJSON(jsonText); generateTimetable();                  // {info?, route, trains:{1,2}, settings?}
 	  applyRoute(loadRouteFromJSON(t)); generateTimetable();           // route first,
 	  applyTrains(bound, loadTrainFromJSON(t, bound), false);          // then trains (bound 1 = route order, 2 = reversed station_order)
 	  SETTINGS.pxPerKm = 30; initSettingsUI();                         // settings (see DATA_STRUCTURE.md section 2)
@@ -944,6 +944,47 @@
 
 			<!-- win4: setting -->
 			<div class="container" id="container-setting" style="display:none; padding-bottom: 20vh;">
+				<div class="row" data-bs-toggle="collapse" data-bs-target="#InfoSettingWindow" style="font-weight:bold; font-size:150%;">
+					<div class="col-11">基本資料</div>
+					<div class="col-1" style="display:flex; justify-content: end;">∨</div>
+				</div>
+				<hr style="margin-top: 0%;">
+				<div class="collapse setting-collapse-row" id="InfoSettingWindow">
+					<p>整份檔案的資料，匯出全部資料時放在 JSON 的最開頭。</p>
+					<div class="row g-3 align-items-center">
+						<div class="col-auto" style="width: 9rem;"><label class="col-form-label">標題</label></div>
+						<div class="col-auto"><input class="form-control info-field" data-field="title" style="width: 30rem;"></div>
+					</div>
+					<div class="row g-3 align-items-center">
+						<div class="col-auto" style="width: 9rem;"><label class="col-form-label">描述</label></div>
+						<div class="col"><textarea class="form-control info-field" data-field="description" rows="2"></textarea></div>
+					</div>
+					<div class="row g-3 align-items-center">
+						<div class="col-auto" style="width: 9rem;"><label class="col-form-label">時刻表啟用日</label></div>
+						<div class="col-auto">
+							<div class="input-group">
+								<input class="form-control info-date" style="width: 5rem;" maxlength="4" placeholder="yyyy">
+								<span class="input-group-text">/</span>
+								<input class="form-control info-date" style="width: 4rem;" maxlength="2" placeholder="mm">
+								<span class="input-group-text">/</span>
+								<input class="form-control info-date" style="width: 4rem;" maxlength="2" placeholder="dd">
+							</div>
+						</div>
+					</div>
+
+					<h4 style="margin-top: 3vh;">運行型態</h4>
+					<p>一份檔案可以有多個運行型態 (例如平日、假日)，各有自己的時刻表，路線與設定共用。標題留白時，以運行日命名。</p>
+					<div class="table-responsive">
+						<table class="table align-middle" style="min-width: 860px;">
+							<colgroup><col style="width: 180px"><col style="width: 260px"><col><col style="width: 90px"><col style="width: 100px"></colgroup>
+							<thead><tr><th>標題</th><th>運行日</th><th>描述 (備註)</th><th>列車數</th><th></th></tr></thead>
+							<tbody class="opmode-table" id="InfoOpmodeTableBody"><!-- renderOpmodeTable() --></tbody>
+						</table>
+					</div>
+					<button type="button" class="btn btn-outline-primary opmode-add-btn" data-copy="false">新增空白運行型態</button>
+					<button type="button" class="btn btn-outline-primary opmode-add-btn" data-copy="true">複製目前的運行型態</button>
+				</div>
+
 				<div class="row" data-bs-toggle="collapse" data-bs-target="#ColorSettingWindows" style="font-weight:bold; font-size:150%;">
 					<div class="col-11">列車顏色集設定</div>
 					<div class="col-1" style="display:flex; justify-content: end;">∨</div>
@@ -1412,6 +1453,47 @@
 					</div>
 					</div>
 
+					<div class="d-flex align-items-center" style="margin-top: 3vh;">
+						<h4 class="mb-0">基本資料 footer</h4>
+						<div class="form-check d-flex align-items-center gap-2 p-0 mb-0" style="margin-left: 1rem;">
+							<input type="checkbox" class="form-check-input m-0" id="footer-enabled" data-setting="footer.enabled">
+							<label class="form-check-label" for="footer-enabled">顯示</label>
+						</div>
+					</div>
+					<div id="footer-fields">
+					<p class="text-muted" style="margin-top: 1vh;">位置固定在圖片 (印刷模式：頁面) 下方的正中間。</p>
+					<div class="row g-3 align-items-center">
+						<div class="col-auto"><label class="col-form-label">內容</label></div>
+						<div class="col"><input class="form-control" style="max-width: 40rem;" data-setting="footer.text"></div>
+					</div>
+					<p class="text-muted small" style="margin: 0.5vh 0 0 3rem;">
+						以下代碼會換成對應的文字：&lt;title&gt; 標題、&lt;sta_range&gt; 車站範圍 (起站 = 迄站)、&lt;opmode&gt; 運行型態、&lt;time_range&gt; 時間範圍 (hhmm ~ hhmm)、
+						&lt;index&gt; 該運行型態的第幾張圖、&lt;pages&gt; 頁碼 (從起始頁碼起每張圖加 1)。後兩者適用於印刷模式，其他時候為第 1 張圖。
+					</p>
+					<div class="row g-3 align-items-center">
+						<div class="col-auto"><label class="col-form-label">字型大小</label></div>
+						<div class="col-auto"><input inputmode="decimal" class="form-control" style="width:100px" data-unit="px" data-setting="footer.fontSize"></div>
+						<div class="col-auto"><label class="col-form-label">顏色</label></div>
+						<div class="col-auto"><input type="color" class="form-control form-control-color" data-setting="footer.color"></div>
+					</div>
+					<div class="row g-3 align-items-center">
+						<div class="col-auto"><label class="col-form-label">與</label></div>
+						<div class="col-auto">
+							<select class="form-select" data-setting="footer.base">
+								<option value="page">頁面下緣 (不含出血)</option>
+								<option value="plot">圖表下方 (含文字)</option>
+							</select>
+						</div>
+						<div class="col-auto"><label class="col-form-label">的距離</label></div>
+						<div class="col-auto"><input inputmode="decimal" class="form-control" style="width:100px" data-unit="px" data-setting="footer.gap"></div>
+						<div class="col-auto"><label class="col-form-label px-unit">像素</label></div>
+					</div>
+					<div class="row g-3 align-items-center">
+						<div class="col-auto"><label class="col-form-label">起始頁碼</label></div>
+						<div class="col-auto"><input inputmode="decimal" class="form-control" style="width:100px" min="0" data-setting="footer.startPage"></div>
+					</div>
+					</div>
+
 				</div>
 
 				<div class="row" data-bs-toggle="collapse" data-bs-target="#advancedSettingWindow" style="font-weight:bold; font-size:150%;">
@@ -1497,6 +1579,13 @@
 								<!-- options from PRINT_PAGE_PRESETS -->
 							</select>
 						</div>
+						<div class="col-auto"><label class="col-form-label">列印</label></div>
+						<div class="col-auto">
+							<select class="form-select" data-setting="print.opmodes" title="所有運行型態：每個運行型態放在 zip 中的一個資料夾">
+								<option value="current">現在運行型態</option>
+								<option value="all">所有運行型態</option>
+							</select>
+						</div>
 					</div>
 					<p class="text-muted" style="margin-top: 1vh;">啟用後，上面所有以像素為單位的設定改以 mm 輸入與顯示 (1 像素 = 1/ppi 英吋)。輸出為每頁一個檔案，打包成 zip。</p>
 					<div id="print-fields">
@@ -1577,14 +1666,6 @@
 							</div>
 							<div class="col-auto"><input inputmode="decimal" class="form-control" style="width:100px" data-setting="print.align.h.offset"></div>
 							<div class="col-auto"><label class="col-form-label">mm</label></div>
-						</div>
-
-						<div class="row g-3 align-items-center">
-							<div class="col-auto form-check" style="margin-left: 0.75rem;">
-								<input type="checkbox" class="form-check-input" id="print-all-opmodes" data-setting="print.allOpmodes">
-								<label class="form-check-label" for="print-all-opmodes">輸出所有運行型態</label>
-							</div>
-							<div class="col-auto"><small class="text-muted">有多個運行型態時，每個運行型態放在 zip 中的一個資料夾</small></div>
 						</div>
 
 						<div class="row g-3 align-items-center">
@@ -1696,6 +1777,11 @@
 						<p id="PassingTimeStopRuleBtn" class="mb-0" style="cursor: pointer;">臨時停車規則</p>
 						<p id="PassingTimeReportBtn" class="mb-0" style="cursor: pointer; display: none;">詳細結果</p>
 						<a href="manual/manual-ops-passing-time.html#還原通過時間" target="_blank" class="ba">說明</a>
+					</div>
+					<div class="input-group" style="width: auto; margin-top: 1vh;">
+						<span class="input-group-text">運行型態</span>
+						<select class="form-select opmode-select" style="max-width: 20rem;"></select>
+						<button class="btn btn-outline-secondary" type="button" data-bs-toggle="modal" data-bs-target="#OpmodeModal">編輯</button>
 					</div>
 					<div id="PassingTimeDetail" style="display: none; margin: 2vh 0 2vh 2rem;">
 					<div class="row g-3 align-items-center">
@@ -2257,7 +2343,7 @@
 						<table class="table align-middle" style="min-width: 900px;">
 							<colgroup><col style="width: 40px"><col style="width: 180px"><col style="width: 260px"><col><col style="width: 90px"><col style="width: 100px"></colgroup>
 							<thead><tr><th></th><th>標題</th><th>運行日</th><th>描述 (備註)</th><th>列車數</th><th></th></tr></thead>
-							<tbody id="OpmodeTableBody"><!-- renderOpmodeTable() --></tbody>
+							<tbody class="opmode-table" id="OpmodeTableBody"><!-- renderOpmodeTable() --></tbody>
 						</table>
 					</div>
 				</div>

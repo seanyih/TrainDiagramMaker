@@ -4,6 +4,9 @@
 	See DATA_STRUCTURE.md for the format.
 */
 
+// 基本資料 of the whole file; effective_date is "yyyy/mm/dd" as typed, not checked
+const INFO = { title: "", description: "", effective_date: "" };
+
 const DEFAULT_TRACK = "quadruple";
 const MAX_BRANCHES = 3; // per station
 

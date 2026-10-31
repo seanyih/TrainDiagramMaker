@@ -25,7 +25,8 @@ Full spec: `DATA_STRUCTURE.md` at the repo root (sections 3-5). This skill is th
 | `trains-1.json` | Trains of bound 1 (順行, follows route order) |
 | `trains-2.json` | Trains of bound 2 (逆行, reverse order) |
 
-Or one `AllData.json` = `{ "route": {...}, "trains": { "1": {...}, "2": {...} }, "settings": {...} }` (settings optional).
+Or one `AllData.json` = `{ "info": {...}, "route": {...}, "trains": { "1": {...}, "2": {...} }, "settings": {...} }` (info and settings optional).
+`info` = the whole file's `{ "title": "", "description": "", "effective_date": "yyyy/mm/dd" }` (plain strings, e.g. the timetable revision and the date it takes effect).
 
 ### Several operation modes (weekday / holiday, each day of the week...)
 When the timetable differs by day, deliver one file set per day type (e.g. `mon/trains-1.json`, `sat/trains-1.json`), or one `AllData.json` with `opmodes`:

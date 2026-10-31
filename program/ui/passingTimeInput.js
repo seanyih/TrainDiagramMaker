@@ -6,9 +6,11 @@
 
 const DRAFT_TITLES = { autofill: "自動補全", passing: "還原通過時間" };
 
+// only drafts of the current data are shown; one of another operation mode is kept for switching back
 function updateDraftUI(){
+	const fingerprint = dataFingerprint();
 	Object.keys(DRAFTS).forEach(name => {
-		$(`.draft-bar[data-draft="${name}"], .preview-draft-btn[data-draft="${name}"]`).toggle(DRAFTS[name] !== null);
+		$(`.draft-bar[data-draft="${name}"], .preview-draft-btn[data-draft="${name}"]`).toggle(DRAFTS[name] !== null && DRAFTS[name].fingerprint == fingerprint);
 	});
 	if(DRAFTS.autofill) $("#AutofillDraftCount").text(DRAFTS.autofill.changed.size);
 }

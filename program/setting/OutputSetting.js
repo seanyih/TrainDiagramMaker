@@ -114,6 +114,7 @@ function updateSettingsUI(){
 	$("#secondary-label-select").prop("disabled", SETTINGS.lines.secondary.interval < 10);
 	$('[data-setting="background.color"]').prop("disabled", SETTINGS.background.transparent);
 	$("#train-number-fields").toggle(SETTINGS.showTrainNumber);
+	$("#footer-fields").toggle(SETTINGS.footer.enabled);
 	$("#layer-fields").toggle(SETTINGS.layers.enabled);
 	$("#oudia-fields").toggle(oudia);
 
@@ -162,7 +163,7 @@ function renderTimeLabelPreview(){
 	}
 }
 
-// longest name * font size (+ gap) must fit in the side margins, and the time text height in the bottom margin
+// longest name * font size (+ gap) must fit in the side margins, and the time text height (with a footer under it) in the bottom margin
 function checkTextFit(){
 	const { margin, aliasText, timeLabel } = SETTINGS;
 	// field: "name" | "alias"; secondary stations have their own text settings
@@ -187,6 +188,11 @@ function checkTextFit(){
 		if(timeLabelHeight() + timeLabel.gap > margin.bottom){
 			reasons.push("時間文字超出下方邊界");
 		}
+	}
+
+	const footer = SETTINGS.footer;
+	if(footer.enabled && footer.base == "plot" && textExtent().bottom + footer.gap + footer.fontSize > margin.bottom){
+		reasons.push("基本資料 footer 超出下方邊界");
 	}
 
 	if(reasons.length > 0){

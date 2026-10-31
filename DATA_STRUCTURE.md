@@ -12,7 +12,7 @@
                              └─> 匯出 (CSV/JSON)
 ```
 
-- 路線與列車資料**只存在** `program/data/DataStore.js` 的 `ROUTE` 和 `TRAINS`。`TRAINS` 是目前運行型態的列車；其他運行型態的列車在 `OPMODES` (5.7)。
+- 路線與列車資料**只存在** `program/data/DataStore.js` 的 `ROUTE` 和 `TRAINS`。`TRAINS` 是目前運行型態的列車；其他運行型態的列車在 `OPMODES` (5.7)。整份檔案的基本資料在 `INFO` (6.2)。
 - 表格由資料重新渲染；使用者在表格上的每個修改 (`change` 事件) 立即寫回 `ROUTE` / `TRAINS`。
 - 繪圖、匯出都只讀寫 `ROUTE` / `TRAINS`，不讀 DOM；待避時間計算 (第 7 節) 先寫在副本，採用後才取代 `TRAINS`。
 - 新增/刪除車站時，`insertStation()` / `deleteStation()` 會同步平移所有列車停靠站的 `station_order`，並同步增刪 `ROUTE.track_layout` 與 `ROUTE.topology`，因此列車資料、軌道配置與線路拓樸永遠與路線一致。
@@ -65,6 +65,11 @@ checkbox → boolean，`type="number"` 與數字選項的 select → number (空
 | `timeLabel.gap` | 10 | 時間文字頂端與圖表下緣的距離 |
 | `timeLabel.overDay` | `"plain"` | 24 時以後的時間文字：`plain` (01:00) / `superscript` (01:00 ⁺¹，僅有小時的文字加上標，僅 mm 不加) / `extended` (25:00) |
 | `timeLabel.secondaryLabel` | `"none"` | 次要時間線標記 `none` / `hhmm` / `mm`，只在 `interval >= 10` 時有效 (`simple` 格式一律只標 mm) |
+| `footer.enabled` | false | 基本資料 footer (`makeFooter()`，`Graphing.js`)：一行文字，水平置中於頁面 (印刷模式為不含出血的頁面，否則為整張圖)，最後畫 (圖層 `layer-footer`) |
+| `footer.text` | `"<title> \| <opmode> \| <sta_range> \| <time_range>"` | 內容，代碼由 `footerText(page)` 換成文字：`<title>` = `INFO.title`、`<sta_range>` = `起站 = 迄站` (`stationRange()`)、`<opmode>` = `opmodeName()`、`<time_range>` = `hhmm ~ hhmm` (`secToHhmm()`，印刷時為該頁的範圍，不含重疊)、`<index>` = 該運行型態的第幾頁、`<pages>` = 頁碼 (`startPage` 起，所有運行型態連續編號)。不是印刷模式時 `<index>` = 1、`<pages>` = `startPage`。其他文字 (含不認得的代碼) 照原樣 |
+| `footer.fontSize` / `footer.color` | 16 / `"#000000"` | 字型大小 (px)、顏色 |
+| `footer.base` / `footer.gap` | `"page"` / 20 | `gap` (px) 的基準：`"page"` = 基線在頁面下緣往上 `gap`；`"plot"` = 文字頂端在圖表下方的文字 (`textExtent().bottom`，時間文字等) 往下 `gap` |
+| `footer.startPage` | 1 | 第一張圖的 `<pages>` |
 | `stationRange` | `{ start: 0, end: null }` | 繪圖的區間範圍：畫出的第一站、最後一站的車站 index (`end` null = 最後一站)；`stationRange()` 會在不合法 (start ≥ end、超出車站數) 時改用全線。列車資料不受影響，超出的部分被裁切，也不放列車號 |
 | `print.enabled` | false | 印刷模式 (`PrintLayout.js`)：啟用後設定頁以像素為單位的欄位 (`data-unit="px"`) 改以 mm 輸入與顯示，1 px = 25.4/ppi mm；資料仍以 px 存放 |
 | `print.ppi` | 300 | 解析度 |
@@ -72,7 +77,7 @@ checkbox → boolean，`type="number"` 與數字選項的 select → number (空
 | `print.bleed` | `{ top, bottom, left, right }` 各 3 | 出血 (mm)，加在頁面之外；超出出血的圖面算超出 |
 | `print.pageMinutes` | 60 | 每頁時間 (分鐘)：30、60、120、180、240；時間範圍依此切成多頁 |
 | `print.overlap` | false | 每頁前後各多畫 10 分鐘 (`PRINT_OVERLAP_MIN`)，頁與頁重疊；第一頁從範圍開始前 10 分鐘畫起 (前一天的時刻標 `-1`) |
-| `print.allOpmodes` | true | 有多個運行型態 (5.7) 時，輸出每一個運行型態，各放在 zip 中的一個資料夾 (`01_週一/`，名稱為 `opmodeName()`，`\/:*?"<>|` 換成 `_`)；`false` = 只輸出目前的運行型態 |
+| `print.opmodes` | `"all"` | 列印 (「頁面預設」旁)：`"current"` = 只輸出目前的運行型態；`"all"` = 有多個運行型態 (5.7) 時輸出每一個，各放在 zip 中的一個資料夾 (`01_週一/`，名稱為 `opmodeName()`，`\/:*?"<>|` 換成 `_`)。每頁以 `drawDiagram(trains, svg, page)` 繪製，`page` 帶 footer 用的運行型態、頁序、頁碼、時間範圍與頁面 (不含出血) |
 | `print.format` | `"pdf"` | 輸出格式：`"svg"` = 直接 SVG (文字不轉外框)、`"pdf"` = 向量文字 PDF、`"svgPath"` = 向量文字 SVG；向量文字指文字轉成外框 (`fonts/` 的 Noto Sans TC，缺字改用 Noto Sans JP) |
 | `print.align.v` / `print.align.h` | `{ side: "top", base: "frame", offset: 20 }` / `{ side: "left", base: "text", offset: 10 }` | 圖面對齊。`side`：固定哪一側的 padding (`"top"` \| `"bottom"`、`"left"` \| `"right"`)；`base`：`offset` (mm) 算到圖框 (`"frame"`) 或含文字 (`"text"`)。另一側的 padding 由頁面大小與圖框大小算出 |
 | `passingTime.solver` | `"stn"` | 還原通過時間的求解器：`"greedy"` = 貪婪解法 (`restorePassingTimes()`，`PassingTime.js`)、`"stn"` = 離散決策 + 差分約束 (`restorePassingTimesSTN()`，`PassingTimeSTN.js`)。其他參數兩者共用 |
@@ -101,6 +106,7 @@ checkbox → boolean，`type="number"` 與數字選項的 select → number (空
   - 任一站的站名字數 × `stationText.fontSize` + `gap` > `margin.left`
   - (顯示別名時) 任一站的別名字數 × `aliasText.fontSize` + `gap` > `margin.right`
   - 時間文字高度 (最大字型大小) + `timeLabel.gap` > `margin.bottom`
+  - (footer 以圖表為基準時) 圖表下方的文字 + `footer.gap` + `footer.fontSize` > `margin.bottom`。印刷模式的版面 (`printLayout()`) 也把它算進下方的文字範圍
 - **時間文字預覽**：設定頁的 `#time-label-preview` 以和圖片相同的 `makeTimeLabel()` 畫出 8:00~9:00。
 - **列車號放置** (`program/program/TrainNumber.js`)：
   - 區間以路線上**每一站**切分：列車通過但不停的站也算，所以號碼不會壓在中間的車站線上。
@@ -113,7 +119,7 @@ checkbox → boolean，`type="number"` 與數字選項的 select → number (空
 - **透明背景**：列車線放在 `<g clip-path="url(#plot-area)">` 裡，由 SVG clipPath 裁切到圖表範圍內，不再用邊界的白色矩形遮蓋。列車線座標保持原值 (跨夜線段仍是完整座標)，只是顯示時被裁切。
 - **SVG 結構** (`drawDiagram()` / `drawTrain()`)：
   - 列車線的 x 座標是「展開」的：比前一點早的時刻視為隔天 (+1440 分)，所以一班車的所有點連續。整條線再平移 ±1 天各畫一次 (只畫有落在圖表範圍內的)。`connectTrainLines` 時每個平移各一條 `<polyline>` (去掉重複點)，否則為 `<g>` 包各段 `<line>`。列車號避讓用的線段 (`addSegment`) 兩者相同。
-  - 分圖層時 (`layers.enabled`)，由下到上為 `LAYERS`：背景 (`layer-background`，透明時省略)、時間線 (`layer-time-lines`，含分鐘時間線)、車站線、列車線、列車號文字 (不顯示列車號時省略)、圖框、文字-車站、文字-時間。圖層是 `<g id data-name inkscape:groupmode="layer" inkscape:label>` (`makeLayer()`)；Illustrator 以最上層的 `<g>` 為圖層、`data-name` 為名稱。列車線與列車號圖層各自帶 `clip-path`。列車線子圖層的 id 為父圖層 id 加 `-{bound}` / `-color-{n}`，依方向、顏色排序後建立，所以列車的繪製順序會依子圖層分組。不分圖層時結構與舊版相同 (列車線與列車號共用一個 clip `<g>`)。
+  - 分圖層時 (`layers.enabled`)，由下到上為 `LAYERS`：背景 (`layer-background`，透明時省略)、時間線 (`layer-time-lines`，含分鐘時間線)、車站線、列車線、列車號文字 (不顯示列車號時省略)、圖框、文字-車站、文字-時間、文字-基本資料 (`layer-footer`，不顯示 footer 時省略)。圖層是 `<g id data-name inkscape:groupmode="layer" inkscape:label>` (`makeLayer()`)；Illustrator 以最上層的 `<g>` 為圖層、`data-name` 為名稱。列車線與列車號圖層各自帶 `clip-path`。列車線子圖層的 id 為父圖層 id 加 `-{bound}` / `-color-{n}`，依方向、顏色排序後建立，所以列車的繪製順序會依子圖層分組。不分圖層時結構與舊版相同 (列車線與列車號共用一個 clip `<g>`)。
   - id：時間線 `timeline-{hhmm}` (`timeId()`；負的時刻為 `prev-{hhmm}`)、分鐘時間線 `minuteline-{hhmm}`、車站線 `stationline-{路線 index}`、列車線 `train-{bound}-{index}` (`trainId()`，跨日副本加 `-prev-day` / `-next-day`)。另有 class 與 `data-sec`、`data-station`、`data-kilo`、`data-train`、`data-bound`、`data-train-number`；列車號 `<text class="train-number" data-train>`。完整表格見說明書「設定 JSON」。
   - PDF 輸出 (`pdfSvgOps()`) 支援沒有 clip-path 的 `<g>`、`<polyline>` (miter limit 4，同 SVG) 與 `<circle>` (停車駅明示，填色與外框)。
 - **OuDia 樣式下的列車號**：第一個列車號不受 `pxPerTrainNumber` 限制，放在第一個合格的區間，從區間的起點往後找位置 (`findTrainNumberPosition(..., fromStart)`)；該區間放不下時試下一個區間。之後同一般規則。
@@ -408,7 +414,7 @@ currentOpmode = 1               // OPMODES[currentOpmode].trains === TRAINS
 | `trains` | 同 `TRAINS`。目前的運行型態就是 `TRAINS` 這個物件本身 |
 
 - 列車物件**不在運行型態之間共用** (複製、匯入都會 `structuredClone`)：每個運行型態的待避時間計算結果可以不同，改一個運行型態不影響其他的。
-- 所有讀寫 `TRAINS` 的功能 (表格、繪圖、匯入匯出單一方向、待避時間計算、疊圖) 只處理目前的運行型態，所以還原通過時間不會看到其他運行型態的列車。副本的指紋含 `TRAINS`，切換運行型態後副本失效，切回來又有效。
+- 所有讀寫 `TRAINS` 的功能 (表格、繪圖、匯入匯出單一方向、待避時間計算、疊圖) 只處理目前的運行型態，所以還原通過時間不會看到其他運行型態的列車。副本的指紋含 `TRAINS`，切換運行型態後副本失效 (不顯示採用 / 捨棄，`updateDraftUI()`)，切回來又有效。
 - 車站增刪與改名 (`shiftStops()`、`deleteStation()`、`refreshStopNames()`) 改所有運行型態的列車 (`allTrains(bound)`)。
 - 操作 (`DataStore.js`)：`selectOpmode(i)` (把 `TRAINS` 換成第 i 個)、`setOpmodes(modes)` (全部取代，第一個成為目前的)、`addOpmode(copy)` (空白 = 每方向一班空白列車，或複製目前的，加在最後)、`deleteOpmode(i)`。匯入一律經過 `applyOpmodes(modes)` (`TimetableHandler.js`，同時更新表格與選單)。
 - 名稱 `opmodeName(mode, i)` (`opmodeInput.js`) = `title`，或 `opmodeDaysName(days)`：七天 `每日`、一~五 `平日`、六日 + 假日 `假日`，其餘連續三天以上寫成 `週二至四`、否則 `週一、三`，有假日時加上 `、假日`；都沒有時為 `運行型態 n`。
@@ -416,8 +422,9 @@ currentOpmode = 1               // OPMODES[currentOpmode].trains === TRAINS
 
 UI (`program/ui/opmodeInput.js`)：
 
-- 時刻表兩頁與輸出圖片頁上方的「運行型態」選單 (`.opmode-select`，`renderOpmodeSelects()`) 切換目前的運行型態 (`switchOpmode(i)`)；輸出圖片頁已有圖時重畫。
+- 時刻表兩頁、輸出圖片頁上方與「還原通過時間」下方的「運行型態」選單 (`.opmode-select`，`renderOpmodeSelects()`) 切換目前的運行型態 (`switchOpmode(i)`)；輸出圖片頁已有圖時重畫。
 - 「編輯」(以及匯入/匯出頁的「編輯運行型態」) 打開 `#OpmodeModal`：每個運行型態一列，可選為目前的、改標題 (留白時 placeholder 顯示依運行日的名稱)、運行日 (一 ~ 日、假日)、描述，顯示兩方向的列車數；刪除要按兩次 (只剩一個時不能刪)。下方「新增空白運行型態」「複製目前的運行型態」，新增後切換過去。
+- 基本設定 > 基本資料有同樣的表格 (沒有選為目前的圓圈)。兩個表格都是 `.opmode-table` (`renderOpmodeTable(skip)`)，改標題、描述時不重畫輸入框所在的表格 (保留焦點)；進入基本設定頁時重畫。
 - 車次細項的「運行型態」(`#offcanvas-opmodes`，只有一個運行型態時隱藏)：每個運行型態一個勾選框，有同一班車時勾選 (目前的運行型態固定勾選、不可改；那班車隱藏時標示「(隱藏)」，沒有同一班車、但有同車次的列車時標示「(另有同車次、時刻不同的列車)」)。勾選 = 複製這班車到該運行型態 (`copyTrainToOpmode()`：放在「這班車之前、最近一班該運行型態也有的車」之後，沒有則放在最前面；不帶 `hidden`)；取消 = 刪除該運行型態中所有同一班車 (`removeTrainFromOpmode()`；該方向沒有列車時留一班空白列車)。
 - 匯入單一方向的列車 (CSV / JSON) 匯入到目前的運行型態。
 
@@ -438,6 +445,7 @@ UI (`program/ui/opmodeInput.js`)：
 
 ```json
 {
+    "info": { "title": "", "description": "", "effective_date": "" },
     "route": { ...路線 JSON (4.1)... },
     "trains": {
         "1": { ...列車 JSON (5.1)，順行... },
@@ -451,6 +459,7 @@ UI (`program/ui/opmodeInput.js`)：
 
 ```json
 {
+    "info": { ... },
     "route": { ... },
     "trains": { "1": { ...列車 JSON，timetable = 不重複的列車... }, "2": { ... } },
     "opmodes": [
@@ -461,8 +470,9 @@ UI (`program/ui/opmodeInput.js`)：
 }
 ```
 
+- `info` = 整份檔案的基本資料 `INFO` (`DataStore.js`)，一律放在最前面：`title` 標題、`description` 描述、`effective_date` 時刻表啟用日。都是字串，不檢查格式；啟用日在 UI (基本設定 > 基本資料，`renderInfo()`) 是三個輸入框 (yyyy / mm / dd，斜線在框外)，存成 `"2025/03/15"`，全部空白時為 `""`，輸入的斜線會被去掉。匯入時缺少 `info` (或其中的欄位) 則為空白。
 - `opmodes[].trains[bound]` = 該運行型態的列車在 `trains[bound].timetable` 中的 index，依該運行型態的順序。同一個 index 可以出現在多個運行型態 (宜蘭線週一 ~ 週日 5 個運行型態：1040 班 → 不重複 228 班，檔案約 1/4)。
-- 匯出 (`getAllDataJSON(all)`)：「運行型態」選單 (`#ExportAllOpmodes`) 選擇所有運行型態，或只有目前的 (`all = false`)。只有一個運行型態且沒有標題、描述、運行日時與舊格式完全相同 (不去除重複的列車)。
+- 匯出 (`getAllDataJSON(all)`)：「運行型態」選單 (`#ExportAllOpmodes`) 選擇所有運行型態，或只有目前的 (`all = false`)。只有一個運行型態且沒有標題、描述、運行日時，除了 `info` 之外與舊格式相同 (不去除重複的列車)。
 - 匯入 (`loadAllFromJSON(text, only)`)：選擇檔案後 (`#AllFile` 的 `change`) 若有 `opmodes`，顯示 `#AllOpmode` 選單：「全部 (n 個運行型態)」或其中一個 (`only` = index，名稱後附描述)。`loadOpmodes()` 依 index 複製列車 (不合法的 index 略過；`days` 只保留認得的 token)，取代所有運行型態。沒有 `opmodes` 但有 `trains` 時，取代成一個運行型態 (缺少的方向保留目前運行型態的列車)；兩者都沒有時運行型態不變。舊版程式讀取新格式時只會讀到 `trains` (所有不重複的列車)。
 - 每一部分的格式與單獨匯出時相同，匯入 (`loadAllFromJSON()`) 時拆開後交給 `loadSettingsFromJSON()` / `loadRouteFromJSON()` / `loadTrainFromJSON()` (`station_record` 與檔案中的路線比對；沒有 `route` 時與目前的路線比對)。
 - 順序：設定 → 路線 → 列車 (路線缺少 `stopsec` 時使用匯入後的 `defaultStopSec`)。
@@ -596,7 +606,7 @@ draft = { trains: { 1: [...], 2: [...] }, fingerprint: "..." }   // trains: stru
 | 檔案 | 函式 / 變數 |
 |---|---|
 | `program/program/globalvar.js` | `SETTINGS`, `DEFAULT_SETTINGS` |
-| `program/data/DataStore.js` | `ROUTE`, `TRAINS`, `OPMODES`, `currentOpmode`, `OPMODE_DAYS`, `newOpmode()`, `selectOpmode()`, `setOpmodes()`, `addOpmode()`, `deleteOpmode()`, `allTrains()`, `trainKey()`, `copyTrainToOpmode()`, `removeTrainFromOpmode()`, `DEFAULT_TRACK`, `MAX_BRANCHES`, `newStation()`, `newTrackLayout()`, `newTopology()`, `newBranchStation()`, `sortBranchStations()`, `newTrain()`, `boundStations()`, `findStop()`, `addStop()`, `setStopTime()`, `insertStation()`, `deleteStation()`, `refreshStopNames()`, `arrivalTime()`, `stopTimes()`, `isBlankTrain()` |
+| `program/data/DataStore.js` | `INFO`, `ROUTE`, `TRAINS`, `OPMODES`, `currentOpmode`, `OPMODE_DAYS`, `newOpmode()`, `selectOpmode()`, `setOpmodes()`, `addOpmode()`, `deleteOpmode()`, `allTrains()`, `trainKey()`, `copyTrainToOpmode()`, `removeTrainFromOpmode()`, `DEFAULT_TRACK`, `MAX_BRANCHES`, `newStation()`, `newTrackLayout()`, `newTopology()`, `newBranchStation()`, `sortBranchStations()`, `newTrain()`, `boundStations()`, `findStop()`, `addStop()`, `setStopTime()`, `insertStation()`, `deleteStation()`, `refreshStopNames()`, `arrivalTime()`, `stopTimes()`, `isBlankTrain()` |
 | `program/ui/addStationInput.js` | `renderRouteTable()` (同時呼叫 `renderTrackTable()`, `renderTopologyTable()`), `onRouteChanged()`, 路線表格事件 |
 | `program/ui/trackLayoutInput.js` | `renderTrackTable()`, 軌道配置表格事件、快速套用按鈕 |
 | `program/ui/topologyInput.js` | `renderTopologyTable()`, `topologyRows()`, 線路拓樸表格事件 (新增分岐 / 車站、刪除車站、次要車站) |
@@ -605,7 +615,7 @@ draft = { trains: { 1: [...], 2: [...] }, fingerprint: "..." }   // trains: stru
 | `program/handler/TrackLayoutHandler.js` | `loadTrackLayout()` (路線 JSON 匯入時讀取 `track_layout`) |
 | `program/ui/createTimetable.js` | `renderTimetable(bound)`, `checkkilo()`, `generateTimetable()`, `hideHiddenTrains`, `trainInTable()` |
 | `program/ui/addTrainInput.js` | 時刻表事件 (新增/刪除列車、車次、時刻輸入) |
-| `program/ui/opmodeInput.js` | 運行型態的選單、`#OpmodeModal`、車次細項的運行型態：`OPMODE_DAY_NAMES`, `opmodeDaysName()`, `opmodeName()`, `renderOpmodeSelects()`, `switchOpmode()`, `onOpmodeChanged()`, `renderOpmodeTable()`, `renderTrainOpmodes()` |
+| `program/ui/opmodeInput.js` | 運行型態的選單、`#OpmodeModal` 與基本資料的表格、車次細項的運行型態：`OPMODE_DAY_NAMES`, `opmodeDaysName()`, `opmodeName()`, `renderOpmodeSelects()`, `switchOpmode()`, `onOpmodeChanged()`, `renderOpmodeTable(skip)`, `renderTrainOpmodes()`；基本資料 `renderInfo()` |
 | `program/ui/optionsIO.js` | 列車細項 (隱藏、列車名、顏色、始發、終點) offcanvas：`renderTrainVisible()`, `renderBranchEnd()` |
 | `program/program/BranchTrain.js` | 跨線列車：`branchStations()`, `branchChoices()`, `junctionRange()`, `junctionStops()`, `passingJunctions()`, `trainStops()` |
 | `program/program/Overlay.js` | 疊圖：`trainTimesAt()`, `overlayTime()`, `getOverlayJSON()`, `applyOverlay()`, `findOverlayTrain()`, `unpinTrain()` |
@@ -615,7 +625,7 @@ draft = { trains: { 1: [...], 2: [...] }, fingerprint: "..." }   // trains: stru
 | `program/handler/SettingHandler.js` | 設定匯入/匯出：`loadSettingsFromJSON()`, `mergeSettings()`, `applySettings()` |
 | `program/handler/AllDataHandler.js` | 全部資料匯入/匯出：`getAllDataJSON(all)`, `loadAllFromJSON(text, only)`, `loadOpmodes()`, `loadOpmodeDays()` |
 | `program/setting/OutputSetting.js` | `initSettingsUI()`, `updateSettingsUI()`, `renderTimeLabelPreview()`, `checkTextFit()` |
-| `program/program/Graphing.js` | `drawDiagram(trains = TRAINS)`, `drawTrain()`, `LAYERS`, `makeLayer()`, `trainId()`, `timeId()`, `timeToX()`, `makeTimeLabel()`, `timeLabelHeight()`, `stationTextStyles()` |
+| `program/program/Graphing.js` | `drawDiagram(trains = TRAINS, o, page)`, `footerText()`, `makeFooter()`, `drawTrain()`, `LAYERS`, `makeLayer()`, `trainId()`, `timeId()`, `timeToX()`, `makeTimeLabel()`, `timeLabelHeight()`, `stationTextStyles()` |
 | `program/program/TrainNumber.js` | `placeTrainNumbers()`, `findTrainNumberPosition()`, `createSegmentGrid()`, `addSegment()`, `someSegment()`, `segmentHitsBox()` |
 | `program/data/Draft.js` | `DRAFTS`, `newDraft()`, `validDraft()`, `adoptDraft()` |
 | `program/program/RunTimeAutofill.js` | `wildcardRegExp()`, `findTrainByNumber()`, `computeAutofill()`, `applyAutofill()` |
