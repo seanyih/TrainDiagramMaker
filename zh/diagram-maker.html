@@ -613,6 +613,9 @@
 					<li class="nav-item">
 						<a class="nav-link" href="manual/manual-index.html" target="_blank">操作說明</a>
 					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="database/" target="_blank">資料庫</a>
+					</li>
 					<!--<li class="nav-item">
 						<a class="nav-link" href="faq.html">FAQ</a>
 					</li>
@@ -2442,6 +2445,8 @@
 	<script src="../program/handler/SettingHandler.js"></script>
 	<script src="../program/handler/AllDataHandler.js"></script>
 	<script src="../program/handler/OudHandler.js"></script>
+	<script src="../program/util/database.js"></script>
+	<script src="../program/handler/DatabaseHandler.js"></script>
 
 	<!-- optional: arrow-key cell navigation (remove to disable) -->
 	<script src="../program/ui/arrowNav.js"></script>
@@ -2456,6 +2461,7 @@
 		renderOpmodeSelects();
 		initSettingsUI();
 		$(restoreLangCarry);
+		$(importFromDatabase);
 	</script>
 </body>
 </html>
