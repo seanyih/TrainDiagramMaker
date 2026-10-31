@@ -86,8 +86,24 @@
 		.hero-bg{
 			position: absolute;
 			inset: 0;
-			background: #000 url("../img/hero.png") center / cover no-repeat;
+			background: #000;
+			container-type: size;
+			overflow: hidden;
 			animation: hero-zoom 30s ease-out both;
+		}
+		/* the image (2542x894) tiles horizontally and slides left by one tile, so the right end joins the left end */
+		.hero-bg::before{
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: calc(100% + 284.34cqh);
+			height: 100%;
+			background: url("../img/hero.png") 0 0 / auto 100% repeat-x;
+			animation: hero-pan 150s linear infinite;
+		}
+		@keyframes hero-pan{
+			to{ transform: translateX(-284.34cqh); }
 		}
 		.hero::before{
 			content: "";
@@ -350,7 +366,7 @@
 		}
 		.scenario-grid{
 			display: grid;
-			grid-template-columns: repeat(3, 1fr);
+			grid-template-columns: repeat(2, 1fr);
 			gap: 24px;
 		}
 		.scenario{
@@ -359,10 +375,6 @@
 			background: var(--paper);
 			border: 1px solid var(--line);
 			transition: transform 0.2s, box-shadow 0.2s;
-		}
-		.scenario:hover{
-			transform: translateY(-4px);
-			box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08);
 		}
 		.scenario-no{
 			font-size: 14px;
@@ -496,7 +508,7 @@
 			}
 		}
 		@media (prefers-reduced-motion: reduce){
-			.hero-bg, .hero-arrow{
+			.hero-bg, .hero-bg::before, .hero-arrow{
 				animation: none;
 			}
 		}
@@ -658,7 +670,7 @@
 							<li>匯出 OuDia 樣式的向量圖檔，列車號不再重疊</li>
 							<li>也可以再次匯出成 OuDia 檔案</li>
 						</ol>
-						<p class="scenario-note">部分功能不互通，匯入 / 匯出後會遺失這些資訊。</p>
+						<p class="scenario-note">*部分功能不互通，匯入 / 匯出後會遺失這些資訊。</p>
 					</article>
 				</div>
 			</div>

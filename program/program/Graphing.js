@@ -276,6 +276,8 @@ function footerText(page){
 		opmode: opmodeName(OPMODES[page.opmode], page.opmode),
 		index: page.index,
 		time_range: `${secToHhmm(page.startSec)} ~ ${secToHhmm(page.endSec)}`,
+		time_range_hh: `${Math.floor(page.startSec/3600)}~${Math.ceil(page.endSec/3600)}`,
+		valid_from: INFO.effective_date ? `${INFO.effective_date}~` : "",
 		pages: page.number
 	};
 	return SETTINGS.footer.text.replace(/<(\w+)>/g, (token, key) => Object.hasOwn(tokens, key) ? tokens[key] : token);

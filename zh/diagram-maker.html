@@ -584,8 +584,14 @@
 			display: none !important;
 		}
 
-		.setting-collapse-row{
-			margin-bottom: 3vh;
+		/* spacing lives inside the collapse (flow-root keeps child margins in), so the height animation has no jump */
+		#container-setting .collapse.show, #container-setting .collapsing{
+			display: flow-root;
+		}
+		.setting-collapse-row::after{
+			content: "";
+			display: block;
+			height: 3vh;
 		}
 
 	</style>
@@ -960,14 +966,14 @@
 				</div>
 				<hr style="margin-top: 0%;">
 				<div class="collapse setting-collapse-row" id="InfoSettingWindow">
-					<p>整份檔案的資料，匯出全部資料時放在 JSON 的最開頭。</p>
+					<p>整理用，非必填。</p>
 					<div class="row g-3 align-items-center">
 						<div class="col-auto" style="width: 9rem;"><label class="col-form-label">標題</label></div>
 						<div class="col-auto"><input class="form-control info-field" data-field="title" style="width: 30rem;"></div>
 					</div>
 					<div class="row g-3 align-items-center">
 						<div class="col-auto" style="width: 9rem;"><label class="col-form-label">描述</label></div>
-						<div class="col"><textarea class="form-control info-field" data-field="description" rows="2"></textarea></div>
+						<div class="col"><textarea class="form-control info-field" data-field="description" rows="4"></textarea></div>
 					</div>
 					<div class="row g-3 align-items-center">
 						<div class="col-auto" style="width: 9rem;"><label class="col-form-label">時刻表啟用日</label></div>
@@ -986,7 +992,7 @@
 					<p>一份檔案可以有多個運行型態 (例如平日、假日)，各有自己的時刻表，路線與設定共用。標題留白時，以運行日命名。</p>
 					<div class="table-responsive">
 						<table class="table align-middle" style="min-width: 860px;">
-							<colgroup><col style="width: 180px"><col style="width: 260px"><col><col style="width: 90px"><col style="width: 100px"></colgroup>
+							<colgroup><col style="width: 180px"><col style="width: 180px"><col style="width: 370px;"><col style="width: 80px"><col style="width: 50px"></colgroup>
 							<thead><tr><th>標題</th><th>運行日</th><th>描述 (備註)</th><th>列車數</th><th></th></tr></thead>
 							<tbody class="opmode-table" id="InfoOpmodeTableBody"><!-- renderOpmodeTable() --></tbody>
 						</table>
@@ -1392,7 +1398,6 @@
 									<option value="extended">30小時制 (25:00)</option>
 								</select>
 							</div>
-							<div class="col-auto"><small class="text-muted">時間範圍超過24:00時使用</small></div>
 						</div>
 						<div class="row g-3 align-items-center">
 						<div class="col-auto"><label class="col-form-label">與圖表距離(<span class="px-unit">px</span>)</label></div>
@@ -1471,14 +1476,12 @@
 						</div>
 					</div>
 					<div id="footer-fields">
-					<p class="text-muted" style="margin-top: 1vh;">位置固定在圖片 (印刷模式：頁面) 下方的正中間。</p>
-					<div class="row g-3 align-items-center">
+					<div class="row g-3 align-items-center" style="margin-top: 1vh;">
 						<div class="col-auto"><label class="col-form-label">內容</label></div>
 						<div class="col"><input class="form-control" style="max-width: 40rem;" data-setting="footer.text"></div>
 					</div>
 					<p class="text-muted small" style="margin: 0.5vh 0 0 3rem;">
-						以下代碼會換成對應的文字：&lt;title&gt; 標題、&lt;sta_range&gt; 車站範圍 (起站 = 迄站)、&lt;opmode&gt; 運行型態、&lt;time_range&gt; 時間範圍 (hhmm ~ hhmm)、
-						&lt;index&gt; 該運行型態的第幾張圖、&lt;pages&gt; 頁碼 (從起始頁碼起每張圖加 1)。後兩者適用於印刷模式，其他時候為第 1 張圖。
+						<a href="manual/manual-ops-setting.html#基本資料-footer" target="_blank">可以使用的內容</a>
 					</p>
 					<div class="row g-3 align-items-center">
 						<div class="col-auto"><label class="col-form-label">字型大小</label></div>
@@ -1487,14 +1490,7 @@
 						<div class="col-auto"><input type="color" class="form-control form-control-color" data-setting="footer.color"></div>
 					</div>
 					<div class="row g-3 align-items-center">
-						<div class="col-auto"><label class="col-form-label">與</label></div>
-						<div class="col-auto">
-							<select class="form-select" data-setting="footer.base">
-								<option value="page">頁面下緣 (不含出血)</option>
-								<option value="plot">圖表下方 (含文字)</option>
-							</select>
-						</div>
-						<div class="col-auto"><label class="col-form-label">的距離</label></div>
+						<div class="col-auto"><label class="col-form-label">與頁面下緣的距離</label></div>
 						<div class="col-auto"><input inputmode="decimal" class="form-control" style="width:100px" data-unit="px" data-setting="footer.gap"></div>
 						<div class="col-auto"><label class="col-form-label px-unit">像素</label></div>
 					</div>
@@ -1597,7 +1593,7 @@
 							</select>
 						</div>
 					</div>
-					<p class="text-muted" style="margin-top: 1vh;">啟用後，上面所有以像素為單位的設定改以 mm 輸入與顯示 (1 像素 = 1/ppi 英吋)。輸出為每頁一個檔案，打包成 zip。</p>
+					<p class="text-muted" style="margin-top: 1vh;"></p>
 					<div id="print-fields">
 						<div class="row g-3 align-items-center">
 							<div class="col-auto"><label class="col-form-label">頁面大小 寬</label></div>
@@ -1607,7 +1603,7 @@
 							<div class="col-auto"><label class="col-form-label">mm</label></div>
 						</div>
 						<div class="row g-3 align-items-center">
-							<div class="col-auto"><label class="col-form-label">頁面出血 (加在頁面大小之外) 上</label></div>
+							<div class="col-auto"><label class="col-form-label">頁面出血 上</label></div>
 							<div class="col-auto"><input inputmode="decimal" class="form-control" style="width:80px" min="0" data-setting="print.bleed.top"></div>
 							<div class="col-auto"><label class="col-form-label">下</label></div>
 							<div class="col-auto"><input inputmode="decimal" class="form-control" style="width:80px" min="0" data-setting="print.bleed.bottom"></div>
@@ -1687,11 +1683,11 @@
 									<option value="svgPath">向量文字 SVG</option>
 								</select>
 							</div>
-							<div class="col-auto"><small class="text-muted">向量文字：文字轉成外框，不需安裝字體，但不可再編輯文字；首次輸出需載入字體檔 (約 7 MB)</small></div>
+							<div class="col-auto"><small class="text-muted">向量文字：文字轉成外框，不需安裝字體，但不可再編輯文字。</small></div>
 						</div>
 
 						<div class="row" style="margin-top: 2vh;">
-							<p class="mb-1">計算結果 (頁面邊緣到圖的距離，mm)　<span id="print-summary"></span></p>
+							<p class="mb-1">頁面邊緣到圖的距離(mm)  頁數: <span id="print-summary"></span></p>
 							<div class="alert alert-danger" style="padding: 0.5rem 1rem; display:none;" id="print-over-warning">圖面超出頁面 (出血以外)，請縮小比例、文字，或調整頁面、對齊。</div>
 							<div class="col-auto">
 								<table class="table table-sm text-center" style="width: auto;">
@@ -1701,7 +1697,7 @@
 							</div>
 							<div class="col-auto">
 								<svg id="print-preview" xmlns="http://www.w3.org/2000/svg" style="border: 1px dashed #CCC;"></svg>
-								<p class="text-muted small mb-0">灰: 含出血　白: 頁面　藍: 圖框　橘虛線: 文字範圍</p>
+								<p class="text-muted small mb-0">灰: 出血　白: 頁面　藍: 圖框　橘虛線: 文字範圍</p>
 							</div>
 						</div>
 					</div>

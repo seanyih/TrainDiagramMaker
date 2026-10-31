@@ -66,9 +66,9 @@ checkbox → boolean，`type="number"` 與數字選項的 select → number (空
 | `timeLabel.overDay` | `"plain"` | 24 時以後的時間文字：`plain` (01:00) / `superscript` (01:00 ⁺¹，僅有小時的文字加上標，僅 mm 不加) / `extended` (25:00) |
 | `timeLabel.secondaryLabel` | `"none"` | 次要時間線標記 `none` / `hhmm` / `mm`，只在 `interval >= 10` 時有效 (`simple` 格式一律只標 mm) |
 | `footer.enabled` | false | 基本資料 footer (`makeFooter()`，`Graphing.js`)：一行文字，水平置中於頁面 (印刷模式為不含出血的頁面，否則為整張圖)，最後畫 (圖層 `layer-footer`) |
-| `footer.text` | `"<title> \| <opmode> \| <sta_range> \| <time_range>"` | 內容，代碼由 `footerText(page)` 換成文字：`<title>` = `INFO.title`、`<sta_range>` = `起站 = 迄站` (`stationRange()`)、`<opmode>` = `opmodeName()`、`<time_range>` = `hhmm ~ hhmm` (`secToHhmm()`，印刷時為該頁的範圍，不含重疊)、`<index>` = 該運行型態的第幾頁、`<pages>` = 頁碼 (`startPage` 起，所有運行型態連續編號)。不是印刷模式時 `<index>` = 1、`<pages>` = `startPage`。其他文字 (含不認得的代碼) 照原樣 |
+| `footer.text` | `"<title> \| <opmode> \| <sta_range> \| <time_range>"` | 內容，代碼由 `footerText(page)` 換成文字：`<title>` = `INFO.title`、`<sta_range>` = `起站 = 迄站` (`stationRange()`)、`<opmode>` = `opmodeName()`、`<time_range>` = `hhmm ~ hhmm` (`secToHhmm()`，印刷時為該頁的範圍，不含重疊)、`<time_range_hh>` = `h~h` (起點無條件捨去、終點無條件進位到小時，同樣不含重疊)、`<valid_from>` = `INFO.effective_date` + `~` (未填則空字串)、`<index>` = 該運行型態的第幾頁、`<pages>` = 頁碼 (`startPage` 起，所有運行型態連續編號)。不是印刷模式時 `<index>` = 1、`<pages>` = `startPage`。其他文字 (含不認得的代碼) 照原樣 |
 | `footer.fontSize` / `footer.color` | 16 / `"#000000"` | 字型大小 (px)、顏色 |
-| `footer.base` / `footer.gap` | `"page"` / 20 | `gap` (px) 的基準：`"page"` = 基線在頁面下緣往上 `gap`；`"plot"` = 文字頂端在圖表下方的文字 (`textExtent().bottom`，時間文字等) 往下 `gap` |
+| `footer.base` / `footer.gap` | `"page"` / 20 | `gap` (px) 的基準：`"page"` = 基線在頁面下緣往上 `gap`；`"plot"` = 文字頂端在圖表下方的文字 (`textExtent().bottom`，時間文字等) 往下 `gap` (介面已無此選項，只能由 JSON 設定) |
 | `footer.startPage` | 1 | 第一張圖的 `<pages>` |
 | `stationRange` | `{ start: 0, end: null }` | 繪圖的區間範圍：畫出的第一站、最後一站的車站 index (`end` null = 最後一站)；`stationRange()` 會在不合法 (start ≥ end、超出車站數) 時改用全線。列車資料不受影響，超出的部分被裁切，也不放列車號 |
 | `print.enabled` | false | 印刷模式 (`PrintLayout.js`)：啟用後設定頁以像素為單位的欄位 (`data-unit="px"`) 改以 mm 輸入與顯示，1 px = 25.4/ppi mm；資料仍以 px 存放 |

@@ -208,9 +208,9 @@
 <h3 id="基本資料-footer">基本資料 footer</h3>
 <p>勾選「顯示」後，在圖的下方正中間加上一行文字，例如作者、標題與頁碼。印刷模式中以頁面（不含出血）置中。</p>
 <ul>
-<li><strong>內容</strong>：可以自由輸入（中文也可以），下表的代碼會自動換成對應的文字。例如 <code>作者 | &lt;title&gt; | &lt;opmode&gt;-&lt;index&gt;</code> 會印出「作者 | 香椎線 | 平日-2」。</li>
+<li><strong>內容</strong>：可以自由輸入（中文也可以），下表的代碼會自動換成對應的文字。例如 <code>文字 | &lt;title&gt; | &lt;opmode&gt;-&lt;index&gt;</code> 會印出「文字 | 縱貫線 | 平日-2」。</li>
 <li><strong>字型大小、顏色</strong></li>
-<li><strong>距離</strong>：footer 與「頁面下緣」（不含出血）或「圖表下方」（時間文字之下）的距離。以圖表下方為準時，圖片邊界不夠會出現文字超出提醒；印刷模式的「含文字」對齊與超出檢查也會算進 footer。</li>
+<li><strong>與頁面下緣的距離</strong>：footer 基線與頁面下緣（印刷模式不含出血）的距離。</li>
 </ul>
 <table>
 <thead>
@@ -226,7 +226,7 @@
 </tr>
 <tr>
 <td><code>&lt;sta_range&gt;</code></td>
-<td>車站範圍，例如「西戸崎 = 宇美」</td>
+<td>車站範圍，例如「基隆 = 新竹」</td>
 </tr>
 <tr>
 <td><code>&lt;opmode&gt;</code></td>
@@ -235,6 +235,14 @@
 <tr>
 <td><code>&lt;time_range&gt;</code></td>
 <td>時間範圍，例如「0600 ~ 0800」；印刷模式為該頁的範圍</td>
+</tr>
+<tr>
+<td><code>&lt;time_range_hh&gt;</code></td>
+<td>只有小時的時間範圍，例如「6~8」；印刷模式不含重疊的時間</td>
+</tr>
+<tr>
+<td><code>&lt;valid_from&gt;</code></td>
+<td>時刻表啟用日加「~」，例如「2026/10/01~」；<a href="#基本資料">基本資料</a>未填則不顯示</td>
 </tr>
 <tr>
 <td><code>&lt;index&gt;</code></td>
