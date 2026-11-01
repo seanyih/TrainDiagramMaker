@@ -1,0 +1,46 @@
+{
+ "route_name": "JR 西九州新幹線 (武雄温泉-長崎)",
+ "stations": [
+  {
+   "name": "武雄温泉",
+   "kilo": 0.0,
+   "alias": ""
+  },
+  {
+   "name": "嬉野温泉",
+   "kilo": 10.9,
+   "alias": ""
+  },
+  {
+   "name": "新大村",
+   "kilo": 32.2,
+   "alias": ""
+  },
+  {
+   "name": "諫早",
+   "kilo": 44.7,
+   "alias": ""
+  },
+  {
+   "name": "長崎",
+   "kilo": 66.0,
+   "alias": ""
+  }
+ ],
+ "topology": {
+  "secondary": [
+   false,
+   false,
+   false,
+   false,
+   false
+  ],
+  "branches": [
+   [],
+   [],
+   [],
+   [],
+   []
+  ]
+ }
+}

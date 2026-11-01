@@ -1,0 +1,250 @@
+{
+ "route_name": "臺鐵 花東線 (花蓮-臺東)",
+ "stations": [
+  {
+   "name": "花蓮",
+   "kilo": 0.0,
+   "alias": ""
+  },
+  {
+   "name": "吉安",
+   "kilo": 3.5,
+   "alias": ""
+  },
+  {
+   "name": "志學",
+   "kilo": 12.3,
+   "alias": ""
+  },
+  {
+   "name": "平和",
+   "kilo": 15.3,
+   "alias": ""
+  },
+  {
+   "name": "壽豐",
+   "kilo": 17.1,
+   "alias": ""
+  },
+  {
+   "name": "豐田",
+   "kilo": 19.9,
+   "alias": ""
+  },
+  {
+   "name": "林榮新光",
+   "kilo": 26.1,
+   "alias": ""
+  },
+  {
+   "name": "南平",
+   "kilo": 28.3,
+   "alias": ""
+  },
+  {
+   "name": "鳳林",
+   "kilo": 32.5,
+   "alias": ""
+  },
+  {
+   "name": "萬榮",
+   "kilo": 37.4,
+   "alias": ""
+  },
+  {
+   "name": "光復",
+   "kilo": 43.0,
+   "alias": ""
+  },
+  {
+   "name": "大富",
+   "kilo": 50.5,
+   "alias": ""
+  },
+  {
+   "name": "富源",
+   "kilo": 53.7,
+   "alias": ""
+  },
+  {
+   "name": "瑞穗",
+   "kilo": 62.8,
+   "alias": ""
+  },
+  {
+   "name": "三民",
+   "kilo": 72.2,
+   "alias": ""
+  },
+  {
+   "name": "玉里",
+   "kilo": 83.0,
+   "alias": ""
+  },
+  {
+   "name": "東里",
+   "kilo": 89.8,
+   "alias": ""
+  },
+  {
+   "name": "東竹",
+   "kilo": 95.8,
+   "alias": ""
+  },
+  {
+   "name": "富里",
+   "kilo": 101.9,
+   "alias": ""
+  },
+  {
+   "name": "池上",
+   "kilo": 108.7,
+   "alias": ""
+  },
+  {
+   "name": "海端",
+   "kilo": 114.4,
+   "alias": ""
+  },
+  {
+   "name": "關山",
+   "kilo": 120.9,
+   "alias": ""
+  },
+  {
+   "name": "瑞和",
+   "kilo": 128.4,
+   "alias": ""
+  },
+  {
+   "name": "瑞源",
+   "kilo": 131.1,
+   "alias": ""
+  },
+  {
+   "name": "鹿野",
+   "kilo": 136.6,
+   "alias": ""
+  },
+  {
+   "name": "山里",
+   "kilo": 142.7,
+   "alias": ""
+  },
+  {
+   "name": "臺東",
+   "kilo": 150.9,
+   "alias": ""
+  }
+ ],
+ "topology": {
+  "secondary": [
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false
+  ],
+  "branches": [
+   [
+    {
+     "stations": [
+      {
+       "name": "北埔",
+       "kilo": 4.6
+      },
+      {
+       "name": "新城",
+       "kilo": 16.4
+      },
+      {
+       "name": "南澳",
+       "kilo": 60.6
+      },
+      {
+       "name": "羅東",
+       "kilo": 89.6
+      },
+      {
+       "name": "宜蘭",
+       "kilo": 98.4
+      },
+      {
+       "name": "礁溪",
+       "kilo": 106.8
+      },
+      {
+       "name": "南港",
+       "kilo": 185.1
+      },
+      {
+       "name": "松山",
+       "kilo": 187.9
+      }
+     ]
+    }
+   ],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [
+    {
+     "stations": [
+      {
+       "name": "康樂",
+       "kilo": 4.5
+      },
+      {
+       "name": "知本",
+       "kilo": 11.6
+      }
+     ]
+    }
+   ]
+  ]
+ }
+}

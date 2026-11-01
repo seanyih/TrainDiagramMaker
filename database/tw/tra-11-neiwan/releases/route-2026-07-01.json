@@ -1,0 +1,161 @@
+{
+ "route_name": "臺鐵 內灣線 (新竹-內灣)",
+ "stations": [
+  {
+   "name": "新竹",
+   "kilo": 0.0,
+   "alias": ""
+  },
+  {
+   "name": "北新竹",
+   "kilo": 1.4,
+   "alias": ""
+  },
+  {
+   "name": "千甲",
+   "kilo": 3.6,
+   "alias": ""
+  },
+  {
+   "name": "新莊",
+   "kilo": 6.6,
+   "alias": ""
+  },
+  {
+   "name": "竹中",
+   "kilo": 7.9,
+   "alias": ""
+  },
+  {
+   "name": "上員",
+   "kilo": 10.6,
+   "alias": ""
+  },
+  {
+   "name": "榮華",
+   "kilo": 15.0,
+   "alias": ""
+  },
+  {
+   "name": "竹東",
+   "kilo": 16.6,
+   "alias": ""
+  },
+  {
+   "name": "橫山",
+   "kilo": 20.1,
+   "alias": ""
+  },
+  {
+   "name": "九讚頭",
+   "kilo": 22.1,
+   "alias": ""
+  },
+  {
+   "name": "合興",
+   "kilo": 24.3,
+   "alias": ""
+  },
+  {
+   "name": "富貴",
+   "kilo": 25.7,
+   "alias": ""
+  },
+  {
+   "name": "內灣",
+   "kilo": 27.9,
+   "alias": ""
+  }
+ ],
+ "topology": {
+  "secondary": [
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false
+  ],
+  "branches": [
+   [
+    {
+     "stations": [
+      {
+       "name": "三姓橋",
+       "kilo": 4.8
+      },
+      {
+       "name": "竹南",
+       "kilo": 18.7
+      },
+      {
+       "name": "苗栗",
+       "kilo": 34.0
+      },
+      {
+       "name": "豐原",
+       "kilo": 72.4
+      },
+      {
+       "name": "臺中",
+       "kilo": 86.5
+      }
+     ]
+    }
+   ],
+   [
+    {
+     "stations": [
+      {
+       "name": "竹北",
+       "kilo": 4.4
+      },
+      {
+       "name": "湖口",
+       "kilo": 15.4
+      },
+      {
+       "name": "中壢",
+       "kilo": 37.7
+      },
+      {
+       "name": "桃園",
+       "kilo": 47.6
+      },
+      {
+       "name": "板橋",
+       "kilo": 69.5
+      }
+     ]
+    }
+   ],
+   [],
+   [],
+   [
+    {
+     "stations": [
+      {
+       "name": "六家",
+       "kilo": 3.1
+      }
+     ]
+    }
+   ],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   []
+  ]
+ }
+}

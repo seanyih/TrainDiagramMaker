@@ -1,0 +1,13 @@
+{
+	"name": { "zh": "紅線", "en": "Red Line", "ja": "紅線" },
+	"section": { "zh": "小港 – 岡山車站", "en": "Siaogang – Gangshan Station", "ja": "小港 – 岡山駅" },
+	"companies": ["krtc"],
+	"types": ["metro"],
+	"regions": [],
+	"route": [
+		{ "date": "2026-10-31", "title": "初版", "kind": "route", "tags": ["mileage"], "files": { "json": "releases/route-2026-10-31.json" }, "latest": true }
+	],
+	"all": [
+		{ "date": "2026-10-31", "title": "初版", "kind": "all", "tags": ["arrival"], "files": { "json": "releases/all-2026-10-31.json" }, "latest": true }
+	]
+}

@@ -1,0 +1,8 @@
+jr-tohoku-hokkaido
+jr-joetsu
+jr-hokuriku
+jr-yamagata
+jr-akita
+jr-tokaido-sanyo-kyushu
+jr-hakata-minami
+jr-nishikyushu

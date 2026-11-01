@@ -1,0 +1,228 @@
+{
+ "route_name": "阿里山林業鐵路 (嘉義-阿里山-沼平)",
+ "stations": [
+  {
+   "name": "嘉義",
+   "kilo": 0,
+   "stopsec": 60,
+   "alias": ""
+  },
+  {
+   "name": "北門",
+   "kilo": 1.6,
+   "stopsec": 60,
+   "alias": ""
+  },
+  {
+   "name": "鹿麻產",
+   "kilo": 10.8,
+   "stopsec": 60,
+   "alias": ""
+  },
+  {
+   "name": "竹崎",
+   "kilo": 14.2,
+   "stopsec": 60,
+   "alias": ""
+  },
+  {
+   "name": "樟腦寮",
+   "kilo": 23.3,
+   "stopsec": 60,
+   "alias": ""
+  },
+  {
+   "name": "獨立山",
+   "kilo": 27.4,
+   "stopsec": 60,
+   "alias": ""
+  },
+  {
+   "name": "梨園寮",
+   "kilo": 31.4,
+   "stopsec": 60,
+   "alias": ""
+  },
+  {
+   "name": "交力坪",
+   "kilo": 34.9,
+   "stopsec": 60,
+   "alias": ""
+  },
+  {
+   "name": "水社寮",
+   "kilo": 40.5,
+   "stopsec": 60,
+   "alias": ""
+  },
+  {
+   "name": "奮起湖",
+   "kilo": 45.52,
+   "stopsec": 60,
+   "alias": ""
+  },
+  {
+   "name": "多林",
+   "kilo": 50.68,
+   "stopsec": 60,
+   "alias": ""
+  },
+  {
+   "name": "十字路",
+   "kilo": 55,
+   "stopsec": 60,
+   "alias": ""
+  },
+  {
+   "name": "屏遮那",
+   "kilo": 60.18,
+   "stopsec": 60,
+   "alias": ""
+  },
+  {
+   "name": "第一分道",
+   "kilo": 63.08,
+   "stopsec": 60,
+   "alias": ""
+  },
+  {
+   "name": "第二分道",
+   "kilo": 64.38,
+   "stopsec": 60,
+   "alias": ""
+  },
+  {
+   "name": "二萬平",
+   "kilo": 67.16,
+   "stopsec": 60,
+   "alias": ""
+  },
+  {
+   "name": "神木",
+   "kilo": 69.94,
+   "stopsec": 60,
+   "alias": ""
+  },
+  {
+   "name": "阿里山",
+   "kilo": 71.6,
+   "stopsec": 60,
+   "alias": ""
+  },
+  {
+   "name": "沼平",
+   "kilo": 72.8,
+   "stopsec": 60,
+   "alias": ""
+  }
+ ],
+ "track_layout": {
+  "stations": [
+   "single",
+   "single",
+   "double.0",
+   "single",
+   "single",
+   "double.0",
+   "double.0",
+   "double.0",
+   "double.0",
+   "double.0",
+   "double.0",
+   "double.0",
+   "single",
+   "double.0",
+   "single",
+   "double.0",
+   "single",
+   "single",
+   "single"
+  ],
+  "sections": [
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single"
+  ],
+  "max_speed_enabled": false,
+  "max_speed_all": null,
+  "max_speeds": [
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null
+  ]
+ },
+ "topology": {
+  "secondary": [
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   true,
+   true,
+   false,
+   false,
+   false,
+   false
+  ],
+  "branches": [
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   []
+  ]
+ }
+}

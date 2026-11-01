@@ -480,6 +480,8 @@ UI (`zh/program/ui/opmodeInput.js`)：
 - 列車一律取代 (不看「匯入列車資料時」選單)。
 - 任何部分解析失敗則不套用任何變更 (設定會還原)。
 
+`diagram-maker.html?db=<國家>/<路線>/releases/<檔案>.json` (資料庫路線頁的「開始製作」，`importFromDatabase()`，`program/handler/DatabaseHandler.js`)：從資料庫 (`database/`，`DB_BASE`，`program/util/database.js`；格式見 `database/README.md`) 讀取該檔案，有 `route` 欄位時當作全部資料 JSON 匯入，否則當作路線 JSON；之後從網址移除 `db` (重新整理、切換語言時不會再匯入)。路徑不符合 `DB_FILE` 或讀取失敗時顯示 `#ImportRouteFailed`。
+
 ### 6.3 OuDia 檔案 (`program/handler/OudHandler.js`)
 
 匯入：`#OudFile` → `#OudDia` 選ダイヤ (有多份時第一個選項為「全部」) → `#ImportOudBtn`，每份ダイヤ成為一個運行型態 (標題 = `DiaName`)。匯出：`.export-oud-btn[data-format=oud|oud2]` (`oudText()`，見下)，每個運行型態成為一份ダイヤ。

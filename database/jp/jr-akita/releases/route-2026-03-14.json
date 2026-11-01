@@ -1,0 +1,66 @@
+{
+ "route_name": "JR 秋田新幹線 (盛岡-秋田)",
+ "stations": [
+  {
+   "name": "盛岡",
+   "kilo": 0.0,
+   "alias": ""
+  },
+  {
+   "name": "雫石",
+   "kilo": 16.0,
+   "alias": ""
+  },
+  {
+   "name": "田沢湖",
+   "kilo": 40.1,
+   "alias": ""
+  },
+  {
+   "name": "角館",
+   "kilo": 58.8,
+   "alias": ""
+  },
+  {
+   "name": "大曲",
+   "kilo": 75.6,
+   "alias": ""
+  },
+  {
+   "name": "秋田",
+   "kilo": 127.3,
+   "alias": ""
+  }
+ ],
+ "topology": {
+  "secondary": [
+   false,
+   false,
+   false,
+   false,
+   false,
+   false
+  ],
+  "branches": [
+   [
+    {
+     "stations": [
+      {
+       "name": "新花巻",
+       "kilo": 33.4
+      },
+      {
+       "name": "仙台",
+       "kilo": 171.1
+      }
+     ]
+    }
+   ],
+   [],
+   [],
+   [],
+   [],
+   []
+  ]
+ }
+}

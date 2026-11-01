@@ -1,0 +1,62 @@
+{
+ "route_name": "臺北捷運 中和新蘆線 蘆洲支線 (大橋頭-蘆洲)",
+ "stations": [
+  {
+   "name": "大橋頭",
+   "kilo": 0.0,
+   "alias": ""
+  },
+  {
+   "name": "三重國小",
+   "kilo": 1.88,
+   "alias": ""
+  },
+  {
+   "name": "三和國中",
+   "kilo": 3.11,
+   "alias": ""
+  },
+  {
+   "name": "徐匯中學",
+   "kilo": 3.94,
+   "alias": ""
+  },
+  {
+   "name": "三民高中",
+   "kilo": 4.84,
+   "alias": ""
+  },
+  {
+   "name": "蘆洲",
+   "kilo": 6.01,
+   "alias": ""
+  }
+ ],
+ "topology": {
+  "secondary": [
+   false,
+   false,
+   false,
+   false,
+   false,
+   false
+  ],
+  "branches": [
+   [
+    {
+     "stations": [
+      {
+       "name": "民權西路",
+       "kilo": 0.66
+      }
+     ]
+    }
+   ],
+   [],
+   [],
+   [],
+   [],
+   []
+  ]
+ }
+}

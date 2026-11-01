@@ -1,0 +1,13 @@
+{
+	"name": { "zh": "六家線", "en": "Liujia Line", "ja": "六家線" },
+	"section": { "zh": "新竹 – 六家", "en": "Hsinchu – Liujia", "ja": "新竹 – 六家" },
+	"companies": ["tra"],
+	"types": ["railway"],
+	"regions": [],
+	"route": [
+		{ "date": "2026-07-01", "title": "初版", "kind": "route", "tags": ["mileage", "topology"], "files": { "json": "releases/route-2026-07-01.json" }, "latest": true }
+	],
+	"all": [
+		{ "date": "2026-07-01", "title": "2026年7月改點", "kind": "all", "tags": ["arrival"], "files": { "json": "releases/all-2026-07-01.json" }, "latest": true }
+	]
+}

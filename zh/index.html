@@ -28,7 +28,7 @@
 	}
 	</script>
 	<script type="speculationrules">
-	{ "prerender": [{ "source": "list", "urls": ["diagram-maker.html", "manual/manual-index.html"], "eagerness": "moderate" }] }
+	{ "prerender": [{ "source": "list", "urls": ["diagram-maker.html", "manual/manual-index.html", "database/"], "eagerness": "moderate" }] }
 	</script>
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -196,24 +196,6 @@
 			background: #FFF;
 			border-color: #FFF;
 			text-decoration: none;
-		}
-		.btn-side.disabled{
-			color: rgba(255, 255, 255, 0.5);
-			border-style: dashed;
-			border-color: rgba(255, 255, 255, 0.3);
-			cursor: not-allowed;
-		}
-		.btn-side.disabled:hover{
-			color: rgba(255, 255, 255, 0.5);
-			background: transparent;
-		}
-		.badge-soon{
-			padding: 1px 8px;
-			border-radius: 999px;
-			font-size: 12px;
-			font-weight: 700;
-			color: var(--ink);
-			background: var(--yellow);
 		}
 		.hero-arrow{
 			position: absolute;
@@ -525,7 +507,7 @@
 			<nav class="hero-actions">
 				<a class="btn-side" href="manual/manual-index.html">使用手冊</a>
 				<a class="btn-main" href="diagram-maker.html">開始製作</a>
-				<span class="btn-side disabled" aria-disabled="true">資料庫 <span class="badge-soon">準備中</span></span>
+				<a class="btn-side" href="database/">資料庫</a>
 			</nav>
 		</div>
 		<a class="hero-arrow" href="#features" aria-label="往下看功能介紹"></a>
@@ -690,6 +672,7 @@
 			<p>© 2026 seanyih · MIT License</p>
 			<nav>
 				<a href="manual/manual-index.html">使用手冊</a>
+				<a href="database/">資料庫</a>
 				<a href="https://github.com/seanyih/TrainDiagramMaker">GitHub</a>
 			</nav>
 		</div>
