@@ -1,0 +1,13 @@
+{
+	"name": { "zh": "小碧潭支線", "en": "Xiaobitan Branch Line", "ja": "小碧潭支線" },
+	"section": { "zh": "七張 – 小碧潭", "en": "Qizhang – Xiaobitan", "ja": "七張 – 小碧潭" },
+	"companies": ["trtc"],
+	"types": ["metro"],
+	"regions": [],
+	"route": [
+		{ "date": "2026-08-30", "title": "初版", "kind": "route", "tags": ["mileage"], "files": { "json": "releases/route-2026-08-30.json" }, "latest": true }
+	],
+	"all": [
+		{ "date": "2026-08-30", "title": "2026年8月改點", "kind": "all", "tags": ["arrival"], "files": { "json": "releases/all-2026-08-30.json" }, "latest": true }
+	]
+}

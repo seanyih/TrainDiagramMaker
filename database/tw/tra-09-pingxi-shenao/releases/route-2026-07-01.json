@@ -1,0 +1,150 @@
+{
+ "route_name": "臺鐵 平溪線+深澳線 (菁桐-八斗子)",
+ "stations": [
+  {
+   "name": "菁桐",
+   "kilo": 0.0,
+   "alias": ""
+  },
+  {
+   "name": "平溪",
+   "kilo": 1.7,
+   "alias": ""
+  },
+  {
+   "name": "嶺腳",
+   "kilo": 2.7,
+   "alias": ""
+  },
+  {
+   "name": "望古",
+   "kilo": 4.8,
+   "alias": ""
+  },
+  {
+   "name": "十分",
+   "kilo": 6.5,
+   "alias": ""
+  },
+  {
+   "name": "大華",
+   "kilo": 9.3,
+   "alias": ""
+  },
+  {
+   "name": "三貂嶺",
+   "kilo": 12.9,
+   "alias": ""
+  },
+  {
+   "name": "猴硐",
+   "kilo": 15.4,
+   "alias": ""
+  },
+  {
+   "name": "瑞芳",
+   "kilo": 20.0,
+   "alias": ""
+  },
+  {
+   "name": "海科館",
+   "kilo": 24.3,
+   "alias": ""
+  },
+  {
+   "name": "八斗子",
+   "kilo": 24.7,
+   "alias": ""
+  }
+ ],
+ "topology": {
+  "secondary": [
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false
+  ],
+  "branches": [
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [
+    {
+     "stations": [
+      {
+       "name": "牡丹",
+       "kilo": 3.5
+      },
+      {
+       "name": "雙溪",
+       "kilo": 6.9
+      },
+      {
+       "name": "福隆",
+       "kilo": 16.0
+      },
+      {
+       "name": "頭城",
+       "kilo": 40.6
+      },
+      {
+       "name": "礁溪",
+       "kilo": 46.9
+      },
+      {
+       "name": "宜蘭",
+       "kilo": 55.3
+      },
+      {
+       "name": "花蓮",
+       "kilo": 153.7
+      }
+     ]
+    }
+   ],
+   [],
+   [
+    {
+     "stations": [
+      {
+       "name": "四腳亭",
+       "kilo": 5.0
+      },
+      {
+       "name": "八堵",
+       "kilo": 8.9
+      },
+      {
+       "name": "七堵",
+       "kilo": 11.2
+      },
+      {
+       "name": "南港",
+       "kilo": 24.3
+      },
+      {
+       "name": "松山",
+       "kilo": 27.1
+      },
+      {
+       "name": "臺北",
+       "kilo": 33.5
+      }
+     ]
+    }
+   ],
+   [],
+   []
+  ]
+ }
+}

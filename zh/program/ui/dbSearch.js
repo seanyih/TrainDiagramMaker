@@ -1,5 +1,6 @@
 /*
 	Database search page (zh/database/index.html). Loads catalog.json, then the chosen country's catalog lazily.
+	The text search matches the line's name and section and its companies, in every language.
 	Filters live in the query string (?c=&r=&t=&co=&q=) and are kept in sessionStorage for the line page's Back.
 */
 const DB_TYPES = { hsr: "高鐵", railway: "鐵路", narrow: "窄軌鐵路", metro: "地鐵", lrt: "輕軌", other: "其他" };
@@ -69,7 +70,7 @@ function lineRow(line){
 	return `
 		<li><a class="db-line" href="line.html?id=${country.id}/${line.id}">
 			<span class="db-flag">${country.flag}</span>
-			<span><strong>${escapeHTML(line.name)}</strong><span class="db-line-sub">${escapeHTML(companies)} | ${escapeHTML(line.section)}</span></span>
+			<span><strong>${escapeHTML(dbName(line.name))}</strong><span class="db-line-sub">${escapeHTML(companies)} | ${escapeHTML(dbName(line.section))}</span></span>
 		</a></li>`;
 }
 
@@ -98,7 +99,7 @@ function loadCountry(){
 		const companyNames = id => Object.values(country.companies.find(c => c.id == id).name);
 		dbLines = data.lines.map(line => ({
 			...line,
-			search: dbNormalize([line.name, line.section, ...line.keywords, ...line.stations, ...line.companies.flatMap(companyNames)].join("\n"))
+			search: dbNormalize([...Object.values(line.name), ...Object.values(line.section), ...line.companies.flatMap(companyNames)].join("\n"))
 		}));
 		renderFilters();
 		renderLines();

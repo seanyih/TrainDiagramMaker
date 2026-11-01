@@ -1,0 +1,11 @@
+{
+	"name": { "zh": "秋田新幹線", "en": "Akita Shinkansen", "ja": "秋田新幹線" },
+	"section": { "zh": "盛岡 – 秋田", "en": "Morioka – Akita", "ja": "盛岡 – 秋田" },
+	"companies": ["jr-east"],
+	"types": ["hsr"],
+	"regions": ["tohoku"],
+	"route": [
+		{ "date": "2026-03-14", "title": "初版", "kind": "route", "tags": ["mileage", "topology"], "files": { "json": "releases/route-2026-03-14.json" }, "latest": true }
+	],
+	"all": []
+}

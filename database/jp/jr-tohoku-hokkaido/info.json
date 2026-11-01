@@ -1,0 +1,11 @@
+{
+	"name": { "zh": "東北・北海道新幹線", "en": "Tohoku & Hokkaido Shinkansen", "ja": "東北・北海道新幹線" },
+	"section": { "zh": "東京 – 新函館北斗", "en": "Tokyo – Shin-Hakodate-Hokuto", "ja": "東京 – 新函館北斗" },
+	"companies": ["jr-east", "jr-hokkaido"],
+	"types": ["hsr"],
+	"regions": ["kanto", "tohoku", "hokkaido"],
+	"route": [
+		{ "date": "2026-03-14", "title": "初版", "kind": "route", "tags": ["mileage", "topology"], "files": { "json": "releases/route-2026-03-14.json" }, "latest": true }
+	],
+	"all": []
+}

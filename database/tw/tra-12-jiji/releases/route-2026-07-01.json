@@ -1,0 +1,69 @@
+{
+ "route_name": "臺鐵 集集線 (二水-車埕)",
+ "stations": [
+  {
+   "name": "二水",
+   "kilo": 0.0,
+   "alias": ""
+  },
+  {
+   "name": "源泉",
+   "kilo": 3.0,
+   "alias": ""
+  },
+  {
+   "name": "濁水",
+   "kilo": 10.8,
+   "alias": ""
+  },
+  {
+   "name": "龍泉",
+   "kilo": 15.7,
+   "alias": ""
+  },
+  {
+   "name": "集集",
+   "kilo": 20.0,
+   "alias": ""
+  },
+  {
+   "name": "水里",
+   "kilo": 27.4,
+   "alias": ""
+  },
+  {
+   "name": "車埕",
+   "kilo": 29.6,
+   "alias": ""
+  }
+ ],
+ "topology": {
+  "secondary": [
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false
+  ],
+  "branches": [
+   [
+    {
+     "stations": [
+      {
+       "name": "田中",
+       "kilo": 5.8
+      }
+     ]
+    }
+   ],
+   [],
+   [],
+   [],
+   [],
+   [],
+   []
+  ]
+ }
+}

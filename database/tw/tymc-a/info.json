@@ -1,0 +1,13 @@
+{
+	"name": { "zh": "機場線", "en": "Airport MRT", "ja": "空港MRT" },
+	"section": { "zh": "台北車站 – 老街溪", "en": "Taipei Main Station – Laojie River", "ja": "台北駅 – 老街渓" },
+	"companies": ["tymc"],
+	"types": ["metro"],
+	"regions": [],
+	"route": [
+		{ "date": "2026-10-31", "title": "初版", "kind": "route", "tags": ["mileage"], "files": { "json": "releases/route-2026-10-31.json" }, "latest": true }
+	],
+	"all": [
+		{ "date": "2026-10-31", "title": "初版", "kind": "all", "tags": ["arrival"], "files": { "json": "releases/all-2026-10-31.json" }, "latest": true }
+	]
+}

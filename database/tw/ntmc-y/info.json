@@ -1,0 +1,13 @@
+{
+	"name": { "zh": "環狀線", "en": "Circular Line", "ja": "環状線" },
+	"section": { "zh": "大坪林 – 新北產業園區", "en": "Dapinglin – New Taipei Industrial Park", "ja": "大坪林 – 新北産業園区" },
+	"companies": ["ntmc"],
+	"types": ["metro"],
+	"regions": [],
+	"route": [
+		{ "date": "2026-10-31", "title": "初版", "kind": "route", "tags": ["mileage"], "files": { "json": "releases/route-2026-10-31.json" }, "latest": true }
+	],
+	"all": [
+		{ "date": "2026-10-31", "title": "初版", "kind": "all", "tags": ["arrival"], "files": { "json": "releases/all-2026-10-31.json" }, "latest": true }
+	]
+}

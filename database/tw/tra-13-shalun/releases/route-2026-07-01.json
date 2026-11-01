@@ -1,0 +1,45 @@
+{
+ "route_name": "臺鐵 沙崙線 (中洲-沙崙)",
+ "stations": [
+  {
+   "name": "中洲",
+   "kilo": 0.0,
+   "alias": ""
+  },
+  {
+   "name": "長榮大學",
+   "kilo": 2.6,
+   "alias": ""
+  },
+  {
+   "name": "沙崙",
+   "kilo": 5.7,
+   "alias": ""
+  }
+ ],
+ "topology": {
+  "secondary": [
+   false,
+   false,
+   false
+  ],
+  "branches": [
+   [
+    {
+     "stations": [
+      {
+       "name": "仁德",
+       "kilo": 2.5
+      },
+      {
+       "name": "臺南",
+       "kilo": 11.5
+      }
+     ]
+    }
+   ],
+   [],
+   []
+  ]
+ }
+}

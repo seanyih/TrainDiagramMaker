@@ -1,0 +1,2321 @@
+{
+ "info": {
+  "title": "阿里山林業鐵路 (嘉義-阿里山-沼平)",
+  "description": "",
+  "effective_date": "2025/01/10"
+ },
+ "route": {
+  "route_name": "阿里山林業鐵路 (嘉義-阿里山-沼平)",
+  "stations": [
+   {
+    "name": "嘉義",
+    "kilo": 0,
+    "stopsec": 60,
+    "alias": ""
+   },
+   {
+    "name": "北門",
+    "kilo": 1.6,
+    "stopsec": 60,
+    "alias": ""
+   },
+   {
+    "name": "鹿麻產",
+    "kilo": 10.8,
+    "stopsec": 60,
+    "alias": ""
+   },
+   {
+    "name": "竹崎",
+    "kilo": 14.2,
+    "stopsec": 60,
+    "alias": ""
+   },
+   {
+    "name": "樟腦寮",
+    "kilo": 23.3,
+    "stopsec": 60,
+    "alias": ""
+   },
+   {
+    "name": "獨立山",
+    "kilo": 27.4,
+    "stopsec": 60,
+    "alias": ""
+   },
+   {
+    "name": "梨園寮",
+    "kilo": 31.4,
+    "stopsec": 60,
+    "alias": ""
+   },
+   {
+    "name": "交力坪",
+    "kilo": 34.9,
+    "stopsec": 60,
+    "alias": ""
+   },
+   {
+    "name": "水社寮",
+    "kilo": 40.5,
+    "stopsec": 60,
+    "alias": ""
+   },
+   {
+    "name": "奮起湖",
+    "kilo": 45.52,
+    "stopsec": 60,
+    "alias": ""
+   },
+   {
+    "name": "多林",
+    "kilo": 50.68,
+    "stopsec": 60,
+    "alias": ""
+   },
+   {
+    "name": "十字路",
+    "kilo": 55,
+    "stopsec": 60,
+    "alias": ""
+   },
+   {
+    "name": "屏遮那",
+    "kilo": 60.18,
+    "stopsec": 60,
+    "alias": ""
+   },
+   {
+    "name": "第一分道",
+    "kilo": 63.08,
+    "stopsec": 60,
+    "alias": ""
+   },
+   {
+    "name": "第二分道",
+    "kilo": 64.38,
+    "stopsec": 60,
+    "alias": ""
+   },
+   {
+    "name": "二萬平",
+    "kilo": 67.16,
+    "stopsec": 60,
+    "alias": ""
+   },
+   {
+    "name": "神木",
+    "kilo": 69.94,
+    "stopsec": 60,
+    "alias": ""
+   },
+   {
+    "name": "阿里山",
+    "kilo": 71.6,
+    "stopsec": 60,
+    "alias": ""
+   },
+   {
+    "name": "沼平",
+    "kilo": 72.8,
+    "stopsec": 60,
+    "alias": ""
+   }
+  ],
+  "track_layout": {
+   "stations": [
+    "single",
+    "single",
+    "double.0",
+    "single",
+    "single",
+    "double.0",
+    "double.0",
+    "double.0",
+    "double.0",
+    "double.0",
+    "double.0",
+    "double.0",
+    "single",
+    "double.0",
+    "single",
+    "double.0",
+    "single",
+    "single",
+    "single"
+   ],
+   "sections": [
+    "single",
+    "single",
+    "single",
+    "single",
+    "single",
+    "single",
+    "single",
+    "single",
+    "single",
+    "single",
+    "single",
+    "single",
+    "single",
+    "single",
+    "single",
+    "single",
+    "single",
+    "single"
+   ],
+   "max_speed_enabled": false,
+   "max_speed_all": null,
+   "max_speeds": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ]
+  },
+  "topology": {
+   "secondary": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    true,
+    true,
+    false,
+    false,
+    false,
+    false
+   ],
+   "branches": [
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    []
+   ]
+  }
+ },
+ "trains": {
+  "1": {
+   "route_name": "阿里山林業鐵路 (嘉義-阿里山-沼平)",
+   "bound": 1,
+   "station_count": 19,
+   "station_record": [
+    "嘉義",
+    "北門",
+    "鹿麻產",
+    "竹崎",
+    "樟腦寮",
+    "獨立山",
+    "梨園寮",
+    "交力坪",
+    "水社寮",
+    "奮起湖",
+    "多林",
+    "十字路",
+    "屏遮那",
+    "第一分道",
+    "第二分道",
+    "二萬平",
+    "神木",
+    "阿里山",
+    "沼平"
+   ],
+   "train_count": 25,
+   "timetable": [
+    {
+     "train_number": "1",
+     "settings": {
+      "train_name": "阿里山號",
+      "train_color": 6,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "嘉義",
+       "arrival": "",
+       "departure": "0900"
+      },
+      {
+       "station_order": 1,
+       "station_name": "北門",
+       "arrival": "0906",
+       "departure": "0910"
+      },
+      {
+       "station_order": 2,
+       "station_name": "鹿麻產",
+       "arrival": "0932",
+       "departure": "0933"
+      },
+      {
+       "station_order": 3,
+       "station_name": "竹崎",
+       "arrival": "0941",
+       "departure": "0943"
+      },
+      {
+       "station_order": 4,
+       "station_name": "樟腦寮",
+       "arrival": "1009",
+       "departure": "1010"
+      },
+      {
+       "station_order": 5,
+       "station_name": "獨立山",
+       "arrival": "1022",
+       "departure": "1023"
+      },
+      {
+       "station_order": 6,
+       "station_name": "梨園寮",
+       "arrival": "1035",
+       "departure": "1036"
+      },
+      {
+       "station_order": 7,
+       "station_name": "交力坪",
+       "arrival": "1046",
+       "departure": "1048"
+      },
+      {
+       "station_order": 8,
+       "station_name": "水社寮",
+       "arrival": "1104",
+       "departure": "1105"
+      },
+      {
+       "station_order": 9,
+       "station_name": "奮起湖",
+       "arrival": "1121",
+       "departure": "1130"
+      },
+      {
+       "station_order": 10,
+       "station_name": "多林",
+       "arrival": "1144",
+       "departure": "1145"
+      },
+      {
+       "station_order": 11,
+       "station_name": "十字路",
+       "arrival": "1200",
+       "departure": "1200"
+      }
+     ]
+    },
+    {
+     "train_number": "31",
+     "settings": {
+      "train_name": "沼平線",
+      "train_color": 2,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 17,
+       "station_name": "阿里山",
+       "arrival": "",
+       "departure": "0900"
+      },
+      {
+       "station_order": 18,
+       "station_name": "沼平",
+       "arrival": "0906",
+       "departure": "0906"
+      }
+     ]
+    },
+    {
+     "train_number": "33",
+     "settings": {
+      "train_name": "沼平線",
+      "train_color": 2,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 17,
+       "station_name": "阿里山",
+       "arrival": "",
+       "departure": "0930"
+      },
+      {
+       "station_order": 18,
+       "station_name": "沼平",
+       "arrival": "0936",
+       "departure": "0936"
+      }
+     ]
+    },
+    {
+     "train_number": "5",
+     "settings": {
+      "train_name": "阿里山號",
+      "train_color": 6,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "嘉義",
+       "arrival": "",
+       "departure": "1000"
+      },
+      {
+       "station_order": 1,
+       "station_name": "北門",
+       "arrival": "1006",
+       "departure": "1008"
+      },
+      {
+       "station_order": 3,
+       "station_name": "竹崎",
+       "arrival": "1038",
+       "departure": "1039"
+      },
+      {
+       "station_order": 7,
+       "station_name": "交力坪",
+       "arrival": "1141",
+       "departure": "1143"
+      },
+      {
+       "station_order": 9,
+       "station_name": "奮起湖",
+       "arrival": "1216",
+       "departure": "1321"
+      },
+      {
+       "station_order": 15,
+       "station_name": "二萬平",
+       "arrival": "1432",
+       "departure": "1438"
+      },
+      {
+       "station_order": 17,
+       "station_name": "阿里山",
+       "arrival": "1456",
+       "departure": "1456"
+      }
+     ]
+    },
+    {
+     "train_number": "101",
+     "settings": {
+      "train_name": "神木線",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 16,
+       "station_name": "神木",
+       "arrival": "",
+       "departure": "1000"
+      },
+      {
+       "station_order": 17,
+       "station_name": "阿里山",
+       "arrival": "1007",
+       "departure": "1007"
+      }
+     ]
+    },
+    {
+     "train_number": "35",
+     "settings": {
+      "train_name": "沼平線",
+      "train_color": 2,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 17,
+       "station_name": "阿里山",
+       "arrival": "",
+       "departure": "1000"
+      },
+      {
+       "station_order": 18,
+       "station_name": "沼平",
+       "arrival": "1006",
+       "departure": "1006"
+      }
+     ]
+    },
+    {
+     "train_number": "103",
+     "settings": {
+      "train_name": "神木線",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 16,
+       "station_name": "神木",
+       "arrival": "",
+       "departure": "1030"
+      },
+      {
+       "station_order": 17,
+       "station_name": "阿里山",
+       "arrival": "1037",
+       "departure": "1037"
+      }
+     ]
+    },
+    {
+     "train_number": "37",
+     "settings": {
+      "train_name": "沼平線",
+      "train_color": 2,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 17,
+       "station_name": "阿里山",
+       "arrival": "",
+       "departure": "1030"
+      },
+      {
+       "station_order": 18,
+       "station_name": "沼平",
+       "arrival": "1036",
+       "departure": "1036"
+      }
+     ]
+    },
+    {
+     "train_number": "105",
+     "settings": {
+      "train_name": "神木線",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 16,
+       "station_name": "神木",
+       "arrival": "",
+       "departure": "1100"
+      },
+      {
+       "station_order": 17,
+       "station_name": "阿里山",
+       "arrival": "1107",
+       "departure": "1107"
+      }
+     ]
+    },
+    {
+     "train_number": "39",
+     "settings": {
+      "train_name": "沼平線",
+      "train_color": 2,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 17,
+       "station_name": "阿里山",
+       "arrival": "",
+       "departure": "1100"
+      },
+      {
+       "station_order": 18,
+       "station_name": "沼平",
+       "arrival": "1106",
+       "departure": "1106"
+      }
+     ]
+    },
+    {
+     "train_number": "107",
+     "settings": {
+      "train_name": "神木線",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 16,
+       "station_name": "神木",
+       "arrival": "",
+       "departure": "1130"
+      },
+      {
+       "station_order": 17,
+       "station_name": "阿里山",
+       "arrival": "1137",
+       "departure": "1137"
+      }
+     ]
+    },
+    {
+     "train_number": "41",
+     "settings": {
+      "train_name": "沼平線",
+      "train_color": 2,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 17,
+       "station_name": "阿里山",
+       "arrival": "",
+       "departure": "1130"
+      },
+      {
+       "station_order": 18,
+       "station_name": "沼平",
+       "arrival": "1136",
+       "departure": "1136"
+      }
+     ]
+    },
+    {
+     "train_number": "109",
+     "settings": {
+      "train_name": "神木線",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 16,
+       "station_name": "神木",
+       "arrival": "",
+       "departure": "1200"
+      },
+      {
+       "station_order": 17,
+       "station_name": "阿里山",
+       "arrival": "1207",
+       "departure": "1207"
+      }
+     ]
+    },
+    {
+     "train_number": "43",
+     "settings": {
+      "train_name": "沼平線",
+      "train_color": 2,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 17,
+       "station_name": "阿里山",
+       "arrival": "",
+       "departure": "1300"
+      },
+      {
+       "station_order": 18,
+       "station_name": "沼平",
+       "arrival": "1306",
+       "departure": "1306"
+      }
+     ]
+    },
+    {
+     "train_number": "111",
+     "settings": {
+      "train_name": "神木線",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 16,
+       "station_name": "神木",
+       "arrival": "",
+       "departure": "1330"
+      },
+      {
+       "station_order": 17,
+       "station_name": "阿里山",
+       "arrival": "1337",
+       "departure": "1337"
+      }
+     ]
+    },
+    {
+     "train_number": "45",
+     "settings": {
+      "train_name": "沼平線",
+      "train_color": 2,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 17,
+       "station_name": "阿里山",
+       "arrival": "",
+       "departure": "1330"
+      },
+      {
+       "station_order": 18,
+       "station_name": "沼平",
+       "arrival": "1336",
+       "departure": "1336"
+      }
+     ]
+    },
+    {
+     "train_number": "113",
+     "settings": {
+      "train_name": "神木線",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 16,
+       "station_name": "神木",
+       "arrival": "",
+       "departure": "1400"
+      },
+      {
+       "station_order": 17,
+       "station_name": "阿里山",
+       "arrival": "1407",
+       "departure": "1407"
+      }
+     ]
+    },
+    {
+     "train_number": "47",
+     "settings": {
+      "train_name": "沼平線",
+      "train_color": 2,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 17,
+       "station_name": "阿里山",
+       "arrival": "",
+       "departure": "1400"
+      },
+      {
+       "station_order": 18,
+       "station_name": "沼平",
+       "arrival": "1406",
+       "departure": "1406"
+      }
+     ]
+    },
+    {
+     "train_number": "115",
+     "settings": {
+      "train_name": "神木線",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 16,
+       "station_name": "神木",
+       "arrival": "",
+       "departure": "1430"
+      },
+      {
+       "station_order": 17,
+       "station_name": "阿里山",
+       "arrival": "1437",
+       "departure": "1437"
+      }
+     ]
+    },
+    {
+     "train_number": "49",
+     "settings": {
+      "train_name": "沼平線",
+      "train_color": 2,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 17,
+       "station_name": "阿里山",
+       "arrival": "",
+       "departure": "1430"
+      },
+      {
+       "station_order": 18,
+       "station_name": "沼平",
+       "arrival": "1436",
+       "departure": "1436"
+      }
+     ]
+    },
+    {
+     "train_number": "117",
+     "settings": {
+      "train_name": "神木線",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 16,
+       "station_name": "神木",
+       "arrival": "",
+       "departure": "1510"
+      },
+      {
+       "station_order": 17,
+       "station_name": "阿里山",
+       "arrival": "1517",
+       "departure": "1517"
+      }
+     ]
+    },
+    {
+     "train_number": "51",
+     "settings": {
+      "train_name": "沼平線",
+      "train_color": 2,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 17,
+       "station_name": "阿里山",
+       "arrival": "",
+       "departure": "1510"
+      },
+      {
+       "station_order": 18,
+       "station_name": "沼平",
+       "arrival": "1516",
+       "departure": "1516"
+      }
+     ]
+    },
+    {
+     "train_number": "119",
+     "settings": {
+      "train_name": "神木線",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 16,
+       "station_name": "神木",
+       "arrival": "",
+       "departure": "1540"
+      },
+      {
+       "station_order": 17,
+       "station_name": "阿里山",
+       "arrival": "1547",
+       "departure": "1547"
+      }
+     ]
+    },
+    {
+     "train_number": "53",
+     "settings": {
+      "train_name": "沼平線",
+      "train_color": 2,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 17,
+       "station_name": "阿里山",
+       "arrival": "",
+       "departure": "1540"
+      },
+      {
+       "station_order": 18,
+       "station_name": "沼平",
+       "arrival": "1546",
+       "departure": "1546"
+      }
+     ]
+    },
+    {
+     "train_number": "121",
+     "settings": {
+      "train_name": "神木線",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 16,
+       "station_name": "神木",
+       "arrival": "",
+       "departure": "1610"
+      },
+      {
+       "station_order": 17,
+       "station_name": "阿里山",
+       "arrival": "1617",
+       "departure": "1617"
+      }
+     ]
+    }
+   ]
+  },
+  "2": {
+   "route_name": "阿里山林業鐵路 (嘉義-阿里山-沼平)",
+   "bound": 2,
+   "station_count": 19,
+   "station_record": [
+    "沼平",
+    "阿里山",
+    "神木",
+    "二萬平",
+    "第二分道",
+    "第一分道",
+    "屏遮那",
+    "十字路",
+    "多林",
+    "奮起湖",
+    "水社寮",
+    "交力坪",
+    "梨園寮",
+    "獨立山",
+    "樟腦寮",
+    "竹崎",
+    "鹿麻產",
+    "北門",
+    "嘉義"
+   ],
+   "train_count": 25,
+   "timetable": [
+    {
+     "train_number": "32",
+     "settings": {
+      "train_name": "沼平線",
+      "train_color": 2,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "沼平",
+       "arrival": "",
+       "departure": "0920"
+      },
+      {
+       "station_order": 1,
+       "station_name": "阿里山",
+       "arrival": "0926",
+       "departure": "0926"
+      }
+     ]
+    },
+    {
+     "train_number": "100",
+     "settings": {
+      "train_name": "神木線",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 1,
+       "station_name": "阿里山",
+       "arrival": "",
+       "departure": "0940"
+      },
+      {
+       "station_order": 2,
+       "station_name": "神木",
+       "arrival": "0947",
+       "departure": "0947"
+      }
+     ]
+    },
+    {
+     "train_number": "34",
+     "settings": {
+      "train_name": "沼平線",
+      "train_color": 2,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "沼平",
+       "arrival": "",
+       "departure": "0950"
+      },
+      {
+       "station_order": 1,
+       "station_name": "阿里山",
+       "arrival": "0956",
+       "departure": "0956"
+      }
+     ]
+    },
+    {
+     "train_number": "102",
+     "settings": {
+      "train_name": "神木線",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 1,
+       "station_name": "阿里山",
+       "arrival": "",
+       "departure": "1010"
+      },
+      {
+       "station_order": 2,
+       "station_name": "神木",
+       "arrival": "1017",
+       "departure": "1017"
+      }
+     ]
+    },
+    {
+     "train_number": "36",
+     "settings": {
+      "train_name": "沼平線",
+      "train_color": 2,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "沼平",
+       "arrival": "",
+       "departure": "1020"
+      },
+      {
+       "station_order": 1,
+       "station_name": "阿里山",
+       "arrival": "1026",
+       "departure": "1026"
+      }
+     ]
+    },
+    {
+     "train_number": "104",
+     "settings": {
+      "train_name": "神木線",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 1,
+       "station_name": "阿里山",
+       "arrival": "",
+       "departure": "1040"
+      },
+      {
+       "station_order": 2,
+       "station_name": "神木",
+       "arrival": "1047",
+       "departure": "1047"
+      }
+     ]
+    },
+    {
+     "train_number": "38",
+     "settings": {
+      "train_name": "沼平線",
+      "train_color": 2,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "沼平",
+       "arrival": "",
+       "departure": "1050"
+      },
+      {
+       "station_order": 1,
+       "station_name": "阿里山",
+       "arrival": "1056",
+       "departure": "1056"
+      }
+     ]
+    },
+    {
+     "train_number": "106",
+     "settings": {
+      "train_name": "神木線",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 1,
+       "station_name": "阿里山",
+       "arrival": "",
+       "departure": "1110"
+      },
+      {
+       "station_order": 2,
+       "station_name": "神木",
+       "arrival": "1117",
+       "departure": "1117"
+      }
+     ]
+    },
+    {
+     "train_number": "40",
+     "settings": {
+      "train_name": "沼平線",
+      "train_color": 2,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "沼平",
+       "arrival": "",
+       "departure": "1120"
+      },
+      {
+       "station_order": 1,
+       "station_name": "阿里山",
+       "arrival": "1126",
+       "departure": "1126"
+      }
+     ]
+    },
+    {
+     "train_number": "108",
+     "settings": {
+      "train_name": "神木線",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 1,
+       "station_name": "阿里山",
+       "arrival": "",
+       "departure": "1140"
+      },
+      {
+       "station_order": 2,
+       "station_name": "神木",
+       "arrival": "1147",
+       "departure": "1147"
+      }
+     ]
+    },
+    {
+     "train_number": "8",
+     "settings": {
+      "train_name": "阿里山號",
+      "train_color": 6,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 1,
+       "station_name": "阿里山",
+       "arrival": "",
+       "departure": "1150"
+      },
+      {
+       "station_order": 3,
+       "station_name": "二萬平",
+       "arrival": "1208",
+       "departure": "1209"
+      },
+      {
+       "station_order": 9,
+       "station_name": "奮起湖",
+       "arrival": "1319",
+       "departure": "1329"
+      },
+      {
+       "station_order": 11,
+       "station_name": "交力坪",
+       "arrival": "1402",
+       "departure": "1404"
+      },
+      {
+       "station_order": 15,
+       "station_name": "竹崎",
+       "arrival": "1506",
+       "departure": "1507"
+      },
+      {
+       "station_order": 17,
+       "station_name": "北門",
+       "arrival": "1537",
+       "departure": "1539"
+      },
+      {
+       "station_order": 18,
+       "station_name": "嘉義",
+       "arrival": "1545",
+       "departure": "1545"
+      }
+     ]
+    },
+    {
+     "train_number": "42",
+     "settings": {
+      "train_name": "沼平線",
+      "train_color": 2,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "沼平",
+       "arrival": "",
+       "departure": "1150"
+      },
+      {
+       "station_order": 1,
+       "station_name": "阿里山",
+       "arrival": "1156",
+       "departure": "1156"
+      }
+     ]
+    },
+    {
+     "train_number": "110",
+     "settings": {
+      "train_name": "神木線",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 1,
+       "station_name": "阿里山",
+       "arrival": "",
+       "departure": "1310"
+      },
+      {
+       "station_order": 2,
+       "station_name": "神木",
+       "arrival": "1317",
+       "departure": "1317"
+      }
+     ]
+    },
+    {
+     "train_number": "44",
+     "settings": {
+      "train_name": "沼平線",
+      "train_color": 2,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "沼平",
+       "arrival": "",
+       "departure": "1320"
+      },
+      {
+       "station_order": 1,
+       "station_name": "阿里山",
+       "arrival": "1326",
+       "departure": "1326"
+      }
+     ]
+    },
+    {
+     "train_number": "2",
+     "settings": {
+      "train_name": "阿里山號",
+      "train_color": 6,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 7,
+       "station_name": "十字路",
+       "arrival": "",
+       "departure": "1321"
+      },
+      {
+       "station_order": 8,
+       "station_name": "多林",
+       "arrival": "1335",
+       "departure": "1336"
+      },
+      {
+       "station_order": 9,
+       "station_name": "奮起湖",
+       "arrival": "1350",
+       "departure": "1431"
+      },
+      {
+       "station_order": 10,
+       "station_name": "水社寮",
+       "arrival": "1447",
+       "departure": "1448"
+      },
+      {
+       "station_order": 11,
+       "station_name": "交力坪",
+       "arrival": "1505",
+       "departure": "1506"
+      },
+      {
+       "station_order": 12,
+       "station_name": "梨園寮",
+       "arrival": "1517",
+       "departure": "1518"
+      },
+      {
+       "station_order": 13,
+       "station_name": "獨立山",
+       "arrival": "1530",
+       "departure": "1531"
+      },
+      {
+       "station_order": 14,
+       "station_name": "樟腦寮",
+       "arrival": "1543",
+       "departure": "1544"
+      },
+      {
+       "station_order": 15,
+       "station_name": "竹崎",
+       "arrival": "1611",
+       "departure": "1612"
+      },
+      {
+       "station_order": 16,
+       "station_name": "鹿麻產",
+       "arrival": "1620",
+       "departure": "1621"
+      },
+      {
+       "station_order": 17,
+       "station_name": "北門",
+       "arrival": "1643",
+       "departure": "1645"
+      },
+      {
+       "station_order": 18,
+       "station_name": "嘉義",
+       "arrival": "1651",
+       "departure": "1651"
+      }
+     ]
+    },
+    {
+     "train_number": "112",
+     "settings": {
+      "train_name": "神木線",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 1,
+       "station_name": "阿里山",
+       "arrival": "",
+       "departure": "1340"
+      },
+      {
+       "station_order": 2,
+       "station_name": "神木",
+       "arrival": "1347",
+       "departure": "1347"
+      }
+     ]
+    },
+    {
+     "train_number": "46",
+     "settings": {
+      "train_name": "沼平線",
+      "train_color": 2,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "沼平",
+       "arrival": "",
+       "departure": "1350"
+      },
+      {
+       "station_order": 1,
+       "station_name": "阿里山",
+       "arrival": "1356",
+       "departure": "1356"
+      }
+     ]
+    },
+    {
+     "train_number": "114",
+     "settings": {
+      "train_name": "神木線",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 1,
+       "station_name": "阿里山",
+       "arrival": "",
+       "departure": "1410"
+      },
+      {
+       "station_order": 2,
+       "station_name": "神木",
+       "arrival": "1417",
+       "departure": "1417"
+      }
+     ]
+    },
+    {
+     "train_number": "48",
+     "settings": {
+      "train_name": "沼平線",
+      "train_color": 2,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "沼平",
+       "arrival": "",
+       "departure": "1420"
+      },
+      {
+       "station_order": 1,
+       "station_name": "阿里山",
+       "arrival": "1426",
+       "departure": "1426"
+      }
+     ]
+    },
+    {
+     "train_number": "116",
+     "settings": {
+      "train_name": "神木線",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 1,
+       "station_name": "阿里山",
+       "arrival": "",
+       "departure": "1440"
+      },
+      {
+       "station_order": 2,
+       "station_name": "神木",
+       "arrival": "1447",
+       "departure": "1447"
+      }
+     ]
+    },
+    {
+     "train_number": "50",
+     "settings": {
+      "train_name": "沼平線",
+      "train_color": 2,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "沼平",
+       "arrival": "",
+       "departure": "1500"
+      },
+      {
+       "station_order": 1,
+       "station_name": "阿里山",
+       "arrival": "1506",
+       "departure": "1506"
+      }
+     ]
+    },
+    {
+     "train_number": "118",
+     "settings": {
+      "train_name": "神木線",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 1,
+       "station_name": "阿里山",
+       "arrival": "",
+       "departure": "1520"
+      },
+      {
+       "station_order": 2,
+       "station_name": "神木",
+       "arrival": "1527",
+       "departure": "1527"
+      }
+     ]
+    },
+    {
+     "train_number": "52",
+     "settings": {
+      "train_name": "沼平線",
+      "train_color": 2,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "沼平",
+       "arrival": "",
+       "departure": "1530"
+      },
+      {
+       "station_order": 1,
+       "station_name": "阿里山",
+       "arrival": "1536",
+       "departure": "1536"
+      }
+     ]
+    },
+    {
+     "train_number": "120",
+     "settings": {
+      "train_name": "神木線",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 1,
+       "station_name": "阿里山",
+       "arrival": "",
+       "departure": "1550"
+      },
+      {
+       "station_order": 2,
+       "station_name": "神木",
+       "arrival": "1557",
+       "departure": "1557"
+      }
+     ]
+    },
+    {
+     "train_number": "54",
+     "settings": {
+      "train_name": "沼平線",
+      "train_color": 2,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "沼平",
+       "arrival": "",
+       "departure": "1600"
+      },
+      {
+       "station_order": 1,
+       "station_name": "阿里山",
+       "arrival": "1606",
+       "departure": "1606"
+      }
+     ]
+    }
+   ]
+  }
+ },
+ "opmodes": [
+  {
+   "title": "",
+   "description": "",
+   "days": [
+    "mon",
+    "tue",
+    "wed",
+    "thu",
+    "fri",
+    "sat",
+    "sun"
+   ],
+   "trains": {
+    "1": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8,
+     9,
+     10,
+     11,
+     12,
+     13,
+     14,
+     15,
+     16,
+     17,
+     18,
+     19,
+     20,
+     21,
+     22,
+     23,
+     24
+    ],
+    "2": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8,
+     9,
+     10,
+     11,
+     12,
+     13,
+     14,
+     15,
+     16,
+     17,
+     18,
+     19,
+     20,
+     21,
+     22,
+     23,
+     24
+    ]
+   }
+  }
+ ],
+ "settings": {
+  "defaultStopSec": 60,
+  "startSec": 0,
+  "endSec": 86400,
+  "pxPerKm": 25,
+  "pxPerMin": 25,
+  "stationRange": {
+   "start": 0,
+   "end": null
+  },
+  "trainLineWidth": 2,
+  "trainLineWidthByColor": [
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "trainLineType": "solid",
+  "trainLineTypeByColor": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   "",
+   "",
+   "",
+   "",
+   "",
+   ""
+  ],
+  "showTrainNumber": true,
+  "trainNumberFontSize": 20,
+  "pxPerTrainNumber": 750,
+  "minStationIntervalForTrainNumber": 70,
+  "trainNumberAvoidance": {
+   "enabled": true,
+   "primaryTimeLines": false,
+   "secondaryTimeLines": false,
+   "margin": 5
+  },
+  "oudiaStyle": {
+   "enabled": false,
+   "timeScale": 1,
+   "axisColor": "#C0C0C0",
+   "lineWidth": 1,
+   "stopMarks": true,
+   "showTrainName": false
+  },
+  "connectTrainLines": true,
+  "layers": {
+   "enabled": false,
+   "trainByDirection": false,
+   "trainByColor": false
+  },
+  "margin": {
+   "left": 100,
+   "right": 100,
+   "top": 100,
+   "bottom": 100
+  },
+  "background": {
+   "transparent": false,
+   "color": "#FFFFFF"
+  },
+  "lines": {
+   "station": {
+    "width": 2,
+    "color": "#000000",
+    "type": "solid"
+   },
+   "secondaryStation": {
+    "width": 1.4,
+    "color": "#808080",
+    "type": "solid"
+   },
+   "primary": {
+    "width": 2,
+    "color": "#000000",
+    "type": "solid"
+   },
+   "secondary": {
+    "width": 1.4,
+    "color": "#808080",
+    "type": "solid",
+    "interval": 10
+   },
+   "minute": {
+    "enabled": false,
+    "width": 1.5,
+    "color": "#808080"
+   },
+   "outline": {
+    "top": 2,
+    "bottom": 2,
+    "left": 2,
+    "right": 2,
+    "color": "#000000"
+   }
+  },
+  "stationText": {
+   "fontSize": 20,
+   "color": "#000000",
+   "gap": 10
+  },
+  "aliasText": {
+   "show": false,
+   "fontSize": 20,
+   "color": "#000000",
+   "gap": 10
+  },
+  "secondaryStationText": {
+   "fontSize": 16,
+   "color": "#808080",
+   "gap": 10
+  },
+  "secondaryAliasText": {
+   "fontSize": 16,
+   "color": "#808080",
+   "gap": 10
+  },
+  "timeLabel": {
+   "format": "standard",
+   "zeroPad": false,
+   "overDay": "plain",
+   "gap": 10,
+   "secondaryLabel": "none",
+   "formats": {
+    "standard": {
+     "fontSize": 20,
+     "color": "#000000"
+    },
+    "sized": {
+     "hourFontSize": 25,
+     "hourColor": "#000000",
+     "minuteFontSize": 15,
+     "minuteColor": "#808080"
+    },
+    "simple": {
+     "fontSize": 20,
+     "color": "#000000"
+    }
+   }
+  },
+  "footer": {
+   "enabled": false,
+   "text": "<title> | <opmode> | <sta_range> | <time_range>",
+   "fontSize": 16,
+   "color": "#000000",
+   "base": "page",
+   "gap": 20,
+   "startPage": 1
+  },
+  "print": {
+   "enabled": false,
+   "ppi": 300,
+   "page": {
+    "width": 210,
+    "height": 297
+   },
+   "bleed": {
+    "top": 3,
+    "bottom": 3,
+    "left": 3,
+    "right": 3
+   },
+   "pageMinutes": 60,
+   "overlap": false,
+   "format": "pdf",
+   "opmodes": "all",
+   "align": {
+    "v": {
+     "side": "top",
+     "base": "frame",
+     "offset": 20
+    },
+    "h": {
+     "side": "left",
+     "base": "text",
+     "offset": 10
+    }
+   }
+  },
+  "passingTime": {
+   "solver": "stn",
+   "minExtraPassingWaiting": 30,
+   "minTimeSeparation": 60,
+   "maxSearchDepth": 3,
+   "maxIteration": 5,
+   "maxAllowedConflict": 0,
+   "estimatedSpeedLimitRatio": 1.1,
+   "maxPassingPointIncrease": 2,
+   "timeGranularity": 5,
+   "fineTune": false,
+   "inaccurateArrival": false,
+   "imprecise": false,
+   "timetableGranularity": 60,
+   "roundingMode": "auto",
+   "minDwell": 30,
+   "smooth": true,
+   "interpolationSpeedRatio": 1.2,
+   "interpolationMaxError": null,
+   "stopRules": []
+  },
+  "trainColors": [
+   "#4650E3",
+   "#4650E3",
+   "#25D9F2",
+   "#19F278",
+   "#9AF20B",
+   "#F28800",
+   "#F23F00",
+   "#DB06F2",
+   "#000000",
+   "#787878",
+   "#693600"
+  ]
+ }
+}

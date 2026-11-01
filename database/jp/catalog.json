@@ -1,0 +1,12 @@
+{
+	"lines": [
+		{"id": "jr-tohoku-hokkaido", "name": {"zh": "東北・北海道新幹線", "en": "Tohoku & Hokkaido Shinkansen", "ja": "東北・北海道新幹線"}, "section": {"zh": "東京 – 新函館北斗", "en": "Tokyo – Shin-Hakodate-Hokuto", "ja": "東京 – 新函館北斗"}, "companies": ["jr-east", "jr-hokkaido"], "types": ["hsr"], "regions": ["kanto", "tohoku", "hokkaido"]},
+		{"id": "jr-joetsu", "name": {"zh": "上越新幹線", "en": "Joetsu Shinkansen", "ja": "上越新幹線"}, "section": {"zh": "東京 – 新潟", "en": "Tokyo – Niigata", "ja": "東京 – 新潟"}, "companies": ["jr-east"], "types": ["hsr"], "regions": ["kanto", "chubu"]},
+		{"id": "jr-hokuriku", "name": {"zh": "北陸新幹線", "en": "Hokuriku Shinkansen", "ja": "北陸新幹線"}, "section": {"zh": "東京 – 敦賀", "en": "Tokyo – Tsuruga", "ja": "東京 – 敦賀"}, "companies": ["jr-east", "jr-west"], "types": ["hsr"], "regions": ["kanto", "chubu"]},
+		{"id": "jr-yamagata", "name": {"zh": "山形新幹線", "en": "Yamagata Shinkansen", "ja": "山形新幹線"}, "section": {"zh": "福島 – 新庄", "en": "Fukushima – Shinjo", "ja": "福島 – 新庄"}, "companies": ["jr-east"], "types": ["hsr"], "regions": ["tohoku"]},
+		{"id": "jr-akita", "name": {"zh": "秋田新幹線", "en": "Akita Shinkansen", "ja": "秋田新幹線"}, "section": {"zh": "盛岡 – 秋田", "en": "Morioka – Akita", "ja": "盛岡 – 秋田"}, "companies": ["jr-east"], "types": ["hsr"], "regions": ["tohoku"]},
+		{"id": "jr-tokaido-sanyo-kyushu", "name": {"zh": "東海道・山陽・九州新幹線", "en": "Tokaido, Sanyo & Kyushu Shinkansen", "ja": "東海道・山陽・九州新幹線"}, "section": {"zh": "東京 – 鹿児島中央", "en": "Tokyo – Kagoshima-Chuo", "ja": "東京 – 鹿児島中央"}, "companies": ["jr-central", "jr-west", "jr-kyushu"], "types": ["hsr"], "regions": ["kanto", "chubu", "kinki", "chugoku", "kyushu"]},
+		{"id": "jr-hakata-minami", "name": {"zh": "博多南線", "en": "Hakata-Minami Line", "ja": "博多南線"}, "section": {"zh": "博多 – 博多南", "en": "Hakata – Hakata-Minami", "ja": "博多 – 博多南"}, "companies": ["jr-west"], "types": ["railway"], "regions": ["kyushu"]},
+		{"id": "jr-nishikyushu", "name": {"zh": "西九州新幹線", "en": "Nishi-Kyushu Shinkansen", "ja": "西九州新幹線"}, "section": {"zh": "武雄温泉 – 長崎", "en": "Takeo-Onsen – Nagasaki", "ja": "武雄温泉 – 長崎"}, "companies": ["jr-kyushu"], "types": ["hsr"], "regions": ["kyushu"]}
+	]
+}

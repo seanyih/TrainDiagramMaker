@@ -1,0 +1,333 @@
+{
+ "route_name": "JR 東海道・山陽・九州新幹線 (東京-鹿児島中央)",
+ "stations": [
+  {
+   "name": "東京",
+   "kilo": 0.0,
+   "alias": ""
+  },
+  {
+   "name": "品川",
+   "kilo": 6.8,
+   "alias": ""
+  },
+  {
+   "name": "新横浜",
+   "kilo": 25.5,
+   "alias": ""
+  },
+  {
+   "name": "小田原",
+   "kilo": 76.7,
+   "alias": ""
+  },
+  {
+   "name": "熱海",
+   "kilo": 95.4,
+   "alias": ""
+  },
+  {
+   "name": "三島",
+   "kilo": 111.3,
+   "alias": ""
+  },
+  {
+   "name": "新富士",
+   "kilo": 135.0,
+   "alias": ""
+  },
+  {
+   "name": "静岡",
+   "kilo": 167.4,
+   "alias": ""
+  },
+  {
+   "name": "掛川",
+   "kilo": 211.3,
+   "alias": ""
+  },
+  {
+   "name": "浜松",
+   "kilo": 238.9,
+   "alias": ""
+  },
+  {
+   "name": "豊橋",
+   "kilo": 274.2,
+   "alias": ""
+  },
+  {
+   "name": "三河安城",
+   "kilo": 312.8,
+   "alias": ""
+  },
+  {
+   "name": "名古屋",
+   "kilo": 342.0,
+   "alias": ""
+  },
+  {
+   "name": "岐阜羽島",
+   "kilo": 367.1,
+   "alias": ""
+  },
+  {
+   "name": "米原",
+   "kilo": 408.2,
+   "alias": ""
+  },
+  {
+   "name": "京都",
+   "kilo": 476.3,
+   "alias": ""
+  },
+  {
+   "name": "新大阪",
+   "kilo": 515.4,
+   "alias": ""
+  },
+  {
+   "name": "新神戸",
+   "kilo": 548.0,
+   "alias": ""
+  },
+  {
+   "name": "西明石",
+   "kilo": 570.2,
+   "alias": ""
+  },
+  {
+   "name": "姫路",
+   "kilo": 601.3,
+   "alias": ""
+  },
+  {
+   "name": "相生",
+   "kilo": 621.3,
+   "alias": ""
+  },
+  {
+   "name": "岡山",
+   "kilo": 676.3,
+   "alias": ""
+  },
+  {
+   "name": "新倉敷",
+   "kilo": 702.1,
+   "alias": ""
+  },
+  {
+   "name": "福山",
+   "kilo": 733.1,
+   "alias": ""
+  },
+  {
+   "name": "新尾道",
+   "kilo": 750.5,
+   "alias": ""
+  },
+  {
+   "name": "三原",
+   "kilo": 761.0,
+   "alias": ""
+  },
+  {
+   "name": "東広島",
+   "kilo": 791.9,
+   "alias": ""
+  },
+  {
+   "name": "広島",
+   "kilo": 821.2,
+   "alias": ""
+  },
+  {
+   "name": "新岩国",
+   "kilo": 865.4,
+   "alias": ""
+  },
+  {
+   "name": "徳山",
+   "kilo": 903.5,
+   "alias": ""
+  },
+  {
+   "name": "新山口",
+   "kilo": 944.6,
+   "alias": ""
+  },
+  {
+   "name": "厚狭",
+   "kilo": 968.7,
+   "alias": ""
+  },
+  {
+   "name": "新下関",
+   "kilo": 992.5,
+   "alias": ""
+  },
+  {
+   "name": "小倉",
+   "kilo": 1013.2,
+   "alias": ""
+  },
+  {
+   "name": "博多",
+   "kilo": 1069.1,
+   "alias": ""
+  },
+  {
+   "name": "新鳥栖",
+   "kilo": 1095.4,
+   "alias": ""
+  },
+  {
+   "name": "久留米",
+   "kilo": 1101.1,
+   "alias": ""
+  },
+  {
+   "name": "筑後船小屋",
+   "kilo": 1117.0,
+   "alias": ""
+  },
+  {
+   "name": "新大牟田",
+   "kilo": 1128.8,
+   "alias": ""
+  },
+  {
+   "name": "新玉名",
+   "kilo": 1145.4,
+   "alias": ""
+  },
+  {
+   "name": "熊本",
+   "kilo": 1167.3,
+   "alias": ""
+  },
+  {
+   "name": "新八代",
+   "kilo": 1199.1,
+   "alias": ""
+  },
+  {
+   "name": "新水俣",
+   "kilo": 1241.9,
+   "alias": ""
+  },
+  {
+   "name": "出水",
+   "kilo": 1257.9,
+   "alias": ""
+  },
+  {
+   "name": "川内",
+   "kilo": 1290.6,
+   "alias": ""
+  },
+  {
+   "name": "鹿児島中央",
+   "kilo": 1325.9,
+   "alias": ""
+  }
+ ],
+ "topology": {
+  "secondary": [
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false
+  ],
+  "branches": [
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   []
+  ]
+ }
+}

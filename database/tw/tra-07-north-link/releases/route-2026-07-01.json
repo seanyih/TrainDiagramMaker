@@ -1,0 +1,160 @@
+{
+ "route_name": "臺鐵 北迴線 (蘇澳新-花蓮)",
+ "stations": [
+  {
+   "name": "蘇澳新",
+   "kilo": 0.0,
+   "alias": ""
+  },
+  {
+   "name": "永樂",
+   "kilo": 5.2,
+   "alias": ""
+  },
+  {
+   "name": "東澳",
+   "kilo": 10.9,
+   "alias": ""
+  },
+  {
+   "name": "南澳",
+   "kilo": 18.9,
+   "alias": ""
+  },
+  {
+   "name": "武塔",
+   "kilo": 22.6,
+   "alias": ""
+  },
+  {
+   "name": "漢本",
+   "kilo": 35.5,
+   "alias": ""
+  },
+  {
+   "name": "和平",
+   "kilo": 39.9,
+   "alias": ""
+  },
+  {
+   "name": "和仁",
+   "kilo": 47.8,
+   "alias": ""
+  },
+  {
+   "name": "崇德",
+   "kilo": 57.8,
+   "alias": ""
+  },
+  {
+   "name": "新城",
+   "kilo": 63.1,
+   "alias": ""
+  },
+  {
+   "name": "景美",
+   "kilo": 68.4,
+   "alias": ""
+  },
+  {
+   "name": "北埔",
+   "kilo": 74.9,
+   "alias": ""
+  },
+  {
+   "name": "花蓮",
+   "kilo": 79.5,
+   "alias": ""
+  }
+ ],
+ "topology": {
+  "secondary": [
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false
+  ],
+  "branches": [
+   [
+    {
+     "stations": [
+      {
+       "name": "冬山",
+       "kilo": 5.1
+      },
+      {
+       "name": "羅東",
+       "kilo": 10.1
+      },
+      {
+       "name": "宜蘭",
+       "kilo": 18.9
+      },
+      {
+       "name": "礁溪",
+       "kilo": 27.3
+      },
+      {
+       "name": "南港",
+       "kilo": 105.6
+      },
+      {
+       "name": "松山",
+       "kilo": 108.4
+      }
+     ]
+    }
+   ],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [
+    {
+     "stations": [
+      {
+       "name": "吉安",
+       "kilo": 3.5
+      },
+      {
+       "name": "壽豐",
+       "kilo": 17.1
+      },
+      {
+       "name": "鳳林",
+       "kilo": 32.5
+      },
+      {
+       "name": "光復",
+       "kilo": 43.0
+      },
+      {
+       "name": "瑞穗",
+       "kilo": 62.8
+      },
+      {
+       "name": "玉里",
+       "kilo": 83.0
+      }
+     ]
+    }
+   ]
+  ]
+ }
+}

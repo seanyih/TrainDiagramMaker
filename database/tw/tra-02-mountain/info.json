@@ -1,0 +1,13 @@
+{
+	"name": { "zh": "縱貫線山線", "en": "Western Trunk Line (Mountain)", "ja": "縦貫線山線" },
+	"section": { "zh": "新竹 – 彰化", "en": "Hsinchu – Changhua", "ja": "新竹 – 彰化" },
+	"companies": ["tra"],
+	"types": ["railway"],
+	"regions": [],
+	"route": [
+		{ "date": "2026-07-01", "title": "初版", "kind": "route", "tags": ["mileage", "topology"], "files": { "json": "releases/route-2026-07-01.json" }, "latest": true }
+	],
+	"all": [
+		{ "date": "2026-07-01", "title": "2026年7月改點", "kind": "all", "tags": ["arrival"], "files": { "json": "releases/all-2026-07-01.json" }, "latest": true }
+	]
+}

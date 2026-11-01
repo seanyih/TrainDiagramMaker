@@ -1,8 +1,8 @@
 /*
-	Route & diagram database: a separate repo (TrainDiagramMaker_data) published as static files.
-	On localhost it is read from its tools/serve.py. catalog.json -> <country>/catalog.json -> <country>/<line>/info.json
+	Route & diagram database: database/ of this site, served as is (see database/README.md).
+	catalog.json -> <country>/catalog.json -> <country>/<line>/info.json
 */
-const DB_BASE = ["localhost", "127.0.0.1"].includes(location.hostname) ? "http://localhost:8766" : "https://traindiagrammaker-data.pages.dev";
+const DB_BASE = "/database";
 const DB_LINE_ID = /^[a-z0-9-]+\/[a-z0-9-]+$/;
 const DB_FILE = /^[a-z0-9-]+\/[a-z0-9-]+\/releases\/[\w.-]+$/;
 // the search page's query string, for Back on the line page
@@ -18,6 +18,13 @@ function dbFetchJSON(path){
 // names = { zh: "...", en: "..." }
 function dbName(names){
 	return names[currentLang.dir] ?? names.zh ?? Object.values(names)[0];
+}
+
+// the one marked latest (else the newest) first, then the newest to oldest
+function dbSortReleases(releases){
+	const sorted = [...releases].sort((a, b) => b.date.localeCompare(a.date));
+	const latest = sorted.find(r => r.latest) ?? sorted[0];
+	return sorted.length ? [latest, ...sorted.filter(r => r != latest)] : [];
 }
 
 function dbDownload(path, fileName){

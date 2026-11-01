@@ -16,7 +16,7 @@ function releaseRow(base, line, release, formats){
 	const files = formats.map(format => {
 		const file = release.files[format];
 		if(!file) return `<span class="db-file-none"></span>`;
-		const name = `${line.name}_${file.split("/").pop()}`;
+		const name = `${dbName(line.name)}_${file.split("/").pop()}`;
 		return `<button type="button" class="db-file" data-path="${escapeHTML(`${base}/${file}`)}" data-name="${escapeHTML(name)}" aria-label="下載 ${DB_FORMATS[format]}">${DB_DOWNLOAD_ICON}${DB_FORMATS[format]}</button>`;
 	});
 	return `
@@ -30,7 +30,7 @@ function releaseRow(base, line, release, formats){
 }
 
 function releaseSection(base, line, section){
-	const releases = line[section.key];
+	const releases = dbSortReleases(line[section.key] ?? []);
 	if(releases.length == 0) return "";
 	const rows = releases.map(release => releaseRow(base, line, release, section.formats));
 	const older = rows.length > 1 ? `<ul class="db-releases db-older">${rows.slice(1).join("")}</ul>` : "";
@@ -42,29 +42,17 @@ function releaseSection(base, line, section){
 		</details>`;
 }
 
-function sourcesSection(line){
-	if(!line.sources?.length) return "";
-	const items = line.sources.map(source => source.url
-		? `<li><a href="${escapeHTML(source.url)}" target="_blank" rel="noopener">${escapeHTML(source.title)}</a></li>`
-		: `<li>${escapeHTML(source.title)}</li>`);
-	return `
-		<details class="db-section">
-			<summary>時刻表來源</summary>
-			<ul class="db-sources">${items.join("")}</ul>
-		</details>`;
-}
-
 function renderLine(id, country, line){
 	const companies = line.companies.map(c => dbName(country.companies.find(company => company.id == c).name)).join("・");
-	const start = line.route.length ? `<a class="db-start" href="../diagram-maker.html?db=${id}/${line.route[0].files.json}" target="_blank">開始製作</a>` : "";
-	document.title = `${line.name} - 資料庫 - Train Diagram Maker`;
+	const route = dbSortReleases(line.route ?? [])[0];
+	const start = route ? `<a class="db-start" href="../diagram-maker.html?db=${id}/${route.files.json}" target="_blank">開始製作</a>` : "";
+	document.title = `${dbName(line.name)} - 資料庫 - Train Diagram Maker`;
 	$("#DbLine").html(`
 		<header class="db-head">
-			<h1><span class="db-flag">${country.flag}</span>${escapeHTML(line.name)}<span class="db-head-sub">${escapeHTML(companies)} | ${escapeHTML(line.section)}</span></h1>
+			<h1><span class="db-flag">${country.flag}</span>${escapeHTML(dbName(line.name))}<span class="db-head-sub">${escapeHTML(companies)} | ${escapeHTML(dbName(line.section))}</span></h1>
 			${start}
 		</header>
-		${DB_SECTIONS.map(section => releaseSection(id, line, section)).join("")}
-		${sourcesSection(line)}`);
+		${DB_SECTIONS.map(section => releaseSection(id, line, section)).join("")}`);
 }
 
 function showDbMessage(text){

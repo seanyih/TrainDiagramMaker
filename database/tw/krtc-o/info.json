@@ -1,0 +1,13 @@
+{
+	"name": { "zh": "橘線", "en": "Orange Line", "ja": "橘線" },
+	"section": { "zh": "哈瑪星 – 大寮", "en": "Hamasen – Daliao", "ja": "哈瑪星 – 大寮" },
+	"companies": ["krtc"],
+	"types": ["metro"],
+	"regions": [],
+	"route": [
+		{ "date": "2026-10-31", "title": "初版", "kind": "route", "tags": ["mileage"], "files": { "json": "releases/route-2026-10-31.json" }, "latest": true }
+	],
+	"all": [
+		{ "date": "2026-10-31", "title": "初版", "kind": "all", "tags": ["arrival"], "files": { "json": "releases/all-2026-10-31.json" }, "latest": true }
+	]
+}

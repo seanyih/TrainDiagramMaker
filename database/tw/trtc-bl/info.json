@@ -1,0 +1,13 @@
+{
+	"name": { "zh": "板南線", "en": "Bannan Line", "ja": "板南線" },
+	"section": { "zh": "頂埔 – 南港展覽館", "en": "Dingpu – Taipei Nangang Exhibition Center", "ja": "頂埔 – 南港展覧館" },
+	"companies": ["trtc"],
+	"types": ["metro"],
+	"regions": [],
+	"route": [
+		{ "date": "2026-08-30", "title": "初版", "kind": "route", "tags": ["mileage"], "files": { "json": "releases/route-2026-08-30.json" }, "latest": true }
+	],
+	"all": [
+		{ "date": "2026-08-30", "title": "2026年8月改點", "kind": "all", "tags": ["arrival"], "files": { "json": "releases/all-2026-08-30.json" }, "latest": true }
+	]
+}

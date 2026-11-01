@@ -334,19 +334,6 @@ body{
 	stroke-linecap: round;
 	stroke-linejoin: round;
 }
-.db-sources{
-	margin: 0 0 32px 0;
-	padding: 0;
-	list-style: none;
-	border-top: 1px solid var(--line);
-}
-.db-sources li{
-	padding: 14px 4px;
-	border-bottom: 1px solid var(--line);
-	color: var(--text);
-	overflow-wrap: anywhere;
-}
-
 @media (max-width: 860px){
 	.db-layout{
 		grid-template-columns: 1fr;
