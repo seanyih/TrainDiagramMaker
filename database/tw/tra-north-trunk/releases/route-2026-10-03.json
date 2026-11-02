@@ -1,0 +1,471 @@
+{
+    "route_name": "臺鐵 縱貫線北段 (基隆-新竹)",
+    "stations": [
+        {
+            "name": "基隆",
+            "kilo": 0,
+            "stopsec": 60,
+            "alias": ""
+        },
+        {
+            "name": "三坑",
+            "kilo": 1.5,
+            "stopsec": 60,
+            "alias": ""
+        },
+        {
+            "name": "八堵",
+            "kilo": 3.9,
+            "stopsec": 60,
+            "alias": ""
+        },
+        {
+            "name": "七堵",
+            "kilo": 6.2,
+            "stopsec": 60,
+            "alias": ""
+        },
+        {
+            "name": "百福",
+            "kilo": 8.9,
+            "stopsec": 60,
+            "alias": ""
+        },
+        {
+            "name": "五堵",
+            "kilo": 11.9,
+            "stopsec": 60,
+            "alias": ""
+        },
+        {
+            "name": "汐止",
+            "kilo": 13.3,
+            "stopsec": 60,
+            "alias": ""
+        },
+        {
+            "name": "汐科",
+            "kilo": 14.6,
+            "stopsec": 60,
+            "alias": ""
+        },
+        {
+            "name": "南港",
+            "kilo": 19.3,
+            "stopsec": 60,
+            "alias": ""
+        },
+        {
+            "name": "松山",
+            "kilo": 22.1,
+            "stopsec": 60,
+            "alias": ""
+        },
+        {
+            "name": "復興緊急",
+            "kilo": 24.4,
+            "stopsec": 60,
+            "alias": ""
+        },
+        {
+            "name": "光復緊急",
+            "kilo": 25.7,
+            "stopsec": 60,
+            "alias": ""
+        },
+        {
+            "name": "臺北",
+            "kilo": 28.5,
+            "stopsec": 60,
+            "alias": ""
+        },
+        {
+            "name": "西門緊急",
+            "kilo": 29.8,
+            "stopsec": 60,
+            "alias": ""
+        },
+        {
+            "name": "萬華",
+            "kilo": 31.3,
+            "stopsec": 60,
+            "alias": ""
+        },
+        {
+            "name": "板橋",
+            "kilo": 35.7,
+            "stopsec": 60,
+            "alias": ""
+        },
+        {
+            "name": "浮洲",
+            "kilo": 38.1,
+            "stopsec": 60,
+            "alias": ""
+        },
+        {
+            "name": "樹林",
+            "kilo": 41.1,
+            "stopsec": 60,
+            "alias": ""
+        },
+        {
+            "name": "南樹林",
+            "kilo": 43.1,
+            "stopsec": 60,
+            "alias": ""
+        },
+        {
+            "name": "山佳",
+            "kilo": 45,
+            "stopsec": 60,
+            "alias": ""
+        },
+        {
+            "name": "鶯歌",
+            "kilo": 49.4,
+            "stopsec": 60,
+            "alias": ""
+        },
+        {
+            "name": "鳳鳴",
+            "kilo": 54.4,
+            "stopsec": 60,
+            "alias": ""
+        },
+        {
+            "name": "桃園",
+            "kilo": 57.6,
+            "stopsec": 60,
+            "alias": ""
+        },
+        {
+            "name": "內壢",
+            "kilo": 63.5,
+            "stopsec": 60,
+            "alias": ""
+        },
+        {
+            "name": "中壢",
+            "kilo": 67.5,
+            "stopsec": 60,
+            "alias": ""
+        },
+        {
+            "name": "埔心",
+            "kilo": 73.3,
+            "stopsec": 60,
+            "alias": ""
+        },
+        {
+            "name": "楊梅",
+            "kilo": 77.3,
+            "stopsec": 60,
+            "alias": ""
+        },
+        {
+            "name": "富岡",
+            "kilo": 84.1,
+            "stopsec": 60,
+            "alias": ""
+        },
+        {
+            "name": "新富",
+            "kilo": 85.8,
+            "stopsec": 60,
+            "alias": ""
+        },
+        {
+            "name": "北湖",
+            "kilo": 87.3,
+            "stopsec": 60,
+            "alias": ""
+        },
+        {
+            "name": "湖口",
+            "kilo": 89.8,
+            "stopsec": 60,
+            "alias": ""
+        },
+        {
+            "name": "新豐",
+            "kilo": 96,
+            "stopsec": 60,
+            "alias": ""
+        },
+        {
+            "name": "竹北",
+            "kilo": 100.8,
+            "stopsec": 60,
+            "alias": ""
+        },
+        {
+            "name": "北新竹",
+            "kilo": 105.2,
+            "stopsec": 60,
+            "alias": ""
+        },
+        {
+            "name": "新竹",
+            "kilo": 106.6,
+            "stopsec": 60,
+            "alias": ""
+        }
+    ],
+    "track_layout": {
+        "stations": [
+            "double.3",
+            "double.0",
+            "quadruple",
+            "quadruple",
+            "triple.3",
+            "triple.3",
+            "quadruple",
+            "triple.3",
+            "quadruple",
+            "quadruple",
+            "double.0",
+            "double.0",
+            "quadruple",
+            "double.0",
+            "triple.3",
+            "quadruple",
+            "double.0",
+            "quadruple",
+            "double.0",
+            "quadruple",
+            "quadruple",
+            "double.0",
+            "triple.3",
+            "double.3",
+            "triple.3",
+            "quadruple",
+            "quadruple",
+            "quadruple",
+            "double.0",
+            "quadruple",
+            "quadruple",
+            "quadruple",
+            "quadruple",
+            "quadruple",
+            "quadruple"
+        ],
+        "sections": [
+            "double.0",
+            "double.0",
+            "triple.3",
+            "triple.3",
+            "triple.3",
+            "triple.3",
+            "triple.3",
+            "triple.3",
+            "double.0",
+            "double.0",
+            "double.0",
+            "double.0",
+            "double.0",
+            "double.0",
+            "double.0",
+            "double.0",
+            "double.0",
+            "double.0",
+            "double.0",
+            "double.0",
+            "double.0",
+            "double.0",
+            "double.0",
+            "double.0",
+            "double.0",
+            "double.0",
+            "double.0",
+            "double.0",
+            "double.0",
+            "double.0",
+            "double.0",
+            "double.0",
+            "double.0",
+            "quadruple"
+        ],
+        "max_speed_enabled": true,
+        "max_speed_all": null,
+        "max_speeds": [
+            45,
+            100,
+            100,
+            105,
+            120,
+            110,
+            110,
+            120,
+            120,
+            120,
+            120,
+            120,
+            85,
+            100,
+            120,
+            120,
+            125,
+            90,
+            105,
+            110,
+            105,
+            105,
+            110,
+            105,
+            125,
+            115,
+            115,
+            110,
+            110,
+            115,
+            115,
+            125,
+            110,
+            125
+        ]
+    },
+    "topology": {
+        "secondary": [
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            true,
+            true,
+            false,
+            true,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+        ],
+        "branches": [
+            [],
+            [],
+            [
+                {
+                    "stations": [
+                        {
+                            "name": "暖暖",
+                            "kilo": 1.6
+                        },
+                        {
+                            "name": "四腳亭",
+                            "kilo": 3.9
+                        },
+                        {
+                            "name": "瑞芳",
+                            "kilo": 8.9
+                        },
+                        {
+                            "name": "頭城",
+                            "kilo": 56.6
+                        },
+                        {
+                            "name": "礁溪",
+                            "kilo": 62.9
+                        },
+                        {
+                            "name": "宜蘭",
+                            "kilo": 71.3
+                        },
+                        {
+                            "name": "花蓮",
+                            "kilo": 169.7
+                        }
+                    ]
+                }
+            ],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [
+                {
+                    "stations": [
+                        {
+                            "name": "千甲",
+                            "kilo": 2.2
+                        }
+                    ]
+                }
+            ],
+            [
+                {
+                    "stations": [
+                        {
+                            "name": "三姓橋",
+                            "kilo": 4.8
+                        },
+                        {
+                            "name": "竹南",
+                            "kilo": 18.7
+                        },
+                        {
+                            "name": "苗栗",
+                            "kilo": 34.0
+                        },
+                        {
+                            "name": "豐原",
+                            "kilo": 72.4
+                        },
+                        {
+                            "name": "臺中",
+                            "kilo": 86.5
+                        }
+                    ]
+                }
+            ]
+        ]
+    }
+}

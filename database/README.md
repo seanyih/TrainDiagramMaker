@@ -77,6 +77,7 @@ tools/                           helper (見下)
 | `python database/tools/check_releases.py [國家…]` | `releases/` 裡有、但 `info.json` 沒列到的檔案；以及 `info.json` 列了、但不存在的檔案 |
 | `python database/tools/check_versions.py 2026-07-01 [--section route\|all] [--country tw]` | 最新版本的日期早於指定日期的路線 (路線資料、全部資料分開看；沒有版本的顯示 `none`) |
 | `python database/tools/count_files.py [--limit-mb 50]` | 會被 push / 部署的檔案數 (Cloudflare Pages 上限 20,000) 與超過 100 MB (GitHub 上限)、25 MiB (Cloudflare Pages 單檔上限) 的檔案 |
+| `python database/tools/merge_route.py route.json all.json [--out 輸出檔]` | 把路線 JSON 的改動 (增刪車站、軌道配置、線路拓樸、路線名稱) 合進全部資料 JSON：依站名重新對應所有列車的 `station_order` 與 `station_record`，已不存在的車站的停靠略過 (改名視為刪除 + 新增，要先在全部資料裡處理)。沒有 `--out` 時直接覆寫全部資料 JSON |
 
 ## 發布流程
 

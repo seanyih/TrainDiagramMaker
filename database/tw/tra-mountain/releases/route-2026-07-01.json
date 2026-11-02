@@ -1,0 +1,403 @@
+{
+    "route_name": "臺鐵 山線 (新竹-彰化)",
+    "stations": [
+        {
+            "name": "新竹",
+            "kilo": 0,
+            "stopsec": 60,
+            "alias": ""
+        },
+        {
+            "name": "三姓橋",
+            "kilo": 4.8,
+            "stopsec": 60,
+            "alias": ""
+        },
+        {
+            "name": "香山",
+            "kilo": 8,
+            "stopsec": 60,
+            "alias": ""
+        },
+        {
+            "name": "崎頂",
+            "kilo": 14.2,
+            "stopsec": 60,
+            "alias": ""
+        },
+        {
+            "name": "竹南",
+            "kilo": 18.7,
+            "stopsec": 60,
+            "alias": ""
+        },
+        {
+            "name": "造橋",
+            "kilo": 24.1,
+            "stopsec": 60,
+            "alias": ""
+        },
+        {
+            "name": "豐富",
+            "kilo": 30,
+            "stopsec": 60,
+            "alias": ""
+        },
+        {
+            "name": "苗栗",
+            "kilo": 34,
+            "stopsec": 60,
+            "alias": ""
+        },
+        {
+            "name": "南勢",
+            "kilo": 40.6,
+            "stopsec": 60,
+            "alias": ""
+        },
+        {
+            "name": "銅鑼",
+            "kilo": 44.8,
+            "stopsec": 60,
+            "alias": ""
+        },
+        {
+            "name": "三義",
+            "kilo": 52.2,
+            "stopsec": 60,
+            "alias": ""
+        },
+        {
+            "name": "泰安",
+            "kilo": 63.1,
+            "stopsec": 60,
+            "alias": ""
+        },
+        {
+            "name": "后里",
+            "kilo": 65.7,
+            "stopsec": 60,
+            "alias": ""
+        },
+        {
+            "name": "豐原",
+            "kilo": 72.4,
+            "stopsec": 60,
+            "alias": ""
+        },
+        {
+            "name": "栗林",
+            "kilo": 75,
+            "stopsec": 60,
+            "alias": ""
+        },
+        {
+            "name": "潭子",
+            "kilo": 77.5,
+            "stopsec": 60,
+            "alias": ""
+        },
+        {
+            "name": "頭家厝",
+            "kilo": 79.4,
+            "stopsec": 60,
+            "alias": ""
+        },
+        {
+            "name": "松竹",
+            "kilo": 81.1,
+            "stopsec": 60,
+            "alias": ""
+        },
+        {
+            "name": "太原",
+            "kilo": 82.9,
+            "stopsec": 60,
+            "alias": ""
+        },
+        {
+            "name": "精武",
+            "kilo": 84.6,
+            "stopsec": 60,
+            "alias": ""
+        },
+        {
+            "name": "臺中",
+            "kilo": 86.5,
+            "stopsec": 60,
+            "alias": ""
+        },
+        {
+            "name": "五權",
+            "kilo": 88.7,
+            "stopsec": 60,
+            "alias": ""
+        },
+        {
+            "name": "大慶",
+            "kilo": 90.8,
+            "stopsec": 60,
+            "alias": ""
+        },
+        {
+            "name": "烏日",
+            "kilo": 93.9,
+            "stopsec": 60,
+            "alias": ""
+        },
+        {
+            "name": "新烏日",
+            "kilo": 94.8,
+            "stopsec": 60,
+            "alias": ""
+        },
+        {
+            "name": "成功",
+            "kilo": 97.2,
+            "stopsec": 60,
+            "alias": ""
+        },
+        {
+            "name": "大肚溪南 (號)",
+            "kilo": 99.3,
+            "stopsec": 60,
+            "alias": ""
+        },
+        {
+            "name": "彰化",
+            "kilo": 104.3,
+            "stopsec": 60,
+            "alias": ""
+        }
+    ],
+    "track_layout": {
+        "stations": [
+            "quadruple",
+            "double.0",
+            "quadruple",
+            "double.0",
+            "quadruple",
+            "double.0",
+            "double.0",
+            "quadruple",
+            "double.0",
+            "quadruple",
+            "quadruple",
+            "double.0",
+            "quadruple",
+            "quadruple",
+            "double.0",
+            "quadruple",
+            "double.0",
+            "double.0",
+            "quadruple",
+            "double.0",
+            "quadruple",
+            "double.0",
+            "double.0",
+            "double.0",
+            "quadruple",
+            "quadruple",
+            "double.0",
+            "quadruple"
+        ],
+        "sections": [
+            "double.0",
+            "double.0",
+            "double.0",
+            "double.0",
+            "double.0",
+            "double.0",
+            "double.0",
+            "double.0",
+            "double.0",
+            "double.0",
+            "double.0",
+            "double.0",
+            "double.0",
+            "double.0",
+            "double.0",
+            "double.0",
+            "double.0",
+            "double.0",
+            "double.0",
+            "double.0",
+            "double.0",
+            "double.0",
+            "double.0",
+            "double.0",
+            "double.0",
+            "double.0",
+            "double.0"
+        ],
+        "max_speed_enabled": true,
+        "max_speed_all": null,
+        "max_speeds": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    "topology": {
+        "secondary": [
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            true,
+            false
+        ],
+        "branches": [
+            [
+                {
+                    "stations": [
+                        {
+                            "name": "北新竹",
+                            "kilo": 1.4
+                        },
+                        {
+                            "name": "竹北",
+                            "kilo": 5.8
+                        },
+                        {
+                            "name": "湖口",
+                            "kilo": 16.8
+                        },
+                        {
+                            "name": "中壢",
+                            "kilo": 39.1
+                        },
+                        {
+                            "name": "桃園",
+                            "kilo": 49
+                        },
+                        {
+                            "name": "板橋",
+                            "kilo": 70.9
+                        }
+                    ]
+                }
+            ],
+            [],
+            [],
+            [],
+            [
+                {
+                    "stations": [
+                        {
+                            "name": "談文",
+                            "kilo": 4.5
+                        },
+                        {
+                            "name": "後龍",
+                            "kilo": 15
+                        },
+                        {
+                            "name": "大甲",
+                            "kilo": 54.1
+                        }
+                    ]
+                }
+            ],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [
+                {
+                    "stations": [
+                        {
+                            "name": "追分",
+                            "kilo": 2.2
+                        }
+                    ]
+                }
+            ],
+            [],
+            [
+                {
+                    "stations": [
+                        {
+                            "name": "花壇",
+                            "kilo": 6.6
+                        },
+                        {
+                            "name": "員林",
+                            "kilo": 14.7
+                        },
+                        {
+                            "name": "斗六",
+                            "kilo": 49.7
+                        },
+                        {
+                            "name": "嘉義",
+                            "kilo": 80.9
+                        }
+                    ]
+                }
+            ]
+        ]
+    }
+}
