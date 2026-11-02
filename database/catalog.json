@@ -10,7 +10,7 @@
 				{ "id": "thsr", "name": { "zh": "台灣高鐵", "en": "Taiwan High Speed Rail", "ja": "台湾高速鉄道" } },
 				{ "id": "afr", "name": { "zh": "阿里山林業鐵路", "en": "Alishan Forest Railway", "ja": "阿里山林業鉄路" } },
 				{ "id": "trtc", "name": { "zh": "臺北捷運", "en": "Taipei Metro", "ja": "台北メトロ" } },
-				{ "id": "ntmc", "name": { "zh": "新北捷運", "en": "New Taipei Metro", "ja": "新北捷運" } },
+				{ "id": "ntmc", "name": { "zh": "新北捷運", "en": "New Taipei Metro", "ja": "新北メトロ" } },
 				{ "id": "tymc", "name": { "zh": "桃園捷運", "en": "Taoyuan Metro", "ja": "桃園メトロ" } },
 				{ "id": "krtc", "name": { "zh": "高雄捷運", "en": "Kaohsiung Metro", "ja": "高雄メトロ" } }
 			]
@@ -34,6 +34,7 @@
 				{ "id": "jr-east", "name": { "zh": "JR東日本", "en": "JR East", "ja": "JR東日本" } },
 				{ "id": "jr-central", "name": { "zh": "JR東海", "en": "JR Central", "ja": "JR東海" } },
 				{ "id": "jr-west", "name": { "zh": "JR西日本", "en": "JR West", "ja": "JR西日本" } },
+				{ "id": "jr-shikoku", "name": { "zh": "JR四國", "en": "JR Shikoku", "ja": "JR西日本" } },
 				{ "id": "jr-kyushu", "name": { "zh": "JR九州", "en": "JR Kyushu", "ja": "JR九州" } }
 			]
 		}

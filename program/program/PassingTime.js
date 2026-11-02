@@ -139,7 +139,8 @@ function createPassingModel(trains, headway, rounding = null){
 		});
 	});
 
-	m.golden = inferArrivals(m);
+	const known = new Map();
+	m.golden = inferArrivals(m, known);
 
 	// km/s of the fastest run between two stops through each section; passing times are left out,
 	// so that passing times restored before do not raise the estimate
@@ -160,7 +161,7 @@ function createPassingModel(trains, headway, rounding = null){
 		const estimated = (fastest[i] > 0) ? (kilos[i + 1] - kilos[i])/(fastest[i]*estimatedSpeedLimitRatio) : 0;
 		m.runPrefix.push(m.runPrefix[i] + (minRunSec(i) ?? estimated));
 	}
-	looseArrivals(m, m.golden);
+	looseArrivals(m, known);
 	return m;
 }
 
@@ -283,9 +284,9 @@ function goldenKey(m, t, a, b, both){
 	the shortest of those between the same two stops is the golden run. A loose arrival after a run longer
 	than that by more than minExtraPassingWaiting (+ TIMETABLE_ROUNDING) moves up to it: the train likely arrived
 	early to wait, rather than ran slower (not where it ends).
-	Returns the golden runs (s) by goldenKey().
+	Returns the golden runs (s) by goldenKey(); `known` gets the ones of the runs to a known arrival.
 */
-function inferArrivals(m){
+function inferArrivals(m, known){
 	const golden = new Map();
 	// per train: 1 at each station (2k) and section (2k + 1) of its bound with a conflict of it
 	const marks = new Map();
@@ -305,6 +306,7 @@ function inferArrivals(m){
 		[false, true].forEach(both => {
 			const key = goldenKey(m, t, a, b, both);
 			golden.set(key, Math.min(golden.get(key) ?? Infinity, t.arr[b] - t.dep[a]));
+			if(!t.loose[b]) known.set(key, Math.min(known.get(key) ?? Infinity, t.arr[b] - t.dep[a]));
 		});
 	}));
 	m.trains.forEach(t => runs(t).forEach(([a, b]) => {
@@ -318,16 +320,21 @@ function inferArrivals(m){
 	return golden;
 }
 
-// the earliest arrival of each loose one: after the golden run of either bound (a bound may run slower between two
-// stations everywhere), else the min running time, from the stop before; it is a possible wait if the stop may then be long enough
-function looseArrivals(m, golden){
+/*
+	The earliest arrival of each loose one, from the stop before: after the golden run (`known`, of runs to a known
+	arrival; a loose one only gives an upper bound) of either bound (a bound may run slower between two stations
+	everywhere), if its own bound has one (the other may be much slower, e.g. uphill), else the min running time.
+	It is a possible wait if the stop may then be long enough.
+*/
+function looseArrivals(m, known){
 	const { minExtraPassingWaiting } = SETTINGS.passingTime;
 	m.trains.forEach(t => {
 		const orders = stopOrders(t);
 		orders.forEach((b, i) => {
 			if(!t.loose[b]) return;
 			const a = orders[i - 1];
-			t.early[b] = Math.min(alignUp(m, t.dep[a] + (golden.get(goldenKey(m, t, a, b, true)) ?? minRun(m, t, a, b))), t.arr[b]);
+			const run = known.has(goldenKey(m, t, a, b, false)) ? known.get(goldenKey(m, t, a, b, true)) : minRun(m, t, a, b);
+			t.early[b] = Math.min(alignUp(m, t.dep[a] + run), t.arr[b]);
 			if(b != t.last && t.dep[b] - t.early[b] > m.stopsecs[t.bound][b] + minExtraPassingWaiting) t.wait[b] = 1;
 		});
 	});
