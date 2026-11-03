@@ -35,7 +35,16 @@
 				{ "id": "jr-central", "name": { "zh": "JR東海", "en": "JR Central", "ja": "JR東海" } },
 				{ "id": "jr-west", "name": { "zh": "JR西日本", "en": "JR West", "ja": "JR西日本" } },
 				{ "id": "jr-shikoku", "name": { "zh": "JR四國", "en": "JR Shikoku", "ja": "JR西日本" } },
-				{ "id": "jr-kyushu", "name": { "zh": "JR九州", "en": "JR Kyushu", "ja": "JR九州" } }
+				{ "id": "jr-kyushu", "name": { "zh": "JR九州", "en": "JR Kyushu", "ja": "JR九州" } },
+				{ "id": "igr", "name": { "zh": "IGR岩手銀河鐵道", "en": "Iwate Galaxy Railway", "ja": "IGRいわて銀河鉄道" } },
+				{ "id": "aoimori", "name": { "zh": "青森鐵道", "en": "Aoimori Railway", "ja": "青い森鉄道" } },
+				{ "id": "sanriku", "name": { "zh": "三陸鐵道", "en": "Sanriku Railway", "ja": "三陸鉄道" } },
+				{ "id": "abukuma-express", "name": { "zh": "阿武隈急行", "en": "Abukuma Express", "ja": "阿武隈急行" } },
+				{ "id": "sendai-airport-transit", "name": { "zh": "仙台機場鐵道", "en": "Sendai Airport Transit", "ja": "仙台空港鉄道" } },
+				{ "id": "akita-nairiku", "name": { "zh": "秋田內陸縱貫鐵道", "en": "Akita Nairiku Jūkan Railway", "ja": "秋田内陸縦貫鉄道" } },
+				{ "id": "yuri-kogen", "name": { "zh": "由利高原鐵道", "en": "Yuri Kōgen Railway", "ja": "由利高原鉄道" } },
+				{ "id": "yamagata-railway", "name": { "zh": "山形鐵道", "en": "Yamagata Railway", "ja": "山形鉄道" } },
+				{ "id": "aizu-railway", "name": { "zh": "會津鐵道", "en": "Aizu Railway", "ja": "会津鉄道" } }
 			]
 		}
 	]
