@@ -1,0 +1,2452 @@
+{
+ "info": {
+  "title": "JR 秋田新幹線 (盛岡-秋田)",
+  "description": "時刻取自 ekitan，為 2026/11/09 ~ 11/15 這一週每天實際運行的列車 (含臨時列車，名稱後加「(臨時)」)；只有分鐘精度，沒有通過時刻。",
+  "effective_date": "2026/03/14"
+ },
+ "route": {
+  "route_name": "JR 秋田新幹線 (盛岡-秋田)",
+  "stations": [
+   {
+    "name": "盛岡",
+    "kilo": 0.0,
+    "alias": ""
+   },
+   {
+    "name": "大釜",
+    "kilo": 6.0,
+    "alias": ""
+   },
+   {
+    "name": "小岩井",
+    "kilo": 10.5,
+    "alias": ""
+   },
+   {
+    "name": "雫石",
+    "kilo": 16.0,
+    "alias": ""
+   },
+   {
+    "name": "赤渕",
+    "kilo": 22.0,
+    "alias": ""
+   },
+   {
+    "name": "大地沢信号場",
+    "kilo": 28.6,
+    "alias": ""
+   },
+   {
+    "name": "志度内信号場",
+    "kilo": 34.4,
+    "alias": ""
+   },
+   {
+    "name": "田沢湖",
+    "kilo": 40.1,
+    "alias": ""
+   },
+   {
+    "name": "刺巻",
+    "kilo": 44.4,
+    "alias": ""
+   },
+   {
+    "name": "神代",
+    "kilo": 52.8,
+    "alias": ""
+   },
+   {
+    "name": "角館",
+    "kilo": 58.8,
+    "alias": ""
+   },
+   {
+    "name": "羽後長野",
+    "kilo": 64.6,
+    "alias": ""
+   },
+   {
+    "name": "羽後四ツ屋",
+    "kilo": 70.2,
+    "alias": ""
+   },
+   {
+    "name": "大曲",
+    "kilo": 75.6,
+    "alias": ""
+   },
+   {
+    "name": "神宮寺",
+    "kilo": 81.6,
+    "alias": ""
+   },
+   {
+    "name": "峰吉川",
+    "kilo": 94.0,
+    "alias": ""
+   },
+   {
+    "name": "羽後境",
+    "kilo": 100.5,
+    "alias": ""
+   },
+   {
+    "name": "和田",
+    "kilo": 114.0,
+    "alias": ""
+   },
+   {
+    "name": "秋田",
+    "kilo": 127.3,
+    "alias": ""
+   }
+  ],
+  "topology": {
+   "secondary": [
+    false,
+    true,
+    true,
+    false,
+    true,
+    true,
+    true,
+    false,
+    true,
+    true,
+    false,
+    true,
+    true,
+    false,
+    true,
+    true,
+    true,
+    true,
+    false
+   ],
+   "branches": [
+    [
+     {
+      "stations": [
+       {
+        "name": "新花巻",
+        "kilo": 33.4
+       },
+       {
+        "name": "仙台",
+        "kilo": 171.1
+       }
+      ]
+     }
+    ],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    []
+   ]
+  },
+  "track_layout": {
+   "stations": [
+    "quadruple",
+    "double.3",
+    "double.3",
+    "triple.3",
+    "double.3",
+    "double.3",
+    "double.3",
+    "triple.3",
+    "double.3",
+    "double.3",
+    "triple.3",
+    "double.3",
+    "double.3",
+    "quadruple",
+    "double.3",
+    "double.3",
+    "double.3",
+    "double.3",
+    "quadruple"
+   ],
+   "sections": [
+    "single",
+    "single",
+    "single",
+    "single",
+    "single",
+    "single",
+    "single",
+    "single",
+    "single",
+    "single",
+    "single",
+    "single",
+    "single",
+    "single",
+    "double.0",
+    "single",
+    "single",
+    "single"
+   ],
+   "max_speed_enabled": true,
+   "max_speed_all": 130,
+   "max_speeds": [
+    130,
+    130,
+    130,
+    130,
+    130,
+    130,
+    130,
+    130,
+    130,
+    130,
+    130,
+    130,
+    130,
+    130,
+    130,
+    130,
+    130,
+    130
+   ]
+  }
+ },
+ "trains": {
+  "1": {
+   "route_name": "JR 秋田新幹線 (盛岡-秋田)",
+   "bound": 1,
+   "station_count": 19,
+   "station_record": [
+    "盛岡",
+    "大釜",
+    "小岩井",
+    "雫石",
+    "赤渕",
+    "大地沢信号場",
+    "志度内信号場",
+    "田沢湖",
+    "刺巻",
+    "神代",
+    "角館",
+    "羽後長野",
+    "羽後四ツ屋",
+    "大曲",
+    "神宮寺",
+    "峰吉川",
+    "羽後境",
+    "和田",
+    "秋田"
+   ],
+   "train_count": 22,
+   "timetable": [
+    {
+     "train_number": "3095M",
+     "settings": {
+      "train_name": "こまち",
+      "train_color": 7
+     },
+     "origin": {
+      "station_name": "新花巻",
+      "departure": "0738"
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "盛岡",
+       "arrival": "0749",
+       "departure": "0758"
+      },
+      {
+       "station_order": 7,
+       "station_name": "田沢湖",
+       "arrival": "0831",
+       "departure": "0832"
+      },
+      {
+       "station_order": 10,
+       "station_name": "角館",
+       "arrival": "0845",
+       "departure": "0846"
+      },
+      {
+       "station_order": 13,
+       "station_name": "大曲",
+       "arrival": "0858",
+       "departure": "0901"
+      },
+      {
+       "station_order": 18,
+       "station_name": "秋田",
+       "arrival": "0932",
+       "departure": "0932"
+      }
+     ]
+    },
+    {
+     "train_number": "3001M",
+     "settings": {
+      "train_name": "こまち",
+      "train_color": 7
+     },
+     "origin": {
+      "station_name": "仙台",
+      "departure": "0805"
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "盛岡",
+       "arrival": "0844",
+       "departure": "0848"
+      },
+      {
+       "station_order": 7,
+       "station_name": "田沢湖",
+       "arrival": "0921",
+       "departure": "0922"
+      },
+      {
+       "station_order": 10,
+       "station_name": "角館",
+       "arrival": "0935",
+       "departure": "0935"
+      },
+      {
+       "station_order": 13,
+       "station_name": "大曲",
+       "arrival": "0945",
+       "departure": "0948"
+      },
+      {
+       "station_order": 18,
+       "station_name": "秋田",
+       "arrival": "1024",
+       "departure": "1024"
+      }
+     ]
+    },
+    {
+     "train_number": "3003M",
+     "settings": {
+      "train_name": "こまち",
+      "train_color": 7
+     },
+     "origin": {
+      "station_name": "仙台",
+      "departure": "0905"
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "盛岡",
+       "arrival": "0944",
+       "departure": "0946"
+      },
+      {
+       "station_order": 7,
+       "station_name": "田沢湖",
+       "arrival": "1025",
+       "departure": "1026"
+      },
+      {
+       "station_order": 10,
+       "station_name": "角館",
+       "arrival": "1039",
+       "departure": "1040"
+      },
+      {
+       "station_order": 13,
+       "station_name": "大曲",
+       "arrival": "1050",
+       "departure": "1052"
+      },
+      {
+       "station_order": 18,
+       "station_name": "秋田",
+       "arrival": "1125",
+       "departure": "1125"
+      }
+     ]
+    },
+    {
+     "train_number": "3007M",
+     "settings": {
+      "train_name": "こまち",
+      "train_color": 7
+     },
+     "origin": {
+      "station_name": "仙台",
+      "departure": "1017"
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "盛岡",
+       "arrival": "1055",
+       "departure": "1057"
+      },
+      {
+       "station_order": 7,
+       "station_name": "田沢湖",
+       "arrival": "1128",
+       "departure": "1128"
+      },
+      {
+       "station_order": 10,
+       "station_name": "角館",
+       "arrival": "1141",
+       "departure": "1142"
+      },
+      {
+       "station_order": 13,
+       "station_name": "大曲",
+       "arrival": "1152",
+       "departure": "1154"
+      },
+      {
+       "station_order": 18,
+       "station_name": "秋田",
+       "arrival": "1230",
+       "departure": "1230"
+      }
+     ]
+    },
+    {
+     "train_number": "3009M",
+     "settings": {
+      "train_name": "こまち",
+      "train_color": 7
+     },
+     "origin": {
+      "station_name": "仙台",
+      "departure": "1041"
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "盛岡",
+       "arrival": "1120",
+       "departure": "1123"
+      },
+      {
+       "station_order": 3,
+       "station_name": "雫石",
+       "arrival": "1138",
+       "departure": "1138"
+      },
+      {
+       "station_order": 7,
+       "station_name": "田沢湖",
+       "arrival": "1159",
+       "departure": "1202"
+      },
+      {
+       "station_order": 10,
+       "station_name": "角館",
+       "arrival": "1218",
+       "departure": "1218"
+      },
+      {
+       "station_order": 13,
+       "station_name": "大曲",
+       "arrival": "1229",
+       "departure": "1231"
+      },
+      {
+       "station_order": 18,
+       "station_name": "秋田",
+       "arrival": "1302",
+       "departure": "1302"
+      }
+     ]
+    },
+    {
+     "train_number": "3015M",
+     "settings": {
+      "train_name": "こまち",
+      "train_color": 7
+     },
+     "origin": {
+      "station_name": "仙台",
+      "departure": "1154"
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "盛岡",
+       "arrival": "1232",
+       "departure": "1235"
+      },
+      {
+       "station_order": 3,
+       "station_name": "雫石",
+       "arrival": "1249",
+       "departure": "1249"
+      },
+      {
+       "station_order": 7,
+       "station_name": "田沢湖",
+       "arrival": "1310",
+       "departure": "1311"
+      },
+      {
+       "station_order": 10,
+       "station_name": "角館",
+       "arrival": "1324",
+       "departure": "1325"
+      },
+      {
+       "station_order": 13,
+       "station_name": "大曲",
+       "arrival": "1335",
+       "departure": "1337"
+      },
+      {
+       "station_order": 18,
+       "station_name": "秋田",
+       "arrival": "1408",
+       "departure": "1408"
+      }
+     ]
+    },
+    {
+     "train_number": "3019M",
+     "settings": {
+      "train_name": "こまち",
+      "train_color": 7
+     },
+     "origin": {
+      "station_name": "仙台",
+      "departure": "1253"
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "盛岡",
+       "arrival": "1332",
+       "departure": "1335"
+      },
+      {
+       "station_order": 7,
+       "station_name": "田沢湖",
+       "arrival": "1407",
+       "departure": "1407"
+      },
+      {
+       "station_order": 10,
+       "station_name": "角館",
+       "arrival": "1420",
+       "departure": "1421"
+      },
+      {
+       "station_order": 13,
+       "station_name": "大曲",
+       "arrival": "1431",
+       "departure": "1433"
+      },
+      {
+       "station_order": 18,
+       "station_name": "秋田",
+       "arrival": "1504",
+       "departure": "1504"
+      }
+     ]
+    },
+    {
+     "train_number": "3023M",
+     "settings": {
+      "train_name": "こまち",
+      "train_color": 7
+     },
+     "origin": {
+      "station_name": "仙台",
+      "departure": "1353"
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "盛岡",
+       "arrival": "1432",
+       "departure": "1435"
+      },
+      {
+       "station_order": 7,
+       "station_name": "田沢湖",
+       "arrival": "1509",
+       "departure": "1511"
+      },
+      {
+       "station_order": 10,
+       "station_name": "角館",
+       "arrival": "1525",
+       "departure": "1525"
+      },
+      {
+       "station_order": 13,
+       "station_name": "大曲",
+       "arrival": "1535",
+       "departure": "1537"
+      },
+      {
+       "station_order": 18,
+       "station_name": "秋田",
+       "arrival": "1608",
+       "departure": "1608"
+      }
+     ]
+    },
+    {
+     "train_number": "3025M",
+     "settings": {
+      "train_name": "こまち",
+      "train_color": 7
+     },
+     "origin": {
+      "station_name": "仙台",
+      "departure": "1453"
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "盛岡",
+       "arrival": "1532",
+       "departure": "1535"
+      },
+      {
+       "station_order": 7,
+       "station_name": "田沢湖",
+       "arrival": "1607",
+       "departure": "1607"
+      },
+      {
+       "station_order": 10,
+       "station_name": "角館",
+       "arrival": "1620",
+       "departure": "1621"
+      },
+      {
+       "station_order": 13,
+       "station_name": "大曲",
+       "arrival": "1631",
+       "departure": "1633"
+      },
+      {
+       "station_order": 18,
+       "station_name": "秋田",
+       "arrival": "1708",
+       "departure": "1708"
+      }
+     ]
+    },
+    {
+     "train_number": "3027M",
+     "settings": {
+      "train_name": "こまち",
+      "train_color": 7
+     },
+     "origin": {
+      "station_name": "仙台",
+      "departure": "1553"
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "盛岡",
+       "arrival": "1633",
+       "departure": "1635"
+      },
+      {
+       "station_order": 7,
+       "station_name": "田沢湖",
+       "arrival": "1710",
+       "departure": "1712"
+      },
+      {
+       "station_order": 10,
+       "station_name": "角館",
+       "arrival": "1728",
+       "departure": "1728"
+      },
+      {
+       "station_order": 13,
+       "station_name": "大曲",
+       "arrival": "1739",
+       "departure": "1741"
+      },
+      {
+       "station_order": 18,
+       "station_name": "秋田",
+       "arrival": "1812",
+       "departure": "1812"
+      }
+     ]
+    },
+    {
+     "train_number": "3031M",
+     "settings": {
+      "train_name": "こまち",
+      "train_color": 7
+     },
+     "origin": {
+      "station_name": "仙台",
+      "departure": "1653"
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "盛岡",
+       "arrival": "1732",
+       "departure": "1735"
+      },
+      {
+       "station_order": 3,
+       "station_name": "雫石",
+       "arrival": "1748",
+       "departure": "1748"
+      },
+      {
+       "station_order": 7,
+       "station_name": "田沢湖",
+       "arrival": "1808",
+       "departure": "1809"
+      },
+      {
+       "station_order": 10,
+       "station_name": "角館",
+       "arrival": "1822",
+       "departure": "1822"
+      },
+      {
+       "station_order": 13,
+       "station_name": "大曲",
+       "arrival": "1832",
+       "departure": "1834"
+      },
+      {
+       "station_order": 18,
+       "station_name": "秋田",
+       "arrival": "1906",
+       "departure": "1906"
+      }
+     ]
+    },
+    {
+     "train_number": "3033M",
+     "settings": {
+      "train_name": "こまち",
+      "train_color": 7
+     },
+     "origin": {
+      "station_name": "仙台",
+      "departure": "1753"
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "盛岡",
+       "arrival": "1833",
+       "departure": "1835"
+      },
+      {
+       "station_order": 7,
+       "station_name": "田沢湖",
+       "arrival": "1910",
+       "departure": "1912"
+      },
+      {
+       "station_order": 10,
+       "station_name": "角館",
+       "arrival": "1926",
+       "departure": "1927"
+      },
+      {
+       "station_order": 13,
+       "station_name": "大曲",
+       "arrival": "1938",
+       "departure": "1941"
+      },
+      {
+       "station_order": 18,
+       "station_name": "秋田",
+       "arrival": "2012",
+       "departure": "2012"
+      }
+     ]
+    },
+    {
+     "train_number": "3035M",
+     "settings": {
+      "train_name": "こまち",
+      "train_color": 7
+     },
+     "origin": {
+      "station_name": "仙台",
+      "departure": "1854"
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "盛岡",
+       "arrival": "1933",
+       "departure": "1935"
+      },
+      {
+       "station_order": 7,
+       "station_name": "田沢湖",
+       "arrival": "2007",
+       "departure": "2007"
+      },
+      {
+       "station_order": 10,
+       "station_name": "角館",
+       "arrival": "2020",
+       "departure": "2021"
+      },
+      {
+       "station_order": 13,
+       "station_name": "大曲",
+       "arrival": "2031",
+       "departure": "2033"
+      },
+      {
+       "station_order": 18,
+       "station_name": "秋田",
+       "arrival": "2104",
+       "departure": "2104"
+      }
+     ]
+    },
+    {
+     "train_number": "3037M",
+     "settings": {
+      "train_name": "こまち",
+      "train_color": 7
+     },
+     "origin": {
+      "station_name": "仙台",
+      "departure": "1953"
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "盛岡",
+       "arrival": "2033",
+       "departure": "2035"
+      },
+      {
+       "station_order": 3,
+       "station_name": "雫石",
+       "arrival": "2048",
+       "departure": "2048"
+      },
+      {
+       "station_order": 7,
+       "station_name": "田沢湖",
+       "arrival": "2108",
+       "departure": "2111"
+      },
+      {
+       "station_order": 10,
+       "station_name": "角館",
+       "arrival": "2124",
+       "departure": "2124"
+      },
+      {
+       "station_order": 13,
+       "station_name": "大曲",
+       "arrival": "2134",
+       "departure": "2136"
+      },
+      {
+       "station_order": 18,
+       "station_name": "秋田",
+       "arrival": "2207",
+       "departure": "2207"
+      }
+     ]
+    },
+    {
+     "train_number": "3039M",
+     "settings": {
+      "train_name": "こまち",
+      "train_color": 7
+     },
+     "origin": {
+      "station_name": "仙台",
+      "departure": "2054"
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "盛岡",
+       "arrival": "2133",
+       "departure": "2136"
+      },
+      {
+       "station_order": 7,
+       "station_name": "田沢湖",
+       "arrival": "2205",
+       "departure": "2206"
+      },
+      {
+       "station_order": 10,
+       "station_name": "角館",
+       "arrival": "2219",
+       "departure": "2219"
+      },
+      {
+       "station_order": 13,
+       "station_name": "大曲",
+       "arrival": "2230",
+       "departure": "2232"
+      },
+      {
+       "station_order": 18,
+       "station_name": "秋田",
+       "arrival": "2302",
+       "departure": "2302"
+      }
+     ]
+    },
+    {
+     "train_number": "3041M",
+     "settings": {
+      "train_name": "こまち",
+      "train_color": 7
+     },
+     "origin": {
+      "station_name": "仙台",
+      "departure": "2148"
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "盛岡",
+       "arrival": "2227",
+       "departure": "2230"
+      },
+      {
+       "station_order": 13,
+       "station_name": "大曲",
+       "arrival": "2321",
+       "departure": "2323"
+      },
+      {
+       "station_order": 18,
+       "station_name": "秋田",
+       "arrival": "2353",
+       "departure": "2353"
+      }
+     ]
+    },
+    {
+     "train_number": "5063M",
+     "settings": {
+      "train_name": "こまち(臨時)",
+      "train_color": 7
+     },
+     "origin": {
+      "station_name": "仙台",
+      "departure": "1818"
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "盛岡",
+       "arrival": "1858",
+       "departure": "1901"
+      },
+      {
+       "station_order": 7,
+       "station_name": "田沢湖",
+       "arrival": "1935",
+       "departure": "1936"
+      },
+      {
+       "station_order": 10,
+       "station_name": "角館",
+       "arrival": "1949",
+       "departure": "1949"
+      },
+      {
+       "station_order": 13,
+       "station_name": "大曲",
+       "arrival": "2007",
+       "departure": "2009"
+      },
+      {
+       "station_order": 18,
+       "station_name": "秋田",
+       "arrival": "2042",
+       "departure": "2042"
+      }
+     ]
+    },
+    {
+     "train_number": "3035M",
+     "settings": {
+      "train_name": "こまち",
+      "train_color": 7
+     },
+     "origin": {
+      "station_name": "仙台",
+      "departure": "1854"
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "盛岡",
+       "arrival": "1933",
+       "departure": "1935"
+      },
+      {
+       "station_order": 7,
+       "station_name": "田沢湖",
+       "arrival": "2007",
+       "departure": "2012"
+      },
+      {
+       "station_order": 10,
+       "station_name": "角館",
+       "arrival": "2025",
+       "departure": "2026"
+      },
+      {
+       "station_order": 13,
+       "station_name": "大曲",
+       "arrival": "2036",
+       "departure": "2038"
+      },
+      {
+       "station_order": 18,
+       "station_name": "秋田",
+       "arrival": "2110",
+       "departure": "2110"
+      }
+     ]
+    },
+    {
+     "train_number": "8065M",
+     "settings": {
+      "train_name": "こまち(臨時)",
+      "train_color": 7
+     },
+     "origin": {
+      "station_name": "仙台",
+      "departure": "1918"
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "盛岡",
+       "arrival": "1957",
+       "departure": "2000"
+      },
+      {
+       "station_order": 7,
+       "station_name": "田沢湖",
+       "arrival": "2031",
+       "departure": "2032"
+      },
+      {
+       "station_order": 10,
+       "station_name": "角館",
+       "arrival": "2045",
+       "departure": "2046"
+      },
+      {
+       "station_order": 13,
+       "station_name": "大曲",
+       "arrival": "2106",
+       "departure": "2108"
+      },
+      {
+       "station_order": 18,
+       "station_name": "秋田",
+       "arrival": "2139",
+       "departure": "2139"
+      }
+     ]
+    },
+    {
+     "train_number": "3037M",
+     "settings": {
+      "train_name": "こまち",
+      "train_color": 7
+     },
+     "origin": {
+      "station_name": "仙台",
+      "departure": "1953"
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "盛岡",
+       "arrival": "2033",
+       "departure": "2035"
+      },
+      {
+       "station_order": 3,
+       "station_name": "雫石",
+       "arrival": "2048",
+       "departure": "2048"
+      },
+      {
+       "station_order": 7,
+       "station_name": "田沢湖",
+       "arrival": "2108",
+       "departure": "2111"
+      },
+      {
+       "station_order": 10,
+       "station_name": "角館",
+       "arrival": "2129",
+       "departure": "2129"
+      },
+      {
+       "station_order": 13,
+       "station_name": "大曲",
+       "arrival": "2139",
+       "departure": "2141"
+      },
+      {
+       "station_order": 18,
+       "station_name": "秋田",
+       "arrival": "2212",
+       "departure": "2212"
+      }
+     ]
+    },
+    {
+     "train_number": "3039M",
+     "settings": {
+      "train_name": "こまち",
+      "train_color": 7
+     },
+     "origin": {
+      "station_name": "仙台",
+      "departure": "2054"
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "盛岡",
+       "arrival": "2133",
+       "departure": "2136"
+      },
+      {
+       "station_order": 7,
+       "station_name": "田沢湖",
+       "arrival": "2214",
+       "departure": "2214"
+      },
+      {
+       "station_order": 10,
+       "station_name": "角館",
+       "arrival": "2227",
+       "departure": "2228"
+      },
+      {
+       "station_order": 13,
+       "station_name": "大曲",
+       "arrival": "2238",
+       "departure": "2240"
+      },
+      {
+       "station_order": 18,
+       "station_name": "秋田",
+       "arrival": "2311",
+       "departure": "2311"
+      }
+     ]
+    },
+    {
+     "train_number": "5051M",
+     "settings": {
+      "train_name": "こまち(臨時)",
+      "train_color": 7
+     },
+     "origin": {
+      "station_name": "仙台",
+      "departure": "0830"
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "盛岡",
+       "arrival": "0910",
+       "departure": "0912"
+      },
+      {
+       "station_order": 7,
+       "station_name": "田沢湖",
+       "arrival": "0943",
+       "departure": "0944"
+      },
+      {
+       "station_order": 10,
+       "station_name": "角館",
+       "arrival": "0957",
+       "departure": "1000"
+      },
+      {
+       "station_order": 13,
+       "station_name": "大曲",
+       "arrival": "1010",
+       "departure": "1012"
+      },
+      {
+       "station_order": 18,
+       "station_name": "秋田",
+       "arrival": "1055",
+       "departure": "1055"
+      }
+     ]
+    }
+   ]
+  },
+  "2": {
+   "route_name": "JR 秋田新幹線 (盛岡-秋田)",
+   "bound": 2,
+   "station_count": 19,
+   "station_record": [
+    "秋田",
+    "和田",
+    "羽後境",
+    "峰吉川",
+    "神宮寺",
+    "大曲",
+    "羽後四ツ屋",
+    "羽後長野",
+    "角館",
+    "神代",
+    "刺巻",
+    "田沢湖",
+    "志度内信号場",
+    "大地沢信号場",
+    "赤渕",
+    "雫石",
+    "小岩井",
+    "大釜",
+    "盛岡"
+   ],
+   "train_count": 20,
+   "timetable": [
+    {
+     "train_number": "3006M",
+     "settings": {
+      "train_name": "こまち",
+      "train_color": 7
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "仙台",
+      "arrival": "0816"
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "秋田",
+       "arrival": "",
+       "departure": "0609"
+      },
+      {
+       "station_order": 5,
+       "station_name": "大曲",
+       "arrival": "0639",
+       "departure": "0641"
+      },
+      {
+       "station_order": 18,
+       "station_name": "盛岡",
+       "arrival": "0735",
+       "departure": "0737"
+      }
+     ]
+    },
+    {
+     "train_number": "3010M",
+     "settings": {
+      "train_name": "こまち",
+      "train_color": 7
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "仙台",
+      "arrival": "0929"
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "秋田",
+       "arrival": "",
+       "departure": "0716"
+      },
+      {
+       "station_order": 5,
+       "station_name": "大曲",
+       "arrival": "0746",
+       "departure": "0748"
+      },
+      {
+       "station_order": 8,
+       "station_name": "角館",
+       "arrival": "0758",
+       "departure": "0758"
+      },
+      {
+       "station_order": 11,
+       "station_name": "田沢湖",
+       "arrival": "0812",
+       "departure": "0812"
+      },
+      {
+       "station_order": 15,
+       "station_name": "雫石",
+       "arrival": "0832",
+       "departure": "0833"
+      },
+      {
+       "station_order": 18,
+       "station_name": "盛岡",
+       "arrival": "0848",
+       "departure": "0850"
+      }
+     ]
+    },
+    {
+     "train_number": "3012M",
+     "settings": {
+      "train_name": "こまち",
+      "train_color": 7
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "仙台",
+      "arrival": "1029"
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "秋田",
+       "arrival": "",
+       "departure": "0811"
+      },
+      {
+       "station_order": 5,
+       "station_name": "大曲",
+       "arrival": "0841",
+       "departure": "0843"
+      },
+      {
+       "station_order": 8,
+       "station_name": "角館",
+       "arrival": "0855",
+       "departure": "0856"
+      },
+      {
+       "station_order": 11,
+       "station_name": "田沢湖",
+       "arrival": "0909",
+       "departure": "0909"
+      },
+      {
+       "station_order": 18,
+       "station_name": "盛岡",
+       "arrival": "0946",
+       "departure": "0950"
+      }
+     ]
+    },
+    {
+     "train_number": "3014M",
+     "settings": {
+      "train_name": "こまち",
+      "train_color": 7
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "仙台",
+      "arrival": "1129"
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "秋田",
+       "arrival": "",
+       "departure": "0912"
+      },
+      {
+       "station_order": 5,
+       "station_name": "大曲",
+       "arrival": "0947",
+       "departure": "0950"
+      },
+      {
+       "station_order": 8,
+       "station_name": "角館",
+       "arrival": "1000",
+       "departure": "1000"
+      },
+      {
+       "station_order": 11,
+       "station_name": "田沢湖",
+       "arrival": "1013",
+       "departure": "1014"
+      },
+      {
+       "station_order": 15,
+       "station_name": "雫石",
+       "arrival": "1034",
+       "departure": "1034"
+      },
+      {
+       "station_order": 18,
+       "station_name": "盛岡",
+       "arrival": "1049",
+       "departure": "1051"
+      }
+     ]
+    },
+    {
+     "train_number": "3016M",
+     "settings": {
+      "train_name": "こまち",
+      "train_color": 7
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "仙台",
+      "arrival": "1229"
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "秋田",
+       "arrival": "",
+       "departure": "1007"
+      },
+      {
+       "station_order": 5,
+       "station_name": "大曲",
+       "arrival": "1037",
+       "departure": "1039"
+      },
+      {
+       "station_order": 8,
+       "station_name": "角館",
+       "arrival": "1054",
+       "departure": "1054"
+      },
+      {
+       "station_order": 11,
+       "station_name": "田沢湖",
+       "arrival": "1108",
+       "departure": "1108"
+      },
+      {
+       "station_order": 18,
+       "station_name": "盛岡",
+       "arrival": "1147",
+       "departure": "1150"
+      }
+     ]
+    },
+    {
+     "train_number": "3018M",
+     "settings": {
+      "train_name": "こまち",
+      "train_color": 7
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "仙台",
+      "arrival": "1329"
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "秋田",
+       "arrival": "",
+       "departure": "1107"
+      },
+      {
+       "station_order": 5,
+       "station_name": "大曲",
+       "arrival": "1139",
+       "departure": "1141"
+      },
+      {
+       "station_order": 8,
+       "station_name": "角館",
+       "arrival": "1156",
+       "departure": "1156"
+      },
+      {
+       "station_order": 11,
+       "station_name": "田沢湖",
+       "arrival": "1211",
+       "departure": "1212"
+      },
+      {
+       "station_order": 18,
+       "station_name": "盛岡",
+       "arrival": "1249",
+       "departure": "1250"
+      }
+     ]
+    },
+    {
+     "train_number": "3020M",
+     "settings": {
+      "train_name": "こまち",
+      "train_color": 7
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "仙台",
+      "arrival": "1429"
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "秋田",
+       "arrival": "",
+       "departure": "1213"
+      },
+      {
+       "station_order": 5,
+       "station_name": "大曲",
+       "arrival": "1244",
+       "departure": "1246"
+      },
+      {
+       "station_order": 8,
+       "station_name": "角館",
+       "arrival": "1256",
+       "departure": "1257"
+      },
+      {
+       "station_order": 11,
+       "station_name": "田沢湖",
+       "arrival": "1310",
+       "departure": "1311"
+      },
+      {
+       "station_order": 18,
+       "station_name": "盛岡",
+       "arrival": "1348",
+       "departure": "1350"
+      }
+     ]
+    },
+    {
+     "train_number": "3024M",
+     "settings": {
+      "train_name": "こまち",
+      "train_color": 7
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "仙台",
+      "arrival": "1529"
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "秋田",
+       "arrival": "",
+       "departure": "1306"
+      },
+      {
+       "station_order": 5,
+       "station_name": "大曲",
+       "arrival": "1336",
+       "departure": "1339"
+      },
+      {
+       "station_order": 8,
+       "station_name": "角館",
+       "arrival": "1349",
+       "departure": "1350"
+      },
+      {
+       "station_order": 11,
+       "station_name": "田沢湖",
+       "arrival": "1404",
+       "departure": "1408"
+      },
+      {
+       "station_order": 15,
+       "station_name": "雫石",
+       "arrival": "1430",
+       "departure": "1431"
+      },
+      {
+       "station_order": 18,
+       "station_name": "盛岡",
+       "arrival": "1448",
+       "departure": "1450"
+      }
+     ]
+    },
+    {
+     "train_number": "3028M",
+     "settings": {
+      "train_name": "こまち",
+      "train_color": 7
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "仙台",
+      "arrival": "1629"
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "秋田",
+       "arrival": "",
+       "departure": "1414"
+      },
+      {
+       "station_order": 5,
+       "station_name": "大曲",
+       "arrival": "1445",
+       "departure": "1447"
+      },
+      {
+       "station_order": 8,
+       "station_name": "角館",
+       "arrival": "1457",
+       "departure": "1458"
+      },
+      {
+       "station_order": 11,
+       "station_name": "田沢湖",
+       "arrival": "1511",
+       "departure": "1512"
+      },
+      {
+       "station_order": 18,
+       "station_name": "盛岡",
+       "arrival": "1548",
+       "departure": "1550"
+      }
+     ]
+    },
+    {
+     "train_number": "3032M",
+     "settings": {
+      "train_name": "こまち",
+      "train_color": 7
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "仙台",
+      "arrival": "1729"
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "秋田",
+       "arrival": "",
+       "departure": "1506"
+      },
+      {
+       "station_order": 5,
+       "station_name": "大曲",
+       "arrival": "1536",
+       "departure": "1539"
+      },
+      {
+       "station_order": 8,
+       "station_name": "角館",
+       "arrival": "1550",
+       "departure": "1551"
+      },
+      {
+       "station_order": 11,
+       "station_name": "田沢湖",
+       "arrival": "1605",
+       "departure": "1608"
+      },
+      {
+       "station_order": 18,
+       "station_name": "盛岡",
+       "arrival": "1648",
+       "departure": "1650"
+      }
+     ]
+    },
+    {
+     "train_number": "3034M",
+     "settings": {
+      "train_name": "こまち",
+      "train_color": 7
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "仙台",
+      "arrival": "1829"
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "秋田",
+       "arrival": "",
+       "departure": "1612"
+      },
+      {
+       "station_order": 5,
+       "station_name": "大曲",
+       "arrival": "1645",
+       "departure": "1647"
+      },
+      {
+       "station_order": 8,
+       "station_name": "角館",
+       "arrival": "1657",
+       "departure": "1658"
+      },
+      {
+       "station_order": 11,
+       "station_name": "田沢湖",
+       "arrival": "1711",
+       "departure": "1712"
+      },
+      {
+       "station_order": 15,
+       "station_name": "雫石",
+       "arrival": "1732",
+       "departure": "1732"
+      },
+      {
+       "station_order": 18,
+       "station_name": "盛岡",
+       "arrival": "1748",
+       "departure": "1750"
+      }
+     ]
+    },
+    {
+     "train_number": "3036M",
+     "settings": {
+      "train_name": "こまち",
+      "train_color": 7
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "仙台",
+      "arrival": "1855"
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "秋田",
+       "arrival": "",
+       "departure": "1634"
+      },
+      {
+       "station_order": 5,
+       "station_name": "大曲",
+       "arrival": "1706",
+       "departure": "1708"
+      },
+      {
+       "station_order": 8,
+       "station_name": "角館",
+       "arrival": "1718",
+       "departure": "1718"
+      },
+      {
+       "station_order": 11,
+       "station_name": "田沢湖",
+       "arrival": "1734",
+       "departure": "1734"
+      },
+      {
+       "station_order": 18,
+       "station_name": "盛岡",
+       "arrival": "1814",
+       "departure": "1816"
+      }
+     ]
+    },
+    {
+     "train_number": "3038M",
+     "settings": {
+      "train_name": "こまち",
+      "train_color": 7
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "仙台",
+      "arrival": "1929"
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "秋田",
+       "arrival": "",
+       "departure": "1710"
+      },
+      {
+       "station_order": 5,
+       "station_name": "大曲",
+       "arrival": "1740",
+       "departure": "1743"
+      },
+      {
+       "station_order": 8,
+       "station_name": "角館",
+       "arrival": "1754",
+       "departure": "1754"
+      },
+      {
+       "station_order": 11,
+       "station_name": "田沢湖",
+       "arrival": "1808",
+       "departure": "1810"
+      },
+      {
+       "station_order": 18,
+       "station_name": "盛岡",
+       "arrival": "1849",
+       "departure": "1850"
+      }
+     ]
+    },
+    {
+     "train_number": "3042M",
+     "settings": {
+      "train_name": "こまち",
+      "train_color": 7
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "仙台",
+      "arrival": "2029"
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "秋田",
+       "arrival": "",
+       "departure": "1816"
+      },
+      {
+       "station_order": 5,
+       "station_name": "大曲",
+       "arrival": "1846",
+       "departure": "1848"
+      },
+      {
+       "station_order": 8,
+       "station_name": "角館",
+       "arrival": "1858",
+       "departure": "1858"
+      },
+      {
+       "station_order": 11,
+       "station_name": "田沢湖",
+       "arrival": "1912",
+       "departure": "1912"
+      },
+      {
+       "station_order": 18,
+       "station_name": "盛岡",
+       "arrival": "1948",
+       "departure": "1950"
+      }
+     ]
+    },
+    {
+     "train_number": "3044M",
+     "settings": {
+      "train_name": "こまち",
+      "train_color": 7
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "仙台",
+      "arrival": "2130"
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "秋田",
+       "arrival": "",
+       "departure": "1910"
+      },
+      {
+       "station_order": 5,
+       "station_name": "大曲",
+       "arrival": "1940",
+       "departure": "1943"
+      },
+      {
+       "station_order": 8,
+       "station_name": "角館",
+       "arrival": "1953",
+       "departure": "1953"
+      },
+      {
+       "station_order": 11,
+       "station_name": "田沢湖",
+       "arrival": "2007",
+       "departure": "2009"
+      },
+      {
+       "station_order": 18,
+       "station_name": "盛岡",
+       "arrival": "2049",
+       "departure": "2050"
+      }
+     ]
+    },
+    {
+     "train_number": "3096M",
+     "settings": {
+      "train_name": "こまち",
+      "train_color": 7
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "新花巻",
+      "arrival": "2202"
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "秋田",
+       "arrival": "",
+       "departure": "2014"
+      },
+      {
+       "station_order": 5,
+       "station_name": "大曲",
+       "arrival": "2045",
+       "departure": "2047"
+      },
+      {
+       "station_order": 8,
+       "station_name": "角館",
+       "arrival": "2056",
+       "departure": "2057"
+      },
+      {
+       "station_order": 11,
+       "station_name": "田沢湖",
+       "arrival": "2110",
+       "departure": "2111"
+      },
+      {
+       "station_order": 18,
+       "station_name": "盛岡",
+       "arrival": "2149",
+       "departure": "2151"
+      }
+     ]
+    },
+    {
+     "train_number": "5026M",
+     "settings": {
+      "train_name": "こまち(臨時)",
+      "train_color": 7
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "仙台",
+      "arrival": "1556"
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "秋田",
+       "arrival": "",
+       "departure": "1337"
+      },
+      {
+       "station_order": 5,
+       "station_name": "大曲",
+       "arrival": "1412",
+       "departure": "1414"
+      },
+      {
+       "station_order": 8,
+       "station_name": "角館",
+       "arrival": "1423",
+       "departure": "1426"
+      },
+      {
+       "station_order": 11,
+       "station_name": "田沢湖",
+       "arrival": "1439",
+       "departure": "1440"
+      },
+      {
+       "station_order": 18,
+       "station_name": "盛岡",
+       "arrival": "1515",
+       "departure": "1517"
+      }
+     ]
+    },
+    {
+     "train_number": "3044M",
+     "settings": {
+      "train_name": "こまち",
+      "train_color": 7
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "仙台",
+      "arrival": "2130"
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "秋田",
+       "arrival": "",
+       "departure": "1910"
+      },
+      {
+       "station_order": 5,
+       "station_name": "大曲",
+       "arrival": "1940",
+       "departure": "1943"
+      },
+      {
+       "station_order": 8,
+       "station_name": "角館",
+       "arrival": "1958",
+       "departure": "1959"
+      },
+      {
+       "station_order": 11,
+       "station_name": "田沢湖",
+       "arrival": "2012",
+       "departure": "2012"
+      },
+      {
+       "station_order": 18,
+       "station_name": "盛岡",
+       "arrival": "2049",
+       "departure": "2050"
+      }
+     ]
+    },
+    {
+     "train_number": "3096M",
+     "settings": {
+      "train_name": "こまち",
+      "train_color": 7
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "新花巻",
+      "arrival": "2206"
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "秋田",
+       "arrival": "",
+       "departure": "2014"
+      },
+      {
+       "station_order": 5,
+       "station_name": "大曲",
+       "arrival": "2056",
+       "departure": "2058"
+      },
+      {
+       "station_order": 8,
+       "station_name": "角館",
+       "arrival": "2107",
+       "departure": "2108"
+      },
+      {
+       "station_order": 11,
+       "station_name": "田沢湖",
+       "arrival": "2121",
+       "departure": "2121"
+      },
+      {
+       "station_order": 18,
+       "station_name": "盛岡",
+       "arrival": "2154",
+       "departure": "2155"
+      }
+     ]
+    },
+    {
+     "train_number": "3016M",
+     "settings": {
+      "train_name": "こまち",
+      "train_color": 7
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "仙台",
+      "arrival": "1229"
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "秋田",
+       "arrival": "",
+       "departure": "1007"
+      },
+      {
+       "station_order": 5,
+       "station_name": "大曲",
+       "arrival": "1043",
+       "departure": "1045"
+      },
+      {
+       "station_order": 8,
+       "station_name": "角館",
+       "arrival": "1055",
+       "departure": "1055"
+      },
+      {
+       "station_order": 11,
+       "station_name": "田沢湖",
+       "arrival": "1108",
+       "departure": "1109"
+      },
+      {
+       "station_order": 18,
+       "station_name": "盛岡",
+       "arrival": "1147",
+       "departure": "1150"
+      }
+     ]
+    }
+   ]
+  }
+ },
+ "opmodes": [
+  {
+   "title": "",
+   "description": "",
+   "days": [
+    "mon",
+    "tue",
+    "wed",
+    "thu"
+   ],
+   "trains": {
+    "1": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8,
+     9,
+     10,
+     11,
+     12,
+     13,
+     14,
+     15
+    ],
+    "2": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8,
+     9,
+     10,
+     11,
+     12,
+     13,
+     14,
+     15
+    ]
+   }
+  },
+  {
+   "title": "",
+   "description": "",
+   "days": [
+    "fri",
+    "sun"
+   ],
+   "trains": {
+    "1": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8,
+     9,
+     10,
+     11,
+     16,
+     17,
+     18,
+     19,
+     20,
+     15
+    ],
+    "2": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     16,
+     8,
+     9,
+     10,
+     11,
+     12,
+     13,
+     17,
+     18
+    ]
+   }
+  },
+  {
+   "title": "",
+   "description": "",
+   "days": [
+    "sat"
+   ],
+   "trains": {
+    "1": [
+     0,
+     1,
+     21,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8,
+     9,
+     10,
+     11,
+     12,
+     13,
+     14,
+     15
+    ],
+    "2": [
+     0,
+     1,
+     2,
+     3,
+     19,
+     5,
+     6,
+     7,
+     8,
+     9,
+     10,
+     11,
+     12,
+     13,
+     14,
+     15
+    ]
+   }
+  }
+ ],
+ "settings": {
+  "passingTime": {
+   "stopRules": [
+    {
+     "bound": 0,
+     "number": null,
+     "color": null,
+     "name": null,
+     "stations": "cross",
+     "station": null
+    }
+   ]
+  }
+ }
+}

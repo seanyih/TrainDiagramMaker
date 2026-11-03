@@ -1,0 +1,61 @@
+{
+	"name": {
+		"zh": "山形新幹線",
+		"en": "Yamagata Shinkansen",
+		"ja": "山形新幹線"
+	},
+	"section": {
+		"zh": "福島 – 新庄",
+		"en": "Fukushima – Shinjo",
+		"ja": "福島 – 新庄"
+	},
+	"companies": [
+		"jr-east"
+	],
+	"types": [
+		"hsr"
+	],
+	"regions": [
+		"tohoku"
+	],
+	"route": [
+		{
+			"date": "2021-03-13",
+			"title": "赤岩站廢止",
+			"kind": "route",
+			"tags": [
+				"complete"
+			],
+			"files": {
+				"json": "releases/route-2021-03-13.json"
+			},
+			"latest": true
+		}
+	],
+	"all": [
+		{
+			"date": "2026-03-14",
+			"title": "2026年3月改點 (2026/11/09 ~ 11/15 一週的時刻，已還原通過時間)",
+			"kind": "all",
+			"tags": [
+				"arrival",
+				"solved"
+			],
+			"files": {
+				"json": "releases/all-2026-03-14-solved.json"
+			},
+			"latest": true
+		},
+		{
+			"date": "2026-03-14",
+			"title": "2026年3月改點 (2026/11/09 ~ 11/15 一週的時刻)",
+			"kind": "all",
+			"tags": [
+				"arrival"
+			],
+			"files": {
+				"json": "releases/all-2026-03-14.json"
+			}
+		}
+	]
+}

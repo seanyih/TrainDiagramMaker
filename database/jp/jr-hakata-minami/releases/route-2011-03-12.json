@@ -1,0 +1,39 @@
+{
+ "route_name": "JR 博多南線 (博多-博多南)",
+ "stations": [
+  {
+   "name": "博多",
+   "kilo": 0.0,
+   "alias": ""
+  },
+  {
+   "name": "博多南",
+   "kilo": 8.5,
+   "alias": ""
+  }
+ ],
+ "topology": {
+  "secondary": [
+   false,
+   false
+  ],
+  "branches": [
+   [],
+   []
+  ]
+ },
+ "track_layout": {
+  "stations": [
+   "quadruple",
+   "double.3"
+  ],
+  "sections": [
+   "double.0"
+  ],
+  "max_speed_enabled": true,
+  "max_speed_all": 120,
+  "max_speeds": [
+   120
+  ]
+ }
+}

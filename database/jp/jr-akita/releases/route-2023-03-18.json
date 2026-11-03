@@ -1,0 +1,222 @@
+{
+ "route_name": "JR 秋田新幹線 (盛岡-秋田)",
+ "stations": [
+  {
+   "name": "盛岡",
+   "kilo": 0.0,
+   "alias": ""
+  },
+  {
+   "name": "大釜",
+   "kilo": 6.0,
+   "alias": ""
+  },
+  {
+   "name": "小岩井",
+   "kilo": 10.5,
+   "alias": ""
+  },
+  {
+   "name": "雫石",
+   "kilo": 16.0,
+   "alias": ""
+  },
+  {
+   "name": "赤渕",
+   "kilo": 22.0,
+   "alias": ""
+  },
+  {
+   "name": "大地沢信号場",
+   "kilo": 28.6,
+   "alias": ""
+  },
+  {
+   "name": "志度内信号場",
+   "kilo": 34.4,
+   "alias": ""
+  },
+  {
+   "name": "田沢湖",
+   "kilo": 40.1,
+   "alias": ""
+  },
+  {
+   "name": "刺巻",
+   "kilo": 44.4,
+   "alias": ""
+  },
+  {
+   "name": "神代",
+   "kilo": 52.8,
+   "alias": ""
+  },
+  {
+   "name": "角館",
+   "kilo": 58.8,
+   "alias": ""
+  },
+  {
+   "name": "羽後長野",
+   "kilo": 64.6,
+   "alias": ""
+  },
+  {
+   "name": "羽後四ツ屋",
+   "kilo": 70.2,
+   "alias": ""
+  },
+  {
+   "name": "大曲",
+   "kilo": 75.6,
+   "alias": ""
+  },
+  {
+   "name": "神宮寺",
+   "kilo": 81.6,
+   "alias": ""
+  },
+  {
+   "name": "峰吉川",
+   "kilo": 94.0,
+   "alias": ""
+  },
+  {
+   "name": "羽後境",
+   "kilo": 100.5,
+   "alias": ""
+  },
+  {
+   "name": "和田",
+   "kilo": 114.0,
+   "alias": ""
+  },
+  {
+   "name": "秋田",
+   "kilo": 127.3,
+   "alias": ""
+  }
+ ],
+ "topology": {
+  "secondary": [
+   false,
+   true,
+   true,
+   false,
+   true,
+   true,
+   true,
+   false,
+   true,
+   true,
+   false,
+   true,
+   true,
+   false,
+   true,
+   true,
+   true,
+   true,
+   false
+  ],
+  "branches": [
+   [
+    {
+     "stations": [
+      {
+       "name": "新花巻",
+       "kilo": 33.4
+      },
+      {
+       "name": "仙台",
+       "kilo": 171.1
+      }
+     ]
+    }
+   ],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   []
+  ]
+ },
+ "track_layout": {
+  "stations": [
+   "quadruple",
+   "double.3",
+   "double.3",
+   "triple.3",
+   "double.3",
+   "double.3",
+   "double.3",
+   "triple.3",
+   "double.3",
+   "double.3",
+   "triple.3",
+   "double.3",
+   "double.3",
+   "quadruple",
+   "double.3",
+   "double.3",
+   "double.3",
+   "double.3",
+   "quadruple"
+  ],
+  "sections": [
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "double.0",
+   "single",
+   "single",
+   "single"
+  ],
+  "max_speed_enabled": true,
+  "max_speed_all": 130,
+  "max_speeds": [
+   130,
+   130,
+   130,
+   130,
+   130,
+   130,
+   130,
+   130,
+   130,
+   130,
+   130,
+   130,
+   130,
+   130,
+   130,
+   130,
+   130,
+   130
+  ]
+ }
+}
