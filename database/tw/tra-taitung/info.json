@@ -24,8 +24,8 @@
     "route":
     [
         {
-            "date": "2026-07-01",
-            "title": "初版",
+            "date": "2017-09-26",
+            "title": "瑞穗–三民間改線",
             "kind": "route",
             "tags":
             [
@@ -33,7 +33,7 @@
             ],
             "files":
             {
-                "json": "releases/route-2026-07-01.json"
+                "json": "releases/route-2017-09-26.json"
             },
             "latest": true
         }

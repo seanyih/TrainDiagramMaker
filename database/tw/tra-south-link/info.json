@@ -24,8 +24,8 @@
     "route":
     [
         {
-            "date": "2026-07-01",
-            "title": "初版",
+            "date": "2020-12-23",
+            "title": "電氣化通車",
             "kind": "route",
             "tags":
             [
@@ -33,7 +33,7 @@
             ],
             "files":
             {
-                "json": "releases/route-2026-07-01.json"
+                "json": "releases/route-2020-12-23.json"
             },
             "latest": true
         }

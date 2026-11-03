@@ -23,8 +23,8 @@
     "route":
     [
         {
-            "date": "2026-07-01",
-            "title": "初版",
+            "date": "2005-01-10",
+            "title": "雙軌化完工",
             "kind": "route",
             "tags":
             [
@@ -32,7 +32,7 @@
             ],
             "files":
             {
-                "json": "releases/route-2026-07-01.json"
+                "json": "releases/route-2005-01-10.json"
             },
             "latest": true
         }

@@ -24,8 +24,8 @@
     "route":
     [
         {
-            "date": "2026-07-01",
-            "title": "初版",
+            "date": "2018-10-28",
+            "title": "臺中高架化新增五站",
             "kind": "route",
             "tags":
             [
@@ -33,7 +33,7 @@
             ],
             "files":
             {
-                "json": "releases/route-2026-07-01.json"
+                "json": "releases/route-2018-10-28.json"
             },
             "latest": true
         }

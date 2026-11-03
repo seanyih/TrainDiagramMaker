@@ -18,14 +18,14 @@
 	"regions": [],
 	"route": [
 		{
-			"date": "2026-10-01",
-			"title": "初版",
+			"date": "2010-11-03",
+			"title": "全線通車",
 			"kind": "route",
 			"tags": [
 				"complete"
 			],
 			"files": {
-				"json": "releases/route-2026-10-01.json"
+				"json": "releases/route-2010-11-03.json"
 			},
 			"latest": true
 		}

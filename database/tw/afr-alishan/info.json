@@ -5,7 +5,7 @@
 	"types": ["narrow"],
 	"regions": [],
 	"route": [
-		{ "date": "2025-01-10", "title": "初版", "kind": "route", "tags": ["complete"], "files": { "json": "releases/route-2025-01-10.json" }, "latest": true }
+		{ "date": "2024-07-06", "title": "全線復駛", "kind": "route", "tags": ["complete"], "files": { "json": "releases/route-2024-07-06.json" }, "latest": true }
 	],
 	"all": [
 		{ "date": "2025-01-10", "title": "2025年1月改點", "kind": "all", "tags": ["arrival"], "files": { "json": "releases/all-2025-01-10.json" }, "latest": true }
