@@ -3,7 +3,7 @@
 	The text search matches the line's name and section and its companies, in every language.
 	Filters live in the query string (?c=&r=&t=&co=&q=) and are kept in sessionStorage for the line page's Back.
 */
-const DB_TYPES = { hsr: "高鐵", railway: "鐵路", narrow: "窄軌鐵路", metro: "地鐵", lrt: "輕軌", other: "其他" };
+const DB_TYPES = { hsr: "高鐵", railway: "鐵路", narrow: "輕便鐵路", metro: "地鐵", lrt: "輕軌", other: "其他" };
 const DB_PAGE_SIZE = 50;
 
 let dbCountries = [];
@@ -70,7 +70,7 @@ function lineRow(line){
 	return `
 		<li><a class="db-line" href="line.html?id=${country.id}/${line.id}">
 			<span class="db-flag">${country.flag}</span>
-			<span><strong>${escapeHTML(dbName(line.name))}</strong><span class="db-line-sub">${escapeHTML(companies)} | ${escapeHTML(dbName(line.section))}</span></span>
+			<span>${escapeHTML(dbName(line.name))}<span class="db-line-sub">${escapeHTML(companies)} | ${escapeHTML(dbName(line.section))}</span></span>
 		</a></li>`;
 }
 

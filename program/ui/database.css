@@ -186,7 +186,7 @@ body{
 	gap: 4px 16px;
 	margin: 0;
 	font-size: clamp(30px, 4vw, 44px);
-	font-weight: 900;
+	font-weight: 700;
 	line-height: 1.2;
 }
 .db-head h1 .db-flag{
