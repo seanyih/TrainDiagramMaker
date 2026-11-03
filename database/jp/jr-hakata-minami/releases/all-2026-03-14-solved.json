@@ -60,7 +60,7 @@
      "train_number": "2805A",
      "settings": {
       "train_name": "特急",
-      "train_color": 2,
+      "train_color": 1,
       "line_width": null,
       "line_type": null
      },
@@ -91,7 +91,7 @@
      "train_number": "2807A",
      "settings": {
       "train_name": "特急",
-      "train_color": 2,
+      "train_color": 1,
       "line_width": null,
       "line_type": null
      },
@@ -122,7 +122,7 @@
      "train_number": "2811A",
      "settings": {
       "train_name": "特急",
-      "train_color": 2,
+      "train_color": 1,
       "line_width": null,
       "line_type": null
      },
@@ -153,7 +153,7 @@
      "train_number": "933A",
      "settings": {
       "train_name": "特急",
-      "train_color": 2,
+      "train_color": 1,
       "line_width": null,
       "line_type": null
      },
@@ -184,7 +184,7 @@
      "train_number": "935A",
      "settings": {
       "train_name": "特急",
-      "train_color": 2,
+      "train_color": 1,
       "line_width": null,
       "line_type": null
      },
@@ -215,7 +215,7 @@
      "train_number": "937A",
      "settings": {
       "train_name": "特急",
-      "train_color": 2,
+      "train_color": 1,
       "line_width": null,
       "line_type": null
      },
@@ -246,7 +246,7 @@
      "train_number": "941A",
      "settings": {
       "train_name": "特急",
-      "train_color": 2,
+      "train_color": 1,
       "line_width": null,
       "line_type": null
      },
@@ -277,7 +277,7 @@
      "train_number": "943A",
      "settings": {
       "train_name": "特急",
-      "train_color": 2,
+      "train_color": 1,
       "line_width": null,
       "line_type": null
      },
@@ -308,7 +308,7 @@
      "train_number": "945A",
      "settings": {
       "train_name": "特急",
-      "train_color": 2,
+      "train_color": 1,
       "line_width": null,
       "line_type": null
      },
@@ -339,7 +339,7 @@
      "train_number": "947A",
      "settings": {
       "train_name": "特急",
-      "train_color": 2,
+      "train_color": 1,
       "line_width": null,
       "line_type": null
      },
@@ -370,7 +370,7 @@
      "train_number": "949A",
      "settings": {
       "train_name": "特急",
-      "train_color": 2,
+      "train_color": 1,
       "line_width": null,
       "line_type": null
      },
@@ -401,7 +401,7 @@
      "train_number": "951A",
      "settings": {
       "train_name": "特急",
-      "train_color": 2,
+      "train_color": 1,
       "line_width": null,
       "line_type": null
      },
@@ -432,7 +432,7 @@
      "train_number": "2819A",
      "settings": {
       "train_name": "特急",
-      "train_color": 2,
+      "train_color": 1,
       "line_width": null,
       "line_type": null
      },
@@ -463,7 +463,7 @@
      "train_number": "953A",
      "settings": {
       "train_name": "特急",
-      "train_color": 2,
+      "train_color": 1,
       "line_width": null,
       "line_type": null
      },
@@ -494,7 +494,7 @@
      "train_number": "2821A",
      "settings": {
       "train_name": "特急",
-      "train_color": 2,
+      "train_color": 1,
       "line_width": null,
       "line_type": null
      },
@@ -525,7 +525,7 @@
      "train_number": "955A",
      "settings": {
       "train_name": "特急",
-      "train_color": 2,
+      "train_color": 1,
       "line_width": null,
       "line_type": null
      },
@@ -556,7 +556,7 @@
      "train_number": "2823A",
      "settings": {
       "train_name": "特急",
-      "train_color": 2,
+      "train_color": 1,
       "line_width": null,
       "line_type": null
      },
@@ -587,7 +587,7 @@
      "train_number": "2825A",
      "settings": {
       "train_name": "特急",
-      "train_color": 2,
+      "train_color": 1,
       "line_width": null,
       "line_type": null
      },
@@ -618,7 +618,7 @@
      "train_number": "957A",
      "settings": {
       "train_name": "特急",
-      "train_color": 2,
+      "train_color": 1,
       "line_width": null,
       "line_type": null
      },
@@ -649,7 +649,7 @@
      "train_number": "2827A",
      "settings": {
       "train_name": "特急",
-      "train_color": 2,
+      "train_color": 1,
       "line_width": null,
       "line_type": null
      },
@@ -680,7 +680,7 @@
      "train_number": "2829A",
      "settings": {
       "train_name": "特急",
-      "train_color": 2,
+      "train_color": 1,
       "line_width": null,
       "line_type": null
      },
@@ -711,7 +711,7 @@
      "train_number": "959A",
      "settings": {
       "train_name": "特急",
-      "train_color": 2,
+      "train_color": 1,
       "line_width": null,
       "line_type": null
      },
@@ -742,7 +742,7 @@
      "train_number": "2831A",
      "settings": {
       "train_name": "特急",
-      "train_color": 2,
+      "train_color": 1,
       "line_width": null,
       "line_type": null
      },
@@ -773,7 +773,7 @@
      "train_number": "2833A",
      "settings": {
       "train_name": "特急",
-      "train_color": 2,
+      "train_color": 1,
       "line_width": null,
       "line_type": null
      },
@@ -804,7 +804,7 @@
      "train_number": "961A",
      "settings": {
       "train_name": "特急",
-      "train_color": 2,
+      "train_color": 1,
       "line_width": null,
       "line_type": null
      },
@@ -835,7 +835,7 @@
      "train_number": "2835A",
      "settings": {
       "train_name": "特急",
-      "train_color": 2,
+      "train_color": 1,
       "line_width": null,
       "line_type": null
      },
@@ -866,7 +866,7 @@
      "train_number": "965A",
      "settings": {
       "train_name": "特急",
-      "train_color": 2,
+      "train_color": 1,
       "line_width": null,
       "line_type": null
      },
@@ -897,7 +897,7 @@
      "train_number": "967A",
      "settings": {
       "train_name": "特急",
-      "train_color": 2,
+      "train_color": 1,
       "line_width": null,
       "line_type": null
      },
@@ -928,7 +928,7 @@
      "train_number": "3873A",
      "settings": {
       "train_name": "特急",
-      "train_color": 2,
+      "train_color": 1,
       "line_width": null,
       "line_type": null
      },
@@ -959,7 +959,7 @@
      "train_number": "3807A",
      "settings": {
       "train_name": "特急",
-      "train_color": 2,
+      "train_color": 1,
       "line_width": null,
       "line_type": null
      },
@@ -990,7 +990,7 @@
      "train_number": "3811A",
      "settings": {
       "train_name": "特急",
-      "train_color": 2,
+      "train_color": 1,
       "line_width": null,
       "line_type": null
      },
@@ -1033,7 +1033,7 @@
      "train_number": "940A",
      "settings": {
       "train_name": "特急",
-      "train_color": 2,
+      "train_color": 1,
       "line_width": null,
       "line_type": null
      },
@@ -1064,7 +1064,7 @@
      "train_number": "2800A",
      "settings": {
       "train_name": "特急",
-      "train_color": 2,
+      "train_color": 1,
       "line_width": null,
       "line_type": null
      },
@@ -1095,7 +1095,7 @@
      "train_number": "942A",
      "settings": {
       "train_name": "特急",
-      "train_color": 2,
+      "train_color": 1,
       "line_width": null,
       "line_type": null
      },
@@ -1126,7 +1126,7 @@
      "train_number": "2802A",
      "settings": {
       "train_name": "特急",
-      "train_color": 2,
+      "train_color": 1,
       "line_width": null,
       "line_type": null
      },
@@ -1157,7 +1157,7 @@
      "train_number": "2804A",
      "settings": {
       "train_name": "特急",
-      "train_color": 2,
+      "train_color": 1,
       "line_width": null,
       "line_type": null
      },
@@ -1188,7 +1188,7 @@
      "train_number": "944A",
      "settings": {
       "train_name": "特急",
-      "train_color": 2,
+      "train_color": 1,
       "line_width": null,
       "line_type": null
      },
@@ -1219,7 +1219,7 @@
      "train_number": "2806A",
      "settings": {
       "train_name": "特急",
-      "train_color": 2,
+      "train_color": 1,
       "line_width": null,
       "line_type": null
      },
@@ -1250,7 +1250,7 @@
      "train_number": "2808A",
      "settings": {
       "train_name": "特急",
-      "train_color": 2,
+      "train_color": 1,
       "line_width": null,
       "line_type": null
      },
@@ -1281,7 +1281,7 @@
      "train_number": "2810A",
      "settings": {
       "train_name": "特急",
-      "train_color": 2,
+      "train_color": 1,
       "line_width": null,
       "line_type": null
      },
@@ -1312,7 +1312,7 @@
      "train_number": "2812A",
      "settings": {
       "train_name": "特急",
-      "train_color": 2,
+      "train_color": 1,
       "line_width": null,
       "line_type": null
      },
@@ -1343,7 +1343,7 @@
      "train_number": "2814A",
      "settings": {
       "train_name": "特急",
-      "train_color": 2,
+      "train_color": 1,
       "line_width": null,
       "line_type": null
      },
@@ -1374,7 +1374,7 @@
      "train_number": "2816A",
      "settings": {
       "train_name": "特急",
-      "train_color": 2,
+      "train_color": 1,
       "line_width": null,
       "line_type": null
      },
@@ -1405,7 +1405,7 @@
      "train_number": "872A",
      "settings": {
       "train_name": "特急",
-      "train_color": 2,
+      "train_color": 1,
       "line_width": null,
       "line_type": null
      },
@@ -1436,7 +1436,7 @@
      "train_number": "948A",
      "settings": {
       "train_name": "特急",
-      "train_color": 2,
+      "train_color": 1,
       "line_width": null,
       "line_type": null
      },
@@ -1467,7 +1467,7 @@
      "train_number": "950A",
      "settings": {
       "train_name": "特急",
-      "train_color": 2,
+      "train_color": 1,
       "line_width": null,
       "line_type": null
      },
@@ -1498,7 +1498,7 @@
      "train_number": "952A",
      "settings": {
       "train_name": "特急",
-      "train_color": 2,
+      "train_color": 1,
       "line_width": null,
       "line_type": null
      },
@@ -1529,7 +1529,7 @@
      "train_number": "954A",
      "settings": {
       "train_name": "特急",
-      "train_color": 2,
+      "train_color": 1,
       "line_width": null,
       "line_type": null
      },
@@ -1560,7 +1560,7 @@
      "train_number": "956A",
      "settings": {
       "train_name": "特急",
-      "train_color": 2,
+      "train_color": 1,
       "line_width": null,
       "line_type": null
      },
@@ -1591,7 +1591,7 @@
      "train_number": "958A",
      "settings": {
       "train_name": "特急",
-      "train_color": 2,
+      "train_color": 1,
       "line_width": null,
       "line_type": null
      },
@@ -1622,7 +1622,7 @@
      "train_number": "960A",
      "settings": {
       "train_name": "特急",
-      "train_color": 2,
+      "train_color": 1,
       "line_width": null,
       "line_type": null
      },
@@ -1653,7 +1653,7 @@
      "train_number": "962A",
      "settings": {
       "train_name": "特急",
-      "train_color": 2,
+      "train_color": 1,
       "line_width": null,
       "line_type": null
      },
@@ -1684,7 +1684,7 @@
      "train_number": "966A",
      "settings": {
       "train_name": "特急",
-      "train_color": 2,
+      "train_color": 1,
       "line_width": null,
       "line_type": null
      },
@@ -1715,7 +1715,7 @@
      "train_number": "2820A",
      "settings": {
       "train_name": "特急",
-      "train_color": 2,
+      "train_color": 1,
       "line_width": null,
       "line_type": null
      },
@@ -1746,7 +1746,7 @@
      "train_number": "2822A",
      "settings": {
       "train_name": "特急",
-      "train_color": 2,
+      "train_color": 1,
       "line_width": null,
       "line_type": null
      },
@@ -1777,7 +1777,7 @@
      "train_number": "2826A",
      "settings": {
       "train_name": "特急",
-      "train_color": 2,
+      "train_color": 1,
       "line_width": null,
       "line_type": null
      },
@@ -1808,7 +1808,7 @@
      "train_number": "2830A",
      "settings": {
       "train_name": "特急",
-      "train_color": 2,
+      "train_color": 1,
       "line_width": null,
       "line_type": null
      },
@@ -1839,7 +1839,7 @@
      "train_number": "2832A",
      "settings": {
       "train_name": "特急",
-      "train_color": 2,
+      "train_color": 1,
       "line_width": null,
       "line_type": null
      },
@@ -1870,7 +1870,7 @@
      "train_number": "2834A",
      "settings": {
       "train_name": "特急",
-      "train_color": 2,
+      "train_color": 1,
       "line_width": null,
       "line_type": null
      },
@@ -1901,7 +1901,7 @@
      "train_number": "3806A",
      "settings": {
       "train_name": "特急",
-      "train_color": 2,
+      "train_color": 1,
       "line_width": null,
       "line_type": null
      },
@@ -1932,7 +1932,7 @@
      "train_number": "3808A",
      "settings": {
       "train_name": "特急",
-      "train_color": 2,
+      "train_color": 1,
       "line_width": null,
       "line_type": null
      },
@@ -1963,7 +1963,7 @@
      "train_number": "3814A",
      "settings": {
       "train_name": "特急",
-      "train_color": 2,
+      "train_color": 1,
       "line_width": null,
       "line_type": null
      },
@@ -2139,7 +2139,7 @@
   "defaultStopSec": 60,
   "startSec": 0,
   "endSec": 86400,
-  "pxPerKm": 25,
+  "pxPerKm": 10,
   "pxPerMin": 25,
   "stationRange": {
    "start": 0,
@@ -2347,17 +2347,17 @@
    "stopRules": []
   },
   "trainColors": [
-   "#4650E3",
-   "#4650E3",
-   "#25D9F2",
-   "#19F278",
-   "#9AF20B",
-   "#F28800",
-   "#F23F00",
-   "#DB06F2",
-   "#000000",
-   "#787878",
-   "#693600"
+   "#1F5FD6",
+   "#1F5FD6",
+   "#5BB8F0",
+   "#F08300",
+   "#F5B400",
+   "#E8619A",
+   "#00A497",
+   "#62C9BE",
+   "#C8102E",
+   "#F2300F",
+   "#8E3FB5"
   ]
  }
 }

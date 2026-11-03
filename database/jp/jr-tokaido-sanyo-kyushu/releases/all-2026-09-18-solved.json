@@ -153878,7 +153878,7 @@
   "defaultStopSec": 60,
   "startSec": 0,
   "endSec": 86400,
-  "pxPerKm": 25,
+  "pxPerKm": 10,
   "pxPerMin": 25,
   "stationRange": {
    "start": 0,

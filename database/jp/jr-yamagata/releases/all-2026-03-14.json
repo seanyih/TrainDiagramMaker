@@ -284,7 +284,7 @@
      "train_number": "171M",
      "settings": {
       "train_name": "つばさ",
-      "train_color": 8
+      "train_color": 10
      },
      "origin": {
       "station_name": "",
@@ -337,7 +337,7 @@
      "train_number": "121B",
      "settings": {
       "train_name": "つばさ",
-      "train_color": 8
+      "train_color": 10
      },
      "origin": {
       "station_name": "郡山",
@@ -420,7 +420,7 @@
      "train_number": "123M",
      "settings": {
       "train_name": "つばさ",
-      "train_color": 8
+      "train_color": 10
      },
      "origin": {
       "station_name": "郡山",
@@ -485,7 +485,7 @@
      "train_number": "127M",
      "settings": {
       "train_name": "つばさ",
-      "train_color": 8
+      "train_color": 10
      },
      "origin": {
       "station_name": "郡山",
@@ -538,7 +538,7 @@
      "train_number": "129B",
      "settings": {
       "train_name": "つばさ",
-      "train_color": 8
+      "train_color": 10
      },
      "origin": {
       "station_name": "郡山",
@@ -585,7 +585,7 @@
      "train_number": "131M",
      "settings": {
       "train_name": "つばさ",
-      "train_color": 8
+      "train_color": 10
      },
      "origin": {
       "station_name": "大宮",
@@ -650,7 +650,7 @@
      "train_number": "133M",
      "settings": {
       "train_name": "つばさ",
-      "train_color": 8
+      "train_color": 10
      },
      "origin": {
       "station_name": "郡山",
@@ -727,7 +727,7 @@
      "train_number": "135M",
      "settings": {
       "train_name": "つばさ",
-      "train_color": 8
+      "train_color": 10
      },
      "origin": {
       "station_name": "郡山",
@@ -780,7 +780,7 @@
      "train_number": "137M",
      "settings": {
       "train_name": "つばさ",
-      "train_color": 8
+      "train_color": 10
      },
      "origin": {
       "station_name": "郡山",
@@ -857,7 +857,7 @@
      "train_number": "139B",
      "settings": {
       "train_name": "つばさ",
-      "train_color": 8
+      "train_color": 10
      },
      "origin": {
       "station_name": "郡山",
@@ -910,7 +910,7 @@
      "train_number": "141M",
      "settings": {
       "train_name": "つばさ",
-      "train_color": 8
+      "train_color": 10
      },
      "origin": {
       "station_name": "郡山",
@@ -987,7 +987,7 @@
      "train_number": "143M",
      "settings": {
       "train_name": "つばさ",
-      "train_color": 8
+      "train_color": 10
      },
      "origin": {
       "station_name": "郡山",
@@ -1040,7 +1040,7 @@
      "train_number": "145M",
      "settings": {
       "train_name": "つばさ",
-      "train_color": 8
+      "train_color": 10
      },
      "origin": {
       "station_name": "郡山",
@@ -1117,7 +1117,7 @@
      "train_number": "149M",
      "settings": {
       "train_name": "つばさ",
-      "train_color": 8
+      "train_color": 10
      },
      "origin": {
       "station_name": "郡山",
@@ -1170,7 +1170,7 @@
      "train_number": "153M",
      "settings": {
       "train_name": "つばさ",
-      "train_color": 8
+      "train_color": 10
      },
      "origin": {
       "station_name": "郡山",
@@ -1217,7 +1217,7 @@
      "train_number": "157M",
      "settings": {
       "train_name": "つばさ",
-      "train_color": 8
+      "train_color": 10
      },
      "origin": {
       "station_name": "郡山",
@@ -1282,7 +1282,7 @@
      "train_number": "159B",
      "settings": {
       "train_name": "つばさ",
-      "train_color": 8
+      "train_color": 10
      },
      "origin": {
       "station_name": "郡山",
@@ -1335,7 +1335,7 @@
      "train_number": "8177M",
      "settings": {
       "train_name": "つばさ(臨時)",
-      "train_color": 8
+      "train_color": 10
      },
      "origin": {
       "station_name": "郡山",
@@ -1418,7 +1418,7 @@
      "train_number": "9091B",
      "settings": {
       "train_name": "つばさ(臨時)",
-      "train_color": 8
+      "train_color": 10
      },
      "origin": {
       "station_name": "宇都宮",
@@ -1501,7 +1501,7 @@
      "train_number": "8195M",
      "settings": {
       "train_name": "つばさ(臨時)",
-      "train_color": 8
+      "train_color": 10
      },
      "origin": {
       "station_name": "郡山",
@@ -1554,7 +1554,7 @@
      "train_number": "8175M",
      "settings": {
       "train_name": "つばさ(臨時)",
-      "train_color": 8
+      "train_color": 10
      },
      "origin": {
       "station_name": "郡山",
@@ -1607,7 +1607,7 @@
      "train_number": "6069B",
      "settings": {
       "train_name": "つばさ(臨時)",
-      "train_color": 8
+      "train_color": 10
      },
      "origin": {
       "station_name": "宇都宮",
@@ -1660,7 +1660,7 @@
      "train_number": "9097B",
      "settings": {
       "train_name": "つばさ(臨時)",
-      "train_color": 8
+      "train_color": 10
      },
      "origin": {
       "station_name": "郡山",
@@ -1744,7 +1744,7 @@
      "train_number": "122M",
      "settings": {
       "train_name": "つばさ",
-      "train_color": 8
+      "train_color": 10
      },
      "origin": {
       "station_name": "",
@@ -1827,7 +1827,7 @@
      "train_number": "124M",
      "settings": {
       "train_name": "つばさ",
-      "train_color": 8
+      "train_color": 10
      },
      "origin": {
       "station_name": "",
@@ -1862,7 +1862,7 @@
      "train_number": "128M",
      "settings": {
       "train_name": "つばさ",
-      "train_color": 8
+      "train_color": 10
      },
      "origin": {
       "station_name": "",
@@ -1945,7 +1945,7 @@
      "train_number": "132M",
      "settings": {
       "train_name": "つばさ",
-      "train_color": 8
+      "train_color": 10
      },
      "origin": {
       "station_name": "",
@@ -1992,7 +1992,7 @@
      "train_number": "136B",
      "settings": {
       "train_name": "つばさ",
-      "train_color": 8
+      "train_color": 10
      },
      "origin": {
       "station_name": "",
@@ -2069,7 +2069,7 @@
      "train_number": "138M",
      "settings": {
       "train_name": "つばさ",
-      "train_color": 8
+      "train_color": 10
      },
      "origin": {
       "station_name": "",
@@ -2122,7 +2122,7 @@
      "train_number": "140M",
      "settings": {
       "train_name": "つばさ",
-      "train_color": 8
+      "train_color": 10
      },
      "origin": {
       "station_name": "",
@@ -2187,7 +2187,7 @@
      "train_number": "142M",
      "settings": {
       "train_name": "つばさ",
-      "train_color": 8
+      "train_color": 10
      },
      "origin": {
       "station_name": "",
@@ -2240,7 +2240,7 @@
      "train_number": "144M",
      "settings": {
       "train_name": "つばさ",
-      "train_color": 8
+      "train_color": 10
      },
      "origin": {
       "station_name": "",
@@ -2317,7 +2317,7 @@
      "train_number": "146M",
      "settings": {
       "train_name": "つばさ",
-      "train_color": 8
+      "train_color": 10
      },
      "origin": {
       "station_name": "",
@@ -2370,7 +2370,7 @@
      "train_number": "150M",
      "settings": {
       "train_name": "つばさ",
-      "train_color": 8
+      "train_color": 10
      },
      "origin": {
       "station_name": "",
@@ -2435,7 +2435,7 @@
      "train_number": "148B",
      "settings": {
       "train_name": "つばさ",
-      "train_color": 8
+      "train_color": 10
      },
      "origin": {
       "station_name": "",
@@ -2482,7 +2482,7 @@
      "train_number": "154M",
      "settings": {
       "train_name": "つばさ",
-      "train_color": 8
+      "train_color": 10
      },
      "origin": {
       "station_name": "",
@@ -2535,7 +2535,7 @@
      "train_number": "156M",
      "settings": {
       "train_name": "つばさ",
-      "train_color": 8
+      "train_color": 10
      },
      "origin": {
       "station_name": "",
@@ -2612,7 +2612,7 @@
      "train_number": "158B",
      "settings": {
       "train_name": "つばさ",
-      "train_color": 8
+      "train_color": 10
      },
      "origin": {
       "station_name": "",
@@ -2695,7 +2695,7 @@
      "train_number": "160B",
      "settings": {
       "train_name": "つばさ",
-      "train_color": 8
+      "train_color": 10
      },
      "origin": {
       "station_name": "",
@@ -2772,7 +2772,7 @@
      "train_number": "9086B",
      "settings": {
       "train_name": "つばさ(臨時)",
-      "train_color": 8
+      "train_color": 10
      },
      "origin": {
       "station_name": "",
@@ -2825,7 +2825,7 @@
      "train_number": "8188M",
      "settings": {
       "train_name": "つばさ(臨時)",
-      "train_color": 8
+      "train_color": 10
      },
      "origin": {
       "station_name": "",
@@ -2908,7 +2908,7 @@
      "train_number": "8192M",
      "settings": {
       "train_name": "つばさ(臨時)",
-      "train_color": 8
+      "train_color": 10
      },
      "origin": {
       "station_name": "",
@@ -2961,7 +2961,7 @@
      "train_number": "8172M",
      "settings": {
       "train_name": "つばさ(臨時)",
-      "train_color": 8
+      "train_color": 10
      },
      "origin": {
       "station_name": "",
@@ -3008,7 +3008,7 @@
      "train_number": "9074B",
      "settings": {
       "train_name": "つばさ(臨時)",
-      "train_color": 8
+      "train_color": 10
      },
      "origin": {
       "station_name": "",
@@ -3061,7 +3061,7 @@
      "train_number": "9076B",
      "settings": {
       "train_name": "つばさ(臨時)",
-      "train_color": 8
+      "train_color": 10
      },
      "origin": {
       "station_name": "",
@@ -3114,7 +3114,7 @@
      "train_number": "9088B",
      "settings": {
       "train_name": "つばさ(臨時)",
-      "train_color": 8
+      "train_color": 10
      },
      "origin": {
       "station_name": "",
@@ -3197,7 +3197,7 @@
      "train_number": "9090B",
      "settings": {
       "train_name": "つばさ(臨時)",
-      "train_color": 8
+      "train_color": 10
      },
      "origin": {
       "station_name": "",
@@ -3498,6 +3498,20 @@
      "station": null
     }
    ]
-  }
+  },
+  "pxPerKm": 10,
+  "trainColors": [
+   "#1F5FD6",
+   "#1F5FD6",
+   "#5BB8F0",
+   "#F08300",
+   "#F5B400",
+   "#E8619A",
+   "#00A497",
+   "#62C9BE",
+   "#C8102E",
+   "#F2300F",
+   "#8E3FB5"
+  ]
  }
 }

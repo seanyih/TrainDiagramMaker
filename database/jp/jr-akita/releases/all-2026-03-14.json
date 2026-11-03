@@ -258,7 +258,7 @@
      "train_number": "3095M",
      "settings": {
       "train_name": "こまち",
-      "train_color": 7
+      "train_color": 8
      },
      "origin": {
       "station_name": "新花巻",
@@ -305,7 +305,7 @@
      "train_number": "3001M",
      "settings": {
       "train_name": "こまち",
-      "train_color": 7
+      "train_color": 8
      },
      "origin": {
       "station_name": "仙台",
@@ -352,7 +352,7 @@
      "train_number": "3003M",
      "settings": {
       "train_name": "こまち",
-      "train_color": 7
+      "train_color": 8
      },
      "origin": {
       "station_name": "仙台",
@@ -399,7 +399,7 @@
      "train_number": "3007M",
      "settings": {
       "train_name": "こまち",
-      "train_color": 7
+      "train_color": 8
      },
      "origin": {
       "station_name": "仙台",
@@ -446,7 +446,7 @@
      "train_number": "3009M",
      "settings": {
       "train_name": "こまち",
-      "train_color": 7
+      "train_color": 8
      },
      "origin": {
       "station_name": "仙台",
@@ -499,7 +499,7 @@
      "train_number": "3015M",
      "settings": {
       "train_name": "こまち",
-      "train_color": 7
+      "train_color": 8
      },
      "origin": {
       "station_name": "仙台",
@@ -552,7 +552,7 @@
      "train_number": "3019M",
      "settings": {
       "train_name": "こまち",
-      "train_color": 7
+      "train_color": 8
      },
      "origin": {
       "station_name": "仙台",
@@ -599,7 +599,7 @@
      "train_number": "3023M",
      "settings": {
       "train_name": "こまち",
-      "train_color": 7
+      "train_color": 8
      },
      "origin": {
       "station_name": "仙台",
@@ -646,7 +646,7 @@
      "train_number": "3025M",
      "settings": {
       "train_name": "こまち",
-      "train_color": 7
+      "train_color": 8
      },
      "origin": {
       "station_name": "仙台",
@@ -693,7 +693,7 @@
      "train_number": "3027M",
      "settings": {
       "train_name": "こまち",
-      "train_color": 7
+      "train_color": 8
      },
      "origin": {
       "station_name": "仙台",
@@ -740,7 +740,7 @@
      "train_number": "3031M",
      "settings": {
       "train_name": "こまち",
-      "train_color": 7
+      "train_color": 8
      },
      "origin": {
       "station_name": "仙台",
@@ -793,7 +793,7 @@
      "train_number": "3033M",
      "settings": {
       "train_name": "こまち",
-      "train_color": 7
+      "train_color": 8
      },
      "origin": {
       "station_name": "仙台",
@@ -840,7 +840,7 @@
      "train_number": "3035M",
      "settings": {
       "train_name": "こまち",
-      "train_color": 7
+      "train_color": 8
      },
      "origin": {
       "station_name": "仙台",
@@ -887,7 +887,7 @@
      "train_number": "3037M",
      "settings": {
       "train_name": "こまち",
-      "train_color": 7
+      "train_color": 8
      },
      "origin": {
       "station_name": "仙台",
@@ -940,7 +940,7 @@
      "train_number": "3039M",
      "settings": {
       "train_name": "こまち",
-      "train_color": 7
+      "train_color": 8
      },
      "origin": {
       "station_name": "仙台",
@@ -987,7 +987,7 @@
      "train_number": "3041M",
      "settings": {
       "train_name": "こまち",
-      "train_color": 7
+      "train_color": 8
      },
      "origin": {
       "station_name": "仙台",
@@ -1022,7 +1022,7 @@
      "train_number": "5063M",
      "settings": {
       "train_name": "こまち(臨時)",
-      "train_color": 7
+      "train_color": 8
      },
      "origin": {
       "station_name": "仙台",
@@ -1069,7 +1069,7 @@
      "train_number": "3035M",
      "settings": {
       "train_name": "こまち",
-      "train_color": 7
+      "train_color": 8
      },
      "origin": {
       "station_name": "仙台",
@@ -1116,7 +1116,7 @@
      "train_number": "8065M",
      "settings": {
       "train_name": "こまち(臨時)",
-      "train_color": 7
+      "train_color": 8
      },
      "origin": {
       "station_name": "仙台",
@@ -1163,7 +1163,7 @@
      "train_number": "3037M",
      "settings": {
       "train_name": "こまち",
-      "train_color": 7
+      "train_color": 8
      },
      "origin": {
       "station_name": "仙台",
@@ -1216,7 +1216,7 @@
      "train_number": "3039M",
      "settings": {
       "train_name": "こまち",
-      "train_color": 7
+      "train_color": 8
      },
      "origin": {
       "station_name": "仙台",
@@ -1263,7 +1263,7 @@
      "train_number": "5051M",
      "settings": {
       "train_name": "こまち(臨時)",
-      "train_color": 7
+      "train_color": 8
      },
      "origin": {
       "station_name": "仙台",
@@ -1339,7 +1339,7 @@
      "train_number": "3006M",
      "settings": {
       "train_name": "こまち",
-      "train_color": 7
+      "train_color": 8
      },
      "origin": {
       "station_name": "",
@@ -1374,7 +1374,7 @@
      "train_number": "3010M",
      "settings": {
       "train_name": "こまち",
-      "train_color": 7
+      "train_color": 8
      },
      "origin": {
       "station_name": "",
@@ -1427,7 +1427,7 @@
      "train_number": "3012M",
      "settings": {
       "train_name": "こまち",
-      "train_color": 7
+      "train_color": 8
      },
      "origin": {
       "station_name": "",
@@ -1474,7 +1474,7 @@
      "train_number": "3014M",
      "settings": {
       "train_name": "こまち",
-      "train_color": 7
+      "train_color": 8
      },
      "origin": {
       "station_name": "",
@@ -1527,7 +1527,7 @@
      "train_number": "3016M",
      "settings": {
       "train_name": "こまち",
-      "train_color": 7
+      "train_color": 8
      },
      "origin": {
       "station_name": "",
@@ -1574,7 +1574,7 @@
      "train_number": "3018M",
      "settings": {
       "train_name": "こまち",
-      "train_color": 7
+      "train_color": 8
      },
      "origin": {
       "station_name": "",
@@ -1621,7 +1621,7 @@
      "train_number": "3020M",
      "settings": {
       "train_name": "こまち",
-      "train_color": 7
+      "train_color": 8
      },
      "origin": {
       "station_name": "",
@@ -1668,7 +1668,7 @@
      "train_number": "3024M",
      "settings": {
       "train_name": "こまち",
-      "train_color": 7
+      "train_color": 8
      },
      "origin": {
       "station_name": "",
@@ -1721,7 +1721,7 @@
      "train_number": "3028M",
      "settings": {
       "train_name": "こまち",
-      "train_color": 7
+      "train_color": 8
      },
      "origin": {
       "station_name": "",
@@ -1768,7 +1768,7 @@
      "train_number": "3032M",
      "settings": {
       "train_name": "こまち",
-      "train_color": 7
+      "train_color": 8
      },
      "origin": {
       "station_name": "",
@@ -1815,7 +1815,7 @@
      "train_number": "3034M",
      "settings": {
       "train_name": "こまち",
-      "train_color": 7
+      "train_color": 8
      },
      "origin": {
       "station_name": "",
@@ -1868,7 +1868,7 @@
      "train_number": "3036M",
      "settings": {
       "train_name": "こまち",
-      "train_color": 7
+      "train_color": 8
      },
      "origin": {
       "station_name": "",
@@ -1915,7 +1915,7 @@
      "train_number": "3038M",
      "settings": {
       "train_name": "こまち",
-      "train_color": 7
+      "train_color": 8
      },
      "origin": {
       "station_name": "",
@@ -1962,7 +1962,7 @@
      "train_number": "3042M",
      "settings": {
       "train_name": "こまち",
-      "train_color": 7
+      "train_color": 8
      },
      "origin": {
       "station_name": "",
@@ -2009,7 +2009,7 @@
      "train_number": "3044M",
      "settings": {
       "train_name": "こまち",
-      "train_color": 7
+      "train_color": 8
      },
      "origin": {
       "station_name": "",
@@ -2056,7 +2056,7 @@
      "train_number": "3096M",
      "settings": {
       "train_name": "こまち",
-      "train_color": 7
+      "train_color": 8
      },
      "origin": {
       "station_name": "",
@@ -2103,7 +2103,7 @@
      "train_number": "5026M",
      "settings": {
       "train_name": "こまち(臨時)",
-      "train_color": 7
+      "train_color": 8
      },
      "origin": {
       "station_name": "",
@@ -2150,7 +2150,7 @@
      "train_number": "3044M",
      "settings": {
       "train_name": "こまち",
-      "train_color": 7
+      "train_color": 8
      },
      "origin": {
       "station_name": "",
@@ -2197,7 +2197,7 @@
      "train_number": "3096M",
      "settings": {
       "train_name": "こまち",
-      "train_color": 7
+      "train_color": 8
      },
      "origin": {
       "station_name": "",
@@ -2244,7 +2244,7 @@
      "train_number": "3016M",
      "settings": {
       "train_name": "こまち",
-      "train_color": 7
+      "train_color": 8
      },
      "origin": {
       "station_name": "",
@@ -2447,6 +2447,20 @@
      "station": null
     }
    ]
-  }
+  },
+  "pxPerKm": 10,
+  "trainColors": [
+   "#1F5FD6",
+   "#1F5FD6",
+   "#5BB8F0",
+   "#F08300",
+   "#F5B400",
+   "#E8619A",
+   "#00A497",
+   "#62C9BE",
+   "#C8102E",
+   "#F2300F",
+   "#8E3FB5"
+  ]
  }
 }

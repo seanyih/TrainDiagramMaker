@@ -514,7 +514,7 @@
      "train_number": "1301C",
      "settings": {
       "train_name": "とき",
-      "train_color": 3,
+      "train_color": 5,
       "line_width": null,
       "line_type": null
      },
@@ -551,7 +551,7 @@
      "train_number": "121B",
      "settings": {
       "train_name": "つばさ",
-      "train_color": 8,
+      "train_color": 10,
       "line_width": null,
       "line_type": null
      },
@@ -606,7 +606,7 @@
      "train_number": "3501E",
      "settings": {
       "train_name": "かがやき",
-      "train_color": 6,
+      "train_color": 9,
       "line_width": null,
       "line_type": null
      },
@@ -728,7 +728,7 @@
      "train_number": "551E",
      "settings": {
       "train_name": "はくたか",
-      "train_color": 5,
+      "train_color": 4,
       "line_width": null,
       "line_type": null
      },
@@ -911,7 +911,7 @@
      "train_number": "3001M",
      "settings": {
       "train_name": "こまち",
-      "train_color": 7,
+      "train_color": 8,
       "line_width": null,
       "line_type": null
      },
@@ -960,7 +960,7 @@
      "train_number": "91B",
      "settings": {
       "train_name": "はやて",
-      "train_color": 5,
+      "train_color": 7,
       "line_width": null,
       "line_type": null
      },
@@ -1222,7 +1222,7 @@
      "train_number": "3095M",
      "settings": {
       "train_name": "こまち",
-      "train_color": 7,
+      "train_color": 8,
       "line_width": null,
       "line_type": null
      },
@@ -1289,7 +1289,7 @@
      "train_number": "601E",
      "settings": {
       "train_name": "あさま",
-      "train_color": 3,
+      "train_color": 2,
       "line_width": null,
       "line_type": null
      },
@@ -1326,7 +1326,7 @@
      "train_number": "93B",
      "settings": {
       "train_name": "はやて",
-      "train_color": 5,
+      "train_color": 7,
       "line_width": null,
       "line_type": null
      },
@@ -1448,7 +1448,7 @@
      "train_number": "303C",
      "settings": {
       "train_name": "とき",
-      "train_color": 3,
+      "train_color": 5,
       "line_width": null,
       "line_type": null
      },
@@ -1619,7 +1619,7 @@
      "train_number": "123M",
      "settings": {
       "train_name": "つばさ",
-      "train_color": 8,
+      "train_color": 10,
       "line_width": null,
       "line_type": null
      },
@@ -1771,7 +1771,7 @@
      "train_number": "3503E",
      "settings": {
       "train_name": "かがやき",
-      "train_color": 6,
+      "train_color": 9,
       "line_width": null,
       "line_type": null
      },
@@ -1802,7 +1802,7 @@
      "train_number": "603E",
      "settings": {
       "train_name": "あさま",
-      "train_color": 3,
+      "train_color": 2,
       "line_width": null,
       "line_type": null
      },
@@ -1839,7 +1839,7 @@
      "train_number": "8523E",
      "settings": {
       "train_name": "かがやき(臨時)",
-      "train_color": 6,
+      "train_color": 9,
       "line_width": null,
       "line_type": null
      },
@@ -1955,7 +1955,7 @@
      "train_number": "3003M",
      "settings": {
       "train_name": "こまち",
-      "train_color": 7,
+      "train_color": 8,
       "line_width": null,
       "line_type": null
      },
@@ -2230,7 +2230,7 @@
      "train_number": "305C",
      "settings": {
       "train_name": "とき",
-      "train_color": 3,
+      "train_color": 5,
       "line_width": null,
       "line_type": null
      },
@@ -2267,7 +2267,7 @@
      "train_number": "553E",
      "settings": {
       "train_name": "はくたか",
-      "train_color": 5,
+      "train_color": 4,
       "line_width": null,
       "line_type": null
      },
@@ -2487,7 +2487,7 @@
      "train_number": "127M",
      "settings": {
       "train_name": "つばさ",
-      "train_color": 8,
+      "train_color": 10,
       "line_width": null,
       "line_type": null
      },
@@ -2542,7 +2542,7 @@
      "train_number": "3505E",
      "settings": {
       "train_name": "かがやき",
-      "train_color": 6,
+      "train_color": 9,
       "line_width": null,
       "line_type": null
      },
@@ -2640,7 +2640,7 @@
      "train_number": "307C",
      "settings": {
       "train_name": "とき",
-      "train_color": 3,
+      "train_color": 5,
       "line_width": null,
       "line_type": null
      },
@@ -2744,7 +2744,7 @@
      "train_number": "8525E",
      "settings": {
       "train_name": "かがやき(臨時)",
-      "train_color": 6,
+      "train_color": 9,
       "line_width": null,
       "line_type": null
      },
@@ -2842,7 +2842,7 @@
      "train_number": "3007M",
      "settings": {
       "train_name": "こまち",
-      "train_color": 7,
+      "train_color": 8,
       "line_width": null,
       "line_type": null
      },
@@ -2891,7 +2891,7 @@
      "train_number": "555E",
      "settings": {
       "train_name": "はくたか",
-      "train_color": 5,
+      "train_color": 4,
       "line_width": null,
       "line_type": null
      },
@@ -3037,7 +3037,7 @@
      "train_number": "309C",
      "settings": {
       "train_name": "とき",
-      "train_color": 3,
+      "train_color": 5,
       "line_width": null,
       "line_type": null
      },
@@ -3135,7 +3135,7 @@
      "train_number": "129B",
      "settings": {
       "train_name": "つばさ",
-      "train_color": 8,
+      "train_color": 10,
       "line_width": null,
       "line_type": null
      },
@@ -3190,7 +3190,7 @@
      "train_number": "605E",
      "settings": {
       "train_name": "あさま",
-      "train_color": 3,
+      "train_color": 2,
       "line_width": null,
       "line_type": null
      },
@@ -3306,7 +3306,7 @@
      "train_number": "3009M",
      "settings": {
       "train_name": "こまち",
-      "train_color": 7,
+      "train_color": 8,
       "line_width": null,
       "line_type": null
      },
@@ -3355,7 +3355,7 @@
      "train_number": "1311C",
      "settings": {
       "train_name": "とき",
-      "train_color": 3,
+      "train_color": 5,
       "line_width": null,
       "line_type": null
      },
@@ -3453,7 +3453,7 @@
      "train_number": "3507E",
      "settings": {
       "train_name": "かがやき",
-      "train_color": 6,
+      "train_color": 9,
       "line_width": null,
       "line_type": null
      },
@@ -3533,7 +3533,7 @@
      "train_number": "131M",
      "settings": {
       "train_name": "つばさ",
-      "train_color": 8,
+      "train_color": 10,
       "line_width": null,
       "line_type": null
      },
@@ -3570,7 +3570,7 @@
      "train_number": "313C",
      "settings": {
       "train_name": "とき",
-      "train_color": 3,
+      "train_color": 5,
       "line_width": null,
       "line_type": null
      },
@@ -3607,7 +3607,7 @@
      "train_number": "557E",
      "settings": {
       "train_name": "はくたか",
-      "train_color": 5,
+      "train_color": 4,
       "line_width": null,
       "line_type": null
      },
@@ -3802,7 +3802,7 @@
      "train_number": "607E",
      "settings": {
       "train_name": "あさま",
-      "train_color": 3,
+      "train_color": 2,
       "line_width": null,
       "line_type": null
      },
@@ -3839,7 +3839,7 @@
      "train_number": "5527E",
      "settings": {
       "train_name": "かがやき(臨時)",
-      "train_color": 6,
+      "train_color": 9,
       "line_width": null,
       "line_type": null
      },
@@ -3943,7 +3943,7 @@
      "train_number": "133M",
      "settings": {
       "train_name": "つばさ",
-      "train_color": 8,
+      "train_color": 10,
       "line_width": null,
       "line_type": null
      },
@@ -4047,7 +4047,7 @@
      "train_number": "8635E",
      "settings": {
       "train_name": "あさま(臨時)",
-      "train_color": 3,
+      "train_color": 2,
       "line_width": null,
       "line_type": null
      },
@@ -4163,7 +4163,7 @@
      "train_number": "315C",
      "settings": {
       "train_name": "とき",
-      "train_color": 3,
+      "train_color": 5,
       "line_width": null,
       "line_type": null
      },
@@ -4267,7 +4267,7 @@
      "train_number": "3015M",
      "settings": {
       "train_name": "こまち",
-      "train_color": 7,
+      "train_color": 8,
       "line_width": null,
       "line_type": null
      },
@@ -4322,7 +4322,7 @@
      "train_number": "3509E",
      "settings": {
       "train_name": "かがやき",
-      "train_color": 6,
+      "train_color": 9,
       "line_width": null,
       "line_type": null
      },
@@ -4359,7 +4359,7 @@
      "train_number": "559E",
      "settings": {
       "train_name": "はくたか",
-      "train_color": 5,
+      "train_color": 4,
       "line_width": null,
       "line_type": null
      },
@@ -4499,7 +4499,7 @@
      "train_number": "1317C",
      "settings": {
       "train_name": "とき",
-      "train_color": 3,
+      "train_color": 5,
       "line_width": null,
       "line_type": null
      },
@@ -4688,7 +4688,7 @@
      "train_number": "135M",
      "settings": {
       "train_name": "つばさ",
-      "train_color": 8,
+      "train_color": 10,
       "line_width": null,
       "line_type": null
      },
@@ -4743,7 +4743,7 @@
      "train_number": "609E",
      "settings": {
       "train_name": "あさま",
-      "train_color": 3,
+      "train_color": 2,
       "line_width": null,
       "line_type": null
      },
@@ -4932,7 +4932,7 @@
      "train_number": "3019M",
      "settings": {
       "train_name": "こまち",
-      "train_color": 7,
+      "train_color": 8,
       "line_width": null,
       "line_type": null
      },
@@ -4987,7 +4987,7 @@
      "train_number": "561E",
      "settings": {
       "train_name": "はくたか",
-      "train_color": 5,
+      "train_color": 4,
       "line_width": null,
       "line_type": null
      },
@@ -5127,7 +5127,7 @@
      "train_number": "319C",
      "settings": {
       "train_name": "とき",
-      "train_color": 3,
+      "train_color": 5,
       "line_width": null,
       "line_type": null
      },
@@ -5164,7 +5164,7 @@
      "train_number": "8531E",
      "settings": {
       "train_name": "かがやき(臨時)",
-      "train_color": 6,
+      "train_color": 9,
       "line_width": null,
       "line_type": null
      },
@@ -5329,7 +5329,7 @@
      "train_number": "137M",
      "settings": {
       "train_name": "つばさ",
-      "train_color": 8,
+      "train_color": 10,
       "line_width": null,
       "line_type": null
      },
@@ -5384,7 +5384,7 @@
      "train_number": "611E",
      "settings": {
       "train_name": "あさま",
-      "train_color": 3,
+      "train_color": 2,
       "line_width": null,
       "line_type": null
      },
@@ -5579,7 +5579,7 @@
      "train_number": "3023M",
      "settings": {
       "train_name": "こまち",
-      "train_color": 7,
+      "train_color": 8,
       "line_width": null,
       "line_type": null
      },
@@ -5634,7 +5634,7 @@
      "train_number": "563E",
      "settings": {
       "train_name": "はくたか",
-      "train_color": 5,
+      "train_color": 4,
       "line_width": null,
       "line_type": null
      },
@@ -5780,7 +5780,7 @@
      "train_number": "1321C",
      "settings": {
       "train_name": "とき",
-      "train_color": 3,
+      "train_color": 5,
       "line_width": null,
       "line_type": null
      },
@@ -5817,7 +5817,7 @@
      "train_number": "139B",
      "settings": {
       "train_name": "つばさ",
-      "train_color": 8,
+      "train_color": 10,
       "line_width": null,
       "line_type": null
      },
@@ -5933,7 +5933,7 @@
      "train_number": "613E",
      "settings": {
       "train_name": "あさま",
-      "train_color": 3,
+      "train_color": 2,
       "line_width": null,
       "line_type": null
      },
@@ -6140,7 +6140,7 @@
      "train_number": "3025M",
      "settings": {
       "train_name": "こまち",
-      "train_color": 7,
+      "train_color": 8,
       "line_width": null,
       "line_type": null
      },
@@ -6195,7 +6195,7 @@
      "train_number": "565E",
      "settings": {
       "train_name": "はくたか",
-      "train_color": 5,
+      "train_color": 4,
       "line_width": null,
       "line_type": null
      },
@@ -6335,7 +6335,7 @@
      "train_number": "323C",
      "settings": {
       "train_name": "とき",
-      "train_color": 3,
+      "train_color": 5,
       "line_width": null,
       "line_type": null
      },
@@ -6439,7 +6439,7 @@
      "train_number": "141M",
      "settings": {
       "train_name": "つばさ",
-      "train_color": 8,
+      "train_color": 10,
       "line_width": null,
       "line_type": null
      },
@@ -6494,7 +6494,7 @@
      "train_number": "615E",
      "settings": {
       "train_name": "あさま",
-      "train_color": 3,
+      "train_color": 2,
       "line_width": null,
       "line_type": null
      },
@@ -6683,7 +6683,7 @@
      "train_number": "3027M",
      "settings": {
       "train_name": "こまち",
-      "train_color": 7,
+      "train_color": 8,
       "line_width": null,
       "line_type": null
      },
@@ -6738,7 +6738,7 @@
      "train_number": "567E",
      "settings": {
       "train_name": "はくたか",
-      "train_color": 5,
+      "train_color": 4,
       "line_width": null,
       "line_type": null
      },
@@ -6878,7 +6878,7 @@
      "train_number": "325C",
      "settings": {
       "train_name": "とき",
-      "train_color": 3,
+      "train_color": 5,
       "line_width": null,
       "line_type": null
      },
@@ -6982,7 +6982,7 @@
      "train_number": "8539E",
      "settings": {
       "train_name": "かがやき(臨時)",
-      "train_color": 6,
+      "train_color": 9,
       "line_width": null,
       "line_type": null
      },
@@ -7086,7 +7086,7 @@
      "train_number": "143M",
      "settings": {
       "train_name": "つばさ",
-      "train_color": 8,
+      "train_color": 10,
       "line_width": null,
       "line_type": null
      },
@@ -7141,7 +7141,7 @@
      "train_number": "617E",
      "settings": {
       "train_name": "あさま",
-      "train_color": 3,
+      "train_color": 2,
       "line_width": null,
       "line_type": null
      },
@@ -7348,7 +7348,7 @@
      "train_number": "3031M",
      "settings": {
       "train_name": "こまち",
-      "train_color": 7,
+      "train_color": 8,
       "line_width": null,
       "line_type": null
      },
@@ -7403,7 +7403,7 @@
      "train_number": "569E",
      "settings": {
       "train_name": "はくたか",
-      "train_color": 5,
+      "train_color": 4,
       "line_width": null,
       "line_type": null
      },
@@ -7549,7 +7549,7 @@
      "train_number": "1327C",
      "settings": {
       "train_name": "とき",
-      "train_color": 3,
+      "train_color": 5,
       "line_width": null,
       "line_type": null
      },
@@ -7659,7 +7659,7 @@
      "train_number": "619E",
      "settings": {
       "train_name": "あさま",
-      "train_color": 3,
+      "train_color": 2,
       "line_width": null,
       "line_type": null
      },
@@ -7763,7 +7763,7 @@
      "train_number": "145M",
      "settings": {
       "train_name": "つばさ",
-      "train_color": 8,
+      "train_color": 10,
       "line_width": null,
       "line_type": null
      },
@@ -7897,7 +7897,7 @@
      "train_number": "329C",
      "settings": {
       "train_name": "とき",
-      "train_color": 3,
+      "train_color": 5,
       "line_width": null,
       "line_type": null
      },
@@ -8013,7 +8013,7 @@
      "train_number": "3033M",
      "settings": {
       "train_name": "こまち",
-      "train_color": 7,
+      "train_color": 8,
       "line_width": null,
       "line_type": null
      },
@@ -8068,7 +8068,7 @@
      "train_number": "3511E",
      "settings": {
       "train_name": "かがやき",
-      "train_color": 6,
+      "train_color": 9,
       "line_width": null,
       "line_type": null
      },
@@ -8105,7 +8105,7 @@
      "train_number": "571E",
      "settings": {
       "train_name": "はくたか",
-      "train_color": 5,
+      "train_color": 4,
       "line_width": null,
       "line_type": null
      },
@@ -8203,7 +8203,7 @@
      "train_number": "331C",
      "settings": {
       "train_name": "とき",
-      "train_color": 3,
+      "train_color": 5,
       "line_width": null,
       "line_type": null
      },
@@ -8240,7 +8240,7 @@
      "train_number": "621E",
      "settings": {
       "train_name": "あさま",
-      "train_color": 3,
+      "train_color": 2,
       "line_width": null,
       "line_type": null
      },
@@ -8435,7 +8435,7 @@
      "train_number": "149M",
      "settings": {
       "train_name": "つばさ",
-      "train_color": 8,
+      "train_color": 10,
       "line_width": null,
       "line_type": null
      },
@@ -8490,7 +8490,7 @@
      "train_number": "333C",
      "settings": {
       "train_name": "とき",
-      "train_color": 3,
+      "train_color": 5,
       "line_width": null,
       "line_type": null
      },
@@ -8716,7 +8716,7 @@
      "train_number": "3035M",
      "settings": {
       "train_name": "こまち",
-      "train_color": 7,
+      "train_color": 8,
       "line_width": null,
       "line_type": null
      },
@@ -8765,7 +8765,7 @@
      "train_number": "3513E",
      "settings": {
       "train_name": "かがやき",
-      "train_color": 6,
+      "train_color": 9,
       "line_width": null,
       "line_type": null
      },
@@ -8869,7 +8869,7 @@
      "train_number": "1335C",
      "settings": {
       "train_name": "とき",
-      "train_color": 3,
+      "train_color": 5,
       "line_width": null,
       "line_type": null
      },
@@ -8973,7 +8973,7 @@
      "train_number": "623E",
      "settings": {
       "train_name": "あさま",
-      "train_color": 3,
+      "train_color": 2,
       "line_width": null,
       "line_type": null
      },
@@ -9199,7 +9199,7 @@
      "train_number": "153M",
      "settings": {
       "train_name": "つばさ",
-      "train_color": 8,
+      "train_color": 10,
       "line_width": null,
       "line_type": null
      },
@@ -9254,7 +9254,7 @@
      "train_number": "573E",
      "settings": {
       "train_name": "はくたか",
-      "train_color": 5,
+      "train_color": 4,
       "line_width": null,
       "line_type": null
      },
@@ -9346,7 +9346,7 @@
      "train_number": "337C",
      "settings": {
       "train_name": "とき",
-      "train_color": 3,
+      "train_color": 5,
       "line_width": null,
       "line_type": null
      },
@@ -9560,7 +9560,7 @@
      "train_number": "3037M",
      "settings": {
       "train_name": "こまち",
-      "train_color": 7,
+      "train_color": 8,
       "line_width": null,
       "line_type": null
      },
@@ -9609,7 +9609,7 @@
      "train_number": "3515E",
      "settings": {
       "train_name": "かがやき",
-      "train_color": 6,
+      "train_color": 9,
       "line_width": null,
       "line_type": null
      },
@@ -9823,7 +9823,7 @@
      "train_number": "625E",
      "settings": {
       "train_name": "あさま",
-      "train_color": 3,
+      "train_color": 2,
       "line_width": null,
       "line_type": null
      },
@@ -9860,7 +9860,7 @@
      "train_number": "1339C",
      "settings": {
       "train_name": "とき",
-      "train_color": 3,
+      "train_color": 5,
       "line_width": null,
       "line_type": null
      },
@@ -10037,7 +10037,7 @@
      "train_number": "575E",
      "settings": {
       "train_name": "はくたか",
-      "train_color": 5,
+      "train_color": 4,
       "line_width": null,
       "line_type": null
      },
@@ -10178,7 +10178,7 @@
      "train_number": "157M",
      "settings": {
       "train_name": "つばさ",
-      "train_color": 8,
+      "train_color": 10,
       "line_width": null,
       "line_type": null
      },
@@ -10306,7 +10306,7 @@
      "train_number": "3039M",
      "settings": {
       "train_name": "こまち",
-      "train_color": 7,
+      "train_color": 8,
       "line_width": null,
       "line_type": null
      },
@@ -10446,7 +10446,7 @@
      "train_number": "627E",
      "settings": {
       "train_name": "あさま",
-      "train_color": 3,
+      "train_color": 2,
       "line_width": null,
       "line_type": null
      },
@@ -10483,7 +10483,7 @@
      "train_number": "341C",
      "settings": {
       "train_name": "とき",
-      "train_color": 3,
+      "train_color": 5,
       "line_width": null,
       "line_type": null
      },
@@ -10697,7 +10697,7 @@
      "train_number": "3517E",
      "settings": {
       "train_name": "かがやき",
-      "train_color": 6,
+      "train_color": 9,
       "line_width": null,
       "line_type": null
      },
@@ -10837,7 +10837,7 @@
      "train_number": "577E",
      "settings": {
       "train_name": "はくたか",
-      "train_color": 5,
+      "train_color": 4,
       "line_width": null,
       "line_type": null
      },
@@ -10953,7 +10953,7 @@
      "train_number": "3041M",
      "settings": {
       "train_name": "こまち",
-      "train_color": 7,
+      "train_color": 8,
       "line_width": null,
       "line_type": null
      },
@@ -11002,7 +11002,7 @@
      "train_number": "343C",
      "settings": {
       "train_name": "とき",
-      "train_color": 3,
+      "train_color": 5,
       "line_width": null,
       "line_type": null
      },
@@ -11094,7 +11094,7 @@
      "train_number": "629E",
      "settings": {
       "train_name": "あさま",
-      "train_color": 3,
+      "train_color": 2,
       "line_width": null,
       "line_type": null
      },
@@ -11131,7 +11131,7 @@
      "train_number": "159B",
      "settings": {
       "train_name": "つばさ",
-      "train_color": 8,
+      "train_color": 10,
       "line_width": null,
       "line_type": null
      },
@@ -11247,7 +11247,7 @@
      "train_number": "345C",
      "settings": {
       "train_name": "とき",
-      "train_color": 3,
+      "train_color": 5,
       "line_width": null,
       "line_type": null
      },
@@ -11363,7 +11363,7 @@
      "train_number": "3519E",
      "settings": {
       "train_name": "かがやき",
-      "train_color": 6,
+      "train_color": 9,
       "line_width": null,
       "line_type": null
      },
@@ -11400,7 +11400,7 @@
      "train_number": "347C",
      "settings": {
       "train_name": "とき",
-      "train_color": 3,
+      "train_color": 5,
       "line_width": null,
       "line_type": null
      },
@@ -11510,7 +11510,7 @@
      "train_number": "631E",
      "settings": {
       "train_name": "あさま",
-      "train_color": 3,
+      "train_color": 2,
       "line_width": null,
       "line_type": null
      },
@@ -11731,7 +11731,7 @@
      "train_number": "633E",
      "settings": {
       "train_name": "あさま",
-      "train_color": 3,
+      "train_color": 2,
       "line_width": null,
       "line_type": null
      },
@@ -12000,7 +12000,7 @@
      "train_number": "1301C",
      "settings": {
       "train_name": "とき",
-      "train_color": 3,
+      "train_color": 5,
       "line_width": null,
       "line_type": null
      },
@@ -12037,7 +12037,7 @@
      "train_number": "121B",
      "settings": {
       "train_name": "つばさ",
-      "train_color": 8,
+      "train_color": 10,
       "line_width": null,
       "line_type": null
      },
@@ -12092,7 +12092,7 @@
      "train_number": "3501E",
      "settings": {
       "train_name": "かがやき",
-      "train_color": 6,
+      "train_color": 9,
       "line_width": null,
       "line_type": null
      },
@@ -12214,7 +12214,7 @@
      "train_number": "551E",
      "settings": {
       "train_name": "はくたか",
-      "train_color": 5,
+      "train_color": 4,
       "line_width": null,
       "line_type": null
      },
@@ -12367,7 +12367,7 @@
      "train_number": "601E",
      "settings": {
       "train_name": "あさま",
-      "train_color": 3,
+      "train_color": 2,
       "line_width": null,
       "line_type": null
      },
@@ -12459,7 +12459,7 @@
      "train_number": "303C",
      "settings": {
       "train_name": "とき",
-      "train_color": 3,
+      "train_color": 5,
       "line_width": null,
       "line_type": null
      },
@@ -12593,7 +12593,7 @@
      "train_number": "603E",
      "settings": {
       "train_name": "あさま",
-      "train_color": 3,
+      "train_color": 2,
       "line_width": null,
       "line_type": null
      },
@@ -12813,7 +12813,7 @@
      "train_number": "305C",
      "settings": {
       "train_name": "とき",
-      "train_color": 3,
+      "train_color": 5,
       "line_width": null,
       "line_type": null
      },
@@ -12850,7 +12850,7 @@
      "train_number": "553E",
      "settings": {
       "train_name": "はくたか",
-      "train_color": 5,
+      "train_color": 4,
       "line_width": null,
       "line_type": null
      },
@@ -13009,7 +13009,7 @@
      "train_number": "3505E",
      "settings": {
       "train_name": "かがやき",
-      "train_color": 6,
+      "train_color": 9,
       "line_width": null,
       "line_type": null
      },
@@ -13046,7 +13046,7 @@
      "train_number": "307C",
      "settings": {
       "train_name": "とき",
-      "train_color": 3,
+      "train_color": 5,
       "line_width": null,
       "line_type": null
      },
@@ -13150,7 +13150,7 @@
      "train_number": "8525E",
      "settings": {
       "train_name": "かがやき(臨時)",
-      "train_color": 6,
+      "train_color": 9,
       "line_width": null,
       "line_type": null
      },
@@ -13187,7 +13187,7 @@
      "train_number": "555E",
      "settings": {
       "train_name": "はくたか",
-      "train_color": 5,
+      "train_color": 4,
       "line_width": null,
       "line_type": null
      },
@@ -13333,7 +13333,7 @@
      "train_number": "309C",
      "settings": {
       "train_name": "とき",
-      "train_color": 3,
+      "train_color": 5,
       "line_width": null,
       "line_type": null
      },
@@ -13431,7 +13431,7 @@
      "train_number": "129B",
      "settings": {
       "train_name": "つばさ",
-      "train_color": 8,
+      "train_color": 10,
       "line_width": null,
       "line_type": null
      },
@@ -13486,7 +13486,7 @@
      "train_number": "605E",
      "settings": {
       "train_name": "あさま",
-      "train_color": 3,
+      "train_color": 2,
       "line_width": null,
       "line_type": null
      },
@@ -13590,7 +13590,7 @@
      "train_number": "3507E",
      "settings": {
       "train_name": "かがやき",
-      "train_color": 6,
+      "train_color": 9,
       "line_width": null,
       "line_type": null
      },
@@ -13627,7 +13627,7 @@
      "train_number": "313C",
      "settings": {
       "train_name": "とき",
-      "train_color": 3,
+      "train_color": 5,
       "line_width": null,
       "line_type": null
      },
@@ -13664,7 +13664,7 @@
      "train_number": "557E",
      "settings": {
       "train_name": "はくたか",
-      "train_color": 5,
+      "train_color": 4,
       "line_width": null,
       "line_type": null
      },
@@ -13804,7 +13804,7 @@
      "train_number": "607E",
      "settings": {
       "train_name": "あさま",
-      "train_color": 3,
+      "train_color": 2,
       "line_width": null,
       "line_type": null
      },
@@ -13841,7 +13841,7 @@
      "train_number": "5527E",
      "settings": {
       "train_name": "かがやき(臨時)",
-      "train_color": 6,
+      "train_color": 9,
       "line_width": null,
       "line_type": null
      },
@@ -13927,7 +13927,7 @@
      "train_number": "8635E",
      "settings": {
       "train_name": "あさま(臨時)",
-      "train_color": 3,
+      "train_color": 2,
       "line_width": null,
       "line_type": null
      },
@@ -14043,7 +14043,7 @@
      "train_number": "315C",
      "settings": {
       "train_name": "とき",
-      "train_color": 3,
+      "train_color": 5,
       "line_width": null,
       "line_type": null
      },
@@ -14080,7 +14080,7 @@
      "train_number": "3509E",
      "settings": {
       "train_name": "かがやき",
-      "train_color": 6,
+      "train_color": 9,
       "line_width": null,
       "line_type": null
      },
@@ -14117,7 +14117,7 @@
      "train_number": "559E",
      "settings": {
       "train_name": "はくたか",
-      "train_color": 5,
+      "train_color": 4,
       "line_width": null,
       "line_type": null
      },
@@ -14257,7 +14257,7 @@
      "train_number": "1317C",
      "settings": {
       "train_name": "とき",
-      "train_color": 3,
+      "train_color": 5,
       "line_width": null,
       "line_type": null
      },
@@ -14379,7 +14379,7 @@
      "train_number": "609E",
      "settings": {
       "train_name": "あさま",
-      "train_color": 3,
+      "train_color": 2,
       "line_width": null,
       "line_type": null
      },
@@ -14483,7 +14483,7 @@
      "train_number": "561E",
      "settings": {
       "train_name": "はくたか",
-      "train_color": 5,
+      "train_color": 4,
       "line_width": null,
       "line_type": null
      },
@@ -14623,7 +14623,7 @@
      "train_number": "319C",
      "settings": {
       "train_name": "とき",
-      "train_color": 3,
+      "train_color": 5,
       "line_width": null,
       "line_type": null
      },
@@ -14660,7 +14660,7 @@
      "train_number": "8531E",
      "settings": {
       "train_name": "かがやき(臨時)",
-      "train_color": 6,
+      "train_color": 9,
       "line_width": null,
       "line_type": null
      },
@@ -14758,7 +14758,7 @@
      "train_number": "611E",
      "settings": {
       "train_name": "あさま",
-      "train_color": 3,
+      "train_color": 2,
       "line_width": null,
       "line_type": null
      },
@@ -14874,7 +14874,7 @@
      "train_number": "563E",
      "settings": {
       "train_name": "はくたか",
-      "train_color": 5,
+      "train_color": 4,
       "line_width": null,
       "line_type": null
      },
@@ -15020,7 +15020,7 @@
      "train_number": "1321C",
      "settings": {
       "train_name": "とき",
-      "train_color": 3,
+      "train_color": 5,
       "line_width": null,
       "line_type": null
      },
@@ -15057,7 +15057,7 @@
      "train_number": "613E",
      "settings": {
       "train_name": "あさま",
-      "train_color": 3,
+      "train_color": 2,
       "line_width": null,
       "line_type": null
      },
@@ -15161,7 +15161,7 @@
      "train_number": "565E",
      "settings": {
       "train_name": "はくたか",
-      "train_color": 5,
+      "train_color": 4,
       "line_width": null,
       "line_type": null
      },
@@ -15301,7 +15301,7 @@
      "train_number": "323C",
      "settings": {
       "train_name": "とき",
-      "train_color": 3,
+      "train_color": 5,
       "line_width": null,
       "line_type": null
      },
@@ -15338,7 +15338,7 @@
      "train_number": "615E",
      "settings": {
       "train_name": "あさま",
-      "train_color": 3,
+      "train_color": 2,
       "line_width": null,
       "line_type": null
      },
@@ -15454,7 +15454,7 @@
      "train_number": "567E",
      "settings": {
       "train_name": "はくたか",
-      "train_color": 5,
+      "train_color": 4,
       "line_width": null,
       "line_type": null
      },
@@ -15594,7 +15594,7 @@
      "train_number": "325C",
      "settings": {
       "train_name": "とき",
-      "train_color": 3,
+      "train_color": 5,
       "line_width": null,
       "line_type": null
      },
@@ -15698,7 +15698,7 @@
      "train_number": "8539E",
      "settings": {
       "train_name": "かがやき(臨時)",
-      "train_color": 6,
+      "train_color": 9,
       "line_width": null,
       "line_type": null
      },
@@ -15735,7 +15735,7 @@
      "train_number": "617E",
      "settings": {
       "train_name": "あさま",
-      "train_color": 3,
+      "train_color": 2,
       "line_width": null,
       "line_type": null
      },
@@ -15839,7 +15839,7 @@
      "train_number": "569E",
      "settings": {
       "train_name": "はくたか",
-      "train_color": 5,
+      "train_color": 4,
       "line_width": null,
       "line_type": null
      },
@@ -15985,7 +15985,7 @@
      "train_number": "1327C",
      "settings": {
       "train_name": "とき",
-      "train_color": 3,
+      "train_color": 5,
       "line_width": null,
       "line_type": null
      },
@@ -16065,7 +16065,7 @@
      "train_number": "619E",
      "settings": {
       "train_name": "あさま",
-      "train_color": 3,
+      "train_color": 2,
       "line_width": null,
       "line_type": null
      },
@@ -16181,7 +16181,7 @@
      "train_number": "329C",
      "settings": {
       "train_name": "とき",
-      "train_color": 3,
+      "train_color": 5,
       "line_width": null,
       "line_type": null
      },
@@ -16218,7 +16218,7 @@
      "train_number": "3511E",
      "settings": {
       "train_name": "かがやき",
-      "train_color": 6,
+      "train_color": 9,
       "line_width": null,
       "line_type": null
      },
@@ -16255,7 +16255,7 @@
      "train_number": "571E",
      "settings": {
       "train_name": "はくたか",
-      "train_color": 5,
+      "train_color": 4,
       "line_width": null,
       "line_type": null
      },
@@ -16353,7 +16353,7 @@
      "train_number": "331C",
      "settings": {
       "train_name": "とき",
-      "train_color": 3,
+      "train_color": 5,
       "line_width": null,
       "line_type": null
      },
@@ -16390,7 +16390,7 @@
      "train_number": "621E",
      "settings": {
       "train_name": "あさま",
-      "train_color": 3,
+      "train_color": 2,
       "line_width": null,
       "line_type": null
      },
@@ -16518,7 +16518,7 @@
      "train_number": "333C",
      "settings": {
       "train_name": "とき",
-      "train_color": 3,
+      "train_color": 5,
       "line_width": null,
       "line_type": null
      },
@@ -16647,7 +16647,7 @@
      "train_number": "3513E",
      "settings": {
       "train_name": "かがやき",
-      "train_color": 6,
+      "train_color": 9,
       "line_width": null,
       "line_type": null
      },
@@ -16751,7 +16751,7 @@
      "train_number": "1335C",
      "settings": {
       "train_name": "とき",
-      "train_color": 3,
+      "train_color": 5,
       "line_width": null,
       "line_type": null
      },
@@ -16855,7 +16855,7 @@
      "train_number": "623E",
      "settings": {
       "train_name": "あさま",
-      "train_color": 3,
+      "train_color": 2,
       "line_width": null,
       "line_type": null
      },
@@ -17014,7 +17014,7 @@
      "train_number": "573E",
      "settings": {
       "train_name": "はくたか",
-      "train_color": 5,
+      "train_color": 4,
       "line_width": null,
       "line_type": null
      },
@@ -17106,7 +17106,7 @@
      "train_number": "337C",
      "settings": {
       "train_name": "とき",
-      "train_color": 3,
+      "train_color": 5,
       "line_width": null,
       "line_type": null
      },
@@ -17180,7 +17180,7 @@
      "train_number": "3515E",
      "settings": {
       "train_name": "かがやき",
-      "train_color": 6,
+      "train_color": 9,
       "line_width": null,
       "line_type": null
      },
@@ -17394,7 +17394,7 @@
      "train_number": "625E",
      "settings": {
       "train_name": "あさま",
-      "train_color": 3,
+      "train_color": 2,
       "line_width": null,
       "line_type": null
      },
@@ -17431,7 +17431,7 @@
      "train_number": "1339C",
      "settings": {
       "train_name": "とき",
-      "train_color": 3,
+      "train_color": 5,
       "line_width": null,
       "line_type": null
      },
@@ -17608,7 +17608,7 @@
      "train_number": "575E",
      "settings": {
       "train_name": "はくたか",
-      "train_color": 5,
+      "train_color": 4,
       "line_width": null,
       "line_type": null
      },
@@ -17767,7 +17767,7 @@
      "train_number": "627E",
      "settings": {
       "train_name": "あさま",
-      "train_color": 3,
+      "train_color": 2,
       "line_width": null,
       "line_type": null
      },
@@ -17804,7 +17804,7 @@
      "train_number": "341C",
      "settings": {
       "train_name": "とき",
-      "train_color": 3,
+      "train_color": 5,
       "line_width": null,
       "line_type": null
      },
@@ -18018,7 +18018,7 @@
      "train_number": "3517E",
      "settings": {
       "train_name": "かがやき",
-      "train_color": 6,
+      "train_color": 9,
       "line_width": null,
       "line_type": null
      },
@@ -18158,7 +18158,7 @@
      "train_number": "577E",
      "settings": {
       "train_name": "はくたか",
-      "train_color": 5,
+      "train_color": 4,
       "line_width": null,
       "line_type": null
      },
@@ -18195,7 +18195,7 @@
      "train_number": "343C",
      "settings": {
       "train_name": "とき",
-      "train_color": 3,
+      "train_color": 5,
       "line_width": null,
       "line_type": null
      },
@@ -18287,7 +18287,7 @@
      "train_number": "629E",
      "settings": {
       "train_name": "あさま",
-      "train_color": 3,
+      "train_color": 2,
       "line_width": null,
       "line_type": null
      },
@@ -18324,7 +18324,7 @@
      "train_number": "345C",
      "settings": {
       "train_name": "とき",
-      "train_color": 3,
+      "train_color": 5,
       "line_width": null,
       "line_type": null
      },
@@ -18440,7 +18440,7 @@
      "train_number": "3519E",
      "settings": {
       "train_name": "かがやき",
-      "train_color": 6,
+      "train_color": 9,
       "line_width": null,
       "line_type": null
      },
@@ -18477,7 +18477,7 @@
      "train_number": "347C",
      "settings": {
       "train_name": "とき",
-      "train_color": 3,
+      "train_color": 5,
       "line_width": null,
       "line_type": null
      },
@@ -18587,7 +18587,7 @@
      "train_number": "631E",
      "settings": {
       "train_name": "あさま",
-      "train_color": 3,
+      "train_color": 2,
       "line_width": null,
       "line_type": null
      },
@@ -18771,7 +18771,7 @@
      "train_number": "633E",
      "settings": {
       "train_name": "あさま",
-      "train_color": 3,
+      "train_color": 2,
       "line_width": null,
       "line_type": null
      },
@@ -19065,7 +19065,7 @@
      "train_number": "9645E",
      "settings": {
       "train_name": "はくたか(臨時)",
-      "train_color": 5,
+      "train_color": 4,
       "line_width": null,
       "line_type": null
      },
@@ -19321,7 +19321,7 @@
      "train_number": "8523E",
      "settings": {
       "train_name": "かがやき(臨時)",
-      "train_color": 6,
+      "train_color": 9,
       "line_width": null,
       "line_type": null
      },
@@ -19553,7 +19553,7 @@
      "train_number": "8177M",
      "settings": {
       "train_name": "つばさ(臨時)",
-      "train_color": 8,
+      "train_color": 10,
       "line_width": null,
       "line_type": null
      },
@@ -19608,7 +19608,7 @@
      "train_number": "8063C",
      "settings": {
       "train_name": "とき(臨時)",
-      "train_color": 3,
+      "train_color": 5,
       "line_width": null,
       "line_type": null
      },
@@ -19645,7 +19645,7 @@
      "train_number": "8635E",
      "settings": {
       "train_name": "あさま(臨時)",
-      "train_color": 3,
+      "train_color": 2,
       "line_width": null,
       "line_type": null
      },
@@ -19986,7 +19986,7 @@
      "train_number": "8077C",
      "settings": {
       "train_name": "とき(臨時)",
-      "train_color": 3,
+      "train_color": 5,
       "line_width": null,
       "line_type": null
      },
@@ -20084,7 +20084,7 @@
      "train_number": "8537E",
      "settings": {
       "train_name": "かがやき(臨時)",
-      "train_color": 6,
+      "train_color": 9,
       "line_width": null,
       "line_type": null
      },
@@ -20267,7 +20267,7 @@
      "train_number": "9035C",
      "settings": {
       "train_name": "とき(臨時)",
-      "train_color": 3,
+      "train_color": 5,
       "line_width": null,
       "line_type": null
      },
@@ -20377,7 +20377,7 @@
      "train_number": "8541E",
      "settings": {
       "train_name": "かがやき(臨時)",
-      "train_color": 6,
+      "train_color": 9,
       "line_width": null,
       "line_type": null
      },
@@ -20566,7 +20566,7 @@
      "train_number": "5063M",
      "settings": {
       "train_name": "こまち(臨時)",
-      "train_color": 7,
+      "train_color": 8,
       "line_width": null,
       "line_type": null
      },
@@ -20621,7 +20621,7 @@
      "train_number": "9091B",
      "settings": {
       "train_name": "つばさ(臨時)",
-      "train_color": 8,
+      "train_color": 10,
       "line_width": null,
       "line_type": null
      },
@@ -20670,7 +20670,7 @@
      "train_number": "5543E",
      "settings": {
       "train_name": "かがやき(臨時)",
-      "train_color": 6,
+      "train_color": 9,
       "line_width": null,
       "line_type": null
      },
@@ -20902,7 +20902,7 @@
      "train_number": "8065M",
      "settings": {
       "train_name": "こまち(臨時)",
-      "train_color": 7,
+      "train_color": 8,
       "line_width": null,
       "line_type": null
      },
@@ -21292,7 +21292,7 @@
      "train_number": "8195M",
      "settings": {
       "train_name": "つばさ(臨時)",
-      "train_color": 8,
+      "train_color": 10,
       "line_width": null,
       "line_type": null
      },
@@ -21402,7 +21402,7 @@
      "train_number": "3039M",
      "settings": {
       "train_name": "こまち",
-      "train_color": 7,
+      "train_color": 8,
       "line_width": null,
       "line_type": null
      },
@@ -21457,7 +21457,7 @@
      "train_number": "8547E",
      "settings": {
       "train_name": "かがやき(臨時)",
-      "train_color": 6,
+      "train_color": 9,
       "line_width": null,
       "line_type": null
      },
@@ -21634,7 +21634,7 @@
      "train_number": "9041C",
      "settings": {
       "train_name": "とき(臨時)",
-      "train_color": 3,
+      "train_color": 5,
       "line_width": null,
       "line_type": null
      },
@@ -21671,7 +21671,7 @@
      "train_number": "9667E",
      "settings": {
       "train_name": "あさま(臨時)",
-      "train_color": 3,
+      "train_color": 2,
       "line_width": null,
       "line_type": null
      },
@@ -22238,7 +22238,7 @@
      "train_number": "8521E",
      "settings": {
       "train_name": "かがやき(臨時)",
-      "train_color": 6,
+      "train_color": 9,
       "line_width": null,
       "line_type": null
      },
@@ -22330,7 +22330,7 @@
      "train_number": "9401C",
      "settings": {
       "train_name": "とき(臨時)",
-      "train_color": 3,
+      "train_color": 5,
       "line_width": null,
       "line_type": null
      },
@@ -22513,7 +22513,7 @@
      "train_number": "5051M",
      "settings": {
       "train_name": "こまち(臨時)",
-      "train_color": 7,
+      "train_color": 8,
       "line_width": null,
       "line_type": null
      },
@@ -22568,7 +22568,7 @@
      "train_number": "9471C",
      "settings": {
       "train_name": "とき(臨時)",
-      "train_color": 3,
+      "train_color": 5,
       "line_width": null,
       "line_type": null
      },
@@ -22745,7 +22745,7 @@
      "train_number": "8175M",
      "settings": {
       "train_name": "つばさ(臨時)",
-      "train_color": 8,
+      "train_color": 10,
       "line_width": null,
       "line_type": null
      },
@@ -22861,7 +22861,7 @@
      "train_number": "8663E",
      "settings": {
       "train_name": "はくたか(臨時)",
-      "train_color": 5,
+      "train_color": 4,
       "line_width": null,
       "line_type": null
      },
@@ -22892,7 +22892,7 @@
      "train_number": "9653E",
      "settings": {
       "train_name": "あさま(臨時)",
-      "train_color": 3,
+      "train_color": 2,
       "line_width": null,
       "line_type": null
      },
@@ -22929,7 +22929,7 @@
      "train_number": "8581E",
      "settings": {
       "train_name": "かがやき(臨時)",
-      "train_color": 6,
+      "train_color": 9,
       "line_width": null,
       "line_type": null
      },
@@ -23075,7 +23075,7 @@
      "train_number": "129B",
      "settings": {
       "train_name": "つばさ",
-      "train_color": 8,
+      "train_color": 10,
       "line_width": null,
       "line_type": null
      },
@@ -23507,7 +23507,7 @@
      "train_number": "9595E",
      "settings": {
       "train_name": "はくたか(臨時)",
-      "train_color": 5,
+      "train_color": 4,
       "line_width": null,
       "line_type": null
      },
@@ -23732,7 +23732,7 @@
      "train_number": "5529E",
      "settings": {
       "train_name": "かがやき(臨時)",
-      "train_color": 6,
+      "train_color": 9,
       "line_width": null,
       "line_type": null
      },
@@ -23769,7 +23769,7 @@
      "train_number": "8067C",
      "settings": {
       "train_name": "とき(臨時)",
-      "train_color": 3,
+      "train_color": 5,
       "line_width": null,
       "line_type": null
      },
@@ -23806,7 +23806,7 @@
      "train_number": "8637E",
      "settings": {
       "train_name": "あさま(臨時)",
-      "train_color": 3,
+      "train_color": 2,
       "line_width": null,
       "line_type": null
      },
@@ -23952,7 +23952,7 @@
      "train_number": "8533E",
      "settings": {
       "train_name": "かがやき(臨時)",
-      "train_color": 6,
+      "train_color": 9,
       "line_width": null,
       "line_type": null
      },
@@ -24929,7 +24929,7 @@
      "train_number": "5559E",
      "settings": {
       "train_name": "はくたか(臨時)",
-      "train_color": 5,
+      "train_color": 4,
       "line_width": null,
       "line_type": null
      },
@@ -25069,7 +25069,7 @@
      "train_number": "5639E",
      "settings": {
       "train_name": "はくたか(臨時)",
-      "train_color": 5,
+      "train_color": 4,
       "line_width": null,
       "line_type": null
      },
@@ -25421,7 +25421,7 @@
      "train_number": "6069B",
      "settings": {
       "train_name": "つばさ(臨時)",
-      "train_color": 8,
+      "train_color": 10,
       "line_width": null,
       "line_type": null
      },
@@ -25470,7 +25470,7 @@
      "train_number": "9091B",
      "settings": {
       "train_name": "つばさ(臨時)",
-      "train_color": 8,
+      "train_color": 10,
       "line_width": null,
       "line_type": null
      },
@@ -25610,7 +25610,7 @@
      "train_number": "8543E",
      "settings": {
       "train_name": "かがやき(臨時)",
-      "train_color": 6,
+      "train_color": 9,
       "line_width": null,
       "line_type": null
      },
@@ -25817,7 +25817,7 @@
      "train_number": "5585E",
      "settings": {
       "train_name": "かがやき(臨時)",
-      "train_color": 6,
+      "train_color": 9,
       "line_width": null,
       "line_type": null
      },
@@ -25854,7 +25854,7 @@
      "train_number": "9097B",
      "settings": {
       "train_name": "つばさ(臨時)",
-      "train_color": 8,
+      "train_color": 10,
       "line_width": null,
       "line_type": null
      },
@@ -27358,7 +27358,7 @@
      "train_number": "600E",
      "settings": {
       "train_name": "あさま",
-      "train_color": 3,
+      "train_color": 2,
       "line_width": null,
       "line_type": null
      },
@@ -27718,7 +27718,7 @@
      "train_number": "602E",
      "settings": {
       "train_name": "あさま",
-      "train_color": 3,
+      "train_color": 2,
       "line_width": null,
       "line_type": null
      },
@@ -27804,7 +27804,7 @@
      "train_number": "3006M",
      "settings": {
       "train_name": "こまち",
-      "train_color": 7,
+      "train_color": 8,
       "line_width": null,
       "line_type": null
      },
@@ -27938,7 +27938,7 @@
      "train_number": "122M",
      "settings": {
       "train_name": "つばさ",
-      "train_color": 8,
+      "train_color": 10,
       "line_width": null,
       "line_type": null
      },
@@ -28036,7 +28036,7 @@
      "train_number": "300C",
      "settings": {
       "train_name": "とき",
-      "train_color": 3,
+      "train_color": 5,
       "line_width": null,
       "line_type": null
      },
@@ -28110,7 +28110,7 @@
      "train_number": "604E",
      "settings": {
       "train_name": "あさま",
-      "train_color": 3,
+      "train_color": 2,
       "line_width": null,
       "line_type": null
      },
@@ -28147,7 +28147,7 @@
      "train_number": "3500E",
      "settings": {
       "train_name": "かがやき",
-      "train_color": 6,
+      "train_color": 9,
       "line_width": null,
       "line_type": null
      },
@@ -28434,7 +28434,7 @@
      "train_number": "124M",
      "settings": {
       "train_name": "つばさ",
-      "train_color": 8,
+      "train_color": 10,
       "line_width": null,
       "line_type": null
      },
@@ -28471,7 +28471,7 @@
      "train_number": "302C",
      "settings": {
       "train_name": "とき",
-      "train_color": 3,
+      "train_color": 5,
       "line_width": null,
       "line_type": null
      },
@@ -28508,7 +28508,7 @@
      "train_number": "606E",
      "settings": {
       "train_name": "あさま",
-      "train_color": 3,
+      "train_color": 2,
       "line_width": null,
       "line_type": null
      },
@@ -28545,7 +28545,7 @@
      "train_number": "304C",
      "settings": {
       "train_name": "とき",
-      "train_color": 3,
+      "train_color": 5,
       "line_width": null,
       "line_type": null
      },
@@ -28649,7 +28649,7 @@
      "train_number": "608E",
      "settings": {
       "train_name": "あさま",
-      "train_color": 3,
+      "train_color": 2,
       "line_width": null,
       "line_type": null
      },
@@ -28686,7 +28686,7 @@
      "train_number": "3010M",
      "settings": {
       "train_name": "こまち",
-      "train_color": 7,
+      "train_color": 8,
       "line_width": null,
       "line_type": null
      },
@@ -28778,7 +28778,7 @@
      "train_number": "552E",
      "settings": {
       "train_name": "はくたか",
-      "train_color": 5,
+      "train_color": 4,
       "line_width": null,
       "line_type": null
      },
@@ -28991,7 +28991,7 @@
      "train_number": "3502E",
      "settings": {
       "train_name": "かがやき",
-      "train_color": 6,
+      "train_color": 9,
       "line_width": null,
       "line_type": null
      },
@@ -29028,7 +29028,7 @@
      "train_number": "128M",
      "settings": {
       "train_name": "つばさ",
-      "train_color": 8,
+      "train_color": 10,
       "line_width": null,
       "line_type": null
      },
@@ -29083,7 +29083,7 @@
      "train_number": "306C",
      "settings": {
       "train_name": "とき",
-      "train_color": 3,
+      "train_color": 5,
       "line_width": null,
       "line_type": null
      },
@@ -29278,7 +29278,7 @@
      "train_number": "1308C",
      "settings": {
       "train_name": "とき",
-      "train_color": 3,
+      "train_color": 5,
       "line_width": null,
       "line_type": null
      },
@@ -29382,7 +29382,7 @@
      "train_number": "610E",
      "settings": {
       "train_name": "あさま",
-      "train_color": 3,
+      "train_color": 2,
       "line_width": null,
       "line_type": null
      },
@@ -29419,7 +29419,7 @@
      "train_number": "3012M",
      "settings": {
       "train_name": "こまち",
-      "train_color": 7,
+      "train_color": 8,
       "line_width": null,
       "line_type": null
      },
@@ -29584,7 +29584,7 @@
      "train_number": "554E",
      "settings": {
       "train_name": "はくたか",
-      "train_color": 5,
+      "train_color": 4,
       "line_width": null,
       "line_type": null
      },
@@ -29621,7 +29621,7 @@
      "train_number": "310C",
      "settings": {
       "train_name": "とき",
-      "train_color": 3,
+      "train_color": 5,
       "line_width": null,
       "line_type": null
      },
@@ -29761,7 +29761,7 @@
      "train_number": "3504E",
      "settings": {
       "train_name": "かがやき",
-      "train_color": 6,
+      "train_color": 9,
       "line_width": null,
       "line_type": null
      },
@@ -29865,7 +29865,7 @@
      "train_number": "132M",
      "settings": {
       "train_name": "つばさ",
-      "train_color": 8,
+      "train_color": 10,
       "line_width": null,
       "line_type": null
      },
@@ -29920,7 +29920,7 @@
      "train_number": "1312C",
      "settings": {
       "train_name": "とき",
-      "train_color": 3,
+      "train_color": 5,
       "line_width": null,
       "line_type": null
      },
@@ -30116,7 +30116,7 @@
      "train_number": "612E",
      "settings": {
       "train_name": "あさま",
-      "train_color": 3,
+      "train_color": 2,
       "line_width": null,
       "line_type": null
      },
@@ -30153,7 +30153,7 @@
      "train_number": "3014M",
      "settings": {
       "train_name": "こまち",
-      "train_color": 7,
+      "train_color": 8,
       "line_width": null,
       "line_type": null
      },
@@ -30269,7 +30269,7 @@
      "train_number": "556E",
      "settings": {
       "train_name": "はくたか",
-      "train_color": 5,
+      "train_color": 4,
       "line_width": null,
       "line_type": null
      },
@@ -30306,7 +30306,7 @@
      "train_number": "314C",
      "settings": {
       "train_name": "とき",
-      "train_color": 3,
+      "train_color": 5,
       "line_width": null,
       "line_type": null
      },
@@ -30446,7 +30446,7 @@
      "train_number": "3506E",
      "settings": {
       "train_name": "かがやき",
-      "train_color": 6,
+      "train_color": 9,
       "line_width": null,
       "line_type": null
      },
@@ -30483,7 +30483,7 @@
      "train_number": "136B",
      "settings": {
       "train_name": "つばさ",
-      "train_color": 8,
+      "train_color": 10,
       "line_width": null,
       "line_type": null
      },
@@ -30709,7 +30709,7 @@
      "train_number": "3016M",
      "settings": {
       "train_name": "こまち",
-      "train_color": 7,
+      "train_color": 8,
       "line_width": null,
       "line_type": null
      },
@@ -30758,7 +30758,7 @@
      "train_number": "558E",
      "settings": {
       "train_name": "はくたか",
-      "train_color": 5,
+      "train_color": 4,
       "line_width": null,
       "line_type": null
      },
@@ -30874,7 +30874,7 @@
      "train_number": "316C",
      "settings": {
       "train_name": "とき",
-      "train_color": 3,
+      "train_color": 5,
       "line_width": null,
       "line_type": null
      },
@@ -31087,7 +31087,7 @@
      "train_number": "3508E",
      "settings": {
       "train_name": "かがやき",
-      "train_color": 6,
+      "train_color": 9,
       "line_width": null,
       "line_type": null
      },
@@ -31124,7 +31124,7 @@
      "train_number": "138M",
      "settings": {
       "train_name": "つばさ",
-      "train_color": 8,
+      "train_color": 10,
       "line_width": null,
       "line_type": null
      },
@@ -31441,7 +31441,7 @@
      "train_number": "614E",
      "settings": {
       "train_name": "あさま",
-      "train_color": 3,
+      "train_color": 2,
       "line_width": null,
       "line_type": null
      },
@@ -31478,7 +31478,7 @@
      "train_number": "3018M",
      "settings": {
       "train_name": "こまち",
-      "train_color": 7,
+      "train_color": 8,
       "line_width": null,
       "line_type": null
      },
@@ -31527,7 +31527,7 @@
      "train_number": "8528E",
      "settings": {
       "train_name": "かがやき(臨時)",
-      "train_color": 6,
+      "train_color": 9,
       "line_width": null,
       "line_type": null
      },
@@ -31564,7 +31564,7 @@
      "train_number": "1318C",
      "settings": {
       "train_name": "とき",
-      "train_color": 3,
+      "train_color": 5,
       "line_width": null,
       "line_type": null
      },
@@ -31704,7 +31704,7 @@
      "train_number": "140M",
      "settings": {
       "train_name": "つばさ",
-      "train_color": 8,
+      "train_color": 10,
       "line_width": null,
       "line_type": null
      },
@@ -31820,7 +31820,7 @@
      "train_number": "560E",
      "settings": {
       "train_name": "はくたか",
-      "train_color": 5,
+      "train_color": 4,
       "line_width": null,
       "line_type": null
      },
@@ -32076,7 +32076,7 @@
      "train_number": "616E",
      "settings": {
       "train_name": "あさま",
-      "train_color": 3,
+      "train_color": 2,
       "line_width": null,
       "line_type": null
      },
@@ -32113,7 +32113,7 @@
      "train_number": "3020M",
      "settings": {
       "train_name": "こまち",
-      "train_color": 7,
+      "train_color": 8,
       "line_width": null,
       "line_type": null
      },
@@ -32241,7 +32241,7 @@
      "train_number": "320C",
      "settings": {
       "train_name": "とき",
-      "train_color": 3,
+      "train_color": 5,
       "line_width": null,
       "line_type": null
      },
@@ -32381,7 +32381,7 @@
      "train_number": "142M",
      "settings": {
       "train_name": "つばさ",
-      "train_color": 8,
+      "train_color": 10,
       "line_width": null,
       "line_type": null
      },
@@ -32497,7 +32497,7 @@
      "train_number": "562E",
      "settings": {
       "train_name": "はくたか",
-      "train_color": 5,
+      "train_color": 4,
       "line_width": null,
       "line_type": null
      },
@@ -32686,7 +32686,7 @@
      "train_number": "618E",
      "settings": {
       "train_name": "あさま",
-      "train_color": 3,
+      "train_color": 2,
       "line_width": null,
       "line_type": null
      },
@@ -32723,7 +32723,7 @@
      "train_number": "3024M",
      "settings": {
       "train_name": "こまち",
-      "train_color": 7,
+      "train_color": 8,
       "line_width": null,
       "line_type": null
      },
@@ -32772,7 +32772,7 @@
      "train_number": "8532E",
      "settings": {
       "train_name": "かがやき(臨時)",
-      "train_color": 6,
+      "train_color": 9,
       "line_width": null,
       "line_type": null
      },
@@ -32809,7 +32809,7 @@
      "train_number": "322C",
      "settings": {
       "train_name": "とき",
-      "train_color": 3,
+      "train_color": 5,
       "line_width": null,
       "line_type": null
      },
@@ -32949,7 +32949,7 @@
      "train_number": "144M",
      "settings": {
       "train_name": "つばさ",
-      "train_color": 8,
+      "train_color": 10,
       "line_width": null,
       "line_type": null
      },
@@ -33004,7 +33004,7 @@
      "train_number": "8642E",
      "settings": {
       "train_name": "あさま(臨時)",
-      "train_color": 3,
+      "train_color": 2,
       "line_width": null,
       "line_type": null
      },
@@ -33108,7 +33108,7 @@
      "train_number": "564E",
      "settings": {
       "train_name": "はくたか",
-      "train_color": 5,
+      "train_color": 4,
       "line_width": null,
       "line_type": null
      },
@@ -33346,7 +33346,7 @@
      "train_number": "620E",
      "settings": {
       "train_name": "あさま",
-      "train_color": 3,
+      "train_color": 2,
       "line_width": null,
       "line_type": null
      },
@@ -33383,7 +33383,7 @@
      "train_number": "3028M",
      "settings": {
       "train_name": "こまち",
-      "train_color": 7,
+      "train_color": 8,
       "line_width": null,
       "line_type": null
      },
@@ -33432,7 +33432,7 @@
      "train_number": "8534E",
      "settings": {
       "train_name": "かがやき(臨時)",
-      "train_color": 6,
+      "train_color": 9,
       "line_width": null,
       "line_type": null
      },
@@ -33548,7 +33548,7 @@
      "train_number": "1324C",
      "settings": {
       "train_name": "とき",
-      "train_color": 3,
+      "train_color": 5,
       "line_width": null,
       "line_type": null
      },
@@ -33688,7 +33688,7 @@
      "train_number": "146M",
      "settings": {
       "train_name": "つばさ",
-      "train_color": 8,
+      "train_color": 10,
       "line_width": null,
       "line_type": null
      },
@@ -33743,7 +33743,7 @@
      "train_number": "8644E",
      "settings": {
       "train_name": "あさま(臨時)",
-      "train_color": 3,
+      "train_color": 2,
       "line_width": null,
       "line_type": null
      },
@@ -33847,7 +33847,7 @@
      "train_number": "566E",
      "settings": {
       "train_name": "はくたか",
-      "train_color": 5,
+      "train_color": 4,
       "line_width": null,
       "line_type": null
      },
@@ -33945,7 +33945,7 @@
      "train_number": "326C",
      "settings": {
       "train_name": "とき",
-      "train_color": 3,
+      "train_color": 5,
       "line_width": null,
       "line_type": null
      },
@@ -34128,7 +34128,7 @@
      "train_number": "622E",
      "settings": {
       "train_name": "あさま",
-      "train_color": 3,
+      "train_color": 2,
       "line_width": null,
       "line_type": null
      },
@@ -34165,7 +34165,7 @@
      "train_number": "3032M",
      "settings": {
       "train_name": "こまち",
-      "train_color": 7,
+      "train_color": 8,
       "line_width": null,
       "line_type": null
      },
@@ -34257,7 +34257,7 @@
      "train_number": "148B",
      "settings": {
       "train_name": "つばさ",
-      "train_color": 8,
+      "train_color": 10,
       "line_width": null,
       "line_type": null
      },
@@ -34312,7 +34312,7 @@
      "train_number": "624E",
      "settings": {
       "train_name": "あさま",
-      "train_color": 3,
+      "train_color": 2,
       "line_width": null,
       "line_type": null
      },
@@ -34434,7 +34434,7 @@
      "train_number": "9536E",
      "settings": {
       "train_name": "かがやき(臨時)",
-      "train_color": 6,
+      "train_color": 9,
       "line_width": null,
       "line_type": null
      },
@@ -34471,7 +34471,7 @@
      "train_number": "150M",
      "settings": {
       "train_name": "つばさ",
-      "train_color": 8,
+      "train_color": 10,
       "line_width": null,
       "line_type": null
      },
@@ -34526,7 +34526,7 @@
      "train_number": "328C",
      "settings": {
       "train_name": "とき",
-      "train_color": 3,
+      "train_color": 5,
       "line_width": null,
       "line_type": null
      },
@@ -34624,7 +34624,7 @@
      "train_number": "568E",
      "settings": {
       "train_name": "はくたか",
-      "train_color": 5,
+      "train_color": 4,
       "line_width": null,
       "line_type": null
      },
@@ -34868,7 +34868,7 @@
      "train_number": "626E",
      "settings": {
       "train_name": "あさま",
-      "train_color": 3,
+      "train_color": 2,
       "line_width": null,
       "line_type": null
      },
@@ -34905,7 +34905,7 @@
      "train_number": "3034M",
      "settings": {
       "train_name": "こまち",
-      "train_color": 7,
+      "train_color": 8,
       "line_width": null,
       "line_type": null
      },
@@ -35094,7 +35094,7 @@
      "train_number": "3510E",
      "settings": {
       "train_name": "かがやき",
-      "train_color": 6,
+      "train_color": 9,
       "line_width": null,
       "line_type": null
      },
@@ -35216,7 +35216,7 @@
      "train_number": "154M",
      "settings": {
       "train_name": "つばさ",
-      "train_color": 8,
+      "train_color": 10,
       "line_width": null,
       "line_type": null
      },
@@ -35271,7 +35271,7 @@
      "train_number": "3036M",
      "settings": {
       "train_name": "こまち",
-      "train_color": 7,
+      "train_color": 8,
       "line_width": null,
       "line_type": null
      },
@@ -35320,7 +35320,7 @@
      "train_number": "330C",
      "settings": {
       "train_name": "とき",
-      "train_color": 3,
+      "train_color": 5,
       "line_width": null,
       "line_type": null
      },
@@ -35357,7 +35357,7 @@
      "train_number": "628E",
      "settings": {
       "train_name": "あさま",
-      "train_color": 3,
+      "train_color": 2,
       "line_width": null,
       "line_type": null
      },
@@ -35394,7 +35394,7 @@
      "train_number": "1332C",
      "settings": {
       "train_name": "とき",
-      "train_color": 3,
+      "train_color": 5,
       "line_width": null,
       "line_type": null
      },
@@ -35771,7 +35771,7 @@
      "train_number": "570E",
      "settings": {
       "train_name": "はくたか",
-      "train_color": 5,
+      "train_color": 4,
       "line_width": null,
       "line_type": null
      },
@@ -35808,7 +35808,7 @@
      "train_number": "3038M",
      "settings": {
       "train_name": "こまち",
-      "train_color": 7,
+      "train_color": 8,
       "line_width": null,
       "line_type": null
      },
@@ -35857,7 +35857,7 @@
      "train_number": "3512E",
      "settings": {
       "train_name": "かがやき",
-      "train_color": 6,
+      "train_color": 9,
       "line_width": null,
       "line_type": null
      },
@@ -35949,7 +35949,7 @@
      "train_number": "334C",
      "settings": {
       "train_name": "とき",
-      "train_color": 3,
+      "train_color": 5,
       "line_width": null,
       "line_type": null
      },
@@ -35986,7 +35986,7 @@
      "train_number": "156M",
      "settings": {
       "train_name": "つばさ",
-      "train_color": 8,
+      "train_color": 10,
       "line_width": null,
       "line_type": null
      },
@@ -36126,7 +36126,7 @@
      "train_number": "336C",
      "settings": {
       "train_name": "とき",
-      "train_color": 3,
+      "train_color": 5,
       "line_width": null,
       "line_type": null
      },
@@ -36163,7 +36163,7 @@
      "train_number": "572E",
      "settings": {
       "train_name": "はくたか",
-      "train_color": 5,
+      "train_color": 4,
       "line_width": null,
       "line_type": null
      },
@@ -36430,7 +36430,7 @@
      "train_number": "9592E",
      "settings": {
       "train_name": "かがやき(臨時)",
-      "train_color": 6,
+      "train_color": 9,
       "line_width": null,
       "line_type": null
      },
@@ -36467,7 +36467,7 @@
      "train_number": "1338C",
      "settings": {
       "train_name": "とき",
-      "train_color": 3,
+      "train_color": 5,
       "line_width": null,
       "line_type": null
      },
@@ -36504,7 +36504,7 @@
      "train_number": "3042M",
      "settings": {
       "train_name": "こまち",
-      "train_color": 7,
+      "train_color": 8,
       "line_width": null,
       "line_type": null
      },
@@ -36553,7 +36553,7 @@
      "train_number": "3514E",
      "settings": {
       "train_name": "かがやき",
-      "train_color": 6,
+      "train_color": 9,
       "line_width": null,
       "line_type": null
      },
@@ -36621,7 +36621,7 @@
      "train_number": "630E",
      "settings": {
       "train_name": "あさま",
-      "train_color": 3,
+      "train_color": 2,
       "line_width": null,
       "line_type": null
      },
@@ -36761,7 +36761,7 @@
      "train_number": "340C",
      "settings": {
       "train_name": "とき",
-      "train_color": 3,
+      "train_color": 5,
       "line_width": null,
       "line_type": null
      },
@@ -36883,7 +36883,7 @@
      "train_number": "98B",
      "settings": {
       "train_name": "はやて",
-      "train_color": 5,
+      "train_color": 7,
       "line_width": null,
       "line_type": null
      },
@@ -36950,7 +36950,7 @@
      "train_number": "158B",
      "settings": {
       "train_name": "つばさ",
-      "train_color": 8,
+      "train_color": 10,
       "line_width": null,
       "line_type": null
      },
@@ -37005,7 +37005,7 @@
      "train_number": "3044M",
      "settings": {
       "train_name": "こまち",
-      "train_color": 7,
+      "train_color": 8,
       "line_width": null,
       "line_type": null
      },
@@ -37054,7 +37054,7 @@
      "train_number": "574E",
      "settings": {
       "train_name": "はくたか",
-      "train_color": 5,
+      "train_color": 4,
       "line_width": null,
       "line_type": null
      },
@@ -37091,7 +37091,7 @@
      "train_number": "342C",
      "settings": {
       "train_name": "とき",
-      "train_color": 3,
+      "train_color": 5,
       "line_width": null,
       "line_type": null
      },
@@ -37128,7 +37128,7 @@
      "train_number": "3516E",
      "settings": {
       "train_name": "かがやき",
-      "train_color": 6,
+      "train_color": 9,
       "line_width": null,
       "line_type": null
      },
@@ -37165,7 +37165,7 @@
      "train_number": "576E",
      "settings": {
       "train_name": "はくたか",
-      "train_color": 5,
+      "train_color": 4,
       "line_width": null,
       "line_type": null
      },
@@ -37202,7 +37202,7 @@
      "train_number": "3096M",
      "settings": {
       "train_name": "こまち",
-      "train_color": 7,
+      "train_color": 8,
       "line_width": null,
       "line_type": null
      },
@@ -37269,7 +37269,7 @@
      "train_number": "160B",
      "settings": {
       "train_name": "つばさ",
-      "train_color": 8,
+      "train_color": 10,
       "line_width": null,
       "line_type": null
      },
@@ -37324,7 +37324,7 @@
      "train_number": "100B",
      "settings": {
       "train_name": "はやて",
-      "train_color": 5,
+      "train_color": 7,
       "line_width": null,
       "line_type": null
      },
@@ -37367,7 +37367,7 @@
      "train_number": "1344C",
      "settings": {
       "train_name": "とき",
-      "train_color": 3,
+      "train_color": 5,
       "line_width": null,
       "line_type": null
      },
@@ -37447,7 +37447,7 @@
      "train_number": "632E",
      "settings": {
       "train_name": "あさま",
-      "train_color": 3,
+      "train_color": 2,
       "line_width": null,
       "line_type": null
      },
@@ -37484,7 +37484,7 @@
      "train_number": "578E",
      "settings": {
       "train_name": "はくたか",
-      "train_color": 5,
+      "train_color": 4,
       "line_width": null,
       "line_type": null
      },
@@ -37521,7 +37521,7 @@
      "train_number": "3518E",
      "settings": {
       "train_name": "かがやき",
-      "train_color": 6,
+      "train_color": 9,
       "line_width": null,
       "line_type": null
      },
@@ -37558,7 +37558,7 @@
      "train_number": "346C",
      "settings": {
       "train_name": "とき",
-      "train_color": 3,
+      "train_color": 5,
       "line_width": null,
       "line_type": null
      },
@@ -38643,7 +38643,7 @@
      "train_number": "600E",
      "settings": {
       "train_name": "あさま",
-      "train_color": 3,
+      "train_color": 2,
       "line_width": null,
       "line_type": null
      },
@@ -39003,7 +39003,7 @@
      "train_number": "602E",
      "settings": {
       "train_name": "あさま",
-      "train_color": 3,
+      "train_color": 2,
       "line_width": null,
       "line_type": null
      },
@@ -39040,7 +39040,7 @@
      "train_number": "300C",
      "settings": {
       "train_name": "とき",
-      "train_color": 3,
+      "train_color": 5,
       "line_width": null,
       "line_type": null
      },
@@ -39114,7 +39114,7 @@
      "train_number": "604E",
      "settings": {
       "train_name": "あさま",
-      "train_color": 3,
+      "train_color": 2,
       "line_width": null,
       "line_type": null
      },
@@ -39151,7 +39151,7 @@
      "train_number": "3500E",
      "settings": {
       "train_name": "かがやき",
-      "train_color": 6,
+      "train_color": 9,
       "line_width": null,
       "line_type": null
      },
@@ -39438,7 +39438,7 @@
      "train_number": "302C",
      "settings": {
       "train_name": "とき",
-      "train_color": 3,
+      "train_color": 5,
       "line_width": null,
       "line_type": null
      },
@@ -39475,7 +39475,7 @@
      "train_number": "606E",
      "settings": {
       "train_name": "あさま",
-      "train_color": 3,
+      "train_color": 2,
       "line_width": null,
       "line_type": null
      },
@@ -39512,7 +39512,7 @@
      "train_number": "304C",
      "settings": {
       "train_name": "とき",
-      "train_color": 3,
+      "train_color": 5,
       "line_width": null,
       "line_type": null
      },
@@ -39549,7 +39549,7 @@
      "train_number": "608E",
      "settings": {
       "train_name": "あさま",
-      "train_color": 3,
+      "train_color": 2,
       "line_width": null,
       "line_type": null
      },
@@ -39623,7 +39623,7 @@
      "train_number": "552E",
      "settings": {
       "train_name": "はくたか",
-      "train_color": 5,
+      "train_color": 4,
       "line_width": null,
       "line_type": null
      },
@@ -39836,7 +39836,7 @@
      "train_number": "3502E",
      "settings": {
       "train_name": "かがやき",
-      "train_color": 6,
+      "train_color": 9,
       "line_width": null,
       "line_type": null
      },
@@ -39873,7 +39873,7 @@
      "train_number": "306C",
      "settings": {
       "train_name": "とき",
-      "train_color": 3,
+      "train_color": 5,
       "line_width": null,
       "line_type": null
      },
@@ -39971,7 +39971,7 @@
      "train_number": "1308C",
      "settings": {
       "train_name": "とき",
-      "train_color": 3,
+      "train_color": 5,
       "line_width": null,
       "line_type": null
      },
@@ -40008,7 +40008,7 @@
      "train_number": "610E",
      "settings": {
       "train_name": "あさま",
-      "train_color": 3,
+      "train_color": 2,
       "line_width": null,
       "line_type": null
      },
@@ -40100,7 +40100,7 @@
      "train_number": "554E",
      "settings": {
       "train_name": "はくたか",
-      "train_color": 5,
+      "train_color": 4,
       "line_width": null,
       "line_type": null
      },
@@ -40137,7 +40137,7 @@
      "train_number": "310C",
      "settings": {
       "train_name": "とき",
-      "train_color": 3,
+      "train_color": 5,
       "line_width": null,
       "line_type": null
      },
@@ -40277,7 +40277,7 @@
      "train_number": "3504E",
      "settings": {
       "train_name": "かがやき",
-      "train_color": 6,
+      "train_color": 9,
       "line_width": null,
       "line_type": null
      },
@@ -40418,7 +40418,7 @@
      "train_number": "612E",
      "settings": {
       "train_name": "あさま",
-      "train_color": 3,
+      "train_color": 2,
       "line_width": null,
       "line_type": null
      },
@@ -40455,7 +40455,7 @@
      "train_number": "556E",
      "settings": {
       "train_name": "はくたか",
-      "train_color": 5,
+      "train_color": 4,
       "line_width": null,
       "line_type": null
      },
@@ -40492,7 +40492,7 @@
      "train_number": "314C",
      "settings": {
       "train_name": "とき",
-      "train_color": 3,
+      "train_color": 5,
       "line_width": null,
       "line_type": null
      },
@@ -40632,7 +40632,7 @@
      "train_number": "3506E",
      "settings": {
       "train_name": "かがやき",
-      "train_color": 6,
+      "train_color": 9,
       "line_width": null,
       "line_type": null
      },
@@ -40669,7 +40669,7 @@
      "train_number": "8524E",
      "settings": {
       "train_name": "かがやき(臨時)",
-      "train_color": 6,
+      "train_color": 9,
       "line_width": null,
       "line_type": null
      },
@@ -40810,7 +40810,7 @@
      "train_number": "558E",
      "settings": {
       "train_name": "はくたか",
-      "train_color": 5,
+      "train_color": 4,
       "line_width": null,
       "line_type": null
      },
@@ -40926,7 +40926,7 @@
      "train_number": "316C",
      "settings": {
       "train_name": "とき",
-      "train_color": 3,
+      "train_color": 5,
       "line_width": null,
       "line_type": null
      },
@@ -41139,7 +41139,7 @@
      "train_number": "3508E",
      "settings": {
       "train_name": "かがやき",
-      "train_color": 6,
+      "train_color": 9,
       "line_width": null,
       "line_type": null
      },
@@ -41213,7 +41213,7 @@
      "train_number": "614E",
      "settings": {
       "train_name": "あさま",
-      "train_color": 3,
+      "train_color": 2,
       "line_width": null,
       "line_type": null
      },
@@ -41250,7 +41250,7 @@
      "train_number": "1318C",
      "settings": {
       "train_name": "とき",
-      "train_color": 3,
+      "train_color": 5,
       "line_width": null,
       "line_type": null
      },
@@ -41451,7 +41451,7 @@
      "train_number": "560E",
      "settings": {
       "train_name": "はくたか",
-      "train_color": 5,
+      "train_color": 4,
       "line_width": null,
       "line_type": null
      },
@@ -41555,7 +41555,7 @@
      "train_number": "616E",
      "settings": {
       "train_name": "あさま",
-      "train_color": 3,
+      "train_color": 2,
       "line_width": null,
       "line_type": null
      },
@@ -41671,7 +41671,7 @@
      "train_number": "320C",
      "settings": {
       "train_name": "とき",
-      "train_color": 3,
+      "train_color": 5,
       "line_width": null,
       "line_type": null
      },
@@ -41872,7 +41872,7 @@
      "train_number": "562E",
      "settings": {
       "train_name": "はくたか",
-      "train_color": 5,
+      "train_color": 4,
       "line_width": null,
       "line_type": null
      },
@@ -41909,7 +41909,7 @@
      "train_number": "618E",
      "settings": {
       "train_name": "あさま",
-      "train_color": 3,
+      "train_color": 2,
       "line_width": null,
       "line_type": null
      },
@@ -41946,7 +41946,7 @@
      "train_number": "322C",
      "settings": {
       "train_name": "とき",
-      "train_color": 3,
+      "train_color": 5,
       "line_width": null,
       "line_type": null
      },
@@ -42086,7 +42086,7 @@
      "train_number": "8642E",
      "settings": {
       "train_name": "あさま(臨時)",
-      "train_color": 3,
+      "train_color": 2,
       "line_width": null,
       "line_type": null
      },
@@ -42190,7 +42190,7 @@
      "train_number": "564E",
      "settings": {
       "train_name": "はくたか",
-      "train_color": 5,
+      "train_color": 4,
       "line_width": null,
       "line_type": null
      },
@@ -42361,7 +42361,7 @@
      "train_number": "620E",
      "settings": {
       "train_name": "あさま",
-      "train_color": 3,
+      "train_color": 2,
       "line_width": null,
       "line_type": null
      },
@@ -42398,7 +42398,7 @@
      "train_number": "8534E",
      "settings": {
       "train_name": "かがやき(臨時)",
-      "train_color": 6,
+      "train_color": 9,
       "line_width": null,
       "line_type": null
      },
@@ -42514,7 +42514,7 @@
      "train_number": "1324C",
      "settings": {
       "train_name": "とき",
-      "train_color": 3,
+      "train_color": 5,
       "line_width": null,
       "line_type": null
      },
@@ -42654,7 +42654,7 @@
      "train_number": "8644E",
      "settings": {
       "train_name": "あさま(臨時)",
-      "train_color": 3,
+      "train_color": 2,
       "line_width": null,
       "line_type": null
      },
@@ -42691,7 +42691,7 @@
      "train_number": "566E",
      "settings": {
       "train_name": "はくたか",
-      "train_color": 5,
+      "train_color": 4,
       "line_width": null,
       "line_type": null
      },
@@ -42728,7 +42728,7 @@
      "train_number": "326C",
      "settings": {
       "train_name": "とき",
-      "train_color": 3,
+      "train_color": 5,
       "line_width": null,
       "line_type": null
      },
@@ -42765,7 +42765,7 @@
      "train_number": "622E",
      "settings": {
       "train_name": "あさま",
-      "train_color": 3,
+      "train_color": 2,
       "line_width": null,
       "line_type": null
      },
@@ -42839,7 +42839,7 @@
      "train_number": "624E",
      "settings": {
       "train_name": "あさま",
-      "train_color": 3,
+      "train_color": 2,
       "line_width": null,
       "line_type": null
      },
@@ -42961,7 +42961,7 @@
      "train_number": "9536E",
      "settings": {
       "train_name": "かがやき(臨時)",
-      "train_color": 6,
+      "train_color": 9,
       "line_width": null,
       "line_type": null
      },
@@ -42998,7 +42998,7 @@
      "train_number": "328C",
      "settings": {
       "train_name": "とき",
-      "train_color": 3,
+      "train_color": 5,
       "line_width": null,
       "line_type": null
      },
@@ -43035,7 +43035,7 @@
      "train_number": "568E",
      "settings": {
       "train_name": "はくたか",
-      "train_color": 5,
+      "train_color": 4,
       "line_width": null,
       "line_type": null
      },
@@ -43139,7 +43139,7 @@
      "train_number": "626E",
      "settings": {
       "train_name": "あさま",
-      "train_color": 3,
+      "train_color": 2,
       "line_width": null,
       "line_type": null
      },
@@ -43316,7 +43316,7 @@
      "train_number": "3510E",
      "settings": {
       "train_name": "かがやき",
-      "train_color": 6,
+      "train_color": 9,
       "line_width": null,
       "line_type": null
      },
@@ -43438,7 +43438,7 @@
      "train_number": "330C",
      "settings": {
       "train_name": "とき",
-      "train_color": 3,
+      "train_color": 5,
       "line_width": null,
       "line_type": null
      },
@@ -43475,7 +43475,7 @@
      "train_number": "628E",
      "settings": {
       "train_name": "あさま",
-      "train_color": 3,
+      "train_color": 2,
       "line_width": null,
       "line_type": null
      },
@@ -43512,7 +43512,7 @@
      "train_number": "1332C",
      "settings": {
       "train_name": "とき",
-      "train_color": 3,
+      "train_color": 5,
       "line_width": null,
       "line_type": null
      },
@@ -43652,7 +43652,7 @@
      "train_number": "570E",
      "settings": {
       "train_name": "はくたか",
-      "train_color": 5,
+      "train_color": 4,
       "line_width": null,
       "line_type": null
      },
@@ -43689,7 +43689,7 @@
      "train_number": "3512E",
      "settings": {
       "train_name": "かがやき",
-      "train_color": 6,
+      "train_color": 9,
       "line_width": null,
       "line_type": null
      },
@@ -43781,7 +43781,7 @@
      "train_number": "334C",
      "settings": {
       "train_name": "とき",
-      "train_color": 3,
+      "train_color": 5,
       "line_width": null,
       "line_type": null
      },
@@ -43903,7 +43903,7 @@
      "train_number": "336C",
      "settings": {
       "train_name": "とき",
-      "train_color": 3,
+      "train_color": 5,
       "line_width": null,
       "line_type": null
      },
@@ -43940,7 +43940,7 @@
      "train_number": "572E",
      "settings": {
       "train_name": "はくたか",
-      "train_color": 5,
+      "train_color": 4,
       "line_width": null,
       "line_type": null
      },
@@ -43977,7 +43977,7 @@
      "train_number": "9592E",
      "settings": {
       "train_name": "かがやき(臨時)",
-      "train_color": 6,
+      "train_color": 9,
       "line_width": null,
       "line_type": null
      },
@@ -44014,7 +44014,7 @@
      "train_number": "1338C",
      "settings": {
       "train_name": "とき",
-      "train_color": 3,
+      "train_color": 5,
       "line_width": null,
       "line_type": null
      },
@@ -44088,7 +44088,7 @@
      "train_number": "630E",
      "settings": {
       "train_name": "あさま",
-      "train_color": 3,
+      "train_color": 2,
       "line_width": null,
       "line_type": null
      },
@@ -44228,7 +44228,7 @@
      "train_number": "340C",
      "settings": {
       "train_name": "とき",
-      "train_color": 3,
+      "train_color": 5,
       "line_width": null,
       "line_type": null
      },
@@ -44350,7 +44350,7 @@
      "train_number": "98B",
      "settings": {
       "train_name": "はやて",
-      "train_color": 5,
+      "train_color": 7,
       "line_width": null,
       "line_type": null
      },
@@ -44417,7 +44417,7 @@
      "train_number": "158B",
      "settings": {
       "train_name": "つばさ",
-      "train_color": 8,
+      "train_color": 10,
       "line_width": null,
       "line_type": null
      },
@@ -44472,7 +44472,7 @@
      "train_number": "574E",
      "settings": {
       "train_name": "はくたか",
-      "train_color": 5,
+      "train_color": 4,
       "line_width": null,
       "line_type": null
      },
@@ -44509,7 +44509,7 @@
      "train_number": "342C",
      "settings": {
       "train_name": "とき",
-      "train_color": 3,
+      "train_color": 5,
       "line_width": null,
       "line_type": null
      },
@@ -44546,7 +44546,7 @@
      "train_number": "3516E",
      "settings": {
       "train_name": "かがやき",
-      "train_color": 6,
+      "train_color": 9,
       "line_width": null,
       "line_type": null
      },
@@ -44583,7 +44583,7 @@
      "train_number": "576E",
      "settings": {
       "train_name": "はくたか",
-      "train_color": 5,
+      "train_color": 4,
       "line_width": null,
       "line_type": null
      },
@@ -44620,7 +44620,7 @@
      "train_number": "160B",
      "settings": {
       "train_name": "つばさ",
-      "train_color": 8,
+      "train_color": 10,
       "line_width": null,
       "line_type": null
      },
@@ -44675,7 +44675,7 @@
      "train_number": "1344C",
      "settings": {
       "train_name": "とき",
-      "train_color": 3,
+      "train_color": 5,
       "line_width": null,
       "line_type": null
      },
@@ -44712,7 +44712,7 @@
      "train_number": "632E",
      "settings": {
       "train_name": "あさま",
-      "train_color": 3,
+      "train_color": 2,
       "line_width": null,
       "line_type": null
      },
@@ -44749,7 +44749,7 @@
      "train_number": "578E",
      "settings": {
       "train_name": "はくたか",
-      "train_color": 5,
+      "train_color": 4,
       "line_width": null,
       "line_type": null
      },
@@ -44786,7 +44786,7 @@
      "train_number": "3518E",
      "settings": {
       "train_name": "かがやき",
-      "train_color": 6,
+      "train_color": 9,
       "line_width": null,
       "line_type": null
      },
@@ -44823,7 +44823,7 @@
      "train_number": "346C",
      "settings": {
       "train_name": "とき",
-      "train_color": 3,
+      "train_color": 5,
       "line_width": null,
       "line_type": null
      },
@@ -44957,7 +44957,7 @@
      "train_number": "8524E",
      "settings": {
       "train_name": "かがやき(臨時)",
-      "train_color": 6,
+      "train_color": 9,
       "line_width": null,
       "line_type": null
      },
@@ -44994,7 +44994,7 @@
      "train_number": "8530E",
      "settings": {
       "train_name": "かがやき(臨時)",
-      "train_color": 6,
+      "train_color": 9,
       "line_width": null,
       "line_type": null
      },
@@ -45031,7 +45031,7 @@
      "train_number": "8068C",
      "settings": {
       "train_name": "とき(臨時)",
-      "train_color": 3,
+      "train_color": 5,
       "line_width": null,
       "line_type": null
      },
@@ -46131,7 +46131,7 @@
      "train_number": "132M",
      "settings": {
       "train_name": "つばさ",
-      "train_color": 8,
+      "train_color": 10,
       "line_width": null,
       "line_type": null
      },
@@ -46344,7 +46344,7 @@
      "train_number": "5524E",
      "settings": {
       "train_name": "かがやき(臨時)",
-      "train_color": 6,
+      "train_color": 9,
       "line_width": null,
       "line_type": null
      },
@@ -46563,7 +46563,7 @@
      "train_number": "8528E",
      "settings": {
       "train_name": "かがやき(臨時)",
-      "train_color": 6,
+      "train_color": 9,
       "line_width": null,
       "line_type": null
      },
@@ -46837,7 +46837,7 @@
      "train_number": "8530E",
      "settings": {
       "train_name": "かがやき(臨時)",
-      "train_color": 6,
+      "train_color": 9,
       "line_width": null,
       "line_type": null
      },
@@ -47123,7 +47123,7 @@
      "train_number": "8062C",
      "settings": {
       "train_name": "とき(臨時)",
-      "train_color": 3,
+      "train_color": 5,
       "line_width": null,
       "line_type": null
      },
@@ -47227,7 +47227,7 @@
      "train_number": "8532E",
      "settings": {
       "train_name": "かがやき(臨時)",
-      "train_color": 6,
+      "train_color": 9,
       "line_width": null,
       "line_type": null
      },
@@ -47264,7 +47264,7 @@
      "train_number": "9086B",
      "settings": {
       "train_name": "つばさ(臨時)",
-      "train_color": 8,
+      "train_color": 10,
       "line_width": null,
       "line_type": null
      },
@@ -47416,7 +47416,7 @@
      "train_number": "144M",
      "settings": {
       "train_name": "つばさ",
-      "train_color": 8,
+      "train_color": 10,
       "line_width": null,
       "line_type": null
      },
@@ -47471,7 +47471,7 @@
      "train_number": "5026M",
      "settings": {
       "train_name": "こまち(臨時)",
-      "train_color": 7,
+      "train_color": 8,
       "line_width": null,
       "line_type": null
      },
@@ -47581,7 +47581,7 @@
      "train_number": "8068C",
      "settings": {
       "train_name": "とき(臨時)",
-      "train_color": 3,
+      "train_color": 5,
       "line_width": null,
       "line_type": null
      },
@@ -47697,7 +47697,7 @@
      "train_number": "8188M",
      "settings": {
       "train_name": "つばさ(臨時)",
-      "train_color": 8,
+      "train_color": 10,
       "line_width": null,
       "line_type": null
      },
@@ -47947,7 +47947,7 @@
      "train_number": "8536E",
      "settings": {
       "train_name": "かがやき(臨時)",
-      "train_color": 6,
+      "train_color": 9,
       "line_width": null,
       "line_type": null
      },
@@ -48027,7 +48027,7 @@
      "train_number": "568E",
      "settings": {
       "train_name": "はくたか",
-      "train_color": 5,
+      "train_color": 4,
       "line_width": null,
       "line_type": null
      },
@@ -48064,7 +48064,7 @@
      "train_number": "8074C",
      "settings": {
       "train_name": "とき(臨時)",
-      "train_color": 3,
+      "train_color": 5,
       "line_width": null,
       "line_type": null
      },
@@ -48429,7 +48429,7 @@
      "train_number": "9676E",
      "settings": {
       "train_name": "あさま(臨時)",
-      "train_color": 3,
+      "train_color": 2,
       "line_width": null,
       "line_type": null
      },
@@ -48460,7 +48460,7 @@
      "train_number": "9078C",
      "settings": {
       "train_name": "とき(臨時)",
-      "train_color": 3,
+      "train_color": 5,
       "line_width": null,
       "line_type": null
      },
@@ -48497,7 +48497,7 @@
      "train_number": "8192M",
      "settings": {
       "train_name": "つばさ(臨時)",
-      "train_color": 8,
+      "train_color": 10,
       "line_width": null,
       "line_type": null
      },
@@ -48619,7 +48619,7 @@
      "train_number": "5538E",
      "settings": {
       "train_name": "かがやき(臨時)",
-      "train_color": 6,
+      "train_color": 9,
       "line_width": null,
       "line_type": null
      },
@@ -48923,7 +48923,7 @@
      "train_number": "158B",
      "settings": {
       "train_name": "つばさ",
-      "train_color": 8,
+      "train_color": 10,
       "line_width": null,
       "line_type": null
      },
@@ -48978,7 +48978,7 @@
      "train_number": "3044M",
      "settings": {
       "train_name": "こまち",
-      "train_color": 7,
+      "train_color": 8,
       "line_width": null,
       "line_type": null
      },
@@ -49027,7 +49027,7 @@
      "train_number": "8542E",
      "settings": {
       "train_name": "かがやき(臨時)",
-      "train_color": 6,
+      "train_color": 9,
       "line_width": null,
       "line_type": null
      },
@@ -49064,7 +49064,7 @@
      "train_number": "3096M",
      "settings": {
       "train_name": "こまち",
-      "train_color": 7,
+      "train_color": 8,
       "line_width": null,
       "line_type": null
      },
@@ -49581,7 +49581,7 @@
      "train_number": "8172M",
      "settings": {
       "train_name": "つばさ(臨時)",
-      "train_color": 8,
+      "train_color": 10,
       "line_width": null,
       "line_type": null
      },
@@ -49636,7 +49636,7 @@
      "train_number": "3500E",
      "settings": {
       "train_name": "かがやき",
-      "train_color": 6,
+      "train_color": 9,
       "line_width": null,
       "line_type": null
      },
@@ -49673,7 +49673,7 @@
      "train_number": "9074B",
      "settings": {
       "train_name": "つばさ(臨時)",
-      "train_color": 8,
+      "train_color": 10,
       "line_width": null,
       "line_type": null
      },
@@ -49722,7 +49722,7 @@
      "train_number": "8580E",
      "settings": {
       "train_name": "かがやき(臨時)",
-      "train_color": 6,
+      "train_color": 9,
       "line_width": null,
       "line_type": null
      },
@@ -49759,7 +49759,7 @@
      "train_number": "8634E",
      "settings": {
       "train_name": "あさま(臨時)",
-      "train_color": 3,
+      "train_color": 2,
       "line_width": null,
       "line_type": null
      },
@@ -49796,7 +49796,7 @@
      "train_number": "9076B",
      "settings": {
       "train_name": "つばさ(臨時)",
-      "train_color": 8,
+      "train_color": 10,
       "line_width": null,
       "line_type": null
      },
@@ -49918,7 +49918,7 @@
      "train_number": "5522E",
      "settings": {
       "train_name": "かがやき(臨時)",
-      "train_color": 6,
+      "train_color": 9,
       "line_width": null,
       "line_type": null
      },
@@ -49955,7 +49955,7 @@
      "train_number": "8052C",
      "settings": {
       "train_name": "とき(臨時)",
-      "train_color": 3,
+      "train_color": 5,
       "line_width": null,
       "line_type": null
      },
@@ -49992,7 +49992,7 @@
      "train_number": "3016M",
      "settings": {
       "train_name": "こまち",
-      "train_color": 7,
+      "train_color": 8,
       "line_width": null,
       "line_type": null
      },
@@ -50144,7 +50144,7 @@
      "train_number": "5526E",
      "settings": {
       "train_name": "かがやき(臨時)",
-      "train_color": 6,
+      "train_color": 9,
       "line_width": null,
       "line_type": null
      },
@@ -50672,7 +50672,7 @@
      "train_number": "8076C",
      "settings": {
       "train_name": "とき(臨時)",
-      "train_color": 3,
+      "train_color": 5,
       "line_width": null,
       "line_type": null
      },
@@ -50709,7 +50709,7 @@
      "train_number": "9660E",
      "settings": {
       "train_name": "はくたか(臨時)",
-      "train_color": 5,
+      "train_color": 4,
       "line_width": null,
       "line_type": null
      },
@@ -51428,7 +51428,7 @@
      "train_number": "8522E",
      "settings": {
       "train_name": "かがやき(臨時)",
-      "train_color": 6,
+      "train_color": 9,
       "line_width": null,
       "line_type": null
      },
@@ -51938,7 +51938,7 @@
      "train_number": "8640E",
      "settings": {
       "train_name": "あさま(臨時)",
-      "train_color": 3,
+      "train_color": 2,
       "line_width": null,
       "line_type": null
      },
@@ -52206,7 +52206,7 @@
      "train_number": "3028M",
      "settings": {
       "train_name": "こまち",
-      "train_color": 7,
+      "train_color": 8,
       "line_width": null,
       "line_type": null
      },
@@ -52267,7 +52267,7 @@
      "train_number": "9088B",
      "settings": {
       "train_name": "つばさ(臨時)",
-      "train_color": 8,
+      "train_color": 10,
       "line_width": null,
       "line_type": null
      },
@@ -52438,7 +52438,7 @@
      "train_number": "8624E",
      "settings": {
       "train_name": "はくたか(臨時)",
-      "train_color": 5,
+      "train_color": 4,
       "line_width": null,
       "line_type": null
      },
@@ -52578,7 +52578,7 @@
      "train_number": "9090B",
      "settings": {
       "train_name": "つばさ(臨時)",
-      "train_color": 8,
+      "train_color": 10,
       "line_width": null,
       "line_type": null
      },
@@ -52712,7 +52712,7 @@
      "train_number": "628E",
      "settings": {
       "train_name": "あさま",
-      "train_color": 3,
+      "train_color": 2,
       "line_width": null,
       "line_type": null
      },
@@ -52901,7 +52901,7 @@
      "train_number": "8646E",
      "settings": {
       "train_name": "あさま(臨時)",
-      "train_color": 3,
+      "train_color": 2,
       "line_width": null,
       "line_type": null
      },
@@ -53041,7 +53041,7 @@
      "train_number": "5582E",
      "settings": {
       "train_name": "かがやき(臨時)",
-      "train_color": 6,
+      "train_color": 9,
       "line_width": null,
       "line_type": null
      },
@@ -53078,7 +53078,7 @@
      "train_number": "8544E",
      "settings": {
       "train_name": "かがやき(臨時)",
-      "train_color": 6,
+      "train_color": 9,
       "line_width": null,
       "line_type": null
      },
@@ -56220,7 +56220,7 @@
   "defaultStopSec": 60,
   "startSec": 0,
   "endSec": 86400,
-  "pxPerKm": 25,
+  "pxPerKm": 10,
   "pxPerMin": 25,
   "stationRange": {
    "start": 0,
@@ -56428,17 +56428,17 @@
    "stopRules": []
   },
   "trainColors": [
-   "#4650E3",
-   "#4650E3",
-   "#25D9F2",
-   "#19F278",
-   "#9AF20B",
-   "#F28800",
-   "#F23F00",
-   "#DB06F2",
-   "#000000",
-   "#787878",
-   "#693600"
+   "#1F5FD6",
+   "#1F5FD6",
+   "#5BB8F0",
+   "#F08300",
+   "#F5B400",
+   "#E8619A",
+   "#00A497",
+   "#62C9BE",
+   "#C8102E",
+   "#F2300F",
+   "#8E3FB5"
   ]
  }
 }
