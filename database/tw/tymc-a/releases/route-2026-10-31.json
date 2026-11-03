@@ -1,0 +1,294 @@
+{
+ "route_name": "桃園捷運 機場線 (台北車站-老街溪)",
+ "stations": [
+  {
+   "name": "台北車站",
+   "kilo": 0,
+   "stopsec": 60,
+   "alias": ""
+  },
+  {
+   "name": "三重",
+   "kilo": 4.236,
+   "stopsec": 60,
+   "alias": ""
+  },
+  {
+   "name": "新北產業園區",
+   "kilo": 7.729,
+   "stopsec": 60,
+   "alias": ""
+  },
+  {
+   "name": "新莊副都心",
+   "kilo": 9.098,
+   "stopsec": 60,
+   "alias": ""
+  },
+  {
+   "name": "泰山",
+   "kilo": 10.029,
+   "stopsec": 60,
+   "alias": ""
+  },
+  {
+   "name": "A5a",
+   "kilo": 11.129,
+   "stopsec": 60,
+   "alias": ""
+  },
+  {
+   "name": "泰山貴和",
+   "kilo": 12.833,
+   "stopsec": 60,
+   "alias": ""
+  },
+  {
+   "name": "體育大學",
+   "kilo": 17.403,
+   "stopsec": 60,
+   "alias": ""
+  },
+  {
+   "name": "長庚醫院",
+   "kilo": 20.145,
+   "stopsec": 60,
+   "alias": ""
+  },
+  {
+   "name": "林口",
+   "kilo": 21.35,
+   "stopsec": 60,
+   "alias": ""
+  },
+  {
+   "name": "A9a",
+   "kilo": 25.165,
+   "stopsec": 60,
+   "alias": ""
+  },
+  {
+   "name": "山鼻",
+   "kilo": 29.745,
+   "stopsec": 60,
+   "alias": ""
+  },
+  {
+   "name": "坑口",
+   "kilo": 31.721,
+   "stopsec": 60,
+   "alias": ""
+  },
+  {
+   "name": "機場第一航廈",
+   "kilo": 34.876,
+   "stopsec": 60,
+   "alias": ""
+  },
+  {
+   "name": "機場第二航廈",
+   "kilo": 35.896,
+   "stopsec": 60,
+   "alias": ""
+  },
+  {
+   "name": "機場第三航廈",
+   "kilo": 36.542,
+   "stopsec": 60,
+   "alias": ""
+  },
+  {
+   "name": "機場旅館",
+   "kilo": 37.232,
+   "stopsec": 60,
+   "alias": ""
+  },
+  {
+   "name": "大園",
+   "kilo": 39.13,
+   "stopsec": 60,
+   "alias": ""
+  },
+  {
+   "name": "橫山",
+   "kilo": 41.38,
+   "stopsec": 60,
+   "alias": ""
+  },
+  {
+   "name": "領航",
+   "kilo": 42.96,
+   "stopsec": 60,
+   "alias": ""
+  },
+  {
+   "name": "高鐵桃園站",
+   "kilo": 44.57,
+   "stopsec": 60,
+   "alias": ""
+  },
+  {
+   "name": "桃園體育園區",
+   "kilo": 46.31,
+   "stopsec": 60,
+   "alias": ""
+  },
+  {
+   "name": "興南",
+   "kilo": 49.27,
+   "stopsec": 60,
+   "alias": ""
+  },
+  {
+   "name": "環北",
+   "kilo": 50.81,
+   "stopsec": 60,
+   "alias": ""
+  },
+  {
+   "name": "老街溪",
+   "kilo": 51.76,
+   "stopsec": 60,
+   "alias": ""
+  }
+ ],
+ "track_layout": {
+  "stations": [
+   "quadruple",
+   "double.0",
+   "quadruple",
+   "double.0",
+   "double.0",
+   "quadruple",
+   "double.0",
+   "double.0",
+   "quadruple",
+   "quadruple",
+   "quadruple",
+   "double.0",
+   "quadruple",
+   "double.0",
+   "double.0",
+   "double.0",
+   "double.0",
+   "double.0",
+   "double.0",
+   "quadruple",
+   "double.0",
+   "double.0",
+   "double.0",
+   "double.0",
+   "double.0"
+  ],
+  "sections": [
+   "double.0",
+   "double.0",
+   "double.0",
+   "double.0",
+   "double.0",
+   "double.0",
+   "double.0",
+   "double.0",
+   "double.0",
+   "double.0",
+   "double.0",
+   "double.0",
+   "double.0",
+   "double.0",
+   "double.0",
+   "double.0",
+   "double.0",
+   "double.0",
+   "double.0",
+   "double.0",
+   "double.0",
+   "double.0",
+   "double.0",
+   "double.0"
+  ],
+  "max_speed_enabled": true,
+  "max_speed_all": null,
+  "max_speeds": [
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null
+  ]
+ },
+ "topology": {
+  "secondary": [
+   false,
+   false,
+   false,
+   false,
+   false,
+   true,
+   false,
+   false,
+   false,
+   false,
+   true,
+   false,
+   false,
+   false,
+   false,
+   true,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false
+  ],
+  "branches": [
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   []
+  ]
+ }
+}

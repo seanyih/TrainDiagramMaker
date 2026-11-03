@@ -1,0 +1,68 @@
+{
+ "route_name": "淡海輕軌 藍海線 (濱海沙崙-淡水漁人碼頭)",
+ "stations": [
+  {
+   "name": "濱海沙崙",
+   "kilo": 0.0,
+   "alias": ""
+  },
+  {
+   "name": "台北海洋大學",
+   "kilo": 0.49,
+   "alias": ""
+  },
+  {
+   "name": "沙崙",
+   "kilo": 1.61,
+   "alias": ""
+  },
+  {
+   "name": "淡水漁人碼頭",
+   "kilo": 2.42,
+   "alias": ""
+  }
+ ],
+ "topology": {
+  "secondary": [
+   false,
+   false,
+   false,
+   false
+  ],
+  "branches": [
+   [
+    {
+     "stations": [
+      {
+       "name": "濱海義山",
+       "kilo": 0.59
+      }
+     ]
+    }
+   ],
+   [],
+   [],
+   []
+  ]
+ },
+ "track_layout": {
+  "stations": [
+   "double.0",
+   "double.0",
+   "double.0",
+   "double.0"
+  ],
+  "sections": [
+   "double.0",
+   "double.0",
+   "double.0"
+  ],
+  "max_speed_enabled": true,
+  "max_speed_all": null,
+  "max_speeds": [
+   null,
+   null,
+   null
+  ]
+ }
+}

@@ -1,0 +1,109 @@
+{
+ "route_name": "新北捷運 三鶯線 (頂埔-鶯桃福德)",
+ "stations": [
+  {
+   "name": "頂埔",
+   "kilo": 0.0,
+   "alias": ""
+  },
+  {
+   "name": "媽祖田",
+   "kilo": 1.05,
+   "alias": ""
+  },
+  {
+   "name": "長壽山",
+   "kilo": 2.43,
+   "alias": ""
+  },
+  {
+   "name": "橫溪",
+   "kilo": 3.93,
+   "alias": ""
+  },
+  {
+   "name": "龍埔",
+   "kilo": 4.98,
+   "alias": ""
+  },
+  {
+   "name": "三峽",
+   "kilo": 5.8,
+   "alias": ""
+  },
+  {
+   "name": "台北大學",
+   "kilo": 6.94,
+   "alias": ""
+  },
+  {
+   "name": "鶯歌車站",
+   "kilo": 9.84,
+   "alias": ""
+  },
+  {
+   "name": "陶瓷老街",
+   "kilo": 10.62,
+   "alias": ""
+  },
+  {
+   "name": "國華",
+   "kilo": 11.59,
+   "alias": ""
+  },
+  {
+   "name": "永吉公園",
+   "kilo": 12.84,
+   "alias": ""
+  },
+  {
+   "name": "鶯桃福德",
+   "kilo": 13.77,
+   "alias": ""
+  }
+ ],
+ "track_layout": {
+  "stations": [
+   "double.0",
+   "double.0",
+   "double.0",
+   "double.0",
+   "double.0",
+   "double.0",
+   "double.0",
+   "double.0",
+   "double.0",
+   "double.0",
+   "double.0",
+   "double.0"
+  ],
+  "sections": [
+   "double.0",
+   "double.0",
+   "double.0",
+   "double.0",
+   "double.0",
+   "double.0",
+   "double.0",
+   "double.0",
+   "double.0",
+   "double.0",
+   "double.0"
+  ],
+  "max_speed_enabled": true,
+  "max_speed_all": null,
+  "max_speeds": [
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null
+  ]
+ }
+}

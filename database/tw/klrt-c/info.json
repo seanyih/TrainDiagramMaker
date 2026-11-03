@@ -1,0 +1,45 @@
+{
+	"name": {
+		"zh": "環狀輕軌",
+		"en": "Circular Light Rail",
+		"ja": "環状ライトレール"
+	},
+	"section": {
+		"zh": "籬仔內 – 籬仔內",
+		"en": "Lizihnei – Lizihnei",
+		"ja": "籬仔内 – 籬仔內"
+	},
+	"companies": [
+		"krtc"
+	],
+	"types": [
+		"lrt"
+	],
+	"regions": [],
+	"route": [
+		{
+			"date": "2026-10-31",
+			"title": "初版",
+			"kind": "route",
+			"tags": [
+				"complete"
+			],
+			"files": {
+				"json": "releases/route-2026-10-31.json"
+			},
+			"latest": true
+		}
+	],
+	"all": [
+		{
+			"date": "2026-10-31",
+			"title": "2026年10月改點",
+			"kind": "all",
+			"tags": [],
+			"files": {
+				"json": "releases/all-2026-10-31.json"
+			},
+			"latest": true
+		}
+	]
+}

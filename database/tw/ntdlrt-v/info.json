@@ -1,0 +1,45 @@
+{
+	"name": {
+		"zh": "淡海輕軌 綠山線",
+		"en": "Danhai LRT Green Mountain Line",
+		"ja": "淡海ライトレール 緑山線"
+	},
+	"section": {
+		"zh": "紅樹林 – 崁頂",
+		"en": "Hongshulin – Kanding",
+		"ja": "紅樹林 – 崁頂"
+	},
+	"companies": [
+		"ntmc"
+	],
+	"types": [
+		"lrt"
+	],
+	"regions": [],
+	"route": [
+		{
+			"date": "2026-10-31",
+			"title": "初版",
+			"kind": "route",
+			"tags": [
+				"complete"
+			],
+			"files": {
+				"json": "releases/route-2026-10-31.json"
+			},
+			"latest": true
+		}
+	],
+	"all": [
+		{
+			"date": "2026-10-31",
+			"title": "2026年10月改點",
+			"kind": "all",
+			"tags": [],
+			"files": {
+				"json": "releases/all-2026-10-31.json"
+			},
+			"latest": true
+		}
+	]
+}

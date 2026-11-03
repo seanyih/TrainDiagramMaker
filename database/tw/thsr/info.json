@@ -1,0 +1,45 @@
+{
+	"name": {
+		"zh": "台灣高鐵",
+		"en": "Taiwan High Speed Rail",
+		"ja": "台湾高速鉄道"
+	},
+	"section": {
+		"zh": "南港 – 左營",
+		"en": "Nangang – Zuoying",
+		"ja": "南港 – 左営"
+	},
+	"companies": [
+		"thsr"
+	],
+	"types": [
+		"hsr"
+	],
+	"regions": [],
+	"route": [
+		{
+			"date": "2026-02-02",
+			"title": "初版",
+			"kind": "route",
+			"tags": [
+				"complete"
+			],
+			"files": {
+				"json": "releases/route-2026-02-02.json"
+			},
+			"latest": true
+		}
+	],
+	"all": [
+		{
+			"date": "2026-02-02",
+			"title": "2026年2月改點",
+			"kind": "all",
+			"tags": [],
+			"files": {
+				"json": "releases/all-2026-02-02.json"
+			},
+			"latest": true
+		}
+	]
+}

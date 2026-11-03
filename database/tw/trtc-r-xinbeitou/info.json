@@ -1,0 +1,45 @@
+{
+	"name": {
+		"zh": "新北投支線",
+		"en": "Xinbeitou Branch Line",
+		"ja": "新北投支線"
+	},
+	"section": {
+		"zh": "北投 – 新北投",
+		"en": "Beitou – Xinbeitou",
+		"ja": "北投 – 新北投"
+	},
+	"companies": [
+		"trtc"
+	],
+	"types": [
+		"metro"
+	],
+	"regions": [],
+	"route": [
+		{
+			"date": "2026-08-31",
+			"title": "初版",
+			"kind": "route",
+			"tags": [
+				"complete"
+			],
+			"files": {
+				"json": "releases/route-2026-08-31.json"
+			},
+			"latest": true
+		}
+	],
+	"all": [
+		{
+			"date": "2026-08-31",
+			"title": "2026年8月改點",
+			"kind": "all",
+			"tags": [],
+			"files": {
+				"json": "releases/all-2026-08-31.json"
+			},
+			"latest": true
+		}
+	]
+}

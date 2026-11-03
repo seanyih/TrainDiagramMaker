@@ -1,0 +1,45 @@
+{
+	"name": {
+		"zh": "淡水信義線",
+		"en": "Tamsui–Xinyi Line",
+		"ja": "淡水信義線"
+	},
+	"section": {
+		"zh": "廣慈/奉天宮 – 淡水",
+		"en": "Guangci/Fengtian Temple – Tamsui",
+		"ja": "広慈/奉天宮 – 淡水"
+	},
+	"companies": [
+		"trtc"
+	],
+	"types": [
+		"metro"
+	],
+	"regions": [],
+	"route": [
+		{
+			"date": "2026-08-31",
+			"title": "初版",
+			"kind": "route",
+			"tags": [
+				"complete"
+			],
+			"files": {
+				"json": "releases/route-2026-08-31.json"
+			},
+			"latest": true
+		}
+	],
+	"all": [
+		{
+			"date": "2026-08-31",
+			"title": "2026年8月改點",
+			"kind": "all",
+			"tags": [],
+			"files": {
+				"json": "releases/all-2026-08-31.json"
+			},
+			"latest": true
+		}
+	]
+}

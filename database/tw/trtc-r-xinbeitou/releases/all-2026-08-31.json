@@ -1,0 +1,10016 @@
+{
+ "info": {
+  "title": "臺北捷運 新北投支線 (北投-新北投)",
+  "description": "",
+  "effective_date": "2026/08/31"
+ },
+ "route": {
+  "route_name": "臺北捷運 新北投支線 (北投-新北投)",
+  "stations": [
+   {
+    "name": "北投",
+    "kilo": 0.0,
+    "alias": ""
+   },
+   {
+    "name": "新北投",
+    "kilo": 1.03,
+    "alias": ""
+   }
+  ],
+  "track_layout": {
+   "stations": [
+    "double.0",
+    "double.0"
+   ],
+   "sections": [
+    "double.0"
+   ],
+   "max_speed_enabled": true,
+   "max_speed_all": null,
+   "max_speeds": [
+    null
+   ]
+  }
+ },
+ "trains": {
+  "1": {
+   "route_name": "臺北捷運 新北投支線 (北投-新北投)",
+   "bound": 1,
+   "station_count": 2,
+   "station_record": [
+    "北投",
+    "新北投"
+   ],
+   "train_count": 150,
+   "timetable": [
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "北投",
+       "arrival": "",
+       "departure": "0012"
+      },
+      {
+       "station_order": 1,
+       "station_name": "新北投",
+       "arrival": "001437",
+       "departure": "001437"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "北投",
+       "arrival": "",
+       "departure": "0600"
+      },
+      {
+       "station_order": 1,
+       "station_name": "新北投",
+       "arrival": "060237",
+       "departure": "060237"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "北投",
+       "arrival": "",
+       "departure": "0612"
+      },
+      {
+       "station_order": 1,
+       "station_name": "新北投",
+       "arrival": "061437",
+       "departure": "061437"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "北投",
+       "arrival": "",
+       "departure": "0624"
+      },
+      {
+       "station_order": 1,
+       "station_name": "新北投",
+       "arrival": "062637",
+       "departure": "062637"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "北投",
+       "arrival": "",
+       "departure": "0632"
+      },
+      {
+       "station_order": 1,
+       "station_name": "新北投",
+       "arrival": "063437",
+       "departure": "063437"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "北投",
+       "arrival": "",
+       "departure": "0639"
+      },
+      {
+       "station_order": 1,
+       "station_name": "新北投",
+       "arrival": "064137",
+       "departure": "064137"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "北投",
+       "arrival": "",
+       "departure": "0646"
+      },
+      {
+       "station_order": 1,
+       "station_name": "新北投",
+       "arrival": "064837",
+       "departure": "064837"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "北投",
+       "arrival": "",
+       "departure": "0653"
+      },
+      {
+       "station_order": 1,
+       "station_name": "新北投",
+       "arrival": "065537",
+       "departure": "065537"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "北投",
+       "arrival": "",
+       "departure": "0700"
+      },
+      {
+       "station_order": 1,
+       "station_name": "新北投",
+       "arrival": "070237",
+       "departure": "070237"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "北投",
+       "arrival": "",
+       "departure": "0707"
+      },
+      {
+       "station_order": 1,
+       "station_name": "新北投",
+       "arrival": "070937",
+       "departure": "070937"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "北投",
+       "arrival": "",
+       "departure": "0714"
+      },
+      {
+       "station_order": 1,
+       "station_name": "新北投",
+       "arrival": "071637",
+       "departure": "071637"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "北投",
+       "arrival": "",
+       "departure": "0721"
+      },
+      {
+       "station_order": 1,
+       "station_name": "新北投",
+       "arrival": "072337",
+       "departure": "072337"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "北投",
+       "arrival": "",
+       "departure": "0728"
+      },
+      {
+       "station_order": 1,
+       "station_name": "新北投",
+       "arrival": "073037",
+       "departure": "073037"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "北投",
+       "arrival": "",
+       "departure": "0735"
+      },
+      {
+       "station_order": 1,
+       "station_name": "新北投",
+       "arrival": "073737",
+       "departure": "073737"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "北投",
+       "arrival": "",
+       "departure": "0742"
+      },
+      {
+       "station_order": 1,
+       "station_name": "新北投",
+       "arrival": "074437",
+       "departure": "074437"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "北投",
+       "arrival": "",
+       "departure": "0749"
+      },
+      {
+       "station_order": 1,
+       "station_name": "新北投",
+       "arrival": "075137",
+       "departure": "075137"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "北投",
+       "arrival": "",
+       "departure": "0756"
+      },
+      {
+       "station_order": 1,
+       "station_name": "新北投",
+       "arrival": "075837",
+       "departure": "075837"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "北投",
+       "arrival": "",
+       "departure": "0803"
+      },
+      {
+       "station_order": 1,
+       "station_name": "新北投",
+       "arrival": "080537",
+       "departure": "080537"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "北投",
+       "arrival": "",
+       "departure": "0810"
+      },
+      {
+       "station_order": 1,
+       "station_name": "新北投",
+       "arrival": "081237",
+       "departure": "081237"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "北投",
+       "arrival": "",
+       "departure": "0817"
+      },
+      {
+       "station_order": 1,
+       "station_name": "新北投",
+       "arrival": "081937",
+       "departure": "081937"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "北投",
+       "arrival": "",
+       "departure": "0824"
+      },
+      {
+       "station_order": 1,
+       "station_name": "新北投",
+       "arrival": "082637",
+       "departure": "082637"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "北投",
+       "arrival": "",
+       "departure": "0831"
+      },
+      {
+       "station_order": 1,
+       "station_name": "新北投",
+       "arrival": "083337",
+       "departure": "083337"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "北投",
+       "arrival": "",
+       "departure": "0838"
+      },
+      {
+       "station_order": 1,
+       "station_name": "新北投",
+       "arrival": "084037",
+       "departure": "084037"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "北投",
+       "arrival": "",
+       "departure": "0845"
+      },
+      {
+       "station_order": 1,
+       "station_name": "新北投",
+       "arrival": "084737",
+       "departure": "084737"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "北投",
+       "arrival": "",
+       "departure": "0852"
+      },
+      {
+       "station_order": 1,
+       "station_name": "新北投",
+       "arrival": "085437",
+       "departure": "085437"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "北投",
+       "arrival": "",
+       "departure": "0859"
+      },
+      {
+       "station_order": 1,
+       "station_name": "新北投",
+       "arrival": "090137",
+       "departure": "090137"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "北投",
+       "arrival": "",
+       "departure": "0906"
+      },
+      {
+       "station_order": 1,
+       "station_name": "新北投",
+       "arrival": "090837",
+       "departure": "090837"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "北投",
+       "arrival": "",
+       "departure": "0915"
+      },
+      {
+       "station_order": 1,
+       "station_name": "新北投",
+       "arrival": "091737",
+       "departure": "091737"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "北投",
+       "arrival": "",
+       "departure": "0925"
+      },
+      {
+       "station_order": 1,
+       "station_name": "新北投",
+       "arrival": "092737",
+       "departure": "092737"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "北投",
+       "arrival": "",
+       "departure": "0935"
+      },
+      {
+       "station_order": 1,
+       "station_name": "新北投",
+       "arrival": "093737",
+       "departure": "093737"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "北投",
+       "arrival": "",
+       "departure": "0945"
+      },
+      {
+       "station_order": 1,
+       "station_name": "新北投",
+       "arrival": "094737",
+       "departure": "094737"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "北投",
+       "arrival": "",
+       "departure": "0955"
+      },
+      {
+       "station_order": 1,
+       "station_name": "新北投",
+       "arrival": "095737",
+       "departure": "095737"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "北投",
+       "arrival": "",
+       "departure": "1005"
+      },
+      {
+       "station_order": 1,
+       "station_name": "新北投",
+       "arrival": "100737",
+       "departure": "100737"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "北投",
+       "arrival": "",
+       "departure": "1015"
+      },
+      {
+       "station_order": 1,
+       "station_name": "新北投",
+       "arrival": "101737",
+       "departure": "101737"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "北投",
+       "arrival": "",
+       "departure": "1025"
+      },
+      {
+       "station_order": 1,
+       "station_name": "新北投",
+       "arrival": "102737",
+       "departure": "102737"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "北投",
+       "arrival": "",
+       "departure": "1035"
+      },
+      {
+       "station_order": 1,
+       "station_name": "新北投",
+       "arrival": "103737",
+       "departure": "103737"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "北投",
+       "arrival": "",
+       "departure": "1045"
+      },
+      {
+       "station_order": 1,
+       "station_name": "新北投",
+       "arrival": "104737",
+       "departure": "104737"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "北投",
+       "arrival": "",
+       "departure": "1055"
+      },
+      {
+       "station_order": 1,
+       "station_name": "新北投",
+       "arrival": "105737",
+       "departure": "105737"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "北投",
+       "arrival": "",
+       "departure": "1105"
+      },
+      {
+       "station_order": 1,
+       "station_name": "新北投",
+       "arrival": "110737",
+       "departure": "110737"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "北投",
+       "arrival": "",
+       "departure": "1115"
+      },
+      {
+       "station_order": 1,
+       "station_name": "新北投",
+       "arrival": "111737",
+       "departure": "111737"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "北投",
+       "arrival": "",
+       "departure": "1125"
+      },
+      {
+       "station_order": 1,
+       "station_name": "新北投",
+       "arrival": "112737",
+       "departure": "112737"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "北投",
+       "arrival": "",
+       "departure": "1135"
+      },
+      {
+       "station_order": 1,
+       "station_name": "新北投",
+       "arrival": "113737",
+       "departure": "113737"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "北投",
+       "arrival": "",
+       "departure": "1145"
+      },
+      {
+       "station_order": 1,
+       "station_name": "新北投",
+       "arrival": "114737",
+       "departure": "114737"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "北投",
+       "arrival": "",
+       "departure": "1155"
+      },
+      {
+       "station_order": 1,
+       "station_name": "新北投",
+       "arrival": "115737",
+       "departure": "115737"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "北投",
+       "arrival": "",
+       "departure": "1205"
+      },
+      {
+       "station_order": 1,
+       "station_name": "新北投",
+       "arrival": "120737",
+       "departure": "120737"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "北投",
+       "arrival": "",
+       "departure": "1215"
+      },
+      {
+       "station_order": 1,
+       "station_name": "新北投",
+       "arrival": "121737",
+       "departure": "121737"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "北投",
+       "arrival": "",
+       "departure": "1225"
+      },
+      {
+       "station_order": 1,
+       "station_name": "新北投",
+       "arrival": "122737",
+       "departure": "122737"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "北投",
+       "arrival": "",
+       "departure": "1235"
+      },
+      {
+       "station_order": 1,
+       "station_name": "新北投",
+       "arrival": "123737",
+       "departure": "123737"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "北投",
+       "arrival": "",
+       "departure": "1245"
+      },
+      {
+       "station_order": 1,
+       "station_name": "新北投",
+       "arrival": "124737",
+       "departure": "124737"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "北投",
+       "arrival": "",
+       "departure": "1255"
+      },
+      {
+       "station_order": 1,
+       "station_name": "新北投",
+       "arrival": "125737",
+       "departure": "125737"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "北投",
+       "arrival": "",
+       "departure": "1305"
+      },
+      {
+       "station_order": 1,
+       "station_name": "新北投",
+       "arrival": "130737",
+       "departure": "130737"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "北投",
+       "arrival": "",
+       "departure": "1315"
+      },
+      {
+       "station_order": 1,
+       "station_name": "新北投",
+       "arrival": "131737",
+       "departure": "131737"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "北投",
+       "arrival": "",
+       "departure": "1325"
+      },
+      {
+       "station_order": 1,
+       "station_name": "新北投",
+       "arrival": "132737",
+       "departure": "132737"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "北投",
+       "arrival": "",
+       "departure": "1335"
+      },
+      {
+       "station_order": 1,
+       "station_name": "新北投",
+       "arrival": "133737",
+       "departure": "133737"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "北投",
+       "arrival": "",
+       "departure": "1345"
+      },
+      {
+       "station_order": 1,
+       "station_name": "新北投",
+       "arrival": "134737",
+       "departure": "134737"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "北投",
+       "arrival": "",
+       "departure": "1355"
+      },
+      {
+       "station_order": 1,
+       "station_name": "新北投",
+       "arrival": "135737",
+       "departure": "135737"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "北投",
+       "arrival": "",
+       "departure": "1405"
+      },
+      {
+       "station_order": 1,
+       "station_name": "新北投",
+       "arrival": "140737",
+       "departure": "140737"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "北投",
+       "arrival": "",
+       "departure": "1415"
+      },
+      {
+       "station_order": 1,
+       "station_name": "新北投",
+       "arrival": "141737",
+       "departure": "141737"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "北投",
+       "arrival": "",
+       "departure": "1425"
+      },
+      {
+       "station_order": 1,
+       "station_name": "新北投",
+       "arrival": "142737",
+       "departure": "142737"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "北投",
+       "arrival": "",
+       "departure": "1435"
+      },
+      {
+       "station_order": 1,
+       "station_name": "新北投",
+       "arrival": "143737",
+       "departure": "143737"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "北投",
+       "arrival": "",
+       "departure": "1445"
+      },
+      {
+       "station_order": 1,
+       "station_name": "新北投",
+       "arrival": "144737",
+       "departure": "144737"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "北投",
+       "arrival": "",
+       "departure": "1455"
+      },
+      {
+       "station_order": 1,
+       "station_name": "新北投",
+       "arrival": "145737",
+       "departure": "145737"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "北投",
+       "arrival": "",
+       "departure": "1505"
+      },
+      {
+       "station_order": 1,
+       "station_name": "新北投",
+       "arrival": "150737",
+       "departure": "150737"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "北投",
+       "arrival": "",
+       "departure": "1515"
+      },
+      {
+       "station_order": 1,
+       "station_name": "新北投",
+       "arrival": "151737",
+       "departure": "151737"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "北投",
+       "arrival": "",
+       "departure": "1525"
+      },
+      {
+       "station_order": 1,
+       "station_name": "新北投",
+       "arrival": "152737",
+       "departure": "152737"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "北投",
+       "arrival": "",
+       "departure": "1535"
+      },
+      {
+       "station_order": 1,
+       "station_name": "新北投",
+       "arrival": "153737",
+       "departure": "153737"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "北投",
+       "arrival": "",
+       "departure": "1545"
+      },
+      {
+       "station_order": 1,
+       "station_name": "新北投",
+       "arrival": "154737",
+       "departure": "154737"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "北投",
+       "arrival": "",
+       "departure": "1555"
+      },
+      {
+       "station_order": 1,
+       "station_name": "新北投",
+       "arrival": "155737",
+       "departure": "155737"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "北投",
+       "arrival": "",
+       "departure": "1605"
+      },
+      {
+       "station_order": 1,
+       "station_name": "新北投",
+       "arrival": "160737",
+       "departure": "160737"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "北投",
+       "arrival": "",
+       "departure": "1615"
+      },
+      {
+       "station_order": 1,
+       "station_name": "新北投",
+       "arrival": "161737",
+       "departure": "161737"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "北投",
+       "arrival": "",
+       "departure": "1625"
+      },
+      {
+       "station_order": 1,
+       "station_name": "新北投",
+       "arrival": "162737",
+       "departure": "162737"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "北投",
+       "arrival": "",
+       "departure": "1635"
+      },
+      {
+       "station_order": 1,
+       "station_name": "新北投",
+       "arrival": "163737",
+       "departure": "163737"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "北投",
+       "arrival": "",
+       "departure": "1645"
+      },
+      {
+       "station_order": 1,
+       "station_name": "新北投",
+       "arrival": "164737",
+       "departure": "164737"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "北投",
+       "arrival": "",
+       "departure": "1652"
+      },
+      {
+       "station_order": 1,
+       "station_name": "新北投",
+       "arrival": "165437",
+       "departure": "165437"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "北投",
+       "arrival": "",
+       "departure": "1659"
+      },
+      {
+       "station_order": 1,
+       "station_name": "新北投",
+       "arrival": "170137",
+       "departure": "170137"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "北投",
+       "arrival": "",
+       "departure": "1706"
+      },
+      {
+       "station_order": 1,
+       "station_name": "新北投",
+       "arrival": "170837",
+       "departure": "170837"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "北投",
+       "arrival": "",
+       "departure": "1713"
+      },
+      {
+       "station_order": 1,
+       "station_name": "新北投",
+       "arrival": "171537",
+       "departure": "171537"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "北投",
+       "arrival": "",
+       "departure": "1720"
+      },
+      {
+       "station_order": 1,
+       "station_name": "新北投",
+       "arrival": "172237",
+       "departure": "172237"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "北投",
+       "arrival": "",
+       "departure": "1727"
+      },
+      {
+       "station_order": 1,
+       "station_name": "新北投",
+       "arrival": "172937",
+       "departure": "172937"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "北投",
+       "arrival": "",
+       "departure": "1734"
+      },
+      {
+       "station_order": 1,
+       "station_name": "新北投",
+       "arrival": "173637",
+       "departure": "173637"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "北投",
+       "arrival": "",
+       "departure": "1741"
+      },
+      {
+       "station_order": 1,
+       "station_name": "新北投",
+       "arrival": "174337",
+       "departure": "174337"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "北投",
+       "arrival": "",
+       "departure": "1748"
+      },
+      {
+       "station_order": 1,
+       "station_name": "新北投",
+       "arrival": "175037",
+       "departure": "175037"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "北投",
+       "arrival": "",
+       "departure": "1755"
+      },
+      {
+       "station_order": 1,
+       "station_name": "新北投",
+       "arrival": "175737",
+       "departure": "175737"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "北投",
+       "arrival": "",
+       "departure": "1802"
+      },
+      {
+       "station_order": 1,
+       "station_name": "新北投",
+       "arrival": "180437",
+       "departure": "180437"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "北投",
+       "arrival": "",
+       "departure": "1809"
+      },
+      {
+       "station_order": 1,
+       "station_name": "新北投",
+       "arrival": "181137",
+       "departure": "181137"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "北投",
+       "arrival": "",
+       "departure": "1816"
+      },
+      {
+       "station_order": 1,
+       "station_name": "新北投",
+       "arrival": "181837",
+       "departure": "181837"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "北投",
+       "arrival": "",
+       "departure": "1823"
+      },
+      {
+       "station_order": 1,
+       "station_name": "新北投",
+       "arrival": "182537",
+       "departure": "182537"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "北投",
+       "arrival": "",
+       "departure": "1830"
+      },
+      {
+       "station_order": 1,
+       "station_name": "新北投",
+       "arrival": "183237",
+       "departure": "183237"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "北投",
+       "arrival": "",
+       "departure": "1837"
+      },
+      {
+       "station_order": 1,
+       "station_name": "新北投",
+       "arrival": "183937",
+       "departure": "183937"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "北投",
+       "arrival": "",
+       "departure": "1844"
+      },
+      {
+       "station_order": 1,
+       "station_name": "新北投",
+       "arrival": "184637",
+       "departure": "184637"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "北投",
+       "arrival": "",
+       "departure": "1851"
+      },
+      {
+       "station_order": 1,
+       "station_name": "新北投",
+       "arrival": "185337",
+       "departure": "185337"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "北投",
+       "arrival": "",
+       "departure": "1858"
+      },
+      {
+       "station_order": 1,
+       "station_name": "新北投",
+       "arrival": "190037",
+       "departure": "190037"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "北投",
+       "arrival": "",
+       "departure": "1905"
+      },
+      {
+       "station_order": 1,
+       "station_name": "新北投",
+       "arrival": "190737",
+       "departure": "190737"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "北投",
+       "arrival": "",
+       "departure": "1912"
+      },
+      {
+       "station_order": 1,
+       "station_name": "新北投",
+       "arrival": "191437",
+       "departure": "191437"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "北投",
+       "arrival": "",
+       "departure": "1919"
+      },
+      {
+       "station_order": 1,
+       "station_name": "新北投",
+       "arrival": "192137",
+       "departure": "192137"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "北投",
+       "arrival": "",
+       "departure": "1926"
+      },
+      {
+       "station_order": 1,
+       "station_name": "新北投",
+       "arrival": "192837",
+       "departure": "192837"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "北投",
+       "arrival": "",
+       "departure": "1935"
+      },
+      {
+       "station_order": 1,
+       "station_name": "新北投",
+       "arrival": "193737",
+       "departure": "193737"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "北投",
+       "arrival": "",
+       "departure": "1945"
+      },
+      {
+       "station_order": 1,
+       "station_name": "新北投",
+       "arrival": "194737",
+       "departure": "194737"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "北投",
+       "arrival": "",
+       "departure": "1955"
+      },
+      {
+       "station_order": 1,
+       "station_name": "新北投",
+       "arrival": "195737",
+       "departure": "195737"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "北投",
+       "arrival": "",
+       "departure": "2005"
+      },
+      {
+       "station_order": 1,
+       "station_name": "新北投",
+       "arrival": "200737",
+       "departure": "200737"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "北投",
+       "arrival": "",
+       "departure": "2015"
+      },
+      {
+       "station_order": 1,
+       "station_name": "新北投",
+       "arrival": "201737",
+       "departure": "201737"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "北投",
+       "arrival": "",
+       "departure": "2025"
+      },
+      {
+       "station_order": 1,
+       "station_name": "新北投",
+       "arrival": "202737",
+       "departure": "202737"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "北投",
+       "arrival": "",
+       "departure": "2035"
+      },
+      {
+       "station_order": 1,
+       "station_name": "新北投",
+       "arrival": "203737",
+       "departure": "203737"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "北投",
+       "arrival": "",
+       "departure": "2045"
+      },
+      {
+       "station_order": 1,
+       "station_name": "新北投",
+       "arrival": "204737",
+       "departure": "204737"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "北投",
+       "arrival": "",
+       "departure": "2055"
+      },
+      {
+       "station_order": 1,
+       "station_name": "新北投",
+       "arrival": "205737",
+       "departure": "205737"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "北投",
+       "arrival": "",
+       "departure": "2105"
+      },
+      {
+       "station_order": 1,
+       "station_name": "新北投",
+       "arrival": "210737",
+       "departure": "210737"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "北投",
+       "arrival": "",
+       "departure": "2115"
+      },
+      {
+       "station_order": 1,
+       "station_name": "新北投",
+       "arrival": "211737",
+       "departure": "211737"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "北投",
+       "arrival": "",
+       "departure": "2125"
+      },
+      {
+       "station_order": 1,
+       "station_name": "新北投",
+       "arrival": "212737",
+       "departure": "212737"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "北投",
+       "arrival": "",
+       "departure": "2135"
+      },
+      {
+       "station_order": 1,
+       "station_name": "新北投",
+       "arrival": "213737",
+       "departure": "213737"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "北投",
+       "arrival": "",
+       "departure": "2145"
+      },
+      {
+       "station_order": 1,
+       "station_name": "新北投",
+       "arrival": "214737",
+       "departure": "214737"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "北投",
+       "arrival": "",
+       "departure": "2155"
+      },
+      {
+       "station_order": 1,
+       "station_name": "新北投",
+       "arrival": "215737",
+       "departure": "215737"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "北投",
+       "arrival": "",
+       "departure": "2205"
+      },
+      {
+       "station_order": 1,
+       "station_name": "新北投",
+       "arrival": "220737",
+       "departure": "220737"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "北投",
+       "arrival": "",
+       "departure": "2215"
+      },
+      {
+       "station_order": 1,
+       "station_name": "新北投",
+       "arrival": "221737",
+       "departure": "221737"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "北投",
+       "arrival": "",
+       "departure": "2225"
+      },
+      {
+       "station_order": 1,
+       "station_name": "新北投",
+       "arrival": "222737",
+       "departure": "222737"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "北投",
+       "arrival": "",
+       "departure": "2235"
+      },
+      {
+       "station_order": 1,
+       "station_name": "新北投",
+       "arrival": "223737",
+       "departure": "223737"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "北投",
+       "arrival": "",
+       "departure": "2245"
+      },
+      {
+       "station_order": 1,
+       "station_name": "新北投",
+       "arrival": "224737",
+       "departure": "224737"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "北投",
+       "arrival": "",
+       "departure": "2256"
+      },
+      {
+       "station_order": 1,
+       "station_name": "新北投",
+       "arrival": "225837",
+       "departure": "225837"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "北投",
+       "arrival": "",
+       "departure": "2308"
+      },
+      {
+       "station_order": 1,
+       "station_name": "新北投",
+       "arrival": "231037",
+       "departure": "231037"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "北投",
+       "arrival": "",
+       "departure": "2320"
+      },
+      {
+       "station_order": 1,
+       "station_name": "新北投",
+       "arrival": "232237",
+       "departure": "232237"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "北投",
+       "arrival": "",
+       "departure": "2332"
+      },
+      {
+       "station_order": 1,
+       "station_name": "新北投",
+       "arrival": "233437",
+       "departure": "233437"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "北投",
+       "arrival": "",
+       "departure": "2344"
+      },
+      {
+       "station_order": 1,
+       "station_name": "新北投",
+       "arrival": "234637",
+       "departure": "234637"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "北投",
+       "arrival": "",
+       "departure": "2356"
+      },
+      {
+       "station_order": 1,
+       "station_name": "新北投",
+       "arrival": "235837",
+       "departure": "235837"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "北投",
+       "arrival": "",
+       "departure": "0635"
+      },
+      {
+       "station_order": 1,
+       "station_name": "新北投",
+       "arrival": "063737",
+       "departure": "063737"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "北投",
+       "arrival": "",
+       "departure": "0645"
+      },
+      {
+       "station_order": 1,
+       "station_name": "新北投",
+       "arrival": "064737",
+       "departure": "064737"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "北投",
+       "arrival": "",
+       "departure": "0655"
+      },
+      {
+       "station_order": 1,
+       "station_name": "新北投",
+       "arrival": "065737",
+       "departure": "065737"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "北投",
+       "arrival": "",
+       "departure": "0705"
+      },
+      {
+       "station_order": 1,
+       "station_name": "新北投",
+       "arrival": "070737",
+       "departure": "070737"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "北投",
+       "arrival": "",
+       "departure": "0715"
+      },
+      {
+       "station_order": 1,
+       "station_name": "新北投",
+       "arrival": "071737",
+       "departure": "071737"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "北投",
+       "arrival": "",
+       "departure": "0725"
+      },
+      {
+       "station_order": 1,
+       "station_name": "新北投",
+       "arrival": "072737",
+       "departure": "072737"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "北投",
+       "arrival": "",
+       "departure": "0745"
+      },
+      {
+       "station_order": 1,
+       "station_name": "新北投",
+       "arrival": "074737",
+       "departure": "074737"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "北投",
+       "arrival": "",
+       "departure": "0755"
+      },
+      {
+       "station_order": 1,
+       "station_name": "新北投",
+       "arrival": "075737",
+       "departure": "075737"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "北投",
+       "arrival": "",
+       "departure": "0805"
+      },
+      {
+       "station_order": 1,
+       "station_name": "新北投",
+       "arrival": "080737",
+       "departure": "080737"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "北投",
+       "arrival": "",
+       "departure": "0815"
+      },
+      {
+       "station_order": 1,
+       "station_name": "新北投",
+       "arrival": "081737",
+       "departure": "081737"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "北投",
+       "arrival": "",
+       "departure": "0825"
+      },
+      {
+       "station_order": 1,
+       "station_name": "新北投",
+       "arrival": "082737",
+       "departure": "082737"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "北投",
+       "arrival": "",
+       "departure": "0835"
+      },
+      {
+       "station_order": 1,
+       "station_name": "新北投",
+       "arrival": "083737",
+       "departure": "083737"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "北投",
+       "arrival": "",
+       "departure": "0855"
+      },
+      {
+       "station_order": 1,
+       "station_name": "新北投",
+       "arrival": "085737",
+       "departure": "085737"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "北投",
+       "arrival": "",
+       "departure": "0905"
+      },
+      {
+       "station_order": 1,
+       "station_name": "新北投",
+       "arrival": "090737",
+       "departure": "090737"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "北投",
+       "arrival": "",
+       "departure": "1655"
+      },
+      {
+       "station_order": 1,
+       "station_name": "新北投",
+       "arrival": "165737",
+       "departure": "165737"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "北投",
+       "arrival": "",
+       "departure": "1705"
+      },
+      {
+       "station_order": 1,
+       "station_name": "新北投",
+       "arrival": "170737",
+       "departure": "170737"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "北投",
+       "arrival": "",
+       "departure": "1715"
+      },
+      {
+       "station_order": 1,
+       "station_name": "新北投",
+       "arrival": "171737",
+       "departure": "171737"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "北投",
+       "arrival": "",
+       "departure": "1725"
+      },
+      {
+       "station_order": 1,
+       "station_name": "新北投",
+       "arrival": "172737",
+       "departure": "172737"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "北投",
+       "arrival": "",
+       "departure": "1735"
+      },
+      {
+       "station_order": 1,
+       "station_name": "新北投",
+       "arrival": "173737",
+       "departure": "173737"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "北投",
+       "arrival": "",
+       "departure": "1745"
+      },
+      {
+       "station_order": 1,
+       "station_name": "新北投",
+       "arrival": "174737",
+       "departure": "174737"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "北投",
+       "arrival": "",
+       "departure": "1805"
+      },
+      {
+       "station_order": 1,
+       "station_name": "新北投",
+       "arrival": "180737",
+       "departure": "180737"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "北投",
+       "arrival": "",
+       "departure": "1815"
+      },
+      {
+       "station_order": 1,
+       "station_name": "新北投",
+       "arrival": "181737",
+       "departure": "181737"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "北投",
+       "arrival": "",
+       "departure": "1825"
+      },
+      {
+       "station_order": 1,
+       "station_name": "新北投",
+       "arrival": "182737",
+       "departure": "182737"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "北投",
+       "arrival": "",
+       "departure": "1835"
+      },
+      {
+       "station_order": 1,
+       "station_name": "新北投",
+       "arrival": "183737",
+       "departure": "183737"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "北投",
+       "arrival": "",
+       "departure": "1845"
+      },
+      {
+       "station_order": 1,
+       "station_name": "新北投",
+       "arrival": "184737",
+       "departure": "184737"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "北投",
+       "arrival": "",
+       "departure": "1855"
+      },
+      {
+       "station_order": 1,
+       "station_name": "新北投",
+       "arrival": "185737",
+       "departure": "185737"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "北投",
+       "arrival": "",
+       "departure": "1915"
+      },
+      {
+       "station_order": 1,
+       "station_name": "新北投",
+       "arrival": "191737",
+       "departure": "191737"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 3,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "北投",
+       "arrival": "",
+       "departure": "1925"
+      },
+      {
+       "station_order": 1,
+       "station_name": "新北投",
+       "arrival": "192737",
+       "departure": "192737"
+      }
+     ]
+    }
+   ]
+  },
+  "2": {
+   "route_name": "臺北捷運 新北投支線 (北投-新北投)",
+   "bound": 2,
+   "station_count": 2,
+   "station_record": [
+    "新北投",
+    "北投"
+   ],
+   "train_count": 148,
+   "timetable": [
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 5,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新北投",
+       "arrival": "",
+       "departure": "0002"
+      },
+      {
+       "station_order": 1,
+       "station_name": "北投",
+       "arrival": "000437",
+       "departure": "000437"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 5,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新北投",
+       "arrival": "",
+       "departure": "0605"
+      },
+      {
+       "station_order": 1,
+       "station_name": "北投",
+       "arrival": "060737",
+       "departure": "060737"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 5,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新北投",
+       "arrival": "",
+       "departure": "0617"
+      },
+      {
+       "station_order": 1,
+       "station_name": "北投",
+       "arrival": "061937",
+       "departure": "061937"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 5,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新北投",
+       "arrival": "",
+       "departure": "0629"
+      },
+      {
+       "station_order": 1,
+       "station_name": "北投",
+       "arrival": "063137",
+       "departure": "063137"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 5,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新北投",
+       "arrival": "",
+       "departure": "0636"
+      },
+      {
+       "station_order": 1,
+       "station_name": "北投",
+       "arrival": "063837",
+       "departure": "063837"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 5,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新北投",
+       "arrival": "",
+       "departure": "0643"
+      },
+      {
+       "station_order": 1,
+       "station_name": "北投",
+       "arrival": "064537",
+       "departure": "064537"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 5,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新北投",
+       "arrival": "",
+       "departure": "0650"
+      },
+      {
+       "station_order": 1,
+       "station_name": "北投",
+       "arrival": "065237",
+       "departure": "065237"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 5,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新北投",
+       "arrival": "",
+       "departure": "0657"
+      },
+      {
+       "station_order": 1,
+       "station_name": "北投",
+       "arrival": "065937",
+       "departure": "065937"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 5,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新北投",
+       "arrival": "",
+       "departure": "0704"
+      },
+      {
+       "station_order": 1,
+       "station_name": "北投",
+       "arrival": "070637",
+       "departure": "070637"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 5,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新北投",
+       "arrival": "",
+       "departure": "0711"
+      },
+      {
+       "station_order": 1,
+       "station_name": "北投",
+       "arrival": "071337",
+       "departure": "071337"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 5,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新北投",
+       "arrival": "",
+       "departure": "0718"
+      },
+      {
+       "station_order": 1,
+       "station_name": "北投",
+       "arrival": "072037",
+       "departure": "072037"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 5,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新北投",
+       "arrival": "",
+       "departure": "0725"
+      },
+      {
+       "station_order": 1,
+       "station_name": "北投",
+       "arrival": "072737",
+       "departure": "072737"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 5,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新北投",
+       "arrival": "",
+       "departure": "0732"
+      },
+      {
+       "station_order": 1,
+       "station_name": "北投",
+       "arrival": "073437",
+       "departure": "073437"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 5,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新北投",
+       "arrival": "",
+       "departure": "0739"
+      },
+      {
+       "station_order": 1,
+       "station_name": "北投",
+       "arrival": "074137",
+       "departure": "074137"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 5,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新北投",
+       "arrival": "",
+       "departure": "0746"
+      },
+      {
+       "station_order": 1,
+       "station_name": "北投",
+       "arrival": "074837",
+       "departure": "074837"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 5,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新北投",
+       "arrival": "",
+       "departure": "0753"
+      },
+      {
+       "station_order": 1,
+       "station_name": "北投",
+       "arrival": "075537",
+       "departure": "075537"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 5,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新北投",
+       "arrival": "",
+       "departure": "0800"
+      },
+      {
+       "station_order": 1,
+       "station_name": "北投",
+       "arrival": "080237",
+       "departure": "080237"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 5,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新北投",
+       "arrival": "",
+       "departure": "0807"
+      },
+      {
+       "station_order": 1,
+       "station_name": "北投",
+       "arrival": "080937",
+       "departure": "080937"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 5,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新北投",
+       "arrival": "",
+       "departure": "0814"
+      },
+      {
+       "station_order": 1,
+       "station_name": "北投",
+       "arrival": "081637",
+       "departure": "081637"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 5,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新北投",
+       "arrival": "",
+       "departure": "0821"
+      },
+      {
+       "station_order": 1,
+       "station_name": "北投",
+       "arrival": "082337",
+       "departure": "082337"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 5,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新北投",
+       "arrival": "",
+       "departure": "0828"
+      },
+      {
+       "station_order": 1,
+       "station_name": "北投",
+       "arrival": "083037",
+       "departure": "083037"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 5,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新北投",
+       "arrival": "",
+       "departure": "0835"
+      },
+      {
+       "station_order": 1,
+       "station_name": "北投",
+       "arrival": "083737",
+       "departure": "083737"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 5,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新北投",
+       "arrival": "",
+       "departure": "0842"
+      },
+      {
+       "station_order": 1,
+       "station_name": "北投",
+       "arrival": "084437",
+       "departure": "084437"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 5,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新北投",
+       "arrival": "",
+       "departure": "0849"
+      },
+      {
+       "station_order": 1,
+       "station_name": "北投",
+       "arrival": "085137",
+       "departure": "085137"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 5,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新北投",
+       "arrival": "",
+       "departure": "0856"
+      },
+      {
+       "station_order": 1,
+       "station_name": "北投",
+       "arrival": "085837",
+       "departure": "085837"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 5,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新北投",
+       "arrival": "",
+       "departure": "0903"
+      },
+      {
+       "station_order": 1,
+       "station_name": "北投",
+       "arrival": "090537",
+       "departure": "090537"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 5,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新北投",
+       "arrival": "",
+       "departure": "0910"
+      },
+      {
+       "station_order": 1,
+       "station_name": "北投",
+       "arrival": "091237",
+       "departure": "091237"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 5,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新北投",
+       "arrival": "",
+       "departure": "0920"
+      },
+      {
+       "station_order": 1,
+       "station_name": "北投",
+       "arrival": "092237",
+       "departure": "092237"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 5,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新北投",
+       "arrival": "",
+       "departure": "0930"
+      },
+      {
+       "station_order": 1,
+       "station_name": "北投",
+       "arrival": "093237",
+       "departure": "093237"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 5,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新北投",
+       "arrival": "",
+       "departure": "0940"
+      },
+      {
+       "station_order": 1,
+       "station_name": "北投",
+       "arrival": "094237",
+       "departure": "094237"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 5,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新北投",
+       "arrival": "",
+       "departure": "0950"
+      },
+      {
+       "station_order": 1,
+       "station_name": "北投",
+       "arrival": "095237",
+       "departure": "095237"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 5,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新北投",
+       "arrival": "",
+       "departure": "1000"
+      },
+      {
+       "station_order": 1,
+       "station_name": "北投",
+       "arrival": "100237",
+       "departure": "100237"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 5,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新北投",
+       "arrival": "",
+       "departure": "1010"
+      },
+      {
+       "station_order": 1,
+       "station_name": "北投",
+       "arrival": "101237",
+       "departure": "101237"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 5,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新北投",
+       "arrival": "",
+       "departure": "1020"
+      },
+      {
+       "station_order": 1,
+       "station_name": "北投",
+       "arrival": "102237",
+       "departure": "102237"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 5,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新北投",
+       "arrival": "",
+       "departure": "1030"
+      },
+      {
+       "station_order": 1,
+       "station_name": "北投",
+       "arrival": "103237",
+       "departure": "103237"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 5,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新北投",
+       "arrival": "",
+       "departure": "1040"
+      },
+      {
+       "station_order": 1,
+       "station_name": "北投",
+       "arrival": "104237",
+       "departure": "104237"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 5,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新北投",
+       "arrival": "",
+       "departure": "1050"
+      },
+      {
+       "station_order": 1,
+       "station_name": "北投",
+       "arrival": "105237",
+       "departure": "105237"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 5,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新北投",
+       "arrival": "",
+       "departure": "1100"
+      },
+      {
+       "station_order": 1,
+       "station_name": "北投",
+       "arrival": "110237",
+       "departure": "110237"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 5,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新北投",
+       "arrival": "",
+       "departure": "1110"
+      },
+      {
+       "station_order": 1,
+       "station_name": "北投",
+       "arrival": "111237",
+       "departure": "111237"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 5,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新北投",
+       "arrival": "",
+       "departure": "1120"
+      },
+      {
+       "station_order": 1,
+       "station_name": "北投",
+       "arrival": "112237",
+       "departure": "112237"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 5,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新北投",
+       "arrival": "",
+       "departure": "1130"
+      },
+      {
+       "station_order": 1,
+       "station_name": "北投",
+       "arrival": "113237",
+       "departure": "113237"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 5,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新北投",
+       "arrival": "",
+       "departure": "1140"
+      },
+      {
+       "station_order": 1,
+       "station_name": "北投",
+       "arrival": "114237",
+       "departure": "114237"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 5,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新北投",
+       "arrival": "",
+       "departure": "1150"
+      },
+      {
+       "station_order": 1,
+       "station_name": "北投",
+       "arrival": "115237",
+       "departure": "115237"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 5,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新北投",
+       "arrival": "",
+       "departure": "1200"
+      },
+      {
+       "station_order": 1,
+       "station_name": "北投",
+       "arrival": "120237",
+       "departure": "120237"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 5,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新北投",
+       "arrival": "",
+       "departure": "1210"
+      },
+      {
+       "station_order": 1,
+       "station_name": "北投",
+       "arrival": "121237",
+       "departure": "121237"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 5,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新北投",
+       "arrival": "",
+       "departure": "1220"
+      },
+      {
+       "station_order": 1,
+       "station_name": "北投",
+       "arrival": "122237",
+       "departure": "122237"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 5,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新北投",
+       "arrival": "",
+       "departure": "1230"
+      },
+      {
+       "station_order": 1,
+       "station_name": "北投",
+       "arrival": "123237",
+       "departure": "123237"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 5,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新北投",
+       "arrival": "",
+       "departure": "1240"
+      },
+      {
+       "station_order": 1,
+       "station_name": "北投",
+       "arrival": "124237",
+       "departure": "124237"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 5,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新北投",
+       "arrival": "",
+       "departure": "1250"
+      },
+      {
+       "station_order": 1,
+       "station_name": "北投",
+       "arrival": "125237",
+       "departure": "125237"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 5,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新北投",
+       "arrival": "",
+       "departure": "1300"
+      },
+      {
+       "station_order": 1,
+       "station_name": "北投",
+       "arrival": "130237",
+       "departure": "130237"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 5,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新北投",
+       "arrival": "",
+       "departure": "1310"
+      },
+      {
+       "station_order": 1,
+       "station_name": "北投",
+       "arrival": "131237",
+       "departure": "131237"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 5,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新北投",
+       "arrival": "",
+       "departure": "1320"
+      },
+      {
+       "station_order": 1,
+       "station_name": "北投",
+       "arrival": "132237",
+       "departure": "132237"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 5,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新北投",
+       "arrival": "",
+       "departure": "1330"
+      },
+      {
+       "station_order": 1,
+       "station_name": "北投",
+       "arrival": "133237",
+       "departure": "133237"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 5,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新北投",
+       "arrival": "",
+       "departure": "1340"
+      },
+      {
+       "station_order": 1,
+       "station_name": "北投",
+       "arrival": "134237",
+       "departure": "134237"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 5,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新北投",
+       "arrival": "",
+       "departure": "1350"
+      },
+      {
+       "station_order": 1,
+       "station_name": "北投",
+       "arrival": "135237",
+       "departure": "135237"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 5,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新北投",
+       "arrival": "",
+       "departure": "1400"
+      },
+      {
+       "station_order": 1,
+       "station_name": "北投",
+       "arrival": "140237",
+       "departure": "140237"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 5,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新北投",
+       "arrival": "",
+       "departure": "1410"
+      },
+      {
+       "station_order": 1,
+       "station_name": "北投",
+       "arrival": "141237",
+       "departure": "141237"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 5,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新北投",
+       "arrival": "",
+       "departure": "1420"
+      },
+      {
+       "station_order": 1,
+       "station_name": "北投",
+       "arrival": "142237",
+       "departure": "142237"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 5,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新北投",
+       "arrival": "",
+       "departure": "1430"
+      },
+      {
+       "station_order": 1,
+       "station_name": "北投",
+       "arrival": "143237",
+       "departure": "143237"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 5,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新北投",
+       "arrival": "",
+       "departure": "1440"
+      },
+      {
+       "station_order": 1,
+       "station_name": "北投",
+       "arrival": "144237",
+       "departure": "144237"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 5,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新北投",
+       "arrival": "",
+       "departure": "1450"
+      },
+      {
+       "station_order": 1,
+       "station_name": "北投",
+       "arrival": "145237",
+       "departure": "145237"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 5,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新北投",
+       "arrival": "",
+       "departure": "1500"
+      },
+      {
+       "station_order": 1,
+       "station_name": "北投",
+       "arrival": "150237",
+       "departure": "150237"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 5,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新北投",
+       "arrival": "",
+       "departure": "1510"
+      },
+      {
+       "station_order": 1,
+       "station_name": "北投",
+       "arrival": "151237",
+       "departure": "151237"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 5,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新北投",
+       "arrival": "",
+       "departure": "1520"
+      },
+      {
+       "station_order": 1,
+       "station_name": "北投",
+       "arrival": "152237",
+       "departure": "152237"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 5,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新北投",
+       "arrival": "",
+       "departure": "1530"
+      },
+      {
+       "station_order": 1,
+       "station_name": "北投",
+       "arrival": "153237",
+       "departure": "153237"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 5,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新北投",
+       "arrival": "",
+       "departure": "1540"
+      },
+      {
+       "station_order": 1,
+       "station_name": "北投",
+       "arrival": "154237",
+       "departure": "154237"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 5,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新北投",
+       "arrival": "",
+       "departure": "1550"
+      },
+      {
+       "station_order": 1,
+       "station_name": "北投",
+       "arrival": "155237",
+       "departure": "155237"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 5,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新北投",
+       "arrival": "",
+       "departure": "1600"
+      },
+      {
+       "station_order": 1,
+       "station_name": "北投",
+       "arrival": "160237",
+       "departure": "160237"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 5,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新北投",
+       "arrival": "",
+       "departure": "1610"
+      },
+      {
+       "station_order": 1,
+       "station_name": "北投",
+       "arrival": "161237",
+       "departure": "161237"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 5,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新北投",
+       "arrival": "",
+       "departure": "1620"
+      },
+      {
+       "station_order": 1,
+       "station_name": "北投",
+       "arrival": "162237",
+       "departure": "162237"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 5,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新北投",
+       "arrival": "",
+       "departure": "1630"
+      },
+      {
+       "station_order": 1,
+       "station_name": "北投",
+       "arrival": "163237",
+       "departure": "163237"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 5,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新北投",
+       "arrival": "",
+       "departure": "1640"
+      },
+      {
+       "station_order": 1,
+       "station_name": "北投",
+       "arrival": "164237",
+       "departure": "164237"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 5,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新北投",
+       "arrival": "",
+       "departure": "1648"
+      },
+      {
+       "station_order": 1,
+       "station_name": "北投",
+       "arrival": "165037",
+       "departure": "165037"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 5,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新北投",
+       "arrival": "",
+       "departure": "1655"
+      },
+      {
+       "station_order": 1,
+       "station_name": "北投",
+       "arrival": "165737",
+       "departure": "165737"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 5,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新北投",
+       "arrival": "",
+       "departure": "1702"
+      },
+      {
+       "station_order": 1,
+       "station_name": "北投",
+       "arrival": "170437",
+       "departure": "170437"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 5,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新北投",
+       "arrival": "",
+       "departure": "1709"
+      },
+      {
+       "station_order": 1,
+       "station_name": "北投",
+       "arrival": "171137",
+       "departure": "171137"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 5,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新北投",
+       "arrival": "",
+       "departure": "1716"
+      },
+      {
+       "station_order": 1,
+       "station_name": "北投",
+       "arrival": "171837",
+       "departure": "171837"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 5,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新北投",
+       "arrival": "",
+       "departure": "1723"
+      },
+      {
+       "station_order": 1,
+       "station_name": "北投",
+       "arrival": "172537",
+       "departure": "172537"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 5,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新北投",
+       "arrival": "",
+       "departure": "1730"
+      },
+      {
+       "station_order": 1,
+       "station_name": "北投",
+       "arrival": "173237",
+       "departure": "173237"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 5,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新北投",
+       "arrival": "",
+       "departure": "1737"
+      },
+      {
+       "station_order": 1,
+       "station_name": "北投",
+       "arrival": "173937",
+       "departure": "173937"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 5,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新北投",
+       "arrival": "",
+       "departure": "1744"
+      },
+      {
+       "station_order": 1,
+       "station_name": "北投",
+       "arrival": "174637",
+       "departure": "174637"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 5,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新北投",
+       "arrival": "",
+       "departure": "1751"
+      },
+      {
+       "station_order": 1,
+       "station_name": "北投",
+       "arrival": "175337",
+       "departure": "175337"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 5,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新北投",
+       "arrival": "",
+       "departure": "1758"
+      },
+      {
+       "station_order": 1,
+       "station_name": "北投",
+       "arrival": "180037",
+       "departure": "180037"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 5,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新北投",
+       "arrival": "",
+       "departure": "1805"
+      },
+      {
+       "station_order": 1,
+       "station_name": "北投",
+       "arrival": "180737",
+       "departure": "180737"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 5,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新北投",
+       "arrival": "",
+       "departure": "1812"
+      },
+      {
+       "station_order": 1,
+       "station_name": "北投",
+       "arrival": "181437",
+       "departure": "181437"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 5,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新北投",
+       "arrival": "",
+       "departure": "1819"
+      },
+      {
+       "station_order": 1,
+       "station_name": "北投",
+       "arrival": "182137",
+       "departure": "182137"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 5,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新北投",
+       "arrival": "",
+       "departure": "1826"
+      },
+      {
+       "station_order": 1,
+       "station_name": "北投",
+       "arrival": "182837",
+       "departure": "182837"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 5,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新北投",
+       "arrival": "",
+       "departure": "1833"
+      },
+      {
+       "station_order": 1,
+       "station_name": "北投",
+       "arrival": "183537",
+       "departure": "183537"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 5,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新北投",
+       "arrival": "",
+       "departure": "1840"
+      },
+      {
+       "station_order": 1,
+       "station_name": "北投",
+       "arrival": "184237",
+       "departure": "184237"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 5,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新北投",
+       "arrival": "",
+       "departure": "1847"
+      },
+      {
+       "station_order": 1,
+       "station_name": "北投",
+       "arrival": "184937",
+       "departure": "184937"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 5,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新北投",
+       "arrival": "",
+       "departure": "1854"
+      },
+      {
+       "station_order": 1,
+       "station_name": "北投",
+       "arrival": "185637",
+       "departure": "185637"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 5,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新北投",
+       "arrival": "",
+       "departure": "1901"
+      },
+      {
+       "station_order": 1,
+       "station_name": "北投",
+       "arrival": "190337",
+       "departure": "190337"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 5,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新北投",
+       "arrival": "",
+       "departure": "1908"
+      },
+      {
+       "station_order": 1,
+       "station_name": "北投",
+       "arrival": "191037",
+       "departure": "191037"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 5,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新北投",
+       "arrival": "",
+       "departure": "1915"
+      },
+      {
+       "station_order": 1,
+       "station_name": "北投",
+       "arrival": "191737",
+       "departure": "191737"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 5,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新北投",
+       "arrival": "",
+       "departure": "1922"
+      },
+      {
+       "station_order": 1,
+       "station_name": "北投",
+       "arrival": "192437",
+       "departure": "192437"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 5,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新北投",
+       "arrival": "",
+       "departure": "1930"
+      },
+      {
+       "station_order": 1,
+       "station_name": "北投",
+       "arrival": "193237",
+       "departure": "193237"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 5,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新北投",
+       "arrival": "",
+       "departure": "1940"
+      },
+      {
+       "station_order": 1,
+       "station_name": "北投",
+       "arrival": "194237",
+       "departure": "194237"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 5,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新北投",
+       "arrival": "",
+       "departure": "1950"
+      },
+      {
+       "station_order": 1,
+       "station_name": "北投",
+       "arrival": "195237",
+       "departure": "195237"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 5,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新北投",
+       "arrival": "",
+       "departure": "2000"
+      },
+      {
+       "station_order": 1,
+       "station_name": "北投",
+       "arrival": "200237",
+       "departure": "200237"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 5,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新北投",
+       "arrival": "",
+       "departure": "2010"
+      },
+      {
+       "station_order": 1,
+       "station_name": "北投",
+       "arrival": "201237",
+       "departure": "201237"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 5,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新北投",
+       "arrival": "",
+       "departure": "2020"
+      },
+      {
+       "station_order": 1,
+       "station_name": "北投",
+       "arrival": "202237",
+       "departure": "202237"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 5,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新北投",
+       "arrival": "",
+       "departure": "2030"
+      },
+      {
+       "station_order": 1,
+       "station_name": "北投",
+       "arrival": "203237",
+       "departure": "203237"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 5,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新北投",
+       "arrival": "",
+       "departure": "2040"
+      },
+      {
+       "station_order": 1,
+       "station_name": "北投",
+       "arrival": "204237",
+       "departure": "204237"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 5,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新北投",
+       "arrival": "",
+       "departure": "2050"
+      },
+      {
+       "station_order": 1,
+       "station_name": "北投",
+       "arrival": "205237",
+       "departure": "205237"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 5,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新北投",
+       "arrival": "",
+       "departure": "2100"
+      },
+      {
+       "station_order": 1,
+       "station_name": "北投",
+       "arrival": "210237",
+       "departure": "210237"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 5,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新北投",
+       "arrival": "",
+       "departure": "2110"
+      },
+      {
+       "station_order": 1,
+       "station_name": "北投",
+       "arrival": "211237",
+       "departure": "211237"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 5,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新北投",
+       "arrival": "",
+       "departure": "2120"
+      },
+      {
+       "station_order": 1,
+       "station_name": "北投",
+       "arrival": "212237",
+       "departure": "212237"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 5,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新北投",
+       "arrival": "",
+       "departure": "2130"
+      },
+      {
+       "station_order": 1,
+       "station_name": "北投",
+       "arrival": "213237",
+       "departure": "213237"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 5,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新北投",
+       "arrival": "",
+       "departure": "2140"
+      },
+      {
+       "station_order": 1,
+       "station_name": "北投",
+       "arrival": "214237",
+       "departure": "214237"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 5,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新北投",
+       "arrival": "",
+       "departure": "2150"
+      },
+      {
+       "station_order": 1,
+       "station_name": "北投",
+       "arrival": "215237",
+       "departure": "215237"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 5,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新北投",
+       "arrival": "",
+       "departure": "2200"
+      },
+      {
+       "station_order": 1,
+       "station_name": "北投",
+       "arrival": "220237",
+       "departure": "220237"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 5,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新北投",
+       "arrival": "",
+       "departure": "2210"
+      },
+      {
+       "station_order": 1,
+       "station_name": "北投",
+       "arrival": "221237",
+       "departure": "221237"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 5,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新北投",
+       "arrival": "",
+       "departure": "2220"
+      },
+      {
+       "station_order": 1,
+       "station_name": "北投",
+       "arrival": "222237",
+       "departure": "222237"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 5,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新北投",
+       "arrival": "",
+       "departure": "2230"
+      },
+      {
+       "station_order": 1,
+       "station_name": "北投",
+       "arrival": "223237",
+       "departure": "223237"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 5,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新北投",
+       "arrival": "",
+       "departure": "2240"
+      },
+      {
+       "station_order": 1,
+       "station_name": "北投",
+       "arrival": "224237",
+       "departure": "224237"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 5,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新北投",
+       "arrival": "",
+       "departure": "2250"
+      },
+      {
+       "station_order": 1,
+       "station_name": "北投",
+       "arrival": "225237",
+       "departure": "225237"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 5,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新北投",
+       "arrival": "",
+       "departure": "2302"
+      },
+      {
+       "station_order": 1,
+       "station_name": "北投",
+       "arrival": "230437",
+       "departure": "230437"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 5,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新北投",
+       "arrival": "",
+       "departure": "2314"
+      },
+      {
+       "station_order": 1,
+       "station_name": "北投",
+       "arrival": "231637",
+       "departure": "231637"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 5,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新北投",
+       "arrival": "",
+       "departure": "2326"
+      },
+      {
+       "station_order": 1,
+       "station_name": "北投",
+       "arrival": "232837",
+       "departure": "232837"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 5,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新北投",
+       "arrival": "",
+       "departure": "2338"
+      },
+      {
+       "station_order": 1,
+       "station_name": "北投",
+       "arrival": "234037",
+       "departure": "234037"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 5,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新北投",
+       "arrival": "",
+       "departure": "2350"
+      },
+      {
+       "station_order": 1,
+       "station_name": "北投",
+       "arrival": "235237",
+       "departure": "235237"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 5,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新北投",
+       "arrival": "",
+       "departure": "0640"
+      },
+      {
+       "station_order": 1,
+       "station_name": "北投",
+       "arrival": "064237",
+       "departure": "064237"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 5,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新北投",
+       "arrival": "",
+       "departure": "0700"
+      },
+      {
+       "station_order": 1,
+       "station_name": "北投",
+       "arrival": "070237",
+       "departure": "070237"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 5,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新北投",
+       "arrival": "",
+       "departure": "0710"
+      },
+      {
+       "station_order": 1,
+       "station_name": "北投",
+       "arrival": "071237",
+       "departure": "071237"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 5,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新北投",
+       "arrival": "",
+       "departure": "0720"
+      },
+      {
+       "station_order": 1,
+       "station_name": "北投",
+       "arrival": "072237",
+       "departure": "072237"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 5,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新北投",
+       "arrival": "",
+       "departure": "0730"
+      },
+      {
+       "station_order": 1,
+       "station_name": "北投",
+       "arrival": "073237",
+       "departure": "073237"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 5,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新北投",
+       "arrival": "",
+       "departure": "0740"
+      },
+      {
+       "station_order": 1,
+       "station_name": "北投",
+       "arrival": "074237",
+       "departure": "074237"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 5,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新北投",
+       "arrival": "",
+       "departure": "0750"
+      },
+      {
+       "station_order": 1,
+       "station_name": "北投",
+       "arrival": "075237",
+       "departure": "075237"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 5,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新北投",
+       "arrival": "",
+       "departure": "0810"
+      },
+      {
+       "station_order": 1,
+       "station_name": "北投",
+       "arrival": "081237",
+       "departure": "081237"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 5,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新北投",
+       "arrival": "",
+       "departure": "0820"
+      },
+      {
+       "station_order": 1,
+       "station_name": "北投",
+       "arrival": "082237",
+       "departure": "082237"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 5,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新北投",
+       "arrival": "",
+       "departure": "0830"
+      },
+      {
+       "station_order": 1,
+       "station_name": "北投",
+       "arrival": "083237",
+       "departure": "083237"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 5,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新北投",
+       "arrival": "",
+       "departure": "0840"
+      },
+      {
+       "station_order": 1,
+       "station_name": "北投",
+       "arrival": "084237",
+       "departure": "084237"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 5,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新北投",
+       "arrival": "",
+       "departure": "0850"
+      },
+      {
+       "station_order": 1,
+       "station_name": "北投",
+       "arrival": "085237",
+       "departure": "085237"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 5,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新北投",
+       "arrival": "",
+       "departure": "0900"
+      },
+      {
+       "station_order": 1,
+       "station_name": "北投",
+       "arrival": "090237",
+       "departure": "090237"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 5,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新北投",
+       "arrival": "",
+       "departure": "1650"
+      },
+      {
+       "station_order": 1,
+       "station_name": "北投",
+       "arrival": "165237",
+       "departure": "165237"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 5,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新北投",
+       "arrival": "",
+       "departure": "1700"
+      },
+      {
+       "station_order": 1,
+       "station_name": "北投",
+       "arrival": "170237",
+       "departure": "170237"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 5,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新北投",
+       "arrival": "",
+       "departure": "1710"
+      },
+      {
+       "station_order": 1,
+       "station_name": "北投",
+       "arrival": "171237",
+       "departure": "171237"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 5,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新北投",
+       "arrival": "",
+       "departure": "1720"
+      },
+      {
+       "station_order": 1,
+       "station_name": "北投",
+       "arrival": "172237",
+       "departure": "172237"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 5,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新北投",
+       "arrival": "",
+       "departure": "1740"
+      },
+      {
+       "station_order": 1,
+       "station_name": "北投",
+       "arrival": "174237",
+       "departure": "174237"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 5,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新北投",
+       "arrival": "",
+       "departure": "1750"
+      },
+      {
+       "station_order": 1,
+       "station_name": "北投",
+       "arrival": "175237",
+       "departure": "175237"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 5,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新北投",
+       "arrival": "",
+       "departure": "1800"
+      },
+      {
+       "station_order": 1,
+       "station_name": "北投",
+       "arrival": "180237",
+       "departure": "180237"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 5,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新北投",
+       "arrival": "",
+       "departure": "1810"
+      },
+      {
+       "station_order": 1,
+       "station_name": "北投",
+       "arrival": "181237",
+       "departure": "181237"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 5,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新北投",
+       "arrival": "",
+       "departure": "1820"
+      },
+      {
+       "station_order": 1,
+       "station_name": "北投",
+       "arrival": "182237",
+       "departure": "182237"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 5,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新北投",
+       "arrival": "",
+       "departure": "1830"
+      },
+      {
+       "station_order": 1,
+       "station_name": "北投",
+       "arrival": "183237",
+       "departure": "183237"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 5,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新北投",
+       "arrival": "",
+       "departure": "1850"
+      },
+      {
+       "station_order": 1,
+       "station_name": "北投",
+       "arrival": "185237",
+       "departure": "185237"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 5,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新北投",
+       "arrival": "",
+       "departure": "1900"
+      },
+      {
+       "station_order": 1,
+       "station_name": "北投",
+       "arrival": "190237",
+       "departure": "190237"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 5,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新北投",
+       "arrival": "",
+       "departure": "1910"
+      },
+      {
+       "station_order": 1,
+       "station_name": "北投",
+       "arrival": "191237",
+       "departure": "191237"
+      }
+     ]
+    },
+    {
+     "train_number": "",
+     "settings": {
+      "train_name": "",
+      "train_color": 5,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新北投",
+       "arrival": "",
+       "departure": "1920"
+      },
+      {
+       "station_order": 1,
+       "station_name": "北投",
+       "arrival": "192237",
+       "departure": "192237"
+      }
+     ]
+    }
+   ]
+  }
+ },
+ "opmodes": [
+  {
+   "title": "",
+   "description": "",
+   "days": [
+    "mon",
+    "tue",
+    "wed",
+    "thu",
+    "fri"
+   ],
+   "trains": {
+    "1": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8,
+     9,
+     10,
+     11,
+     12,
+     13,
+     14,
+     15,
+     16,
+     17,
+     18,
+     19,
+     20,
+     21,
+     22,
+     23,
+     24,
+     25,
+     26,
+     27,
+     28,
+     29,
+     30,
+     31,
+     32,
+     33,
+     34,
+     35,
+     36,
+     37,
+     38,
+     39,
+     40,
+     41,
+     42,
+     43,
+     44,
+     45,
+     46,
+     47,
+     48,
+     49,
+     50,
+     51,
+     52,
+     53,
+     54,
+     55,
+     56,
+     57,
+     58,
+     59,
+     60,
+     61,
+     62,
+     63,
+     64,
+     65,
+     66,
+     67,
+     68,
+     69,
+     70,
+     71,
+     72,
+     73,
+     74,
+     75,
+     76,
+     77,
+     78,
+     79,
+     80,
+     81,
+     82,
+     83,
+     84,
+     85,
+     86,
+     87,
+     88,
+     89,
+     90,
+     91,
+     92,
+     93,
+     94,
+     95,
+     96,
+     97,
+     98,
+     99,
+     100,
+     101,
+     102,
+     103,
+     104,
+     105,
+     106,
+     107,
+     108,
+     109,
+     110,
+     111,
+     112,
+     113,
+     114,
+     115,
+     116,
+     117,
+     118,
+     119,
+     120,
+     121
+    ],
+    "2": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8,
+     9,
+     10,
+     11,
+     12,
+     13,
+     14,
+     15,
+     16,
+     17,
+     18,
+     19,
+     20,
+     21,
+     22,
+     23,
+     24,
+     25,
+     26,
+     27,
+     28,
+     29,
+     30,
+     31,
+     32,
+     33,
+     34,
+     35,
+     36,
+     37,
+     38,
+     39,
+     40,
+     41,
+     42,
+     43,
+     44,
+     45,
+     46,
+     47,
+     48,
+     49,
+     50,
+     51,
+     52,
+     53,
+     54,
+     55,
+     56,
+     57,
+     58,
+     59,
+     60,
+     61,
+     62,
+     63,
+     64,
+     65,
+     66,
+     67,
+     68,
+     69,
+     70,
+     71,
+     72,
+     73,
+     74,
+     75,
+     76,
+     77,
+     78,
+     79,
+     80,
+     81,
+     82,
+     83,
+     84,
+     85,
+     86,
+     87,
+     88,
+     89,
+     90,
+     91,
+     92,
+     93,
+     94,
+     95,
+     96,
+     97,
+     98,
+     99,
+     100,
+     101,
+     102,
+     103,
+     104,
+     105,
+     106,
+     107,
+     108,
+     109,
+     110,
+     111,
+     112,
+     113,
+     114,
+     115,
+     116,
+     117,
+     118,
+     119,
+     120
+    ]
+   }
+  },
+  {
+   "title": "",
+   "description": "",
+   "days": [
+    "sat",
+    "sun"
+   ],
+   "trains": {
+    "1": [
+     0,
+     1,
+     2,
+     3,
+     122,
+     123,
+     124,
+     125,
+     126,
+     127,
+     13,
+     128,
+     129,
+     130,
+     131,
+     132,
+     133,
+     23,
+     134,
+     135,
+     27,
+     28,
+     29,
+     30,
+     31,
+     32,
+     33,
+     34,
+     35,
+     36,
+     37,
+     38,
+     39,
+     40,
+     41,
+     42,
+     43,
+     44,
+     45,
+     46,
+     47,
+     48,
+     49,
+     50,
+     51,
+     52,
+     53,
+     54,
+     55,
+     56,
+     57,
+     58,
+     59,
+     60,
+     61,
+     62,
+     63,
+     64,
+     65,
+     66,
+     67,
+     68,
+     69,
+     70,
+     71,
+     72,
+     136,
+     137,
+     138,
+     139,
+     140,
+     141,
+     82,
+     142,
+     143,
+     144,
+     145,
+     146,
+     147,
+     92,
+     148,
+     149,
+     96,
+     97,
+     98,
+     99,
+     100,
+     101,
+     102,
+     103,
+     104,
+     105,
+     106,
+     107,
+     108,
+     109,
+     110,
+     111,
+     112,
+     113,
+     114,
+     115,
+     116,
+     117,
+     118,
+     119,
+     120,
+     121
+    ],
+    "2": [
+     0,
+     1,
+     2,
+     3,
+     121,
+     6,
+     122,
+     123,
+     124,
+     125,
+     126,
+     127,
+     16,
+     128,
+     129,
+     130,
+     131,
+     132,
+     133,
+     26,
+     27,
+     28,
+     29,
+     30,
+     31,
+     32,
+     33,
+     34,
+     35,
+     36,
+     37,
+     38,
+     39,
+     40,
+     41,
+     42,
+     43,
+     44,
+     45,
+     46,
+     47,
+     48,
+     49,
+     50,
+     51,
+     52,
+     53,
+     54,
+     55,
+     56,
+     57,
+     58,
+     59,
+     60,
+     61,
+     62,
+     63,
+     64,
+     65,
+     66,
+     67,
+     68,
+     69,
+     70,
+     71,
+     134,
+     135,
+     136,
+     137,
+     78,
+     138,
+     139,
+     140,
+     141,
+     142,
+     143,
+     88,
+     144,
+     145,
+     146,
+     147,
+     95,
+     96,
+     97,
+     98,
+     99,
+     100,
+     101,
+     102,
+     103,
+     104,
+     105,
+     106,
+     107,
+     108,
+     109,
+     110,
+     111,
+     112,
+     113,
+     114,
+     115,
+     116,
+     117,
+     118,
+     119,
+     120
+    ]
+   }
+  }
+ ],
+ "settings": {
+  "defaultStopSec": 60,
+  "startSec": 0,
+  "endSec": 86400,
+  "pxPerKm": 25,
+  "pxPerMin": 25,
+  "stationRange": {
+   "start": 0,
+   "end": null
+  },
+  "trainLineWidth": 2,
+  "trainLineWidthByColor": [
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "trainLineType": "solid",
+  "trainLineTypeByColor": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   "",
+   "",
+   "",
+   "",
+   "",
+   ""
+  ],
+  "showTrainNumber": true,
+  "trainNumberFontSize": 20,
+  "pxPerTrainNumber": 750,
+  "minStationIntervalForTrainNumber": 70,
+  "trainNumberAvoidance": {
+   "enabled": true,
+   "primaryTimeLines": false,
+   "secondaryTimeLines": false,
+   "margin": 5
+  },
+  "oudiaStyle": {
+   "enabled": false,
+   "timeScale": 1,
+   "axisColor": "#C0C0C0",
+   "lineWidth": 1,
+   "stopMarks": true,
+   "showTrainName": false
+  },
+  "connectTrainLines": true,
+  "layers": {
+   "enabled": false,
+   "trainByDirection": false,
+   "trainByColor": false
+  },
+  "margin": {
+   "left": 100,
+   "right": 100,
+   "top": 100,
+   "bottom": 100
+  },
+  "background": {
+   "transparent": false,
+   "color": "#FFFFFF"
+  },
+  "lines": {
+   "station": {
+    "width": 2,
+    "color": "#000000",
+    "type": "solid"
+   },
+   "secondaryStation": {
+    "width": 1.4,
+    "color": "#808080",
+    "type": "solid"
+   },
+   "primary": {
+    "width": 2,
+    "color": "#000000",
+    "type": "solid"
+   },
+   "secondary": {
+    "width": 1.4,
+    "color": "#808080",
+    "type": "solid",
+    "interval": 10
+   },
+   "minute": {
+    "enabled": false,
+    "width": 1.5,
+    "color": "#808080"
+   },
+   "outline": {
+    "top": 2,
+    "bottom": 2,
+    "left": 2,
+    "right": 2,
+    "color": "#000000"
+   }
+  },
+  "stationText": {
+   "fontSize": 20,
+   "color": "#000000",
+   "gap": 10
+  },
+  "aliasText": {
+   "show": false,
+   "fontSize": 20,
+   "color": "#000000",
+   "gap": 10
+  },
+  "secondaryStationText": {
+   "fontSize": 16,
+   "color": "#808080",
+   "gap": 10
+  },
+  "secondaryAliasText": {
+   "fontSize": 16,
+   "color": "#808080",
+   "gap": 10
+  },
+  "timeLabel": {
+   "format": "standard",
+   "zeroPad": false,
+   "overDay": "plain",
+   "gap": 10,
+   "secondaryLabel": "none",
+   "formats": {
+    "standard": {
+     "fontSize": 20,
+     "color": "#000000"
+    },
+    "sized": {
+     "hourFontSize": 25,
+     "hourColor": "#000000",
+     "minuteFontSize": 15,
+     "minuteColor": "#808080"
+    },
+    "simple": {
+     "fontSize": 20,
+     "color": "#000000"
+    }
+   }
+  },
+  "footer": {
+   "enabled": false,
+   "text": "<title> | <opmode> | <sta_range> | <time_range>",
+   "fontSize": 16,
+   "color": "#000000",
+   "base": "page",
+   "gap": 20,
+   "startPage": 1
+  },
+  "print": {
+   "enabled": false,
+   "ppi": 300,
+   "page": {
+    "width": 210,
+    "height": 297
+   },
+   "bleed": {
+    "top": 3,
+    "bottom": 3,
+    "left": 3,
+    "right": 3
+   },
+   "pageMinutes": 60,
+   "overlap": false,
+   "format": "pdf",
+   "opmodes": "all",
+   "align": {
+    "v": {
+     "side": "top",
+     "base": "frame",
+     "offset": 20
+    },
+    "h": {
+     "side": "left",
+     "base": "text",
+     "offset": 10
+    }
+   }
+  },
+  "passingTime": {
+   "solver": "stn",
+   "minExtraPassingWaiting": 30,
+   "minTimeSeparation": 60,
+   "maxSearchDepth": 3,
+   "maxIteration": 5,
+   "maxAllowedConflict": 0,
+   "estimatedSpeedLimitRatio": 1.1,
+   "maxPassingPointIncrease": 2,
+   "timeGranularity": 5,
+   "fineTune": false,
+   "inaccurateArrival": false,
+   "imprecise": false,
+   "timetableGranularity": 60,
+   "roundingMode": "auto",
+   "minDwell": 30,
+   "smooth": true,
+   "interpolationSpeedRatio": 1.2,
+   "interpolationMaxError": null,
+   "stopRules": []
+  },
+  "trainColors": [
+   "#4650E3",
+   "#4650E3",
+   "#25D9F2",
+   "#19F278",
+   "#9AF20B",
+   "#F28800",
+   "#F23F00",
+   "#DB06F2",
+   "#000000",
+   "#787878",
+   "#693600"
+  ]
+ }
+}

@@ -1,0 +1,151 @@
+{
+    "route_name": "台灣高鐵 (南港-左營)",
+    "stations": [
+        {
+            "name": "南港",
+            "kilo": 0,
+            "stopsec": 60,
+            "alias": ""
+        },
+        {
+            "name": "台北",
+            "kilo": 9.2,
+            "stopsec": 60,
+            "alias": ""
+        },
+        {
+            "name": "板橋",
+            "kilo": 16.42,
+            "stopsec": 60,
+            "alias": ""
+        },
+        {
+            "name": "桃園",
+            "kilo": 45.58,
+            "stopsec": 60,
+            "alias": ""
+        },
+        {
+            "name": "新竹",
+            "kilo": 75.48,
+            "stopsec": 60,
+            "alias": ""
+        },
+        {
+            "name": "苗栗",
+            "kilo": 108.16,
+            "stopsec": 60,
+            "alias": ""
+        },
+        {
+            "name": "台中",
+            "kilo": 169.03,
+            "stopsec": 60,
+            "alias": ""
+        },
+        {
+            "name": "彰化",
+            "kilo": 197.18,
+            "stopsec": 60,
+            "alias": ""
+        },
+        {
+            "name": "雲林",
+            "kilo": 221.78,
+            "stopsec": 60,
+            "alias": ""
+        },
+        {
+            "name": "嘉義",
+            "kilo": 254.86,
+            "stopsec": 60,
+            "alias": ""
+        },
+        {
+            "name": "台南",
+            "kilo": 317.16,
+            "stopsec": 60,
+            "alias": ""
+        },
+        {
+            "name": "左營",
+            "kilo": 348.49,
+            "stopsec": 60,
+            "alias": ""
+        }
+    ],
+    "track_layout": {
+        "stations": [
+            "quadruple",
+            "quadruple",
+            "quadruple",
+            "quadruple",
+            "quadruple",
+            "quadruple",
+            "quadruple",
+            "quadruple",
+            "quadruple",
+            "quadruple",
+            "quadruple",
+            "quadruple"
+        ],
+        "sections": [
+            "double.0",
+            "double.0",
+            "double.0",
+            "double.0",
+            "double.0",
+            "double.0",
+            "double.0",
+            "double.0",
+            "double.0",
+            "double.0",
+            "double.0"
+        ],
+        "max_speed_enabled": true,
+        "max_speed_all": 300,
+        "max_speeds": [
+            300,
+            300,
+            300,
+            300,
+            300,
+            300,
+            300,
+            300,
+            300,
+            300,
+            300
+        ]
+    },
+    "topology": {
+        "secondary": [
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+        ],
+        "branches": [
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            []
+        ]
+    }
+}

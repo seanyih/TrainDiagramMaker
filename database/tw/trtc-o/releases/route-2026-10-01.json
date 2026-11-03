@@ -1,0 +1,238 @@
+{
+ "route_name": "臺北捷運 中和新蘆線 (南勢角-迴龍)",
+ "stations": [
+  {
+   "name": "南勢角",
+   "kilo": 0.0,
+   "alias": ""
+  },
+  {
+   "name": "景安",
+   "kilo": 0.81,
+   "alias": ""
+  },
+  {
+   "name": "永安市場",
+   "kilo": 1.89,
+   "alias": ""
+  },
+  {
+   "name": "頂溪",
+   "kilo": 3.22,
+   "alias": ""
+  },
+  {
+   "name": "古亭",
+   "kilo": 5.36,
+   "alias": ""
+  },
+  {
+   "name": "東門",
+   "kilo": 6.94,
+   "alias": ""
+  },
+  {
+   "name": "忠孝新生",
+   "kilo": 8.14,
+   "alias": ""
+  },
+  {
+   "name": "松江南京",
+   "kilo": 9.28,
+   "alias": ""
+  },
+  {
+   "name": "行天宮",
+   "kilo": 10.08,
+   "alias": ""
+  },
+  {
+   "name": "中山國小",
+   "kilo": 11.03,
+   "alias": ""
+  },
+  {
+   "name": "民權西路",
+   "kilo": 11.74,
+   "alias": ""
+  },
+  {
+   "name": "大橋頭",
+   "kilo": 12.4,
+   "alias": ""
+  },
+  {
+   "name": "台北橋",
+   "kilo": 13.73,
+   "alias": ""
+  },
+  {
+   "name": "菜寮",
+   "kilo": 14.72,
+   "alias": ""
+  },
+  {
+   "name": "三重",
+   "kilo": 15.59,
+   "alias": ""
+  },
+  {
+   "name": "先嗇宮",
+   "kilo": 17.31,
+   "alias": ""
+  },
+  {
+   "name": "頭前庄",
+   "kilo": 18.58,
+   "alias": ""
+  },
+  {
+   "name": "新莊",
+   "kilo": 19.6,
+   "alias": ""
+  },
+  {
+   "name": "輔大",
+   "kilo": 21.34,
+   "alias": ""
+  },
+  {
+   "name": "丹鳳",
+   "kilo": 22.71,
+   "alias": ""
+  },
+  {
+   "name": "迴龍",
+   "kilo": 24.11,
+   "alias": ""
+  }
+ ],
+ "topology": {
+  "secondary": [
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false
+  ],
+  "branches": [
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [
+    {
+     "stations": [
+      {
+       "name": "三重國小",
+       "kilo": 1.88
+      }
+     ]
+    }
+   ],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   []
+  ]
+ },
+ "track_layout": {
+  "stations": [
+   "double.0",
+   "double.0",
+   "double.0",
+   "double.0",
+   "double.0",
+   "double.0",
+   "double.0",
+   "double.0",
+   "double.0",
+   "double.0",
+   "double.0",
+   "double.0",
+   "double.0",
+   "double.0",
+   "double.0",
+   "double.0",
+   "double.0",
+   "double.0",
+   "double.0",
+   "double.0",
+   "double.0"
+  ],
+  "sections": [
+   "double.0",
+   "double.0",
+   "double.0",
+   "double.0",
+   "double.0",
+   "double.0",
+   "double.0",
+   "double.0",
+   "double.0",
+   "double.0",
+   "double.0",
+   "double.0",
+   "double.0",
+   "double.0",
+   "double.0",
+   "double.0",
+   "double.0",
+   "double.0",
+   "double.0",
+   "double.0"
+  ],
+  "max_speed_enabled": true,
+  "max_speed_all": null,
+  "max_speeds": [
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null
+  ]
+ }
+}
