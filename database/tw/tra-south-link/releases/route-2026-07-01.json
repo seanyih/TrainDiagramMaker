@@ -1,0 +1,259 @@
+{
+    "route_name": "臺鐵 南迴線 (枋寮-臺東)",
+    "stations": [
+        {
+            "name": "枋寮",
+            "kilo": 0,
+            "stopsec": 60,
+            "alias": ""
+        },
+        {
+            "name": "加祿",
+            "kilo": 5.3,
+            "stopsec": 60,
+            "alias": ""
+        },
+        {
+            "name": "內獅",
+            "kilo": 8.8,
+            "stopsec": 60,
+            "alias": ""
+        },
+        {
+            "name": "枋山",
+            "kilo": 13.6,
+            "stopsec": 60,
+            "alias": ""
+        },
+        {
+            "name": "枋野",
+            "kilo": 20.5,
+            "stopsec": 60,
+            "alias": ""
+        },
+        {
+            "name": "中央 (號)",
+            "kilo": 23.6,
+            "stopsec": 60,
+            "alias": ""
+        },
+        {
+            "name": "古莊 (號)",
+            "kilo": 40.5,
+            "stopsec": 60,
+            "alias": ""
+        },
+        {
+            "name": "大武",
+            "kilo": 43.8,
+            "stopsec": 60,
+            "alias": ""
+        },
+        {
+            "name": "富山 (號廢)",
+            "kilo": 51.7,
+            "stopsec": 60,
+            "alias": ""
+        },
+        {
+            "name": "瀧溪",
+            "kilo": 55.5,
+            "stopsec": 60,
+            "alias": ""
+        },
+        {
+            "name": "多良 (廢)",
+            "kilo": 60.9,
+            "stopsec": 60,
+            "alias": ""
+        },
+        {
+            "name": "金崙",
+            "kilo": 63.9,
+            "stopsec": 60,
+            "alias": ""
+        },
+        {
+            "name": "香蘭 (廢)",
+            "kilo": 69.8,
+            "stopsec": 60,
+            "alias": ""
+        },
+        {
+            "name": "太麻里",
+            "kilo": 74.8,
+            "stopsec": 60,
+            "alias": ""
+        },
+        {
+            "name": "三和 (廢)",
+            "kilo": 82.2,
+            "stopsec": 60,
+            "alias": ""
+        },
+        {
+            "name": "知本",
+            "kilo": 86.5,
+            "stopsec": 60,
+            "alias": ""
+        },
+        {
+            "name": "康樂",
+            "kilo": 93.6,
+            "stopsec": 60,
+            "alias": ""
+        },
+        {
+            "name": "臺東",
+            "kilo": 98.1,
+            "stopsec": 60,
+            "alias": ""
+        }
+    ],
+    "track_layout": {
+        "stations": [
+            "quadruple",
+            "quadruple",
+            "single",
+            "double.3",
+            "triple.3",
+            "double.0",
+            "quadruple",
+            "quadruple",
+            "single",
+            "triple.3",
+            "single",
+            "quadruple",
+            "single",
+            "quadruple",
+            "single",
+            "quadruple",
+            "triple.3",
+            "quadruple"
+        ],
+        "sections": [
+            "single",
+            "single",
+            "single",
+            "single",
+            "single",
+            "double.0",
+            "single",
+            "single",
+            "single",
+            "single",
+            "single",
+            "single",
+            "single",
+            "single",
+            "single",
+            "single",
+            "single"
+        ],
+        "max_speed_enabled": true,
+        "max_speed_all": null,
+        "max_speeds": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    "topology": {
+        "secondary": [
+            false,
+            false,
+            false,
+            false,
+            true,
+            true,
+            true,
+            false,
+            true,
+            false,
+            true,
+            false,
+            true,
+            false,
+            true,
+            false,
+            false,
+            false
+        ],
+        "branches": [
+            [
+                {
+                    "stations": [
+                        {
+                            "name": "東海",
+                            "kilo": 4.1
+                        },
+                        {
+                            "name": "佳冬",
+                            "kilo": 7.2
+                        },
+                        {
+                            "name": "林邊",
+                            "kilo": 11.1
+                        },
+                        {
+                            "name": "潮州",
+                            "kilo": 25.3
+                        },
+                        {
+                            "name": "屏東",
+                            "kilo": 40.3
+                        }
+                    ]
+                }
+            ],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [
+                {
+                    "stations": [
+                        {
+                            "name": "鹿野",
+                            "kilo": 14.3
+                        },
+                        {
+                            "name": "關山",
+                            "kilo": 30
+                        },
+                        {
+                            "name": "玉里",
+                            "kilo": 67.9
+                        }
+                    ]
+                }
+            ]
+        ]
+    }
+}

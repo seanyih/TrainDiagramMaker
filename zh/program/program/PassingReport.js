@@ -322,7 +322,7 @@ function waitReason(m, c, x, y, p, q, s, minExtraPassingWaiting){
 	const stop = canStop(y, ys);
 	if(!(y.wait[ys] || ys == y.first || ys == y.last || stop)){
 		if(y.free[ys]) return no(`${reportTrain(y)}在此通過，且沒有臨時停車規則`);
-		const dwell = y.vague[ys] ? y.depMax[ys] - y.early[ys] : y.dep[ys] - y.arr[ys];
+		const dwell = (y.vague[ys] ? y.depMax[ys] : y.dep[ys]) - (movesArrival(y, ys) ? y.early[ys] : y.arr[ys]);
 		return no(`${reportTrain(y)}在此最多停 ${Math.round(dwell)} 秒，不超過 預設停站 ${m.stopsecs[y.bound][ys]} + 最短待避額外停等時間 ${minExtraPassingWaiting} 秒，不視為待避`);
 	}
 	if(s == q && x.fixed[s] != 1) return null;

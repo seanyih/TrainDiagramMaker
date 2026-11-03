@@ -1,11 +1,61 @@
 {
-	"name": { "zh": "博多南線", "en": "Hakata-Minami Line", "ja": "博多南線" },
-	"section": { "zh": "博多 – 博多南", "en": "Hakata – Hakata-Minami", "ja": "博多 – 博多南" },
-	"companies": ["jr-west"],
-	"types": ["railway"],
-	"regions": ["kyushu"],
-	"route": [
-		{ "date": "2026-03-14", "title": "初版", "kind": "route", "tags": ["mileage"], "files": { "json": "releases/route-2026-03-14.json" }, "latest": true }
+	"name": {
+		"zh": "博多南線",
+		"en": "Hakata-Minami Line",
+		"ja": "博多南線"
+	},
+	"section": {
+		"zh": "博多 – 博多南",
+		"en": "Hakata – Hakata-Minami",
+		"ja": "博多 – 博多南"
+	},
+	"companies": [
+		"jr-west"
 	],
-	"all": []
+	"types": [
+		"railway"
+	],
+	"regions": [
+		"kyushu"
+	],
+	"route": [
+		{
+			"date": "2011-03-12",
+			"title": "博多–博多總合車両所分岐與九州新幹線共用",
+			"kind": "route",
+			"tags": [
+				"complete"
+			],
+			"files": {
+				"json": "releases/route-2011-03-12.json"
+			},
+			"latest": true
+		}
+	],
+	"all": [
+		{
+			"date": "2026-03-14",
+			"title": "2026年3月改點 (2026/11/09 ~ 11/15 一週的時刻，已還原通過時間)",
+			"kind": "all",
+			"tags": [
+				"arrival",
+				"solved"
+			],
+			"files": {
+				"json": "releases/all-2026-03-14-solved.json"
+			},
+			"latest": true
+		},
+		{
+			"date": "2026-03-14",
+			"title": "2026年3月改點 (2026/11/09 ~ 11/15 一週的時刻)",
+			"kind": "all",
+			"tags": [
+				"arrival"
+			],
+			"files": {
+				"json": "releases/all-2026-03-14.json"
+			}
+		}
+	]
 }

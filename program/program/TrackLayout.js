@@ -23,7 +23,7 @@ const TRACK_TRANSITIONS = [
 // [station, section]
 const TRACK_PRESETS = {
 	single:       ["double.3", "single"],
-	double:       ["double.3", "double.0"],
+	double:       ["double.0", "double.0"],
 	doubleSingle: ["double.3", "double.3"],
 	unlimited:    ["quadruple", "quadruple"]
 };

@@ -1,0 +1,6035 @@
+{
+ "info": {
+  "title": "JR 山形新幹線 (福島-新庄)",
+  "description": "時刻取自 ekitan，為 2026/11/09 ~ 11/15 這一週每天實際運行的列車 (含臨時列車，名稱後加「(臨時)」)；只有分鐘精度，沒有通過時刻。",
+  "effective_date": "2026/03/14"
+ },
+ "route": {
+  "route_name": "JR 山形新幹線 (福島-新庄)",
+  "stations": [
+   {
+    "name": "福島",
+    "kilo": 0,
+    "stopsec": 60,
+    "alias": ""
+   },
+   {
+    "name": "関根",
+    "kilo": 35.1,
+    "stopsec": 60,
+    "alias": ""
+   },
+   {
+    "name": "米沢",
+    "kilo": 40.5,
+    "stopsec": 60,
+    "alias": ""
+   },
+   {
+    "name": "置賜",
+    "kilo": 45.8,
+    "stopsec": 60,
+    "alias": ""
+   },
+   {
+    "name": "高畠",
+    "kilo": 49.9,
+    "stopsec": 60,
+    "alias": ""
+   },
+   {
+    "name": "赤湯",
+    "kilo": 56.1,
+    "stopsec": 60,
+    "alias": ""
+   },
+   {
+    "name": "北赤湯信号場",
+    "kilo": 61.6,
+    "stopsec": 60,
+    "alias": ""
+   },
+   {
+    "name": "中川",
+    "kilo": 64.4,
+    "stopsec": 60,
+    "alias": ""
+   },
+   {
+    "name": "羽前中山",
+    "kilo": 68.3,
+    "stopsec": 60,
+    "alias": ""
+   },
+   {
+    "name": "かみのやま温泉",
+    "kilo": 75,
+    "stopsec": 60,
+    "alias": ""
+   },
+   {
+    "name": "山形",
+    "kilo": 87.1,
+    "stopsec": 60,
+    "alias": ""
+   },
+   {
+    "name": "北山形",
+    "kilo": 89,
+    "stopsec": 60,
+    "alias": ""
+   },
+   {
+    "name": "漆山",
+    "kilo": 94.9,
+    "stopsec": 60,
+    "alias": ""
+   },
+   {
+    "name": "天童",
+    "kilo": 100.4,
+    "stopsec": 60,
+    "alias": ""
+   },
+   {
+    "name": "さくらんぼ東根",
+    "kilo": 108.1,
+    "stopsec": 60,
+    "alias": ""
+   },
+   {
+    "name": "村山",
+    "kilo": 113.5,
+    "stopsec": 60,
+    "alias": ""
+   },
+   {
+    "name": "袖崎",
+    "kilo": 121.5,
+    "stopsec": 60,
+    "alias": ""
+   },
+   {
+    "name": "大石田",
+    "kilo": 126.9,
+    "stopsec": 60,
+    "alias": ""
+   },
+   {
+    "name": "芦沢",
+    "kilo": 133.7,
+    "stopsec": 60,
+    "alias": ""
+   },
+   {
+    "name": "舟形",
+    "kilo": 140.3,
+    "stopsec": 60,
+    "alias": ""
+   },
+   {
+    "name": "新庄",
+    "kilo": 148.6,
+    "stopsec": 60,
+    "alias": ""
+   }
+  ],
+  "track_layout": {
+   "stations": [
+    "quadruple",
+    "double.0",
+    "double.3",
+    "double.3",
+    "double.3",
+    "triple.3",
+    "double.0",
+    "double.3",
+    "double.3",
+    "triple.2",
+    "quadruple",
+    "double.3",
+    "double.3",
+    "double.3",
+    "double.3",
+    "triple.3",
+    "double.3",
+    "double.3",
+    "double.3",
+    "double.3",
+    "quadruple"
+   ],
+   "sections": [
+    "double.0",
+    "single",
+    "single",
+    "single",
+    "single",
+    "double.0",
+    "single",
+    "single",
+    "double.0",
+    "double.0",
+    "single",
+    "single",
+    "single",
+    "single",
+    "single",
+    "single",
+    "single",
+    "single",
+    "double.0",
+    "single"
+   ],
+   "max_speed_enabled": true,
+   "max_speed_all": 130,
+   "max_speeds": [
+    130,
+    130,
+    130,
+    130,
+    130,
+    130,
+    130,
+    130,
+    130,
+    130,
+    130,
+    130,
+    130,
+    130,
+    130,
+    130,
+    130,
+    130,
+    130,
+    130
+   ]
+  },
+  "topology": {
+   "secondary": [
+    false,
+    true,
+    false,
+    true,
+    false,
+    false,
+    true,
+    true,
+    true,
+    false,
+    false,
+    true,
+    true,
+    false,
+    false,
+    false,
+    true,
+    false,
+    true,
+    true,
+    false
+   ],
+   "branches": [
+    [
+     {
+      "stations": [
+       {
+        "name": "郡山",
+        "kilo": 41.2
+       },
+       {
+        "name": "宇都宮",
+        "kilo": 146.1
+       },
+       {
+        "name": "大宮",
+        "kilo": 223.8
+       }
+      ]
+     }
+    ],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    []
+   ]
+  }
+ },
+ "trains": {
+  "1": {
+   "route_name": "JR 山形新幹線 (福島-新庄)",
+   "bound": 1,
+   "station_count": 21,
+   "station_record": [
+    "福島",
+    "関根",
+    "米沢",
+    "置賜",
+    "高畠",
+    "赤湯",
+    "北赤湯信号場",
+    "中川",
+    "羽前中山",
+    "かみのやま温泉",
+    "山形",
+    "北山形",
+    "漆山",
+    "天童",
+    "さくらんぼ東根",
+    "村山",
+    "袖崎",
+    "大石田",
+    "芦沢",
+    "舟形",
+    "新庄"
+   ],
+   "train_count": 43,
+   "timetable": [
+    {
+     "train_number": "171M",
+     "settings": {
+      "train_name": "つばさ",
+      "train_color": 10,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 10,
+       "station_name": "山形",
+       "arrival": "065755",
+       "departure": "065850"
+      },
+      {
+       "station_order": 13,
+       "station_name": "天童",
+       "arrival": "070740",
+       "departure": "070810"
+      },
+      {
+       "station_order": 14,
+       "station_name": "さくらんぼ東根",
+       "arrival": "071305",
+       "departure": "071350"
+      },
+      {
+       "station_order": 15,
+       "station_name": "村山",
+       "arrival": "071750",
+       "departure": "071820"
+      },
+      {
+       "station_order": 17,
+       "station_name": "大石田",
+       "arrival": "072655",
+       "departure": "0730"
+      },
+      {
+       "station_order": 20,
+       "station_name": "新庄",
+       "arrival": "074455",
+       "departure": "0745"
+      }
+     ]
+    },
+    {
+     "train_number": "121B",
+     "settings": {
+      "train_name": "つばさ",
+      "train_color": 10,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "郡山",
+      "departure": "0730"
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "福島",
+       "arrival": "074355",
+       "departure": "0748"
+      },
+      {
+       "station_order": 2,
+       "station_name": "米沢",
+       "arrival": "081955",
+       "departure": "0821"
+      },
+      {
+       "station_order": 4,
+       "station_name": "高畠",
+       "arrival": "082755",
+       "departure": "083050"
+      },
+      {
+       "station_order": 5,
+       "station_name": "赤湯",
+       "arrival": "083505",
+       "departure": "0836"
+      },
+      {
+       "station_order": 9,
+       "station_name": "かみのやま温泉",
+       "arrival": "084845",
+       "departure": "084915"
+      },
+      {
+       "station_order": 10,
+       "station_name": "山形",
+       "arrival": "085845",
+       "departure": "090110"
+      },
+      {
+       "station_order": 13,
+       "station_name": "天童",
+       "arrival": "091635",
+       "departure": "091705"
+      },
+      {
+       "station_order": 14,
+       "station_name": "さくらんぼ東根",
+       "arrival": "092205",
+       "departure": "092250"
+      },
+      {
+       "station_order": 15,
+       "station_name": "村山",
+       "arrival": "092650",
+       "departure": "092720"
+      },
+      {
+       "station_order": 16,
+       "station_name": "袖崎",
+       "arrival": "093225",
+       "departure": "093615"
+      },
+      {
+       "station_order": 17,
+       "station_name": "大石田",
+       "arrival": "0940",
+       "departure": "094055"
+      },
+      {
+       "station_order": 20,
+       "station_name": "新庄",
+       "arrival": "0955",
+       "departure": "0955"
+      }
+     ]
+    },
+    {
+     "train_number": "123M",
+     "settings": {
+      "train_name": "つばさ",
+      "train_color": 10,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "郡山",
+      "departure": "0831"
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "福島",
+       "arrival": "084355",
+       "departure": "0848"
+      },
+      {
+       "station_order": 2,
+       "station_name": "米沢",
+       "arrival": "091955",
+       "departure": "0923"
+      },
+      {
+       "station_order": 10,
+       "station_name": "山形",
+       "arrival": "095255",
+       "departure": "095455"
+      },
+      {
+       "station_order": 11,
+       "station_name": "北山形",
+       "arrival": "095640",
+       "departure": "100020"
+      },
+      {
+       "station_order": 13,
+       "station_name": "天童",
+       "arrival": "1007",
+       "departure": "100755"
+      },
+      {
+       "station_order": 14,
+       "station_name": "さくらんぼ東根",
+       "arrival": "1013",
+       "departure": "101555"
+      },
+      {
+       "station_order": 15,
+       "station_name": "村山",
+       "arrival": "1020",
+       "departure": "102055"
+      },
+      {
+       "station_order": 17,
+       "station_name": "大石田",
+       "arrival": "1029",
+       "departure": "1031"
+      },
+      {
+       "station_order": 20,
+       "station_name": "新庄",
+       "arrival": "104555",
+       "departure": "1046"
+      }
+     ]
+    },
+    {
+     "train_number": "127M",
+     "settings": {
+      "train_name": "つばさ",
+      "train_color": 10,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "郡山",
+      "departure": "0932"
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "福島",
+       "arrival": "094455",
+       "departure": "0949"
+      },
+      {
+       "station_order": 2,
+       "station_name": "米沢",
+       "arrival": "102155",
+       "departure": "102605"
+      },
+      {
+       "station_order": 3,
+       "station_name": "置賜",
+       "arrival": "103025",
+       "departure": "103325"
+      },
+      {
+       "station_order": 4,
+       "station_name": "高畠",
+       "arrival": "1037",
+       "departure": "103805"
+      },
+      {
+       "station_order": 5,
+       "station_name": "赤湯",
+       "arrival": "104240",
+       "departure": "104310"
+      },
+      {
+       "station_order": 9,
+       "station_name": "かみのやま温泉",
+       "arrival": "105540",
+       "departure": "105610"
+      },
+      {
+       "station_order": 10,
+       "station_name": "山形",
+       "arrival": "1105",
+       "departure": "1105"
+      }
+     ]
+    },
+    {
+     "train_number": "129B",
+     "settings": {
+      "train_name": "つばさ",
+      "train_color": 10,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "郡山",
+      "departure": "1016"
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "福島",
+       "arrival": "102955",
+       "departure": "103255"
+      },
+      {
+       "station_order": 2,
+       "station_name": "米沢",
+       "arrival": "110340",
+       "departure": "110410"
+      },
+      {
+       "station_order": 5,
+       "station_name": "赤湯",
+       "arrival": "111445",
+       "departure": "111515"
+      },
+      {
+       "station_order": 9,
+       "station_name": "かみのやま温泉",
+       "arrival": "112755",
+       "departure": "1129"
+      },
+      {
+       "station_order": 10,
+       "station_name": "山形",
+       "arrival": "113755",
+       "departure": "1138"
+      }
+     ]
+    },
+    {
+     "train_number": "131M",
+     "settings": {
+      "train_name": "つばさ",
+      "train_color": 10,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "大宮",
+      "departure": "0947"
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "福島",
+       "arrival": "104155",
+       "departure": "104455"
+      },
+      {
+       "station_order": 2,
+       "station_name": "米沢",
+       "arrival": "111545",
+       "departure": "111615"
+      },
+      {
+       "station_order": 10,
+       "station_name": "山形",
+       "arrival": "1146",
+       "departure": "114755"
+      },
+      {
+       "station_order": 13,
+       "station_name": "天童",
+       "arrival": "1157",
+       "departure": "115745"
+      },
+      {
+       "station_order": 14,
+       "station_name": "さくらんぼ東根",
+       "arrival": "120240",
+       "departure": "120310"
+      },
+      {
+       "station_order": 15,
+       "station_name": "村山",
+       "arrival": "120710",
+       "departure": "120755"
+      },
+      {
+       "station_order": 17,
+       "station_name": "大石田",
+       "arrival": "1216",
+       "departure": "121655"
+      },
+      {
+       "station_order": 20,
+       "station_name": "新庄",
+       "arrival": "1231",
+       "departure": "1231"
+      }
+     ]
+    },
+    {
+     "train_number": "133M",
+     "settings": {
+      "train_name": "つばさ",
+      "train_color": 10,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "郡山",
+      "departure": "1119"
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "福島",
+       "arrival": "113155",
+       "departure": "1135"
+      },
+      {
+       "station_order": 2,
+       "station_name": "米沢",
+       "arrival": "120655",
+       "departure": "120755"
+      },
+      {
+       "station_order": 5,
+       "station_name": "赤湯",
+       "arrival": "121805",
+       "departure": "121905"
+      },
+      {
+       "station_order": 9,
+       "station_name": "かみのやま温泉",
+       "arrival": "123250",
+       "departure": "1234"
+      },
+      {
+       "station_order": 10,
+       "station_name": "山形",
+       "arrival": "124255",
+       "departure": "124510"
+      },
+      {
+       "station_order": 13,
+       "station_name": "天童",
+       "arrival": "125645",
+       "departure": "125745"
+      },
+      {
+       "station_order": 14,
+       "station_name": "さくらんぼ東根",
+       "arrival": "130240",
+       "departure": "130310"
+      },
+      {
+       "station_order": 15,
+       "station_name": "村山",
+       "arrival": "130710",
+       "departure": "130755"
+      },
+      {
+       "station_order": 17,
+       "station_name": "大石田",
+       "arrival": "1316",
+       "departure": "131655"
+      },
+      {
+       "station_order": 20,
+       "station_name": "新庄",
+       "arrival": "1331",
+       "departure": "1331"
+      }
+     ]
+    },
+    {
+     "train_number": "135M",
+     "settings": {
+      "train_name": "つばさ",
+      "train_color": 10,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "郡山",
+      "departure": "1218"
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "福島",
+       "arrival": "123055",
+       "departure": "123455"
+      },
+      {
+       "station_order": 2,
+       "station_name": "米沢",
+       "arrival": "1306",
+       "departure": "1307"
+      },
+      {
+       "station_order": 4,
+       "station_name": "高畠",
+       "arrival": "131355",
+       "departure": "131505"
+      },
+      {
+       "station_order": 5,
+       "station_name": "赤湯",
+       "arrival": "131940",
+       "departure": "132010"
+      },
+      {
+       "station_order": 9,
+       "station_name": "かみのやま温泉",
+       "arrival": "133345",
+       "departure": "133415"
+      },
+      {
+       "station_order": 10,
+       "station_name": "山形",
+       "arrival": "134345",
+       "departure": "1344"
+      }
+     ]
+    },
+    {
+     "train_number": "137M",
+     "settings": {
+      "train_name": "つばさ",
+      "train_color": 10,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "郡山",
+      "departure": "1318"
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "福島",
+       "arrival": "133055",
+       "departure": "1335"
+      },
+      {
+       "station_order": 2,
+       "station_name": "米沢",
+       "arrival": "140655",
+       "departure": "1408"
+      },
+      {
+       "station_order": 5,
+       "station_name": "赤湯",
+       "arrival": "141855",
+       "departure": "141955"
+      },
+      {
+       "station_order": 9,
+       "station_name": "かみのやま温泉",
+       "arrival": "1432",
+       "departure": "1433"
+      },
+      {
+       "station_order": 10,
+       "station_name": "山形",
+       "arrival": "144155",
+       "departure": "144410"
+      },
+      {
+       "station_order": 13,
+       "station_name": "天童",
+       "arrival": "145445",
+       "departure": "145515"
+      },
+      {
+       "station_order": 14,
+       "station_name": "さくらんぼ東根",
+       "arrival": "150040",
+       "departure": "150115"
+      },
+      {
+       "station_order": 15,
+       "station_name": "村山",
+       "arrival": "150540",
+       "departure": "150655"
+      },
+      {
+       "station_order": 17,
+       "station_name": "大石田",
+       "arrival": "1515",
+       "departure": "151555"
+      },
+      {
+       "station_order": 20,
+       "station_name": "新庄",
+       "arrival": "1530",
+       "departure": "1530"
+      }
+     ]
+    },
+    {
+     "train_number": "139B",
+     "settings": {
+      "train_name": "つばさ",
+      "train_color": 10,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "郡山",
+      "departure": "1418"
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "福島",
+       "arrival": "143055",
+       "departure": "1435"
+      },
+      {
+       "station_order": 2,
+       "station_name": "米沢",
+       "arrival": "150855",
+       "departure": "1512"
+      },
+      {
+       "station_order": 4,
+       "station_name": "高畠",
+       "arrival": "151855",
+       "departure": "152010"
+      },
+      {
+       "station_order": 5,
+       "station_name": "赤湯",
+       "arrival": "152445",
+       "departure": "152605"
+      },
+      {
+       "station_order": 9,
+       "station_name": "かみのやま温泉",
+       "arrival": "153945",
+       "departure": "154015"
+      },
+      {
+       "station_order": 10,
+       "station_name": "山形",
+       "arrival": "154945",
+       "departure": "1550"
+      }
+     ]
+    },
+    {
+     "train_number": "141M",
+     "settings": {
+      "train_name": "つばさ",
+      "train_color": 10,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "郡山",
+      "departure": "1518"
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "福島",
+       "arrival": "153055",
+       "departure": "1535"
+      },
+      {
+       "station_order": 2,
+       "station_name": "米沢",
+       "arrival": "160855",
+       "departure": "161150"
+      },
+      {
+       "station_order": 3,
+       "station_name": "置賜",
+       "arrival": "161550",
+       "departure": "161850"
+      },
+      {
+       "station_order": 5,
+       "station_name": "赤湯",
+       "arrival": "1626",
+       "departure": "162655"
+      },
+      {
+       "station_order": 9,
+       "station_name": "かみのやま温泉",
+       "arrival": "1639",
+       "departure": "1640"
+      },
+      {
+       "station_order": 10,
+       "station_name": "山形",
+       "arrival": "164855",
+       "departure": "165110"
+      },
+      {
+       "station_order": 13,
+       "station_name": "天童",
+       "arrival": "170145",
+       "departure": "170255"
+      },
+      {
+       "station_order": 14,
+       "station_name": "さくらんぼ東根",
+       "arrival": "1708",
+       "departure": "170855"
+      },
+      {
+       "station_order": 15,
+       "station_name": "村山",
+       "arrival": "1713",
+       "departure": "171410"
+      },
+      {
+       "station_order": 17,
+       "station_name": "大石田",
+       "arrival": "172345",
+       "departure": "172655"
+      },
+      {
+       "station_order": 20,
+       "station_name": "新庄",
+       "arrival": "1741",
+       "departure": "1741"
+      }
+     ]
+    },
+    {
+     "train_number": "143M",
+     "settings": {
+      "train_name": "つばさ",
+      "train_color": 10,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "郡山",
+      "departure": "1618"
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "福島",
+       "arrival": "163055",
+       "departure": "163455"
+      },
+      {
+       "station_order": 2,
+       "station_name": "米沢",
+       "arrival": "170550",
+       "departure": "170620"
+      },
+      {
+       "station_order": 4,
+       "station_name": "高畠",
+       "arrival": "171540",
+       "departure": "171650"
+      },
+      {
+       "station_order": 5,
+       "station_name": "赤湯",
+       "arrival": "172105",
+       "departure": "1722"
+      },
+      {
+       "station_order": 9,
+       "station_name": "かみのやま温泉",
+       "arrival": "173455",
+       "departure": "1736"
+      },
+      {
+       "station_order": 10,
+       "station_name": "山形",
+       "arrival": "174455",
+       "departure": "1745"
+      }
+     ]
+    },
+    {
+     "train_number": "145M",
+     "settings": {
+      "train_name": "つばさ",
+      "train_color": 10,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "郡山",
+      "departure": "1718"
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "福島",
+       "arrival": "173055",
+       "departure": "1735"
+      },
+      {
+       "station_order": 2,
+       "station_name": "米沢",
+       "arrival": "180655",
+       "departure": "1808"
+      },
+      {
+       "station_order": 5,
+       "station_name": "赤湯",
+       "arrival": "181845",
+       "departure": "181915"
+      },
+      {
+       "station_order": 9,
+       "station_name": "かみのやま温泉",
+       "arrival": "183250",
+       "departure": "1834"
+      },
+      {
+       "station_order": 10,
+       "station_name": "山形",
+       "arrival": "184255",
+       "departure": "184455"
+      },
+      {
+       "station_order": 13,
+       "station_name": "天童",
+       "arrival": "1854",
+       "departure": "185445"
+      },
+      {
+       "station_order": 14,
+       "station_name": "さくらんぼ東根",
+       "arrival": "185940",
+       "departure": "190010"
+      },
+      {
+       "station_order": 15,
+       "station_name": "村山",
+       "arrival": "190410",
+       "departure": "190655"
+      },
+      {
+       "station_order": 17,
+       "station_name": "大石田",
+       "arrival": "1915",
+       "departure": "191555"
+      },
+      {
+       "station_order": 20,
+       "station_name": "新庄",
+       "arrival": "1930",
+       "departure": "1930"
+      }
+     ]
+    },
+    {
+     "train_number": "149M",
+     "settings": {
+      "train_name": "つばさ",
+      "train_color": 10,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "郡山",
+      "departure": "1818"
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "福島",
+       "arrival": "183055",
+       "departure": "1836"
+      },
+      {
+       "station_order": 2,
+       "station_name": "米沢",
+       "arrival": "190755",
+       "departure": "1909"
+      },
+      {
+       "station_order": 4,
+       "station_name": "高畠",
+       "arrival": "191555",
+       "departure": "191705"
+      },
+      {
+       "station_order": 5,
+       "station_name": "赤湯",
+       "arrival": "192140",
+       "departure": "192210"
+      },
+      {
+       "station_order": 9,
+       "station_name": "かみのやま温泉",
+       "arrival": "193455",
+       "departure": "1936"
+      },
+      {
+       "station_order": 10,
+       "station_name": "山形",
+       "arrival": "194455",
+       "departure": "1945"
+      }
+     ]
+    },
+    {
+     "train_number": "153M",
+     "settings": {
+      "train_name": "つばさ",
+      "train_color": 10,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "郡山",
+      "departure": "1919"
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "福島",
+       "arrival": "193055",
+       "departure": "1936"
+      },
+      {
+       "station_order": 2,
+       "station_name": "米沢",
+       "arrival": "200855",
+       "departure": "2011"
+      },
+      {
+       "station_order": 5,
+       "station_name": "赤湯",
+       "arrival": "202155",
+       "departure": "202305"
+      },
+      {
+       "station_order": 9,
+       "station_name": "かみのやま温泉",
+       "arrival": "203650",
+       "departure": "2038"
+      },
+      {
+       "station_order": 10,
+       "station_name": "山形",
+       "arrival": "204655",
+       "departure": "2047"
+      }
+     ]
+    },
+    {
+     "train_number": "157M",
+     "settings": {
+      "train_name": "つばさ",
+      "train_color": 10,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "郡山",
+      "departure": "2038"
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "福島",
+       "arrival": "205255",
+       "departure": "205555"
+      },
+      {
+       "station_order": 2,
+       "station_name": "米沢",
+       "arrival": "2127",
+       "departure": "2128"
+      },
+      {
+       "station_order": 10,
+       "station_name": "山形",
+       "arrival": "215755",
+       "departure": "215955"
+      },
+      {
+       "station_order": 13,
+       "station_name": "天童",
+       "arrival": "2209",
+       "departure": "220955"
+      },
+      {
+       "station_order": 14,
+       "station_name": "さくらんぼ東根",
+       "arrival": "2215",
+       "departure": "221555"
+      },
+      {
+       "station_order": 15,
+       "station_name": "村山",
+       "arrival": "2220",
+       "departure": "222105"
+      },
+      {
+       "station_order": 17,
+       "station_name": "大石田",
+       "arrival": "222950",
+       "departure": "2231"
+      },
+      {
+       "station_order": 20,
+       "station_name": "新庄",
+       "arrival": "224555",
+       "departure": "2246"
+      }
+     ]
+    },
+    {
+     "train_number": "159B",
+     "settings": {
+      "train_name": "つばさ",
+      "train_color": 10,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "郡山",
+      "departure": "2202"
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "福島",
+       "arrival": "221455",
+       "departure": "221755"
+      },
+      {
+       "station_order": 2,
+       "station_name": "米沢",
+       "arrival": "2249",
+       "departure": "2250"
+      },
+      {
+       "station_order": 4,
+       "station_name": "高畠",
+       "arrival": "225655",
+       "departure": "225805"
+      },
+      {
+       "station_order": 5,
+       "station_name": "赤湯",
+       "arrival": "230240",
+       "departure": "230310"
+      },
+      {
+       "station_order": 9,
+       "station_name": "かみのやま温泉",
+       "arrival": "231640",
+       "departure": "231710"
+      },
+      {
+       "station_order": 10,
+       "station_name": "山形",
+       "arrival": "2326",
+       "departure": "2326"
+      }
+     ]
+    },
+    {
+     "train_number": "121B",
+     "settings": {
+      "train_name": "つばさ",
+      "train_color": 10,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "郡山",
+      "departure": "0730"
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "福島",
+       "arrival": "074355",
+       "departure": "0748"
+      },
+      {
+       "station_order": 2,
+       "station_name": "米沢",
+       "arrival": "081955",
+       "departure": "0821"
+      },
+      {
+       "station_order": 4,
+       "station_name": "高畠",
+       "arrival": "082755",
+       "departure": "083045"
+      },
+      {
+       "station_order": 5,
+       "station_name": "赤湯",
+       "arrival": "083505",
+       "departure": "0836"
+      },
+      {
+       "station_order": 9,
+       "station_name": "かみのやま温泉",
+       "arrival": "084845",
+       "departure": "084915"
+      },
+      {
+       "station_order": 10,
+       "station_name": "山形",
+       "arrival": "085850",
+       "departure": "090110"
+      },
+      {
+       "station_order": 13,
+       "station_name": "天童",
+       "arrival": "091635",
+       "departure": "091705"
+      },
+      {
+       "station_order": 14,
+       "station_name": "さくらんぼ東根",
+       "arrival": "092205",
+       "departure": "092250"
+      },
+      {
+       "station_order": 15,
+       "station_name": "村山",
+       "arrival": "092650",
+       "departure": "092720"
+      },
+      {
+       "station_order": 16,
+       "station_name": "袖崎",
+       "arrival": "093225",
+       "departure": "093615"
+      },
+      {
+       "station_order": 17,
+       "station_name": "大石田",
+       "arrival": "0940",
+       "departure": "094055"
+      },
+      {
+       "station_order": 20,
+       "station_name": "新庄",
+       "arrival": "0955",
+       "departure": "0955"
+      }
+     ]
+    },
+    {
+     "train_number": "127M",
+     "settings": {
+      "train_name": "つばさ",
+      "train_color": 10,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "郡山",
+      "departure": "0932"
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "福島",
+       "arrival": "094455",
+       "departure": "0949"
+      },
+      {
+       "station_order": 2,
+       "station_name": "米沢",
+       "arrival": "102155",
+       "departure": "102605"
+      },
+      {
+       "station_order": 3,
+       "station_name": "置賜",
+       "arrival": "103015",
+       "departure": "103330"
+      },
+      {
+       "station_order": 4,
+       "station_name": "高畠",
+       "arrival": "1037",
+       "departure": "103805"
+      },
+      {
+       "station_order": 5,
+       "station_name": "赤湯",
+       "arrival": "104240",
+       "departure": "104310"
+      },
+      {
+       "station_order": 9,
+       "station_name": "かみのやま温泉",
+       "arrival": "105540",
+       "departure": "105610"
+      },
+      {
+       "station_order": 10,
+       "station_name": "山形",
+       "arrival": "1105",
+       "departure": "1105"
+      }
+     ]
+    },
+    {
+     "train_number": "8177M",
+     "settings": {
+      "train_name": "つばさ(臨時)",
+      "train_color": 10,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "郡山",
+      "departure": "1105"
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "福島",
+       "arrival": "111855",
+       "departure": "112155"
+      },
+      {
+       "station_order": 2,
+       "station_name": "米沢",
+       "arrival": "1153",
+       "departure": "115355"
+      },
+      {
+       "station_order": 4,
+       "station_name": "高畠",
+       "arrival": "120045",
+       "departure": "120115"
+      },
+      {
+       "station_order": 5,
+       "station_name": "赤湯",
+       "arrival": "120545",
+       "departure": "120615"
+      },
+      {
+       "station_order": 9,
+       "station_name": "かみのやま温泉",
+       "arrival": "121945",
+       "departure": "122015"
+      },
+      {
+       "station_order": 10,
+       "station_name": "山形",
+       "arrival": "122950",
+       "departure": "123205"
+      },
+      {
+       "station_order": 13,
+       "station_name": "天童",
+       "arrival": "124145",
+       "departure": "124215"
+      },
+      {
+       "station_order": 14,
+       "station_name": "さくらんぼ東根",
+       "arrival": "124735",
+       "departure": "124805"
+      },
+      {
+       "station_order": 15,
+       "station_name": "村山",
+       "arrival": "125205",
+       "departure": "125255"
+      },
+      {
+       "station_order": 17,
+       "station_name": "大石田",
+       "arrival": "1301",
+       "departure": "130155"
+      },
+      {
+       "station_order": 20,
+       "station_name": "新庄",
+       "arrival": "1316",
+       "departure": "1316"
+      }
+     ]
+    },
+    {
+     "train_number": "135M",
+     "settings": {
+      "train_name": "つばさ",
+      "train_color": 10,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "郡山",
+      "departure": "1218"
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "福島",
+       "arrival": "123055",
+       "departure": "123455"
+      },
+      {
+       "station_order": 2,
+       "station_name": "米沢",
+       "arrival": "1306",
+       "departure": "1307"
+      },
+      {
+       "station_order": 4,
+       "station_name": "高畠",
+       "arrival": "131355",
+       "departure": "131505"
+      },
+      {
+       "station_order": 5,
+       "station_name": "赤湯",
+       "arrival": "131940",
+       "departure": "132010"
+      },
+      {
+       "station_order": 9,
+       "station_name": "かみのやま温泉",
+       "arrival": "133345",
+       "departure": "133415"
+      },
+      {
+       "station_order": 10,
+       "station_name": "山形",
+       "arrival": "134350",
+       "departure": "1344"
+      }
+     ]
+    },
+    {
+     "train_number": "137M",
+     "settings": {
+      "train_name": "つばさ",
+      "train_color": 10,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "郡山",
+      "departure": "1318"
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "福島",
+       "arrival": "133055",
+       "departure": "1335"
+      },
+      {
+       "station_order": 2,
+       "station_name": "米沢",
+       "arrival": "140655",
+       "departure": "1408"
+      },
+      {
+       "station_order": 5,
+       "station_name": "赤湯",
+       "arrival": "141855",
+       "departure": "141955"
+      },
+      {
+       "station_order": 9,
+       "station_name": "かみのやま温泉",
+       "arrival": "1432",
+       "departure": "1433"
+      },
+      {
+       "station_order": 10,
+       "station_name": "山形",
+       "arrival": "144155",
+       "departure": "144410"
+      },
+      {
+       "station_order": 13,
+       "station_name": "天童",
+       "arrival": "145445",
+       "departure": "145515"
+      },
+      {
+       "station_order": 14,
+       "station_name": "さくらんぼ東根",
+       "arrival": "150045",
+       "departure": "150115"
+      },
+      {
+       "station_order": 15,
+       "station_name": "村山",
+       "arrival": "150540",
+       "departure": "150655"
+      },
+      {
+       "station_order": 17,
+       "station_name": "大石田",
+       "arrival": "1515",
+       "departure": "151555"
+      },
+      {
+       "station_order": 20,
+       "station_name": "新庄",
+       "arrival": "1530",
+       "departure": "1530"
+      }
+     ]
+    },
+    {
+     "train_number": "139B",
+     "settings": {
+      "train_name": "つばさ",
+      "train_color": 10,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "郡山",
+      "departure": "1418"
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "福島",
+       "arrival": "143055",
+       "departure": "1435"
+      },
+      {
+       "station_order": 2,
+       "station_name": "米沢",
+       "arrival": "150855",
+       "departure": "1512"
+      },
+      {
+       "station_order": 4,
+       "station_name": "高畠",
+       "arrival": "151855",
+       "departure": "152005"
+      },
+      {
+       "station_order": 5,
+       "station_name": "赤湯",
+       "arrival": "152445",
+       "departure": "152605"
+      },
+      {
+       "station_order": 9,
+       "station_name": "かみのやま温泉",
+       "arrival": "153945",
+       "departure": "154015"
+      },
+      {
+       "station_order": 10,
+       "station_name": "山形",
+       "arrival": "154950",
+       "departure": "1550"
+      }
+     ]
+    },
+    {
+     "train_number": "143M",
+     "settings": {
+      "train_name": "つばさ",
+      "train_color": 10,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "郡山",
+      "departure": "1618"
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "福島",
+       "arrival": "163055",
+       "departure": "163455"
+      },
+      {
+       "station_order": 2,
+       "station_name": "米沢",
+       "arrival": "170550",
+       "departure": "170620"
+      },
+      {
+       "station_order": 4,
+       "station_name": "高畠",
+       "arrival": "171540",
+       "departure": "171645"
+      },
+      {
+       "station_order": 5,
+       "station_name": "赤湯",
+       "arrival": "172105",
+       "departure": "1722"
+      },
+      {
+       "station_order": 9,
+       "station_name": "かみのやま温泉",
+       "arrival": "173455",
+       "departure": "1736"
+      },
+      {
+       "station_order": 10,
+       "station_name": "山形",
+       "arrival": "174455",
+       "departure": "1745"
+      }
+     ]
+    },
+    {
+     "train_number": "9091B",
+     "settings": {
+      "train_name": "つばさ(臨時)",
+      "train_color": 10,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "宇都宮",
+      "departure": "1741"
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "福島",
+       "arrival": "182055",
+       "departure": "1824"
+      },
+      {
+       "station_order": 2,
+       "station_name": "米沢",
+       "arrival": "185555",
+       "departure": "185655"
+      },
+      {
+       "station_order": 4,
+       "station_name": "高畠",
+       "arrival": "190345",
+       "departure": "190415"
+      },
+      {
+       "station_order": 5,
+       "station_name": "赤湯",
+       "arrival": "190845",
+       "departure": "190915"
+      },
+      {
+       "station_order": 9,
+       "station_name": "かみのやま温泉",
+       "arrival": "192745",
+       "departure": "192815"
+      },
+      {
+       "station_order": 10,
+       "station_name": "山形",
+       "arrival": "193750",
+       "departure": "194005"
+      },
+      {
+       "station_order": 13,
+       "station_name": "天童",
+       "arrival": "194945",
+       "departure": "195015"
+      },
+      {
+       "station_order": 14,
+       "station_name": "さくらんぼ東根",
+       "arrival": "195545",
+       "departure": "195615"
+      },
+      {
+       "station_order": 15,
+       "station_name": "村山",
+       "arrival": "200040",
+       "departure": "200110"
+      },
+      {
+       "station_order": 17,
+       "station_name": "大石田",
+       "arrival": "201045",
+       "departure": "201155"
+      },
+      {
+       "station_order": 20,
+       "station_name": "新庄",
+       "arrival": "2026",
+       "departure": "2026"
+      }
+     ]
+    },
+    {
+     "train_number": "8195M",
+     "settings": {
+      "train_name": "つばさ(臨時)",
+      "train_color": 10,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "郡山",
+      "departure": "2019"
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "福島",
+       "arrival": "203155",
+       "departure": "2036"
+      },
+      {
+       "station_order": 2,
+       "station_name": "米沢",
+       "arrival": "211255",
+       "departure": "211755"
+      },
+      {
+       "station_order": 4,
+       "station_name": "高畠",
+       "arrival": "212445",
+       "departure": "212515"
+      },
+      {
+       "station_order": 5,
+       "station_name": "赤湯",
+       "arrival": "212945",
+       "departure": "213015"
+      },
+      {
+       "station_order": 9,
+       "station_name": "かみのやま温泉",
+       "arrival": "214245",
+       "departure": "214315"
+      },
+      {
+       "station_order": 10,
+       "station_name": "山形",
+       "arrival": "215250",
+       "departure": "2153"
+      }
+     ]
+    },
+    {
+     "train_number": "121B",
+     "settings": {
+      "train_name": "つばさ",
+      "train_color": 10,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "郡山",
+      "departure": "0730"
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "福島",
+       "arrival": "074355",
+       "departure": "0748"
+      },
+      {
+       "station_order": 2,
+       "station_name": "米沢",
+       "arrival": "081955",
+       "departure": "0821"
+      },
+      {
+       "station_order": 4,
+       "station_name": "高畠",
+       "arrival": "082755",
+       "departure": "083050"
+      },
+      {
+       "station_order": 5,
+       "station_name": "赤湯",
+       "arrival": "083510",
+       "departure": "0836"
+      },
+      {
+       "station_order": 9,
+       "station_name": "かみのやま温泉",
+       "arrival": "084845",
+       "departure": "084915"
+      },
+      {
+       "station_order": 10,
+       "station_name": "山形",
+       "arrival": "085850",
+       "departure": "090110"
+      },
+      {
+       "station_order": 13,
+       "station_name": "天童",
+       "arrival": "091635",
+       "departure": "091705"
+      },
+      {
+       "station_order": 14,
+       "station_name": "さくらんぼ東根",
+       "arrival": "092205",
+       "departure": "092250"
+      },
+      {
+       "station_order": 15,
+       "station_name": "村山",
+       "arrival": "092650",
+       "departure": "092720"
+      },
+      {
+       "station_order": 16,
+       "station_name": "袖崎",
+       "arrival": "093225",
+       "departure": "093615"
+      },
+      {
+       "station_order": 17,
+       "station_name": "大石田",
+       "arrival": "0940",
+       "departure": "094055"
+      },
+      {
+       "station_order": 20,
+       "station_name": "新庄",
+       "arrival": "0955",
+       "departure": "0955"
+      }
+     ]
+    },
+    {
+     "train_number": "8175M",
+     "settings": {
+      "train_name": "つばさ(臨時)",
+      "train_color": 10,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "郡山",
+      "departure": "0915"
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "福島",
+       "arrival": "092755",
+       "departure": "093255"
+      },
+      {
+       "station_order": 2,
+       "station_name": "米沢",
+       "arrival": "1004",
+       "departure": "100445"
+      },
+      {
+       "station_order": 4,
+       "station_name": "高畠",
+       "arrival": "101110",
+       "departure": "101205"
+      },
+      {
+       "station_order": 5,
+       "station_name": "赤湯",
+       "arrival": "101645",
+       "departure": "101905"
+      },
+      {
+       "station_order": 9,
+       "station_name": "かみのやま温泉",
+       "arrival": "103250",
+       "departure": "103410"
+      },
+      {
+       "station_order": 10,
+       "station_name": "山形",
+       "arrival": "104345",
+       "departure": "1044"
+      }
+     ]
+    },
+    {
+     "train_number": "127M",
+     "settings": {
+      "train_name": "つばさ",
+      "train_color": 10,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "郡山",
+      "departure": "0932"
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "福島",
+       "arrival": "094455",
+       "departure": "0949"
+      },
+      {
+       "station_order": 2,
+       "station_name": "米沢",
+       "arrival": "102155",
+       "departure": "102555"
+      },
+      {
+       "station_order": 3,
+       "station_name": "置賜",
+       "arrival": "102950",
+       "departure": "103350"
+      },
+      {
+       "station_order": 4,
+       "station_name": "高畠",
+       "arrival": "1037",
+       "departure": "103805"
+      },
+      {
+       "station_order": 5,
+       "station_name": "赤湯",
+       "arrival": "104240",
+       "departure": "104310"
+      },
+      {
+       "station_order": 9,
+       "station_name": "かみのやま温泉",
+       "arrival": "105540",
+       "departure": "105610"
+      },
+      {
+       "station_order": 10,
+       "station_name": "山形",
+       "arrival": "1105",
+       "departure": "1105"
+      }
+     ]
+    },
+    {
+     "train_number": "131M",
+     "settings": {
+      "train_name": "つばさ",
+      "train_color": 10,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "大宮",
+      "departure": "0947"
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "福島",
+       "arrival": "104155",
+       "departure": "104455"
+      },
+      {
+       "station_order": 2,
+       "station_name": "米沢",
+       "arrival": "111545",
+       "departure": "111615"
+      },
+      {
+       "station_order": 10,
+       "station_name": "山形",
+       "arrival": "1146",
+       "departure": "114755"
+      },
+      {
+       "station_order": 13,
+       "station_name": "天童",
+       "arrival": "1157",
+       "departure": "115750"
+      },
+      {
+       "station_order": 14,
+       "station_name": "さくらんぼ東根",
+       "arrival": "120245",
+       "departure": "120315"
+      },
+      {
+       "station_order": 15,
+       "station_name": "村山",
+       "arrival": "120710",
+       "departure": "120755"
+      },
+      {
+       "station_order": 17,
+       "station_name": "大石田",
+       "arrival": "1216",
+       "departure": "121655"
+      },
+      {
+       "station_order": 20,
+       "station_name": "新庄",
+       "arrival": "1231",
+       "departure": "1231"
+      }
+     ]
+    },
+    {
+     "train_number": "133M",
+     "settings": {
+      "train_name": "つばさ",
+      "train_color": 10,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "郡山",
+      "departure": "1119"
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "福島",
+       "arrival": "113155",
+       "departure": "1135"
+      },
+      {
+       "station_order": 2,
+       "station_name": "米沢",
+       "arrival": "120655",
+       "departure": "120755"
+      },
+      {
+       "station_order": 5,
+       "station_name": "赤湯",
+       "arrival": "121805",
+       "departure": "121905"
+      },
+      {
+       "station_order": 9,
+       "station_name": "かみのやま温泉",
+       "arrival": "123250",
+       "departure": "1234"
+      },
+      {
+       "station_order": 10,
+       "station_name": "山形",
+       "arrival": "124255",
+       "departure": "124510"
+      },
+      {
+       "station_order": 13,
+       "station_name": "天童",
+       "arrival": "125645",
+       "departure": "125745"
+      },
+      {
+       "station_order": 14,
+       "station_name": "さくらんぼ東根",
+       "arrival": "130240",
+       "departure": "130310"
+      },
+      {
+       "station_order": 15,
+       "station_name": "村山",
+       "arrival": "130705",
+       "departure": "130755"
+      },
+      {
+       "station_order": 17,
+       "station_name": "大石田",
+       "arrival": "1316",
+       "departure": "131655"
+      },
+      {
+       "station_order": 20,
+       "station_name": "新庄",
+       "arrival": "1331",
+       "departure": "1331"
+      }
+     ]
+    },
+    {
+     "train_number": "135M",
+     "settings": {
+      "train_name": "つばさ",
+      "train_color": 10,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "郡山",
+      "departure": "1218"
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "福島",
+       "arrival": "123055",
+       "departure": "123455"
+      },
+      {
+       "station_order": 2,
+       "station_name": "米沢",
+       "arrival": "1306",
+       "departure": "1307"
+      },
+      {
+       "station_order": 4,
+       "station_name": "高畠",
+       "arrival": "131355",
+       "departure": "131505"
+      },
+      {
+       "station_order": 5,
+       "station_name": "赤湯",
+       "arrival": "131945",
+       "departure": "132015"
+      },
+      {
+       "station_order": 9,
+       "station_name": "かみのやま温泉",
+       "arrival": "133345",
+       "departure": "133415"
+      },
+      {
+       "station_order": 10,
+       "station_name": "山形",
+       "arrival": "134350",
+       "departure": "1344"
+      }
+     ]
+    },
+    {
+     "train_number": "137M",
+     "settings": {
+      "train_name": "つばさ",
+      "train_color": 10,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "郡山",
+      "departure": "1318"
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "福島",
+       "arrival": "133055",
+       "departure": "1335"
+      },
+      {
+       "station_order": 2,
+       "station_name": "米沢",
+       "arrival": "140655",
+       "departure": "1408"
+      },
+      {
+       "station_order": 5,
+       "station_name": "赤湯",
+       "arrival": "141855",
+       "departure": "141955"
+      },
+      {
+       "station_order": 9,
+       "station_name": "かみのやま温泉",
+       "arrival": "1432",
+       "departure": "1433"
+      },
+      {
+       "station_order": 10,
+       "station_name": "山形",
+       "arrival": "144155",
+       "departure": "144410"
+      },
+      {
+       "station_order": 13,
+       "station_name": "天童",
+       "arrival": "145445",
+       "departure": "145515"
+      },
+      {
+       "station_order": 14,
+       "station_name": "さくらんぼ東根",
+       "arrival": "150040",
+       "departure": "150120"
+      },
+      {
+       "station_order": 15,
+       "station_name": "村山",
+       "arrival": "150540",
+       "departure": "150655"
+      },
+      {
+       "station_order": 17,
+       "station_name": "大石田",
+       "arrival": "1515",
+       "departure": "151555"
+      },
+      {
+       "station_order": 20,
+       "station_name": "新庄",
+       "arrival": "1530",
+       "departure": "1530"
+      }
+     ]
+    },
+    {
+     "train_number": "141M",
+     "settings": {
+      "train_name": "つばさ",
+      "train_color": 10,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "郡山",
+      "departure": "1518"
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "福島",
+       "arrival": "153055",
+       "departure": "1535"
+      },
+      {
+       "station_order": 2,
+       "station_name": "米沢",
+       "arrival": "160855",
+       "departure": "161155"
+      },
+      {
+       "station_order": 3,
+       "station_name": "置賜",
+       "arrival": "161550",
+       "departure": "161850"
+      },
+      {
+       "station_order": 5,
+       "station_name": "赤湯",
+       "arrival": "1626",
+       "departure": "162655"
+      },
+      {
+       "station_order": 9,
+       "station_name": "かみのやま温泉",
+       "arrival": "1639",
+       "departure": "1640"
+      },
+      {
+       "station_order": 10,
+       "station_name": "山形",
+       "arrival": "164855",
+       "departure": "165110"
+      },
+      {
+       "station_order": 13,
+       "station_name": "天童",
+       "arrival": "170145",
+       "departure": "170255"
+      },
+      {
+       "station_order": 14,
+       "station_name": "さくらんぼ東根",
+       "arrival": "1708",
+       "departure": "170855"
+      },
+      {
+       "station_order": 15,
+       "station_name": "村山",
+       "arrival": "1713",
+       "departure": "171410"
+      },
+      {
+       "station_order": 17,
+       "station_name": "大石田",
+       "arrival": "172345",
+       "departure": "172655"
+      },
+      {
+       "station_order": 20,
+       "station_name": "新庄",
+       "arrival": "1741",
+       "departure": "1741"
+      }
+     ]
+    },
+    {
+     "train_number": "145M",
+     "settings": {
+      "train_name": "つばさ",
+      "train_color": 10,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "郡山",
+      "departure": "1718"
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "福島",
+       "arrival": "173055",
+       "departure": "1735"
+      },
+      {
+       "station_order": 2,
+       "station_name": "米沢",
+       "arrival": "180655",
+       "departure": "1808"
+      },
+      {
+       "station_order": 5,
+       "station_name": "赤湯",
+       "arrival": "181845",
+       "departure": "181915"
+      },
+      {
+       "station_order": 9,
+       "station_name": "かみのやま温泉",
+       "arrival": "183250",
+       "departure": "1834"
+      },
+      {
+       "station_order": 10,
+       "station_name": "山形",
+       "arrival": "184255",
+       "departure": "184455"
+      },
+      {
+       "station_order": 13,
+       "station_name": "天童",
+       "arrival": "1854",
+       "departure": "185450"
+      },
+      {
+       "station_order": 14,
+       "station_name": "さくらんぼ東根",
+       "arrival": "185945",
+       "departure": "190015"
+      },
+      {
+       "station_order": 15,
+       "station_name": "村山",
+       "arrival": "190410",
+       "departure": "190655"
+      },
+      {
+       "station_order": 17,
+       "station_name": "大石田",
+       "arrival": "1915",
+       "departure": "191555"
+      },
+      {
+       "station_order": 20,
+       "station_name": "新庄",
+       "arrival": "1930",
+       "departure": "1930"
+      }
+     ]
+    },
+    {
+     "train_number": "159B",
+     "settings": {
+      "train_name": "つばさ",
+      "train_color": 10,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "郡山",
+      "departure": "2202"
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "福島",
+       "arrival": "221455",
+       "departure": "221755"
+      },
+      {
+       "station_order": 2,
+       "station_name": "米沢",
+       "arrival": "2249",
+       "departure": "2250"
+      },
+      {
+       "station_order": 4,
+       "station_name": "高畠",
+       "arrival": "225655",
+       "departure": "225805"
+      },
+      {
+       "station_order": 5,
+       "station_name": "赤湯",
+       "arrival": "230245",
+       "departure": "230315"
+      },
+      {
+       "station_order": 9,
+       "station_name": "かみのやま温泉",
+       "arrival": "231640",
+       "departure": "231710"
+      },
+      {
+       "station_order": 10,
+       "station_name": "山形",
+       "arrival": "2326",
+       "departure": "2326"
+      }
+     ]
+    },
+    {
+     "train_number": "121B",
+     "settings": {
+      "train_name": "つばさ",
+      "train_color": 10,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "郡山",
+      "departure": "0730"
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "福島",
+       "arrival": "074355",
+       "departure": "0748"
+      },
+      {
+       "station_order": 2,
+       "station_name": "米沢",
+       "arrival": "081955",
+       "departure": "0821"
+      },
+      {
+       "station_order": 4,
+       "station_name": "高畠",
+       "arrival": "082755",
+       "departure": "083050"
+      },
+      {
+       "station_order": 5,
+       "station_name": "赤湯",
+       "arrival": "083505",
+       "departure": "0836"
+      },
+      {
+       "station_order": 9,
+       "station_name": "かみのやま温泉",
+       "arrival": "084845",
+       "departure": "084915"
+      },
+      {
+       "station_order": 10,
+       "station_name": "山形",
+       "arrival": "085850",
+       "departure": "090110"
+      },
+      {
+       "station_order": 13,
+       "station_name": "天童",
+       "arrival": "091635",
+       "departure": "091705"
+      },
+      {
+       "station_order": 14,
+       "station_name": "さくらんぼ東根",
+       "arrival": "092205",
+       "departure": "092250"
+      },
+      {
+       "station_order": 15,
+       "station_name": "村山",
+       "arrival": "092650",
+       "departure": "092720"
+      },
+      {
+       "station_order": 16,
+       "station_name": "袖崎",
+       "arrival": "093225",
+       "departure": "093615"
+      },
+      {
+       "station_order": 17,
+       "station_name": "大石田",
+       "arrival": "0940",
+       "departure": "094055"
+      },
+      {
+       "station_order": 20,
+       "station_name": "新庄",
+       "arrival": "0955",
+       "departure": "0955"
+      }
+     ]
+    },
+    {
+     "train_number": "133M",
+     "settings": {
+      "train_name": "つばさ",
+      "train_color": 10,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "郡山",
+      "departure": "1119"
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "福島",
+       "arrival": "113155",
+       "departure": "1135"
+      },
+      {
+       "station_order": 2,
+       "station_name": "米沢",
+       "arrival": "120655",
+       "departure": "120750"
+      },
+      {
+       "station_order": 5,
+       "station_name": "赤湯",
+       "arrival": "1218",
+       "departure": "121905"
+      },
+      {
+       "station_order": 9,
+       "station_name": "かみのやま温泉",
+       "arrival": "123250",
+       "departure": "1234"
+      },
+      {
+       "station_order": 10,
+       "station_name": "山形",
+       "arrival": "124255",
+       "departure": "124510"
+      },
+      {
+       "station_order": 13,
+       "station_name": "天童",
+       "arrival": "125645",
+       "departure": "125745"
+      },
+      {
+       "station_order": 14,
+       "station_name": "さくらんぼ東根",
+       "arrival": "130240",
+       "departure": "130310"
+      },
+      {
+       "station_order": 15,
+       "station_name": "村山",
+       "arrival": "130710",
+       "departure": "130755"
+      },
+      {
+       "station_order": 17,
+       "station_name": "大石田",
+       "arrival": "1316",
+       "departure": "131655"
+      },
+      {
+       "station_order": 20,
+       "station_name": "新庄",
+       "arrival": "1331",
+       "departure": "1331"
+      }
+     ]
+    },
+    {
+     "train_number": "139B",
+     "settings": {
+      "train_name": "つばさ",
+      "train_color": 10,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "郡山",
+      "departure": "1418"
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "福島",
+       "arrival": "143055",
+       "departure": "1435"
+      },
+      {
+       "station_order": 2,
+       "station_name": "米沢",
+       "arrival": "150855",
+       "departure": "1512"
+      },
+      {
+       "station_order": 4,
+       "station_name": "高畠",
+       "arrival": "151855",
+       "departure": "152010"
+      },
+      {
+       "station_order": 5,
+       "station_name": "赤湯",
+       "arrival": "152445",
+       "departure": "152605"
+      },
+      {
+       "station_order": 9,
+       "station_name": "かみのやま温泉",
+       "arrival": "153945",
+       "departure": "154015"
+      },
+      {
+       "station_order": 10,
+       "station_name": "山形",
+       "arrival": "154950",
+       "departure": "1550"
+      }
+     ]
+    },
+    {
+     "train_number": "6069B",
+     "settings": {
+      "train_name": "つばさ(臨時)",
+      "train_color": 10,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "宇都宮",
+      "departure": "1643"
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "福島",
+       "arrival": "171955",
+       "departure": "1722"
+      },
+      {
+       "station_order": 2,
+       "station_name": "米沢",
+       "arrival": "175355",
+       "departure": "175455"
+      },
+      {
+       "station_order": 4,
+       "station_name": "高畠",
+       "arrival": "180145",
+       "departure": "180215"
+      },
+      {
+       "station_order": 5,
+       "station_name": "赤湯",
+       "arrival": "180645",
+       "departure": "180715"
+      },
+      {
+       "station_order": 9,
+       "station_name": "かみのやま温泉",
+       "arrival": "182050",
+       "departure": "182210"
+      },
+      {
+       "station_order": 10,
+       "station_name": "山形",
+       "arrival": "183145",
+       "departure": "1832"
+      }
+     ]
+    },
+    {
+     "train_number": "9091B",
+     "settings": {
+      "train_name": "つばさ(臨時)",
+      "train_color": 10,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "宇都宮",
+      "departure": "1741"
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "福島",
+       "arrival": "182055",
+       "departure": "1824"
+      },
+      {
+       "station_order": 2,
+       "station_name": "米沢",
+       "arrival": "185555",
+       "departure": "185655"
+      },
+      {
+       "station_order": 4,
+       "station_name": "高畠",
+       "arrival": "190345",
+       "departure": "190415"
+      },
+      {
+       "station_order": 5,
+       "station_name": "赤湯",
+       "arrival": "190845",
+       "departure": "190915"
+      },
+      {
+       "station_order": 9,
+       "station_name": "かみのやま温泉",
+       "arrival": "192745",
+       "departure": "192815"
+      },
+      {
+       "station_order": 10,
+       "station_name": "山形",
+       "arrival": "193750",
+       "departure": "194005"
+      },
+      {
+       "station_order": 13,
+       "station_name": "天童",
+       "arrival": "194945",
+       "departure": "195015"
+      },
+      {
+       "station_order": 14,
+       "station_name": "さくらんぼ東根",
+       "arrival": "195540",
+       "departure": "195615"
+      },
+      {
+       "station_order": 15,
+       "station_name": "村山",
+       "arrival": "200040",
+       "departure": "200110"
+      },
+      {
+       "station_order": 17,
+       "station_name": "大石田",
+       "arrival": "201045",
+       "departure": "201155"
+      },
+      {
+       "station_order": 20,
+       "station_name": "新庄",
+       "arrival": "2026",
+       "departure": "2026"
+      }
+     ]
+    },
+    {
+     "train_number": "8195M",
+     "settings": {
+      "train_name": "つばさ(臨時)",
+      "train_color": 10,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "郡山",
+      "departure": "2019"
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "福島",
+       "arrival": "203155",
+       "departure": "2036"
+      },
+      {
+       "station_order": 2,
+       "station_name": "米沢",
+       "arrival": "211255",
+       "departure": "211755"
+      },
+      {
+       "station_order": 4,
+       "station_name": "高畠",
+       "arrival": "212445",
+       "departure": "212515"
+      },
+      {
+       "station_order": 5,
+       "station_name": "赤湯",
+       "arrival": "212940",
+       "departure": "213010"
+      },
+      {
+       "station_order": 9,
+       "station_name": "かみのやま温泉",
+       "arrival": "214245",
+       "departure": "214315"
+      },
+      {
+       "station_order": 10,
+       "station_name": "山形",
+       "arrival": "215250",
+       "departure": "2153"
+      }
+     ]
+    },
+    {
+     "train_number": "9097B",
+     "settings": {
+      "train_name": "つばさ(臨時)",
+      "train_color": 10,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "郡山",
+      "departure": "2111"
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "福島",
+       "arrival": "212455",
+       "departure": "212755"
+      },
+      {
+       "station_order": 2,
+       "station_name": "米沢",
+       "arrival": "2159",
+       "departure": "2200"
+      },
+      {
+       "station_order": 4,
+       "station_name": "高畠",
+       "arrival": "220655",
+       "departure": "220750"
+      },
+      {
+       "station_order": 5,
+       "station_name": "赤湯",
+       "arrival": "221205",
+       "departure": "2213"
+      },
+      {
+       "station_order": 9,
+       "station_name": "かみのやま温泉",
+       "arrival": "222555",
+       "departure": "2227"
+      },
+      {
+       "station_order": 10,
+       "station_name": "山形",
+       "arrival": "223555",
+       "departure": "2236"
+      }
+     ]
+    }
+   ]
+  },
+  "2": {
+   "route_name": "JR 山形新幹線 (福島-新庄)",
+   "bound": 2,
+   "station_count": 21,
+   "station_record": [
+    "新庄",
+    "舟形",
+    "芦沢",
+    "大石田",
+    "袖崎",
+    "村山",
+    "さくらんぼ東根",
+    "天童",
+    "漆山",
+    "北山形",
+    "山形",
+    "かみのやま温泉",
+    "羽前中山",
+    "中川",
+    "北赤湯信号場",
+    "赤湯",
+    "高畠",
+    "置賜",
+    "米沢",
+    "関根",
+    "福島"
+   ],
+   "train_count": 35,
+   "timetable": [
+    {
+     "train_number": "122M",
+     "settings": {
+      "train_name": "つばさ",
+      "train_color": 10,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "郡山",
+      "arrival": "0753"
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新庄",
+       "arrival": "053855",
+       "departure": "053955"
+      },
+      {
+       "station_order": 3,
+       "station_name": "大石田",
+       "arrival": "055345",
+       "departure": "055415"
+      },
+      {
+       "station_order": 5,
+       "station_name": "村山",
+       "arrival": "060235",
+       "departure": "060305"
+      },
+      {
+       "station_order": 6,
+       "station_name": "さくらんぼ東根",
+       "arrival": "060705",
+       "departure": "060750"
+      },
+      {
+       "station_order": 7,
+       "station_name": "天童",
+       "arrival": "061250",
+       "departure": "061320"
+      },
+      {
+       "station_order": 10,
+       "station_name": "山形",
+       "arrival": "062255",
+       "departure": "062450"
+      },
+      {
+       "station_order": 11,
+       "station_name": "かみのやま温泉",
+       "arrival": "063305",
+       "departure": "063355"
+      },
+      {
+       "station_order": 15,
+       "station_name": "赤湯",
+       "arrival": "064645",
+       "departure": "064715"
+      },
+      {
+       "station_order": 16,
+       "station_name": "高畠",
+       "arrival": "065150",
+       "departure": "0654"
+      },
+      {
+       "station_order": 18,
+       "station_name": "米沢",
+       "arrival": "070055",
+       "departure": "0702"
+      },
+      {
+       "station_order": 20,
+       "station_name": "福島",
+       "arrival": "073655",
+       "departure": "0739"
+      }
+     ]
+    },
+    {
+     "train_number": "124M",
+     "settings": {
+      "train_name": "つばさ",
+      "train_color": 10,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "大宮",
+      "arrival": "0912"
+     },
+     "timetable": [
+      {
+       "station_order": 10,
+       "station_name": "山形",
+       "arrival": "071055",
+       "departure": "071155"
+      },
+      {
+       "station_order": 18,
+       "station_name": "米沢",
+       "arrival": "074155",
+       "departure": "074255"
+      },
+      {
+       "station_order": 20,
+       "station_name": "福島",
+       "arrival": "0817",
+       "departure": "0819"
+      }
+     ]
+    },
+    {
+     "train_number": "128M",
+     "settings": {
+      "train_name": "つばさ",
+      "train_color": 10,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "郡山",
+      "arrival": "0929"
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新庄",
+       "arrival": "071355",
+       "departure": "071455"
+      },
+      {
+       "station_order": 3,
+       "station_name": "大石田",
+       "arrival": "0729",
+       "departure": "0730"
+      },
+      {
+       "station_order": 5,
+       "station_name": "村山",
+       "arrival": "073835",
+       "departure": "073905"
+      },
+      {
+       "station_order": 6,
+       "station_name": "さくらんぼ東根",
+       "arrival": "074305",
+       "departure": "074355"
+      },
+      {
+       "station_order": 7,
+       "station_name": "天童",
+       "arrival": "0749",
+       "departure": "075010"
+      },
+      {
+       "station_order": 10,
+       "station_name": "山形",
+       "arrival": "080045",
+       "departure": "080250"
+      },
+      {
+       "station_order": 11,
+       "station_name": "かみのやま温泉",
+       "arrival": "081105",
+       "departure": "081155"
+      },
+      {
+       "station_order": 15,
+       "station_name": "赤湯",
+       "arrival": "082445",
+       "departure": "082515"
+      },
+      {
+       "station_order": 16,
+       "station_name": "高畠",
+       "arrival": "082950",
+       "departure": "083115"
+      },
+      {
+       "station_order": 18,
+       "station_name": "米沢",
+       "arrival": "083840",
+       "departure": "083955"
+      },
+      {
+       "station_order": 20,
+       "station_name": "福島",
+       "arrival": "0914",
+       "departure": "0916"
+      }
+     ]
+    },
+    {
+     "train_number": "132M",
+     "settings": {
+      "train_name": "つばさ",
+      "train_color": 10,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "郡山",
+      "arrival": "1027"
+     },
+     "timetable": [
+      {
+       "station_order": 10,
+       "station_name": "山形",
+       "arrival": "085855",
+       "departure": "085950"
+      },
+      {
+       "station_order": 11,
+       "station_name": "かみのやま温泉",
+       "arrival": "090805",
+       "departure": "090855"
+      },
+      {
+       "station_order": 15,
+       "station_name": "赤湯",
+       "arrival": "092155",
+       "departure": "092255"
+      },
+      {
+       "station_order": 16,
+       "station_name": "高畠",
+       "arrival": "092715",
+       "departure": "093025"
+      },
+      {
+       "station_order": 18,
+       "station_name": "米沢",
+       "arrival": "093650",
+       "departure": "093720"
+      },
+      {
+       "station_order": 20,
+       "station_name": "福島",
+       "arrival": "101155",
+       "departure": "1014"
+      }
+     ]
+    },
+    {
+     "train_number": "136B",
+     "settings": {
+      "train_name": "つばさ",
+      "train_color": 10,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "郡山",
+      "arrival": "1129"
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新庄",
+       "arrival": "091355",
+       "departure": "0915"
+      },
+      {
+       "station_order": 3,
+       "station_name": "大石田",
+       "arrival": "092955",
+       "departure": "093055"
+      },
+      {
+       "station_order": 5,
+       "station_name": "村山",
+       "arrival": "0939",
+       "departure": "093945"
+      },
+      {
+       "station_order": 6,
+       "station_name": "さくらんぼ東根",
+       "arrival": "094345",
+       "departure": "094415"
+      },
+      {
+       "station_order": 7,
+       "station_name": "天童",
+       "arrival": "094910",
+       "departure": "095010"
+      },
+      {
+       "station_order": 10,
+       "station_name": "山形",
+       "arrival": "100145",
+       "departure": "100350"
+      },
+      {
+       "station_order": 11,
+       "station_name": "かみのやま温泉",
+       "arrival": "101205",
+       "departure": "101255"
+      },
+      {
+       "station_order": 15,
+       "station_name": "赤湯",
+       "arrival": "102555",
+       "departure": "102650"
+      },
+      {
+       "station_order": 18,
+       "station_name": "米沢",
+       "arrival": "103605",
+       "departure": "1037"
+      },
+      {
+       "station_order": 20,
+       "station_name": "福島",
+       "arrival": "111155",
+       "departure": "1115"
+      }
+     ]
+    },
+    {
+     "train_number": "138M",
+     "settings": {
+      "train_name": "つばさ",
+      "train_color": 10,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "郡山",
+      "arrival": "1229"
+     },
+     "timetable": [
+      {
+       "station_order": 10,
+       "station_name": "山形",
+       "arrival": "105855",
+       "departure": "105950"
+      },
+      {
+       "station_order": 11,
+       "station_name": "かみのやま温泉",
+       "arrival": "110805",
+       "departure": "110905"
+      },
+      {
+       "station_order": 15,
+       "station_name": "赤湯",
+       "arrival": "112250",
+       "departure": "112650"
+      },
+      {
+       "station_order": 16,
+       "station_name": "高畠",
+       "arrival": "113105",
+       "departure": "1132"
+      },
+      {
+       "station_order": 18,
+       "station_name": "米沢",
+       "arrival": "113855",
+       "departure": "113955"
+      },
+      {
+       "station_order": 20,
+       "station_name": "福島",
+       "arrival": "1214",
+       "departure": "1216"
+      }
+     ]
+    },
+    {
+     "train_number": "140M",
+     "settings": {
+      "train_name": "つばさ",
+      "train_color": 10,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "郡山",
+      "arrival": "1329"
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新庄",
+       "arrival": "111055",
+       "departure": "111155"
+      },
+      {
+       "station_order": 3,
+       "station_name": "大石田",
+       "arrival": "1126",
+       "departure": "112655"
+      },
+      {
+       "station_order": 5,
+       "station_name": "村山",
+       "arrival": "1135",
+       "departure": "113550"
+      },
+      {
+       "station_order": 6,
+       "station_name": "さくらんぼ東根",
+       "arrival": "113950",
+       "departure": "114020"
+      },
+      {
+       "station_order": 7,
+       "station_name": "天童",
+       "arrival": "114545",
+       "departure": "114655"
+      },
+      {
+       "station_order": 8,
+       "station_name": "漆山",
+       "arrival": "115105",
+       "departure": "115715"
+      },
+      {
+       "station_order": 10,
+       "station_name": "山形",
+       "arrival": "1203",
+       "departure": "1205"
+      },
+      {
+       "station_order": 18,
+       "station_name": "米沢",
+       "arrival": "123655",
+       "departure": "1238"
+      },
+      {
+       "station_order": 20,
+       "station_name": "福島",
+       "arrival": "131355",
+       "departure": "1316"
+      }
+     ]
+    },
+    {
+     "train_number": "142M",
+     "settings": {
+      "train_name": "つばさ",
+      "train_color": 10,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "郡山",
+      "arrival": "1429"
+     },
+     "timetable": [
+      {
+       "station_order": 10,
+       "station_name": "山形",
+       "arrival": "130255",
+       "departure": "130350"
+      },
+      {
+       "station_order": 11,
+       "station_name": "かみのやま温泉",
+       "arrival": "131205",
+       "departure": "131255"
+      },
+      {
+       "station_order": 15,
+       "station_name": "赤湯",
+       "arrival": "132555",
+       "departure": "132650"
+      },
+      {
+       "station_order": 16,
+       "station_name": "高畠",
+       "arrival": "133105",
+       "departure": "1332"
+      },
+      {
+       "station_order": 18,
+       "station_name": "米沢",
+       "arrival": "133855",
+       "departure": "133955"
+      },
+      {
+       "station_order": 20,
+       "station_name": "福島",
+       "arrival": "1414",
+       "departure": "1416"
+      }
+     ]
+    },
+    {
+     "train_number": "144M",
+     "settings": {
+      "train_name": "つばさ",
+      "train_color": 10,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "郡山",
+      "arrival": "1529"
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新庄",
+       "arrival": "131655",
+       "departure": "131755"
+      },
+      {
+       "station_order": 3,
+       "station_name": "大石田",
+       "arrival": "1332",
+       "departure": "133305"
+      },
+      {
+       "station_order": 5,
+       "station_name": "村山",
+       "arrival": "134145",
+       "departure": "134215"
+      },
+      {
+       "station_order": 6,
+       "station_name": "さくらんぼ東根",
+       "arrival": "134640",
+       "departure": "134710"
+      },
+      {
+       "station_order": 7,
+       "station_name": "天童",
+       "arrival": "135235",
+       "departure": "135305"
+      },
+      {
+       "station_order": 10,
+       "station_name": "山形",
+       "arrival": "140205",
+       "departure": "1404"
+      },
+      {
+       "station_order": 11,
+       "station_name": "かみのやま温泉",
+       "arrival": "141245",
+       "departure": "141315"
+      },
+      {
+       "station_order": 15,
+       "station_name": "赤湯",
+       "arrival": "142640",
+       "departure": "142710"
+      },
+      {
+       "station_order": 18,
+       "station_name": "米沢",
+       "arrival": "1437",
+       "departure": "1438"
+      },
+      {
+       "station_order": 20,
+       "station_name": "福島",
+       "arrival": "151355",
+       "departure": "1516"
+      }
+     ]
+    },
+    {
+     "train_number": "146M",
+     "settings": {
+      "train_name": "つばさ",
+      "train_color": 10,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "郡山",
+      "arrival": "1629"
+     },
+     "timetable": [
+      {
+       "station_order": 10,
+       "station_name": "山形",
+       "arrival": "150155",
+       "departure": "1503"
+      },
+      {
+       "station_order": 11,
+       "station_name": "かみのやま温泉",
+       "arrival": "151145",
+       "departure": "151215"
+      },
+      {
+       "station_order": 15,
+       "station_name": "赤湯",
+       "arrival": "152555",
+       "departure": "152650"
+      },
+      {
+       "station_order": 16,
+       "station_name": "高畠",
+       "arrival": "153105",
+       "departure": "1532"
+      },
+      {
+       "station_order": 18,
+       "station_name": "米沢",
+       "arrival": "153855",
+       "departure": "153955"
+      },
+      {
+       "station_order": 20,
+       "station_name": "福島",
+       "arrival": "1614",
+       "departure": "1616"
+      }
+     ]
+    },
+    {
+     "train_number": "150M",
+     "settings": {
+      "train_name": "つばさ",
+      "train_color": 10,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "郡山",
+      "arrival": "1730"
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新庄",
+       "arrival": "151555",
+       "departure": "151655"
+      },
+      {
+       "station_order": 3,
+       "station_name": "大石田",
+       "arrival": "1531",
+       "departure": "153205"
+      },
+      {
+       "station_order": 5,
+       "station_name": "村山",
+       "arrival": "154050",
+       "departure": "154215"
+      },
+      {
+       "station_order": 6,
+       "station_name": "さくらんぼ東根",
+       "arrival": "154640",
+       "departure": "154710"
+      },
+      {
+       "station_order": 7,
+       "station_name": "天童",
+       "arrival": "155240",
+       "departure": "155310"
+      },
+      {
+       "station_order": 10,
+       "station_name": "山形",
+       "arrival": "160345",
+       "departure": "1606"
+      },
+      {
+       "station_order": 18,
+       "station_name": "米沢",
+       "arrival": "163755",
+       "departure": "1639"
+      },
+      {
+       "station_order": 20,
+       "station_name": "福島",
+       "arrival": "171355",
+       "departure": "1716"
+      }
+     ]
+    },
+    {
+     "train_number": "148B",
+     "settings": {
+      "train_name": "つばさ",
+      "train_color": 10,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "郡山",
+      "arrival": "1715"
+     },
+     "timetable": [
+      {
+       "station_order": 10,
+       "station_name": "山形",
+       "arrival": "154455",
+       "departure": "1546"
+      },
+      {
+       "station_order": 11,
+       "station_name": "かみのやま温泉",
+       "arrival": "155455",
+       "departure": "155605"
+      },
+      {
+       "station_order": 15,
+       "station_name": "赤湯",
+       "arrival": "161050",
+       "departure": "1612"
+      },
+      {
+       "station_order": 18,
+       "station_name": "米沢",
+       "arrival": "162155",
+       "departure": "1623"
+      },
+      {
+       "station_order": 20,
+       "station_name": "福島",
+       "arrival": "165955",
+       "departure": "1702"
+      }
+     ]
+    },
+    {
+     "train_number": "154M",
+     "settings": {
+      "train_name": "つばさ",
+      "train_color": 10,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "郡山",
+      "arrival": "1829"
+     },
+     "timetable": [
+      {
+       "station_order": 10,
+       "station_name": "山形",
+       "arrival": "170355",
+       "departure": "170450"
+      },
+      {
+       "station_order": 11,
+       "station_name": "かみのやま温泉",
+       "arrival": "171305",
+       "departure": "171355"
+      },
+      {
+       "station_order": 15,
+       "station_name": "赤湯",
+       "arrival": "172655",
+       "departure": "172750"
+      },
+      {
+       "station_order": 16,
+       "station_name": "高畠",
+       "arrival": "173205",
+       "departure": "173255"
+      },
+      {
+       "station_order": 18,
+       "station_name": "米沢",
+       "arrival": "173945",
+       "departure": "174015"
+      },
+      {
+       "station_order": 20,
+       "station_name": "福島",
+       "arrival": "181455",
+       "departure": "1816"
+      }
+     ]
+    },
+    {
+     "train_number": "156M",
+     "settings": {
+      "train_name": "つばさ",
+      "train_color": 10,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "郡山",
+      "arrival": "1930"
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新庄",
+       "arrival": "171055",
+       "departure": "171155"
+      },
+      {
+       "station_order": 3,
+       "station_name": "大石田",
+       "arrival": "1726",
+       "departure": "172705"
+      },
+      {
+       "station_order": 5,
+       "station_name": "村山",
+       "arrival": "173550",
+       "departure": "173715"
+      },
+      {
+       "station_order": 6,
+       "station_name": "さくらんぼ東根",
+       "arrival": "174140",
+       "departure": "174255"
+      },
+      {
+       "station_order": 7,
+       "station_name": "天童",
+       "arrival": "1748",
+       "departure": "174910"
+      },
+      {
+       "station_order": 10,
+       "station_name": "山形",
+       "arrival": "180245",
+       "departure": "180450"
+      },
+      {
+       "station_order": 11,
+       "station_name": "かみのやま温泉",
+       "arrival": "181305",
+       "departure": "181355"
+      },
+      {
+       "station_order": 15,
+       "station_name": "赤湯",
+       "arrival": "182645",
+       "departure": "182715"
+      },
+      {
+       "station_order": 18,
+       "station_name": "米沢",
+       "arrival": "1837",
+       "departure": "1838"
+      },
+      {
+       "station_order": 20,
+       "station_name": "福島",
+       "arrival": "191355",
+       "departure": "1916"
+      }
+     ]
+    },
+    {
+     "train_number": "158B",
+     "settings": {
+      "train_name": "つばさ",
+      "train_color": 10,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "郡山",
+      "arrival": "2104"
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新庄",
+       "arrival": "184155",
+       "departure": "1843"
+      },
+      {
+       "station_order": 3,
+       "station_name": "大石田",
+       "arrival": "185740",
+       "departure": "185810"
+      },
+      {
+       "station_order": 5,
+       "station_name": "村山",
+       "arrival": "190605",
+       "departure": "190650"
+      },
+      {
+       "station_order": 6,
+       "station_name": "さくらんぼ東根",
+       "arrival": "191050",
+       "departure": "191120"
+      },
+      {
+       "station_order": 7,
+       "station_name": "天童",
+       "arrival": "191645",
+       "departure": "191905"
+      },
+      {
+       "station_order": 10,
+       "station_name": "山形",
+       "arrival": "192855",
+       "departure": "1931"
+      },
+      {
+       "station_order": 11,
+       "station_name": "かみのやま温泉",
+       "arrival": "193955",
+       "departure": "194105"
+      },
+      {
+       "station_order": 15,
+       "station_name": "赤湯",
+       "arrival": "195545",
+       "departure": "195615"
+      },
+      {
+       "station_order": 16,
+       "station_name": "高畠",
+       "arrival": "200050",
+       "departure": "2004"
+      },
+      {
+       "station_order": 18,
+       "station_name": "米沢",
+       "arrival": "201055",
+       "departure": "2012"
+      },
+      {
+       "station_order": 20,
+       "station_name": "福島",
+       "arrival": "204655",
+       "departure": "2049"
+      }
+     ]
+    },
+    {
+     "train_number": "160B",
+     "settings": {
+      "train_name": "つばさ",
+      "train_color": 10,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "郡山",
+      "arrival": "2209"
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新庄",
+       "arrival": "195555",
+       "departure": "195655"
+      },
+      {
+       "station_order": 3,
+       "station_name": "大石田",
+       "arrival": "2011",
+       "departure": "201150"
+      },
+      {
+       "station_order": 5,
+       "station_name": "村山",
+       "arrival": "201940",
+       "departure": "202010"
+      },
+      {
+       "station_order": 6,
+       "station_name": "さくらんぼ東根",
+       "arrival": "202410",
+       "departure": "202450"
+      },
+      {
+       "station_order": 7,
+       "station_name": "天童",
+       "arrival": "202950",
+       "departure": "203020"
+      },
+      {
+       "station_order": 10,
+       "station_name": "山形",
+       "arrival": "204045",
+       "departure": "2043"
+      },
+      {
+       "station_order": 11,
+       "station_name": "かみのやま温泉",
+       "arrival": "205155",
+       "departure": "2053"
+      },
+      {
+       "station_order": 15,
+       "station_name": "赤湯",
+       "arrival": "210640",
+       "departure": "210710"
+      },
+      {
+       "station_order": 18,
+       "station_name": "米沢",
+       "arrival": "211645",
+       "departure": "211715"
+      },
+      {
+       "station_order": 20,
+       "station_name": "福島",
+       "arrival": "215155",
+       "departure": "2156"
+      }
+     ]
+    },
+    {
+     "train_number": "144M",
+     "settings": {
+      "train_name": "つばさ",
+      "train_color": 10,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "郡山",
+      "arrival": "1529"
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新庄",
+       "arrival": "131655",
+       "departure": "131755"
+      },
+      {
+       "station_order": 3,
+       "station_name": "大石田",
+       "arrival": "1332",
+       "departure": "133305"
+      },
+      {
+       "station_order": 5,
+       "station_name": "村山",
+       "arrival": "134150",
+       "departure": "134220"
+      },
+      {
+       "station_order": 6,
+       "station_name": "さくらんぼ東根",
+       "arrival": "134640",
+       "departure": "134710"
+      },
+      {
+       "station_order": 7,
+       "station_name": "天童",
+       "arrival": "135235",
+       "departure": "135305"
+      },
+      {
+       "station_order": 10,
+       "station_name": "山形",
+       "arrival": "140205",
+       "departure": "1404"
+      },
+      {
+       "station_order": 11,
+       "station_name": "かみのやま温泉",
+       "arrival": "141245",
+       "departure": "141315"
+      },
+      {
+       "station_order": 15,
+       "station_name": "赤湯",
+       "arrival": "142640",
+       "departure": "142710"
+      },
+      {
+       "station_order": 18,
+       "station_name": "米沢",
+       "arrival": "1437",
+       "departure": "1438"
+      },
+      {
+       "station_order": 20,
+       "station_name": "福島",
+       "arrival": "151355",
+       "departure": "1516"
+      }
+     ]
+    },
+    {
+     "train_number": "9086B",
+     "settings": {
+      "train_name": "つばさ(臨時)",
+      "train_color": 10,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "宇都宮",
+      "arrival": "1544"
+     },
+     "timetable": [
+      {
+       "station_order": 10,
+       "station_name": "山形",
+       "arrival": "133855",
+       "departure": "1340"
+      },
+      {
+       "station_order": 11,
+       "station_name": "かみのやま温泉",
+       "arrival": "134845",
+       "departure": "134915"
+      },
+      {
+       "station_order": 15,
+       "station_name": "赤湯",
+       "arrival": "140350",
+       "departure": "140725"
+      },
+      {
+       "station_order": 16,
+       "station_name": "高畠",
+       "arrival": "141230",
+       "departure": "141610"
+      },
+      {
+       "station_order": 18,
+       "station_name": "米沢",
+       "arrival": "142335",
+       "departure": "142405"
+      },
+      {
+       "station_order": 20,
+       "station_name": "福島",
+       "arrival": "150155",
+       "departure": "1505"
+      }
+     ]
+    },
+    {
+     "train_number": "8188M",
+     "settings": {
+      "train_name": "つばさ(臨時)",
+      "train_color": 10,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "宇都宮",
+      "arrival": "1644"
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新庄",
+       "arrival": "135555",
+       "departure": "135655"
+      },
+      {
+       "station_order": 3,
+       "station_name": "大石田",
+       "arrival": "141050",
+       "departure": "141120"
+      },
+      {
+       "station_order": 5,
+       "station_name": "村山",
+       "arrival": "142230",
+       "departure": "1423"
+      },
+      {
+       "station_order": 6,
+       "station_name": "さくらんぼ東根",
+       "arrival": "142705",
+       "departure": "142755"
+      },
+      {
+       "station_order": 7,
+       "station_name": "天童",
+       "arrival": "1433",
+       "departure": "143455"
+      },
+      {
+       "station_order": 9,
+       "station_name": "北山形",
+       "arrival": "1443",
+       "departure": "144810"
+      },
+      {
+       "station_order": 10,
+       "station_name": "山形",
+       "arrival": "144955",
+       "departure": "145155"
+      },
+      {
+       "station_order": 11,
+       "station_name": "かみのやま温泉",
+       "arrival": "150040",
+       "departure": "150110"
+      },
+      {
+       "station_order": 15,
+       "station_name": "赤湯",
+       "arrival": "1514",
+       "departure": "151450"
+      },
+      {
+       "station_order": 16,
+       "station_name": "高畠",
+       "arrival": "151905",
+       "departure": "1520"
+      },
+      {
+       "station_order": 18,
+       "station_name": "米沢",
+       "arrival": "152655",
+       "departure": "152755"
+      },
+      {
+       "station_order": 20,
+       "station_name": "福島",
+       "arrival": "1602",
+       "departure": "1604"
+      }
+     ]
+    },
+    {
+     "train_number": "156M",
+     "settings": {
+      "train_name": "つばさ",
+      "train_color": 10,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "郡山",
+      "arrival": "1930"
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新庄",
+       "arrival": "171055",
+       "departure": "171155"
+      },
+      {
+       "station_order": 3,
+       "station_name": "大石田",
+       "arrival": "1726",
+       "departure": "172705"
+      },
+      {
+       "station_order": 5,
+       "station_name": "村山",
+       "arrival": "173550",
+       "departure": "173715"
+      },
+      {
+       "station_order": 6,
+       "station_name": "さくらんぼ東根",
+       "arrival": "174140",
+       "departure": "174255"
+      },
+      {
+       "station_order": 7,
+       "station_name": "天童",
+       "arrival": "1748",
+       "departure": "174910"
+      },
+      {
+       "station_order": 10,
+       "station_name": "山形",
+       "arrival": "180245",
+       "departure": "180450"
+      },
+      {
+       "station_order": 11,
+       "station_name": "かみのやま温泉",
+       "arrival": "181305",
+       "departure": "181355"
+      },
+      {
+       "station_order": 15,
+       "station_name": "赤湯",
+       "arrival": "182640",
+       "departure": "182710"
+      },
+      {
+       "station_order": 18,
+       "station_name": "米沢",
+       "arrival": "1837",
+       "departure": "1838"
+      },
+      {
+       "station_order": 20,
+       "station_name": "福島",
+       "arrival": "191355",
+       "departure": "1916"
+      }
+     ]
+    },
+    {
+     "train_number": "8192M",
+     "settings": {
+      "train_name": "つばさ(臨時)",
+      "train_color": 10,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "大宮",
+      "arrival": "2003"
+     },
+     "timetable": [
+      {
+       "station_order": 10,
+       "station_name": "山形",
+       "arrival": "173055",
+       "departure": "1732"
+      },
+      {
+       "station_order": 11,
+       "station_name": "かみのやま温泉",
+       "arrival": "174045",
+       "departure": "174115"
+      },
+      {
+       "station_order": 15,
+       "station_name": "赤湯",
+       "arrival": "175550",
+       "departure": "175710"
+      },
+      {
+       "station_order": 16,
+       "station_name": "高畠",
+       "arrival": "180145",
+       "departure": "180255"
+      },
+      {
+       "station_order": 17,
+       "station_name": "置賜",
+       "arrival": "180625",
+       "departure": "181340"
+      },
+      {
+       "station_order": 18,
+       "station_name": "米沢",
+       "arrival": "181750",
+       "departure": "1819"
+      },
+      {
+       "station_order": 20,
+       "station_name": "福島",
+       "arrival": "190055",
+       "departure": "1904"
+      }
+     ]
+    },
+    {
+     "train_number": "8172M",
+     "settings": {
+      "train_name": "つばさ(臨時)",
+      "train_color": 10,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "郡山",
+      "arrival": "0723"
+     },
+     "timetable": [
+      {
+       "station_order": 10,
+       "station_name": "山形",
+       "arrival": "055755",
+       "departure": "055850"
+      },
+      {
+       "station_order": 11,
+       "station_name": "かみのやま温泉",
+       "arrival": "060705",
+       "departure": "060755"
+      },
+      {
+       "station_order": 15,
+       "station_name": "赤湯",
+       "arrival": "062045",
+       "departure": "062115"
+      },
+      {
+       "station_order": 18,
+       "station_name": "米沢",
+       "arrival": "0631",
+       "departure": "0632"
+      },
+      {
+       "station_order": 20,
+       "station_name": "福島",
+       "arrival": "070655",
+       "departure": "0710"
+      }
+     ]
+    },
+    {
+     "train_number": "9074B",
+     "settings": {
+      "train_name": "つばさ(臨時)",
+      "train_color": 10,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "郡山",
+      "arrival": "0918"
+     },
+     "timetable": [
+      {
+       "station_order": 10,
+       "station_name": "山形",
+       "arrival": "073555",
+       "departure": "0737"
+      },
+      {
+       "station_order": 11,
+       "station_name": "かみのやま温泉",
+       "arrival": "074545",
+       "departure": "074615"
+      },
+      {
+       "station_order": 15,
+       "station_name": "赤湯",
+       "arrival": "075945",
+       "departure": "080015"
+      },
+      {
+       "station_order": 16,
+       "station_name": "高畠",
+       "arrival": "080450",
+       "departure": "080615"
+      },
+      {
+       "station_order": 18,
+       "station_name": "米沢",
+       "arrival": "081740",
+       "departure": "0822"
+      },
+      {
+       "station_order": 20,
+       "station_name": "福島",
+       "arrival": "090155",
+       "departure": "0905"
+      }
+     ]
+    },
+    {
+     "train_number": "9076B",
+     "settings": {
+      "train_name": "つばさ(臨時)",
+      "train_color": 10,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "宇都宮",
+      "arrival": "1043"
+     },
+     "timetable": [
+      {
+       "station_order": 10,
+       "station_name": "山形",
+       "arrival": "084555",
+       "departure": "084650"
+      },
+      {
+       "station_order": 11,
+       "station_name": "かみのやま温泉",
+       "arrival": "085505",
+       "departure": "085555"
+      },
+      {
+       "station_order": 15,
+       "station_name": "赤湯",
+       "arrival": "090845",
+       "departure": "090915"
+      },
+      {
+       "station_order": 16,
+       "station_name": "高畠",
+       "arrival": "091350",
+       "departure": "0915"
+      },
+      {
+       "station_order": 18,
+       "station_name": "米沢",
+       "arrival": "092155",
+       "departure": "0923"
+      },
+      {
+       "station_order": 20,
+       "station_name": "福島",
+       "arrival": "095955",
+       "departure": "1002"
+      }
+     ]
+    },
+    {
+     "train_number": "132M",
+     "settings": {
+      "train_name": "つばさ",
+      "train_color": 10,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "郡山",
+      "arrival": "1027"
+     },
+     "timetable": [
+      {
+       "station_order": 10,
+       "station_name": "山形",
+       "arrival": "085855",
+       "departure": "085950"
+      },
+      {
+       "station_order": 11,
+       "station_name": "かみのやま温泉",
+       "arrival": "090805",
+       "departure": "090855"
+      },
+      {
+       "station_order": 15,
+       "station_name": "赤湯",
+       "arrival": "092155",
+       "departure": "092250"
+      },
+      {
+       "station_order": 16,
+       "station_name": "高畠",
+       "arrival": "092715",
+       "departure": "093025"
+      },
+      {
+       "station_order": 18,
+       "station_name": "米沢",
+       "arrival": "093650",
+       "departure": "093720"
+      },
+      {
+       "station_order": 20,
+       "station_name": "福島",
+       "arrival": "101155",
+       "departure": "1014"
+      }
+     ]
+    },
+    {
+     "train_number": "138M",
+     "settings": {
+      "train_name": "つばさ",
+      "train_color": 10,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "郡山",
+      "arrival": "1229"
+     },
+     "timetable": [
+      {
+       "station_order": 10,
+       "station_name": "山形",
+       "arrival": "105855",
+       "departure": "105950"
+      },
+      {
+       "station_order": 11,
+       "station_name": "かみのやま温泉",
+       "arrival": "110805",
+       "departure": "110905"
+      },
+      {
+       "station_order": 15,
+       "station_name": "赤湯",
+       "arrival": "112250",
+       "departure": "112645"
+      },
+      {
+       "station_order": 16,
+       "station_name": "高畠",
+       "arrival": "113105",
+       "departure": "1132"
+      },
+      {
+       "station_order": 18,
+       "station_name": "米沢",
+       "arrival": "113855",
+       "departure": "113955"
+      },
+      {
+       "station_order": 20,
+       "station_name": "福島",
+       "arrival": "1214",
+       "departure": "1216"
+      }
+     ]
+    },
+    {
+     "train_number": "142M",
+     "settings": {
+      "train_name": "つばさ",
+      "train_color": 10,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "郡山",
+      "arrival": "1429"
+     },
+     "timetable": [
+      {
+       "station_order": 10,
+       "station_name": "山形",
+       "arrival": "130255",
+       "departure": "130350"
+      },
+      {
+       "station_order": 11,
+       "station_name": "かみのやま温泉",
+       "arrival": "131205",
+       "departure": "131255"
+      },
+      {
+       "station_order": 15,
+       "station_name": "赤湯",
+       "arrival": "132555",
+       "departure": "132645"
+      },
+      {
+       "station_order": 16,
+       "station_name": "高畠",
+       "arrival": "133105",
+       "departure": "1332"
+      },
+      {
+       "station_order": 18,
+       "station_name": "米沢",
+       "arrival": "133855",
+       "departure": "133955"
+      },
+      {
+       "station_order": 20,
+       "station_name": "福島",
+       "arrival": "1414",
+       "departure": "1416"
+      }
+     ]
+    },
+    {
+     "train_number": "146M",
+     "settings": {
+      "train_name": "つばさ",
+      "train_color": 10,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "郡山",
+      "arrival": "1629"
+     },
+     "timetable": [
+      {
+       "station_order": 10,
+       "station_name": "山形",
+       "arrival": "150155",
+       "departure": "1503"
+      },
+      {
+       "station_order": 11,
+       "station_name": "かみのやま温泉",
+       "arrival": "151145",
+       "departure": "151215"
+      },
+      {
+       "station_order": 15,
+       "station_name": "赤湯",
+       "arrival": "152555",
+       "departure": "152645"
+      },
+      {
+       "station_order": 16,
+       "station_name": "高畠",
+       "arrival": "153105",
+       "departure": "1532"
+      },
+      {
+       "station_order": 18,
+       "station_name": "米沢",
+       "arrival": "153855",
+       "departure": "153955"
+      },
+      {
+       "station_order": 20,
+       "station_name": "福島",
+       "arrival": "1614",
+       "departure": "1616"
+      }
+     ]
+    },
+    {
+     "train_number": "154M",
+     "settings": {
+      "train_name": "つばさ",
+      "train_color": 10,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "郡山",
+      "arrival": "1829"
+     },
+     "timetable": [
+      {
+       "station_order": 10,
+       "station_name": "山形",
+       "arrival": "170355",
+       "departure": "170450"
+      },
+      {
+       "station_order": 11,
+       "station_name": "かみのやま温泉",
+       "arrival": "171305",
+       "departure": "171355"
+      },
+      {
+       "station_order": 15,
+       "station_name": "赤湯",
+       "arrival": "172655",
+       "departure": "172745"
+      },
+      {
+       "station_order": 16,
+       "station_name": "高畠",
+       "arrival": "173205",
+       "departure": "173255"
+      },
+      {
+       "station_order": 18,
+       "station_name": "米沢",
+       "arrival": "173945",
+       "departure": "174015"
+      },
+      {
+       "station_order": 20,
+       "station_name": "福島",
+       "arrival": "181455",
+       "departure": "1816"
+      }
+     ]
+    },
+    {
+     "train_number": "158B",
+     "settings": {
+      "train_name": "つばさ",
+      "train_color": 10,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "郡山",
+      "arrival": "2104"
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新庄",
+       "arrival": "184155",
+       "departure": "1843"
+      },
+      {
+       "station_order": 3,
+       "station_name": "大石田",
+       "arrival": "185740",
+       "departure": "185810"
+      },
+      {
+       "station_order": 5,
+       "station_name": "村山",
+       "arrival": "190605",
+       "departure": "190650"
+      },
+      {
+       "station_order": 6,
+       "station_name": "さくらんぼ東根",
+       "arrival": "191050",
+       "departure": "191120"
+      },
+      {
+       "station_order": 7,
+       "station_name": "天童",
+       "arrival": "191645",
+       "departure": "191905"
+      },
+      {
+       "station_order": 10,
+       "station_name": "山形",
+       "arrival": "192855",
+       "departure": "1931"
+      },
+      {
+       "station_order": 11,
+       "station_name": "かみのやま温泉",
+       "arrival": "193955",
+       "departure": "194105"
+      },
+      {
+       "station_order": 15,
+       "station_name": "赤湯",
+       "arrival": "195540",
+       "departure": "195610"
+      },
+      {
+       "station_order": 16,
+       "station_name": "高畠",
+       "arrival": "200050",
+       "departure": "2004"
+      },
+      {
+       "station_order": 18,
+       "station_name": "米沢",
+       "arrival": "201055",
+       "departure": "2012"
+      },
+      {
+       "station_order": 20,
+       "station_name": "福島",
+       "arrival": "204655",
+       "departure": "2049"
+      }
+     ]
+    },
+    {
+     "train_number": "9088B",
+     "settings": {
+      "train_name": "つばさ(臨時)",
+      "train_color": 10,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "宇都宮",
+      "arrival": "1644"
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新庄",
+       "arrival": "135555",
+       "departure": "135655"
+      },
+      {
+       "station_order": 3,
+       "station_name": "大石田",
+       "arrival": "141050",
+       "departure": "141120"
+      },
+      {
+       "station_order": 5,
+       "station_name": "村山",
+       "arrival": "142230",
+       "departure": "1423"
+      },
+      {
+       "station_order": 6,
+       "station_name": "さくらんぼ東根",
+       "arrival": "142705",
+       "departure": "142755"
+      },
+      {
+       "station_order": 7,
+       "station_name": "天童",
+       "arrival": "1433",
+       "departure": "143455"
+      },
+      {
+       "station_order": 9,
+       "station_name": "北山形",
+       "arrival": "1443",
+       "departure": "144810"
+      },
+      {
+       "station_order": 10,
+       "station_name": "山形",
+       "arrival": "144955",
+       "departure": "1452"
+      },
+      {
+       "station_order": 11,
+       "station_name": "かみのやま温泉",
+       "arrival": "150040",
+       "departure": "150110"
+      },
+      {
+       "station_order": 15,
+       "station_name": "赤湯",
+       "arrival": "1514",
+       "departure": "151450"
+      },
+      {
+       "station_order": 16,
+       "station_name": "高畠",
+       "arrival": "151905",
+       "departure": "1520"
+      },
+      {
+       "station_order": 18,
+       "station_name": "米沢",
+       "arrival": "152655",
+       "departure": "152755"
+      },
+      {
+       "station_order": 20,
+       "station_name": "福島",
+       "arrival": "1602",
+       "departure": "1604"
+      }
+     ]
+    },
+    {
+     "train_number": "148B",
+     "settings": {
+      "train_name": "つばさ",
+      "train_color": 10,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "郡山",
+      "arrival": "1715"
+     },
+     "timetable": [
+      {
+       "station_order": 10,
+       "station_name": "山形",
+       "arrival": "154455",
+       "departure": "154605"
+      },
+      {
+       "station_order": 11,
+       "station_name": "かみのやま温泉",
+       "arrival": "155455",
+       "departure": "155605"
+      },
+      {
+       "station_order": 15,
+       "station_name": "赤湯",
+       "arrival": "161050",
+       "departure": "1612"
+      },
+      {
+       "station_order": 18,
+       "station_name": "米沢",
+       "arrival": "162155",
+       "departure": "1623"
+      },
+      {
+       "station_order": 20,
+       "station_name": "福島",
+       "arrival": "165955",
+       "departure": "1702"
+      }
+     ]
+    },
+    {
+     "train_number": "9090B",
+     "settings": {
+      "train_name": "つばさ(臨時)",
+      "train_color": 10,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "宇都宮",
+      "arrival": "1844"
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新庄",
+       "arrival": "154955",
+       "departure": "155105"
+      },
+      {
+       "station_order": 3,
+       "station_name": "大石田",
+       "arrival": "160640",
+       "departure": "160710"
+      },
+      {
+       "station_order": 5,
+       "station_name": "村山",
+       "arrival": "161550",
+       "departure": "161655"
+      },
+      {
+       "station_order": 6,
+       "station_name": "さくらんぼ東根",
+       "arrival": "1621",
+       "departure": "162155"
+      },
+      {
+       "station_order": 7,
+       "station_name": "天童",
+       "arrival": "1627",
+       "departure": "162810"
+      },
+      {
+       "station_order": 10,
+       "station_name": "山形",
+       "arrival": "164145",
+       "departure": "164410"
+      },
+      {
+       "station_order": 11,
+       "station_name": "かみのやま温泉",
+       "arrival": "165345",
+       "departure": "165505"
+      },
+      {
+       "station_order": 15,
+       "station_name": "赤湯",
+       "arrival": "170950",
+       "departure": "171150"
+      },
+      {
+       "station_order": 16,
+       "station_name": "高畠",
+       "arrival": "171605",
+       "departure": "171710"
+      },
+      {
+       "station_order": 18,
+       "station_name": "米沢",
+       "arrival": "172435",
+       "departure": "172505"
+      },
+      {
+       "station_order": 20,
+       "station_name": "福島",
+       "arrival": "180155",
+       "departure": "1805"
+      }
+     ]
+    },
+    {
+     "train_number": "158B",
+     "settings": {
+      "train_name": "つばさ",
+      "train_color": 10,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "郡山",
+      "arrival": "2104"
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新庄",
+       "arrival": "184155",
+       "departure": "1843"
+      },
+      {
+       "station_order": 3,
+       "station_name": "大石田",
+       "arrival": "185740",
+       "departure": "185810"
+      },
+      {
+       "station_order": 5,
+       "station_name": "村山",
+       "arrival": "190605",
+       "departure": "190650"
+      },
+      {
+       "station_order": 6,
+       "station_name": "さくらんぼ東根",
+       "arrival": "191050",
+       "departure": "191120"
+      },
+      {
+       "station_order": 7,
+       "station_name": "天童",
+       "arrival": "191645",
+       "departure": "191905"
+      },
+      {
+       "station_order": 10,
+       "station_name": "山形",
+       "arrival": "192855",
+       "departure": "193105"
+      },
+      {
+       "station_order": 11,
+       "station_name": "かみのやま温泉",
+       "arrival": "193955",
+       "departure": "194105"
+      },
+      {
+       "station_order": 15,
+       "station_name": "赤湯",
+       "arrival": "195545",
+       "departure": "195615"
+      },
+      {
+       "station_order": 16,
+       "station_name": "高畠",
+       "arrival": "200050",
+       "departure": "2004"
+      },
+      {
+       "station_order": 18,
+       "station_name": "米沢",
+       "arrival": "201055",
+       "departure": "2012"
+      },
+      {
+       "station_order": 20,
+       "station_name": "福島",
+       "arrival": "204655",
+       "departure": "2049"
+      }
+     ]
+    },
+    {
+     "train_number": "160B",
+     "settings": {
+      "train_name": "つばさ",
+      "train_color": 10,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "郡山",
+      "arrival": "2209"
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "新庄",
+       "arrival": "195555",
+       "departure": "195655"
+      },
+      {
+       "station_order": 3,
+       "station_name": "大石田",
+       "arrival": "2011",
+       "departure": "201150"
+      },
+      {
+       "station_order": 5,
+       "station_name": "村山",
+       "arrival": "201940",
+       "departure": "202010"
+      },
+      {
+       "station_order": 6,
+       "station_name": "さくらんぼ東根",
+       "arrival": "202410",
+       "departure": "202450"
+      },
+      {
+       "station_order": 7,
+       "station_name": "天童",
+       "arrival": "202950",
+       "departure": "203020"
+      },
+      {
+       "station_order": 10,
+       "station_name": "山形",
+       "arrival": "204045",
+       "departure": "204305"
+      },
+      {
+       "station_order": 11,
+       "station_name": "かみのやま温泉",
+       "arrival": "205155",
+       "departure": "2053"
+      },
+      {
+       "station_order": 15,
+       "station_name": "赤湯",
+       "arrival": "210640",
+       "departure": "210710"
+      },
+      {
+       "station_order": 18,
+       "station_name": "米沢",
+       "arrival": "211645",
+       "departure": "211715"
+      },
+      {
+       "station_order": 20,
+       "station_name": "福島",
+       "arrival": "215155",
+       "departure": "2156"
+      }
+     ]
+    }
+   ]
+  }
+ },
+ "opmodes": [
+  {
+   "title": "",
+   "description": "",
+   "days": [
+    "mon",
+    "tue",
+    "wed",
+    "thu"
+   ],
+   "trains": {
+    "1": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8,
+     9,
+     10,
+     11,
+     12,
+     13,
+     14,
+     15,
+     16
+    ],
+    "2": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8,
+     9,
+     10,
+     11,
+     12,
+     13,
+     14,
+     15
+    ]
+   }
+  },
+  {
+   "title": "",
+   "description": "",
+   "days": [
+    "fri"
+   ],
+   "trains": {
+    "1": [
+     0,
+     17,
+     2,
+     18,
+     4,
+     5,
+     19,
+     6,
+     20,
+     21,
+     22,
+     10,
+     23,
+     12,
+     24,
+     13,
+     14,
+     25,
+     15,
+     16
+    ],
+    "2": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     16,
+     17,
+     18,
+     9,
+     10,
+     11,
+     12,
+     19,
+     20,
+     14,
+     15
+    ]
+   }
+  },
+  {
+   "title": "",
+   "description": "",
+   "days": [
+    "sat"
+   ],
+   "trains": {
+    "1": [
+     0,
+     26,
+     2,
+     27,
+     28,
+     4,
+     29,
+     19,
+     30,
+     31,
+     32,
+     22,
+     33,
+     23,
+     34,
+     13,
+     14,
+     15,
+     35
+    ],
+    "2": [
+     0,
+     21,
+     1,
+     2,
+     22,
+     23,
+     24,
+     4,
+     25,
+     6,
+     26,
+     16,
+     27,
+     10,
+     11,
+     28,
+     13,
+     29,
+     15
+    ]
+   }
+  },
+  {
+   "title": "",
+   "description": "",
+   "days": [
+    "sun"
+   ],
+   "trains": {
+    "1": [
+     0,
+     36,
+     2,
+     18,
+     4,
+     5,
+     37,
+     20,
+     8,
+     38,
+     10,
+     11,
+     39,
+     12,
+     40,
+     13,
+     14,
+     41,
+     15,
+     42,
+     16
+    ],
+    "2": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8,
+     30,
+     9,
+     10,
+     31,
+     32,
+     12,
+     19,
+     20,
+     33,
+     34
+    ]
+   }
+  }
+ ],
+ "settings": {
+  "defaultStopSec": 60,
+  "startSec": 0,
+  "endSec": 86400,
+  "pxPerKm": 10,
+  "pxPerMin": 25,
+  "stationRange": {
+   "start": 0,
+   "end": null
+  },
+  "trainLineWidth": 2,
+  "trainLineWidthByColor": [
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "trainLineType": "solid",
+  "trainLineTypeByColor": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   "",
+   "",
+   "",
+   "",
+   "",
+   ""
+  ],
+  "showTrainNumber": true,
+  "trainNumberFontSize": 20,
+  "pxPerTrainNumber": 750,
+  "minStationIntervalForTrainNumber": 70,
+  "trainNumberAvoidance": {
+   "enabled": true,
+   "primaryTimeLines": false,
+   "secondaryTimeLines": false,
+   "margin": 5
+  },
+  "oudiaStyle": {
+   "enabled": false,
+   "timeScale": 1,
+   "axisColor": "#C0C0C0",
+   "lineWidth": 1,
+   "stopMarks": true,
+   "showTrainName": false
+  },
+  "connectTrainLines": true,
+  "layers": {
+   "enabled": false,
+   "trainByDirection": false,
+   "trainByColor": false
+  },
+  "margin": {
+   "left": 100,
+   "right": 100,
+   "top": 100,
+   "bottom": 100
+  },
+  "background": {
+   "transparent": false,
+   "color": "#FFFFFF"
+  },
+  "lines": {
+   "station": {
+    "width": 2,
+    "color": "#000000",
+    "type": "solid"
+   },
+   "secondaryStation": {
+    "width": 1.4,
+    "color": "#808080",
+    "type": "solid"
+   },
+   "primary": {
+    "width": 2,
+    "color": "#000000",
+    "type": "solid"
+   },
+   "secondary": {
+    "width": 1.4,
+    "color": "#808080",
+    "type": "solid",
+    "interval": 10
+   },
+   "minute": {
+    "enabled": false,
+    "width": 1.5,
+    "color": "#808080"
+   },
+   "outline": {
+    "top": 2,
+    "bottom": 2,
+    "left": 2,
+    "right": 2,
+    "color": "#000000"
+   }
+  },
+  "stationText": {
+   "fontSize": 20,
+   "color": "#000000",
+   "gap": 10
+  },
+  "aliasText": {
+   "show": false,
+   "fontSize": 20,
+   "color": "#000000",
+   "gap": 10
+  },
+  "secondaryStationText": {
+   "fontSize": 16,
+   "color": "#808080",
+   "gap": 10
+  },
+  "secondaryAliasText": {
+   "fontSize": 16,
+   "color": "#808080",
+   "gap": 10
+  },
+  "timeLabel": {
+   "format": "standard",
+   "zeroPad": false,
+   "overDay": "plain",
+   "gap": 10,
+   "secondaryLabel": "none",
+   "formats": {
+    "standard": {
+     "fontSize": 20,
+     "color": "#000000"
+    },
+    "sized": {
+     "hourFontSize": 25,
+     "hourColor": "#000000",
+     "minuteFontSize": 15,
+     "minuteColor": "#808080"
+    },
+    "simple": {
+     "fontSize": 20,
+     "color": "#000000"
+    }
+   }
+  },
+  "footer": {
+   "enabled": false,
+   "text": "<title> | <opmode> | <sta_range> | <time_range>",
+   "fontSize": 16,
+   "color": "#000000",
+   "base": "page",
+   "gap": 20,
+   "startPage": 1
+  },
+  "print": {
+   "enabled": false,
+   "ppi": 300,
+   "page": {
+    "width": 210,
+    "height": 297
+   },
+   "bleed": {
+    "top": 3,
+    "bottom": 3,
+    "left": 3,
+    "right": 3
+   },
+   "pageMinutes": 60,
+   "overlap": false,
+   "format": "pdf",
+   "opmodes": "all",
+   "align": {
+    "v": {
+     "side": "top",
+     "base": "frame",
+     "offset": 20
+    },
+    "h": {
+     "side": "left",
+     "base": "text",
+     "offset": 10
+    }
+   }
+  },
+  "passingTime": {
+   "solver": "stn",
+   "minExtraPassingWaiting": 30,
+   "minTimeSeparation": 60,
+   "maxSearchDepth": 3,
+   "maxIteration": 5,
+   "maxAllowedConflict": 0,
+   "estimatedSpeedLimitRatio": 1.1,
+   "maxPassingPointIncrease": 2,
+   "timeGranularity": 5,
+   "fineTune": false,
+   "inaccurateArrival": false,
+   "imprecise": true,
+   "timetableGranularity": 60,
+   "roundingMode": "auto",
+   "minDwell": 30,
+   "smooth": true,
+   "interpolationSpeedRatio": 1.2,
+   "interpolationMaxError": null,
+   "stopRules": [
+    {
+     "bound": 0,
+     "number": null,
+     "color": null,
+     "name": null,
+     "stations": "cross",
+     "station": null
+    }
+   ]
+  },
+  "trainColors": [
+   "#1F5FD6",
+   "#1F5FD6",
+   "#5BB8F0",
+   "#F08300",
+   "#F5B400",
+   "#E8619A",
+   "#00A497",
+   "#62C9BE",
+   "#C8102E",
+   "#F2300F",
+   "#8E3FB5"
+  ]
+ }
+}

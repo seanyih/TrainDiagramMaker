@@ -1,0 +1,305 @@
+{
+ "route_name": "JR 北陸新幹線 (東京-敦賀)",
+ "stations": [
+  {
+   "name": "東京",
+   "kilo": 0.0,
+   "alias": ""
+  },
+  {
+   "name": "上野",
+   "kilo": 3.6,
+   "alias": ""
+  },
+  {
+   "name": "大宮",
+   "kilo": 31.3,
+   "alias": ""
+  },
+  {
+   "name": "熊谷",
+   "kilo": 67.9,
+   "alias": ""
+  },
+  {
+   "name": "本庄早稲田",
+   "kilo": 89.0,
+   "alias": ""
+  },
+  {
+   "name": "高崎",
+   "kilo": 108.6,
+   "alias": ""
+  },
+  {
+   "name": "安中榛名",
+   "kilo": 127.1,
+   "alias": ""
+  },
+  {
+   "name": "軽井沢",
+   "kilo": 150.4,
+   "alias": ""
+  },
+  {
+   "name": "佐久平",
+   "kilo": 168.0,
+   "alias": ""
+  },
+  {
+   "name": "上田",
+   "kilo": 192.8,
+   "alias": ""
+  },
+  {
+   "name": "長野",
+   "kilo": 226.0,
+   "alias": ""
+  },
+  {
+   "name": "飯山",
+   "kilo": 255.9,
+   "alias": ""
+  },
+  {
+   "name": "上越妙高",
+   "kilo": 285.5,
+   "alias": ""
+  },
+  {
+   "name": "糸魚川",
+   "kilo": 322.5,
+   "alias": ""
+  },
+  {
+   "name": "黒部宇奈月温泉",
+   "kilo": 361.7,
+   "alias": ""
+  },
+  {
+   "name": "富山",
+   "kilo": 395.5,
+   "alias": ""
+  },
+  {
+   "name": "新高岡",
+   "kilo": 414.4,
+   "alias": ""
+  },
+  {
+   "name": "金沢",
+   "kilo": 454.1,
+   "alias": ""
+  },
+  {
+   "name": "小松",
+   "kilo": 481.2,
+   "alias": ""
+  },
+  {
+   "name": "加賀温泉",
+   "kilo": 495.7,
+   "alias": ""
+  },
+  {
+   "name": "芦原温泉",
+   "kilo": 512.0,
+   "alias": ""
+  },
+  {
+   "name": "福井",
+   "kilo": 530.0,
+   "alias": ""
+  },
+  {
+   "name": "越前たけふ",
+   "kilo": 549.0,
+   "alias": ""
+  },
+  {
+   "name": "敦賀",
+   "kilo": 579.2,
+   "alias": ""
+  }
+ ],
+ "topology": {
+  "secondary": [
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false
+  ],
+  "branches": [
+   [],
+   [],
+   [
+    {
+     "stations": [
+      {
+       "name": "小山",
+       "kilo": 49.0
+      },
+      {
+       "name": "宇都宮",
+       "kilo": 77.7
+      },
+      {
+       "name": "郡山",
+       "kilo": 182.6
+      },
+      {
+       "name": "福島",
+       "kilo": 223.8
+      },
+      {
+       "name": "仙台",
+       "kilo": 294.1
+      }
+     ]
+    }
+   ],
+   [],
+   [],
+   [
+    {
+     "stations": [
+      {
+       "name": "上毛高原",
+       "kilo": 41.8
+      },
+      {
+       "name": "越後湯沢",
+       "kilo": 74.1
+      },
+      {
+       "name": "長岡",
+       "kilo": 136.5
+      },
+      {
+       "name": "新潟",
+       "kilo": 192.2
+      }
+     ]
+    }
+   ],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   []
+  ]
+ },
+ "track_layout": {
+  "stations": [
+   "quadruple",
+   "quadruple",
+   "quadruple",
+   "quadruple",
+   "quadruple",
+   "quadruple",
+   "double.0",
+   "quadruple",
+   "double.0",
+   "double.0",
+   "quadruple",
+   "double.0",
+   "quadruple",
+   "double.0",
+   "double.0",
+   "quadruple",
+   "double.0",
+   "quadruple",
+   "double.0",
+   "quadruple",
+   "double.0",
+   "double.0",
+   "quadruple",
+   "quadruple"
+  ],
+  "sections": [
+   "double.0",
+   "double.0",
+   "double.0",
+   "double.0",
+   "double.0",
+   "double.0",
+   "double.0",
+   "double.0",
+   "double.0",
+   "double.0",
+   "double.0",
+   "double.0",
+   "double.0",
+   "double.0",
+   "double.0",
+   "double.0",
+   "double.0",
+   "double.0",
+   "double.0",
+   "double.0",
+   "double.0",
+   "double.0",
+   "double.0"
+  ],
+  "max_speed_enabled": true,
+  "max_speed_all": null,
+  "max_speeds": [
+   110,
+   130,
+   275,
+   275,
+   275,
+   260,
+   260,
+   260,
+   260,
+   260,
+   260,
+   260,
+   260,
+   260,
+   260,
+   260,
+   260,
+   260,
+   260,
+   260,
+   260,
+   260,
+   260
+  ]
+ }
+}

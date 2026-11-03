@@ -1,0 +1,246 @@
+{
+ "route_name": "JR 山形新幹線 (福島-新庄)",
+ "stations": [
+  {
+   "name": "福島",
+   "kilo": 0.0,
+   "alias": ""
+  },
+  {
+   "name": "関根",
+   "kilo": 35.1,
+   "alias": ""
+  },
+  {
+   "name": "米沢",
+   "kilo": 40.5,
+   "alias": ""
+  },
+  {
+   "name": "置賜",
+   "kilo": 45.8,
+   "alias": ""
+  },
+  {
+   "name": "高畠",
+   "kilo": 49.9,
+   "alias": ""
+  },
+  {
+   "name": "赤湯",
+   "kilo": 56.1,
+   "alias": ""
+  },
+  {
+   "name": "北赤湯信号場",
+   "kilo": 61.6,
+   "alias": ""
+  },
+  {
+   "name": "中川",
+   "kilo": 64.4,
+   "alias": ""
+  },
+  {
+   "name": "羽前中山",
+   "kilo": 68.3,
+   "alias": ""
+  },
+  {
+   "name": "かみのやま温泉",
+   "kilo": 75.0,
+   "alias": ""
+  },
+  {
+   "name": "山形",
+   "kilo": 87.1,
+   "alias": ""
+  },
+  {
+   "name": "北山形",
+   "kilo": 89.0,
+   "alias": ""
+  },
+  {
+   "name": "漆山",
+   "kilo": 94.9,
+   "alias": ""
+  },
+  {
+   "name": "天童",
+   "kilo": 100.4,
+   "alias": ""
+  },
+  {
+   "name": "さくらんぼ東根",
+   "kilo": 108.1,
+   "alias": ""
+  },
+  {
+   "name": "村山",
+   "kilo": 113.5,
+   "alias": ""
+  },
+  {
+   "name": "袖崎",
+   "kilo": 121.5,
+   "alias": ""
+  },
+  {
+   "name": "大石田",
+   "kilo": 126.9,
+   "alias": ""
+  },
+  {
+   "name": "芦沢",
+   "kilo": 133.7,
+   "alias": ""
+  },
+  {
+   "name": "舟形",
+   "kilo": 140.3,
+   "alias": ""
+  },
+  {
+   "name": "新庄",
+   "kilo": 148.6,
+   "alias": ""
+  }
+ ],
+ "topology": {
+  "secondary": [
+   false,
+   true,
+   false,
+   true,
+   false,
+   false,
+   true,
+   true,
+   true,
+   false,
+   false,
+   true,
+   true,
+   false,
+   false,
+   false,
+   true,
+   false,
+   true,
+   true,
+   false
+  ],
+  "branches": [
+   [
+    {
+     "stations": [
+      {
+       "name": "郡山",
+       "kilo": 41.2
+      },
+      {
+       "name": "宇都宮",
+       "kilo": 146.1
+      },
+      {
+       "name": "大宮",
+       "kilo": 223.8
+      }
+     ]
+    }
+   ],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   []
+  ]
+ },
+ "track_layout": {
+  "stations": [
+   "quadruple",
+   "double.0",
+   "double.3",
+   "double.3",
+   "double.3",
+   "triple.3",
+   "double.0",
+   "double.3",
+   "double.3",
+   "triple.2",
+   "quadruple",
+   "double.3",
+   "double.3",
+   "double.3",
+   "double.3",
+   "triple.3",
+   "double.3",
+   "double.3",
+   "double.3",
+   "double.3",
+   "quadruple"
+  ],
+  "sections": [
+   "double.0",
+   "single",
+   "single",
+   "single",
+   "single",
+   "double.0",
+   "single",
+   "single",
+   "double.0",
+   "double.0",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "double.0",
+   "single"
+  ],
+  "max_speed_enabled": true,
+  "max_speed_all": 130,
+  "max_speeds": [
+   130,
+   130,
+   130,
+   130,
+   130,
+   130,
+   130,
+   130,
+   130,
+   130,
+   130,
+   130,
+   130,
+   130,
+   130,
+   130,
+   130,
+   130,
+   130,
+   130
+  ]
+ }
+}

@@ -1,0 +1,3687 @@
+{
+ "info": {
+  "title": "JR 西九州新幹線 (武雄温泉-長崎)",
+  "description": "時刻取自 ekitan，為 2026/11/09 ~ 11/15 這一週每天實際運行的列車 (含臨時列車，名稱後加「(臨時)」)；只有分鐘精度，沒有通過時刻。",
+  "effective_date": "2026/03/14"
+ },
+ "route": {
+  "route_name": "JR 西九州新幹線 (武雄温泉-長崎)",
+  "stations": [
+   {
+    "name": "武雄温泉",
+    "kilo": 0,
+    "stopsec": 60,
+    "alias": ""
+   },
+   {
+    "name": "嬉野温泉",
+    "kilo": 10.9,
+    "stopsec": 60,
+    "alias": ""
+   },
+   {
+    "name": "新大村",
+    "kilo": 32.2,
+    "stopsec": 60,
+    "alias": ""
+   },
+   {
+    "name": "諫早",
+    "kilo": 44.7,
+    "stopsec": 60,
+    "alias": ""
+   },
+   {
+    "name": "長崎",
+    "kilo": 66,
+    "stopsec": 60,
+    "alias": ""
+   }
+  ],
+  "track_layout": {
+   "stations": [
+    "double.3",
+    "double.0",
+    "double.0",
+    "double.0",
+    "quadruple"
+   ],
+   "sections": [
+    "double.0",
+    "double.0",
+    "double.0",
+    "double.0"
+   ],
+   "max_speed_enabled": true,
+   "max_speed_all": 260,
+   "max_speeds": [
+    260,
+    260,
+    260,
+    260
+   ]
+  },
+  "topology": {
+   "secondary": [
+    false,
+    false,
+    false,
+    false,
+    false
+   ],
+   "branches": [
+    [],
+    [],
+    [],
+    [],
+    []
+   ]
+  }
+ },
+ "trains": {
+  "1": {
+   "route_name": "JR 西九州新幹線 (武雄温泉-長崎)",
+   "bound": 1,
+   "station_count": 5,
+   "station_record": [
+    "武雄温泉",
+    "嬉野温泉",
+    "新大村",
+    "諫早",
+    "長崎"
+   ],
+   "train_count": 31,
+   "timetable": [
+    {
+     "train_number": "2101G",
+     "settings": {
+      "train_name": "かもめ",
+      "train_color": 9,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 2,
+       "station_name": "新大村",
+       "arrival": "061855",
+       "departure": "062005"
+      },
+      {
+       "station_order": 3,
+       "station_name": "諫早",
+       "arrival": "062550",
+       "departure": "062705"
+      },
+      {
+       "station_order": 4,
+       "station_name": "長崎",
+       "arrival": "063550",
+       "departure": "0636"
+      }
+     ]
+    },
+    {
+     "train_number": "2001G",
+     "settings": {
+      "train_name": "かもめ",
+      "train_color": 9,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "武雄温泉",
+       "arrival": "070155",
+       "departure": "070305"
+      },
+      {
+       "station_order": 1,
+       "station_name": "嬉野温泉",
+       "arrival": "070850",
+       "departure": "0710"
+      },
+      {
+       "station_order": 2,
+       "station_name": "新大村",
+       "arrival": "071755",
+       "departure": "071850"
+      },
+      {
+       "station_order": 3,
+       "station_name": "諫早",
+       "arrival": "072405",
+       "departure": "072455"
+      },
+      {
+       "station_order": 4,
+       "station_name": "長崎",
+       "arrival": "0733",
+       "departure": "0733"
+      }
+     ]
+    },
+    {
+     "train_number": "2003G",
+     "settings": {
+      "train_name": "かもめ",
+      "train_color": 9,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "武雄温泉",
+       "arrival": "074055",
+       "departure": "074205"
+      },
+      {
+       "station_order": 1,
+       "station_name": "嬉野温泉",
+       "arrival": "074750",
+       "departure": "0749"
+      },
+      {
+       "station_order": 2,
+       "station_name": "新大村",
+       "arrival": "075655",
+       "departure": "075750"
+      },
+      {
+       "station_order": 3,
+       "station_name": "諫早",
+       "arrival": "080305",
+       "departure": "080355"
+      },
+      {
+       "station_order": 4,
+       "station_name": "長崎",
+       "arrival": "0812",
+       "departure": "0812"
+      }
+     ]
+    },
+    {
+     "train_number": "2103G",
+     "settings": {
+      "train_name": "かもめ",
+      "train_color": 9,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 2,
+       "station_name": "新大村",
+       "arrival": "081055",
+       "departure": "081150"
+      },
+      {
+       "station_order": 3,
+       "station_name": "諫早",
+       "arrival": "081705",
+       "departure": "081755"
+      },
+      {
+       "station_order": 4,
+       "station_name": "長崎",
+       "arrival": "0826",
+       "departure": "0826"
+      }
+     ]
+    },
+    {
+     "train_number": "2005G",
+     "settings": {
+      "train_name": "かもめ",
+      "train_color": 9,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "武雄温泉",
+       "arrival": "082655",
+       "departure": "082805"
+      },
+      {
+       "station_order": 1,
+       "station_name": "嬉野温泉",
+       "arrival": "083350",
+       "departure": "0835"
+      },
+      {
+       "station_order": 2,
+       "station_name": "新大村",
+       "arrival": "084255",
+       "departure": "084350"
+      },
+      {
+       "station_order": 3,
+       "station_name": "諫早",
+       "arrival": "084905",
+       "departure": "085005"
+      },
+      {
+       "station_order": 4,
+       "station_name": "長崎",
+       "arrival": "085850",
+       "departure": "0859"
+      }
+     ]
+    },
+    {
+     "train_number": "2009G",
+     "settings": {
+      "train_name": "かもめ",
+      "train_color": 9,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "武雄温泉",
+       "arrival": "092155",
+       "departure": "092305"
+      },
+      {
+       "station_order": 1,
+       "station_name": "嬉野温泉",
+       "arrival": "092850",
+       "departure": "0930"
+      },
+      {
+       "station_order": 2,
+       "station_name": "新大村",
+       "arrival": "093755",
+       "departure": "093850"
+      },
+      {
+       "station_order": 3,
+       "station_name": "諫早",
+       "arrival": "094405",
+       "departure": "094505"
+      },
+      {
+       "station_order": 4,
+       "station_name": "長崎",
+       "arrival": "095350",
+       "departure": "0954"
+      }
+     ]
+    },
+    {
+     "train_number": "2013G",
+     "settings": {
+      "train_name": "かもめ",
+      "train_color": 9,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "武雄温泉",
+       "arrival": "095955",
+       "departure": "100105"
+      },
+      {
+       "station_order": 1,
+       "station_name": "嬉野温泉",
+       "arrival": "100650",
+       "departure": "1008"
+      },
+      {
+       "station_order": 2,
+       "station_name": "新大村",
+       "arrival": "101555",
+       "departure": "101650"
+      },
+      {
+       "station_order": 3,
+       "station_name": "諫早",
+       "arrival": "102205",
+       "departure": "102305"
+      },
+      {
+       "station_order": 4,
+       "station_name": "長崎",
+       "arrival": "103150",
+       "departure": "1032"
+      }
+     ]
+    },
+    {
+     "train_number": "2017G",
+     "settings": {
+      "train_name": "かもめ",
+      "train_color": 9,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "武雄温泉",
+       "arrival": "110155",
+       "departure": "1103"
+      },
+      {
+       "station_order": 3,
+       "station_name": "諫早",
+       "arrival": "111755",
+       "departure": "111905"
+      },
+      {
+       "station_order": 4,
+       "station_name": "長崎",
+       "arrival": "112750",
+       "departure": "1128"
+      }
+     ]
+    },
+    {
+     "train_number": "2021G",
+     "settings": {
+      "train_name": "かもめ",
+      "train_color": 9,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "武雄温泉",
+       "arrival": "115655",
+       "departure": "115805"
+      },
+      {
+       "station_order": 1,
+       "station_name": "嬉野温泉",
+       "arrival": "120350",
+       "departure": "1205"
+      },
+      {
+       "station_order": 2,
+       "station_name": "新大村",
+       "arrival": "121255",
+       "departure": "121405"
+      },
+      {
+       "station_order": 3,
+       "station_name": "諫早",
+       "arrival": "121950",
+       "departure": "122055"
+      },
+      {
+       "station_order": 4,
+       "station_name": "長崎",
+       "arrival": "1229",
+       "departure": "1229"
+      }
+     ]
+    },
+    {
+     "train_number": "2025G",
+     "settings": {
+      "train_name": "かもめ",
+      "train_color": 9,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "武雄温泉",
+       "arrival": "125455",
+       "departure": "1256"
+      },
+      {
+       "station_order": 2,
+       "station_name": "新大村",
+       "arrival": "130755",
+       "departure": "130850"
+      },
+      {
+       "station_order": 3,
+       "station_name": "諫早",
+       "arrival": "131405",
+       "departure": "131505"
+      },
+      {
+       "station_order": 4,
+       "station_name": "長崎",
+       "arrival": "132350",
+       "departure": "1324"
+      }
+     ]
+    },
+    {
+     "train_number": "2029G",
+     "settings": {
+      "train_name": "かもめ",
+      "train_color": 9,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "武雄温泉",
+       "arrival": "135655",
+       "departure": "135745"
+      },
+      {
+       "station_order": 1,
+       "station_name": "嬉野温泉",
+       "arrival": "140310",
+       "departure": "1404"
+      },
+      {
+       "station_order": 2,
+       "station_name": "新大村",
+       "arrival": "141155",
+       "departure": "141305"
+      },
+      {
+       "station_order": 3,
+       "station_name": "諫早",
+       "arrival": "141850",
+       "departure": "141955"
+      },
+      {
+       "station_order": 4,
+       "station_name": "長崎",
+       "arrival": "1428",
+       "departure": "1428"
+      }
+     ]
+    },
+    {
+     "train_number": "2033G",
+     "settings": {
+      "train_name": "かもめ",
+      "train_color": 9,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "武雄温泉",
+       "arrival": "145555",
+       "departure": "145655"
+      },
+      {
+       "station_order": 2,
+       "station_name": "新大村",
+       "arrival": "1508",
+       "departure": "150905"
+      },
+      {
+       "station_order": 3,
+       "station_name": "諫早",
+       "arrival": "151450",
+       "departure": "151555"
+      },
+      {
+       "station_order": 4,
+       "station_name": "長崎",
+       "arrival": "1524",
+       "departure": "1524"
+      }
+     ]
+    },
+    {
+     "train_number": "2037G",
+     "settings": {
+      "train_name": "かもめ",
+      "train_color": 9,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "武雄温泉",
+       "arrival": "155555",
+       "departure": "155705"
+      },
+      {
+       "station_order": 1,
+       "station_name": "嬉野温泉",
+       "arrival": "160250",
+       "departure": "1604"
+      },
+      {
+       "station_order": 2,
+       "station_name": "新大村",
+       "arrival": "161155",
+       "departure": "161305"
+      },
+      {
+       "station_order": 3,
+       "station_name": "諫早",
+       "arrival": "161850",
+       "departure": "161955"
+      },
+      {
+       "station_order": 4,
+       "station_name": "長崎",
+       "arrival": "1628",
+       "departure": "1628"
+      }
+     ]
+    },
+    {
+     "train_number": "2041G",
+     "settings": {
+      "train_name": "かもめ",
+      "train_color": 9,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "武雄温泉",
+       "arrival": "165655",
+       "departure": "1658"
+      },
+      {
+       "station_order": 3,
+       "station_name": "諫早",
+       "arrival": "171255",
+       "departure": "171355"
+      },
+      {
+       "station_order": 4,
+       "station_name": "長崎",
+       "arrival": "1722",
+       "departure": "172205"
+      }
+     ]
+    },
+    {
+     "train_number": "2043G",
+     "settings": {
+      "train_name": "かもめ",
+      "train_color": 9,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "武雄温泉",
+       "arrival": "172055",
+       "departure": "172205"
+      },
+      {
+       "station_order": 1,
+       "station_name": "嬉野温泉",
+       "arrival": "172750",
+       "departure": "1729"
+      },
+      {
+       "station_order": 2,
+       "station_name": "新大村",
+       "arrival": "173655",
+       "departure": "173750"
+      },
+      {
+       "station_order": 3,
+       "station_name": "諫早",
+       "arrival": "174305",
+       "departure": "174405"
+      },
+      {
+       "station_order": 4,
+       "station_name": "長崎",
+       "arrival": "175250",
+       "departure": "1753"
+      }
+     ]
+    },
+    {
+     "train_number": "2047G",
+     "settings": {
+      "train_name": "かもめ",
+      "train_color": 9,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "武雄温泉",
+       "arrival": "175955",
+       "departure": "1801"
+      },
+      {
+       "station_order": 3,
+       "station_name": "諫早",
+       "arrival": "181555",
+       "departure": "181655"
+      },
+      {
+       "station_order": 4,
+       "station_name": "長崎",
+       "arrival": "1825",
+       "departure": "182505"
+      }
+     ]
+    },
+    {
+     "train_number": "2049G",
+     "settings": {
+      "train_name": "かもめ",
+      "train_color": 9,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "武雄温泉",
+       "arrival": "183655",
+       "departure": "183805"
+      },
+      {
+       "station_order": 1,
+       "station_name": "嬉野温泉",
+       "arrival": "184350",
+       "departure": "1845"
+      },
+      {
+       "station_order": 2,
+       "station_name": "新大村",
+       "arrival": "185255",
+       "departure": "185405"
+      },
+      {
+       "station_order": 3,
+       "station_name": "諫早",
+       "arrival": "185950",
+       "departure": "190055"
+      },
+      {
+       "station_order": 4,
+       "station_name": "長崎",
+       "arrival": "1909",
+       "departure": "1909"
+      }
+     ]
+    },
+    {
+     "train_number": "2051G",
+     "settings": {
+      "train_name": "かもめ",
+      "train_color": 9,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "武雄温泉",
+       "arrival": "190255",
+       "departure": "1904"
+      },
+      {
+       "station_order": 3,
+       "station_name": "諫早",
+       "arrival": "191855",
+       "departure": "191955"
+      },
+      {
+       "station_order": 4,
+       "station_name": "長崎",
+       "arrival": "1928",
+       "departure": "192805"
+      }
+     ]
+    },
+    {
+     "train_number": "2053G",
+     "settings": {
+      "train_name": "かもめ",
+      "train_color": 9,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "武雄温泉",
+       "arrival": "192555",
+       "departure": "192645"
+      },
+      {
+       "station_order": 1,
+       "station_name": "嬉野温泉",
+       "arrival": "193210",
+       "departure": "1933"
+      },
+      {
+       "station_order": 2,
+       "station_name": "新大村",
+       "arrival": "194055",
+       "departure": "194205"
+      },
+      {
+       "station_order": 3,
+       "station_name": "諫早",
+       "arrival": "194750",
+       "departure": "194855"
+      },
+      {
+       "station_order": 4,
+       "station_name": "長崎",
+       "arrival": "1957",
+       "departure": "1957"
+      }
+     ]
+    },
+    {
+     "train_number": "2055G",
+     "settings": {
+      "train_name": "かもめ",
+      "train_color": 9,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "武雄温泉",
+       "arrival": "200355",
+       "departure": "2005"
+      },
+      {
+       "station_order": 3,
+       "station_name": "諫早",
+       "arrival": "201955",
+       "departure": "202055"
+      },
+      {
+       "station_order": 4,
+       "station_name": "長崎",
+       "arrival": "2029",
+       "departure": "202905"
+      }
+     ]
+    },
+    {
+     "train_number": "2057G",
+     "settings": {
+      "train_name": "かもめ",
+      "train_color": 9,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "武雄温泉",
+       "arrival": "202955",
+       "departure": "203045"
+      },
+      {
+       "station_order": 1,
+       "station_name": "嬉野温泉",
+       "arrival": "203610",
+       "departure": "2037"
+      },
+      {
+       "station_order": 2,
+       "station_name": "新大村",
+       "arrival": "204455",
+       "departure": "204605"
+      },
+      {
+       "station_order": 3,
+       "station_name": "諫早",
+       "arrival": "205150",
+       "departure": "205255"
+      },
+      {
+       "station_order": 4,
+       "station_name": "長崎",
+       "arrival": "2101",
+       "departure": "2101"
+      }
+     ]
+    },
+    {
+     "train_number": "2059G",
+     "settings": {
+      "train_name": "かもめ",
+      "train_color": 9,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "武雄温泉",
+       "arrival": "210455",
+       "departure": "2106"
+      },
+      {
+       "station_order": 2,
+       "station_name": "新大村",
+       "arrival": "211755",
+       "departure": "211850"
+      },
+      {
+       "station_order": 3,
+       "station_name": "諫早",
+       "arrival": "212405",
+       "departure": "212505"
+      },
+      {
+       "station_order": 4,
+       "station_name": "長崎",
+       "arrival": "213350",
+       "departure": "2134"
+      }
+     ]
+    },
+    {
+     "train_number": "2063G",
+     "settings": {
+      "train_name": "かもめ",
+      "train_color": 9,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "武雄温泉",
+       "arrival": "220255",
+       "departure": "220405"
+      },
+      {
+       "station_order": 1,
+       "station_name": "嬉野温泉",
+       "arrival": "220950",
+       "departure": "2211"
+      },
+      {
+       "station_order": 2,
+       "station_name": "新大村",
+       "arrival": "221855",
+       "departure": "221950"
+      },
+      {
+       "station_order": 3,
+       "station_name": "諫早",
+       "arrival": "222505",
+       "departure": "222605"
+      },
+      {
+       "station_order": 4,
+       "station_name": "長崎",
+       "arrival": "223450",
+       "departure": "2235"
+      }
+     ]
+    },
+    {
+     "train_number": "2067G",
+     "settings": {
+      "train_name": "かもめ",
+      "train_color": 9,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "武雄温泉",
+       "arrival": "231555",
+       "departure": "231655"
+      },
+      {
+       "station_order": 2,
+       "station_name": "新大村",
+       "arrival": "2328",
+       "departure": "232905"
+      },
+      {
+       "station_order": 3,
+       "station_name": "諫早",
+       "arrival": "233450",
+       "departure": "233555"
+      },
+      {
+       "station_order": 4,
+       "station_name": "長崎",
+       "arrival": "2344",
+       "departure": "2344"
+      }
+     ]
+    },
+    {
+     "train_number": "6091G",
+     "settings": {
+      "train_name": "かもめ(臨時)",
+      "train_color": 9,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "武雄温泉",
+       "arrival": "102455",
+       "departure": "102605"
+      },
+      {
+       "station_order": 1,
+       "station_name": "嬉野温泉",
+       "arrival": "103150",
+       "departure": "1033"
+      },
+      {
+       "station_order": 2,
+       "station_name": "新大村",
+       "arrival": "104055",
+       "departure": "104150"
+      },
+      {
+       "station_order": 3,
+       "station_name": "諫早",
+       "arrival": "104705",
+       "departure": "104805"
+      },
+      {
+       "station_order": 4,
+       "station_name": "長崎",
+       "arrival": "105650",
+       "departure": "1057"
+      }
+     ]
+    },
+    {
+     "train_number": "6093G",
+     "settings": {
+      "train_name": "かもめ(臨時)",
+      "train_color": 9,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "武雄温泉",
+       "arrival": "122455",
+       "departure": "122605"
+      },
+      {
+       "station_order": 1,
+       "station_name": "嬉野温泉",
+       "arrival": "123150",
+       "departure": "1233"
+      },
+      {
+       "station_order": 2,
+       "station_name": "新大村",
+       "arrival": "124055",
+       "departure": "124150"
+      },
+      {
+       "station_order": 3,
+       "station_name": "諫早",
+       "arrival": "124705",
+       "departure": "124755"
+      },
+      {
+       "station_order": 4,
+       "station_name": "長崎",
+       "arrival": "1256",
+       "departure": "1256"
+      }
+     ]
+    },
+    {
+     "train_number": "6095G",
+     "settings": {
+      "train_name": "かもめ(臨時)",
+      "train_color": 9,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "武雄温泉",
+       "arrival": "132255",
+       "departure": "132405"
+      },
+      {
+       "station_order": 1,
+       "station_name": "嬉野温泉",
+       "arrival": "132950",
+       "departure": "1331"
+      },
+      {
+       "station_order": 2,
+       "station_name": "新大村",
+       "arrival": "133855",
+       "departure": "134005"
+      },
+      {
+       "station_order": 3,
+       "station_name": "諫早",
+       "arrival": "134550",
+       "departure": "134655"
+      },
+      {
+       "station_order": 4,
+       "station_name": "長崎",
+       "arrival": "1355",
+       "departure": "1355"
+      }
+     ]
+    },
+    {
+     "train_number": "2029G",
+     "settings": {
+      "train_name": "かもめ",
+      "train_color": 9,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "武雄温泉",
+       "arrival": "135655",
+       "departure": "135745"
+      },
+      {
+       "station_order": 1,
+       "station_name": "嬉野温泉",
+       "arrival": "140305",
+       "departure": "1404"
+      },
+      {
+       "station_order": 2,
+       "station_name": "新大村",
+       "arrival": "141155",
+       "departure": "141305"
+      },
+      {
+       "station_order": 3,
+       "station_name": "諫早",
+       "arrival": "141850",
+       "departure": "141955"
+      },
+      {
+       "station_order": 4,
+       "station_name": "長崎",
+       "arrival": "1428",
+       "departure": "1428"
+      }
+     ]
+    },
+    {
+     "train_number": "6097G",
+     "settings": {
+      "train_name": "かもめ(臨時)",
+      "train_color": 9,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "武雄温泉",
+       "arrival": "152455",
+       "departure": "152545"
+      },
+      {
+       "station_order": 1,
+       "station_name": "嬉野温泉",
+       "arrival": "153105",
+       "departure": "1532"
+      },
+      {
+       "station_order": 2,
+       "station_name": "新大村",
+       "arrival": "153955",
+       "departure": "154105"
+      },
+      {
+       "station_order": 3,
+       "station_name": "諫早",
+       "arrival": "154650",
+       "departure": "154755"
+      },
+      {
+       "station_order": 4,
+       "station_name": "長崎",
+       "arrival": "1556",
+       "departure": "1556"
+      }
+     ]
+    },
+    {
+     "train_number": "2053G",
+     "settings": {
+      "train_name": "かもめ",
+      "train_color": 9,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "武雄温泉",
+       "arrival": "192555",
+       "departure": "192645"
+      },
+      {
+       "station_order": 1,
+       "station_name": "嬉野温泉",
+       "arrival": "193205",
+       "departure": "1933"
+      },
+      {
+       "station_order": 2,
+       "station_name": "新大村",
+       "arrival": "194055",
+       "departure": "194205"
+      },
+      {
+       "station_order": 3,
+       "station_name": "諫早",
+       "arrival": "194750",
+       "departure": "194855"
+      },
+      {
+       "station_order": 4,
+       "station_name": "長崎",
+       "arrival": "1957",
+       "departure": "1957"
+      }
+     ]
+    },
+    {
+     "train_number": "2057G",
+     "settings": {
+      "train_name": "かもめ",
+      "train_color": 9,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "武雄温泉",
+       "arrival": "202955",
+       "departure": "203045"
+      },
+      {
+       "station_order": 1,
+       "station_name": "嬉野温泉",
+       "arrival": "203605",
+       "departure": "2037"
+      },
+      {
+       "station_order": 2,
+       "station_name": "新大村",
+       "arrival": "204455",
+       "departure": "204605"
+      },
+      {
+       "station_order": 3,
+       "station_name": "諫早",
+       "arrival": "205150",
+       "departure": "205255"
+      },
+      {
+       "station_order": 4,
+       "station_name": "長崎",
+       "arrival": "2101",
+       "departure": "2101"
+      }
+     ]
+    }
+   ]
+  },
+  "2": {
+   "route_name": "JR 西九州新幹線 (武雄温泉-長崎)",
+   "bound": 2,
+   "station_count": 5,
+   "station_record": [
+    "長崎",
+    "諫早",
+    "新大村",
+    "嬉野温泉",
+    "武雄温泉"
+   ],
+   "train_count": 39,
+   "timetable": [
+    {
+     "train_number": "2002G",
+     "settings": {
+      "train_name": "かもめ",
+      "train_color": 9,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "長崎",
+       "arrival": "061555",
+       "departure": "061650"
+      },
+      {
+       "station_order": 1,
+       "station_name": "諫早",
+       "arrival": "0625",
+       "departure": "062605"
+      },
+      {
+       "station_order": 2,
+       "station_name": "新大村",
+       "arrival": "063150",
+       "departure": "0633"
+      },
+      {
+       "station_order": 3,
+       "station_name": "嬉野温泉",
+       "arrival": "064055",
+       "departure": "064205"
+      },
+      {
+       "station_order": 4,
+       "station_name": "武雄温泉",
+       "arrival": "064750",
+       "departure": "0648"
+      }
+     ]
+    },
+    {
+     "train_number": "2004G",
+     "settings": {
+      "train_name": "かもめ",
+      "train_color": 9,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "長崎",
+       "arrival": "065655",
+       "departure": "065750"
+      },
+      {
+       "station_order": 1,
+       "station_name": "諫早",
+       "arrival": "0706",
+       "departure": "070705"
+      },
+      {
+       "station_order": 2,
+       "station_name": "新大村",
+       "arrival": "071250",
+       "departure": "0714"
+      },
+      {
+       "station_order": 3,
+       "station_name": "嬉野温泉",
+       "arrival": "072155",
+       "departure": "072245"
+      },
+      {
+       "station_order": 4,
+       "station_name": "武雄温泉",
+       "arrival": "072805",
+       "departure": "072805"
+      }
+     ]
+    },
+    {
+     "train_number": "2008G",
+     "settings": {
+      "train_name": "かもめ",
+      "train_color": 9,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "長崎",
+       "arrival": "074455",
+       "departure": "074550"
+      },
+      {
+       "station_order": 1,
+       "station_name": "諫早",
+       "arrival": "0754",
+       "departure": "075505"
+      },
+      {
+       "station_order": 2,
+       "station_name": "新大村",
+       "arrival": "080050",
+       "departure": "0802"
+      },
+      {
+       "station_order": 3,
+       "station_name": "嬉野温泉",
+       "arrival": "080955",
+       "departure": "081045"
+      },
+      {
+       "station_order": 4,
+       "station_name": "武雄温泉",
+       "arrival": "081605",
+       "departure": "081605"
+      }
+     ]
+    },
+    {
+     "train_number": "2012G",
+     "settings": {
+      "train_name": "かもめ",
+      "train_color": 9,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "長崎",
+       "arrival": "084255",
+       "departure": "084350"
+      },
+      {
+       "station_order": 1,
+       "station_name": "諫早",
+       "arrival": "0852",
+       "departure": "0853"
+      },
+      {
+       "station_order": 4,
+       "station_name": "武雄温泉",
+       "arrival": "090755",
+       "departure": "0908"
+      }
+     ]
+    },
+    {
+     "train_number": "2014G",
+     "settings": {
+      "train_name": "かもめ",
+      "train_color": 9,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "長崎",
+       "arrival": "090655",
+       "departure": "090805"
+      },
+      {
+       "station_order": 1,
+       "station_name": "諫早",
+       "arrival": "091650",
+       "departure": "091805"
+      },
+      {
+       "station_order": 2,
+       "station_name": "新大村",
+       "arrival": "092350",
+       "departure": "092450"
+      },
+      {
+       "station_order": 3,
+       "station_name": "嬉野温泉",
+       "arrival": "093205",
+       "departure": "093305"
+      },
+      {
+       "station_order": 4,
+       "station_name": "武雄温泉",
+       "arrival": "093850",
+       "departure": "0939"
+      }
+     ]
+    },
+    {
+     "train_number": "2018G",
+     "settings": {
+      "train_name": "かもめ",
+      "train_color": 9,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "長崎",
+       "arrival": "094855",
+       "departure": "094950"
+      },
+      {
+       "station_order": 1,
+       "station_name": "諫早",
+       "arrival": "0958",
+       "departure": "095855"
+      },
+      {
+       "station_order": 4,
+       "station_name": "武雄温泉",
+       "arrival": "1013",
+       "departure": "1013"
+      }
+     ]
+    },
+    {
+     "train_number": "2022G",
+     "settings": {
+      "train_name": "かもめ",
+      "train_color": 9,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "長崎",
+       "arrival": "104255",
+       "departure": "104405"
+      },
+      {
+       "station_order": 1,
+       "station_name": "諫早",
+       "arrival": "105250",
+       "departure": "105350"
+      },
+      {
+       "station_order": 2,
+       "station_name": "新大村",
+       "arrival": "105905",
+       "departure": "1100"
+      },
+      {
+       "station_order": 3,
+       "station_name": "嬉野温泉",
+       "arrival": "110755",
+       "departure": "110905"
+      },
+      {
+       "station_order": 4,
+       "station_name": "武雄温泉",
+       "arrival": "111450",
+       "departure": "1115"
+      }
+     ]
+    },
+    {
+     "train_number": "2026G",
+     "settings": {
+      "train_name": "かもめ",
+      "train_color": 9,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "長崎",
+       "arrival": "114355",
+       "departure": "114505"
+      },
+      {
+       "station_order": 1,
+       "station_name": "諫早",
+       "arrival": "115350",
+       "departure": "115450"
+      },
+      {
+       "station_order": 2,
+       "station_name": "新大村",
+       "arrival": "120005",
+       "departure": "1201"
+      },
+      {
+       "station_order": 4,
+       "station_name": "武雄温泉",
+       "arrival": "121255",
+       "departure": "1213"
+      }
+     ]
+    },
+    {
+     "train_number": "2030G",
+     "settings": {
+      "train_name": "かもめ",
+      "train_color": 9,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "長崎",
+       "arrival": "124055",
+       "departure": "124150"
+      },
+      {
+       "station_order": 1,
+       "station_name": "諫早",
+       "arrival": "1250",
+       "departure": "125105"
+      },
+      {
+       "station_order": 2,
+       "station_name": "新大村",
+       "arrival": "125650",
+       "departure": "1258"
+      },
+      {
+       "station_order": 3,
+       "station_name": "嬉野温泉",
+       "arrival": "130555",
+       "departure": "130645"
+      },
+      {
+       "station_order": 4,
+       "station_name": "武雄温泉",
+       "arrival": "131205",
+       "departure": "131205"
+      }
+     ]
+    },
+    {
+     "train_number": "2034G",
+     "settings": {
+      "train_name": "かもめ",
+      "train_color": 9,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "長崎",
+       "arrival": "134355",
+       "departure": "134505"
+      },
+      {
+       "station_order": 1,
+       "station_name": "諫早",
+       "arrival": "135350",
+       "departure": "135450"
+      },
+      {
+       "station_order": 2,
+       "station_name": "新大村",
+       "arrival": "140005",
+       "departure": "1401"
+      },
+      {
+       "station_order": 4,
+       "station_name": "武雄温泉",
+       "arrival": "141255",
+       "departure": "1413"
+      }
+     ]
+    },
+    {
+     "train_number": "2038G",
+     "settings": {
+      "train_name": "かもめ",
+      "train_color": 9,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "長崎",
+       "arrival": "144155",
+       "departure": "144250"
+      },
+      {
+       "station_order": 1,
+       "station_name": "諫早",
+       "arrival": "1451",
+       "departure": "145205"
+      },
+      {
+       "station_order": 2,
+       "station_name": "新大村",
+       "arrival": "145750",
+       "departure": "145850"
+      },
+      {
+       "station_order": 3,
+       "station_name": "嬉野温泉",
+       "arrival": "150605",
+       "departure": "150705"
+      },
+      {
+       "station_order": 4,
+       "station_name": "武雄温泉",
+       "arrival": "151250",
+       "departure": "1513"
+      }
+     ]
+    },
+    {
+     "train_number": "2042G",
+     "settings": {
+      "train_name": "かもめ",
+      "train_color": 9,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "長崎",
+       "arrival": "154055",
+       "departure": "154150"
+      },
+      {
+       "station_order": 1,
+       "station_name": "諫早",
+       "arrival": "1550",
+       "departure": "155105"
+      },
+      {
+       "station_order": 2,
+       "station_name": "新大村",
+       "arrival": "155650",
+       "departure": "155750"
+      },
+      {
+       "station_order": 3,
+       "station_name": "嬉野温泉",
+       "arrival": "160505",
+       "departure": "160605"
+      },
+      {
+       "station_order": 4,
+       "station_name": "武雄温泉",
+       "arrival": "161150",
+       "departure": "1612"
+      }
+     ]
+    },
+    {
+     "train_number": "2046G",
+     "settings": {
+      "train_name": "かもめ",
+      "train_color": 9,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "長崎",
+       "arrival": "164055",
+       "departure": "164205"
+      },
+      {
+       "station_order": 1,
+       "station_name": "諫早",
+       "arrival": "165050",
+       "departure": "165150"
+      },
+      {
+       "station_order": 2,
+       "station_name": "新大村",
+       "arrival": "165705",
+       "departure": "1658"
+      },
+      {
+       "station_order": 4,
+       "station_name": "武雄温泉",
+       "arrival": "170955",
+       "departure": "1710"
+      }
+     ]
+    },
+    {
+     "train_number": "2048G",
+     "settings": {
+      "train_name": "かもめ",
+      "train_color": 9,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "長崎",
+       "arrival": "171155",
+       "departure": "171305"
+      },
+      {
+       "station_order": 1,
+       "station_name": "諫早",
+       "arrival": "172150",
+       "departure": "172305"
+      },
+      {
+       "station_order": 2,
+       "station_name": "新大村",
+       "arrival": "172850",
+       "departure": "172950"
+      },
+      {
+       "station_order": 3,
+       "station_name": "嬉野温泉",
+       "arrival": "173705",
+       "departure": "173805"
+      },
+      {
+       "station_order": 4,
+       "station_name": "武雄温泉",
+       "arrival": "174350",
+       "departure": "1744"
+      }
+     ]
+    },
+    {
+     "train_number": "2050G",
+     "settings": {
+      "train_name": "かもめ",
+      "train_color": 9,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "長崎",
+       "arrival": "174255",
+       "departure": "174405"
+      },
+      {
+       "station_order": 1,
+       "station_name": "諫早",
+       "arrival": "175250",
+       "departure": "175350"
+      },
+      {
+       "station_order": 2,
+       "station_name": "新大村",
+       "arrival": "175905",
+       "departure": "1800"
+      },
+      {
+       "station_order": 4,
+       "station_name": "武雄温泉",
+       "arrival": "181155",
+       "departure": "1812"
+      }
+     ]
+    },
+    {
+     "train_number": "2052G",
+     "settings": {
+      "train_name": "かもめ",
+      "train_color": 9,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "長崎",
+       "arrival": "181755",
+       "departure": "181850"
+      },
+      {
+       "station_order": 1,
+       "station_name": "諫早",
+       "arrival": "1827",
+       "departure": "182805"
+      },
+      {
+       "station_order": 2,
+       "station_name": "新大村",
+       "arrival": "183350",
+       "departure": "1835"
+      },
+      {
+       "station_order": 3,
+       "station_name": "嬉野温泉",
+       "arrival": "184255",
+       "departure": "184405"
+      },
+      {
+       "station_order": 4,
+       "station_name": "武雄温泉",
+       "arrival": "184950",
+       "departure": "1850"
+      }
+     ]
+    },
+    {
+     "train_number": "2054G",
+     "settings": {
+      "train_name": "かもめ",
+      "train_color": 9,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "長崎",
+       "arrival": "184555",
+       "departure": "184705"
+      },
+      {
+       "station_order": 1,
+       "station_name": "諫早",
+       "arrival": "185550",
+       "departure": "185650"
+      },
+      {
+       "station_order": 2,
+       "station_name": "新大村",
+       "arrival": "190205",
+       "departure": "1903"
+      },
+      {
+       "station_order": 4,
+       "station_name": "武雄温泉",
+       "arrival": "191455",
+       "departure": "1915"
+      }
+     ]
+    },
+    {
+     "train_number": "2056G",
+     "settings": {
+      "train_name": "かもめ",
+      "train_color": 9,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "長崎",
+       "arrival": "192055",
+       "departure": "192150"
+      },
+      {
+       "station_order": 1,
+       "station_name": "諫早",
+       "arrival": "1930",
+       "departure": "193105"
+      },
+      {
+       "station_order": 2,
+       "station_name": "新大村",
+       "arrival": "193650",
+       "departure": "1938"
+      },
+      {
+       "station_order": 3,
+       "station_name": "嬉野温泉",
+       "arrival": "194555",
+       "departure": "194645"
+      },
+      {
+       "station_order": 4,
+       "station_name": "武雄温泉",
+       "arrival": "195205",
+       "departure": "195205"
+      }
+     ]
+    },
+    {
+     "train_number": "2058G",
+     "settings": {
+      "train_name": "かもめ",
+      "train_color": 9,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "長崎",
+       "arrival": "194655",
+       "departure": "194805"
+      },
+      {
+       "station_order": 1,
+       "station_name": "諫早",
+       "arrival": "195650",
+       "departure": "195750"
+      },
+      {
+       "station_order": 2,
+       "station_name": "新大村",
+       "arrival": "200305",
+       "departure": "2004"
+      },
+      {
+       "station_order": 4,
+       "station_name": "武雄温泉",
+       "arrival": "201555",
+       "departure": "2016"
+      }
+     ]
+    },
+    {
+     "train_number": "2060G",
+     "settings": {
+      "train_name": "かもめ",
+      "train_color": 9,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "長崎",
+       "arrival": "201855",
+       "departure": "202005"
+      },
+      {
+       "station_order": 1,
+       "station_name": "諫早",
+       "arrival": "202850",
+       "departure": "202950"
+      },
+      {
+       "station_order": 2,
+       "station_name": "新大村",
+       "arrival": "203505",
+       "departure": "2036"
+      },
+      {
+       "station_order": 3,
+       "station_name": "嬉野温泉",
+       "arrival": "204355",
+       "departure": "204505"
+      },
+      {
+       "station_order": 4,
+       "station_name": "武雄温泉",
+       "arrival": "205050",
+       "departure": "2051"
+      }
+     ]
+    },
+    {
+     "train_number": "2064G",
+     "settings": {
+      "train_name": "かもめ",
+      "train_color": 9,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "長崎",
+       "arrival": "211655",
+       "departure": "211750"
+      },
+      {
+       "station_order": 1,
+       "station_name": "諫早",
+       "arrival": "2126",
+       "departure": "212705"
+      },
+      {
+       "station_order": 2,
+       "station_name": "新大村",
+       "arrival": "213250",
+       "departure": "213350"
+      },
+      {
+       "station_order": 4,
+       "station_name": "武雄温泉",
+       "arrival": "2145",
+       "departure": "2145"
+      }
+     ]
+    },
+    {
+     "train_number": "2066G",
+     "settings": {
+      "train_name": "かもめ",
+      "train_color": 9,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "長崎",
+       "arrival": "220855",
+       "departure": "220950"
+      },
+      {
+       "station_order": 1,
+       "station_name": "諫早",
+       "arrival": "2218",
+       "departure": "221905"
+      },
+      {
+       "station_order": 2,
+       "station_name": "新大村",
+       "arrival": "222450",
+       "departure": "222550"
+      },
+      {
+       "station_order": 3,
+       "station_name": "嬉野温泉",
+       "arrival": "223305",
+       "departure": "223405"
+      },
+      {
+       "station_order": 4,
+       "station_name": "武雄温泉",
+       "arrival": "223950",
+       "departure": "2240"
+      }
+     ]
+    },
+    {
+     "train_number": "2102G",
+     "settings": {
+      "train_name": "かもめ",
+      "train_color": 9,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "長崎",
+       "arrival": "232855",
+       "departure": "233005"
+      },
+      {
+       "station_order": 1,
+       "station_name": "諫早",
+       "arrival": "233850",
+       "departure": "234005"
+      },
+      {
+       "station_order": 2,
+       "station_name": "新大村",
+       "arrival": "234550",
+       "departure": "2346"
+      }
+     ]
+    },
+    {
+     "train_number": "2002G",
+     "settings": {
+      "train_name": "かもめ",
+      "train_color": 9,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "長崎",
+       "arrival": "061555",
+       "departure": "061655"
+      },
+      {
+       "station_order": 1,
+       "station_name": "諫早",
+       "arrival": "0625",
+       "departure": "062605"
+      },
+      {
+       "station_order": 2,
+       "station_name": "新大村",
+       "arrival": "063150",
+       "departure": "0633"
+      },
+      {
+       "station_order": 3,
+       "station_name": "嬉野温泉",
+       "arrival": "064055",
+       "departure": "064205"
+      },
+      {
+       "station_order": 4,
+       "station_name": "武雄温泉",
+       "arrival": "064750",
+       "departure": "0648"
+      }
+     ]
+    },
+    {
+     "train_number": "2004G",
+     "settings": {
+      "train_name": "かもめ",
+      "train_color": 9,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "長崎",
+       "arrival": "065655",
+       "departure": "065755"
+      },
+      {
+       "station_order": 1,
+       "station_name": "諫早",
+       "arrival": "0706",
+       "departure": "070705"
+      },
+      {
+       "station_order": 2,
+       "station_name": "新大村",
+       "arrival": "071250",
+       "departure": "0714"
+      },
+      {
+       "station_order": 3,
+       "station_name": "嬉野温泉",
+       "arrival": "072155",
+       "departure": "072250"
+      },
+      {
+       "station_order": 4,
+       "station_name": "武雄温泉",
+       "arrival": "072810",
+       "departure": "072810"
+      }
+     ]
+    },
+    {
+     "train_number": "2008G",
+     "settings": {
+      "train_name": "かもめ",
+      "train_color": 9,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "長崎",
+       "arrival": "074455",
+       "departure": "074555"
+      },
+      {
+       "station_order": 1,
+       "station_name": "諫早",
+       "arrival": "0754",
+       "departure": "075505"
+      },
+      {
+       "station_order": 2,
+       "station_name": "新大村",
+       "arrival": "080050",
+       "departure": "0802"
+      },
+      {
+       "station_order": 3,
+       "station_name": "嬉野温泉",
+       "arrival": "080955",
+       "departure": "081050"
+      },
+      {
+       "station_order": 4,
+       "station_name": "武雄温泉",
+       "arrival": "081610",
+       "departure": "081610"
+      }
+     ]
+    },
+    {
+     "train_number": "2012G",
+     "settings": {
+      "train_name": "かもめ",
+      "train_color": 9,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "長崎",
+       "arrival": "084255",
+       "departure": "084355"
+      },
+      {
+       "station_order": 1,
+       "station_name": "諫早",
+       "arrival": "0852",
+       "departure": "0853"
+      },
+      {
+       "station_order": 4,
+       "station_name": "武雄温泉",
+       "arrival": "090755",
+       "departure": "0908"
+      }
+     ]
+    },
+    {
+     "train_number": "2018G",
+     "settings": {
+      "train_name": "かもめ",
+      "train_color": 9,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "長崎",
+       "arrival": "094855",
+       "departure": "094955"
+      },
+      {
+       "station_order": 1,
+       "station_name": "諫早",
+       "arrival": "0958",
+       "departure": "095855"
+      },
+      {
+       "station_order": 4,
+       "station_name": "武雄温泉",
+       "arrival": "1013",
+       "departure": "1013"
+      }
+     ]
+    },
+    {
+     "train_number": "6092G",
+     "settings": {
+      "train_name": "かもめ(臨時)",
+      "train_color": 9,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "長崎",
+       "arrival": "100455",
+       "departure": "100605"
+      },
+      {
+       "station_order": 1,
+       "station_name": "諫早",
+       "arrival": "101450",
+       "departure": "101550"
+      },
+      {
+       "station_order": 2,
+       "station_name": "新大村",
+       "arrival": "102105",
+       "departure": "1022"
+      },
+      {
+       "station_order": 3,
+       "station_name": "嬉野温泉",
+       "arrival": "102955",
+       "departure": "103105"
+      },
+      {
+       "station_order": 4,
+       "station_name": "武雄温泉",
+       "arrival": "103650",
+       "departure": "1037"
+      }
+     ]
+    },
+    {
+     "train_number": "6094G",
+     "settings": {
+      "train_name": "かもめ(臨時)",
+      "train_color": 9,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "長崎",
+       "arrival": "121055",
+       "departure": "121155"
+      },
+      {
+       "station_order": 1,
+       "station_name": "諫早",
+       "arrival": "1220",
+       "departure": "122105"
+      },
+      {
+       "station_order": 2,
+       "station_name": "新大村",
+       "arrival": "122650",
+       "departure": "1228"
+      },
+      {
+       "station_order": 3,
+       "station_name": "嬉野温泉",
+       "arrival": "123555",
+       "departure": "123650"
+      },
+      {
+       "station_order": 4,
+       "station_name": "武雄温泉",
+       "arrival": "124210",
+       "departure": "124210"
+      }
+     ]
+    },
+    {
+     "train_number": "2030G",
+     "settings": {
+      "train_name": "かもめ",
+      "train_color": 9,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "長崎",
+       "arrival": "124055",
+       "departure": "124155"
+      },
+      {
+       "station_order": 1,
+       "station_name": "諫早",
+       "arrival": "1250",
+       "departure": "125105"
+      },
+      {
+       "station_order": 2,
+       "station_name": "新大村",
+       "arrival": "125650",
+       "departure": "1258"
+      },
+      {
+       "station_order": 3,
+       "station_name": "嬉野温泉",
+       "arrival": "130555",
+       "departure": "130650"
+      },
+      {
+       "station_order": 4,
+       "station_name": "武雄温泉",
+       "arrival": "131210",
+       "departure": "131210"
+      }
+     ]
+    },
+    {
+     "train_number": "6096G",
+     "settings": {
+      "train_name": "かもめ(臨時)",
+      "train_color": 9,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "長崎",
+       "arrival": "131255",
+       "departure": "131355"
+      },
+      {
+       "station_order": 1,
+       "station_name": "諫早",
+       "arrival": "1322",
+       "departure": "132305"
+      },
+      {
+       "station_order": 2,
+       "station_name": "新大村",
+       "arrival": "132850",
+       "departure": "1330"
+      },
+      {
+       "station_order": 3,
+       "station_name": "嬉野温泉",
+       "arrival": "133755",
+       "departure": "133850"
+      },
+      {
+       "station_order": 4,
+       "station_name": "武雄温泉",
+       "arrival": "134410",
+       "departure": "134410"
+      }
+     ]
+    },
+    {
+     "train_number": "2038G",
+     "settings": {
+      "train_name": "かもめ",
+      "train_color": 9,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "長崎",
+       "arrival": "144155",
+       "departure": "144255"
+      },
+      {
+       "station_order": 1,
+       "station_name": "諫早",
+       "arrival": "1451",
+       "departure": "145205"
+      },
+      {
+       "station_order": 2,
+       "station_name": "新大村",
+       "arrival": "145750",
+       "departure": "145850"
+      },
+      {
+       "station_order": 3,
+       "station_name": "嬉野温泉",
+       "arrival": "150605",
+       "departure": "150705"
+      },
+      {
+       "station_order": 4,
+       "station_name": "武雄温泉",
+       "arrival": "151250",
+       "departure": "1513"
+      }
+     ]
+    },
+    {
+     "train_number": "6098G",
+     "settings": {
+      "train_name": "かもめ(臨時)",
+      "train_color": 9,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "長崎",
+       "arrival": "151255",
+       "departure": "151355"
+      },
+      {
+       "station_order": 1,
+       "station_name": "諫早",
+       "arrival": "1522",
+       "departure": "152250"
+      },
+      {
+       "station_order": 2,
+       "station_name": "新大村",
+       "arrival": "152805",
+       "departure": "1529"
+      },
+      {
+       "station_order": 3,
+       "station_name": "嬉野温泉",
+       "arrival": "153655",
+       "departure": "153805"
+      },
+      {
+       "station_order": 4,
+       "station_name": "武雄温泉",
+       "arrival": "154350",
+       "departure": "1544"
+      }
+     ]
+    },
+    {
+     "train_number": "2042G",
+     "settings": {
+      "train_name": "かもめ",
+      "train_color": 9,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "長崎",
+       "arrival": "154055",
+       "departure": "154155"
+      },
+      {
+       "station_order": 1,
+       "station_name": "諫早",
+       "arrival": "1550",
+       "departure": "155105"
+      },
+      {
+       "station_order": 2,
+       "station_name": "新大村",
+       "arrival": "155650",
+       "departure": "155750"
+      },
+      {
+       "station_order": 3,
+       "station_name": "嬉野温泉",
+       "arrival": "160505",
+       "departure": "160605"
+      },
+      {
+       "station_order": 4,
+       "station_name": "武雄温泉",
+       "arrival": "161150",
+       "departure": "1612"
+      }
+     ]
+    },
+    {
+     "train_number": "2052G",
+     "settings": {
+      "train_name": "かもめ",
+      "train_color": 9,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "長崎",
+       "arrival": "181755",
+       "departure": "181855"
+      },
+      {
+       "station_order": 1,
+       "station_name": "諫早",
+       "arrival": "1827",
+       "departure": "182805"
+      },
+      {
+       "station_order": 2,
+       "station_name": "新大村",
+       "arrival": "183350",
+       "departure": "1835"
+      },
+      {
+       "station_order": 3,
+       "station_name": "嬉野温泉",
+       "arrival": "184255",
+       "departure": "184405"
+      },
+      {
+       "station_order": 4,
+       "station_name": "武雄温泉",
+       "arrival": "184950",
+       "departure": "1850"
+      }
+     ]
+    },
+    {
+     "train_number": "2056G",
+     "settings": {
+      "train_name": "かもめ",
+      "train_color": 9,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "長崎",
+       "arrival": "192055",
+       "departure": "192155"
+      },
+      {
+       "station_order": 1,
+       "station_name": "諫早",
+       "arrival": "1930",
+       "departure": "193105"
+      },
+      {
+       "station_order": 2,
+       "station_name": "新大村",
+       "arrival": "193650",
+       "departure": "1938"
+      },
+      {
+       "station_order": 3,
+       "station_name": "嬉野温泉",
+       "arrival": "194555",
+       "departure": "194650"
+      },
+      {
+       "station_order": 4,
+       "station_name": "武雄温泉",
+       "arrival": "195210",
+       "departure": "195210"
+      }
+     ]
+    },
+    {
+     "train_number": "2064G",
+     "settings": {
+      "train_name": "かもめ",
+      "train_color": 9,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "長崎",
+       "arrival": "211655",
+       "departure": "211755"
+      },
+      {
+       "station_order": 1,
+       "station_name": "諫早",
+       "arrival": "2126",
+       "departure": "212705"
+      },
+      {
+       "station_order": 2,
+       "station_name": "新大村",
+       "arrival": "213250",
+       "departure": "213350"
+      },
+      {
+       "station_order": 4,
+       "station_name": "武雄温泉",
+       "arrival": "2145",
+       "departure": "2145"
+      }
+     ]
+    },
+    {
+     "train_number": "2066G",
+     "settings": {
+      "train_name": "かもめ",
+      "train_color": 9,
+      "line_width": null,
+      "line_type": null
+     },
+     "origin": {
+      "station_name": "",
+      "departure": ""
+     },
+     "terminal": {
+      "station_name": "",
+      "arrival": ""
+     },
+     "timetable": [
+      {
+       "station_order": 0,
+       "station_name": "長崎",
+       "arrival": "220855",
+       "departure": "220955"
+      },
+      {
+       "station_order": 1,
+       "station_name": "諫早",
+       "arrival": "2218",
+       "departure": "221905"
+      },
+      {
+       "station_order": 2,
+       "station_name": "新大村",
+       "arrival": "222450",
+       "departure": "222550"
+      },
+      {
+       "station_order": 3,
+       "station_name": "嬉野温泉",
+       "arrival": "223305",
+       "departure": "223405"
+      },
+      {
+       "station_order": 4,
+       "station_name": "武雄温泉",
+       "arrival": "223950",
+       "departure": "2240"
+      }
+     ]
+    }
+   ]
+  }
+ },
+ "opmodes": [
+  {
+   "title": "",
+   "description": "",
+   "days": [
+    "mon",
+    "tue",
+    "wed",
+    "thu"
+   ],
+   "trains": {
+    "1": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8,
+     9,
+     10,
+     11,
+     12,
+     13,
+     14,
+     15,
+     16,
+     17,
+     18,
+     19,
+     20,
+     21,
+     22,
+     23
+    ],
+    "2": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8,
+     9,
+     10,
+     11,
+     12,
+     13,
+     14,
+     15,
+     16,
+     17,
+     18,
+     19,
+     20,
+     21,
+     22
+    ]
+   }
+  },
+  {
+   "title": "",
+   "description": "",
+   "days": [
+    "fri",
+    "sat",
+    "sun"
+   ],
+   "trains": {
+    "1": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     24,
+     7,
+     8,
+     25,
+     9,
+     26,
+     27,
+     11,
+     28,
+     12,
+     13,
+     14,
+     15,
+     16,
+     17,
+     29,
+     19,
+     30,
+     21,
+     22,
+     23
+    ],
+    "2": [
+     23,
+     24,
+     25,
+     26,
+     4,
+     27,
+     28,
+     6,
+     7,
+     29,
+     30,
+     31,
+     9,
+     32,
+     33,
+     34,
+     12,
+     13,
+     14,
+     35,
+     16,
+     36,
+     18,
+     19,
+     37,
+     38,
+     22
+    ]
+   }
+  }
+ ],
+ "settings": {
+  "defaultStopSec": 60,
+  "startSec": 0,
+  "endSec": 86400,
+  "pxPerKm": 10,
+  "pxPerMin": 25,
+  "stationRange": {
+   "start": 0,
+   "end": null
+  },
+  "trainLineWidth": 2,
+  "trainLineWidthByColor": [
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "trainLineType": "solid",
+  "trainLineTypeByColor": [
+   "",
+   "",
+   "",
+   "",
+   "",
+   "",
+   "",
+   "",
+   "",
+   "",
+   ""
+  ],
+  "showTrainNumber": true,
+  "trainNumberFontSize": 20,
+  "pxPerTrainNumber": 750,
+  "minStationIntervalForTrainNumber": 70,
+  "trainNumberAvoidance": {
+   "enabled": true,
+   "primaryTimeLines": false,
+   "secondaryTimeLines": false,
+   "margin": 5
+  },
+  "oudiaStyle": {
+   "enabled": false,
+   "timeScale": 1,
+   "axisColor": "#C0C0C0",
+   "lineWidth": 1,
+   "stopMarks": true,
+   "showTrainName": false
+  },
+  "connectTrainLines": true,
+  "layers": {
+   "enabled": false,
+   "trainByDirection": false,
+   "trainByColor": false
+  },
+  "margin": {
+   "left": 100,
+   "right": 100,
+   "top": 100,
+   "bottom": 100
+  },
+  "background": {
+   "transparent": false,
+   "color": "#FFFFFF"
+  },
+  "lines": {
+   "station": {
+    "width": 2,
+    "color": "#000000",
+    "type": "solid"
+   },
+   "secondaryStation": {
+    "width": 1.4,
+    "color": "#808080",
+    "type": "solid"
+   },
+   "primary": {
+    "width": 2,
+    "color": "#000000",
+    "type": "solid"
+   },
+   "secondary": {
+    "width": 1.4,
+    "color": "#808080",
+    "type": "solid",
+    "interval": 10
+   },
+   "minute": {
+    "enabled": false,
+    "width": 1.5,
+    "color": "#808080"
+   },
+   "outline": {
+    "top": 2,
+    "bottom": 2,
+    "left": 2,
+    "right": 2,
+    "color": "#000000"
+   }
+  },
+  "stationText": {
+   "fontSize": 20,
+   "color": "#000000",
+   "gap": 10
+  },
+  "aliasText": {
+   "show": false,
+   "fontSize": 20,
+   "color": "#000000",
+   "gap": 10
+  },
+  "secondaryStationText": {
+   "fontSize": 16,
+   "color": "#808080",
+   "gap": 10
+  },
+  "secondaryAliasText": {
+   "fontSize": 16,
+   "color": "#808080",
+   "gap": 10
+  },
+  "timeLabel": {
+   "format": "standard",
+   "zeroPad": false,
+   "overDay": "plain",
+   "gap": 10,
+   "secondaryLabel": "none",
+   "formats": {
+    "standard": {
+     "fontSize": 20,
+     "color": "#000000"
+    },
+    "sized": {
+     "hourFontSize": 25,
+     "hourColor": "#000000",
+     "minuteFontSize": 15,
+     "minuteColor": "#808080"
+    },
+    "simple": {
+     "fontSize": 20,
+     "color": "#000000"
+    }
+   }
+  },
+  "footer": {
+   "enabled": false,
+   "text": "<title> | <opmode> | <sta_range> | <time_range>",
+   "fontSize": 16,
+   "color": "#000000",
+   "base": "page",
+   "gap": 20,
+   "startPage": 1
+  },
+  "print": {
+   "enabled": false,
+   "ppi": 300,
+   "page": {
+    "width": 210,
+    "height": 297
+   },
+   "bleed": {
+    "top": 3,
+    "bottom": 3,
+    "left": 3,
+    "right": 3
+   },
+   "pageMinutes": 60,
+   "overlap": false,
+   "format": "pdf",
+   "opmodes": "all",
+   "align": {
+    "v": {
+     "side": "top",
+     "base": "frame",
+     "offset": 20
+    },
+    "h": {
+     "side": "left",
+     "base": "text",
+     "offset": 10
+    }
+   }
+  },
+  "passingTime": {
+   "solver": "stn",
+   "minExtraPassingWaiting": 30,
+   "minTimeSeparation": 60,
+   "maxSearchDepth": 3,
+   "maxIteration": 5,
+   "maxAllowedConflict": 0,
+   "estimatedSpeedLimitRatio": 1.1,
+   "maxPassingPointIncrease": 2,
+   "timeGranularity": 5,
+   "fineTune": false,
+   "inaccurateArrival": false,
+   "imprecise": true,
+   "timetableGranularity": 60,
+   "roundingMode": "auto",
+   "minDwell": 30,
+   "smooth": true,
+   "interpolationSpeedRatio": 1.2,
+   "interpolationMaxError": null,
+   "stopRules": []
+  },
+  "trainColors": [
+   "#1F5FD6",
+   "#1F5FD6",
+   "#5BB8F0",
+   "#F08300",
+   "#F5B400",
+   "#E8619A",
+   "#00A497",
+   "#62C9BE",
+   "#C8102E",
+   "#F2300F",
+   "#8E3FB5"
+  ]
+ }
+}

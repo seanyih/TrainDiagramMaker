@@ -1,11 +1,64 @@
 {
-	"name": { "zh": "東北・北海道新幹線", "en": "Tohoku & Hokkaido Shinkansen", "ja": "東北・北海道新幹線" },
-	"section": { "zh": "東京 – 新函館北斗", "en": "Tokyo – Shin-Hakodate-Hokuto", "ja": "東京 – 新函館北斗" },
-	"companies": ["jr-east", "jr-hokkaido"],
-	"types": ["hsr"],
-	"regions": ["kanto", "tohoku", "hokkaido"],
-	"route": [
-		{ "date": "2026-03-14", "title": "初版", "kind": "route", "tags": ["mileage", "topology"], "files": { "json": "releases/route-2026-03-14.json" }, "latest": true }
+	"name": {
+		"zh": "東北・北海道新幹線",
+		"en": "Tohoku & Hokkaido Shinkansen",
+		"ja": "東北・北海道新幹線"
+	},
+	"section": {
+		"zh": "東京 – 新函館北斗",
+		"en": "Tokyo – Shin-Hakodate-Hokuto",
+		"ja": "東京 – 新函館北斗"
+	},
+	"companies": [
+		"jr-east",
+		"jr-hokkaido"
 	],
-	"all": []
+	"types": [
+		"hsr"
+	],
+	"regions": [
+		"kanto",
+		"tohoku",
+		"hokkaido"
+	],
+	"route": [
+		{
+			"date": "2021-03-13",
+			"title": "上野–大宮提速至 130 km/h",
+			"kind": "route",
+			"tags": [
+				"complete"
+			],
+			"files": {
+				"json": "releases/route-2021-03-13.json"
+			},
+			"latest": true
+		}
+	],
+	"all": [
+		{
+			"date": "2026-03-14",
+			"title": "2026年3月改點 (2026/11/09 ~ 11/15 一週的時刻，已還原通過時間)",
+			"kind": "all",
+			"tags": [
+				"arrival",
+				"solved"
+			],
+			"files": {
+				"json": "releases/all-2026-03-14-solved.json"
+			},
+			"latest": true
+		},
+		{
+			"date": "2026-03-14",
+			"title": "2026年3月改點 (2026/11/09 ~ 11/15 一週的時刻)",
+			"kind": "all",
+			"tags": [
+				"arrival"
+			],
+			"files": {
+				"json": "releases/all-2026-03-14.json"
+			}
+		}
+	]
 }

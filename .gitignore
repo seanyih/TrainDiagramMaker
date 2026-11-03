@@ -6,5 +6,5 @@ viewbot.py
 /js/
 *.jpg
 design_doc/
-/workspace/
+/database/workspace/
 __pycache__/

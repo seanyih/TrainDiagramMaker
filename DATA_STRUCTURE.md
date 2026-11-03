@@ -212,7 +212,7 @@ ROUTE = {
   - bound b 追越的同時交會：`lines >= 3 && bits & b`
   - 雙向同時追越並交會：`lines == 4`
 - 預設 `DEFAULT_TRACK = "quadruple"` (不設限)，在 `DataStore.js`；`newTrackLayout(count)` 產生全線預設、未填最高速度的配置。
-- 快速套用 (`applyTrackPreset(name)`，`[車站, 站間]`)：`single` = `[double.3, single]`、`double` = `[double.3, double.0]`、`doubleSingle` = `[double.3, double.3]`、`unlimited` = `[quadruple, quadruple]`。只改類型，不改最高速度。
+- 快速套用 (`applyTrackPreset(name)`，`[車站, 站間]`)：`single` = `[double.3, single]`、`double` = `[double.0, double.0]`、`doubleSingle` = `[double.3, double.3]`、`unlimited` = `[quadruple, quadruple]`。只改類型，不改最高速度。
 - 車站增刪：`insertStation()` 新車站沿用上一站的類型、被切開的站間 (加在最後時為最後一個站間) 兩段都沿用原本的類型與最高速度；`deleteStation()` 刪除該站，前後兩個站間合併為上面那一個。
 - 最高速度：`minRunSec(i)` = 站距 ÷ `max_speeds[i]`，四捨五入到秒 (缺少速度或里程、里程不遞增時為 `null`)。表格中以 `2m32s` 格式顯示在輸入框旁，改速度或里程時立即更新。
   - 輸入 0、負數、非數字 → 紅底、不寫入；小於 10 → 寫入，但顯示黃色 toast `#LowSpeedWarning`；空白 → `null`。

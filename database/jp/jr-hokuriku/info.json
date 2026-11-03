@@ -1,11 +1,63 @@
 {
-	"name": { "zh": "北陸新幹線", "en": "Hokuriku Shinkansen", "ja": "北陸新幹線" },
-	"section": { "zh": "東京 – 敦賀", "en": "Tokyo – Tsuruga", "ja": "東京 – 敦賀" },
-	"companies": ["jr-east", "jr-west"],
-	"types": ["hsr"],
-	"regions": ["kanto", "chubu"],
-	"route": [
-		{ "date": "2026-03-14", "title": "初版", "kind": "route", "tags": ["mileage", "topology"], "files": { "json": "releases/route-2026-03-14.json" }, "latest": true }
+	"name": {
+		"zh": "北陸新幹線",
+		"en": "Hokuriku Shinkansen",
+		"ja": "北陸新幹線"
+	},
+	"section": {
+		"zh": "東京 – 敦賀",
+		"en": "Tokyo – Tsuruga",
+		"ja": "東京 – 敦賀"
+	},
+	"companies": [
+		"jr-east",
+		"jr-west"
 	],
-	"all": []
+	"types": [
+		"hsr"
+	],
+	"regions": [
+		"kanto",
+		"chubu"
+	],
+	"route": [
+		{
+			"date": "2024-03-16",
+			"title": "金沢–敦賀延伸",
+			"kind": "route",
+			"tags": [
+				"complete"
+			],
+			"files": {
+				"json": "releases/route-2024-03-16.json"
+			},
+			"latest": true
+		}
+	],
+	"all": [
+		{
+			"date": "2026-03-14",
+			"title": "2026年3月改點 (2026/11/09 ~ 11/15 一週的時刻，已還原通過時間)",
+			"kind": "all",
+			"tags": [
+				"arrival",
+				"solved"
+			],
+			"files": {
+				"json": "releases/all-2026-03-14-solved.json"
+			},
+			"latest": true
+		},
+		{
+			"date": "2026-03-14",
+			"title": "2026年3月改點 (2026/11/09 ~ 11/15 一週的時刻)",
+			"kind": "all",
+			"tags": [
+				"arrival"
+			],
+			"files": {
+				"json": "releases/all-2026-03-14.json"
+			}
+		}
+	]
 }
