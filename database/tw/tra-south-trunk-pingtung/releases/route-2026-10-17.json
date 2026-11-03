@@ -1,0 +1,847 @@
+{
+    "route_name": "臺鐵 縱貫線南段+屏東線 (彰化-枋寮)",
+    "stations": [
+        {
+            "name": "彰化",
+            "kilo": 0,
+            "stopsec": 60,
+            "alias": ""
+        },
+        {
+            "name": "花壇",
+            "kilo": 6.6,
+            "stopsec": 60,
+            "alias": ""
+        },
+        {
+            "name": "大村",
+            "kilo": 11.2,
+            "stopsec": 60,
+            "alias": ""
+        },
+        {
+            "name": "員林",
+            "kilo": 14.7,
+            "stopsec": 60,
+            "alias": ""
+        },
+        {
+            "name": "永靖",
+            "kilo": 18.2,
+            "stopsec": 60,
+            "alias": ""
+        },
+        {
+            "name": "社頭",
+            "kilo": 21.9,
+            "stopsec": 60,
+            "alias": ""
+        },
+        {
+            "name": "田中",
+            "kilo": 26.2,
+            "stopsec": 60,
+            "alias": ""
+        },
+        {
+            "name": "二水",
+            "kilo": 32,
+            "stopsec": 60,
+            "alias": ""
+        },
+        {
+            "name": "林內",
+            "kilo": 40.1,
+            "stopsec": 60,
+            "alias": ""
+        },
+        {
+            "name": "石榴",
+            "kilo": 44.9,
+            "stopsec": 60,
+            "alias": ""
+        },
+        {
+            "name": "斗六",
+            "kilo": 49.7,
+            "stopsec": 60,
+            "alias": ""
+        },
+        {
+            "name": "斗南",
+            "kilo": 57.3,
+            "stopsec": 60,
+            "alias": ""
+        },
+        {
+            "name": "石龜",
+            "kilo": 61.2,
+            "stopsec": 60,
+            "alias": ""
+        },
+        {
+            "name": "大林",
+            "kilo": 65.8,
+            "stopsec": 60,
+            "alias": ""
+        },
+        {
+            "name": "民雄",
+            "kilo": 71.6,
+            "stopsec": 60,
+            "alias": ""
+        },
+        {
+            "name": "嘉北",
+            "kilo": 78.3,
+            "stopsec": 60,
+            "alias": ""
+        },
+        {
+            "name": "嘉義",
+            "kilo": 80.9,
+            "stopsec": 60,
+            "alias": ""
+        },
+        {
+            "name": "水上",
+            "kilo": 87.5,
+            "stopsec": 60,
+            "alias": ""
+        },
+        {
+            "name": "南靖",
+            "kilo": 90.1,
+            "stopsec": 60,
+            "alias": ""
+        },
+        {
+            "name": "後壁",
+            "kilo": 96.1,
+            "stopsec": 60,
+            "alias": ""
+        },
+        {
+            "name": "新營",
+            "kilo": 103.8,
+            "stopsec": 60,
+            "alias": ""
+        },
+        {
+            "name": "柳營",
+            "kilo": 107.1,
+            "stopsec": 60,
+            "alias": ""
+        },
+        {
+            "name": "林鳳營",
+            "kilo": 111,
+            "stopsec": 60,
+            "alias": ""
+        },
+        {
+            "name": "隆田",
+            "kilo": 116.5,
+            "stopsec": 60,
+            "alias": ""
+        },
+        {
+            "name": "拔林",
+            "kilo": 118.7,
+            "stopsec": 60,
+            "alias": ""
+        },
+        {
+            "name": "善化",
+            "kilo": 123.3,
+            "stopsec": 60,
+            "alias": ""
+        },
+        {
+            "name": "南科",
+            "kilo": 126.2,
+            "stopsec": 60,
+            "alias": ""
+        },
+        {
+            "name": "新市",
+            "kilo": 130.9,
+            "stopsec": 60,
+            "alias": ""
+        },
+        {
+            "name": "永康",
+            "kilo": 135.9,
+            "stopsec": 60,
+            "alias": ""
+        },
+        {
+            "name": "大橋",
+            "kilo": 139.6,
+            "stopsec": 60,
+            "alias": ""
+        },
+        {
+            "name": "臺南",
+            "kilo": 142.3,
+            "stopsec": 60,
+            "alias": ""
+        },
+        {
+            "name": "林森",
+            "kilo": 144.7,
+            "stopsec": 60,
+            "alias": ""
+        },
+        {
+            "name": "南台南",
+            "kilo": 146,
+            "stopsec": 60,
+            "alias": ""
+        },
+        {
+            "name": "保安",
+            "kilo": 149.9,
+            "stopsec": 60,
+            "alias": ""
+        },
+        {
+            "name": "仁德",
+            "kilo": 151.3,
+            "stopsec": 60,
+            "alias": ""
+        },
+        {
+            "name": "中洲",
+            "kilo": 153.8,
+            "stopsec": 60,
+            "alias": ""
+        },
+        {
+            "name": "大湖",
+            "kilo": 156.7,
+            "stopsec": 60,
+            "alias": ""
+        },
+        {
+            "name": "路竹",
+            "kilo": 159.7,
+            "stopsec": 60,
+            "alias": ""
+        },
+        {
+            "name": "岡山",
+            "kilo": 167.5,
+            "stopsec": 60,
+            "alias": ""
+        },
+        {
+            "name": "橋頭",
+            "kilo": 171.1,
+            "stopsec": 60,
+            "alias": ""
+        },
+        {
+            "name": "楠梓",
+            "kilo": 175.3,
+            "stopsec": 60,
+            "alias": ""
+        },
+        {
+            "name": "新左營",
+            "kilo": 180.4,
+            "stopsec": 60,
+            "alias": ""
+        },
+        {
+            "name": "左營",
+            "kilo": 182.4,
+            "stopsec": 60,
+            "alias": ""
+        },
+        {
+            "name": "內惟",
+            "kilo": 183.5,
+            "stopsec": 60,
+            "alias": ""
+        },
+        {
+            "name": "美術館",
+            "kilo": 185.2,
+            "stopsec": 60,
+            "alias": ""
+        },
+        {
+            "name": "鼓山",
+            "kilo": 186.4,
+            "stopsec": 60,
+            "alias": ""
+        },
+        {
+            "name": "三塊厝",
+            "kilo": 188.1,
+            "stopsec": 60,
+            "alias": ""
+        },
+        {
+            "name": "高雄",
+            "kilo": 189,
+            "stopsec": 60,
+            "alias": ""
+        },
+        {
+            "name": "民族",
+            "kilo": 190.3,
+            "stopsec": 60,
+            "alias": ""
+        },
+        {
+            "name": "科工館",
+            "kilo": 191.4,
+            "stopsec": 60,
+            "alias": ""
+        },
+        {
+            "name": "正義",
+            "kilo": 193.2,
+            "stopsec": 60,
+            "alias": ""
+        },
+        {
+            "name": "鳳山",
+            "kilo": 194.5,
+            "stopsec": 60,
+            "alias": ""
+        },
+        {
+            "name": "後庄",
+            "kilo": 198.4,
+            "stopsec": 60,
+            "alias": ""
+        },
+        {
+            "name": "九曲堂",
+            "kilo": 202.6,
+            "stopsec": 60,
+            "alias": ""
+        },
+        {
+            "name": "六塊厝",
+            "kilo": 207.6,
+            "stopsec": 60,
+            "alias": ""
+        },
+        {
+            "name": "屏東",
+            "kilo": 209.9,
+            "stopsec": 60,
+            "alias": ""
+        },
+        {
+            "name": "歸來",
+            "kilo": 212.5,
+            "stopsec": 60,
+            "alias": ""
+        },
+        {
+            "name": "麟洛",
+            "kilo": 214.8,
+            "stopsec": 60,
+            "alias": ""
+        },
+        {
+            "name": "西勢",
+            "kilo": 217.2,
+            "stopsec": 60,
+            "alias": ""
+        },
+        {
+            "name": "竹田",
+            "kilo": 220.9,
+            "stopsec": 60,
+            "alias": ""
+        },
+        {
+            "name": "潮州",
+            "kilo": 224.9,
+            "stopsec": 60,
+            "alias": ""
+        },
+        {
+            "name": "崁頂",
+            "kilo": 229.8,
+            "stopsec": 60,
+            "alias": ""
+        },
+        {
+            "name": "南州",
+            "kilo": 232.2,
+            "stopsec": 60,
+            "alias": ""
+        },
+        {
+            "name": "鎮安",
+            "kilo": 236,
+            "stopsec": 60,
+            "alias": ""
+        },
+        {
+            "name": "林邊",
+            "kilo": 239.1,
+            "stopsec": 60,
+            "alias": ""
+        },
+        {
+            "name": "佳冬",
+            "kilo": 243,
+            "stopsec": 60,
+            "alias": ""
+        },
+        {
+            "name": "東海",
+            "kilo": 246.1,
+            "stopsec": 60,
+            "alias": ""
+        },
+        {
+            "name": "枋寮",
+            "kilo": 250.2,
+            "stopsec": 60,
+            "alias": ""
+        }
+    ],
+    "track_layout": {
+        "stations": [
+            "quadruple",
+            "triple.3",
+            "double.0",
+            "quadruple",
+            "double.0",
+            "quadruple",
+            "triple.3",
+            "quadruple",
+            "quadruple",
+            "double.0",
+            "quadruple",
+            "quadruple",
+            "double.0",
+            "quadruple",
+            "quadruple",
+            "double.0",
+            "quadruple",
+            "double.0",
+            "quadruple",
+            "triple.3",
+            "quadruple",
+            "double.0",
+            "triple.3",
+            "quadruple",
+            "double.0",
+            "quadruple",
+            "double.0",
+            "quadruple",
+            "triple.3",
+            "double.0",
+            "quadruple",
+            "double.0",
+            "triple.3",
+            "quadruple",
+            "double.0",
+            "quadruple",
+            "quadruple",
+            "quadruple",
+            "quadruple",
+            "triple.3",
+            "quadruple",
+            "quadruple",
+            "double.0",
+            "double.0",
+            "quadruple",
+            "double.0",
+            "double.0",
+            "quadruple",
+            "double.0",
+            "double.0",
+            "double.0",
+            "quadruple",
+            "double.0",
+            "quadruple",
+            "double.0",
+            "quadruple",
+            "double.0",
+            "double.0",
+            "quadruple",
+            "double.0",
+            "quadruple",
+            "single",
+            "quadruple",
+            "double.0",
+            "triple.3",
+            "triple.3",
+            "single",
+            "quadruple"
+        ],
+        "sections": [
+            "double.0",
+            "double.0",
+            "double.0",
+            "double.0",
+            "double.0",
+            "double.0",
+            "double.0",
+            "double.0",
+            "double.0",
+            "double.0",
+            "double.0",
+            "double.0",
+            "double.0",
+            "double.0",
+            "double.0",
+            "double.0",
+            "double.0",
+            "double.0",
+            "double.0",
+            "double.0",
+            "double.0",
+            "double.0",
+            "double.0",
+            "double.0",
+            "double.0",
+            "double.0",
+            "double.0",
+            "double.0",
+            "double.0",
+            "double.0",
+            "double.0",
+            "double.0",
+            "double.0",
+            "double.0",
+            "double.0",
+            "double.0",
+            "double.0",
+            "double.0",
+            "double.0",
+            "double.0",
+            "double.0",
+            "double.0",
+            "double.0",
+            "double.0",
+            "double.0",
+            "double.0",
+            "double.0",
+            "double.0",
+            "double.0",
+            "double.0",
+            "double.0",
+            "double.0",
+            "double.0",
+            "double.0",
+            "double.0",
+            "double.0",
+            "double.0",
+            "double.0",
+            "double.0",
+            "double.0",
+            "single",
+            "single",
+            "double.0",
+            "double.0",
+            "single",
+            "single",
+            "single"
+        ],
+        "max_speed_enabled": true,
+        "max_speed_all": null,
+        "max_speeds": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    "topology": {
+        "secondary": [
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            true,
+            true,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+        ],
+        "branches": [
+            [
+                {
+                    "stations": [
+                        {
+                            "name": "成功",
+                            "kilo": 7.1
+                        },
+                        {
+                            "name": "新烏日",
+                            "kilo": 9.5
+                        },
+                        {
+                            "name": "臺中",
+                            "kilo": 17.8
+                        }
+                    ]
+                },
+                {
+                    "stations": [
+                        {
+                            "name": "追分",
+                            "kilo": 7.2
+                        },
+                        {
+                            "name": "大肚",
+                            "kilo": 12.2
+                        },
+                        {
+                            "name": "沙鹿",
+                            "kilo": 21.8
+                        }
+                    ]
+                }
+            ],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [
+                {
+                    "stations": [
+                        {
+                            "name": "源泉",
+                            "kilo": 3
+                        }
+                    ]
+                }
+            ],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [
+                {
+                    "stations": [
+                        {
+                            "name": "長榮大學",
+                            "kilo": 2.6
+                        },
+                        {
+                            "name": "沙崙",
+                            "kilo": 5.7
+                        }
+                    ]
+                }
+            ],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [
+                {
+                    "stations": [
+                        {
+                            "name": "加祿",
+                            "kilo": 5.3
+                        },
+                        {
+                            "name": "大武",
+                            "kilo": 43.8
+                        },
+                        {
+                            "name": "金崙",
+                            "kilo": 63.9
+                        },
+                        {
+                            "name": "知本",
+                            "kilo": 86.5
+                        },
+                        {
+                            "name": "臺東",
+                            "kilo": 98.1
+                        }
+                    ]
+                }
+            ]
+        ]
+    }
+}
