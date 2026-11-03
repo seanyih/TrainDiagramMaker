@@ -25,7 +25,9 @@ def line_dirs(country_id):
 
 
 def latest(releases):
-	"""The release marked latest, else the newest; None if there is none. Same as dbSortReleases() on the site."""
-	if not releases:
-		return None
-	return next((r for r in releases if r.get("latest")), None) or max(releases, key=lambda r: r["date"])
+	"""The releases marked latest, else those of the newest date; empty if there is none. Same as dbSortReleases() on the site."""
+	marked = [r for r in releases if r.get("latest")]
+	if marked or not releases:
+		return marked
+	newest = max(r["date"] for r in releases)
+	return [r for r in releases if r["date"] == newest]

@@ -29,9 +29,9 @@ def main():
 				continue
 			info = read_json(line_dir / "info.json")
 			for section in sections:
-				release = latest(info.get(section, []))
-				if release is None or release["date"] < args.date:
-					print(f"{country['id']}/{line_dir.name:<32} {section:<5} {release['date'] if release else 'none'}  {info['name']['zh']}")
+				date = max((r["date"] for r in latest(info.get(section, []))), default=None)
+				if date is None or date < args.date:
+					print(f"{country['id']}/{line_dir.name:<32} {section:<5} {date or 'none'}  {info['name']['zh']}")
 					found += 1
 	print(f"{found} older than {args.date}" if found else f"every latest release is on or after {args.date}")
 

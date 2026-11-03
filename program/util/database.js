@@ -20,11 +20,12 @@ function dbName(names){
 	return names[currentLang.dir] ?? names.zh ?? Object.values(names)[0];
 }
 
-// the one marked latest (else the newest) first, then the newest to oldest
+// the ones marked latest (else the newest date) and the others, each newest to oldest
 function dbSortReleases(releases){
 	const sorted = [...releases].sort((a, b) => b.date.localeCompare(a.date));
-	const latest = sorted.find(r => r.latest) ?? sorted[0];
-	return sorted.length ? [latest, ...sorted.filter(r => r != latest)] : [];
+	const marked = sorted.filter(r => r.latest);
+	const latest = marked.length ? marked : sorted.filter(r => r.date == sorted[0].date);
+	return { latest, older: sorted.filter(r => !latest.includes(r)) };
 }
 
 function dbDownload(path, fileName){

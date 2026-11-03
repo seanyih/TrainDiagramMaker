@@ -277,8 +277,52 @@ body{
 	font-weight: 700;
 	font-variant-numeric: tabular-nums;
 }
+.db-latest{
+	padding: 1px 8px;
+	border-radius: 999px;
+	background: #DCEBFB;
+	color: #1D5FB0;
+	font-size: 12px;
+	font-weight: 600;
+	line-height: 1.5;
+}
 .db-release-title{
+	flex: 1 1 12em;
+	min-width: 0;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
 	color: var(--gray);
+}
+.db-open .db-release-title{
+	white-space: normal;
+}
+.db-more{
+	padding: 0 8px;
+	border: 0;
+	border-radius: 4px;
+	background: var(--line);
+	color: var(--gray);
+	font-size: 13px;
+	line-height: 1.5;
+	cursor: pointer;
+}
+.db-more[hidden]{
+	display: none;
+}
+.db-more:hover, .db-open .db-more{
+	background: var(--gray);
+	color: #FFF;
+}
+.db-release-description{
+	display: none;
+	flex-basis: 100%;
+	color: var(--gray);
+	font-size: 14px;
+	white-space: pre-line;
+}
+.db-open .db-release-description:not(:empty){
+	display: block;
 }
 .db-tags{
 	display: flex;

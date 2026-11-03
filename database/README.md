@@ -48,7 +48,7 @@ tools/                           helper (見下)
 		{ "date": "2026-10-03", "title": "新增平鎮車站", "kind": "route", "tags": ["complete"], "files": { "json": "releases/route-2026-10-03.json" }, "latest": true }
 	],
 	"all": [
-		{ "date": "2026-07-01", "title": "2026年7月改點", "kind": "all", "tags": ["arrival", "solved"], "files": { "json": "releases/all-2026-07-01.json", "svg": "releases/all-2026-07-01.svg.zip", "pdf": "releases/all-2026-07-01.pdf.zip" } }
+		{ "date": "2026-07-01", "title": "2026年7月改點", "kind": "all", "tags": ["solved"], "latest": true, "description": "（選填）展開後顯示的說明", "files": { "json": "releases/all-2026-07-01.json", "svg": "releases/all-2026-07-01.svg.zip", "pdf": "releases/all-2026-07-01.pdf.zip" } }
 	]
 }
 ```
@@ -61,9 +61,10 @@ tools/                           helper (見下)
 | `regions` | `catalog.json` 中該國的地區 id，可多個 |
 | `route[]` | 路線資料的版本：`kind` = `route`，`files.json` = 路線 JSON |
 | `all[]` | 全部資料的版本：`kind` = `all` (全部資料 JSON) 或 `timetable` (只有列車)；`files` 可有 `json`、`svg` (SVG 的 zip)、`pdf` (印刷模式輸出的 zip) |
-| `date` / `title` | 版本的日期 (生效日，`yyyy-mm-dd`) 與說明 |
-| `tags` | `route`：`mileage` 里程、`track` 軌道配置、`topology` 線路拓樸、`complete` 完整 (三者皆有，只寫這個)；`all`：`arrival` 到站時刻、`solved` 計算完成 |
-| `latest` | 手動指定顯示在最上方的版本 (每段最多一個)；都沒有時用日期最新的。「開始製作」用路線資料的這個版本 |
+| `date` / `title` | 版本的日期 (生效日，`yyyy-mm-dd`) 與標題。標題一行放不下時，超出的部分收進說明，點 `···` 展開 |
+| `description` | 選填，較長的說明 (純文字，換行保留)。有的話標題旁顯示 `···`，點了展開，同 GitHub 的 commit 列表 |
+| `tags` | `route`：`mileage` 里程、`track` 軌道配置、`topology` 線路拓樸、`complete` 完整 (三者皆有，只寫這個)；`all`：`arrival` 到站時刻、`solved` 計算完成 (已含到站時刻，只寫 `solved`) |
+| `latest` | 手動指定顯示在最上方、帶「latest」標記的版本 (每段可有多個，例如同日的一般版與還原通過時間版)；都沒有時用日期最新的 (同日全部)。「開始製作」用路線資料的第一個 |
 
 `files` 的路徑相對於路線資料夾。
 

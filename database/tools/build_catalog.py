@@ -36,14 +36,16 @@ def check_info(info, country):
 	problems += [f"unknown type {t} (one of {TYPES})" for t in info.get("types", []) if t not in TYPES]
 	for section, rule in SECTIONS.items():
 		releases = info.get(section, [])
-		if sum(1 for r in releases if r.get("latest")) > 1:
-			problems.append(f"{section}: more than one latest")
 		for r in releases:
 			where = f"{section} {r.get('date', '?')}"
 			if not DATE.match(str(r.get("date", ""))):
 				problems.append(f"{where}: date must be yyyy-mm-dd")
 			if not isinstance(r.get("title"), str):
 				problems.append(f"{where}: no title")
+			if "description" in r and not isinstance(r["description"], str):
+				problems.append(f"{where}: description must be a string")
+			if "solved" in r.get("tags", []) and "arrival" in r["tags"]:
+				problems.append(f"{where}: solved implies arrival, remove arrival")
 			if r.get("kind") not in rule["kinds"]:
 				problems.append(f"{where}: kind must be one of {rule['kinds']}")
 			problems += [f"{where}: unknown tag {t} (one of {rule['tags']})" for t in r.get("tags", []) if t not in rule["tags"]]

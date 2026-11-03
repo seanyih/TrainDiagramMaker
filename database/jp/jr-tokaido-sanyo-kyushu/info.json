@@ -27,7 +27,7 @@
 	"route": [
 		{
 			"date": "2026-09-18",
-			"title": "九州新幹線熊本地震後復駛 (降速區間未反映在最高速度)",
+			"title": "初版",
 			"kind": "route",
 			"tags": [
 				"complete"
@@ -41,10 +41,9 @@
 	"all": [
 		{
 			"date": "2026-09-18",
-			"title": "九州新幹線震後時刻 (2026/11/09 ~ 11/15 一週的時刻，已還原通過時間)",
+			"title": "九州新幹線震後時刻",
 			"kind": "all",
 			"tags": [
-				"arrival",
 				"solved"
 			],
 			"files": {
@@ -54,14 +53,15 @@
 		},
 		{
 			"date": "2026-09-18",
-			"title": "九州新幹線震後時刻 (2026/11/09 ~ 11/15 一週的時刻)",
+			"title": "九州新幹線震後時刻",
 			"kind": "all",
 			"tags": [
 				"arrival"
 			],
 			"files": {
 				"json": "releases/all-2026-09-18.json"
-			}
+			},
+			"latest": true
 		}
 	]
 }
