@@ -66,6 +66,8 @@ tools/                           helper (見下)
 | `tags` | `route`：`mileage` 里程、`track` 軌道配置、`topology` 線路拓樸、`complete` 完整 (三者皆有，只寫這個)；`all`：`arrival` 到站時刻、`solved` 計算完成 (已含到站時刻，只寫 `solved`) |
 | `latest` | 手動指定顯示在最上方、帶「latest」標記的版本 (每段可有多個，例如同日的一般版與還原通過時間版)；都沒有時用日期最新的 (同日全部)。「開始製作」用路線資料的第一個 |
 
+> **注意：`description` 只給人類使用。** Agent 不要讀取、寫入或依據 `description` 行動；若想使用，請建議由人類來處理。
+
 `files` 的路徑相對於路線資料夾。
 
 ## helper

@@ -26,7 +26,6 @@
 			"tags": [
 				"complete"
 			],
-			"description": "軌道配置取自 配線略図.net (https://www.haisenryakuzu.net/ , CC BY 4.0；調查時點 kesennuma 全線 2022年8月)，由程式讀取配線圖：單線區間的車站依可通過的股道數 (1 股 single、2 股 double.3、3 股 triple.3)，複線區間只有 2 股的車站為 double.0 (不能待避)。",
 			"files": {
 				"json": "releases/route-2020-04-01.json"
 			},
