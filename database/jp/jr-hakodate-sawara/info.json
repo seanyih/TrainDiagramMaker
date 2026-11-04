@@ -1,0 +1,49 @@
+{
+	"name": {
+		"zh": "函館本線 砂原支線",
+		"en": "Hakodate Main Line (Sawara Branch)",
+		"ja": "函館本線 砂原支線"
+	},
+	"section": {
+		"zh": "大沼 – 森",
+		"en": "Ōnuma – Mori",
+		"ja": "大沼 – 森"
+	},
+	"companies": [
+		"jr-hokkaido"
+	],
+	"types": [
+		"railway"
+	],
+	"regions": [
+		"hokkaido"
+	],
+	"route": [
+		{
+			"date": "2022-03-12",
+			"title": "池田園、流山溫泉站廢止，銚子口站改為信號場",
+			"kind": "route",
+			"tags": [
+				"complete"
+			],
+			"files": {
+				"json": "releases/route-2022-03-12.json"
+			},
+			"latest": true
+		}
+	],
+	"all": [
+		{
+			"date": "2026-03-14",
+			"title": "2026年3月改點",
+			"kind": "all",
+			"tags": [
+				"arrival"
+			],
+			"files": {
+				"json": "releases/all-2026-03-14.json"
+			},
+			"latest": true
+		}
+	]
+}

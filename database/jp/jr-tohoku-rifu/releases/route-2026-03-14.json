@@ -1,0 +1,52 @@
+{
+ "route_name": "JR東北本線 利府支線 (岩切-利府)",
+ "stations": [
+  {
+   "name": "岩切",
+   "kilo": 0.0,
+   "alias": ""
+  },
+  {
+   "name": "新利府",
+   "kilo": 2.5,
+   "alias": ""
+  },
+  {
+   "name": "利府",
+   "kilo": 4.2,
+   "alias": ""
+  }
+ ],
+ "topology": {
+  "secondary": [
+   false,
+   false,
+   false
+  ],
+  "branches": [
+   [
+    {
+     "stations": [
+      {
+       "name": "東仙台",
+       "kilo": 4.1
+      }
+     ]
+    }
+   ],
+   [],
+   []
+  ]
+ },
+ "track_layout": {
+  "stations": [
+   "quadruple",
+   "single",
+   "double.3"
+  ],
+  "sections": [
+   "double.0",
+   "single"
+  ]
+ }
+}

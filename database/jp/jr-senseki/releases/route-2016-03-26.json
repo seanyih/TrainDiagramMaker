@@ -1,0 +1,331 @@
+{
+ "route_name": "JR仙石線 (あおば通-石巻)",
+ "stations": [
+  {
+   "name": "あおば通",
+   "kilo": 0.0,
+   "alias": ""
+  },
+  {
+   "name": "仙台",
+   "kilo": 0.5,
+   "alias": ""
+  },
+  {
+   "name": "榴ケ岡",
+   "kilo": 1.3,
+   "alias": ""
+  },
+  {
+   "name": "宮城野原",
+   "kilo": 2.4,
+   "alias": ""
+  },
+  {
+   "name": "陸前原ノ町",
+   "kilo": 3.2,
+   "alias": ""
+  },
+  {
+   "name": "苦竹",
+   "kilo": 4.0,
+   "alias": ""
+  },
+  {
+   "name": "小鶴新田",
+   "kilo": 5.6,
+   "alias": ""
+  },
+  {
+   "name": "宮城野信号場",
+   "kilo": 6.8,
+   "alias": ""
+  },
+  {
+   "name": "福田町",
+   "kilo": 7.7,
+   "alias": ""
+  },
+  {
+   "name": "陸前高砂",
+   "kilo": 8.6,
+   "alias": ""
+  },
+  {
+   "name": "中野栄",
+   "kilo": 10.3,
+   "alias": ""
+  },
+  {
+   "name": "多賀城",
+   "kilo": 12.6,
+   "alias": ""
+  },
+  {
+   "name": "下馬",
+   "kilo": 14.4,
+   "alias": ""
+  },
+  {
+   "name": "西塩釜",
+   "kilo": 15.2,
+   "alias": ""
+  },
+  {
+   "name": "本塩釜",
+   "kilo": 16.0,
+   "alias": ""
+  },
+  {
+   "name": "東塩釜",
+   "kilo": 17.2,
+   "alias": ""
+  },
+  {
+   "name": "陸前浜田",
+   "kilo": 20.3,
+   "alias": ""
+  },
+  {
+   "name": "松島海岸",
+   "kilo": 23.2,
+   "alias": ""
+  },
+  {
+   "name": "高城町",
+   "kilo": 25.5,
+   "alias": ""
+  },
+  {
+   "name": "手樽",
+   "kilo": 27.3,
+   "alias": ""
+  },
+  {
+   "name": "陸前富山",
+   "kilo": 28.6,
+   "alias": ""
+  },
+  {
+   "name": "陸前大塚",
+   "kilo": 30.8,
+   "alias": ""
+  },
+  {
+   "name": "東名",
+   "kilo": 32.2,
+   "alias": ""
+  },
+  {
+   "name": "野蒜",
+   "kilo": 33.4,
+   "alias": ""
+  },
+  {
+   "name": "陸前小野",
+   "kilo": 36.0,
+   "alias": ""
+  },
+  {
+   "name": "鹿妻",
+   "kilo": 37.6,
+   "alias": ""
+  },
+  {
+   "name": "矢本",
+   "kilo": 40.2,
+   "alias": ""
+  },
+  {
+   "name": "東矢本",
+   "kilo": 41.6,
+   "alias": ""
+  },
+  {
+   "name": "陸前赤井",
+   "kilo": 43.1,
+   "alias": ""
+  },
+  {
+   "name": "石巻あゆみ野",
+   "kilo": 45.2,
+   "alias": ""
+  },
+  {
+   "name": "蛇田",
+   "kilo": 46.6,
+   "alias": ""
+  },
+  {
+   "name": "陸前山下",
+   "kilo": 47.6,
+   "alias": ""
+  },
+  {
+   "name": "石巻",
+   "kilo": 49.0,
+   "alias": ""
+  }
+ ],
+ "topology": {
+  "secondary": [
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   true,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false
+  ],
+  "branches": [
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [
+    {
+     "stations": [
+      {
+       "name": "塩釜",
+       "kilo": 10.3
+      }
+     ]
+    }
+   ],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [
+    {
+     "stations": [
+      {
+       "name": "陸前稲井",
+       "kilo": 3.0
+      }
+     ]
+    }
+   ]
+  ]
+ },
+ "track_layout": {
+  "stations": [
+   "double.0",
+   "double.0",
+   "double.0",
+   "double.0",
+   "double.0",
+   "double.0",
+   "double.0",
+   "triple.1",
+   "double.0",
+   "double.0",
+   "double.0",
+   "triple.1",
+   "double.0",
+   "double.0",
+   "double.0",
+   "triple.3",
+   "single",
+   "double.3",
+   "double.3",
+   "single",
+   "single",
+   "double.3",
+   "single",
+   "double.3",
+   "double.3",
+   "single",
+   "double.3",
+   "single",
+   "double.3",
+   "single",
+   "single",
+   "double.3",
+   "quadruple"
+  ],
+  "sections": [
+   "double.0",
+   "double.0",
+   "double.0",
+   "double.0",
+   "double.0",
+   "double.0",
+   "double.0",
+   "double.0",
+   "double.0",
+   "double.0",
+   "double.0",
+   "double.0",
+   "double.0",
+   "double.0",
+   "double.0",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single"
+  ]
+ }
+}

@@ -1,0 +1,119 @@
+{
+ "route_name": "JR函館本線 砂原支線 (大沼-森)",
+ "stations": [
+  {
+   "name": "大沼",
+   "kilo": 0.0,
+   "alias": ""
+  },
+  {
+   "name": "銚子口信号場",
+   "kilo": 6.8,
+   "alias": ""
+  },
+  {
+   "name": "鹿部",
+   "kilo": 14.6,
+   "alias": ""
+  },
+  {
+   "name": "渡島沼尻",
+   "kilo": 20.0,
+   "alias": ""
+  },
+  {
+   "name": "渡島砂原",
+   "kilo": 25.3,
+   "alias": ""
+  },
+  {
+   "name": "掛澗",
+   "kilo": 29.0,
+   "alias": ""
+  },
+  {
+   "name": "尾白内",
+   "kilo": 31.9,
+   "alias": ""
+  },
+  {
+   "name": "東森",
+   "kilo": 33.5,
+   "alias": ""
+  },
+  {
+   "name": "森",
+   "kilo": 35.3,
+   "alias": ""
+  }
+ ],
+ "topology": {
+  "secondary": [
+   false,
+   true,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false
+  ],
+  "branches": [
+   [
+    {
+     "stations": [
+      {
+       "name": "新函館北斗",
+       "kilo": 9.1
+      },
+      {
+       "name": "七飯",
+       "kilo": 13.2
+      }
+     ]
+    }
+   ],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [
+    {
+     "stations": [
+      {
+       "name": "石倉",
+       "kilo": 12.6
+      }
+     ]
+    }
+   ]
+  ]
+ },
+ "track_layout": {
+  "stations": [
+   "quadruple",
+   "double.3",
+   "double.3",
+   "double.3",
+   "double.3",
+   "double.3",
+   "single",
+   "single",
+   "triple.3"
+  ],
+  "sections": [
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single"
+  ]
+ }
+}

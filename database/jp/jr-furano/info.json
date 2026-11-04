@@ -1,0 +1,49 @@
+{
+	"name": {
+		"zh": "富良野線",
+		"en": "Furano Line",
+		"ja": "富良野線"
+	},
+	"section": {
+		"zh": "旭川 – 富良野",
+		"en": "Asahikawa – Furano",
+		"ja": "旭川 – 富良野"
+	},
+	"companies": [
+		"jr-hokkaido"
+	],
+	"types": [
+		"railway"
+	],
+	"regions": [
+		"hokkaido"
+	],
+	"route": [
+		{
+			"date": "1999-06-11",
+			"title": "薰衣草花田臨時站設立",
+			"kind": "route",
+			"tags": [
+				"complete"
+			],
+			"files": {
+				"json": "releases/route-1999-06-11.json"
+			},
+			"latest": true
+		}
+	],
+	"all": [
+		{
+			"date": "2026-03-14",
+			"title": "2026年3月改點",
+			"kind": "all",
+			"tags": [
+				"arrival"
+			],
+			"files": {
+				"json": "releases/all-2026-03-14.json"
+			},
+			"latest": true
+		}
+	]
+}

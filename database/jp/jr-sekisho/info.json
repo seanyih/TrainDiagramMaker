@@ -1,0 +1,49 @@
+{
+	"name": {
+		"zh": "石勝線",
+		"en": "Sekishō Line",
+		"ja": "石勝線"
+	},
+	"section": {
+		"zh": "南千歲 – 新得",
+		"en": "Minami-Chitose – Shintoku",
+		"ja": "南千歳 – 新得"
+	},
+	"companies": [
+		"jr-hokkaido"
+	],
+	"types": [
+		"railway"
+	],
+	"regions": [
+		"hokkaido"
+	],
+	"route": [
+		{
+			"date": "2024-03-16",
+			"title": "瀧之上站改為信號場",
+			"kind": "route",
+			"tags": [
+				"complete"
+			],
+			"files": {
+				"json": "releases/route-2024-03-16.json"
+			},
+			"latest": true
+		}
+	],
+	"all": [
+		{
+			"date": "2026-03-14",
+			"title": "2026年3月改點",
+			"kind": "all",
+			"tags": [
+				"arrival"
+			],
+			"files": {
+				"json": "releases/all-2026-03-14.json"
+			},
+			"latest": true
+		}
+	]
+}

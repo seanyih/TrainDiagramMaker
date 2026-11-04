@@ -1,0 +1,49 @@
+{
+	"name": {
+		"zh": "日高本線",
+		"en": "Hidaka Main Line",
+		"ja": "日高本線"
+	},
+	"section": {
+		"zh": "苫小牧 – 鵡川",
+		"en": "Tomakomai – Mukawa",
+		"ja": "苫小牧 – 鵡川"
+	},
+	"companies": [
+		"jr-hokkaido"
+	],
+	"types": [
+		"railway"
+	],
+	"regions": [
+		"hokkaido"
+	],
+	"route": [
+		{
+			"date": "2023-03-18",
+			"title": "濱田浦站廢止",
+			"kind": "route",
+			"tags": [
+				"complete"
+			],
+			"files": {
+				"json": "releases/route-2023-03-18.json"
+			},
+			"latest": true
+		}
+	],
+	"all": [
+		{
+			"date": "2026-03-14",
+			"title": "2026年3月改點",
+			"kind": "all",
+			"tags": [
+				"arrival"
+			],
+			"files": {
+				"json": "releases/all-2026-03-14.json"
+			},
+			"latest": true
+		}
+	]
+}

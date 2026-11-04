@@ -1,0 +1,387 @@
+{
+ "route_name": "JR根室本線 (新得-根室)",
+ "stations": [
+  {
+   "name": "新得",
+   "kilo": 0.0,
+   "alias": ""
+  },
+  {
+   "name": "十勝清水",
+   "kilo": 9.1,
+   "alias": ""
+  },
+  {
+   "name": "平野川信号場",
+   "kilo": 15.3,
+   "alias": ""
+  },
+  {
+   "name": "御影",
+   "kilo": 19.6,
+   "alias": ""
+  },
+  {
+   "name": "上芽室信号場",
+   "kilo": 24.3,
+   "alias": ""
+  },
+  {
+   "name": "芽室",
+   "kilo": 30.2,
+   "alias": ""
+  },
+  {
+   "name": "大成",
+   "kilo": 32.3,
+   "alias": ""
+  },
+  {
+   "name": "西帯広",
+   "kilo": 37.1,
+   "alias": ""
+  },
+  {
+   "name": "柏林台",
+   "kilo": 40.3,
+   "alias": ""
+  },
+  {
+   "name": "帯広",
+   "kilo": 43.8,
+   "alias": ""
+  },
+  {
+   "name": "札内",
+   "kilo": 48.6,
+   "alias": ""
+  },
+  {
+   "name": "幕別",
+   "kilo": 58.0,
+   "alias": ""
+  },
+  {
+   "name": "利別",
+   "kilo": 64.5,
+   "alias": ""
+  },
+  {
+   "name": "池田",
+   "kilo": 68.0,
+   "alias": ""
+  },
+  {
+   "name": "昭栄信号場",
+   "kilo": 72.2,
+   "alias": ""
+  },
+  {
+   "name": "十弗",
+   "kilo": 76.5,
+   "alias": ""
+  },
+  {
+   "name": "豊頃",
+   "kilo": 81.9,
+   "alias": ""
+  },
+  {
+   "name": "新吉野",
+   "kilo": 89.0,
+   "alias": ""
+  },
+  {
+   "name": "浦幌",
+   "kilo": 95.4,
+   "alias": ""
+  },
+  {
+   "name": "常豊信号場",
+   "kilo": 99.7,
+   "alias": ""
+  },
+  {
+   "name": "上厚内信号場",
+   "kilo": 107.2,
+   "alias": ""
+  },
+  {
+   "name": "厚内",
+   "kilo": 113.8,
+   "alias": ""
+  },
+  {
+   "name": "直別信号場",
+   "kilo": 121.0,
+   "alias": ""
+  },
+  {
+   "name": "尺別信号場",
+   "kilo": 125.0,
+   "alias": ""
+  },
+  {
+   "name": "音別",
+   "kilo": 128.8,
+   "alias": ""
+  },
+  {
+   "name": "古瀬信号場",
+   "kilo": 138.5,
+   "alias": ""
+  },
+  {
+   "name": "白糠",
+   "kilo": 144.8,
+   "alias": ""
+  },
+  {
+   "name": "西庶路",
+   "kilo": 150.2,
+   "alias": ""
+  },
+  {
+   "name": "庶路",
+   "kilo": 152.3,
+   "alias": ""
+  },
+  {
+   "name": "東庶路信号場",
+   "kilo": 157.5,
+   "alias": ""
+  },
+  {
+   "name": "大楽毛",
+   "kilo": 162.7,
+   "alias": ""
+  },
+  {
+   "name": "新大楽毛",
+   "kilo": 164.5,
+   "alias": ""
+  },
+  {
+   "name": "新富士",
+   "kilo": 169.4,
+   "alias": ""
+  },
+  {
+   "name": "釧路",
+   "kilo": 172.1,
+   "alias": ""
+  },
+  {
+   "name": "東釧路",
+   "kilo": 175.0,
+   "alias": ""
+  },
+  {
+   "name": "武佐",
+   "kilo": 176.2,
+   "alias": ""
+  },
+  {
+   "name": "別保",
+   "kilo": 180.7,
+   "alias": ""
+  },
+  {
+   "name": "上尾幌",
+   "kilo": 195.4,
+   "alias": ""
+  },
+  {
+   "name": "尾幌",
+   "kilo": 204.6,
+   "alias": ""
+  },
+  {
+   "name": "門静",
+   "kilo": 213.8,
+   "alias": ""
+  },
+  {
+   "name": "厚岸",
+   "kilo": 218.7,
+   "alias": ""
+  },
+  {
+   "name": "茶内",
+   "kilo": 238.9,
+   "alias": ""
+  },
+  {
+   "name": "浜中",
+   "kilo": 245.9,
+   "alias": ""
+  },
+  {
+   "name": "姉別",
+   "kilo": 256.0,
+   "alias": ""
+  },
+  {
+   "name": "厚床",
+   "kilo": 262.6,
+   "alias": ""
+  },
+  {
+   "name": "別当賀",
+   "kilo": 278.2,
+   "alias": ""
+  },
+  {
+   "name": "落石",
+   "kilo": 288.5,
+   "alias": ""
+  },
+  {
+   "name": "昆布盛",
+   "kilo": 292.5,
+   "alias": ""
+  },
+  {
+   "name": "西和田",
+   "kilo": 297.3,
+   "alias": ""
+  },
+  {
+   "name": "根室",
+   "kilo": 307.5,
+   "alias": ""
+  }
+ ],
+ "topology": {
+  "secondary": [
+   false,
+   false,
+   true,
+   false,
+   true,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   true,
+   false,
+   false,
+   false,
+   false,
+   true,
+   true,
+   false,
+   true,
+   true,
+   false,
+   true,
+   false,
+   false,
+   false,
+   true,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false
+  ],
+  "branches": [
+   [
+    {
+     "stations": [
+      {
+       "name": "トマム",
+       "kilo": 33.8
+      },
+      {
+       "name": "占冠",
+       "kilo": 55.1
+      },
+      {
+       "name": "南千歳",
+       "kilo": 132.4
+      }
+     ]
+    }
+   ],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [
+    {
+     "stations": [
+      {
+       "name": "遠矢",
+       "kilo": 7.4
+      }
+     ]
+    }
+   ],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   []
+  ]
+ }
+}

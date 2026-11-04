@@ -1,0 +1,151 @@
+{
+ "route_name": "JR北上線 (北上-横手)",
+ "stations": [
+  {
+   "name": "北上",
+   "kilo": 0.0,
+   "alias": ""
+  },
+  {
+   "name": "柳原",
+   "kilo": 2.1,
+   "alias": ""
+  },
+  {
+   "name": "江釣子",
+   "kilo": 5.2,
+   "alias": ""
+  },
+  {
+   "name": "藤根",
+   "kilo": 8.4,
+   "alias": ""
+  },
+  {
+   "name": "立川目",
+   "kilo": 12.1,
+   "alias": ""
+  },
+  {
+   "name": "横川目",
+   "kilo": 14.3,
+   "alias": ""
+  },
+  {
+   "name": "岩沢",
+   "kilo": 18.1,
+   "alias": ""
+  },
+  {
+   "name": "和賀仙人",
+   "kilo": 20.3,
+   "alias": ""
+  },
+  {
+   "name": "ゆだ錦秋湖",
+   "kilo": 28.8,
+   "alias": ""
+  },
+  {
+   "name": "ほっとゆだ",
+   "kilo": 35.2,
+   "alias": ""
+  },
+  {
+   "name": "ゆだ高原",
+   "kilo": 39.1,
+   "alias": ""
+  },
+  {
+   "name": "黒沢",
+   "kilo": 44.3,
+   "alias": ""
+  },
+  {
+   "name": "小松川",
+   "kilo": 49.6,
+   "alias": ""
+  },
+  {
+   "name": "相野々",
+   "kilo": 53.4,
+   "alias": ""
+  },
+  {
+   "name": "横手",
+   "kilo": 61.1,
+   "alias": ""
+  }
+ ],
+ "topology": {
+  "secondary": [
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false
+  ],
+  "branches": [
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   []
+  ]
+ },
+ "track_layout": {
+  "stations": [
+   "quadruple",
+   "single",
+   "single",
+   "double.3",
+   "single",
+   "single",
+   "single",
+   "double.3",
+   "single",
+   "triple.3",
+   "single",
+   "double.3",
+   "single",
+   "double.3",
+   "triple.3"
+  ],
+  "sections": [
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "double.0"
+  ]
+ }
+}

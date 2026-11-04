@@ -1,0 +1,277 @@
+{
+ "route_name": "秋田内陸線 (鷹巣-角館)",
+ "stations": [
+  {
+   "name": "鷹巣",
+   "kilo": 0.0,
+   "alias": ""
+  },
+  {
+   "name": "西鷹巣",
+   "kilo": 1.3,
+   "alias": ""
+  },
+  {
+   "name": "縄文小ケ田",
+   "kilo": 3.7,
+   "alias": ""
+  },
+  {
+   "name": "大野台",
+   "kilo": 6.1,
+   "alias": ""
+  },
+  {
+   "name": "合川",
+   "kilo": 9.7,
+   "alias": ""
+  },
+  {
+   "name": "上杉",
+   "kilo": 12.1,
+   "alias": ""
+  },
+  {
+   "name": "米内沢",
+   "kilo": 15.0,
+   "alias": ""
+  },
+  {
+   "name": "桂瀬",
+   "kilo": 20.5,
+   "alias": ""
+  },
+  {
+   "name": "阿仁前田温泉",
+   "kilo": 25.2,
+   "alias": ""
+  },
+  {
+   "name": "前田南",
+   "kilo": 27.1,
+   "alias": ""
+  },
+  {
+   "name": "小渕",
+   "kilo": 29.1,
+   "alias": ""
+  },
+  {
+   "name": "阿仁合",
+   "kilo": 33.0,
+   "alias": ""
+  },
+  {
+   "name": "荒瀬",
+   "kilo": 35.4,
+   "alias": ""
+  },
+  {
+   "name": "萱草",
+   "kilo": 38.1,
+   "alias": ""
+  },
+  {
+   "name": "笑内",
+   "kilo": 40.9,
+   "alias": ""
+  },
+  {
+   "name": "岩野目",
+   "kilo": 43.3,
+   "alias": ""
+  },
+  {
+   "name": "比立内",
+   "kilo": 46.0,
+   "alias": ""
+  },
+  {
+   "name": "奥阿仁",
+   "kilo": 49.7,
+   "alias": ""
+  },
+  {
+   "name": "阿仁マタギ",
+   "kilo": 52.3,
+   "alias": ""
+  },
+  {
+   "name": "戸沢",
+   "kilo": 61.2,
+   "alias": ""
+  },
+  {
+   "name": "上桧木内",
+   "kilo": 65.9,
+   "alias": ""
+  },
+  {
+   "name": "左通",
+   "kilo": 67.7,
+   "alias": ""
+  },
+  {
+   "name": "羽後中里",
+   "kilo": 71.7,
+   "alias": ""
+  },
+  {
+   "name": "松葉",
+   "kilo": 75.0,
+   "alias": ""
+  },
+  {
+   "name": "羽後長戸呂",
+   "kilo": 77.9,
+   "alias": ""
+  },
+  {
+   "name": "八津",
+   "kilo": 82.9,
+   "alias": ""
+  },
+  {
+   "name": "西明寺",
+   "kilo": 86.9,
+   "alias": ""
+  },
+  {
+   "name": "羽後太田",
+   "kilo": 89.9,
+   "alias": ""
+  },
+  {
+   "name": "角館",
+   "kilo": 94.2,
+   "alias": ""
+  }
+ ],
+ "topology": {
+  "secondary": [
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false
+  ],
+  "branches": [
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   []
+  ]
+ },
+ "track_layout": {
+  "stations": [
+   "single",
+   "single",
+   "single",
+   "single",
+   "double.3",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "double.3",
+   "single",
+   "single",
+   "single",
+   "single",
+   "double.3",
+   "single",
+   "single",
+   "single",
+   "double.3",
+   "single",
+   "single",
+   "single",
+   "single",
+   "double.3",
+   "single",
+   "single",
+   "single"
+  ],
+  "sections": [
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single"
+  ]
+ }
+}

@@ -1,0 +1,52 @@
+{
+ "route_name": "JR日高本線 (苫小牧-鵡川)",
+ "stations": [
+  {
+   "name": "苫小牧",
+   "kilo": 0.0,
+   "alias": ""
+  },
+  {
+   "name": "勇払",
+   "kilo": 13.1,
+   "alias": ""
+  },
+  {
+   "name": "浜厚真",
+   "kilo": 22.7,
+   "alias": ""
+  },
+  {
+   "name": "鵡川",
+   "kilo": 30.5,
+   "alias": ""
+  }
+ ],
+ "topology": {
+  "secondary": [
+   false,
+   false,
+   false,
+   false
+  ],
+  "branches": [
+   [],
+   [],
+   [],
+   []
+  ]
+ },
+ "track_layout": {
+  "stations": [
+   "quadruple",
+   "single",
+   "single",
+   "double.3"
+  ],
+  "sections": [
+   "single",
+   "single",
+   "single"
+  ]
+ }
+}

@@ -1,0 +1,50 @@
+{
+	"name": {
+		"zh": "花長井線",
+		"en": "Flower Nagai Line",
+		"ja": "フラワー長井線"
+	},
+	"section": {
+		"zh": "赤湯 – 荒砥",
+		"en": "Akayu – Arato",
+		"ja": "赤湯 – 荒砥"
+	},
+	"companies": [
+		"yamagata-railway"
+	],
+	"types": [
+		"railway"
+	],
+	"regions": [
+		"tohoku"
+	],
+	"route": [
+		{
+			"date": "2007-10-13",
+			"title": "四季之鄉站開業",
+			"kind": "route",
+			"tags": [
+				"mileage",
+				"topology"
+			],
+			"files": {
+				"json": "releases/route-2007-10-13.json"
+			},
+			"latest": true
+		}
+	],
+	"all": [
+		{
+			"date": "2026-03-14",
+			"title": "2026年3月改點",
+			"kind": "all",
+			"tags": [
+				"arrival"
+			],
+			"files": {
+				"json": "releases/all-2026-03-14.json"
+			},
+			"latest": true
+		}
+	]
+}

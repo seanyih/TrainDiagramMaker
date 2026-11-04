@@ -1,0 +1,178 @@
+{
+ "route_name": "JR富良野線 (旭川-富良野)",
+ "stations": [
+  {
+   "name": "旭川",
+   "kilo": 0.0,
+   "alias": ""
+  },
+  {
+   "name": "神楽岡",
+   "kilo": 2.4,
+   "alias": ""
+  },
+  {
+   "name": "緑が丘",
+   "kilo": 4.0,
+   "alias": ""
+  },
+  {
+   "name": "西御料",
+   "kilo": 5.2,
+   "alias": ""
+  },
+  {
+   "name": "西瑞穂",
+   "kilo": 7.4,
+   "alias": ""
+  },
+  {
+   "name": "西神楽",
+   "kilo": 9.9,
+   "alias": ""
+  },
+  {
+   "name": "西聖和",
+   "kilo": 12.3,
+   "alias": ""
+  },
+  {
+   "name": "千代ケ岡",
+   "kilo": 16.6,
+   "alias": ""
+  },
+  {
+   "name": "北美瑛",
+   "kilo": 20.3,
+   "alias": ""
+  },
+  {
+   "name": "美瑛",
+   "kilo": 23.8,
+   "alias": ""
+  },
+  {
+   "name": "美馬牛",
+   "kilo": 30.6,
+   "alias": ""
+  },
+  {
+   "name": "上富良野",
+   "kilo": 39.7,
+   "alias": ""
+  },
+  {
+   "name": "西中",
+   "kilo": 44.2,
+   "alias": ""
+  },
+  {
+   "name": "ラベンダー畑",
+   "kilo": 45.8,
+   "alias": ""
+  },
+  {
+   "name": "中富良野",
+   "kilo": 47.3,
+   "alias": ""
+  },
+  {
+   "name": "鹿討",
+   "kilo": 49.7,
+   "alias": ""
+  },
+  {
+   "name": "学田",
+   "kilo": 52.5,
+   "alias": ""
+  },
+  {
+   "name": "富良野",
+   "kilo": 54.8,
+   "alias": ""
+  }
+ ],
+ "topology": {
+  "secondary": [
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false
+  ],
+  "branches": [
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   []
+  ]
+ },
+ "track_layout": {
+  "stations": [
+   "quadruple",
+   "single",
+   "single",
+   "single",
+   "single",
+   "double.3",
+   "single",
+   "double.3",
+   "single",
+   "double.3",
+   "double.3",
+   "double.3",
+   "single",
+   "single",
+   "double.3",
+   "single",
+   "single",
+   "quadruple"
+  ],
+  "sections": [
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single"
+  ]
+ }
+}

@@ -1,0 +1,277 @@
+{
+ "route_name": "JR奥羽本線 (新庄-秋田)",
+ "stations": [
+  {
+   "name": "新庄",
+   "kilo": 0.0,
+   "alias": ""
+  },
+  {
+   "name": "泉田",
+   "kilo": 5.6,
+   "alias": ""
+  },
+  {
+   "name": "羽前豊里",
+   "kilo": 12.7,
+   "alias": ""
+  },
+  {
+   "name": "真室川",
+   "kilo": 15.4,
+   "alias": ""
+  },
+  {
+   "name": "釜淵",
+   "kilo": 24.6,
+   "alias": ""
+  },
+  {
+   "name": "大滝",
+   "kilo": 31.7,
+   "alias": ""
+  },
+  {
+   "name": "及位",
+   "kilo": 37.2,
+   "alias": ""
+  },
+  {
+   "name": "院内",
+   "kilo": 45.8,
+   "alias": ""
+  },
+  {
+   "name": "横堀",
+   "kilo": 49.8,
+   "alias": ""
+  },
+  {
+   "name": "三関",
+   "kilo": 55.8,
+   "alias": ""
+  },
+  {
+   "name": "上湯沢",
+   "kilo": 58.5,
+   "alias": ""
+  },
+  {
+   "name": "湯沢",
+   "kilo": 61.8,
+   "alias": ""
+  },
+  {
+   "name": "下湯沢",
+   "kilo": 65.9,
+   "alias": ""
+  },
+  {
+   "name": "十文字",
+   "kilo": 69.2,
+   "alias": ""
+  },
+  {
+   "name": "醍醐",
+   "kilo": 72.6,
+   "alias": ""
+  },
+  {
+   "name": "柳田",
+   "kilo": 75.8,
+   "alias": ""
+  },
+  {
+   "name": "横手",
+   "kilo": 79.7,
+   "alias": ""
+  },
+  {
+   "name": "後三年",
+   "kilo": 86.1,
+   "alias": ""
+  },
+  {
+   "name": "飯詰",
+   "kilo": 91.2,
+   "alias": ""
+  },
+  {
+   "name": "大曲",
+   "kilo": 98.4,
+   "alias": ""
+  },
+  {
+   "name": "神宮寺",
+   "kilo": 104.4,
+   "alias": ""
+  },
+  {
+   "name": "刈和野",
+   "kilo": 112.0,
+   "alias": ""
+  },
+  {
+   "name": "峰吉川",
+   "kilo": 116.8,
+   "alias": ""
+  },
+  {
+   "name": "羽後境",
+   "kilo": 123.3,
+   "alias": ""
+  },
+  {
+   "name": "大張野",
+   "kilo": 131.4,
+   "alias": ""
+  },
+  {
+   "name": "和田",
+   "kilo": 136.8,
+   "alias": ""
+  },
+  {
+   "name": "四ツ小屋",
+   "kilo": 143.7,
+   "alias": ""
+  },
+  {
+   "name": "秋田",
+   "kilo": 150.1,
+   "alias": ""
+  }
+ ],
+ "topology": {
+  "secondary": [
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false
+  ],
+  "branches": [
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [
+    {
+     "stations": [
+      {
+       "name": "泉外旭川",
+       "kilo": 3.1
+      }
+     ]
+    }
+   ]
+  ]
+ },
+ "track_layout": {
+  "stations": [
+   "single",
+   "double.3",
+   "single",
+   "triple.3",
+   "double.3",
+   "single",
+   "triple.3",
+   "triple.3",
+   "triple.3",
+   "single",
+   "single",
+   "triple.3",
+   "double.3",
+   "triple.3",
+   "single",
+   "double.3",
+   "quadruple",
+   "triple.3",
+   "double.3",
+   "double.3",
+   "double.3",
+   "double.3",
+   "single",
+   "double.3",
+   "single",
+   "double.3",
+   "double.3",
+   "quadruple"
+  ],
+  "sections": [
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "double.0",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "double.0",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single"
+  ]
+ }
+}

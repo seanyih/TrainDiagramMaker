@@ -1,0 +1,196 @@
+{
+ "route_name": "JR米坂線 (米沢-坂町)",
+ "stations": [
+  {
+   "name": "米沢",
+   "kilo": 0.0,
+   "alias": ""
+  },
+  {
+   "name": "南米沢",
+   "kilo": 3.1,
+   "alias": ""
+  },
+  {
+   "name": "西米沢",
+   "kilo": 6.5,
+   "alias": ""
+  },
+  {
+   "name": "成島",
+   "kilo": 9.6,
+   "alias": ""
+  },
+  {
+   "name": "中郡",
+   "kilo": 12.5,
+   "alias": ""
+  },
+  {
+   "name": "羽前小松",
+   "kilo": 16.9,
+   "alias": ""
+  },
+  {
+   "name": "犬川",
+   "kilo": 19.4,
+   "alias": ""
+  },
+  {
+   "name": "今泉",
+   "kilo": 23.0,
+   "alias": ""
+  },
+  {
+   "name": "萩生",
+   "kilo": 27.3,
+   "alias": ""
+  },
+  {
+   "name": "羽前椿",
+   "kilo": 30.1,
+   "alias": ""
+  },
+  {
+   "name": "手ノ子",
+   "kilo": 34.7,
+   "alias": ""
+  },
+  {
+   "name": "羽前沼沢",
+   "kilo": 43.9,
+   "alias": ""
+  },
+  {
+   "name": "伊佐領",
+   "kilo": 50.0,
+   "alias": ""
+  },
+  {
+   "name": "羽前松岡",
+   "kilo": 54.7,
+   "alias": ""
+  },
+  {
+   "name": "小国",
+   "kilo": 58.3,
+   "alias": ""
+  },
+  {
+   "name": "越後金丸",
+   "kilo": 67.8,
+   "alias": ""
+  },
+  {
+   "name": "越後片貝",
+   "kilo": 73.1,
+   "alias": ""
+  },
+  {
+   "name": "越後下関",
+   "kilo": 79.7,
+   "alias": ""
+  },
+  {
+   "name": "越後大島",
+   "kilo": 83.5,
+   "alias": ""
+  },
+  {
+   "name": "坂町",
+   "kilo": 90.7,
+   "alias": ""
+  }
+ ],
+ "topology": {
+  "secondary": [
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false
+  ],
+  "branches": [
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   []
+  ]
+ },
+ "track_layout": {
+  "stations": [
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "double.3",
+   "single",
+   "triple.3",
+   "single",
+   "double.3",
+   "single",
+   "single",
+   "single",
+   "single",
+   "quadruple",
+   "double.3",
+   "single",
+   "double.3",
+   "single",
+   "triple.3"
+  ],
+  "sections": [
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single"
+  ]
+ }
+}

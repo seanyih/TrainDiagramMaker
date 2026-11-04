@@ -1,0 +1,50 @@
+{
+	"name": {
+		"zh": "常磐線",
+		"en": "Jōban Line",
+		"ja": "常磐線"
+	},
+	"section": {
+		"zh": "磐城 – 仙台",
+		"en": "Iwaki – Sendai",
+		"ja": "いわき – 仙台"
+	},
+	"companies": [
+		"jr-east"
+	],
+	"types": [
+		"railway"
+	],
+	"regions": [
+		"tohoku"
+	],
+	"route": [
+		{
+			"date": "2020-03-14",
+			"title": "富岡－浪江間恢復通車，J-Village站常設化",
+			"kind": "route",
+			"tags": [
+				"complete"
+			],
+			"description": "軌道配置取自 配線略図.net (https://www.haisenryakuzu.net/ , CC BY 4.0；調查時點 joban_2 全線 2020年3月、tohoku_2 黒磯～福島 2025年5月 福島～仙台 2023年3月 仙台貨物ターミナル駅構内 2017年3月)，由程式讀取配線圖：單線區間的車站依可通過的股道數 (1 股 single、2 股 double.3、3 股 triple.3)，複線區間只有 2 股的車站為 double.0 (不能待避)。",
+			"files": {
+				"json": "releases/route-2020-03-14.json"
+			},
+			"latest": true
+		}
+	],
+	"all": [
+		{
+			"date": "2026-03-14",
+			"title": "2026年3月改點",
+			"kind": "all",
+			"tags": [
+				"arrival"
+			],
+			"files": {
+				"json": "releases/all-2026-03-14.json"
+			},
+			"latest": true
+		}
+	]
+}

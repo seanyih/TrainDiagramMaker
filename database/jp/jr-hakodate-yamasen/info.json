@@ -1,0 +1,49 @@
+{
+	"name": {
+		"zh": "函館本線 (山線)",
+		"en": "Hakodate Main Line (Yamasen)",
+		"ja": "函館本線（山線）"
+	},
+	"section": {
+		"zh": "長萬部 – 小樽",
+		"en": "Oshamambe – Otaru",
+		"ja": "長万部 – 小樽"
+	},
+	"companies": [
+		"jr-hokkaido"
+	],
+	"types": [
+		"railway"
+	],
+	"regions": [
+		"hokkaido"
+	],
+	"route": [
+		{
+			"date": "2026-03-14",
+			"title": "二股站廢止",
+			"kind": "route",
+			"tags": [
+				"complete"
+			],
+			"files": {
+				"json": "releases/route-2026-03-14.json"
+			},
+			"latest": true
+		}
+	],
+	"all": [
+		{
+			"date": "2026-03-14",
+			"title": "2026年3月改點",
+			"kind": "all",
+			"tags": [
+				"arrival"
+			],
+			"files": {
+				"json": "releases/all-2026-03-14.json"
+			},
+			"latest": true
+		}
+	]
+}

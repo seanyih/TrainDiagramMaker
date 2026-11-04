@@ -1,0 +1,50 @@
+{
+	"name": {
+		"zh": "東北本線 利府支線",
+		"en": "Tōhoku Main Line (Rifu Branch)",
+		"ja": "東北本線 利府支線"
+	},
+	"section": {
+		"zh": "岩切 – 利府",
+		"en": "Iwakiri – Rifu",
+		"ja": "岩切 – 利府"
+	},
+	"companies": [
+		"jr-east"
+	],
+	"types": [
+		"railway"
+	],
+	"regions": [
+		"tohoku"
+	],
+	"route": [
+		{
+			"date": "2026-03-14",
+			"title": "初版",
+			"kind": "route",
+			"tags": [
+				"complete"
+			],
+			"description": "軌道配置取自 配線略図.net (https://www.haisenryakuzu.net/ , CC BY 4.0；調查時點 tohoku_3 仙台～花巻 2023年3月 花巻～盛岡 2022年8月 岩切～利府 2019年8月)，由程式讀取配線圖：單線區間的車站依可通過的股道數 (1 股 single、2 股 double.3、3 股 triple.3)，複線區間只有 2 股的車站為 double.0 (不能待避)。配線圖中沒有的車站 (新利府) 依前後區間給預設值。",
+			"files": {
+				"json": "releases/route-2026-03-14.json"
+			},
+			"latest": true
+		}
+	],
+	"all": [
+		{
+			"date": "2026-03-14",
+			"title": "2026年3月改點",
+			"kind": "all",
+			"tags": [
+				"arrival"
+			],
+			"files": {
+				"json": "releases/all-2026-03-14.json"
+			},
+			"latest": true
+		}
+	]
+}

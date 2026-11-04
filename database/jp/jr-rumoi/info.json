@@ -1,0 +1,49 @@
+{
+	"name": {
+		"zh": "留萌本線",
+		"en": "Rumoi Main Line",
+		"ja": "留萌本線"
+	},
+	"section": {
+		"zh": "深川 – 石狩沼田",
+		"en": "Fukagawa – Ishikari-Numata",
+		"ja": "深川 – 石狩沼田"
+	},
+	"companies": [
+		"jr-hokkaido"
+	],
+	"types": [
+		"railway"
+	],
+	"regions": [
+		"hokkaido"
+	],
+	"route": [
+		{
+			"date": "2023-04-01",
+			"title": "石狩沼田–留萌間廢止",
+			"kind": "route",
+			"tags": [
+				"complete"
+			],
+			"files": {
+				"json": "releases/route-2023-04-01.json"
+			},
+			"latest": true
+		}
+	],
+	"all": [
+		{
+			"date": "2026-03-14",
+			"title": "2026年3月改點 (廢線前最終時刻)",
+			"kind": "all",
+			"tags": [
+				"arrival"
+			],
+			"files": {
+				"json": "releases/all-2026-03-14.json"
+			},
+			"latest": true
+		}
+	]
+}

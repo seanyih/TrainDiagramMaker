@@ -1,0 +1,130 @@
+{
+ "route_name": "フラワー長井線 (赤湯-荒砥)",
+ "stations": [
+  {
+   "name": "赤湯",
+   "kilo": 0.0,
+   "alias": ""
+  },
+  {
+   "name": "南陽市役所",
+   "kilo": 0.9,
+   "alias": ""
+  },
+  {
+   "name": "宮内",
+   "kilo": 3.0,
+   "alias": ""
+  },
+  {
+   "name": "おりはた",
+   "kilo": 4.4,
+   "alias": ""
+  },
+  {
+   "name": "梨郷",
+   "kilo": 6.8,
+   "alias": ""
+  },
+  {
+   "name": "西大塚",
+   "kilo": 10.3,
+   "alias": ""
+  },
+  {
+   "name": "今泉",
+   "kilo": 12.2,
+   "alias": ""
+  },
+  {
+   "name": "時庭",
+   "kilo": 14.9,
+   "alias": ""
+  },
+  {
+   "name": "南長井",
+   "kilo": 17.3,
+   "alias": ""
+  },
+  {
+   "name": "長井",
+   "kilo": 18.3,
+   "alias": ""
+  },
+  {
+   "name": "あやめ公園",
+   "kilo": 19.1,
+   "alias": ""
+  },
+  {
+   "name": "羽前成田",
+   "kilo": 21.0,
+   "alias": ""
+  },
+  {
+   "name": "白兎",
+   "kilo": 23.2,
+   "alias": ""
+  },
+  {
+   "name": "蚕桑",
+   "kilo": 24.6,
+   "alias": ""
+  },
+  {
+   "name": "鮎貝",
+   "kilo": 27.9,
+   "alias": ""
+  },
+  {
+   "name": "四季の郷",
+   "kilo": 28.6,
+   "alias": ""
+  },
+  {
+   "name": "荒砥",
+   "kilo": 30.5,
+   "alias": ""
+  }
+ ],
+ "topology": {
+  "secondary": [
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false
+  ],
+  "branches": [
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   []
+  ]
+ }
+}

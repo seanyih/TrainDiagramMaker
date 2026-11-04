@@ -1,0 +1,267 @@
+{
+ "route_name": "JR石勝線 (南千歳-新得)",
+ "stations": [
+  {
+   "name": "南千歳",
+   "kilo": 0.0,
+   "alias": ""
+  },
+  {
+   "name": "駒里信号場",
+   "kilo": 5.4,
+   "alias": ""
+  },
+  {
+   "name": "西早来信号場",
+   "kilo": 11.7,
+   "alias": ""
+  },
+  {
+   "name": "追分",
+   "kilo": 17.6,
+   "alias": ""
+  },
+  {
+   "name": "東追分信号場",
+   "kilo": 21.6,
+   "alias": ""
+  },
+  {
+   "name": "川端",
+   "kilo": 27.0,
+   "alias": ""
+  },
+  {
+   "name": "滝ノ下信号場",
+   "kilo": 30.3,
+   "alias": ""
+  },
+  {
+   "name": "滝ノ上信号場",
+   "kilo": 35.8,
+   "alias": ""
+  },
+  {
+   "name": "十三里信号場",
+   "kilo": 40.2,
+   "alias": ""
+  },
+  {
+   "name": "新夕張",
+   "kilo": 43.0,
+   "alias": ""
+  },
+  {
+   "name": "楓信号場",
+   "kilo": 48.7,
+   "alias": ""
+  },
+  {
+   "name": "オサワ信号場",
+   "kilo": 55.7,
+   "alias": ""
+  },
+  {
+   "name": "東オサワ信号場",
+   "kilo": 59.6,
+   "alias": ""
+  },
+  {
+   "name": "清風山信号場",
+   "kilo": 67.3,
+   "alias": ""
+  },
+  {
+   "name": "占冠",
+   "kilo": 77.3,
+   "alias": ""
+  },
+  {
+   "name": "東占冠信号場",
+   "kilo": 81.3,
+   "alias": ""
+  },
+  {
+   "name": "滝ノ沢信号場",
+   "kilo": 85.7,
+   "alias": ""
+  },
+  {
+   "name": "ホロカ信号場",
+   "kilo": 92.6,
+   "alias": ""
+  },
+  {
+   "name": "トマム",
+   "kilo": 98.6,
+   "alias": ""
+  },
+  {
+   "name": "串内信号場",
+   "kilo": 104.2,
+   "alias": ""
+  },
+  {
+   "name": "上落合信号場",
+   "kilo": 108.3,
+   "alias": ""
+  },
+  {
+   "name": "新狩勝信号場",
+   "kilo": 113.9,
+   "alias": ""
+  },
+  {
+   "name": "広内信号場",
+   "kilo": 120.1,
+   "alias": ""
+  },
+  {
+   "name": "西新得信号場",
+   "kilo": 125.6,
+   "alias": ""
+  },
+  {
+   "name": "新得",
+   "kilo": 132.4,
+   "alias": ""
+  }
+ ],
+ "topology": {
+  "secondary": [
+   false,
+   true,
+   true,
+   false,
+   true,
+   false,
+   true,
+   true,
+   true,
+   false,
+   true,
+   true,
+   true,
+   true,
+   false,
+   true,
+   true,
+   true,
+   false,
+   true,
+   true,
+   true,
+   true,
+   true,
+   false
+  ],
+  "branches": [
+   [
+    {
+     "stations": [
+      {
+       "name": "千歳",
+       "kilo": 3.0
+      },
+      {
+       "name": "新札幌",
+       "kilo": 33.1
+      }
+     ]
+    }
+   ],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [
+    {
+     "stations": [
+      {
+       "name": "十勝清水",
+       "kilo": 9.1
+      },
+      {
+       "name": "帯広",
+       "kilo": 43.8
+      }
+     ]
+    }
+   ]
+  ]
+ },
+ "track_layout": {
+  "stations": [
+   "quadruple",
+   "double.3",
+   "double.3",
+   "quadruple",
+   "double.3",
+   "double.3",
+   "double.3",
+   "single",
+   "double.3",
+   "triple.3",
+   "double.3",
+   "double.3",
+   "double.3",
+   "double.3",
+   "triple.3",
+   "double.3",
+   "double.3",
+   "double.3",
+   "double.3",
+   "double.3",
+   "double.3",
+   "double.3",
+   "double.3",
+   "double.3",
+   "quadruple"
+  ],
+  "sections": [
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single"
+  ]
+ }
+}

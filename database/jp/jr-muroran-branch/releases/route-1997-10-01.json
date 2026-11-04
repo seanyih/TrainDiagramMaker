@@ -1,0 +1,74 @@
+{
+ "route_name": "JR室蘭本線 支線 (東室蘭-室蘭)",
+ "stations": [
+  {
+   "name": "東室蘭",
+   "kilo": 0.0,
+   "alias": ""
+  },
+  {
+   "name": "輪西",
+   "kilo": 2.3,
+   "alias": ""
+  },
+  {
+   "name": "御崎",
+   "kilo": 4.2,
+   "alias": ""
+  },
+  {
+   "name": "母恋",
+   "kilo": 5.9,
+   "alias": ""
+  },
+  {
+   "name": "室蘭",
+   "kilo": 7.0,
+   "alias": ""
+  }
+ ],
+ "topology": {
+  "secondary": [
+   false,
+   false,
+   false,
+   false,
+   false
+  ],
+  "branches": [
+   [
+    {
+     "stations": [
+      {
+       "name": "鷲別",
+       "kilo": 1.9
+      },
+      {
+       "name": "本輪西",
+       "kilo": 4.5
+      }
+     ]
+    }
+   ],
+   [],
+   [],
+   [],
+   []
+  ]
+ },
+ "track_layout": {
+  "stations": [
+   "quadruple",
+   "double.0",
+   "double.0",
+   "double.0",
+   "double.0"
+  ],
+  "sections": [
+   "double.0",
+   "double.0",
+   "double.0",
+   "double.0"
+  ]
+ }
+}

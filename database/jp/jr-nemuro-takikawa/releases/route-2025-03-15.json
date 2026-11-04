@@ -1,0 +1,106 @@
+{
+ "route_name": "JR根室本線 (滝川-富良野)",
+ "stations": [
+  {
+   "name": "滝川",
+   "kilo": 0.0,
+   "alias": ""
+  },
+  {
+   "name": "東滝川信号場",
+   "kilo": 7.2,
+   "alias": ""
+  },
+  {
+   "name": "赤平",
+   "kilo": 13.7,
+   "alias": ""
+  },
+  {
+   "name": "茂尻",
+   "kilo": 17.2,
+   "alias": ""
+  },
+  {
+   "name": "平岸",
+   "kilo": 20.7,
+   "alias": ""
+  },
+  {
+   "name": "芦別",
+   "kilo": 26.6,
+   "alias": ""
+  },
+  {
+   "name": "上芦別",
+   "kilo": 30.5,
+   "alias": ""
+  },
+  {
+   "name": "野花南",
+   "kilo": 35.2,
+   "alias": ""
+  },
+  {
+   "name": "島ノ下信号場",
+   "kilo": 49.1,
+   "alias": ""
+  },
+  {
+   "name": "富良野",
+   "kilo": 54.6,
+   "alias": ""
+  }
+ ],
+ "topology": {
+  "secondary": [
+   false,
+   true,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   true,
+   false
+  ],
+  "branches": [
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   []
+  ]
+ },
+ "track_layout": {
+  "stations": [
+   "quadruple",
+   "triple.3",
+   "double.3",
+   "double.3",
+   "double.3",
+   "triple.3",
+   "double.3",
+   "double.3",
+   "double.3",
+   "quadruple"
+  ],
+  "sections": [
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single"
+  ]
+ }
+}

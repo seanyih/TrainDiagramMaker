@@ -1,0 +1,49 @@
+{
+	"name": {
+		"zh": "千歳線",
+		"en": "Chitose Line",
+		"ja": "千歳線"
+	},
+	"section": {
+		"zh": "札幌 – 沼之端",
+		"en": "Sapporo – Numanohata",
+		"ja": "札幌 – 沼ノ端"
+	},
+	"companies": [
+		"jr-hokkaido"
+	],
+	"types": [
+		"railway"
+	],
+	"regions": [
+		"hokkaido"
+	],
+	"route": [
+		{
+			"date": "2017-03-04",
+			"title": "美美站改為信號場",
+			"kind": "route",
+			"tags": [
+				"complete"
+			],
+			"files": {
+				"json": "releases/route-2017-03-04.json"
+			},
+			"latest": true
+		}
+	],
+	"all": [
+		{
+			"date": "2026-03-14",
+			"title": "2026年3月改點",
+			"kind": "all",
+			"tags": [
+				"arrival"
+			],
+			"files": {
+				"json": "releases/all-2026-03-14.json"
+			},
+			"latest": true
+		}
+	]
+}

@@ -1,0 +1,389 @@
+{
+ "route_name": "JR石北本線 (旭川-網走)",
+ "stations": [
+  {
+   "name": "旭川",
+   "kilo": 0.0,
+   "alias": ""
+  },
+  {
+   "name": "旭川四条",
+   "kilo": 1.8,
+   "alias": ""
+  },
+  {
+   "name": "新旭川",
+   "kilo": 3.7,
+   "alias": ""
+  },
+  {
+   "name": "南永山",
+   "kilo": 6.2,
+   "alias": ""
+  },
+  {
+   "name": "東旭川",
+   "kilo": 8.9,
+   "alias": ""
+  },
+  {
+   "name": "桜岡",
+   "kilo": 13.9,
+   "alias": ""
+  },
+  {
+   "name": "当麻",
+   "kilo": 17.6,
+   "alias": ""
+  },
+  {
+   "name": "伊香牛",
+   "kilo": 23.2,
+   "alias": ""
+  },
+  {
+   "name": "愛別",
+   "kilo": 29.6,
+   "alias": ""
+  },
+  {
+   "name": "中愛別",
+   "kilo": 35.7,
+   "alias": ""
+  },
+  {
+   "name": "安足間",
+   "kilo": 41.7,
+   "alias": ""
+  },
+  {
+   "name": "上川",
+   "kilo": 48.6,
+   "alias": ""
+  },
+  {
+   "name": "中越信号場",
+   "kilo": 60.9,
+   "alias": ""
+  },
+  {
+   "name": "上越信号場",
+   "kilo": 68.6,
+   "alias": ""
+  },
+  {
+   "name": "奥白滝信号場",
+   "kilo": 77.6,
+   "alias": ""
+  },
+  {
+   "name": "白滝",
+   "kilo": 85.9,
+   "alias": ""
+  },
+  {
+   "name": "下白滝信号場",
+   "kilo": 96.4,
+   "alias": ""
+  },
+  {
+   "name": "丸瀬布",
+   "kilo": 105.6,
+   "alias": ""
+  },
+  {
+   "name": "瀬戸瀬",
+   "kilo": 113.4,
+   "alias": ""
+  },
+  {
+   "name": "遠軽",
+   "kilo": 124.5,
+   "alias": ""
+  },
+  {
+   "name": "安国",
+   "kilo": 132.5,
+   "alias": ""
+  },
+  {
+   "name": "生田原",
+   "kilo": 141.4,
+   "alias": ""
+  },
+  {
+   "name": "金華信号場",
+   "kilo": 156.4,
+   "alias": ""
+  },
+  {
+   "name": "西留辺蘂",
+   "kilo": 159.9,
+   "alias": ""
+  },
+  {
+   "name": "留辺蘂",
+   "kilo": 161.9,
+   "alias": ""
+  },
+  {
+   "name": "相内",
+   "kilo": 172.8,
+   "alias": ""
+  },
+  {
+   "name": "東相内",
+   "kilo": 177.4,
+   "alias": ""
+  },
+  {
+   "name": "西北見",
+   "kilo": 180.0,
+   "alias": ""
+  },
+  {
+   "name": "北見",
+   "kilo": 184.7,
+   "alias": ""
+  },
+  {
+   "name": "柏陽",
+   "kilo": 187.4,
+   "alias": ""
+  },
+  {
+   "name": "愛し野",
+   "kilo": 189.6,
+   "alias": ""
+  },
+  {
+   "name": "端野",
+   "kilo": 191.0,
+   "alias": ""
+  },
+  {
+   "name": "緋牛内",
+   "kilo": 198.3,
+   "alias": ""
+  },
+  {
+   "name": "美幌",
+   "kilo": 209.8,
+   "alias": ""
+  },
+  {
+   "name": "西女満別",
+   "kilo": 216.8,
+   "alias": ""
+  },
+  {
+   "name": "女満別",
+   "kilo": 221.8,
+   "alias": ""
+  },
+  {
+   "name": "呼人",
+   "kilo": 229.6,
+   "alias": ""
+  },
+  {
+   "name": "網走",
+   "kilo": 237.7,
+   "alias": ""
+  }
+ ],
+ "topology": {
+  "secondary": [
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   true,
+   true,
+   true,
+   false,
+   true,
+   false,
+   false,
+   false,
+   false,
+   false,
+   true,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false
+  ],
+  "branches": [
+   [
+    {
+     "stations": [
+      {
+       "name": "深川",
+       "kilo": 30.2
+      }
+     ]
+    }
+   ],
+   [],
+   [
+    {
+     "stations": [
+      {
+       "name": "永山",
+       "kilo": 5.6
+      },
+      {
+       "name": "和寒",
+       "kilo": 32.6
+      }
+     ]
+    }
+   ],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [
+    {
+     "stations": [
+      {
+       "name": "桂台",
+       "kilo": 1.4
+      }
+     ]
+    }
+   ]
+  ]
+ },
+ "track_layout": {
+  "stations": [
+   "double.3",
+   "double.0",
+   "triple.3",
+   "single",
+   "double.3",
+   "double.3",
+   "double.3",
+   "double.3",
+   "double.3",
+   "double.3",
+   "double.3",
+   "triple.3",
+   "double.3",
+   "double.3",
+   "double.3",
+   "double.3",
+   "double.3",
+   "double.3",
+   "double.3",
+   "triple.3",
+   "double.3",
+   "double.3",
+   "double.3",
+   "single",
+   "double.3",
+   "double.3",
+   "double.3",
+   "single",
+   "triple.3",
+   "single",
+   "single",
+   "double.3",
+   "double.3",
+   "double.3",
+   "single",
+   "double.3",
+   "double.3",
+   "quadruple"
+  ],
+  "sections": [
+   "double.0",
+   "double.0",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single"
+  ]
+ }
+}

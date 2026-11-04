@@ -1,0 +1,412 @@
+{
+ "route_name": "JR五能線 (東能代-川部)",
+ "stations": [
+  {
+   "name": "東能代",
+   "kilo": 0.0,
+   "alias": ""
+  },
+  {
+   "name": "能代",
+   "kilo": 3.9,
+   "alias": ""
+  },
+  {
+   "name": "向能代",
+   "kilo": 6.1,
+   "alias": ""
+  },
+  {
+   "name": "北能代",
+   "kilo": 9.3,
+   "alias": ""
+  },
+  {
+   "name": "鳥形",
+   "kilo": 11.2,
+   "alias": ""
+  },
+  {
+   "name": "沢目",
+   "kilo": 14.1,
+   "alias": ""
+  },
+  {
+   "name": "東八森",
+   "kilo": 18.0,
+   "alias": ""
+  },
+  {
+   "name": "八森",
+   "kilo": 22.7,
+   "alias": ""
+  },
+  {
+   "name": "滝ノ間",
+   "kilo": 24.5,
+   "alias": ""
+  },
+  {
+   "name": "あきた白神",
+   "kilo": 26.1,
+   "alias": ""
+  },
+  {
+   "name": "岩館",
+   "kilo": 29.1,
+   "alias": ""
+  },
+  {
+   "name": "大間越",
+   "kilo": 39.9,
+   "alias": ""
+  },
+  {
+   "name": "白神岳登山口",
+   "kilo": 42.3,
+   "alias": ""
+  },
+  {
+   "name": "松神",
+   "kilo": 44.7,
+   "alias": ""
+  },
+  {
+   "name": "十二湖",
+   "kilo": 46.6,
+   "alias": ""
+  },
+  {
+   "name": "陸奥岩崎",
+   "kilo": 50.9,
+   "alias": ""
+  },
+  {
+   "name": "陸奥沢辺",
+   "kilo": 53.6,
+   "alias": ""
+  },
+  {
+   "name": "ウェスパ椿山",
+   "kilo": 56.0,
+   "alias": ""
+  },
+  {
+   "name": "艫作",
+   "kilo": 57.9,
+   "alias": ""
+  },
+  {
+   "name": "横磯",
+   "kilo": 61.4,
+   "alias": ""
+  },
+  {
+   "name": "深浦",
+   "kilo": 66.9,
+   "alias": ""
+  },
+  {
+   "name": "広戸",
+   "kilo": 70.8,
+   "alias": ""
+  },
+  {
+   "name": "追良瀬",
+   "kilo": 72.9,
+   "alias": ""
+  },
+  {
+   "name": "驫木",
+   "kilo": 76.0,
+   "alias": ""
+  },
+  {
+   "name": "風合瀬",
+   "kilo": 79.0,
+   "alias": ""
+  },
+  {
+   "name": "大戸瀬",
+   "kilo": 83.9,
+   "alias": ""
+  },
+  {
+   "name": "千畳敷",
+   "kilo": 86.0,
+   "alias": ""
+  },
+  {
+   "name": "北金ケ沢",
+   "kilo": 90.6,
+   "alias": ""
+  },
+  {
+   "name": "陸奥柳田",
+   "kilo": 93.3,
+   "alias": ""
+  },
+  {
+   "name": "陸奥赤石",
+   "kilo": 97.4,
+   "alias": ""
+  },
+  {
+   "name": "鰺ケ沢",
+   "kilo": 103.8,
+   "alias": ""
+  },
+  {
+   "name": "鳴沢",
+   "kilo": 108.3,
+   "alias": ""
+  },
+  {
+   "name": "越水",
+   "kilo": 111.0,
+   "alias": ""
+  },
+  {
+   "name": "陸奥森田",
+   "kilo": 114.5,
+   "alias": ""
+  },
+  {
+   "name": "中田",
+   "kilo": 116.9,
+   "alias": ""
+  },
+  {
+   "name": "木造",
+   "kilo": 119.5,
+   "alias": ""
+  },
+  {
+   "name": "五所川原",
+   "kilo": 125.7,
+   "alias": ""
+  },
+  {
+   "name": "陸奥鶴田",
+   "kilo": 131.7,
+   "alias": ""
+  },
+  {
+   "name": "鶴泊",
+   "kilo": 134.1,
+   "alias": ""
+  },
+  {
+   "name": "板柳",
+   "kilo": 138.9,
+   "alias": ""
+  },
+  {
+   "name": "林崎",
+   "kilo": 141.9,
+   "alias": ""
+  },
+  {
+   "name": "藤崎",
+   "kilo": 144.7,
+   "alias": ""
+  },
+  {
+   "name": "川部",
+   "kilo": 147.2,
+   "alias": ""
+  }
+ ],
+ "topology": {
+  "secondary": [
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false
+  ],
+  "branches": [
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [
+    {
+     "stations": [
+      {
+       "name": "撫牛子",
+       "kilo": 3.6
+      }
+     ]
+    }
+   ]
+  ]
+ },
+ "track_layout": {
+  "stations": [
+   "quadruple",
+   "double.3",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "double.3",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "triple.3",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "triple.3",
+   "single",
+   "single",
+   "triple.3",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "quadruple",
+   "single",
+   "single",
+   "double.3",
+   "single",
+   "single",
+   "quadruple"
+  ],
+  "sections": [
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single"
+  ]
+ }
+}

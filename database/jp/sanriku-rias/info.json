@@ -1,0 +1,50 @@
+{
+	"name": {
+		"zh": "三陸鐵道谷灣線",
+		"en": "Sanriku Railway Rias Line",
+		"ja": "三陸鉄道リアス線"
+	},
+	"section": {
+		"zh": "盛 – 久慈",
+		"en": "Sakari – Kuji",
+		"ja": "盛 – 久慈"
+	},
+	"companies": [
+		"sanriku"
+	],
+	"types": [
+		"railway"
+	],
+	"regions": [
+		"tohoku"
+	],
+	"route": [
+		{
+			"date": "2020-05-18",
+			"title": "新田老站開業",
+			"kind": "route",
+			"tags": [
+				"mileage",
+				"topology"
+			],
+			"files": {
+				"json": "releases/route-2020-05-18.json"
+			},
+			"latest": true
+		}
+	],
+	"all": [
+		{
+			"date": "2026-03-14",
+			"title": "2026年3月改點",
+			"kind": "all",
+			"tags": [
+				"arrival"
+			],
+			"files": {
+				"json": "releases/all-2026-03-14.json"
+			},
+			"latest": true
+		}
+	]
+}

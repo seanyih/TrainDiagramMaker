@@ -1,0 +1,268 @@
+{
+ "route_name": "JR花輪線 (好摩-大館)",
+ "stations": [
+  {
+   "name": "好摩",
+   "kilo": 0.0,
+   "alias": ""
+  },
+  {
+   "name": "東大更",
+   "kilo": 4.9,
+   "alias": ""
+  },
+  {
+   "name": "大更",
+   "kilo": 9.0,
+   "alias": ""
+  },
+  {
+   "name": "平館",
+   "kilo": 13.7,
+   "alias": ""
+  },
+  {
+   "name": "北森",
+   "kilo": 15.0,
+   "alias": ""
+  },
+  {
+   "name": "松尾八幡平",
+   "kilo": 17.8,
+   "alias": ""
+  },
+  {
+   "name": "安比高原",
+   "kilo": 25.0,
+   "alias": ""
+  },
+  {
+   "name": "赤坂田",
+   "kilo": 30.0,
+   "alias": ""
+  },
+  {
+   "name": "小屋の畑",
+   "kilo": 33.6,
+   "alias": ""
+  },
+  {
+   "name": "荒屋新町",
+   "kilo": 37.6,
+   "alias": ""
+  },
+  {
+   "name": "横間",
+   "kilo": 40.3,
+   "alias": ""
+  },
+  {
+   "name": "田山",
+   "kilo": 49.1,
+   "alias": ""
+  },
+  {
+   "name": "兄畑",
+   "kilo": 55.8,
+   "alias": ""
+  },
+  {
+   "name": "湯瀬温泉",
+   "kilo": 59.9,
+   "alias": ""
+  },
+  {
+   "name": "八幡平",
+   "kilo": 64.2,
+   "alias": ""
+  },
+  {
+   "name": "陸中大里",
+   "kilo": 66.1,
+   "alias": ""
+  },
+  {
+   "name": "鹿角花輪",
+   "kilo": 69.7,
+   "alias": ""
+  },
+  {
+   "name": "柴平",
+   "kilo": 74.4,
+   "alias": ""
+  },
+  {
+   "name": "十和田南",
+   "kilo": 77.7,
+   "alias": ""
+  },
+  {
+   "name": "末広",
+   "kilo": 82.2,
+   "alias": ""
+  },
+  {
+   "name": "土深井",
+   "kilo": 84.6,
+   "alias": ""
+  },
+  {
+   "name": "沢尻",
+   "kilo": 86.6,
+   "alias": ""
+  },
+  {
+   "name": "十二所",
+   "kilo": 89.6,
+   "alias": ""
+  },
+  {
+   "name": "大滝温泉",
+   "kilo": 92.1,
+   "alias": ""
+  },
+  {
+   "name": "扇田",
+   "kilo": 98.6,
+   "alias": ""
+  },
+  {
+   "name": "東大館",
+   "kilo": 103.3,
+   "alias": ""
+  },
+  {
+   "name": "大館",
+   "kilo": 106.9,
+   "alias": ""
+  }
+ ],
+ "topology": {
+  "secondary": [
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false
+  ],
+  "branches": [
+   [
+    {
+     "stations": [
+      {
+       "name": "渋民",
+       "kilo": 4.7
+      }
+     ]
+    }
+   ],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   []
+  ]
+ },
+ "track_layout": {
+  "stations": [
+   "quadruple",
+   "single",
+   "double.3",
+   "single",
+   "single",
+   "double.3",
+   "single",
+   "single",
+   "single",
+   "quadruple",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "quadruple",
+   "single",
+   "double.3",
+   "single",
+   "single",
+   "single",
+   "single",
+   "double.3",
+   "single",
+   "single",
+   "quadruple"
+  ],
+  "sections": [
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single"
+  ]
+ }
+}

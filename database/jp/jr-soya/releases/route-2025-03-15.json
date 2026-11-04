@@ -1,0 +1,452 @@
+{
+ "route_name": "JR宗谷本線 (旭川-稚内)",
+ "stations": [
+  {
+   "name": "旭川",
+   "kilo": 0.0,
+   "alias": "",
+   "stopsec": 60
+  },
+  {
+   "name": "旭川四条",
+   "kilo": 1.8,
+   "alias": "",
+   "stopsec": 60
+  },
+  {
+   "name": "新旭川",
+   "kilo": 3.7,
+   "alias": "",
+   "stopsec": 60
+  },
+  {
+   "name": "永山",
+   "kilo": 9.3,
+   "alias": "",
+   "stopsec": 60
+  },
+  {
+   "name": "北永山",
+   "kilo": 11.4,
+   "alias": "",
+   "stopsec": 60
+  },
+  {
+   "name": "比布",
+   "kilo": 17.1,
+   "alias": "",
+   "stopsec": 60
+  },
+  {
+   "name": "蘭留",
+   "kilo": 22.8,
+   "alias": "",
+   "stopsec": 60
+  },
+  {
+   "name": "塩狩",
+   "kilo": 28.4,
+   "alias": "",
+   "stopsec": 60
+  },
+  {
+   "name": "和寒",
+   "kilo": 36.3,
+   "alias": "",
+   "stopsec": 60
+  },
+  {
+   "name": "剣淵",
+   "kilo": 45.2,
+   "alias": "",
+   "stopsec": 60
+  },
+  {
+   "name": "士別",
+   "kilo": 53.9,
+   "alias": "",
+   "stopsec": 60
+  },
+  {
+   "name": "多寄",
+   "kilo": 61.7,
+   "alias": "",
+   "stopsec": 60
+  },
+  {
+   "name": "瑞穂",
+   "kilo": 64.5,
+   "alias": "",
+   "stopsec": 60
+  },
+  {
+   "name": "風連",
+   "kilo": 68.1,
+   "alias": "",
+   "stopsec": 60
+  },
+  {
+   "name": "名寄高校",
+   "kilo": 74.1,
+   "alias": "",
+   "stopsec": 60
+  },
+  {
+   "name": "名寄",
+   "kilo": 76.2,
+   "alias": "",
+   "stopsec": 60
+  },
+  {
+   "name": "日進",
+   "kilo": 80.2,
+   "alias": "",
+   "stopsec": 60
+  },
+  {
+   "name": "智恵文",
+   "kilo": 91.2,
+   "alias": "",
+   "stopsec": 60
+  },
+  {
+   "name": "智北",
+   "kilo": 93.3,
+   "alias": "",
+   "stopsec": 60
+  },
+  {
+   "name": "美深",
+   "kilo": 98.3,
+   "alias": "",
+   "stopsec": 60
+  },
+  {
+   "name": "豊清水信号場",
+   "kilo": 117.9,
+   "alias": "",
+   "stopsec": 60
+  },
+  {
+   "name": "天塩川温泉",
+   "kilo": 121.5,
+   "alias": "",
+   "stopsec": 60
+  },
+  {
+   "name": "咲来",
+   "kilo": 124.7,
+   "alias": "",
+   "stopsec": 60
+  },
+  {
+   "name": "音威子府",
+   "kilo": 129.3,
+   "alias": "",
+   "stopsec": 60
+  },
+  {
+   "name": "筬島",
+   "kilo": 135.6,
+   "alias": "",
+   "stopsec": 60
+  },
+  {
+   "name": "佐久",
+   "kilo": 153.6,
+   "alias": "",
+   "stopsec": 60
+  },
+  {
+   "name": "天塩中川",
+   "kilo": 161.9,
+   "alias": "",
+   "stopsec": 60
+  },
+  {
+   "name": "問寒別",
+   "kilo": 175.8,
+   "alias": "",
+   "stopsec": 60
+  },
+  {
+   "name": "糠南",
+   "kilo": 178.0,
+   "alias": "",
+   "stopsec": 60
+  },
+  {
+   "name": "雄信内信号場",
+   "kilo": 183.7,
+   "alias": "",
+   "stopsec": 60
+  },
+  {
+   "name": "幌延",
+   "kilo": 199.4,
+   "alias": "",
+   "stopsec": 60
+  },
+  {
+   "name": "下沼",
+   "kilo": 207.2,
+   "alias": "",
+   "stopsec": 60
+  },
+  {
+   "name": "豊富",
+   "kilo": 215.9,
+   "alias": "",
+   "stopsec": 60
+  },
+  {
+   "name": "兜沼",
+   "kilo": 230.9,
+   "alias": "",
+   "stopsec": 60
+  },
+  {
+   "name": "勇知",
+   "kilo": 236.7,
+   "alias": "",
+   "stopsec": 60
+  },
+  {
+   "name": "南稚内",
+   "kilo": 256.7,
+   "alias": "",
+   "stopsec": 60
+  },
+  {
+   "name": "稚内",
+   "kilo": 259.4,
+   "alias": "",
+   "stopsec": 60
+  }
+ ],
+ "topology": {
+  "secondary": [
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   true,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   true,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false
+  ],
+  "branches": [
+   [
+    {
+     "stations": [
+      {
+       "name": "深川",
+       "kilo": 30.2
+      }
+     ]
+    }
+   ],
+   [],
+   [
+    {
+     "stations": [
+      {
+       "name": "南永山",
+       "kilo": 2.5
+      },
+      {
+       "name": "当麻",
+       "kilo": 13.9
+      },
+      {
+       "name": "上川",
+       "kilo": 44.9
+      }
+     ]
+    }
+   ],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   []
+  ]
+ },
+ "track_layout": {
+  "stations": [
+   "double.3",
+   "double.0",
+   "triple.3",
+   "double.3",
+   "single",
+   "double.3",
+   "double.3",
+   "double.3",
+   "triple.3",
+   "double.3",
+   "triple.3",
+   "single",
+   "single",
+   "double.3",
+   "single",
+   "triple.3",
+   "single",
+   "single",
+   "single",
+   "double.3",
+   "double.3",
+   "single",
+   "single",
+   "quadruple",
+   "single",
+   "double.3",
+   "double.3",
+   "single",
+   "single",
+   "double.3",
+   "triple.1",
+   "single",
+   "double.3",
+   "double.3",
+   "single",
+   "double.3",
+   "double.3"
+  ],
+  "sections": [
+   "double.0",
+   "double.0",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single"
+  ],
+  "max_speed_enabled": true,
+  "max_speed_all": 120,
+  "max_speeds": [
+   120,
+   120,
+   120,
+   120,
+   120,
+   120,
+   120,
+   120,
+   120,
+   120,
+   120,
+   120,
+   120,
+   120,
+   120,
+   95,
+   95,
+   95,
+   95,
+   95,
+   95,
+   95,
+   95,
+   95,
+   95,
+   95,
+   95,
+   95,
+   95,
+   95,
+   95,
+   95,
+   95,
+   95,
+   95,
+   95
+  ]
+ }
+}

@@ -1,0 +1,218 @@
+{
+ "route_name": "JR田沢湖線 (盛岡-大曲)",
+ "stations": [
+  {
+   "name": "盛岡",
+   "kilo": 0.0,
+   "alias": ""
+  },
+  {
+   "name": "前潟",
+   "kilo": 3.4,
+   "alias": ""
+  },
+  {
+   "name": "大釜",
+   "kilo": 6.0,
+   "alias": ""
+  },
+  {
+   "name": "小岩井",
+   "kilo": 10.5,
+   "alias": ""
+  },
+  {
+   "name": "雫石",
+   "kilo": 16.0,
+   "alias": ""
+  },
+  {
+   "name": "春木場",
+   "kilo": 18.7,
+   "alias": ""
+  },
+  {
+   "name": "赤渕",
+   "kilo": 22.0,
+   "alias": ""
+  },
+  {
+   "name": "大地沢信号場",
+   "kilo": 28.6,
+   "alias": ""
+  },
+  {
+   "name": "志度内信号場",
+   "kilo": 34.4,
+   "alias": ""
+  },
+  {
+   "name": "田沢湖",
+   "kilo": 40.1,
+   "alias": ""
+  },
+  {
+   "name": "刺巻",
+   "kilo": 44.4,
+   "alias": ""
+  },
+  {
+   "name": "神代",
+   "kilo": 52.8,
+   "alias": ""
+  },
+  {
+   "name": "生田",
+   "kilo": 55.3,
+   "alias": ""
+  },
+  {
+   "name": "角館",
+   "kilo": 58.8,
+   "alias": ""
+  },
+  {
+   "name": "鶯野",
+   "kilo": 61.6,
+   "alias": ""
+  },
+  {
+   "name": "羽後長野",
+   "kilo": 64.6,
+   "alias": ""
+  },
+  {
+   "name": "鑓見内",
+   "kilo": 67.9,
+   "alias": ""
+  },
+  {
+   "name": "羽後四ツ屋",
+   "kilo": 70.2,
+   "alias": ""
+  },
+  {
+   "name": "北大曲",
+   "kilo": 72.0,
+   "alias": ""
+  },
+  {
+   "name": "大曲",
+   "kilo": 75.6,
+   "alias": ""
+  }
+ ],
+ "topology": {
+  "secondary": [
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   true,
+   true,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false
+  ],
+  "branches": [
+   [
+    {
+     "stations": [
+      {
+       "name": "新花巻",
+       "kilo": 33.4
+      },
+      {
+       "name": "仙台",
+       "kilo": 171.1
+      }
+     ]
+    }
+   ],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [
+    {
+     "stations": [
+      {
+       "name": "秋田",
+       "kilo": 51.6
+      }
+     ]
+    }
+   ]
+  ]
+ },
+ "track_layout": {
+  "stations": [
+   "quadruple",
+   "single",
+   "double.3",
+   "double.3",
+   "triple.3",
+   "single",
+   "double.3",
+   "double.3",
+   "double.3",
+   "triple.3",
+   "double.3",
+   "double.3",
+   "single",
+   "triple.3",
+   "single",
+   "double.3",
+   "single",
+   "double.3",
+   "single",
+   "single"
+  ],
+  "sections": [
+   "single",
+   "single",
+   "double.0",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "double.0",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single"
+  ]
+ }
+}

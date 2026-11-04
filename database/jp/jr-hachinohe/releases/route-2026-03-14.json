@@ -1,0 +1,179 @@
+{
+ "route_name": "JR八戸線 (八戸-久慈)",
+ "stations": [
+  {
+   "name": "八戸",
+   "kilo": 0.0,
+   "alias": ""
+  },
+  {
+   "name": "長苗代",
+   "kilo": 3.4,
+   "alias": ""
+  },
+  {
+   "name": "本八戸",
+   "kilo": 5.5,
+   "alias": ""
+  },
+  {
+   "name": "小中野",
+   "kilo": 7.3,
+   "alias": ""
+  },
+  {
+   "name": "陸奥湊",
+   "kilo": 9.0,
+   "alias": ""
+  },
+  {
+   "name": "白銀",
+   "kilo": 10.3,
+   "alias": ""
+  },
+  {
+   "name": "鮫",
+   "kilo": 11.8,
+   "alias": ""
+  },
+  {
+   "name": "陸奥白浜",
+   "kilo": 17.5,
+   "alias": ""
+  },
+  {
+   "name": "種差海岸",
+   "kilo": 19.6,
+   "alias": ""
+  },
+  {
+   "name": "大久喜",
+   "kilo": 21.8,
+   "alias": ""
+  },
+  {
+   "name": "金浜",
+   "kilo": 24.3,
+   "alias": ""
+  },
+  {
+   "name": "大蛇",
+   "kilo": 25.8,
+   "alias": ""
+  },
+  {
+   "name": "階上",
+   "kilo": 27.5,
+   "alias": ""
+  },
+  {
+   "name": "角の浜",
+   "kilo": 29.5,
+   "alias": ""
+  },
+  {
+   "name": "平内",
+   "kilo": 32.1,
+   "alias": ""
+  },
+  {
+   "name": "種市",
+   "kilo": 34.2,
+   "alias": ""
+  },
+  {
+   "name": "玉川",
+   "kilo": 38.1,
+   "alias": ""
+  },
+  {
+   "name": "宿戸",
+   "kilo": 40.0,
+   "alias": ""
+  },
+  {
+   "name": "陸中八木",
+   "kilo": 43.1,
+   "alias": ""
+  },
+  {
+   "name": "有家",
+   "kilo": 45.8,
+   "alias": ""
+  },
+  {
+   "name": "陸中中野",
+   "kilo": 48.4,
+   "alias": ""
+  },
+  {
+   "name": "侍浜",
+   "kilo": 54.4,
+   "alias": ""
+  },
+  {
+   "name": "陸中夏井",
+   "kilo": 61.7,
+   "alias": ""
+  },
+  {
+   "name": "久慈",
+   "kilo": 64.9,
+   "alias": ""
+  }
+ ],
+ "topology": {
+  "secondary": [
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false
+  ],
+  "branches": [
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   []
+  ]
+ }
+}

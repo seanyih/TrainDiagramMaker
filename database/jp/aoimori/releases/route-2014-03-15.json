@@ -1,0 +1,290 @@
+{
+ "route_name": "青い森鉄道線 (目時-青森)",
+ "stations": [
+  {
+   "name": "目時",
+   "kilo": 0.0,
+   "alias": ""
+  },
+  {
+   "name": "三戸",
+   "kilo": 5.5,
+   "alias": ""
+  },
+  {
+   "name": "諏訪ノ平",
+   "kilo": 9.5,
+   "alias": ""
+  },
+  {
+   "name": "剣吉",
+   "kilo": 14.8,
+   "alias": ""
+  },
+  {
+   "name": "苫米地",
+   "kilo": 18.2,
+   "alias": ""
+  },
+  {
+   "name": "北高岩",
+   "kilo": 21.0,
+   "alias": ""
+  },
+  {
+   "name": "八戸",
+   "kilo": 25.9,
+   "alias": ""
+  },
+  {
+   "name": "陸奥市川",
+   "kilo": 32.8,
+   "alias": ""
+  },
+  {
+   "name": "下田",
+   "kilo": 37.0,
+   "alias": ""
+  },
+  {
+   "name": "向山",
+   "kilo": 42.2,
+   "alias": ""
+  },
+  {
+   "name": "三沢",
+   "kilo": 46.9,
+   "alias": ""
+  },
+  {
+   "name": "小川原",
+   "kilo": 53.5,
+   "alias": ""
+  },
+  {
+   "name": "上北町",
+   "kilo": 57.4,
+   "alias": ""
+  },
+  {
+   "name": "乙供",
+   "kilo": 64.3,
+   "alias": ""
+  },
+  {
+   "name": "千曳",
+   "kilo": 70.9,
+   "alias": ""
+  },
+  {
+   "name": "野辺地",
+   "kilo": 77.3,
+   "alias": ""
+  },
+  {
+   "name": "狩場沢",
+   "kilo": 83.8,
+   "alias": ""
+  },
+  {
+   "name": "清水川",
+   "kilo": 88.5,
+   "alias": ""
+  },
+  {
+   "name": "小湊",
+   "kilo": 94.5,
+   "alias": ""
+  },
+  {
+   "name": "西平内",
+   "kilo": 98.3,
+   "alias": ""
+  },
+  {
+   "name": "浅虫温泉",
+   "kilo": 104.7,
+   "alias": ""
+  },
+  {
+   "name": "野内",
+   "kilo": 111.2,
+   "alias": ""
+  },
+  {
+   "name": "矢田前",
+   "kilo": 112.7,
+   "alias": ""
+  },
+  {
+   "name": "小柳",
+   "kilo": 114.7,
+   "alias": ""
+  },
+  {
+   "name": "東青森",
+   "kilo": 116.1,
+   "alias": ""
+  },
+  {
+   "name": "筒井",
+   "kilo": 117.5,
+   "alias": ""
+  },
+  {
+   "name": "青森信号場",
+   "kilo": 120.0,
+   "alias": ""
+  },
+  {
+   "name": "青森",
+   "kilo": 121.9,
+   "alias": ""
+  }
+ ],
+ "topology": {
+  "secondary": [
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   true,
+   false
+  ],
+  "branches": [
+   [
+    {
+     "stations": [
+      {
+       "name": "金田一温泉",
+       "kilo": 3.6
+      }
+     ]
+    }
+   ],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [
+    {
+     "stations": [
+      {
+       "name": "北野辺地",
+       "kilo": 2.8
+      },
+      {
+       "name": "陸奥横浜",
+       "kilo": 30.1
+      }
+     ]
+    }
+   ],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   []
+  ]
+ },
+ "track_layout": {
+  "stations": [
+   "double.0",
+   "triple.3",
+   "double.0",
+   "double.0",
+   "double.0",
+   "triple.3",
+   "quadruple",
+   "double.0",
+   "triple.3",
+   "double.0",
+   "triple.2",
+   "double.0",
+   "triple.3",
+   "triple.3",
+   "double.0",
+   "quadruple",
+   "triple.3",
+   "double.0",
+   "triple.3",
+   "double.0",
+   "triple.3",
+   "double.0",
+   "double.0",
+   "double.0",
+   "quadruple",
+   "double.0",
+   "quadruple",
+   "quadruple"
+  ],
+  "sections": [
+   "double.0",
+   "double.0",
+   "double.0",
+   "double.0",
+   "double.0",
+   "double.0",
+   "double.0",
+   "double.0",
+   "double.0",
+   "double.0",
+   "double.0",
+   "double.0",
+   "double.0",
+   "double.0",
+   "double.0",
+   "double.0",
+   "double.0",
+   "double.0",
+   "double.0",
+   "double.0",
+   "double.0",
+   "double.0",
+   "double.0",
+   "double.0",
+   "double.0",
+   "double.0",
+   "double.0"
+  ]
+ }
+}

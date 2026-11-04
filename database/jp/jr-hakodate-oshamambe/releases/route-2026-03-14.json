@@ -1,0 +1,281 @@
+{
+ "route_name": "JR函館本線 (函館-長万部)",
+ "stations": [
+  {
+   "name": "函館",
+   "kilo": 0.0,
+   "alias": ""
+  },
+  {
+   "name": "五稜郭",
+   "kilo": 3.4,
+   "alias": ""
+  },
+  {
+   "name": "桔梗",
+   "kilo": 8.3,
+   "alias": ""
+  },
+  {
+   "name": "大中山",
+   "kilo": 10.4,
+   "alias": ""
+  },
+  {
+   "name": "七飯",
+   "kilo": 13.8,
+   "alias": ""
+  },
+  {
+   "name": "新函館北斗",
+   "kilo": 17.9,
+   "alias": ""
+  },
+  {
+   "name": "仁山信号場",
+   "kilo": 21.2,
+   "alias": ""
+  },
+  {
+   "name": "大沼",
+   "kilo": 27.0,
+   "alias": ""
+  },
+  {
+   "name": "大沼公園",
+   "kilo": 28.0,
+   "alias": ""
+  },
+  {
+   "name": "赤井川",
+   "kilo": 31.7,
+   "alias": ""
+  },
+  {
+   "name": "駒ケ岳",
+   "kilo": 36.5,
+   "alias": ""
+  },
+  {
+   "name": "姫川信号場",
+   "kilo": 44.2,
+   "alias": ""
+  },
+  {
+   "name": "森",
+   "kilo": 49.5,
+   "alias": ""
+  },
+  {
+   "name": "石谷信号場",
+   "kilo": 56.1,
+   "alias": ""
+  },
+  {
+   "name": "石倉",
+   "kilo": 62.1,
+   "alias": ""
+  },
+  {
+   "name": "落部",
+   "kilo": 66.1,
+   "alias": ""
+  },
+  {
+   "name": "野田生",
+   "kilo": 71.4,
+   "alias": ""
+  },
+  {
+   "name": "山越",
+   "kilo": 76.0,
+   "alias": ""
+  },
+  {
+   "name": "八雲",
+   "kilo": 81.1,
+   "alias": ""
+  },
+  {
+   "name": "鷲ノ巣信号場",
+   "kilo": 84.2,
+   "alias": ""
+  },
+  {
+   "name": "山崎",
+   "kilo": 88.3,
+   "alias": ""
+  },
+  {
+   "name": "黒岩",
+   "kilo": 94.4,
+   "alias": ""
+  },
+  {
+   "name": "北豊津信号場",
+   "kilo": 98.2,
+   "alias": ""
+  },
+  {
+   "name": "国縫",
+   "kilo": 102.8,
+   "alias": ""
+  },
+  {
+   "name": "長万部",
+   "kilo": 112.3,
+   "alias": ""
+  }
+ ],
+ "topology": {
+  "secondary": [
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   true,
+   false,
+   false,
+   false,
+   false,
+   true,
+   false,
+   true,
+   false,
+   false,
+   false,
+   false,
+   false,
+   true,
+   false,
+   false,
+   true,
+   false,
+   false
+  ],
+  "branches": [
+   [],
+   [
+    {
+     "stations": [
+      {
+       "name": "七重浜",
+       "kilo": 2.7
+      }
+     ]
+    }
+   ],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [
+    {
+     "stations": [
+      {
+       "name": "鹿部",
+       "kilo": 14.6
+      }
+     ]
+    }
+   ],
+   [],
+   [],
+   [],
+   [],
+   [
+    {
+     "stations": [
+      {
+       "name": "東森",
+       "kilo": 1.8
+      }
+     ]
+    }
+   ],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [
+    {
+     "stations": [
+      {
+       "name": "洞爺",
+       "kilo": 41.5
+      },
+      {
+       "name": "東室蘭",
+       "kilo": 77.2
+      }
+     ]
+    }
+   ]
+  ]
+ },
+ "track_layout": {
+  "stations": [
+   "quadruple",
+   "quadruple",
+   "double.0",
+   "double.0",
+   "triple.3",
+   "triple.3",
+   "double.3",
+   "quadruple",
+   "single",
+   "double.3",
+   "double.3",
+   "double.3",
+   "triple.3",
+   "double.0",
+   "double.0",
+   "triple.3",
+   "double.0",
+   "double.0",
+   "quadruple",
+   "double.0",
+   "triple.3",
+   "double.0",
+   "double.0",
+   "triple.3",
+   "quadruple"
+  ],
+  "sections": [
+   "double.0",
+   "double.0",
+   "double.0",
+   "double.0",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "double.0",
+   "double.0",
+   "double.0",
+   "double.0",
+   "double.0",
+   "double.0",
+   "double.0",
+   "single",
+   "double.0",
+   "single",
+   "double.0",
+   "double.0"
+  ]
+ }
+}

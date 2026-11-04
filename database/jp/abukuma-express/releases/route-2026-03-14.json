@@ -1,0 +1,268 @@
+{
+ "route_name": "阿武隈急行線 (福島-槻木)",
+ "stations": [
+  {
+   "name": "福島",
+   "kilo": 0.0,
+   "alias": ""
+  },
+  {
+   "name": "矢野目信号場",
+   "kilo": 4.7,
+   "alias": ""
+  },
+  {
+   "name": "卸町",
+   "kilo": 5.6,
+   "alias": ""
+  },
+  {
+   "name": "福島学院前",
+   "kilo": 6.5,
+   "alias": ""
+  },
+  {
+   "name": "瀬上",
+   "kilo": 7.5,
+   "alias": ""
+  },
+  {
+   "name": "向瀬上",
+   "kilo": 8.6,
+   "alias": ""
+  },
+  {
+   "name": "高子",
+   "kilo": 10.1,
+   "alias": ""
+  },
+  {
+   "name": "上保原",
+   "kilo": 11.5,
+   "alias": ""
+  },
+  {
+   "name": "保原",
+   "kilo": 12.8,
+   "alias": ""
+  },
+  {
+   "name": "大泉",
+   "kilo": 13.9,
+   "alias": ""
+  },
+  {
+   "name": "二井田",
+   "kilo": 15.4,
+   "alias": ""
+  },
+  {
+   "name": "新田",
+   "kilo": 17.0,
+   "alias": ""
+  },
+  {
+   "name": "梁川",
+   "kilo": 18.3,
+   "alias": ""
+  },
+  {
+   "name": "やながわ希望の森公園前",
+   "kilo": 20.0,
+   "alias": ""
+  },
+  {
+   "name": "富野",
+   "kilo": 22.1,
+   "alias": ""
+  },
+  {
+   "name": "兜",
+   "kilo": 25.2,
+   "alias": ""
+  },
+  {
+   "name": "あぶくま",
+   "kilo": 29.4,
+   "alias": ""
+  },
+  {
+   "name": "丸森",
+   "kilo": 37.5,
+   "alias": ""
+  },
+  {
+   "name": "北丸森",
+   "kilo": 39.2,
+   "alias": ""
+  },
+  {
+   "name": "南角田",
+   "kilo": 41.6,
+   "alias": ""
+  },
+  {
+   "name": "角田",
+   "kilo": 43.3,
+   "alias": ""
+  },
+  {
+   "name": "横倉",
+   "kilo": 45.2,
+   "alias": ""
+  },
+  {
+   "name": "岡",
+   "kilo": 47.7,
+   "alias": ""
+  },
+  {
+   "name": "東船岡",
+   "kilo": 51.3,
+   "alias": ""
+  },
+  {
+   "name": "槻木",
+   "kilo": 54.9,
+   "alias": ""
+  }
+ ],
+ "topology": {
+  "secondary": [
+   false,
+   true,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false
+  ],
+  "branches": [
+   [
+    {
+     "stations": [
+      {
+       "name": "南福島",
+       "kilo": 3.4
+      }
+     ]
+    }
+   ],
+   [
+    {
+     "stations": [
+      {
+       "name": "東福島",
+       "kilo": 1.4
+      }
+     ]
+    }
+   ],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [
+    {
+     "stations": [
+      {
+       "name": "岩沼",
+       "kilo": 6.5
+      }
+     ]
+    }
+   ]
+  ]
+ },
+ "track_layout": {
+  "stations": [
+   "quadruple",
+   "single",
+   "single",
+   "single",
+   "double.3",
+   "single",
+   "double.3",
+   "single",
+   "double.3",
+   "single",
+   "double.3",
+   "single",
+   "double.3",
+   "single",
+   "double.3",
+   "single",
+   "single",
+   "double.3",
+   "single",
+   "single",
+   "double.3",
+   "single",
+   "single",
+   "double.3",
+   "single"
+  ],
+  "sections": [
+   "double.0",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single"
+  ]
+ }
+}
