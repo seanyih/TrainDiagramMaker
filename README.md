@@ -50,6 +50,8 @@
 ├── 404.html
 ├── robots.txt              SEO
 ├── _redirects, _headers    Cloudflare Pages 設定
+├── _routes.json            只有 /database/* 經過 Pages Function，其餘是靜態檔案
+├── functions/database/     /database/* → 私有 repo TrainDiagramMaker_data 的 database/ (見下方「資料庫」)
 │
 ├── zh/                     繁體中文 (之後的語言用相同的結構)
 │   ├── index.html          首頁
@@ -80,3 +82,23 @@ python -m http.server 8765
 ```
 
 開啟 `http://localhost:8765/`。修改手冊後執行 `python manual/build.py` (需 `pip install markdown`)。
+
+## 資料庫
+
+資料庫 (路線 & 運行圖，`zh/database/` 頁面讀取) 不在本 repo，而在私有 repo [TrainDiagramMaker_data](https://github.com/seanyih/TrainDiagramMaker_data) 的 `database/` (格式見該資料夾的 README)。
+網站仍從同一個網域的 `/database/…` 讀取 (`DB_BASE`，`program/util/database.js`)，由 Pages Function `functions/database/[[path]].js` 用唯讀 token 向 GitHub 取檔並存進 Cloudflare 的快取：
+
+| 檔案 | 快取 |
+|---|---|
+| `<國家>/<路線>/releases/*` | 1 年 (發布後不再修改) |
+| 其他 (`catalog.json`、`info.json`) | 5 分鐘：push 到資料 repo 後最多 5 分鐘生效 |
+
+設定 (Cloudflare Pages 專案 → Settings → Variables and Secrets，Production 與 Preview 都要)：
+
+| 名稱 | 值 |
+|---|---|
+| `GITHUB_TOKEN` (Secret) | GitHub fine-grained token：Repository access 只選 `TrainDiagramMaker_data`，Permissions → Contents: **Read-only** |
+| `DATA_REF` | 選填，讀取的 branch / tag / commit，預設 `main` |
+| `DATA_REPO`、`DATA_DIR` | 選填，預設 `seanyih/TrainDiagramMaker_data`、`database` |
+
+本地執行時 `python -m http.server` 沒有 `/database/`；要連資料庫時改用 `npx wrangler pages dev . --port 8765`，token 放在 `.dev.vars` (`GITHUB_TOKEN=...`，不進 git)。

@@ -1,5 +1,6 @@
 /*
-	Route & diagram database: database/ of this site, served as is (see database/README.md).
+	Route & diagram database: /database/ of this site is a Pages Function (functions/database/) that reads
+	database/ of the private repo TrainDiagramMaker_data (format: its database/README.md).
 	catalog.json -> <country>/catalog.json -> <country>/<line>/info.json
 */
 const DB_BASE = "/database";
