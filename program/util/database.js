@@ -1,9 +1,9 @@
 /*
-	Route & diagram database: /database/ of this site is a Pages Function (functions/database/) that reads
-	database/ of the private repo TrainDiagramMaker_data (format: its database/README.md).
+	Route & diagram database: the Worker workers/database/ serves database/ of the private repo
+	TrainDiagramMaker_data (format: its database/README.md). DB_BASE = that Worker's workers.dev address.
 	catalog.json -> <country>/catalog.json -> <country>/<line>/info.json
 */
-const DB_BASE = "/database";
+const DB_BASE = "https://rtd-database.YOUR-SUBDOMAIN.workers.dev";	// TODO: the address `wrangler deploy` prints
 const DB_LINE_ID = /^[a-z0-9-]+\/[a-z0-9-]+$/;
 const DB_FILE = /^[a-z0-9-]+\/[a-z0-9-]+\/releases\/[\w.-]+$/;
 // the search page's query string, for Back on the line page

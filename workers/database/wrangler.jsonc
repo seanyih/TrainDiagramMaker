@@ -1,0 +1,20 @@
+// Worker that serves the database (private repo TrainDiagramMaker_data, folder database/) to the site.
+// Deploy from this folder: npx wrangler deploy   ->   https://rtd-database.<your subdomain>.workers.dev
+// Secret: npx wrangler secret put GITHUB_TOKEN   (fine-grained token: only TrainDiagramMaker_data, Contents: Read-only)
+{
+	"$schema": "../../node_modules/wrangler/config-schema.json",
+	"name": "rtd-database",
+	"main": "src/index.js",
+	"compatibility_date": "2025-09-01",
+	"workers_dev": true,
+	"vars": {
+		"DATA_REPO": "seanyih/TrainDiagramMaker_data",
+		"DATA_REF": "main",
+		"DATA_DIR": "database",
+		// comma-separated origins allowed to read (CORS), or *
+		"ALLOWED_ORIGINS": "*"
+	}
+	// Optional, recommended: a KV namespace shared by every data center, so GitHub is asked only when a file changes.
+	// npx wrangler kv namespace create DB_KV   then uncomment with the id it prints:
+	// ,"kv_namespaces": [ { "binding": "DB_KV", "id": "<id>" } ]
+}
