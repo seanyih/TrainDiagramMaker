@@ -97,11 +97,14 @@ function passingReport(m, written){
 // ---- 8. how close the result comes to each limit ----
 
 function passingLimits(m){
-	const { minExtraPassingWaiting, maxSearchDepth, interpolationSpeedRatio, interpolationMaxError } = SETTINGS.passingTime;
+	const { minOvertakingStopTime, minCrossingStopTime, maxSearchDepth, interpolationSpeedRatio, interpolationMaxError } = SETTINGS.passingTime;
 	const limits = [];
 	const wait = shortestWait(m);
-	limits.push({ name: "最短待避額外停等時間", setting: `${minExtraPassingWaiting} 秒`,
-		value: wait ? `${Math.round(wait.extra)} 秒` : "沒有站內待避", where: wait?.where ?? "" });
+	limits.push({ name: "最短待避停車時間", setting: `${minOvertakingStopTime} 秒`,
+		value: wait ? `${Math.round(wait.dwell)} 秒` : "沒有站內待避", where: wait?.where ?? "" });
+	const cross = shortestCrossWait(m);
+	limits.push({ name: "最短交會停車時間", setting: `${minCrossingStopTime} 秒`,
+		value: cross ? `${Math.round(cross.dwell)} 秒` : "沒有站內交會", where: cross?.where ?? "" });
 	const gap = shortestGap(m);
 	limits.push({ name: "最短時隔", setting: `${m.gap} 秒`, value: gap ? `${Math.round(gap.gap)} 秒` : "—",
 		where: gap ? `${gap.where}${m.headway ? "" : " (未勾選微調，不檢查)"}` : "" });
@@ -125,7 +128,7 @@ function middleTrains(m, bound, k){
 	return m.present[stationElement(m, bound, k)][bound].filter(t => k != t.first && k != t.last);
 }
 
-// the shortest stop beyond stopsec of a train overtaken while it stops at a station
+// the shortest stop of a train overtaken while it stops at a station
 function shortestWait(m){
 	let best = null;
 	for(let r = 0; r < m.count; r++){
@@ -135,11 +138,30 @@ function shortestWait(m){
 			trains.forEach((y, i) => trains.slice(i + 1).forEach(x => {
 				if((x.arr[k] - y.arr[k])*(x.dep[k] - y.dep[k]) >= 0) return;
 				const [waits, passes] = (y.arr[k] < x.arr[k]) ? [y, x] : [x, y];
-				const extra = waits.dep[k] - waits.arr[k] - m.stopsecs[bound][k];
-				if(best && extra >= best.extra) return;
-				best = { extra: extra, where: `${reportStation(m, bound, k)}${BOUND_NAMES[bound]} ${reportTrain(waits)}停 ${Math.round(waits.dep[k] - waits.arr[k])} 秒 (${reportClock(waits.arr[k])} ~ ${reportClock(waits.dep[k])})，${reportTrain(passes)}${stopEvent(passes, k, true)}` };
+				const dwell = waits.dep[k] - waits.arr[k];
+				if(best && dwell >= best.dwell) return;
+				best = { dwell: dwell, where: `${reportStation(m, bound, k)}${BOUND_NAMES[bound]} ${reportTrain(waits)}停 ${Math.round(waits.dep[k] - waits.arr[k])} 秒 (${reportClock(waits.arr[k])} ~ ${reportClock(waits.dep[k])})，${reportTrain(passes)}${stopEvent(passes, k, true)}` };
 			}));
 		});
+	}
+	return best;
+}
+
+// the shortest stop of a train at a station next to single track while an opposite train is there too (the one that arrived first)
+function shortestCrossWait(m){
+	let best = null;
+	for(let r = 0; r < m.count; r++){
+		if(!nextToSingle(m, 2*r)) continue;
+		const [as, bs] = [1, 2].map(bound => middleTrains(m, bound, routeIndex(m, bound, r)));
+		as.forEach(a => bs.forEach(b => {
+			const [ka, kb] = [routeIndex(m, a.bound, r), routeIndex(m, b.bound, r)];
+			if(a.dep[ka] <= b.arr[kb] || b.dep[kb] <= a.arr[ka]) return;
+			const [waits, passes] = (a.arr[ka] <= b.arr[kb]) ? [a, b] : [b, a];
+			const k = routeIndex(m, waits.bound, r);
+			const dwell = waits.dep[k] - waits.arr[k];
+			if(best && dwell >= best.dwell) return;
+			best = { dwell: dwell, where: `${reportStation(m, waits.bound, k)}${BOUND_NAMES[waits.bound]} ${reportTrain(waits)}停 ${Math.round(dwell)} 秒 (${reportClock(waits.arr[k])} ~ ${reportClock(waits.dep[k])})，${reportTrain(passes)}${stopEvent(passes, routeIndex(m, passes.bound, r), true)}` };
+		}));
 	}
 	return best;
 }
@@ -253,7 +275,7 @@ function rerouteReason(m, c, t){
 
 // the stations where x could pass while y waits (the window of addCandidates()), each with why it does not work
 function diagnoseWait(m, c, x, y){
-	const { maxSearchDepth, minExtraPassingWaiting } = SETTINGS.passingTime;
+	const { maxSearchDepth } = SETTINGS.passingTime;
 	const station = (c.e % 2 == 0);
 	const k = elementOrder(m, x.bound, c.e);
 	const end = station ? k : k + 1;
@@ -271,13 +293,13 @@ function diagnoseWait(m, c, x, y){
 	orders.sort((a, b) => distanceOf(a) - distanceOf(b)).forEach(s => {
 		const distance = distanceOf(s);
 		if(distance <= maxSearchDepth){
-			const why = waitReason(m, c, x, y, p, q, s, minExtraPassingWaiting);
+			const why = waitReason(m, c, x, y, p, q, s);
 			if(why) reasons.push(`　${name(s)}：${why.text}`);
 			return;
 		}
 		SETTINGS.passingTime.maxSearchDepth = distance;
 		try{
-			const why = waitReason(m, c, x, y, p, q, s, minExtraPassingWaiting);
+			const why = waitReason(m, c, x, y, p, q, s);
 			if(why?.candidate) reasons.push(`　${name(s)} (距離 ${distance} 站，超過最大搜尋深度)：${why.text}`);
 			else far.push(name(s));
 		}finally{
@@ -312,7 +334,7 @@ function junctionReason(m, x, y, j, after, distance){
 }
 
 // why x cannot pass its station s while y waits there: { text, candidate: whether it is a candidate (addCandidates()) }, or null
-function waitReason(m, c, x, y, p, q, s, minExtraPassingWaiting){
+function waitReason(m, c, x, y, p, q, s){
 	const no = text => ({ text: text, candidate: false });
 	if(s < q && !x.free[s]) return no(`${reportTrain(x)}在此有停靠 (只有到站時刻)`);
 	const r = routeIndex(m, x.bound, s);
@@ -320,10 +342,11 @@ function waitReason(m, c, x, y, p, q, s, minExtraPassingWaiting){
 	if(!passesAt(m, x, y, r, ys)) return no((x.bound == y.bound) ? `軌道配置：${BOUND_NAMES[x.bound]}不可在此追越` : "軌道配置：單線，不可交會");
 	if(ys < y.first || ys > y.last) return no(`${reportTrain(y)}不經過此站`);
 	const stop = canStop(y, ys);
-	if(!(y.wait[ys] || ys == y.first || ys == y.last || stop)){
+	if(!(waitsFor(x, y, ys) || ys == y.first || ys == y.last || stop)){
 		if(y.free[ys]) return no(`${reportTrain(y)}在此通過，且沒有臨時停車規則`);
 		const dwell = (y.vague[ys] ? y.depMax[ys] : y.dep[ys]) - (movesArrival(y, ys) ? y.early[ys] : y.arr[ys]);
-		return no(`${reportTrain(y)}在此最多停 ${Math.round(dwell)} 秒，不超過 預設停站 ${m.stopsecs[y.bound][ys]} + 最短待避額外停等時間 ${minExtraPassingWaiting} 秒，不視為待避`);
+		const same = (x.bound == y.bound);
+		return no(`${reportTrain(y)}在此最多停 ${Math.round(dwell)} 秒，不到 ${same ? "最短待避可能時間" : "最短交會可能時間"} ${SETTINGS.passingTime[same ? "minOvertakingStopTime" : "minCrossingStopTime"]} 秒，不視為${same ? "待避" : "交會"}`);
 	}
 	if(s == q && x.fixed[s] != 1) return null;
 
@@ -392,9 +415,9 @@ function triedProposals(m, c){
 
 // headway c: what each of its trains could do
 function diagnoseHeadway(m, c){
-	const k = elementOrder(m, c.a.bound, c.e);
 	const reasons = [];
 	[c.a, c.b].forEach(x => {
+		const k = elementOrder(m, x.bound, c.e);
 		const name = reportTrain(x);
 		const pinned = findStop(x.train, k)?.pinned;
 		if(pinned){

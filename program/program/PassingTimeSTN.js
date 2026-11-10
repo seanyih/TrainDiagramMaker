@@ -172,10 +172,15 @@ function addCrossingGaps(m, net, kept){
 	}
 }
 
+// the gap of a proposal: minTimeSeparation, or minCrossingTimeSeparation for opposite trains
+function proposalGap(m, p){
+	return (p.x.bound == p.y.bound) ? m.gap : m.gapCross;
+}
+
 // x at s within y's stop (from its arrival, unless y starts there, to its departure, unless y or x ends there),
 // minTimeSeparation from it first, else the grid; a junction proposal: x's junction stop after (before) y there
 function proposalRange(m, net, p, wide){
-	const margin = gap => wide ? m.grid : gap ? m.gap : m.grid;
+	const margin = gap => wide ? m.grid : gap ? proposalGap(m, p) : m.grid;
 	if(p.junction){
 		const [a, b] = [stationPoint(p.y, p.ys, p.leave), stationPoint(p.t, p.s, p.leave)];
 		return transaction(net, () => p.after ? constrain(m, net, a, b, margin(p.lowGap)) : constrain(m, net, b, a, margin(p.lowGap)));
@@ -347,7 +352,7 @@ function addProposals(m, c, x, y, out){
 		const r = routeIndex(m, x.bound, s);
 		const ys = routeIndex(m, y.bound, r);
 		const stop = canStop(y, ys);
-		if(!(y.wait[ys] || ys == y.first || ys == y.last || stop) || !passesAt(m, x, y, r, ys)) continue;
+		if(!(waitsFor(x, y, ys) || ys == y.first || ys == y.last || stop) || !passesAt(m, x, y, r, ys)) continue;
 		// x stops at s: only if an arrival may move or y may stop, and x leaves first
 		if(!passing && !((movesArrival(x, s) || movesArrival(y, ys) || stop) && (s == x.last || ys == y.last || x.dep[s] <= y.dep[ys] - m.grid))) continue;
 
@@ -355,8 +360,8 @@ function addProposals(m, c, x, y, out){
 		const proposal = {
 			x: x, y: y, t: x, s: s, ys: ys, passing: passing, stop: stop && !y.temp[ys], distance: distance,
 			fixed: x.fixed[s], arr: x.arr[s], dep: x.dep[s],
-			lowGap: same && entryGap(m, x.bound, s),
-			highGap: same && exitGap(m, x.bound, s)
+			lowGap: same ? entryGap(m, x.bound, s) : nextToSingle(m, 2*r),
+			highGap: same ? exitGap(m, x.bound, s) : nextToSingle(m, 2*r)
 		};
 		if(passing){
 			// y's stop, or where it may stop within its max speeds
@@ -371,7 +376,7 @@ function addProposals(m, c, x, y, out){
 			proposal.at = Math.min(Math.max(Math.round(x.arr[s]/m.grid)*m.grid, from), to);
 			proposal.move = stop ? tempStopMove(m, x, s, y, ys) : Math.abs(proposal.at - x.arr[s]);
 			// y's stop is too short to keep minTimeSeparation from x where the track needs it
-			proposal.tight = high - low < (proposal.lowGap ? m.gap : m.grid) + (proposal.highGap ? m.gap : m.grid);
+			proposal.tight = high - low < (proposal.lowGap ? proposalGap(m, proposal) : m.grid) + (proposal.highGap ? proposalGap(m, proposal) : m.grid);
 		}else{
 			proposal.move = Math.max(y.arr[ys] - x.arr[s], 0);
 		}

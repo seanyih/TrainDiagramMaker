@@ -1804,16 +1804,28 @@
 						</div>
 					</div>
 					<div class="row g-3 align-items-center">
-						<div class="col-auto" style="width: 13rem;"><label class="col-form-label">最短待避額外停等時間</label></div>
-						<div class="col-auto"><input inputmode="decimal" class="form-control" style="width:100px" min="0" data-setting="passingTime.minExtraPassingWaiting"></div>
+						<div class="col-auto" style="width: 13rem;"><label class="col-form-label">最短待避可能時間</label></div>
+						<div class="col-auto"><input inputmode="decimal" class="form-control" style="width:100px" min="0" data-setting="passingTime.minOvertakingStopTime"></div>
 						<div class="col-auto"><label class="col-form-label">秒</label></div>
-						<div class="col-auto"><small class="text-muted">停站時間超過「該站預設停站時間 + 此值」，視為可能在此待避</small></div>
+						<div class="col-auto"><small class="text-muted">停站時間至少這麼久，視為可能在此待避 (讓同向列車追越)</small></div>
 					</div>
 					<div class="row g-3 align-items-center">
-						<div class="col-auto" style="width: 13rem;"><label class="col-form-label">最短時隔</label></div>
+						<div class="col-auto" style="width: 13rem;"><label class="col-form-label">最短交會可能時間</label></div>
+						<div class="col-auto"><input inputmode="decimal" class="form-control" style="width:100px" min="0" data-setting="passingTime.minCrossingStopTime"></div>
+						<div class="col-auto"><label class="col-form-label">秒</label></div>
+						<div class="col-auto"><small class="text-muted">停站時間至少這麼久，視為可能在此等對向列車交會</small></div>
+					</div>
+					<div class="row g-3 align-items-center">
+						<div class="col-auto" style="width: 13rem;"><label class="col-form-label">最短時隔 (同向)</label></div>
 						<div class="col-auto"><input inputmode="decimal" class="form-control" style="width:100px" min="0" data-setting="passingTime.minTimeSeparation"></div>
 						<div class="col-auto"><label class="col-form-label">秒</label></div>
 						<div class="col-auto"><small class="text-muted">同一站前後兩列車的最短間隔：通過的列車至少比待避的列車早這麼多秒，連續通過的列車之間也是</small></div>
+					</div>
+					<div class="row g-3 align-items-center">
+						<div class="col-auto" style="width: 13rem;"><label class="col-form-label">最短交會時隔</label></div>
+						<div class="col-auto"><input inputmode="decimal" class="form-control" style="width:100px" min="0" data-setting="passingTime.minCrossingTimeSeparation"></div>
+						<div class="col-auto"><label class="col-form-label">秒</label></div>
+						<div class="col-auto"><small class="text-muted">對向列車在車站交會時，通過的列車與停車的列車的到站、發車之間的最短間隔</small></div>
 					</div>
 					<div class="row g-3 align-items-center">
 						<div class="col-auto" style="width: 13rem;"><label class="col-form-label">最大搜尋深度</label></div>

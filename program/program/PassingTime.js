@@ -35,7 +35,7 @@ const CONFLICT = 1e6;
 
 // rounding: "round" | "floor" | "ceil" for an imprecise timetable, else null
 function createPassingModel(trains, headway, rounding = null){
-	const { minExtraPassingWaiting, minTimeSeparation, estimatedSpeedLimitRatio, timeGranularity, inaccurateArrival, stopRules,
+	const { minOvertakingStopTime, minCrossingStopTime, minTimeSeparation, minCrossingTimeSeparation, estimatedSpeedLimitRatio, timeGranularity, inaccurateArrival, stopRules,
 		timetableGranularity, minDwell } = SETTINGS.passingTime;
 	const count = ROUTE.stations.length;
 	const kilos = ROUTE.stations.map(station => station.kilo);
@@ -47,8 +47,9 @@ function createPassingModel(trains, headway, rounding = null){
 		stopsecs: { 1: stopsecs, 2: stopsecs.slice().reverse() },
 		headway: headway,
 		tune: false,
-		crossGap: false, // opposite trains meeting at a station keep minTimeSeparation too (PassingTimeSTN.js)
+		crossGap: false, // opposite trains meeting at a station keep minCrossingTimeSeparation too (PassingTimeSTN.js)
 		gap: minTimeSeparation,
+		gapCross: minCrossingTimeSeparation,
 		grid: timeGranularity,
 		rounding: rounding,
 		precision: Math.max(timetableGranularity, timeGranularity),
@@ -86,7 +87,8 @@ function createPassingModel(trains, headway, rounding = null){
 				dep: new Float64Array(count),
 				fixed: new Uint8Array(count),        // 1 = stop, 2 = passing time that may move
 				free: new Uint8Array(count).fill(1), // a passing time may be set: no stop, or one that may move
-				wait: new Uint8Array(count),         // a stop long enough to be overtaken / met there
+				wait: new Uint8Array(count),         // a stop long enough to be overtaken there
+				waitCross: new Uint8Array(count),    // a stop long enough for an opposite train to cross there
 				loose: new Uint8Array(count),        // a stop whose arrival is not known, so it may move
 				early: new Float64Array(count),      // the earliest arrival there, if loose
 				stopOk: new Uint8Array(count),       // a stop rule allows a temporary stop there
@@ -123,7 +125,9 @@ function createPassingModel(trains, headway, rounding = null){
 				if(i == 0) return;
 				interpolate(m, t, stops[i - 1].order, k);
 				if(i == stops.length - 1) return;
-				if((t.vague[k] ? t.depMax[k] - t.early[k] : stop.dep - stop.arr) > stations[k].stopsec + minExtraPassingWaiting) t.wait[k] = 1;
+				const dwell = t.vague[k] ? t.depMax[k] - t.early[k] : stop.dep - stop.arr;
+				t.wait[k] = (dwell >= minOvertakingStopTime) ? 1 : 0;
+				t.waitCross[k] = (dwell >= minCrossingStopTime) ? 1 : 0;
 				// fine-tuning may move the passing times in the timetable too
 				if(headway && stop.dep == stop.arr && !rounding && !pinned){
 					t.fixed[k] = 2;
@@ -282,7 +286,7 @@ function goldenKey(m, t, a, b, both){
 /*
 	A run of a train between two stops with no conflict of it there is likely a normal one (no waiting);
 	the shortest of those between the same two stops is the golden run. A loose arrival after a run longer
-	than that by more than minExtraPassingWaiting (+ TIMETABLE_ROUNDING) moves up to it: the train likely arrived
+	than that by more than minCrossingStopTime (+ TIMETABLE_ROUNDING) moves up to it: the train likely arrived
 	early to wait, rather than ran slower (not where it ends).
 	Returns the golden runs (s) by goldenKey(); `known` gets the ones of the runs to a known arrival.
 */
@@ -311,7 +315,7 @@ function inferArrivals(m, known){
 	}));
 	m.trains.forEach(t => runs(t).forEach(([a, b]) => {
 		const run = golden.get(goldenKey(m, t, a, b, false));
-		if(!t.loose[b] || b == t.last || run === undefined || t.arr[b] - t.dep[a] - run <= SETTINGS.passingTime.minExtraPassingWaiting + TIMETABLE_ROUNDING) return;
+		if(!t.loose[b] || b == t.last || run === undefined || t.arr[b] - t.dep[a] - run <= SETTINGS.passingTime.minCrossingStopTime + TIMETABLE_ROUNDING) return;
 		t.arr[b] = Math.min(alignUp(m, t.dep[a] + run), t.arr[b]);
 		let p = b - 1;
 		while(!t.fixed[p]) p--;
@@ -327,7 +331,7 @@ function inferArrivals(m, known){
 	It is a possible wait if the stop may then be long enough.
 */
 function looseArrivals(m, known){
-	const { minExtraPassingWaiting } = SETTINGS.passingTime;
+	const { minOvertakingStopTime, minCrossingStopTime } = SETTINGS.passingTime;
 	m.trains.forEach(t => {
 		const orders = stopOrders(t);
 		orders.forEach((b, i) => {
@@ -335,7 +339,9 @@ function looseArrivals(m, known){
 			const a = orders[i - 1];
 			const run = known.has(goldenKey(m, t, a, b, false)) ? known.get(goldenKey(m, t, a, b, true)) : minRun(m, t, a, b);
 			t.early[b] = Math.min(alignUp(m, t.dep[a] + run), t.arr[b]);
-			if(b != t.last && t.dep[b] - t.early[b] > m.stopsecs[t.bound][b] + minExtraPassingWaiting) t.wait[b] = 1;
+			if(b == t.last) return;
+			if(t.dep[b] - t.early[b] >= minOvertakingStopTime) t.wait[b] = 1;
+			if(t.dep[b] - t.early[b] >= minCrossingStopTime) t.waitCross[b] = 1;
 		});
 	});
 }
@@ -437,10 +443,16 @@ function nextToSingle(m, e){
 	return m.tracks[e - 1]?.lines == 1 || m.tracks[e + 1]?.lines == 1;
 }
 
-// minTimeSeparation, or the stop time of the station if both opposite trains stop there
+// minCrossingTimeSeparation, or the stop time of the station if both opposite trains stop there
 function crossingGap(m, e, a, b){
 	const k = elementOrder(m, a.bound, e);
-	return (stopsAt(a, k) && stopsAt(b, elementOrder(m, b.bound, e))) ? Math.min(m.gap, m.stopsecs[a.bound][k]) : m.gap;
+	return (stopsAt(a, k) && stopsAt(b, elementOrder(m, b.bound, e))) ? Math.min(m.gapCross, m.stopsecs[a.bound][k]) : m.gapCross;
+}
+
+// the gap x keeps from y's stop at route station r: minTimeSeparation, minCrossingTimeSeparation where opposite trains meet in the station, else the grid
+function passingMargin(m, x, y, r){
+	if(x.bound == y.bound) return m.gap;
+	return nextToSingle(m, 2*r) ? m.gapCross : m.grid;
 }
 
 // whether opposite trains in station e together leave less than the gap after the other arrives
@@ -738,19 +750,18 @@ function passingPlan(m, x, s, p, q, y, ys, passing, push, late){
 	return plan;
 }
 
-// how far x passing s now is from inside y's natural temporary stop at ys (tempStopTimes()), minTimeSeparation from it
-// (timeGranularity for an opposite train); more if that stop is too short, so the train with time to spare waits
+// how far x passing s now is from inside y's natural temporary stop at ys (tempStopTimes()), passingMargin() from it; more if that stop is too short, so the train with time to spare waits
 function tempStopMove(m, x, s, y, ys){
-	const margin = (x.bound == y.bound) ? m.gap : m.grid;
+	const margin = passingMargin(m, x, y, routeIndex(m, x.bound, s));
 	const [arr, dep] = tempStopTimes(m, y, ys);
 	return Math.max(arr + margin - x.arr[s], 0) + Math.max(x.arr[s] - dep + margin, 0);
 }
 
-// x passes s while y makes a temporary stop at ys, minTimeSeparation apart (timeGranularity for an opposite train):
+// x passes s while y makes a temporary stop at ys, passingMargin() apart:
 // x as near its time now as both trains' max speeds allow, y arriving where it naturally would (tempStopTimes())
 // and leaving then, or else just before and after x
 function tempStopPlan(m, x, s, p, q, y, ys){
-	const margin = (x.bound == y.bound) ? m.gap : m.grid;
+	const margin = passingMargin(m, x, y, routeIndex(m, x.bound, s));
 	const [yp, yq] = knownAround(y, ys);
 	const from = alignUp(m, Math.max(x.dep[p] + minRun(m, x, p, s), y.dep[yp] + minRun(m, y, yp, ys) + margin));
 	const to = alignDown(m, Math.min(x.arr[q] - minRun(m, x, s, q), y.arr[yq] - minRun(m, y, ys, yq) - margin));
@@ -799,6 +810,11 @@ function addJunctionCandidate(m, x, y, j, after, distance, out){
 	out.push({ x: x, s: j, points: [{ t: x, s: j, time: move.at, junction: true }], distance: distance, move: Math.abs(move.at - x.dep[j]) });
 }
 
+// whether y waits (or may wait) at its order ys long enough for x to pass: overtake (same bound) or cross (opposite)
+function waitsFor(x, y, ys){
+	return !!(x.bound == y.bound ? y.wait[ys] : y.waitCross[ys]);
+}
+
 // whether x may pass y at route station r (y's order ys): where the track lets x's bound overtake (opposite trains: meet);
 // a train of the same bound starting or ending there anywhere, as that is no overtaking (overtakes())
 function passesAt(m, x, y, r, ys){
@@ -831,7 +847,7 @@ function addCandidates(m, c, x, y, out){
 		const r = routeIndex(m, x.bound, s);
 		const ys = routeIndex(m, y.bound, r);
 		const stop = canStop(y, ys);
-		if(!(y.wait[ys] || ys == y.first || ys == y.last || stop) || !passesAt(m, x, y, r, ys)) continue;
+		if(!(waitsFor(x, y, ys) || ys == y.first || ys == y.last || stop) || !passesAt(m, x, y, r, ys)) continue;
 		if(s == q){
 			const plan = arrivalPlan(m, x, s, y, ys);
 			if(plan) out.push({ x: x, s: s, points: plan, distance: distance, move: y.arr[ys] - plan[0].time });

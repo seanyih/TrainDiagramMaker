@@ -81,8 +81,10 @@ checkbox → boolean，`type="number"` 與數字選項的 select → number (空
 | `print.format` | `"pdf"` | 輸出格式：`"svg"` = 直接 SVG (文字不轉外框)、`"pdf"` = 向量文字 PDF、`"svgPath"` = 向量文字 SVG；向量文字指文字轉成外框 (`fonts/` 的 Noto Sans TC，缺字改用 Noto Sans JP) |
 | `print.align.v` / `print.align.h` | `{ side: "top", base: "frame", offset: 20 }` / `{ side: "left", base: "text", offset: 10 }` | 圖面對齊。`side`：固定哪一側的 padding (`"top"` \| `"bottom"`、`"left"` \| `"right"`)；`base`：`offset` (mm) 算到圖框 (`"frame"`) 或含文字 (`"text"`)。另一側的 padding 由頁面大小與圖框大小算出 |
 | `passingTime.solver` | `"stn"` | 還原通過時間的求解器：`"greedy"` = 貪婪解法 (`restorePassingTimes()`，`PassingTime.js`)、`"stn"` = 離散決策 + 差分約束 (`restorePassingTimesSTN()`，`PassingTimeSTN.js`)、`"check"` = 僅確認衝突 (同 `"stn"` 但跑 0 輪就停機，詳細結果照常輸出)。其他參數共用 |
-| `passingTime.minExtraPassingWaiting` | 30 | 還原通過時間：停站秒數 > 該站 `stopsec` + 此值的停靠，視為可能的待避 (≥ 0) |
-| `passingTime.minTimeSeparation` | 60 | 最短時隔 (秒，≥ 0)：通過的列車比待避列車發車早 (或比終到列車到站晚) 這麼多秒；同一站連續通過的列車也至少相隔這麼多秒 |
+| `passingTime.minOvertakingStopTime` | 90 | 還原通過時間：停站秒數 ≥ 此值的停靠，視為可能的待避 (讓同向列車追越) (≥ 0) |
+| `passingTime.minCrossingStopTime` | 30 | 還原通過時間：停站秒數 ≥ 此值的停靠，視為可能等對向列車交會 (≥ 0)；預設 = 2 × `minCrossingTimeSeparation` (對向列車剛好在停車的正中間通過)；也是推算提早到站的門檻 (+ 60 秒) |
+| `passingTime.minTimeSeparation` | 45 | 最短時隔 (秒，≥ 0)：通過的列車比待避列車發車早 (或比終到列車到站晚) 這麼多秒；同一站連續通過的列車也至少相隔這麼多秒 (同方向) |
+| `passingTime.minCrossingTimeSeparation` | 15 | 最短交會時隔 (秒，≥ 0)：對向列車在鄰接單線的車站交會時，通過的列車與停車列車的到、發之間至少相隔這麼多秒 (勾選 `fineTune` 時也檢查，兩車都停則取 `stopsec` 較小者)；臨時停車一律保持 |
 | `passingTime.maxSearchDepth` | 3 | 從衝突位置往前、往後找待避站的最大站數 (≥ 1) |
 | `passingTime.maxIteration` | 5 | 最大迴圈數 (≥ 0)，0 = 不限，直到衝突數不再減少 |
 | `passingTime.maxAllowedConflict` | 0 | 衝突寬限 (≥ 0)：剩下的衝突數 ≤ 此值時停止 |
@@ -558,13 +560,13 @@ draft = { trains: { 1: [...], 2: [...] }, fingerprint: "..." }   // trains: stru
 - 起站、終點站不算車站內的追越。時刻相同不算追越或交會。
 - 追越以「沿路線掃過去，保持列車依抵達順序排列」偵測：每個元素用插入排序換成離開順序，每次交換即一組追越，O(列車數 + 追越數)；交會以時間排序的掃描線找出；時隔不足在掃描中檢查相鄰的列車。
 
-**不準確的到站時刻** (詳見 `ALGORITHM.md` 2.1)：勾選 `inaccurateArrival` 時所有停靠站 (起站、`arrival == departure` 除外)，沒勾選時到站時刻空白的停靠站，到站時刻視為不準確：先設為「發車 − `stopsec`」，再以 golden (同方向、同一對相鄰停靠站之間沒有衝突的最短運轉時間) 推算：運轉時間比 golden 長超過 `minExtraPassingWaiting + 60` 秒的，改為提早到站 (待避)。求解時這些到站時刻可在「最早到站 (兩方向較短的 golden，或最短運轉時間)」與「發車 − `stopsec`」之間移動；結束時寫入副本 (原本空白、結果仍是「發車 − `stopsec`」的保持空白)，結果列顯示「修改 n 個到站時刻」(寫入的數量)。採用後，寫入的到站時刻就和使用者填的一樣被當作準確的 (要重新推算請勾選「到站時間不準確」)。
+**不準確的到站時刻** (詳見 `ALGORITHM.md` 2.1)：勾選 `inaccurateArrival` 時所有停靠站 (起站、`arrival == departure` 除外)，沒勾選時到站時刻空白的停靠站，到站時刻視為不準確：先設為「發車 − `stopsec`」，再以 golden (同方向、同一對相鄰停靠站之間沒有衝突的最短運轉時間) 推算：運轉時間比 golden 長超過 `minCrossingStopTime + 60` 秒的，改為提早到站 (待避)。求解時這些到站時刻可在「最早到站 (兩方向較短的 golden，或最短運轉時間)」與「發車 − `stopsec`」之間移動；結束時寫入副本 (原本空白、結果仍是「發車 − `stopsec`」的保持空白)，結果列顯示「修改 n 個到站時刻」(寫入的數量)。採用後，寫入的到站時刻就和使用者填的一樣被當作準確的 (要重新推算請勾選「到站時間不準確」)。
 
 **解決**：「求解器」下拉選單 (`passingTime.solver`) 選擇，兩者共用模型、衝突定義與其他參數，結果都放在 `DRAFTS.passing`。
 
 - **貪婪解法** (`restorePassingTimes(trains, true, fineTune, onRound, onDone)`，詳見 `ALGORITHM.md` 第 4–6 節)：一次解決一個衝突，候選的通過時刻為待避列車發車前 / 到站後 `minTimeSeparation`，只在衝突消失且受影響的衝突總數減少時採用 (可再加最多 `maxPassingPointIncrease` 個點)；勾選 `fineTune` 時先還原、再逐一移動通過時刻解決時隔不足。
 - **離散決策 + 差分約束** (`restorePassingTimesSTN(trains, fineTune, onRound, onDone)`，詳見 `ALGORITHM_STN_PROPOSAL.md` 第 7 節)，每一輪：
-   1. 每個追越 / 交會衝突提出一個候選：讓 x 通過附近的車站 s，y 在 s 待避 (停站秒數 > `stopsec + minExtraPassingWaiting`，或在 s 始發 / 終到)，s 要能追越 (同向) 或交會 (對向)，距離衝突不超過 `maxSearchDepth` 站；依「放得下最短時隔 → 距離近 → 時刻變動小」取同一對列車在該站還沒試過的。勾選 `fineTune` 時，時隔不足的兩車 (沒有其他衝突的) 在該站加入通過時刻。
+   1. 每個追越 / 交會衝突提出一個候選：讓 x 通過附近的車站 s，y 在 s 待避 (追越：停站秒數 ≥ `minOvertakingStopTime`；交會：≥ `minCrossingStopTime`；或在 s 始發 / 終到)，s 要能追越 (同向) 或交會 (對向)，距離衝突不超過 `maxSearchDepth` 站；依「放得下最短時隔 → 距離近 → 時刻變動小」取同一對列車在該站還沒試過的。勾選 `fineTune` 時，時隔不足的兩車 (沒有其他衝突的) 在該站加入通過時刻。
    2. 所有可移動的通過時刻一起以差分約束 (`t_j − t_i ≥ c`) 求解：最高速度、各站列車的先後順序、提案 (y 的停車期間，可能時前後留 `minTimeSeparation`)，勾選 `fineTune` 時再加上相鄰列車的 `minTimeSeparation`。不可行的約束不採用，被拒絕的提案還原。
    3. 每個通過時刻取最接近目前時刻的可行值。重新偵測；衝突數 ≤ `maxAllowedConflict`、達到 `maxIteration`、或連續 3 輪沒有更好時停止。
 

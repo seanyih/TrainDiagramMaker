@@ -52,8 +52,10 @@
     },
     "footer": { "enabled": false, "text": "<title> | <opmode> | <sta_range> | <time_range>", "fontSize": 16, "color": "#000000", "base": "page", "gap": 20, "startPage": 1 },
     "passingTime": {
-        "minExtraPassingWaiting": 30,
-        "minTimeSeparation": 60,
+        "minOvertakingStopTime": 90,
+        "minCrossingStopTime": 30,
+        "minTimeSeparation": 45,
+        "minCrossingTimeSeparation": 15,
         "maxSearchDepth": 3,
         "maxIteration": 5,
         "maxAllowedConflict": 0,
@@ -140,8 +142,10 @@
 | `print.format` | `"pdf"` | 輸出格式：`"svg"` = 直接 SVG (文字不轉外框)、`"pdf"` = 向量文字 PDF、`"svgPath"` = 向量文字 SVG；向量文字指文字轉成外框 (`fonts/` 的 Noto Sans TC，缺字改用 Noto Sans JP) |
 | `print.align.v` / `print.align.h` | `{ side: "top", base: "frame", offset: 20 }` / `{ side: "left", base: "text", offset: 10 }` | 圖面對齊。`side`：固定哪一側的 padding (`"top"` \| `"bottom"`、`"left"` \| `"right"`)；`base`：`offset` (mm) 算到圖框 (`"frame"`) 或含文字 (`"text"`)。另一側的 padding 由頁面大小與圖框大小算出 |
 | `passingTime.solver` | `"stn"` | 還原通過時間的求解器：`"greedy"` = 貪婪解法、`"stn"` = 離散決策 + 差分約束、`"check"` = 僅確認衝突 (跑 0 輪就停機) |
-| `passingTime.minExtraPassingWaiting` | 30 | 還原通過時間：停站秒數超過該站預設停站時間 + 此值，視為可能的待避 |
-| `passingTime.minTimeSeparation` | 60 | 最短時隔（秒）：同一站前後兩列車的最短間隔 |
+| `passingTime.minOvertakingStopTime` | 90 | 最短待避可能時間（秒）：停站秒數至少這麼久，視為可能的待避（追越） |
+| `passingTime.minCrossingStopTime` | 30 | 最短交會可能時間（秒）：停站秒數至少這麼久，視為可能等對向列車交會 |
+| `passingTime.minTimeSeparation` | 45 | 最短時隔（秒）：同一站前後兩列車（同方向）的最短間隔 |
+| `passingTime.minCrossingTimeSeparation` | 15 | 最短交會時隔（秒）：對向列車在車站交會時，通過與停車的到、發之間的最短間隔 |
 | `passingTime.maxSearchDepth` | 3 | 從衝突位置往前、往後找待避站的最大站數 |
 | `passingTime.maxIteration` | 5 | 最大迴圈數，0 = 不限（直到衝突數不再減少） |
 | `passingTime.maxAllowedConflict` | 0 | 衝突寬限：剩下的衝突數不超過此值時停止 |

@@ -115,8 +115,10 @@ const SETTINGS = {
 	// restoring passing times from the track layout (PassingTime.js)
 	passingTime: {
 		solver: "stn",                 // "greedy" (PassingTime.js) | "stn" (PassingTimeSTN.js) | "check" (stn, 0 rounds)
-		minExtraPassingWaiting: 30,   // s; a stop longer than the station's stopsec + this may be a wait to be overtaken / met
-		minTimeSeparation: 60,         // s; headway between two trains
+		minOvertakingStopTime: 90,     // s; a stop at least this long may be a wait to be overtaken
+		minCrossingStopTime: 30,       // s; a stop at least this long may be a wait for an opposite train to cross (2 * minCrossingTimeSeparation: it passes in the middle)
+		minTimeSeparation: 45,         // s; headway between two trains of a bound (overtaking)
+		minCrossingTimeSeparation: 15, // s; headway between two opposite trains meeting at a station
 		maxSearchDepth: 3,             // stations from a conflict to look for a waiting train
 		maxIteration: 5,               // 0 = until no more progress
 		maxAllowedConflict: 0,         // stop when this many conflicts or fewer remain

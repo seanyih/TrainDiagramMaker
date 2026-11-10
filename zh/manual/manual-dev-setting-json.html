@@ -128,8 +128,10 @@
     },
     &quot;footer&quot;: { &quot;enabled&quot;: false, &quot;text&quot;: &quot;&lt;title&gt; | &lt;opmode&gt; | &lt;sta_range&gt; | &lt;time_range&gt;&quot;, &quot;fontSize&quot;: 16, &quot;color&quot;: &quot;#000000&quot;, &quot;base&quot;: &quot;page&quot;, &quot;gap&quot;: 20, &quot;startPage&quot;: 1 },
     &quot;passingTime&quot;: {
-        &quot;minExtraPassingWaiting&quot;: 30,
-        &quot;minTimeSeparation&quot;: 60,
+        &quot;minOvertakingStopTime&quot;: 90,
+        &quot;minCrossingStopTime&quot;: 30,
+        &quot;minTimeSeparation&quot;: 45,
+        &quot;minCrossingTimeSeparation&quot;: 15,
         &quot;maxSearchDepth&quot;: 3,
         &quot;maxIteration&quot;: 5,
         &quot;maxAllowedConflict&quot;: 0,
@@ -449,14 +451,24 @@
 <td>還原通過時間的求解器：<code>"greedy"</code> = 貪婪解法、<code>"stn"</code> = 離散決策 + 差分約束、<code>"check"</code> = 僅確認衝突 (跑 0 輪就停機)</td>
 </tr>
 <tr>
-<td><code>passingTime.minExtraPassingWaiting</code></td>
+<td><code>passingTime.minOvertakingStopTime</code></td>
+<td>90</td>
+<td>最短待避可能時間（秒）：停站秒數至少這麼久，視為可能的待避（追越）</td>
+</tr>
+<tr>
+<td><code>passingTime.minCrossingStopTime</code></td>
 <td>30</td>
-<td>還原通過時間：停站秒數超過該站預設停站時間 + 此值，視為可能的待避</td>
+<td>最短交會可能時間（秒）：停站秒數至少這麼久，視為可能等對向列車交會</td>
 </tr>
 <tr>
 <td><code>passingTime.minTimeSeparation</code></td>
-<td>60</td>
-<td>最短時隔（秒）：同一站前後兩列車的最短間隔</td>
+<td>45</td>
+<td>最短時隔（秒）：同一站前後兩列車（同方向）的最短間隔</td>
+</tr>
+<tr>
+<td><code>passingTime.minCrossingTimeSeparation</code></td>
+<td>15</td>
+<td>最短交會時隔（秒）：對向列車在車站交會時，通過與停車的到、發之間的最短間隔</td>
 </tr>
 <tr>
 <td><code>passingTime.maxSearchDepth</code></td>
