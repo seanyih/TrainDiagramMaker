@@ -1,0 +1,50 @@
+{
+	"name": {
+		"zh": "吾妻線",
+		"en": "Agatsuma Line",
+		"ja": "吾妻線"
+	},
+	"section": {
+		"zh": "澀川 – 大前",
+		"en": "Shibukawa – Ōmae",
+		"ja": "渋川 – 大前"
+	},
+	"companies": [
+		"jr-east"
+	],
+	"types": [
+		"railway"
+	],
+	"regions": [
+		"kanto"
+	],
+	"route": [
+		{
+			"date": "2014-10-01",
+			"title": "岩島－長野原草津口間改線",
+			"kind": "route",
+			"tags": [
+				"mileage",
+				"topology"
+			],
+			"files": {
+				"json": "releases/route-2014-10-01.json"
+			},
+			"latest": true
+		}
+	],
+	"all": [
+		{
+			"date": "2026-03-14",
+			"title": "2026年3月改點",
+			"kind": "all",
+			"tags": [
+				"arrival"
+			],
+			"files": {
+				"json": "releases/all-2026-03-14.json"
+			},
+			"latest": true
+		}
+	]
+}

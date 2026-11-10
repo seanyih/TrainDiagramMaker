@@ -1,0 +1,88 @@
+{
+ "route_name": "JR日光線 (宇都宮-日光)",
+ "stations": [
+  {
+   "name": "宇都宮",
+   "kilo": 0.0,
+   "alias": ""
+  },
+  {
+   "name": "鶴田",
+   "kilo": 4.8,
+   "alias": ""
+  },
+  {
+   "name": "鹿沼",
+   "kilo": 14.3,
+   "alias": ""
+  },
+  {
+   "name": "文挟",
+   "kilo": 22.4,
+   "alias": ""
+  },
+  {
+   "name": "下野大沢",
+   "kilo": 28.2,
+   "alias": ""
+  },
+  {
+   "name": "今市",
+   "kilo": 33.9,
+   "alias": ""
+  },
+  {
+   "name": "日光",
+   "kilo": 40.5,
+   "alias": ""
+  }
+ ],
+ "topology": {
+  "secondary": [
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false
+  ],
+  "branches": [
+   [
+    {
+     "stations": [
+      {
+       "name": "雀宮",
+       "kilo": 7.7
+      }
+     ]
+    }
+   ],
+   [],
+   [],
+   [],
+   [],
+   [],
+   []
+  ]
+ },
+ "track_layout": {
+  "stations": [
+   "quadruple",
+   "double.3",
+   "double.3",
+   "double.3",
+   "double.3",
+   "double.3",
+   "double.3"
+  ],
+  "sections": [
+   "double.0",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single"
+  ]
+ }
+}

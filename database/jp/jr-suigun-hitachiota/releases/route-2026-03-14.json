@@ -1,0 +1,79 @@
+{
+ "route_name": "JR水郡線 (上菅谷-常陸太田)",
+ "stations": [
+  {
+   "name": "上菅谷",
+   "kilo": 0.0,
+   "alias": ""
+  },
+  {
+   "name": "南酒出",
+   "kilo": 2.5,
+   "alias": ""
+  },
+  {
+   "name": "額田",
+   "kilo": 3.6,
+   "alias": ""
+  },
+  {
+   "name": "河合",
+   "kilo": 6.7,
+   "alias": ""
+  },
+  {
+   "name": "谷河原",
+   "kilo": 8.2,
+   "alias": ""
+  },
+  {
+   "name": "常陸太田",
+   "kilo": 9.5,
+   "alias": ""
+  }
+ ],
+ "topology": {
+  "secondary": [
+   false,
+   false,
+   false,
+   false,
+   false,
+   false
+  ],
+  "branches": [
+   [
+    {
+     "stations": [
+      {
+       "name": "中菅谷",
+       "kilo": 1.1
+      }
+     ]
+    }
+   ],
+   [],
+   [],
+   [],
+   [],
+   []
+  ]
+ },
+ "track_layout": {
+  "stations": [
+   "quadruple",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single"
+  ],
+  "sections": [
+   "single",
+   "single",
+   "single",
+   "single",
+   "single"
+  ]
+ }
+}

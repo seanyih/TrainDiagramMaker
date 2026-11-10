@@ -63,3 +63,10 @@ akita-nairiku
 yuri-kogen
 yamagata-flower-nagai
 aizu-railway
+jr-karasuyama
+jr-nikko
+jr-agatsuma
+jr-iiyama
+jr-koumi
+jr-suigun
+jr-suigun-hitachiota

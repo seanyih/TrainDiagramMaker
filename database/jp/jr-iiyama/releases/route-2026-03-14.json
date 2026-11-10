@@ -1,0 +1,246 @@
+{
+ "route_name": "JR飯山線 (豊野-越後川口)",
+ "stations": [
+  {
+   "name": "豊野",
+   "kilo": 0.0,
+   "alias": ""
+  },
+  {
+   "name": "信濃浅野",
+   "kilo": 2.2,
+   "alias": ""
+  },
+  {
+   "name": "立ケ花",
+   "kilo": 3.9,
+   "alias": ""
+  },
+  {
+   "name": "上今井",
+   "kilo": 6.9,
+   "alias": ""
+  },
+  {
+   "name": "替佐",
+   "kilo": 8.8,
+   "alias": ""
+  },
+  {
+   "name": "蓮",
+   "kilo": 14.6,
+   "alias": ""
+  },
+  {
+   "name": "飯山",
+   "kilo": 19.2,
+   "alias": ""
+  },
+  {
+   "name": "北飯山",
+   "kilo": 20.5,
+   "alias": ""
+  },
+  {
+   "name": "信濃平",
+   "kilo": 23.8,
+   "alias": ""
+  },
+  {
+   "name": "戸狩野沢温泉",
+   "kilo": 27.5,
+   "alias": ""
+  },
+  {
+   "name": "上境",
+   "kilo": 31.1,
+   "alias": ""
+  },
+  {
+   "name": "上桑名川",
+   "kilo": 35.4,
+   "alias": ""
+  },
+  {
+   "name": "桑名川",
+   "kilo": 37.6,
+   "alias": ""
+  },
+  {
+   "name": "西大滝",
+   "kilo": 39.7,
+   "alias": ""
+  },
+  {
+   "name": "信濃白鳥",
+   "kilo": 41.8,
+   "alias": ""
+  },
+  {
+   "name": "平滝",
+   "kilo": 44.7,
+   "alias": ""
+  },
+  {
+   "name": "横倉",
+   "kilo": 46.6,
+   "alias": ""
+  },
+  {
+   "name": "森宮野原",
+   "kilo": 49.7,
+   "alias": ""
+  },
+  {
+   "name": "足滝",
+   "kilo": 52.5,
+   "alias": ""
+  },
+  {
+   "name": "越後田中",
+   "kilo": 54.9,
+   "alias": ""
+  },
+  {
+   "name": "津南",
+   "kilo": 57.9,
+   "alias": ""
+  },
+  {
+   "name": "越後鹿渡",
+   "kilo": 62.1,
+   "alias": ""
+  },
+  {
+   "name": "越後田沢",
+   "kilo": 64.5,
+   "alias": ""
+  },
+  {
+   "name": "越後水沢",
+   "kilo": 67.5,
+   "alias": ""
+  },
+  {
+   "name": "土市",
+   "kilo": 70.4,
+   "alias": ""
+  },
+  {
+   "name": "十日町",
+   "kilo": 75.3,
+   "alias": ""
+  },
+  {
+   "name": "魚沼中条",
+   "kilo": 78.4,
+   "alias": ""
+  },
+  {
+   "name": "下条",
+   "kilo": 82.8,
+   "alias": ""
+  },
+  {
+   "name": "越後岩沢",
+   "kilo": 88.1,
+   "alias": ""
+  },
+  {
+   "name": "内ケ巻",
+   "kilo": 93.2,
+   "alias": ""
+  },
+  {
+   "name": "越後川口",
+   "kilo": 96.7,
+   "alias": ""
+  }
+ ],
+ "topology": {
+  "secondary": [
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false
+  ],
+  "branches": [
+   [
+    {
+     "stations": [
+      {
+       "name": "三才",
+       "kilo": 4.0
+      }
+     ]
+    }
+   ],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [
+    {
+     "stations": [
+      {
+       "name": "小千谷",
+       "kilo": 6.6
+      }
+     ]
+    }
+   ]
+  ]
+ }
+}

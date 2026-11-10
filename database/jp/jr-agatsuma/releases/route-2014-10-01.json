@@ -1,0 +1,150 @@
+{
+ "route_name": "JR吾妻線 (渋川-大前)",
+ "stations": [
+  {
+   "name": "渋川",
+   "kilo": 0.0,
+   "alias": ""
+  },
+  {
+   "name": "金島",
+   "kilo": 5.5,
+   "alias": ""
+  },
+  {
+   "name": "祖母島",
+   "kilo": 7.7,
+   "alias": ""
+  },
+  {
+   "name": "小野上",
+   "kilo": 11.9,
+   "alias": ""
+  },
+  {
+   "name": "小野上温泉",
+   "kilo": 13.7,
+   "alias": ""
+  },
+  {
+   "name": "市城",
+   "kilo": 16.4,
+   "alias": ""
+  },
+  {
+   "name": "中之条",
+   "kilo": 19.8,
+   "alias": ""
+  },
+  {
+   "name": "群馬原町",
+   "kilo": 22.9,
+   "alias": ""
+  },
+  {
+   "name": "郷原",
+   "kilo": 26.3,
+   "alias": ""
+  },
+  {
+   "name": "矢倉",
+   "kilo": 28.0,
+   "alias": ""
+  },
+  {
+   "name": "岩島",
+   "kilo": 30.5,
+   "alias": ""
+  },
+  {
+   "name": "川原湯温泉",
+   "kilo": 37.0,
+   "alias": ""
+  },
+  {
+   "name": "長野原草津口",
+   "kilo": 42.0,
+   "alias": ""
+  },
+  {
+   "name": "群馬大津",
+   "kilo": 44.2,
+   "alias": ""
+  },
+  {
+   "name": "羽根尾",
+   "kilo": 46.4,
+   "alias": ""
+  },
+  {
+   "name": "袋倉",
+   "kilo": 49.3,
+   "alias": ""
+  },
+  {
+   "name": "万座・鹿沢口",
+   "kilo": 52.2,
+   "alias": ""
+  },
+  {
+   "name": "大前",
+   "kilo": 55.3,
+   "alias": ""
+  }
+ ],
+ "topology": {
+  "secondary": [
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false
+  ],
+  "branches": [
+   [
+    {
+     "stations": [
+      {
+       "name": "八木原",
+       "kilo": 3.4
+      },
+      {
+       "name": "新前橋",
+       "kilo": 13.8
+      }
+     ]
+    }
+   ],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   []
+  ]
+ }
+}

@@ -1,0 +1,50 @@
+{
+	"name": {
+		"zh": "小海線",
+		"en": "Koumi Line",
+		"ja": "小海線"
+	},
+	"section": {
+		"zh": "小淵澤 – 小諸",
+		"en": "Kobuchizawa – Komoro",
+		"ja": "小淵沢 – 小諸"
+	},
+	"companies": [
+		"jr-east"
+	],
+	"types": [
+		"railway"
+	],
+	"regions": [
+		"chubu"
+	],
+	"route": [
+		{
+			"date": "2026-03-14",
+			"title": "初版",
+			"kind": "route",
+			"tags": [
+				"mileage",
+				"topology"
+			],
+			"files": {
+				"json": "releases/route-2026-03-14.json"
+			},
+			"latest": true
+		}
+	],
+	"all": [
+		{
+			"date": "2026-03-14",
+			"title": "2026年3月改點",
+			"kind": "all",
+			"tags": [
+				"arrival"
+			],
+			"files": {
+				"json": "releases/all-2026-03-14.json"
+			},
+			"latest": true
+		}
+	]
+}

@@ -1,0 +1,49 @@
+{
+	"name": {
+		"zh": "水郡線 常陸太田支線",
+		"en": "Suigun Line Hitachi-Ōta Branch",
+		"ja": "水郡線 (常陸太田支線)"
+	},
+	"section": {
+		"zh": "上菅谷 – 常陸太田",
+		"en": "Kami-Sugaya – Hitachi-Ōta",
+		"ja": "上菅谷 – 常陸太田"
+	},
+	"companies": [
+		"jr-east"
+	],
+	"types": [
+		"railway"
+	],
+	"regions": [
+		"kanto"
+	],
+	"route": [
+		{
+			"date": "2026-03-14",
+			"title": "初版",
+			"kind": "route",
+			"tags": [
+				"complete"
+			],
+			"files": {
+				"json": "releases/route-2026-03-14.json"
+			},
+			"latest": true
+		}
+	],
+	"all": [
+		{
+			"date": "2026-03-14",
+			"title": "2026年3月改點",
+			"kind": "all",
+			"tags": [
+				"arrival"
+			],
+			"files": {
+				"json": "releases/all-2026-03-14.json"
+			},
+			"latest": true
+		}
+	]
+}

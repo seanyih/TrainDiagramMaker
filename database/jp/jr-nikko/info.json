@@ -1,0 +1,49 @@
+{
+	"name": {
+		"zh": "日光線",
+		"en": "Nikkō Line",
+		"ja": "日光線"
+	},
+	"section": {
+		"zh": "宇都宮 – 日光",
+		"en": "Utsunomiya – Nikkō",
+		"ja": "宇都宮 – 日光"
+	},
+	"companies": [
+		"jr-east"
+	],
+	"types": [
+		"railway"
+	],
+	"regions": [
+		"kanto"
+	],
+	"route": [
+		{
+			"date": "2026-03-14",
+			"title": "初版",
+			"kind": "route",
+			"tags": [
+				"complete"
+			],
+			"files": {
+				"json": "releases/route-2026-03-14.json"
+			},
+			"latest": true
+		}
+	],
+	"all": [
+		{
+			"date": "2026-03-14",
+			"title": "2026年3月改點",
+			"kind": "all",
+			"tags": [
+				"arrival"
+			],
+			"files": {
+				"json": "releases/all-2026-03-14.json"
+			},
+			"latest": true
+		}
+	]
+}

@@ -1,0 +1,394 @@
+{
+ "route_name": "JR水郡線 (水戸-安積永盛)",
+ "stations": [
+  {
+   "name": "水戸",
+   "kilo": 0.0,
+   "alias": ""
+  },
+  {
+   "name": "常陸青柳",
+   "kilo": 1.9,
+   "alias": ""
+  },
+  {
+   "name": "常陸津田",
+   "kilo": 4.1,
+   "alias": ""
+  },
+  {
+   "name": "後台",
+   "kilo": 6.5,
+   "alias": ""
+  },
+  {
+   "name": "下菅谷",
+   "kilo": 7.8,
+   "alias": ""
+  },
+  {
+   "name": "中菅谷",
+   "kilo": 9.0,
+   "alias": ""
+  },
+  {
+   "name": "上菅谷",
+   "kilo": 10.1,
+   "alias": ""
+  },
+  {
+   "name": "常陸鴻巣",
+   "kilo": 13.4,
+   "alias": ""
+  },
+  {
+   "name": "瓜連",
+   "kilo": 16.7,
+   "alias": ""
+  },
+  {
+   "name": "静",
+   "kilo": 18.1,
+   "alias": ""
+  },
+  {
+   "name": "常陸大宮",
+   "kilo": 23.4,
+   "alias": ""
+  },
+  {
+   "name": "玉川村",
+   "kilo": 28.8,
+   "alias": ""
+  },
+  {
+   "name": "野上原",
+   "kilo": 32.5,
+   "alias": ""
+  },
+  {
+   "name": "山方宿",
+   "kilo": 35.2,
+   "alias": ""
+  },
+  {
+   "name": "中舟生",
+   "kilo": 37.9,
+   "alias": ""
+  },
+  {
+   "name": "下小川",
+   "kilo": 40.7,
+   "alias": ""
+  },
+  {
+   "name": "西金",
+   "kilo": 44.1,
+   "alias": ""
+  },
+  {
+   "name": "上小川",
+   "kilo": 47.3,
+   "alias": ""
+  },
+  {
+   "name": "袋田",
+   "kilo": 51.8,
+   "alias": ""
+  },
+  {
+   "name": "常陸大子",
+   "kilo": 55.6,
+   "alias": ""
+  },
+  {
+   "name": "下野宮",
+   "kilo": 62.0,
+   "alias": ""
+  },
+  {
+   "name": "矢祭山",
+   "kilo": 66.9,
+   "alias": ""
+  },
+  {
+   "name": "東館",
+   "kilo": 71.0,
+   "alias": ""
+  },
+  {
+   "name": "南石井",
+   "kilo": 73.8,
+   "alias": ""
+  },
+  {
+   "name": "磐城石井",
+   "kilo": 74.9,
+   "alias": ""
+  },
+  {
+   "name": "磐城塙",
+   "kilo": 81.3,
+   "alias": ""
+  },
+  {
+   "name": "近津",
+   "kilo": 86.4,
+   "alias": ""
+  },
+  {
+   "name": "中豊",
+   "kilo": 88.8,
+   "alias": ""
+  },
+  {
+   "name": "磐城棚倉",
+   "kilo": 90.5,
+   "alias": ""
+  },
+  {
+   "name": "磐城浅川",
+   "kilo": 97.0,
+   "alias": ""
+  },
+  {
+   "name": "里白石",
+   "kilo": 100.0,
+   "alias": ""
+  },
+  {
+   "name": "磐城石川",
+   "kilo": 105.3,
+   "alias": ""
+  },
+  {
+   "name": "野木沢",
+   "kilo": 110.1,
+   "alias": ""
+  },
+  {
+   "name": "川辺沖",
+   "kilo": 112.6,
+   "alias": ""
+  },
+  {
+   "name": "泉郷",
+   "kilo": 115.3,
+   "alias": ""
+  },
+  {
+   "name": "川東",
+   "kilo": 122.2,
+   "alias": ""
+  },
+  {
+   "name": "小塩江",
+   "kilo": 126.0,
+   "alias": ""
+  },
+  {
+   "name": "谷田川",
+   "kilo": 128.9,
+   "alias": ""
+  },
+  {
+   "name": "磐城守山",
+   "kilo": 132.1,
+   "alias": ""
+  },
+  {
+   "name": "安積永盛",
+   "kilo": 137.5,
+   "alias": ""
+  }
+ ],
+ "topology": {
+  "secondary": [
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false
+  ],
+  "branches": [
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [
+    {
+     "stations": [
+      {
+       "name": "南酒出",
+       "kilo": 2.5
+      }
+     ]
+    }
+   ],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [],
+   [
+    {
+     "stations": [
+      {
+       "name": "郡山",
+       "kilo": 4.9
+      }
+     ]
+    }
+   ]
+  ]
+ },
+ "track_layout": {
+  "stations": [
+   "quadruple",
+   "double.3",
+   "single",
+   "single",
+   "double.3",
+   "single",
+   "quadruple",
+   "single",
+   "single",
+   "single",
+   "double.3",
+   "single",
+   "single",
+   "double.3",
+   "single",
+   "double.3",
+   "single",
+   "double.3",
+   "single",
+   "quadruple",
+   "single",
+   "single",
+   "double.3",
+   "single",
+   "single",
+   "double.3",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "triple.3",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "double.3",
+   "single",
+   "triple.3"
+  ],
+  "sections": [
+   "double.0",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single",
+   "single"
+  ]
+ }
+}

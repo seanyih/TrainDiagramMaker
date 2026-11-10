@@ -1,0 +1,50 @@
+{
+	"name": {
+		"zh": "飯山線",
+		"en": "Iiyama Line",
+		"ja": "飯山線"
+	},
+	"section": {
+		"zh": "豐野 – 越後川口",
+		"en": "Toyono – Echigo-Kawaguchi",
+		"ja": "豊野 – 越後川口"
+	},
+	"companies": [
+		"jr-east"
+	],
+	"types": [
+		"railway"
+	],
+	"regions": [
+		"chubu"
+	],
+	"route": [
+		{
+			"date": "2026-03-14",
+			"title": "初版",
+			"kind": "route",
+			"tags": [
+				"mileage",
+				"topology"
+			],
+			"files": {
+				"json": "releases/route-2026-03-14.json"
+			},
+			"latest": true
+		}
+	],
+	"all": [
+		{
+			"date": "2026-03-14",
+			"title": "2026年3月改點",
+			"kind": "all",
+			"tags": [
+				"arrival"
+			],
+			"files": {
+				"json": "releases/all-2026-03-14.json"
+			},
+			"latest": true
+		}
+	]
+}
