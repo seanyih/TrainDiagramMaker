@@ -16,5 +16,5 @@
 	}
 	// Optional, recommended: a KV namespace shared by every data center, so GitHub is asked only when a file changes.
 	// npx wrangler kv namespace create DB_KV   then uncomment with the id it prints:
-	// ,"kv_namespaces": [ { "binding": "DB_KV", "id": "<id>" } ]
+	,"kv_namespaces": [ { "binding": "DB_KV", "id": "554a6d0fbcb340faa42aa0c88f1296d8" } ]
 }
