@@ -3,7 +3,7 @@
 // Secret: npx wrangler secret put GITHUB_TOKEN   (fine-grained token: only TrainDiagramMaker_data, Contents: Read-only)
 {
 	"$schema": "../../node_modules/wrangler/config-schema.json",
-	"name": "rtd-database",
+	"name": "tdm-database",
 	"main": "src/index.js",
 	"compatibility_date": "2025-09-01",
 	"workers_dev": true,
