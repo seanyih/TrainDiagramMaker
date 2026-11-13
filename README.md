@@ -50,6 +50,7 @@
 ├── 404.html
 ├── robots.txt              SEO
 ├── _redirects, _headers    Cloudflare Pages 設定
+├── workers/database/       資料庫的 Worker：私有 repo TrainDiagramMaker_data 的 database/ (見下方「資料庫」)
 │
 ├── zh/                     繁體中文 (之後的語言用相同的結構)
 │   ├── index.html          首頁
@@ -80,3 +81,28 @@ python -m http.server 8765
 ```
 
 開啟 `http://localhost:8765/`。修改手冊後執行 `python manual/build.py` (需 `pip install markdown`)。
+
+## 資料庫
+
+資料庫 (路線 & 運行圖，`zh/database/` 頁面讀取) 不在本 repo，而在私有 repo [TrainDiagramMaker_data](https://github.com/seanyih/TrainDiagramMaker_data) 的 `database/` (格式見該資料夾的 README)。
+網站從 `DB_BASE` (`program/util/database.js`) 讀取，也就是 Worker `workers/database/` 的 `workers.dev` 網址；Worker 用唯讀 token 向 GitHub 取檔。
+
+部署 (在 `workers/database/`)：
+
+```bash
+npx wrangler deploy
+npx wrangler secret put GITHUB_TOKEN
+```
+
+1. `GITHUB_TOKEN`：GitHub fine-grained token，Repository access 只選 `TrainDiagramMaker_data`，Permissions → Contents: **Read-only**。
+2. 把 `wrangler deploy` 印出的網址 (`https://rtd-database.<subdomain>.workers.dev`) 填進 `DB_BASE`。
+3. 建議：`npx wrangler kv namespace create DB_KV`，把 id 填進 `wrangler.jsonc` 的 `kv_namespaces` 再部署一次。
+4. `wrangler.jsonc` 的 `vars`：`DATA_REF` (讀取的 branch，預設 `main`)、`ALLOWED_ORIGINS` (可讀取的網站，預設 `*`，例 `https://xxx.workers.dev,http://localhost:8765`)。
+
+快取：`workers.dev` 上 Cloudflare 的 Cache API 沒有作用 (要自訂網域)，所以 Worker 把檔案存在記憶體 (每個 isolate) 與 KV (全球共用，有綁定時)。
+`releases/*` 存了就不再問 GitHub；`catalog.json`、`info.json` 每 5 分鐘用 ETag 向 GitHub 確認一次 (304 不算 GitHub 的 5,000 次/小時限制)，所以 push 後最多約 5 分鐘生效。GitHub 失敗時回傳存著的版本。
+之後有自訂網域時 Cache API 會自動生效，不用改程式。
+
+免費方案：Worker 每天 100,000 次請求 (UTC 0 點重置)，KV 每天 100,000 次讀取、1,000 次寫入 (只有檔案變了才寫)。
+
+本地執行 (`python -m http.server 8765`) 一樣讀取部署好的 Worker；要測試 Worker 本身時在 `workers/database/` 執行 `npx wrangler dev` (token 放 `.dev.vars`：`GITHUB_TOKEN=...`)，`DB_BASE` 暫時改成 `http://localhost:8787`。
