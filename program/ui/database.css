@@ -44,9 +44,15 @@ body{
 	align-self: start;
 	position: sticky;
 	top: 24px;
+	max-height: calc(100vh - 48px);
+	overflow-y: auto;
+	overscroll-behavior: contain;
 }
 .db-filter + .db-filter{
 	margin-top: 32px;
+}
+.db-filters::-webkit-scrollbar {
+  display: none;
 }
 .db-filter h2{
 	margin: 0 0 8px 0;
@@ -386,6 +392,8 @@ body{
 	}
 	.db-filters{
 		position: static;
+		max-height: none;
+		overflow-y: visible;
 	}
 	.db-page{
 		padding: 24px 16px 64px 16px;
