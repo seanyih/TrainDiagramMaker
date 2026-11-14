@@ -3,7 +3,7 @@
 	The text search matches the line's name and section and its companies, in every language.
 	Filters live in the query string (?c=&r=&t=&co=&q=) and are kept in sessionStorage for the line page's Back.
 */
-const DB_TYPES = { hsr: "高鐵", railway: "鐵路", narrow: "輕便鐵路", metro: "地鐵", lrt: "輕軌", other: "其他" };
+const DB_TYPES = { hsr: "高鐵", railway: "鐵路", narrow: "輕便鐵路", metro: "地鐵", "major-private": "大手私鐵", private: "私鐵", "third-sector": "第三部門鐵道", "new-transit": "新交通", lrt: "輕軌", other: "其他" };
 const DB_PAGE_SIZE = 50;
 
 let dbCountries = [];
